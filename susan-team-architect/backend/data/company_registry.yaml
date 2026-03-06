@@ -1,0 +1,35 @@
+# Company Registry — Apex Ventures portfolio
+companies:
+  transformfit:
+    name: "TransformFit (Superman Protocol)"
+    domain: "fitness_tech"
+    stage: "mvp_redesign"
+    website: "https://transformfit.app"
+    founding_date: "2023"
+    founders:
+      - name: "Michael Rodgers"
+        background: "AI engineer, multi-agent systems architect"
+    product_description: "AI-powered adaptive fitness platform with personalized coaching, workout generation, and behavioral retention systems"
+    tech_stack:
+      - "React"
+      - "FastAPI"
+      - "PostgreSQL"
+      - "Supabase"
+    target_market: "Health-conscious adults seeking AI-personalized fitness guidance"
+    funding_status: "bootstrap"
+    key_competitors:
+      - "Fitbod"
+      - "Noom"
+      - "Peloton"
+      - "WHOOP"
+      - "MyFitnessPal"
+    current_challenges:
+      - "74-77% Day-1 user abandonment"
+      - "No persistent agent memory"
+      - "Manual feature prioritization"
+      - "No behavioral economics integration"
+    constraints:
+      - "Solo founder"
+      - "Budget under $200/month for AI"
+      - "Single engineer deployment"
+    budget_per_month_usd: 200

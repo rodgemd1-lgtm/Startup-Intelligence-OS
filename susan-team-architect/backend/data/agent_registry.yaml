@@ -1,0 +1,179 @@
+# Agent Registry — maps agent IDs to configuration
+agents:
+  susan:
+    name: "Susan"
+    role: "Team Architect / Orchestrator"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["business_strategy", "market_research"]
+    group: "orchestration"
+
+  steve:
+    name: "Steve"
+    role: "Business Strategy & Revenue"
+    model: "claude-opus-4-6"
+    rag_data_types: ["business_strategy", "market_research", "finance"]
+    group: "strategy"
+
+  marcus:
+    name: "Marcus"
+    role: "UX/UI Designer"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["ux_research", "user_research"]
+    group: "product"
+
+  aria:
+    name: "Aria"
+    role: "Growth & Content Marketing"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["growth_marketing", "content_strategy", "user_research"]
+    group: "growth"
+
+  atlas:
+    name: "Atlas"
+    role: "Full-Stack Engineering"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["technical_docs", "security"]
+    group: "engineering"
+
+  nova:
+    name: "Nova"
+    role: "AI/ML Specialist"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["ai_ml_research", "technical_docs"]
+    group: "engineering"
+
+  coach:
+    name: "Coach"
+    role: "Exercise Science & Biomechanics"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["exercise_science", "nutrition", "sleep_recovery"]
+    group: "science"
+
+  sage:
+    name: "Sage"
+    role: "Nutrition Science"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["nutrition", "exercise_science"]
+    group: "science"
+
+  drift:
+    name: "Drift"
+    role: "Sleep & Recovery Optimization"
+    model: "claude-haiku-4-5-20251001"
+    rag_data_types: ["sleep_recovery", "exercise_science"]
+    group: "science"
+
+  freya:
+    name: "Freya"
+    role: "Behavioral Economics & Retention"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["behavioral_economics", "sports_psychology", "user_research"]
+    group: "psychology"
+
+  flow:
+    name: "Flow"
+    role: "Sports Psychology & Motivation"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["sports_psychology", "behavioral_economics"]
+    group: "psychology"
+
+  quest:
+    name: "Quest"
+    role: "Gamification & Engagement"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["gamification", "behavioral_economics", "ux_research"]
+    group: "psychology"
+
+  haven:
+    name: "Haven"
+    role: "Community & Social Fitness"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["community", "user_research"]
+    group: "growth"
+
+  guide:
+    name: "Guide"
+    role: "Customer Success & Health Coaching"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["behavioral_economics", "user_research", "community"]
+    group: "growth"
+
+  shield:
+    name: "Shield"
+    role: "Legal, Compliance & Privacy"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["legal_compliance", "security"]
+    group: "strategy"
+
+  bridge:
+    name: "Bridge"
+    role: "Partnerships & Ecosystem"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["partnerships", "technical_docs"]
+    group: "strategy"
+
+  ledger:
+    name: "Ledger"
+    role: "Finance & Unit Economics"
+    model: "claude-haiku-4-5-20251001"
+    rag_data_types: ["finance", "business_strategy"]
+    group: "strategy"
+
+  pulse:
+    name: "Pulse"
+    role: "Data Science & Churn Prediction"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["user_research", "market_research", "behavioral_economics"]
+    group: "engineering"
+
+  sentinel:
+    name: "Sentinel"
+    role: "Security & Infrastructure"
+    model: "claude-haiku-4-5-20251001"
+    rag_data_types: ["security", "technical_docs", "legal_compliance"]
+    group: "engineering"
+
+  herald:
+    name: "Herald"
+    role: "PR & Communications"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["pr_communications", "content_strategy"]
+    group: "growth"
+
+  lens:
+    name: "Lens"
+    role: "Accessibility & Inclusive Fitness"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["ux_research", "exercise_science"]
+    group: "product"
+
+  echo:
+    name: "Echo"
+    role: "Neuroscience-Informed Product Design"
+    model: "claude-sonnet-4-5-20250514"
+    rag_data_types: ["behavioral_economics", "ux_research", "gamification"]
+    group: "product"
+
+# Group definitions
+groups:
+  orchestration:
+    description: "System orchestration and planning"
+    agents: ["susan"]
+  strategy:
+    description: "Business strategy, legal, finance, partnerships"
+    agents: ["steve", "shield", "bridge", "ledger"]
+  product:
+    description: "Product design, accessibility, neuroscience"
+    agents: ["marcus", "lens", "echo"]
+  engineering:
+    description: "Engineering, AI/ML, data science, security"
+    agents: ["atlas", "nova", "pulse", "sentinel"]
+  science:
+    description: "Exercise science, nutrition, sleep/recovery"
+    agents: ["coach", "sage", "drift"]
+  psychology:
+    description: "Behavioral economics, sports psychology, gamification"
+    agents: ["freya", "flow", "quest"]
+  growth:
+    description: "Growth marketing, community, customer success, PR"
+    agents: ["aria", "haven", "guide", "herald"]
