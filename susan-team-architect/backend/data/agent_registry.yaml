@@ -154,6 +154,41 @@ agents:
     rag_data_types: ["behavioral_economics", "ux_research", "gamification"]
     group: "product"
 
+  compass:
+    name: "Compass"
+    role: "Product Management & Roadmap"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["user_research", "market_research", "business_strategy"]
+    group: "product"
+
+  vault:
+    name: "Vault"
+    role: "Fundraising & Investor Relations"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["finance", "business_strategy", "market_research"]
+    group: "strategy"
+
+  beacon:
+    name: "Beacon"
+    role: "ASO & SEO Specialist"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["growth_marketing", "market_research", "content_strategy"]
+    group: "growth"
+
+  forge:
+    name: "Forge"
+    role: "QA & Testing"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["technical_docs", "security"]
+    group: "engineering"
+
+  prism:
+    name: "Prism"
+    role: "Brand Strategy & Creative Direction"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["content_strategy", "ux_research", "growth_marketing"]
+    group: "product"
+
 # Group definitions
 groups:
   orchestration:
@@ -161,13 +196,13 @@ groups:
     agents: ["susan"]
   strategy:
     description: "Business strategy, legal, finance, partnerships"
-    agents: ["steve", "shield", "bridge", "ledger"]
+    agents: ["steve", "shield", "bridge", "ledger", "vault"]
   product:
     description: "Product design, accessibility, neuroscience"
-    agents: ["marcus", "lens", "echo"]
+    agents: ["marcus", "lens", "echo", "compass", "prism"]
   engineering:
     description: "Engineering, AI/ML, data science, security"
-    agents: ["atlas", "nova", "pulse", "sentinel"]
+    agents: ["atlas", "nova", "pulse", "sentinel", "forge"]
   science:
     description: "Exercise science, nutrition, sleep/recovery"
     agents: ["coach", "sage", "drift"]
@@ -176,4 +211,4 @@ groups:
     agents: ["freya", "flow", "quest"]
   growth:
     description: "Growth marketing, community, customer success, PR"
-    agents: ["aria", "haven", "guide", "herald"]
+    agents: ["aria", "haven", "guide", "herald", "beacon"]
