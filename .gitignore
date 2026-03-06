@@ -1,0 +1,2 @@
+# Ignore .env files with secrets
+susan-team-architect/backend/.env
