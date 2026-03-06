@@ -3,6 +3,15 @@ import os
 from pathlib import Path
 from dataclasses import dataclass
 
+# Load .env file if present
+_env_path = Path(__file__).parent.parent / ".env"
+if _env_path.exists():
+    for line in _env_path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip())
+
 @dataclass
 class Config:
     anthropic_api_key: str = os.environ.get("ANTHROPIC_API_KEY", "")
@@ -13,7 +22,7 @@ class Config:
 
     # Model routing
     model_opus: str = "claude-opus-4-6"
-    model_sonnet: str = "claude-sonnet-4-5-20250514"
+    model_sonnet: str = "claude-sonnet-4-6"
     model_haiku: str = "claude-haiku-4-5-20251001"
 
     # Paths

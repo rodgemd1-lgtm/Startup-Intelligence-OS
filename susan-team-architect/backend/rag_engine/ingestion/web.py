@@ -29,10 +29,14 @@ class WebIngestor(BaseIngestor):
 
         for url in urls:
             try:
-                result = app.scrape_url(url, params={"formats": ["markdown"]})
-                markdown = result.get("markdown", "")
+                result = app.scrape(url, formats=["markdown"])
+                markdown = getattr(result, "markdown", "") or ""
                 if not markdown:
                     continue
+
+                title = ""
+                if hasattr(result, "metadata") and result.metadata:
+                    title = getattr(result.metadata, "title", "") or ""
 
                 text_chunks = chunk_markdown(markdown, max_tokens=500)
                 chunks = self._make_chunks(
@@ -42,7 +46,7 @@ class WebIngestor(BaseIngestor):
                     agent_id=agent_id,
                     source=f"web:{url}",
                     source_url=url,
-                    metadata={"title": result.get("metadata", {}).get("title", "")},
+                    metadata={"title": title},
                 )
                 total += self.retriever.store_chunks(chunks)
             except Exception as e:
