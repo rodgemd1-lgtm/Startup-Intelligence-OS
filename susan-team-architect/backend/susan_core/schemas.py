@@ -58,7 +58,7 @@ class AgentSpec(BaseModel):
     goal: str = Field(description="One-sentence objective")
     backstory: str = Field(description="Elite pedigree persona")
     tools: list[str] = Field(default_factory=list)
-    llm: str = Field(default="claude-sonnet-4-5-20250514")
+    llm: str = Field(default="claude-sonnet-4-6")
     memory: MemoryConfig = Field(default_factory=MemoryConfig)
     dependencies: list[str] = Field(default_factory=list)
     triggers: list[str] = Field(default_factory=list)
