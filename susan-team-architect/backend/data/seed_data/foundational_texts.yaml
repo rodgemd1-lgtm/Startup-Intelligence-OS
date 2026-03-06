@@ -1,0 +1,66 @@
+texts:
+  - title: "Hooked: How to Build Habit-Forming Products"
+    author: "Nir Eyal"
+    data_type: "behavioral_economics"
+    category: "habit_formation"
+    focus: ["Hook Model", "trigger-action-reward-investment", "variable rewards", "ethical persuasion"]
+
+  - title: "Indistractable: How to Control Your Attention and Choose Your Life"
+    author: "Nir Eyal"
+    data_type: "behavioral_economics"
+    category: "attention_design"
+    focus: ["internal triggers", "traction vs distraction", "pact-making", "timeboxing"]
+
+  - title: "Tiny Habits: The Small Changes That Change Everything"
+    author: "BJ Fogg"
+    data_type: "behavioral_economics"
+    category: "behavior_design"
+    focus: ["MAP model", "motivation-ability-prompt", "celebration", "anchor moments", "starter steps"]
+
+  - title: "Atomic Habits"
+    author: "James Clear"
+    data_type: "behavioral_economics"
+    category: "identity_change"
+    focus: ["identity-based habits", "1% improvement", "habit stacking", "environment design", "two-minute rule"]
+
+  - title: "Thinking, Fast and Slow"
+    author: "Daniel Kahneman"
+    data_type: "behavioral_economics"
+    category: "decision_science"
+    focus: ["System 1 vs System 2", "loss aversion", "prospect theory", "anchoring", "availability heuristic"]
+
+  - title: "Influence: The Psychology of Persuasion"
+    author: "Robert Cialdini"
+    data_type: "behavioral_economics"
+    category: "persuasion"
+    focus: ["reciprocity", "commitment/consistency", "social proof", "authority", "liking", "scarcity", "unity"]
+
+  - title: "ACSM Guidelines for Exercise Testing and Prescription"
+    author: "American College of Sports Medicine"
+    data_type: "exercise_science"
+    category: "exercise_guidelines"
+    focus: ["cardiorespiratory fitness", "resistance training", "flexibility", "special populations", "progressive overload"]
+
+  - title: "Essentials of Strength Training and Conditioning"
+    author: "NSCA"
+    data_type: "exercise_science"
+    category: "strength_conditioning"
+    focus: ["periodization", "biomechanics", "program design", "testing", "sport-specific training"]
+
+  - title: "Why We Sleep"
+    author: "Matthew Walker"
+    data_type: "sleep_recovery"
+    category: "sleep_science"
+    focus: ["sleep architecture", "circadian rhythms", "sleep debt", "performance impact", "sleep hygiene"]
+
+  - title: "Reforge Growth Series"
+    author: "Brian Balfour, Andrew Chen, Casey Winters"
+    data_type: "growth_marketing"
+    category: "growth_frameworks"
+    focus: ["growth loops", "retention curves", "activation metrics", "viral coefficients", "engagement loops"]
+
+  - title: "SaaS Metrics 2.0"
+    author: "David Skok (Matrix Partners)"
+    data_type: "business_strategy"
+    category: "saas_metrics"
+    focus: ["CAC", "LTV", "churn", "MRR", "Rule of 40", "burn multiple", "payback period"]
