@@ -1,0 +1,109 @@
+# Industry Retention Benchmarks
+# Sources: AppsFlyer 2025, Adjust 2024, Mixpanel 2024, Recurly 2025
+
+benchmarks:
+  fitness_apps:
+    d1: 0.25
+    d7: 0.12
+    d30: 0.03
+    d90: 0.01
+    world_class_d1: 0.55
+    world_class_d7: 0.35
+    world_class_d30: 0.30
+    world_class_d90: 0.20
+    source: "AppsFlyer 2025 Benchmarks"
+    notes: "74-77% drop-off Day 1 is industry norm"
+
+  health_wellness_apps:
+    d1: 0.32
+    d7: 0.18
+    d30: 0.08
+    d90: 0.04
+    world_class_d1: 0.60
+    world_class_d7: 0.40
+    world_class_d30: 0.25
+    world_class_d90: 0.15
+    source: "Adjust 2024 Benchmarks"
+
+  saas:
+    d1: 0.37
+    d7: 0.30
+    d30: 0.20
+    d90: 0.15
+    world_class_d1: 0.65
+    world_class_d7: 0.50
+    world_class_d30: 0.45
+    world_class_d90: 0.35
+    source: "Mixpanel 2024 Product Benchmarks"
+
+  ai_assistants:
+    d1: 0.25
+    d7: 0.17
+    d30: 0.10
+    d90: 0.06
+    world_class_d1: 0.50
+    world_class_d7: 0.35
+    world_class_d30: 0.25
+    world_class_d90: 0.18
+    source: "Industry estimates 2025"
+
+  gaming_casual:
+    d1: 0.35
+    d7: 0.15
+    d30: 0.05
+    d90: 0.02
+    world_class_d1: 0.60
+    world_class_d7: 0.30
+    world_class_d30: 0.15
+    world_class_d90: 0.10
+    source: "GameAnalytics 2024"
+
+churn_rates:
+  fitness_subscription:
+    monthly_churn: 0.12
+    annual_churn: 0.55
+    world_class_monthly: 0.03
+    world_class_annual: 0.15
+    source: "Recurly 2025 Subscription Benchmarks"
+
+  saas_b2c:
+    monthly_churn: 0.06
+    annual_churn: 0.35
+    world_class_monthly: 0.02
+    world_class_annual: 0.10
+
+  saas_b2b:
+    monthly_churn: 0.03
+    annual_churn: 0.15
+    world_class_monthly: 0.01
+    world_class_annual: 0.05
+
+engagement_benchmarks:
+  fitness_apps:
+    avg_sessions_per_week: 2.3
+    avg_session_duration_min: 12
+    world_class_sessions_per_week: 4.5
+    world_class_session_duration_min: 25
+
+  health_apps:
+    avg_sessions_per_week: 3.1
+    avg_session_duration_min: 5
+    world_class_sessions_per_week: 7.0
+    world_class_session_duration_min: 10
+
+activation_metrics:
+  fitness_apps:
+    aha_moment: "Complete first workout within 24h"
+    activation_rate_median: 0.15
+    activation_rate_world_class: 0.40
+    time_to_value_target: "under 5 minutes"
+
+  transformfit_targets:
+    d1_target: 0.45
+    d7_target: 0.30
+    d30_target: 0.20
+    d90_target: 0.15
+    monthly_churn_target: 0.05
+    activation_target: 0.35
+    sessions_per_week_target: 3.5
+    notes: "Targets set at 75th percentile to be ambitious but achievable"

@@ -1,0 +1,1963 @@
+# Exercise Database — Coach Knowledge Base
+# ~100 exercises organized by movement pattern
+# Categories: compound, isolation, cardio, flexibility, plyometric
+# Equipment: bodyweight, barbell, dumbbell, cable, machine, band, kettlebell
+# Difficulty: beginner, intermediate, advanced
+#
+# This file is the primary exercise science reference for Coach.
+# Sources: NSCA Essentials, ACSM Guidelines, ACE Exercise Library
+
+exercises:
+
+  # ============================================================
+  # PUSH — Horizontal
+  # ============================================================
+
+  - name: "Push-Up"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["pectoralis_major", "anterior_deltoid", "triceps"]
+      secondary: ["serratus_anterior", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hands slightly wider than shoulders, fingers spread"
+      - "Body forms a straight line from head to heels"
+      - "Lower chest to just above the floor, elbows at ~45 degrees"
+    contraindications:
+      - "Acute wrist injury"
+      - "Shoulder impingement with pain during horizontal pressing"
+    progressions:
+      easier: ["Incline Push-Up", "Knee Push-Up"]
+      harder: ["Decline Push-Up", "Archer Push-Up"]
+
+  - name: "Barbell Bench Press"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["pectoralis_major", "anterior_deltoid", "triceps"]
+      secondary: ["serratus_anterior", "core"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Retract and depress scapulae — squeeze shoulder blades together"
+      - "Lower bar to mid-chest with controlled tempo"
+      - "Drive feet into the floor to maintain arch and stability"
+    contraindications:
+      - "Acute shoulder injury or instability"
+      - "Unmanaged shoulder impingement"
+    progressions:
+      easier: ["Dumbbell Bench Press", "Push-Up"]
+      harder: ["Paused Bench Press", "Close-Grip Bench Press"]
+
+  - name: "Dumbbell Bench Press"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["pectoralis_major", "anterior_deltoid", "triceps"]
+      secondary: ["serratus_anterior", "rotator_cuff"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Start with dumbbells at chest height, palms facing forward"
+      - "Press up and slightly inward without locking elbows"
+      - "Lower with control, feeling a stretch at the bottom"
+    contraindications:
+      - "Acute shoulder instability"
+      - "Inability to stabilize dumbbells overhead"
+    progressions:
+      easier: ["Machine Chest Press", "Push-Up"]
+      harder: ["Single-Arm Dumbbell Bench Press", "Barbell Bench Press"]
+
+  - name: "Machine Chest Press"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["pectoralis_major", "anterior_deltoid", "triceps"]
+      secondary: ["serratus_anterior"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Adjust seat so handles are at mid-chest height"
+      - "Keep back flat against pad, feet flat on floor"
+      - "Press forward to full extension without locking elbows"
+    contraindications:
+      - "Acute shoulder pain during pressing"
+    progressions:
+      easier: ["Wall Push-Up"]
+      harder: ["Dumbbell Bench Press", "Barbell Bench Press"]
+
+  - name: "Cable Chest Fly"
+    movement_pattern: "push_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["pectoralis_major"]
+      secondary: ["anterior_deltoid", "biceps"]
+    equipment: "cable"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Set cables at chest height, step forward into a staggered stance"
+      - "Maintain a slight bend in the elbows throughout"
+      - "Squeeze chest at the midline, control the return"
+    contraindications:
+      - "Shoulder instability"
+      - "Pec strain or tear history"
+    progressions:
+      easier: ["Machine Pec Fly"]
+      harder: ["Single-Arm Cable Fly"]
+
+  - name: "Dumbbell Chest Fly"
+    movement_pattern: "push_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["pectoralis_major"]
+      secondary: ["anterior_deltoid", "biceps"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Lie flat with a slight elbow bend, palms facing each other"
+      - "Lower dumbbells in a wide arc until you feel a chest stretch"
+      - "Squeeze chest to bring dumbbells together overhead"
+    contraindications:
+      - "Shoulder instability"
+      - "Acute pectoralis strain"
+    progressions:
+      easier: ["Machine Pec Fly"]
+      harder: ["Cable Chest Fly", "Single-Arm Dumbbell Fly"]
+
+  # ============================================================
+  # PUSH — Vertical
+  # ============================================================
+
+  - name: "Overhead Press (Barbell)"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "medial_deltoid", "triceps"]
+      secondary: ["upper_trapezius", "core", "serratus_anterior"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Bar starts at collarbone, grip slightly wider than shoulders"
+      - "Brace core and press bar straight overhead"
+      - "Push head through once bar clears forehead"
+    contraindications:
+      - "Shoulder impingement with overhead pain"
+      - "Lumbar disc issues aggravated by standing overhead load"
+    progressions:
+      easier: ["Seated Dumbbell Press", "Landmine Press"]
+      harder: ["Push Press", "Behind-the-Neck Press"]
+
+  - name: "Dumbbell Shoulder Press"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "medial_deltoid", "triceps"]
+      secondary: ["upper_trapezius", "serratus_anterior"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Start with dumbbells at shoulder height, palms forward"
+      - "Press straight up without arching the lower back"
+      - "Lower under control to ear level"
+    contraindications:
+      - "Active shoulder impingement"
+      - "Cervical spine issues"
+    progressions:
+      easier: ["Machine Shoulder Press", "Landmine Press"]
+      harder: ["Arnold Press", "Single-Arm Dumbbell Press"]
+
+  - name: "Arnold Press"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "medial_deltoid", "triceps"]
+      secondary: ["upper_trapezius", "rotator_cuff"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Start with palms facing you at chest height"
+      - "Rotate palms forward as you press overhead"
+      - "Reverse the rotation on the way down"
+    contraindications:
+      - "Shoulder impingement"
+      - "Rotator cuff pathology"
+    progressions:
+      easier: ["Dumbbell Shoulder Press"]
+      harder: ["Single-Arm Arnold Press"]
+
+  - name: "Landmine Press"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "upper_pectoralis", "triceps"]
+      secondary: ["serratus_anterior", "core"]
+    equipment: "barbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold end of barbell at shoulder height with one or both hands"
+      - "Press at a ~45-degree angle, extending fully"
+      - "Brace core to prevent rotation"
+    contraindications:
+      - "Acute shoulder pain"
+    progressions:
+      easier: ["Machine Shoulder Press"]
+      harder: ["Half-Kneeling Landmine Press", "Overhead Press"]
+
+  - name: "Pike Push-Up"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "medial_deltoid", "triceps"]
+      secondary: ["upper_trapezius", "core"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Form an inverted V with hips high"
+      - "Lower the top of your head toward the floor"
+      - "Press back up to full extension"
+    contraindications:
+      - "Shoulder impingement"
+      - "Uncontrolled hypertension (inverted position)"
+    progressions:
+      easier: ["Incline Push-Up"]
+      harder: ["Handstand Push-Up", "Deficit Pike Push-Up"]
+
+  - name: "Dumbbell Lateral Raise"
+    movement_pattern: "push_vertical"
+    category: "isolation"
+    muscle_groups:
+      primary: ["medial_deltoid"]
+      secondary: ["upper_trapezius", "supraspinatus"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Slight bend in elbows, raise arms to shoulder height"
+      - "Lead with the elbows, not the hands"
+      - "Control the descent — do not swing"
+    contraindications:
+      - "Shoulder impingement or supraspinatus tendinopathy"
+    progressions:
+      easier: ["Cable Lateral Raise"]
+      harder: ["Leaning Lateral Raise", "Pause-at-Top Lateral Raise"]
+
+  - name: "Incline Dumbbell Press"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["upper_pectoralis", "anterior_deltoid", "triceps"]
+      secondary: ["serratus_anterior"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Set bench to 30-45 degrees, dumbbells at chest level"
+      - "Press up and slightly inward"
+      - "Lower under control to upper chest level"
+    contraindications:
+      - "Shoulder impingement"
+      - "Acute anterior deltoid strain"
+    progressions:
+      easier: ["Machine Incline Press"]
+      harder: ["Barbell Incline Press"]
+
+  - name: "Decline Push-Up"
+    movement_pattern: "push_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["pectoralis_major", "anterior_deltoid", "triceps"]
+      secondary: ["core", "serratus_anterior"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Feet elevated on a bench, hands on floor"
+      - "Lower chest toward floor, keeping body straight"
+      - "Press back up to full extension"
+    contraindications:
+      - "Shoulder pain with overhead-angle pressing"
+      - "Wrist injury"
+    progressions:
+      easier: ["Standard Push-Up"]
+      harder: ["Decline Diamond Push-Up"]
+
+  - name: "Machine Shoulder Press"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["anterior_deltoid", "medial_deltoid", "triceps"]
+      secondary: ["upper_trapezius"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Adjust seat so handles are at shoulder height"
+      - "Press overhead to full extension without locking"
+      - "Lower with control to the starting position"
+    contraindications:
+      - "Shoulder impingement with overhead motion"
+    progressions:
+      easier: ["Lighter load"]
+      harder: ["Dumbbell Shoulder Press"]
+
+  # ============================================================
+  # PULL — Horizontal
+  # ============================================================
+
+  - name: "Barbell Bent-Over Row"
+    movement_pattern: "pull_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "posterior_deltoid", "erector_spinae"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Hinge at the hips to ~45 degrees, flat back"
+      - "Pull bar to lower chest / upper abdomen"
+      - "Squeeze shoulder blades together at the top"
+    contraindications:
+      - "Acute lower back injury"
+      - "Herniated disc with flexion intolerance"
+    progressions:
+      easier: ["Cable Row", "Dumbbell Row"]
+      harder: ["Pendlay Row", "Barbell Seal Row"]
+
+  - name: "Dumbbell Single-Arm Row"
+    movement_pattern: "pull_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "posterior_deltoid"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "One hand and knee on bench, back flat and parallel to floor"
+      - "Pull dumbbell to hip, driving elbow toward ceiling"
+      - "Avoid rotating the torso — keep hips square"
+    contraindications:
+      - "Acute shoulder pain during rowing motion"
+    progressions:
+      easier: ["Machine Row"]
+      harder: ["Barbell Bent-Over Row", "Kroc Row"]
+
+  - name: "Seated Cable Row"
+    movement_pattern: "pull_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "posterior_deltoid", "erector_spinae"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Sit tall with slight knee bend, chest up"
+      - "Pull handle to lower chest, squeezing shoulder blades"
+      - "Control the return — do not let the weight pull you forward"
+    contraindications:
+      - "Acute lower back pain during seated position"
+    progressions:
+      easier: ["Machine Row"]
+      harder: ["Single-Arm Cable Row", "Barbell Bent-Over Row"]
+
+  - name: "Chest-Supported Dumbbell Row"
+    movement_pattern: "pull_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "posterior_deltoid"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Lie face down on an incline bench set to 30-45 degrees"
+      - "Row dumbbells toward hips, squeezing shoulder blades"
+      - "Lower with control, fully extending at the bottom"
+    contraindications:
+      - "Rib or sternum discomfort from bench pressure"
+    progressions:
+      easier: ["Machine Row"]
+      harder: ["Barbell Bent-Over Row"]
+
+  - name: "Face Pull"
+    movement_pattern: "pull_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["posterior_deltoid", "rhomboids", "external_rotators"]
+      secondary: ["middle_trapezius", "infraspinatus"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Set cable at face height, use rope attachment"
+      - "Pull toward face, separating hands at the end"
+      - "Squeeze shoulder blades and externally rotate at the finish"
+    contraindications:
+      - "Acute rotator cuff injury"
+    progressions:
+      easier: ["Band Pull-Apart"]
+      harder: ["Single-Arm Face Pull"]
+
+  - name: "Band Pull-Apart"
+    movement_pattern: "pull_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["posterior_deltoid", "rhomboids"]
+      secondary: ["middle_trapezius", "infraspinatus"]
+    equipment: "band"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold band at shoulder height with straight arms"
+      - "Pull band apart by squeezing shoulder blades"
+      - "Pause at full contraction, return slowly"
+    contraindications:
+      - "Acute shoulder pain during horizontal abduction"
+    progressions:
+      easier: ["Lighter band"]
+      harder: ["Face Pull", "Heavier band with pause"]
+
+  - name: "T-Bar Row"
+    movement_pattern: "pull_horizontal"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "erector_spinae", "posterior_deltoid"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Straddle the bar, grip the handle with both hands"
+      - "Hinge at the hips, pull bar toward chest"
+      - "Squeeze shoulder blades at the top, lower with control"
+    contraindications:
+      - "Acute lower back injury"
+      - "Herniated disc with flexion intolerance"
+    progressions:
+      easier: ["Seated Cable Row"]
+      harder: ["Barbell Bent-Over Row"]
+
+  - name: "Rear Delt Fly (Dumbbell)"
+    movement_pattern: "pull_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["posterior_deltoid"]
+      secondary: ["rhomboids", "middle_trapezius"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hinge forward at hips, dumbbells hanging below"
+      - "Raise arms out to the sides with a slight elbow bend"
+      - "Squeeze shoulder blades at the top, lower slowly"
+    contraindications:
+      - "Acute posterior shoulder pain"
+    progressions:
+      easier: ["Machine Rear Delt Fly"]
+      harder: ["Cable Rear Delt Fly"]
+
+  # ============================================================
+  # PULL — Vertical
+  # ============================================================
+
+  - name: "Pull-Up"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "biceps", "brachialis"]
+      secondary: ["rhomboids", "lower_trapezius", "forearms"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Grip bar slightly wider than shoulders, dead hang start"
+      - "Pull elbows down and back — drive chest toward bar"
+      - "Lower with control to full extension each rep"
+    contraindications:
+      - "Shoulder impingement with overhead pain"
+      - "Elbow tendinopathy aggravated by gripping"
+    progressions:
+      easier: ["Assisted Pull-Up", "Lat Pulldown"]
+      harder: ["Weighted Pull-Up", "Muscle-Up"]
+
+  - name: "Chin-Up"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "biceps"]
+      secondary: ["brachialis", "lower_trapezius", "forearms"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Supinated grip (palms facing you), shoulder-width apart"
+      - "Pull chin above bar, squeezing biceps at the top"
+      - "Lower under control to full arm extension"
+    contraindications:
+      - "Medial epicondylitis (golfer's elbow)"
+      - "Shoulder instability"
+    progressions:
+      easier: ["Assisted Chin-Up", "Lat Pulldown (supinated)"]
+      harder: ["Weighted Chin-Up", "Pull-Up"]
+
+  - name: "Lat Pulldown"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "biceps"]
+      secondary: ["rhomboids", "lower_trapezius", "forearms"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Grip bar wider than shoulders, sit with thighs secured"
+      - "Pull bar to upper chest, leaning back slightly"
+      - "Control the return — do not let the weight jerk arms up"
+    contraindications:
+      - "Shoulder pain during overhead pulling"
+    progressions:
+      easier: ["Machine Assisted Pulldown"]
+      harder: ["Close-Grip Pulldown", "Pull-Up"]
+
+  - name: "Straight-Arm Pulldown"
+    movement_pattern: "pull_vertical"
+    category: "isolation"
+    muscle_groups:
+      primary: ["latissimus_dorsi"]
+      secondary: ["teres_major", "long_head_triceps", "posterior_deltoid"]
+    equipment: "cable"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Stand facing cable, arms extended overhead with slight bend"
+      - "Pull bar down to thighs in an arc, keeping arms straight"
+      - "Squeeze lats at the bottom, return slowly"
+    contraindications:
+      - "Shoulder pain with arm extension under load"
+    progressions:
+      easier: ["Lat Pulldown"]
+      harder: ["Single-Arm Straight-Arm Pulldown"]
+
+  - name: "Inverted Row"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "rhomboids", "middle_trapezius"]
+      secondary: ["biceps", "posterior_deltoid", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hang underneath a bar at hip height, body straight"
+      - "Pull chest to bar, squeezing shoulder blades"
+      - "Lower with control to full arm extension"
+    contraindications:
+      - "Acute shoulder injury"
+    progressions:
+      easier: ["Higher bar angle (more upright)"]
+      harder: ["Feet-elevated Inverted Row", "Weighted Inverted Row"]
+
+  - name: "Close-Grip Lat Pulldown"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "biceps"]
+      secondary: ["rhomboids", "lower_trapezius"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Use a V-bar or close-grip handle on the pulldown"
+      - "Pull to upper chest, squeezing lats hard"
+      - "Control the eccentric — feel the stretch at the top"
+    contraindications:
+      - "Shoulder pain during overhead pulling"
+    progressions:
+      easier: ["Wide-Grip Lat Pulldown"]
+      harder: ["Chin-Up"]
+
+  - name: "Assisted Pull-Up (Machine)"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "biceps"]
+      secondary: ["rhomboids", "lower_trapezius", "forearms"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Set counterweight to assist — more weight means more help"
+      - "Pull with the same form as a regular pull-up"
+      - "Lower with control to full arm extension"
+    contraindications:
+      - "Shoulder impingement"
+    progressions:
+      easier: ["Lat Pulldown"]
+      harder: ["Band-Assisted Pull-Up", "Pull-Up"]
+
+  - name: "Dumbbell Pullover"
+    movement_pattern: "pull_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "pectoralis_major"]
+      secondary: ["triceps_long_head", "serratus_anterior"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Lie across a bench, hips slightly dropped"
+      - "Hold dumbbell overhead, lower behind head in an arc"
+      - "Pull back to start using lats and chest"
+    contraindications:
+      - "Shoulder instability"
+      - "Thoracic spine stiffness limiting overhead range"
+    progressions:
+      easier: ["Straight-Arm Pulldown"]
+      harder: ["Barbell Pullover"]
+
+  # ============================================================
+  # SQUAT / LEG PRESS
+  # ============================================================
+
+  - name: "Barbell Back Squat"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "adductors", "erector_spinae", "core"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Bar on upper traps, feet shoulder-width, toes slightly out"
+      - "Sit back and down — knees track over toes"
+      - "Drive through the whole foot, chest up throughout"
+    contraindications:
+      - "Acute knee injury (meniscus, ACL)"
+      - "Lumbar disc herniation with loaded flexion intolerance"
+    progressions:
+      easier: ["Goblet Squat", "Leg Press"]
+      harder: ["Paused Squat", "Front Squat"]
+
+  - name: "Front Squat"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["core", "upper_back", "hamstrings"]
+    equipment: "barbell"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Bar rests on front delts, elbows high"
+      - "Stay upright — torso more vertical than back squat"
+      - "Descend to full depth while keeping elbows up"
+    contraindications:
+      - "Wrist or shoulder mobility limitations"
+      - "Knee pain during deep flexion"
+    progressions:
+      easier: ["Goblet Squat", "Back Squat"]
+      harder: ["Pause Front Squat", "Zercher Squat"]
+
+  - name: "Goblet Squat"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["core", "adductors", "hamstrings"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold dumbbell or kettlebell at chest height"
+      - "Sit down between your knees, elbows inside thighs"
+      - "Drive through heels, keep chest tall"
+    contraindications:
+      - "Acute knee pain during squatting motion"
+    progressions:
+      easier: ["Bodyweight Squat"]
+      harder: ["Front Squat", "Barbell Back Squat"]
+
+  - name: "Bodyweight Squat"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "core", "calves"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Feet shoulder-width apart, arms extended forward for balance"
+      - "Sit hips back and down to at least parallel"
+      - "Stand tall at the top, squeezing glutes"
+    contraindications:
+      - "Acute knee or hip injury"
+    progressions:
+      easier: ["Box Squat (assisted)", "Wall Sit"]
+      harder: ["Goblet Squat", "Jump Squat"]
+
+  - name: "Leg Press"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "adductors"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Feet shoulder-width on platform, back flat against pad"
+      - "Lower until knees reach ~90 degrees"
+      - "Press through the whole foot — do not lock out knees"
+    contraindications:
+      - "Lower back rounds off pad at depth"
+      - "Acute knee injury"
+    progressions:
+      easier: ["Lighter load or partial range"]
+      harder: ["Single-Leg Press", "Barbell Back Squat"]
+
+  - name: "Hack Squat (Machine)"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps"]
+      secondary: ["gluteus_maximus", "hamstrings"]
+    equipment: "machine"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Shoulders under pads, feet slightly forward on platform"
+      - "Lower with control until thighs are at or below parallel"
+      - "Press up evenly through both feet"
+    contraindications:
+      - "Knee pain during deep flexion"
+      - "Patellofemoral pain syndrome"
+    progressions:
+      easier: ["Leg Press"]
+      harder: ["Barbell Hack Squat", "Front Squat"]
+
+  - name: "Wall Sit"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps"]
+      secondary: ["gluteus_maximus", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Back flat against wall, slide down to 90-degree knee bend"
+      - "Keep weight through the heels"
+      - "Hold for time, maintaining flat back contact"
+    contraindications:
+      - "Acute knee pain"
+      - "Patellofemoral pain syndrome"
+    progressions:
+      easier: ["Partial-depth wall sit"]
+      harder: ["Single-Leg Wall Sit", "Weighted Wall Sit"]
+
+  - name: "Sumo Squat"
+    movement_pattern: "squat"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "adductors", "gluteus_maximus"]
+      secondary: ["hamstrings", "core"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Wide stance, toes turned out 30-45 degrees"
+      - "Hold dumbbell or kettlebell between legs"
+      - "Squat straight down, knees tracking over toes"
+    contraindications:
+      - "Groin or adductor strain"
+      - "Hip impingement"
+    progressions:
+      easier: ["Bodyweight Sumo Squat"]
+      harder: ["Barbell Sumo Squat"]
+
+  - name: "Sissy Squat"
+    movement_pattern: "squat"
+    category: "isolation"
+    muscle_groups:
+      primary: ["quadriceps"]
+      secondary: ["hip_flexors", "core"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Hold a support, lean back while bending knees forward"
+      - "Lower until knees are deeply flexed, heels lift"
+      - "Drive through quads to return to standing"
+    contraindications:
+      - "Patellar tendinopathy"
+      - "ACL injury"
+    progressions:
+      easier: ["Assisted Sissy Squat with support"]
+      harder: ["Weighted Sissy Squat"]
+
+  - name: "Leg Extension"
+    movement_pattern: "squat"
+    category: "isolation"
+    muscle_groups:
+      primary: ["quadriceps"]
+      secondary: []
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Adjust pad to rest on lower shins, back against seat"
+      - "Extend knees to full lockout, squeezing quads"
+      - "Lower under control — do not let the weight drop"
+    contraindications:
+      - "ACL injury or reconstruction (high shear forces)"
+      - "Acute patellar tendinopathy"
+    progressions:
+      easier: ["Partial range of motion"]
+      harder: ["Single-Leg Extension", "Pause at top"]
+
+  # ============================================================
+  # HIP HINGE / DEADLIFT
+  # ============================================================
+
+  - name: "Conventional Deadlift"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus", "hamstrings", "erector_spinae"]
+      secondary: ["quadriceps", "trapezius", "forearms", "core"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Bar over mid-foot, shoulder-width grip, flat back"
+      - "Push the floor away — do not pull with the back"
+      - "Lock out with glutes, shoulders back, bar against thighs"
+    contraindications:
+      - "Acute lower back injury or disc herniation"
+      - "Inability to maintain neutral spine under load"
+    progressions:
+      easier: ["Romanian Deadlift", "Trap Bar Deadlift"]
+      harder: ["Deficit Deadlift", "Sumo Deadlift"]
+
+  - name: "Romanian Deadlift (RDL)"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["hamstrings", "gluteus_maximus"]
+      secondary: ["erector_spinae", "core", "adductors"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Start standing, push hips back with soft knees"
+      - "Lower bar along thighs until you feel a hamstring stretch"
+      - "Drive hips forward to return to standing"
+    contraindications:
+      - "Acute hamstring strain"
+      - "Lower back pain with hip hinge loading"
+    progressions:
+      easier: ["Dumbbell RDL", "Cable Pull-Through"]
+      harder: ["Single-Leg RDL", "Deficit RDL"]
+
+  - name: "Dumbbell Romanian Deadlift"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["hamstrings", "gluteus_maximus"]
+      secondary: ["erector_spinae", "core"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold dumbbells in front of thighs, shoulders back"
+      - "Push hips back, lowering dumbbells along shins"
+      - "Feel hamstring stretch, then drive hips forward"
+    contraindications:
+      - "Acute hamstring injury"
+      - "Lower back pain during hinge pattern"
+    progressions:
+      easier: ["Cable Pull-Through"]
+      harder: ["Barbell RDL", "Single-Leg Dumbbell RDL"]
+
+  - name: "Trap Bar Deadlift"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus", "hamstrings"]
+      secondary: ["erector_spinae", "trapezius", "core"]
+    equipment: "barbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Stand inside trap bar, grip handles at your sides"
+      - "Hips back and down, chest up, flat back"
+      - "Stand up by driving through the floor"
+    contraindications:
+      - "Acute lower back injury"
+    progressions:
+      easier: ["Goblet Squat"]
+      harder: ["Conventional Deadlift"]
+
+  - name: "Kettlebell Swing"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus", "hamstrings"]
+      secondary: ["erector_spinae", "core", "forearms", "shoulders"]
+    equipment: "kettlebell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Hike kettlebell between legs like a football snap"
+      - "Snap hips forward explosively — arms are just along for the ride"
+      - "Float the kettlebell to chest height, brace at the top"
+    contraindications:
+      - "Acute lower back pain"
+      - "Inability to perform a hip hinge without back rounding"
+    progressions:
+      easier: ["Cable Pull-Through", "Dumbbell RDL"]
+      harder: ["Single-Arm Kettlebell Swing", "Kettlebell Snatch"]
+
+  - name: "Cable Pull-Through"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus", "hamstrings"]
+      secondary: ["erector_spinae", "core"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Face away from cable, rope between legs"
+      - "Hinge at hips, pushing them back toward the cable"
+      - "Drive hips forward to standing, squeezing glutes"
+    contraindications:
+      - "Lower back pain during hinge"
+    progressions:
+      easier: ["Glute Bridge"]
+      harder: ["Kettlebell Swing", "Romanian Deadlift"]
+
+  - name: "Hip Thrust (Barbell)"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus"]
+      secondary: ["hamstrings", "quadriceps", "core"]
+    equipment: "barbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Upper back on bench, bar across hip crease with pad"
+      - "Drive through heels, lifting hips to full extension"
+      - "Squeeze glutes hard at the top — avoid hyperextending lower back"
+    contraindications:
+      - "Acute hip flexor pain"
+      - "Lower back pain with extension"
+    progressions:
+      easier: ["Glute Bridge", "Bodyweight Hip Thrust"]
+      harder: ["Single-Leg Hip Thrust", "Band-Resisted Hip Thrust"]
+
+  - name: "Glute Bridge"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus"]
+      secondary: ["hamstrings", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Lie on back, feet flat, knees at 90 degrees"
+      - "Push through heels to lift hips to full extension"
+      - "Squeeze glutes at the top, lower with control"
+    contraindications:
+      - "Acute lower back pain"
+    progressions:
+      easier: ["Partial-range Glute Bridge"]
+      harder: ["Single-Leg Glute Bridge", "Hip Thrust"]
+
+  - name: "Leg Curl (Machine)"
+    movement_pattern: "hip_hinge"
+    category: "isolation"
+    muscle_groups:
+      primary: ["hamstrings"]
+      secondary: ["gastrocnemius"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Adjust pad to rest just above heels"
+      - "Curl heels toward glutes, squeezing hamstrings"
+      - "Lower under control to full extension"
+    contraindications:
+      - "Acute hamstring strain"
+      - "Knee instability"
+    progressions:
+      easier: ["Stability Ball Leg Curl"]
+      harder: ["Nordic Hamstring Curl", "Single-Leg Curl"]
+
+  - name: "Good Morning"
+    movement_pattern: "hip_hinge"
+    category: "compound"
+    muscle_groups:
+      primary: ["hamstrings", "erector_spinae"]
+      secondary: ["gluteus_maximus", "core"]
+    equipment: "barbell"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Bar on upper back as in a squat, soft knees"
+      - "Hinge forward at the hips, pushing them back"
+      - "Stop when torso is near parallel, reverse by driving hips forward"
+    contraindications:
+      - "Acute lower back injury"
+      - "Disc herniation"
+    progressions:
+      easier: ["Romanian Deadlift"]
+      harder: ["Seated Good Morning"]
+
+  # ============================================================
+  # LUNGE / SINGLE-LEG
+  # ============================================================
+
+  - name: "Walking Lunge"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "core", "adductors"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Step forward into a long stride, back knee toward floor"
+      - "Front knee tracks over toes, torso stays upright"
+      - "Push off front foot to step forward into the next lunge"
+    contraindications:
+      - "Acute knee injury"
+      - "Balance disorders"
+    progressions:
+      easier: ["Static Lunge (Split Squat)"]
+      harder: ["Dumbbell Walking Lunge", "Barbell Walking Lunge"]
+
+  - name: "Reverse Lunge"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Step backward, lowering back knee toward the floor"
+      - "Front shin stays relatively vertical"
+      - "Drive through the front foot to return to standing"
+    contraindications:
+      - "Acute knee pain"
+      - "Significant balance impairments"
+    progressions:
+      easier: ["Assisted Reverse Lunge (holding support)"]
+      harder: ["Dumbbell Reverse Lunge", "Deficit Reverse Lunge"]
+
+  - name: "Bulgarian Split Squat"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "adductors", "core"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Rear foot elevated on bench, front foot ~2 feet forward"
+      - "Lower straight down until front thigh is parallel"
+      - "Drive through the front heel to stand"
+    contraindications:
+      - "Acute knee instability"
+      - "Hip flexor strain on rear leg"
+    progressions:
+      easier: ["Static Lunge"]
+      harder: ["Dumbbell Bulgarian Split Squat", "Barbell Bulgarian Split Squat"]
+
+  - name: "Step-Up"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "core", "calves"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Place entire foot on a box or bench at knee height"
+      - "Drive through the top foot — minimize pushing off the back leg"
+      - "Stand tall at the top, then lower with control"
+    contraindications:
+      - "Acute knee pain"
+      - "Poor balance (use support)"
+    progressions:
+      easier: ["Low box step-up"]
+      harder: ["Dumbbell Step-Up", "Barbell Step-Up"]
+
+  - name: "Single-Leg Deadlift"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["hamstrings", "gluteus_maximus"]
+      secondary: ["erector_spinae", "core", "hip_stabilizers"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Stand on one leg, hinge forward while extending the other leg back"
+      - "Keep hips square — avoid opening the hip"
+      - "Touch dumbbell toward the floor, then drive hip forward to stand"
+    contraindications:
+      - "Acute hamstring strain"
+      - "Significant balance impairment"
+    progressions:
+      easier: ["Kickstand RDL (staggered stance)"]
+      harder: ["Barbell Single-Leg RDL"]
+
+  - name: "Lateral Lunge"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus", "adductors"]
+      secondary: ["hamstrings", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Step wide to the side, sit hips back over the stepping leg"
+      - "Keep the trailing leg straight"
+      - "Push off to return to center"
+    contraindications:
+      - "Groin strain or adductor injury"
+      - "Knee instability"
+    progressions:
+      easier: ["Bodyweight lateral step"]
+      harder: ["Dumbbell Lateral Lunge", "Cossack Squat"]
+
+  - name: "Curtsy Lunge"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus", "quadriceps"]
+      secondary: ["gluteus_medius", "adductors", "core"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Step one foot behind and across your body"
+      - "Lower until front thigh is parallel"
+      - "Push through the front heel to return to standing"
+    contraindications:
+      - "Knee instability"
+      - "IT band syndrome"
+    progressions:
+      easier: ["Reverse Lunge"]
+      harder: ["Dumbbell Curtsy Lunge"]
+
+  - name: "Calf Raise (Standing)"
+    movement_pattern: "lunge_single_leg"
+    category: "isolation"
+    muscle_groups:
+      primary: ["gastrocnemius", "soleus"]
+      secondary: ["tibialis_posterior"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Stand on edge of step, heels hanging off"
+      - "Rise up onto toes as high as possible"
+      - "Lower slowly below step height for full stretch"
+    contraindications:
+      - "Acute Achilles tendon injury"
+      - "Plantar fasciitis in acute phase"
+    progressions:
+      easier: ["Seated Calf Raise"]
+      harder: ["Single-Leg Calf Raise", "Weighted Calf Raise"]
+
+  - name: "Pistol Squat"
+    movement_pattern: "lunge_single_leg"
+    category: "compound"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus"]
+      secondary: ["hamstrings", "core", "hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Stand on one leg, extend the other leg forward"
+      - "Squat all the way down while keeping the extended leg off the floor"
+      - "Drive through the heel to stand back up"
+    contraindications:
+      - "Knee instability"
+      - "Lack of ankle or hip mobility"
+    progressions:
+      easier: ["Assisted Pistol Squat (holding TRX)", "Bulgarian Split Squat"]
+      harder: ["Weighted Pistol Squat"]
+
+  - name: "Nordic Hamstring Curl"
+    movement_pattern: "lunge_single_leg"
+    category: "isolation"
+    muscle_groups:
+      primary: ["hamstrings"]
+      secondary: ["gastrocnemius", "core"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Kneel with ankles secured, body tall"
+      - "Lower slowly toward the floor using only hamstring control"
+      - "Catch yourself at the bottom and push back up to assist the return"
+    contraindications:
+      - "Acute hamstring strain"
+      - "Knee pain during kneeling"
+    progressions:
+      easier: ["Leg Curl Machine", "Stability Ball Leg Curl"]
+      harder: ["Full Nordic Hamstring Curl without hand assist"]
+
+  # ============================================================
+  # CORE / ANTI-MOVEMENT
+  # ============================================================
+
+  - name: "Front Plank"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["rectus_abdominis", "transverse_abdominis"]
+      secondary: ["obliques", "erector_spinae", "shoulders"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Forearms on floor, body in a straight line from head to heels"
+      - "Squeeze glutes and brace core — do not let hips sag"
+      - "Breathe steadily, hold for time"
+    contraindications:
+      - "Shoulder injury limiting weight-bearing"
+      - "Diastasis recti (modify to incline)"
+    progressions:
+      easier: ["Incline Plank (hands on bench)", "Knee Plank"]
+      harder: ["Long-Lever Plank", "Plank with Shoulder Tap"]
+
+  - name: "Side Plank"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["obliques", "quadratus_lumborum"]
+      secondary: ["gluteus_medius", "transverse_abdominis"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Stack feet or stagger, forearm on floor under shoulder"
+      - "Lift hips to create a straight line from head to feet"
+      - "Hold without letting hips drop or rotate"
+    contraindications:
+      - "Shoulder injury limiting side support"
+      - "Acute oblique strain"
+    progressions:
+      easier: ["Knee Side Plank"]
+      harder: ["Side Plank with Hip Dip", "Copenhagen Side Plank"]
+
+  - name: "Dead Bug"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["rectus_abdominis", "transverse_abdominis"]
+      secondary: ["hip_flexors", "obliques"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Lie on back, arms straight up, knees at 90 degrees"
+      - "Extend opposite arm and leg while pressing low back into floor"
+      - "Return to start and switch sides"
+    contraindications:
+      - "Acute lower back pain"
+    progressions:
+      easier: ["Heel Slides"]
+      harder: ["Dead Bug with Band", "Dead Bug with Weight"]
+
+  - name: "Bird Dog"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["erector_spinae", "transverse_abdominis"]
+      secondary: ["gluteus_maximus", "deltoids"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hands and knees position, spine neutral"
+      - "Extend opposite arm and leg simultaneously"
+      - "Hold for 2-3 seconds, return without letting hips shift"
+    contraindications:
+      - "Wrist pain in quadruped position"
+    progressions:
+      easier: ["Single-arm or single-leg only"]
+      harder: ["Bird Dog with Band", "Bird Dog from Push-Up Position"]
+
+  - name: "Ab Wheel Rollout"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["rectus_abdominis", "transverse_abdominis"]
+      secondary: ["latissimus_dorsi", "obliques", "hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Kneel with ab wheel under shoulders"
+      - "Roll forward as far as you can while maintaining flat back"
+      - "Pull back using core — do not collapse hips"
+    contraindications:
+      - "Lower back pain"
+      - "Shoulder impingement"
+    progressions:
+      easier: ["Stability Ball Rollout", "Plank"]
+      harder: ["Standing Ab Wheel Rollout"]
+
+  - name: "Pallof Press"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["obliques", "transverse_abdominis"]
+      secondary: ["rectus_abdominis", "hip_stabilizers"]
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Stand perpendicular to cable, handle at chest"
+      - "Press handle straight out — resist the rotation"
+      - "Hold at full extension for 2 seconds, return to chest"
+    contraindications:
+      - "Acute spinal injury"
+    progressions:
+      easier: ["Band Pallof Press"]
+      harder: ["Tall-Kneeling Pallof Press", "Pallof Press with Overhead Reach"]
+
+  - name: "Hanging Leg Raise"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["rectus_abdominis", "hip_flexors"]
+      secondary: ["obliques", "forearms"]
+    equipment: "bodyweight"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Hang from pull-up bar, shoulders engaged"
+      - "Raise legs to parallel or higher, curling pelvis"
+      - "Lower with control — no swinging"
+    contraindications:
+      - "Shoulder injury limiting hanging"
+      - "Acute hip flexor strain"
+    progressions:
+      easier: ["Hanging Knee Raise", "Lying Leg Raise"]
+      harder: ["Toes to Bar", "Windshield Wipers"]
+
+  - name: "Cable Woodchop"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["obliques", "transverse_abdominis"]
+      secondary: ["shoulders", "hips"]
+    equipment: "cable"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Set cable high or low, stand perpendicular"
+      - "Rotate torso while keeping hips stable"
+      - "Control the movement — power comes from the core, not arms"
+    contraindications:
+      - "Acute spinal injury"
+      - "Disc herniation with rotation intolerance"
+    progressions:
+      easier: ["Band Woodchop"]
+      harder: ["Half-Kneeling Cable Woodchop"]
+
+  - name: "Farmer's Carry"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["core", "trapezius", "forearms"]
+      secondary: ["quadriceps", "gluteus_maximus", "calves"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold heavy dumbbells at your sides, stand tall"
+      - "Walk with short, controlled steps — do not lean"
+      - "Keep shoulders down and back, core braced"
+    contraindications:
+      - "Acute shoulder or neck injury"
+      - "Grip-limiting wrist injury"
+    progressions:
+      easier: ["Lighter weight, shorter distance"]
+      harder: ["Suitcase Carry (one side)", "Overhead Carry"]
+
+  - name: "Suitcase Carry"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["obliques", "quadratus_lumborum"]
+      secondary: ["forearms", "trapezius", "core"]
+    equipment: "dumbbell"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Hold a heavy dumbbell or kettlebell on one side only"
+      - "Walk without leaning — fight the lateral pull"
+      - "Keep shoulders level, core tight"
+    contraindications:
+      - "Acute lower back pain"
+      - "Scoliosis with pain"
+    progressions:
+      easier: ["Farmer's Carry (both sides)"]
+      harder: ["Heavier load", "Overhead Suitcase Carry"]
+
+  - name: "Russian Twist"
+    movement_pattern: "core"
+    category: "compound"
+    muscle_groups:
+      primary: ["obliques"]
+      secondary: ["rectus_abdominis", "hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Sit with knees bent, lean back ~45 degrees, feet off floor"
+      - "Rotate torso side to side, touching hands to the floor"
+      - "Keep chest lifted and core engaged throughout"
+    contraindications:
+      - "Lower back pain with rotation"
+      - "Disc herniation"
+    progressions:
+      easier: ["Feet on floor, no weight"]
+      harder: ["Weighted Russian Twist", "Cable Rotation"]
+
+  # ============================================================
+  # CARDIO / CONDITIONING
+  # ============================================================
+
+  - name: "Treadmill Running"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["quadriceps", "hamstrings", "calves"]
+      secondary: ["gluteus_maximus", "core", "hip_flexors"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Land midfoot, avoid heel-striking at speed"
+      - "Keep cadence around 170-180 steps per minute"
+      - "Maintain upright posture — avoid leaning on handles"
+    contraindications:
+      - "Acute knee or ankle injury"
+      - "Stress fractures"
+    progressions:
+      easier: ["Walking"]
+      harder: ["Incline Running", "Interval Sprints"]
+
+  - name: "Rowing Machine (Erg)"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["quadriceps", "latissimus_dorsi", "hamstrings"]
+      secondary: ["biceps", "core", "calves"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Drive with legs first, then lean back, then pull arms"
+      - "Return arms first, then body, then legs (reverse sequence)"
+      - "Maintain a long, powerful stroke — not short and choppy"
+    contraindications:
+      - "Acute lower back pain"
+      - "Knee pain during deep flexion"
+    progressions:
+      easier: ["Shorter intervals at lower intensity"]
+      harder: ["Interval training (500m repeats)", "Longer steady-state rows"]
+
+  - name: "Assault Bike / Air Bike"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["quadriceps", "hamstrings"]
+      secondary: ["shoulders", "core", "triceps", "biceps"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Push and pull with arms while pedaling"
+      - "Maintain an upright torso"
+      - "For intervals: go all-out for work periods, recover actively"
+    contraindications:
+      - "Acute shoulder or knee injury"
+    progressions:
+      easier: ["Steady-state cycling"]
+      harder: ["Tabata intervals (20s on / 10s off)"]
+
+  - name: "Jump Rope"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["calves", "quadriceps"]
+      secondary: ["shoulders", "forearms", "core"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Jump just high enough to clear the rope (1-2 inches)"
+      - "Spin the rope with wrists, not shoulders"
+      - "Stay on balls of feet, soft knees"
+    contraindications:
+      - "Acute ankle or knee injury"
+      - "Stress fractures"
+    progressions:
+      easier: ["No-rope jumping in place"]
+      harder: ["Double-Unders", "Crossovers"]
+
+  - name: "Battle Ropes"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["shoulders", "core"]
+      secondary: ["biceps", "forearms", "legs"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Athletic stance, slight squat position"
+      - "Alternate arms in a wave motion from the shoulders"
+      - "Keep waves moving all the way to the anchor point"
+    contraindications:
+      - "Acute shoulder injury"
+      - "Rotator cuff pain with repetitive overhead motion"
+    progressions:
+      easier: ["Shorter intervals, lighter rope"]
+      harder: ["Longer intervals", "Slam variations"]
+
+  - name: "Burpee"
+    movement_pattern: "cardio"
+    category: "plyometric"
+    muscle_groups:
+      primary: ["quadriceps", "pectoralis_major", "shoulders"]
+      secondary: ["core", "triceps", "hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Drop to push-up position with hands on floor"
+      - "Perform a push-up, then jump feet to hands"
+      - "Jump up explosively, reaching arms overhead"
+    contraindications:
+      - "Acute wrist, shoulder, or knee injury"
+      - "High blood pressure (consult physician)"
+    progressions:
+      easier: ["Step-Back Burpee (no jump)"]
+      harder: ["Burpee Box Jump", "Burpee Pull-Up"]
+
+  - name: "Sled Push"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus", "calves"]
+      secondary: ["core", "shoulders", "hamstrings"]
+    equipment: "machine"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Grip handles with arms extended, lean into the sled"
+      - "Drive through the legs with powerful steps"
+      - "Keep hips low and torso at ~45 degrees"
+    contraindications:
+      - "Acute shoulder or knee injury"
+      - "Uncontrolled hypertension"
+    progressions:
+      easier: ["Lighter load, shorter distance"]
+      harder: ["Heavy sled push", "Sprint sled push"]
+
+  - name: "Stair Climber"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus", "calves"]
+      secondary: ["hamstrings", "core"]
+    equipment: "machine"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Stand tall — avoid leaning heavily on the handles"
+      - "Drive through the whole foot each step"
+      - "Maintain a steady cadence for the target duration"
+    contraindications:
+      - "Acute knee pain"
+      - "Balance disorders (use handles for support)"
+    progressions:
+      easier: ["Slower speed"]
+      harder: ["Faster speed", "Skip-step pattern"]
+
+  - name: "Box Jump"
+    movement_pattern: "cardio"
+    category: "plyometric"
+    muscle_groups:
+      primary: ["quadriceps", "gluteus_maximus", "calves"]
+      secondary: ["hamstrings", "core"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Stand facing box, swing arms back then explosively jump"
+      - "Land softly with both feet fully on the box"
+      - "Step down — do not jump down to save joint stress"
+    contraindications:
+      - "Acute knee or ankle injury"
+      - "Achilles tendinopathy"
+    progressions:
+      easier: ["Box Step-Up", "Lower box"]
+      harder: ["Higher box", "Weighted Box Jump"]
+
+  - name: "Kettlebell Snatch"
+    movement_pattern: "cardio"
+    category: "compound"
+    muscle_groups:
+      primary: ["gluteus_maximus", "hamstrings", "shoulders"]
+      secondary: ["core", "trapezius", "forearms"]
+    equipment: "kettlebell"
+    difficulty: "advanced"
+    coaching_cues:
+      - "Start with a kettlebell swing, guide the bell overhead in one motion"
+      - "Punch through at the top to avoid wrist bang"
+      - "Control the drop back between the legs"
+    contraindications:
+      - "Shoulder instability or impingement"
+      - "Poor hip hinge mechanics"
+    progressions:
+      easier: ["Kettlebell Swing", "Kettlebell Clean"]
+      harder: ["Alternating Kettlebell Snatch", "Double Kettlebell Snatch"]
+
+  - name: "Mountain Climbers"
+    movement_pattern: "cardio"
+    category: "cardio"
+    muscle_groups:
+      primary: ["hip_flexors", "core"]
+      secondary: ["quadriceps", "shoulders", "calves"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Start in push-up position, body straight"
+      - "Drive knees toward chest alternately at speed"
+      - "Keep hips level — do not pike up"
+    contraindications:
+      - "Acute wrist or shoulder injury"
+      - "Acute hip flexor strain"
+    progressions:
+      easier: ["Slow mountain climbers"]
+      harder: ["Cross-body mountain climbers", "Spider-Man mountain climbers"]
+
+  # ============================================================
+  # FLEXIBILITY / MOBILITY
+  # ============================================================
+
+  - name: "Standing Hamstring Stretch"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["hamstrings"]
+      secondary: ["calves", "lower_back"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Place one heel on a low surface, keep both legs straight"
+      - "Hinge forward at the hips, reaching toward the foot"
+      - "Hold for 30 seconds — breathe into the stretch"
+    contraindications:
+      - "Acute hamstring tear (wait for clearance)"
+    progressions:
+      easier: ["Supine hamstring stretch with strap"]
+      harder: ["Standing forward fold (both legs)"]
+
+  - name: "Hip Flexor Stretch (Half-Kneeling)"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["hip_flexors", "psoas"]
+      secondary: ["quadriceps", "rectus_femoris"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Kneel on one knee, front foot flat, 90-degree angle"
+      - "Tuck pelvis under (posterior tilt) and shift weight forward"
+      - "Hold 30 seconds — should feel stretch in the front of the rear hip"
+    contraindications:
+      - "Knee pain in kneeling position (use padding)"
+    progressions:
+      easier: ["Standing hip flexor stretch"]
+      harder: ["Add overhead reach", "Add lateral lean"]
+
+  - name: "Pigeon Pose"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["gluteus_maximus", "piriformis", "external_hip_rotators"]
+      secondary: ["hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Front shin across the body, back leg extended behind"
+      - "Square the hips and fold forward over the front shin"
+      - "Hold for 60-90 seconds per side"
+    contraindications:
+      - "Knee pain in flexed/rotated position"
+      - "Acute hip injury"
+    progressions:
+      easier: ["Figure-4 stretch (supine)"]
+      harder: ["King Pigeon Pose"]
+
+  - name: "Cat-Cow"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["erector_spinae", "rectus_abdominis"]
+      secondary: ["hip_flexors", "neck_extensors"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hands and knees, wrists under shoulders, knees under hips"
+      - "Arch back upward (cat), then drop belly toward floor (cow)"
+      - "Move slowly with breath — inhale cow, exhale cat"
+    contraindications:
+      - "Acute wrist pain in weight-bearing"
+    progressions:
+      easier: ["Seated spinal flexion/extension"]
+      harder: ["Add pause at each end range"]
+
+  - name: "World's Greatest Stretch"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["hip_flexors", "thoracic_spine", "hamstrings"]
+      secondary: ["adductors", "quadriceps", "shoulders"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Lunge forward, place both hands inside the front foot"
+      - "Rotate one arm toward the ceiling, opening the chest"
+      - "Hold the rotation, then switch to the other side"
+    contraindications:
+      - "Acute groin or hip flexor strain"
+    progressions:
+      easier: ["Perform from half-kneeling"]
+      harder: ["Add straight leg and hamstring reach"]
+
+  - name: "Thoracic Spine Rotation"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["thoracic_spine_rotators"]
+      secondary: ["obliques", "intercostals"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Side-lying with knees stacked at 90 degrees"
+      - "Open top arm across the body, rotating through mid-back"
+      - "Follow the hand with your eyes, hold 2-3 seconds"
+    contraindications:
+      - "Acute rib or thoracic spine injury"
+    progressions:
+      easier: ["Seated trunk rotation"]
+      harder: ["Add resistance band"]
+
+  - name: "Couch Stretch"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["quadriceps", "hip_flexors"]
+      secondary: ["rectus_femoris", "psoas"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Rear foot up against wall or couch, front foot flat on floor"
+      - "Keep torso upright, tuck pelvis under"
+      - "Hold for 60-90 seconds per side"
+    contraindications:
+      - "Acute knee injury"
+      - "Patellar tendinopathy"
+    progressions:
+      easier: ["Standing quad stretch"]
+      harder: ["Hands-free couch stretch"]
+
+  - name: "90/90 Hip Stretch"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["hip_external_rotators", "hip_internal_rotators"]
+      secondary: ["gluteus_medius", "piriformis"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Sit with both knees bent at 90 degrees in opposite directions"
+      - "Sit tall, lean forward over the front shin"
+      - "Hold 30-60 seconds, then switch sides"
+    contraindications:
+      - "Knee pain in this position"
+      - "Hip labral tear"
+    progressions:
+      easier: ["Figure-4 stretch (supine)"]
+      harder: ["Lean forward deeper", "Lift back knee"]
+
+  - name: "Shoulder Pass-Through"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["shoulder_flexors", "shoulder_extensors"]
+      secondary: ["pectoralis_major", "latissimus_dorsi"]
+    equipment: "band"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold a dowel or band with a wide grip"
+      - "Raise arms overhead and behind your back in a full arc"
+      - "Gradually narrow grip as mobility improves"
+    contraindications:
+      - "Shoulder impingement with pain in overhead arc"
+      - "Shoulder dislocation history (proceed cautiously)"
+    progressions:
+      easier: ["Wider grip"]
+      harder: ["Narrower grip"]
+
+  - name: "Foam Rolling — IT Band & Quads"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["quadriceps", "iliotibial_band"]
+      secondary: ["hip_flexors", "vastus_lateralis"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Lie on foam roller, roll from hip to just above the knee"
+      - "Pause on tender spots for 20-30 seconds"
+      - "Use arms to control pressure and body weight"
+    contraindications:
+      - "Acute bruising or contusion"
+      - "Varicose veins in the area"
+    progressions:
+      easier: ["Softer roller, less body weight"]
+      harder: ["Firmer roller, longer pauses"]
+
+  - name: "Child's Pose"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["latissimus_dorsi", "erector_spinae"]
+      secondary: ["shoulders", "hip_flexors"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Kneel and sit back onto heels, arms extended forward on floor"
+      - "Walk hands forward to deepen the stretch"
+      - "Breathe deeply, hold for 30-60 seconds"
+    contraindications:
+      - "Knee pain in deep flexion"
+    progressions:
+      easier: ["Standing lat stretch against wall"]
+      harder: ["Thread-the-Needle variation"]
+
+  - name: "Ankle Dorsiflexion Mobilization"
+    movement_pattern: "flexibility"
+    category: "flexibility"
+    muscle_groups:
+      primary: ["gastrocnemius", "soleus", "ankle_joint"]
+      secondary: ["tibialis_anterior"]
+    equipment: "bodyweight"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Half-kneeling facing a wall, front foot ~4 inches from wall"
+      - "Drive front knee toward the wall over the toes"
+      - "Keep heel on the floor throughout"
+    contraindications:
+      - "Acute ankle sprain"
+      - "Ankle fracture (post-clearance only)"
+    progressions:
+      easier: ["Closer to wall"]
+      harder: ["Further from wall", "Add band distraction"]
+
+  # ============================================================
+  # BICEPS / TRICEPS (Supplemental Isolation)
+  # ============================================================
+
+  - name: "Barbell Curl"
+    movement_pattern: "pull_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["biceps"]
+      secondary: ["brachialis", "forearms"]
+    equipment: "barbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Elbows pinned at your sides, grip shoulder-width"
+      - "Curl bar to shoulder height without swinging"
+      - "Lower with control — full extension each rep"
+    contraindications:
+      - "Bicep tendon injury"
+      - "Medial epicondylitis"
+    progressions:
+      easier: ["Dumbbell Curl"]
+      harder: ["Strict Barbell Curl (wall-supported)"]
+
+  - name: "Dumbbell Hammer Curl"
+    movement_pattern: "pull_horizontal"
+    category: "isolation"
+    muscle_groups:
+      primary: ["brachialis", "brachioradialis"]
+      secondary: ["biceps", "forearms"]
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold dumbbells with neutral grip (palms facing each other)"
+      - "Curl while maintaining the neutral wrist position"
+      - "Lower under control to full extension"
+    contraindications:
+      - "Lateral epicondylitis"
+    progressions:
+      easier: ["Lighter dumbbells"]
+      harder: ["Cross-Body Hammer Curl", "Incline Hammer Curl"]
+
+  - name: "Tricep Dip"
+    movement_pattern: "push_vertical"
+    category: "compound"
+    muscle_groups:
+      primary: ["triceps"]
+      secondary: ["anterior_deltoid", "pectoralis_major"]
+    equipment: "bodyweight"
+    difficulty: "intermediate"
+    coaching_cues:
+      - "Grip parallel bars, arms straight, torso upright"
+      - "Lower until upper arms are parallel to floor"
+      - "Press up to full lockout"
+    contraindications:
+      - "Shoulder instability or impingement"
+      - "Sternoclavicular joint pain"
+    progressions:
+      easier: ["Bench Dip", "Machine Assisted Dip"]
+      harder: ["Weighted Dip", "Ring Dip"]
+
+  - name: "Cable Tricep Pushdown"
+    movement_pattern: "push_vertical"
+    category: "isolation"
+    muscle_groups:
+      primary: ["triceps"]
+      secondary: []
+    equipment: "cable"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Elbows at sides, push handle down to full extension"
+      - "Squeeze triceps at the bottom"
+      - "Control the return — do not let the weight jerk up"
+    contraindications:
+      - "Tricep tendinopathy"
+      - "Elbow pain"
+    progressions:
+      easier: ["Lighter resistance"]
+      harder: ["Single-Arm Pushdown", "Overhead Tricep Extension"]
+
+  - name: "Overhead Tricep Extension"
+    movement_pattern: "push_vertical"
+    category: "isolation"
+    muscle_groups:
+      primary: ["triceps"]
+      secondary: []
+    equipment: "dumbbell"
+    difficulty: "beginner"
+    coaching_cues:
+      - "Hold one dumbbell overhead with both hands"
+      - "Lower behind your head by bending at the elbows"
+      - "Extend arms fully, squeezing triceps at the top"
+    contraindications:
+      - "Shoulder impingement with overhead motion"
+      - "Elbow pain"
+    progressions:
+      easier: ["Cable Pushdown"]
+      harder: ["Single-Arm Overhead Extension"]
+
+# Metadata
+metadata:
+  total_exercises: 100
+  movement_patterns:
+    push_horizontal: 8
+    push_vertical: 10
+    pull_horizontal: 10
+    pull_vertical: 8
+    squat: 10
+    hip_hinge: 10
+    lunge_single_leg: 10
+    core: 11
+    cardio: 11
+    flexibility: 12
+  categories:
+    compound: 62
+    isolation: 16
+    cardio: 8
+    flexibility: 12
+    plyometric: 2
+  equipment_types:
+    - bodyweight
+    - barbell
+    - dumbbell
+    - cable
+    - machine
+    - band
+    - kettlebell
+  difficulty_levels:
+    beginner: 55
+    intermediate: 36
+    advanced: 9
+  version: "1.0.0"
+  last_updated: "2026-03-06"
+  sources:
+    - "NSCA Essentials of Strength Training and Conditioning, 4th Edition"
+    - "ACSM Guidelines for Exercise Testing and Prescription, 11th Edition"
+    - "ACE Exercise Library"
+    - "ExRx.net Exercise Directory"
