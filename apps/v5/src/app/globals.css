@@ -461,6 +461,47 @@ p { color: var(--text-secondary); font-size: 0.87rem; }
 .progress-fill.warning { background: linear-gradient(90deg, var(--warning), #f0c070); }
 .progress-fill.danger { background: linear-gradient(90deg, var(--danger), #f08080); }
 
+/* === MATURITY BAR v6 === */
+.maturity-bar-v6 {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+.maturity-bar-v6 .seg {
+  flex: 1;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--surface-3);
+  position: relative;
+  transition: background 0.4s ease;
+}
+.maturity-bar-v6 .seg.filled {
+  opacity: 1;
+}
+.maturity-bar-v6 .seg.target-zone {
+  border: 1px dashed var(--text-tertiary);
+  background: transparent;
+}
+.maturity-bar-v6 .seg-label {
+  font-size: 0.55rem;
+  text-align: center;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.maturity-bar-v6 .seg.threshold::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warning);
+  animation: pulse 2s ease infinite;
+}
+
 /* === MATURITY BAR (special) === */
 .maturity-row {
   display: flex;
