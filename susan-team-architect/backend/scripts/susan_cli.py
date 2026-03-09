@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import os
 from pathlib import Path
+from pathlib import Path as _Path
 import shlex
 import sys
 
@@ -198,6 +199,90 @@ def cmd_shell(subcommand: str, raw: str) -> int:
     return handler(parsed)
 
 
+def cmd_scrape(args: argparse.Namespace) -> int:
+    """Dispatch scrape subcommands."""
+    subcmd = args.scrape_command
+
+    if subcmd == "url":
+        from rag_engine.ingestion.web import WebIngestor
+        from rag_engine.ingestion.jina_reader import JinaReaderIngestor
+        if args.tool == "jina":
+            ingestor = JinaReaderIngestor()
+        else:
+            ingestor = WebIngestor()
+        count = ingestor.ingest(source=args.target, company_id=args.company,
+                                 data_type=args.type, agent_id=args.agent)
+        print(f"Ingested {count} chunks from {args.target}")
+
+    elif subcmd == "search":
+        from rag_engine.ingestion.exa_search import ExaSearchIngestor
+        ingestor = ExaSearchIngestor()
+        count = ingestor.ingest(source=args.target, company_id=args.company,
+                                 data_type=args.type, agent_id=args.agent,
+                                 num_results=args.num_results, search_type=args.search_type)
+        print(f"Ingested {count} chunks from Exa search: {args.target}")
+
+    elif subcmd == "crawl":
+        from rag_engine.ingestion.web import WebIngestor
+        ingestor = WebIngestor()
+        count = ingestor.crawl(source=args.target, company_id=args.company,
+                                data_type=args.type, agent_id=args.agent,
+                                max_pages=args.max_pages)
+        print(f"Crawled {count} chunks from {args.target}")
+
+    elif subcmd == "dynamic":
+        from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
+        ingestor = PlaywrightIngestor()
+        count = ingestor.ingest(source=args.target, company_id=args.company,
+                                 data_type=args.type, agent_id=args.agent,
+                                 wait_for=args.wait_for)
+        print(f"Ingested {count} chunks via Playwright from {args.target}")
+
+    elif subcmd == "batch":
+        from rag_engine.batch import execute_manifest
+        result = execute_manifest(_Path(args.target), dry_run=args.dry_run, resume=args.resume)
+        _dump(result)
+
+    elif subcmd == "plan":
+        from exa_py import Exa
+        from susan_core.config import config as _config
+        client = Exa(api_key=_config.exa_api_key)
+        response = client.search(args.target, num_results=args.num_results,
+                                  type="autoprompt", use_autoprompt=True)
+        manifest = {
+            "manifest": {
+                "name": args.target,
+                "company": args.company,
+                "data_type": args.type,
+                "created": "2026-03-09",
+                "priority": "medium",
+            },
+            "sources": [{"tool": "firecrawl", "url": r.url} for r in response.results],
+        }
+        output = args.output or f"data/scrape_manifests/{args.target.replace(' ', '_')[:40]}.yaml"
+        _Path(output).parent.mkdir(parents=True, exist_ok=True)
+        with open(output, "w") as f:
+            yaml.safe_dump(manifest, f, sort_keys=False, allow_unicode=True)
+        print(f"Manifest written to {output} ({len(manifest['sources'])} URLs)")
+
+    elif subcmd == "status":
+        from rag_engine.retriever import Retriever
+        retriever = Retriever()
+        result = retriever.supabase.table("knowledge_chunks") \
+            .select("data_type", count="exact") \
+            .eq("company_id", args.company) \
+            .execute()
+        counts: dict[str, int] = {}
+        if result.data:
+            for row in result.data:
+                dt = row.get("data_type", "unknown")
+                counts[dt] = counts.get(dt, 0) + 1
+        total = sum(counts.values())
+        _dump({"company": args.company, "total_chunks": total, "by_data_type": counts})
+
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="susan")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -245,6 +330,57 @@ def build_parser() -> argparse.ArgumentParser:
     bootstrap = subparsers.add_parser("bootstrap")
     bootstrap.add_argument("--config", default=str(BACKEND_ROOT / "data" / "project_protocol_targets.yaml"))
     bootstrap.set_defaults(func=cmd_bootstrap)
+
+    # ── scrape subcommand with nested sub-subcommands ───────────
+    scrape = subparsers.add_parser("scrape", help="Scraper CLI for data collection")
+    scrape_sub = scrape.add_subparsers(dest="scrape_command", required=True)
+
+    s_url = scrape_sub.add_parser("url")
+    s_url.add_argument("target", help="URL to scrape")
+    s_url.add_argument("--tool", choices=["firecrawl", "jina"], default="firecrawl")
+    s_url.add_argument("--company", default=_default_company())
+    s_url.add_argument("--type", default="market_research")
+    s_url.add_argument("--agent", default=None)
+
+    s_search = scrape_sub.add_parser("search")
+    s_search.add_argument("target", help="Exa search query")
+    s_search.add_argument("--num-results", type=int, default=10)
+    s_search.add_argument("--search-type", choices=["autoprompt", "keyword", "neural"], default="autoprompt")
+    s_search.add_argument("--company", default=_default_company())
+    s_search.add_argument("--type", default="market_research")
+    s_search.add_argument("--agent", default=None)
+
+    s_crawl = scrape_sub.add_parser("crawl")
+    s_crawl.add_argument("target", help="Base URL to deep crawl")
+    s_crawl.add_argument("--max-pages", type=int, default=50)
+    s_crawl.add_argument("--company", default=_default_company())
+    s_crawl.add_argument("--type", default="market_research")
+    s_crawl.add_argument("--agent", default=None)
+
+    s_dynamic = scrape_sub.add_parser("dynamic")
+    s_dynamic.add_argument("target", help="URL to scrape with Playwright")
+    s_dynamic.add_argument("--wait-for", default=None, help="CSS selector to wait for")
+    s_dynamic.add_argument("--company", default=_default_company())
+    s_dynamic.add_argument("--type", default="market_research")
+    s_dynamic.add_argument("--agent", default=None)
+
+    s_batch = scrape_sub.add_parser("batch")
+    s_batch.add_argument("target", help="Path to manifest YAML")
+    s_batch.add_argument("--dry-run", action="store_true")
+    s_batch.add_argument("--resume", action="store_true")
+    s_batch.add_argument("--company", default=_default_company())
+
+    s_plan = scrape_sub.add_parser("plan")
+    s_plan.add_argument("target", help="Domain topic for Exa discovery")
+    s_plan.add_argument("--num-results", type=int, default=20)
+    s_plan.add_argument("--output", default=None, help="Output manifest YAML path")
+    s_plan.add_argument("--company", default=_default_company())
+    s_plan.add_argument("--type", default="market_research")
+
+    s_status = scrape_sub.add_parser("status")
+    s_status.add_argument("--company", default=_default_company())
+
+    scrape.set_defaults(func=cmd_scrape)
 
     for name in [
         "shell-query",
