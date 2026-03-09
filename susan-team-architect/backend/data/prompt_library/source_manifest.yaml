@@ -1,0 +1,31 @@
+queries:
+  - topic: prompt_trees
+    query: "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission"
+    why: "Find reusable structures for conversation loops, disagreement, and missing-info handling."
+  - topic: multi_agent_dialogue
+    query: "multi agent debate patterns collaborative dialogue agents team meeting prompting"
+    why: "Find agent architectures that feel like real team meetings instead of single-turn completions."
+  - topic: uncertainty_and_integrity
+    query: "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering"
+    why: "Strengthen anti-hallucination behaviors and explicit unknown-state handling."
+  - topic: emotional_design
+    query: "emotional design landing page motion narrative moments of truth organic layouts consumer psychology"
+    why: "Build the fifth layer: feeling-state design, emotional resonance, and trust transfer."
+  - topic: agent_profiles
+    query: "AI agent persona design traits habits conversation style prompt design"
+    why: "Improve human-like employee characteristics and conversation quality."
+
+providers:
+  exa:
+    enabled_env: EXA_API_KEY
+    top_k: 5
+  brave:
+    enabled_env: BRAVE_SEARCH_API_KEY
+    top_k: 5
+  firecrawl:
+    enabled_env: FIRECRAWL_API_KEY
+    formats:
+      - markdown
+      - summary
+      - branding
+    scrape_limit: 10

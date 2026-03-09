@@ -1,0 +1,35 @@
+type: object
+required:
+  - metric_id
+  - company_id
+  - name
+  - category
+  - owner
+properties:
+  metric_id:
+    type: string
+  company_id:
+    type: string
+  name:
+    type: string
+  category:
+    type: string
+  definition:
+    type: string
+  owner:
+    type: string
+  cadence:
+    type: string
+  leading_or_lagging:
+    type: string
+    enum: [leading, lagging]
+  threshold_green:
+    type: string
+  threshold_yellow:
+    type: string
+  threshold_red:
+    type: string
+  source_events:
+    type: array
+    items:
+      type: string

@@ -1,0 +1,58 @@
+{
+  "company": "Alex Recruiting Project",
+  "primary_objective": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+  "decision_type": "mixed",
+  "timeline_pressure": "high",
+  "critical_constraints": [
+    "Single-athlete scope with limited operator bandwidth for content production and system maintenance",
+    "Monthly tool and API budget capped at $500 USD",
+    "NCAA compliance guardrails required across all communication, contact timing, and outreach sequencing",
+    "Recruiting profile, target school list, and offer landscape shift in real time requiring system flexibility",
+    "High trust sensitivity with coaches and families demands consistent professional tone across all touchpoints"
+  ],
+  "success_definition": [
+    "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+    "Coach outreach cadences are tracked, sequenced, and executed consistently across 20+ target programs",
+    "Film and highlight assets are integrated and shareable directly from coach relationship records",
+    "X/Twitter visibility campaigns run on a structured cadence tied to recruiting calendar milestones",
+    "Program fit scoring identifies and prioritizes best-match schools based on Jake's athletic and academic profile",
+    "All system operations remain demonstrably NCAA-compliant with documented process guardrails"
+  ],
+  "value_pools": [
+    {
+      "audience": "Jake (primary athlete)",
+      "value_type": "operational leverage",
+      "description": "Reduces daily recruiting friction by consolidating outreach, film, and social activity into one structured workflow with AI-assisted prioritization"
+    },
+    {
+      "audience": "Jake's family",
+      "value_type": "oversight and confidence",
+      "description": "Provides visibility into recruiting pipeline health, coach engagement status, and compliance posture without requiring deep system involvement"
+    },
+    {
+      "audience": "College coaching staffs",
+      "value_type": "signal quality",
+      "description": "Receives timely, professional, relevant outreach with direct film access \u2014 improving Jake's perceived seriousness and reducing coach-side friction"
+    },
+    {
+      "audience": "Michael Rodgers (builder/operator)",
+      "value_type": "system scalability proof",
+      "description": "Validates an end-to-end recruiting intelligence architecture that could generalize beyond a single athlete"
+    }
+  ],
+  "core_questions": [
+    "What is the minimum viable daily operating rhythm that keeps Jake's recruiting pipeline active without overwhelming operator time?",
+    "How should program fit scoring be structured given real-time changes to Jake's profile, offers, and target list?",
+    "What is the right integration architecture between film (Hudl), coach CRM records, and X visibility campaigns?",
+    "Which NCAA contact and communication rules most directly constrain outreach sequencing and how should they be encoded into the system?",
+    "How do we keep total monthly infrastructure and API costs under $500 while maintaining core system functionality?",
+    "What are the leading indicators of recruiting pipeline health that should surface daily on the dashboard?"
+  ],
+  "domains_required": [
+    "strategy",
+    "product",
+    "engineering",
+    "growth",
+    "compliance"
+  ]
+}

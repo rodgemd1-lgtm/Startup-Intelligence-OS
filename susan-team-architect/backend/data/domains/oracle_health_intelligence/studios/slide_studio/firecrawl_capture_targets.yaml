@@ -1,0 +1,21 @@
+targets:
+  - name: Oracle Health overview hero
+    url: "https://www.oracle.com/health/"
+    capture_type: screenshot
+    reason: Primary enterprise positioning and visual language
+  - name: Oracle Health EHR page
+    url: "https://www.oracle.com/health/ehr/"
+    capture_type: screenshot
+    reason: Product framing, workflow clues, and proof language
+  - name: Epic homepage
+    url: "https://www.epic.com/"
+    capture_type: screenshot
+    reason: Competitor positioning and enterprise narrative contrast
+  - name: athenahealth homepage
+    url: "https://www.athenahealth.com/"
+    capture_type: screenshot
+    reason: Comparative messaging and product-market framing
+  - name: Firecrawl documentation
+    url: "https://www.firecrawl.dev/docs"
+    capture_type: screenshot
+    reason: Capture workflow reference for screenshot methodology and automation docs

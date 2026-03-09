@@ -1,0 +1,52 @@
+name: "Founder Foundry Intelligence Open Sources"
+company_id: "founder-intelligence-os"
+description: "Official-source references for building Susan's production-grade startup foundry."
+web_sources:
+  - title: "Anthropic Building Effective Agents"
+    url: "https://www.anthropic.com/research/building-effective-agents"
+    data_type: "operational_protocols"
+    tags: ["agents", "orchestration", "patterns"]
+  - title: "OpenAI Evals Guide"
+    url: "https://platform.openai.com/docs/guides/evals"
+    data_type: "operational_protocols"
+    tags: ["evals", "testing", "llm"]
+  - title: "Design Council Double Diamond"
+    url: "https://www.designcouncil.org.uk/our-work/skills-learning/tools-frameworks/framework-for-innovation-design-councils-evolved-double-diamond/"
+    data_type: "operational_protocols"
+    tags: ["double-diamond", "discovery", "innovation"]
+  - title: "Intercom Jobs To Be Done"
+    url: "https://www.intercom.com/blog/jobs-to-be-done/"
+    data_type: "operational_protocols"
+    tags: ["jtbd", "discovery", "customer-research"]
+  - title: "Apple Human Interface Guidelines"
+    url: "https://developer.apple.com/design/human-interface-guidelines/"
+    data_type: "ux_research"
+    tags: ["apple", "hig", "ux"]
+  - title: "Apple Liquid Glass"
+    url: "https://developer.apple.com/documentation/technologyoverviews/liquid-glass"
+    data_type: "studio_open_research"
+    tags: ["apple", "liquid-glass", "motion"]
+  - title: "WebKit Scroll-Driven Animations"
+    url: "https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/"
+    data_type: "studio_open_research"
+    tags: ["webkit", "scroll-driven", "css"]
+  - title: "Chrome View Transitions in 2025"
+    url: "https://developer.chrome.com/blog/view-transitions-in-2025"
+    data_type: "studio_open_research"
+    tags: ["chrome", "view-transitions", "motion"]
+  - title: "NIST AI Risk Management Framework"
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+    data_type: "legal_compliance"
+    tags: ["nist", "ai-governance", "risk"]
+  - title: "OWASP Mobile Application Security"
+    url: "https://owasp.org/www-project-mobile-app-security/"
+    data_type: "security"
+    tags: ["owasp", "mobile", "security"]
+  - title: "WCAG 2.2"
+    url: "https://www.w3.org/TR/WCAG22/"
+    data_type: "ux_research"
+    tags: ["wcag", "accessibility", "w3c"]
+  - title: "FTC Health Claims Guidance"
+    url: "https://www.ftc.gov/business-guidance/advertising-marketing/health-claims"
+    data_type: "legal_compliance"
+    tags: ["ftc", "health-claims", "trust"]

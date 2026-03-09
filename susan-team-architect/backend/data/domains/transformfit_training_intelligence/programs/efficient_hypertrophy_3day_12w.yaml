@@ -1,0 +1,66 @@
+id: efficient-hypertrophy-3day-12w
+name: Efficient Hypertrophy 3-Day
+goal: hypertrophy with real-life adherence and lower scheduling risk
+target_athlete: busy intermediates who want to grow without six-day expectations
+training_age: beginner_intermediate
+frequency_days: 3
+duration_weeks: 12
+session_length_minutes: 50
+equipment_profile: full_gym
+split: upper_lower_full
+phases:
+  - {weeks: 1-3, name: accumulation_1, focus: establish sustainable weekly rhythm}
+  - {weeks: 4, name: deload_1, focus: reduce fatigue}
+  - {weeks: 5-7, name: accumulation_2, focus: add volume to priority muscles}
+  - {weeks: 8, name: deload_2, focus: restore freshness}
+  - {weeks: 9-11, name: intensification, focus: drive progression on stable main lifts}
+  - {weeks: 12, name: deload_3, focus: exit with momentum}
+progression:
+  main_lifts: double progression in moderate rep ranges
+  accessories: add reps first, then load
+  density_rule: if time becomes the constraint, keep main lifts and reduce one accessory set
+deload:
+  weeks: [4, 8, 12]
+  volume_reduction: 35-45 percent
+  intensity_reduction: 10 percent
+reentry:
+  one_missed_session: shift the week and keep sequence intact
+  one_missed_week: restart the prior week with one fewer set on each main lift
+  two_plus_weeks: restart the current phase
+sessions:
+  - day: upper
+    focus: chest, back, shoulders, arms
+    exercises:
+      - {name: Bench Press, sets: 3, reps: 5-8, rir: 2, rest_seconds: 150, substitutions: [DB Bench Press]}
+      - {name: Chest Supported Row, sets: 3, reps: 8-12, rir: 2, rest_seconds: 120, substitutions: [Cable Row]}
+      - {name: Incline DB Press, sets: 2, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Incline Machine Press]}
+      - {name: Lat Pulldown, sets: 2, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Pull Up]}
+      - {name: Lateral Raise, sets: 3, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Cable Lateral Raise]}
+      - {name: Cable Curl, sets: 2, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [DB Curl]}
+      - {name: Rope Pushdown, sets: 2, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [Overhead Cable Extension]}
+  - day: lower
+    focus: squat, hinge, leg volume
+    exercises:
+      - {name: Squat, sets: 3, reps: 5-8, rir: 2, rest_seconds: 180, substitutions: [Hack Squat]}
+      - {name: Romanian Deadlift, sets: 3, reps: 8-10, rir: 2, rest_seconds: 150, substitutions: [DB Romanian Deadlift]}
+      - {name: Leg Press, sets: 2, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Split Squat]}
+      - {name: Leg Curl, sets: 2, reps: 10-15, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Leg Extension, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 60, substitutions: [Spanish Squat]}
+      - {name: Standing Calf Raise, sets: 3, reps: 12-20, rir: 1-2, rest_seconds: 60, substitutions: [Seated Calf Raise]}
+  - day: full
+    focus: whole-body stimulus and weekly touch-up
+    exercises:
+      - {name: Incline DB Press, sets: 3, reps: 8-12, rir: 2, rest_seconds: 120, substitutions: [Machine Chest Press]}
+      - {name: Pull Up, sets: 3, reps: 6-10, rir: 2, rest_seconds: 120, substitutions: [Lat Pulldown]}
+      - {name: Bulgarian Split Squat, sets: 2, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Reverse Lunge]}
+      - {name: Machine Shoulder Press, sets: 2, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Seated DB Press]}
+      - {name: Leg Curl, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Cable Fly, sets: 2, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Pec Deck]}
+      - {name: Hammer Curl, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 60, substitutions: [Cable Curl]}
+coaching_notes:
+  week_one: reinforce that fewer days does not mean low quality if each session is coherent
+  missed_session: protect momentum first, perfection second
+coach_cue_profile:
+  base_profile: busy_intermediate
+  critical_windows: [first_completed_session, first_missed_session, second_miss_window, plateau_two_sessions, reentry_after_gap]
+  moment_bias: lower schedule shame, preserve momentum, and protect the weekly rhythm

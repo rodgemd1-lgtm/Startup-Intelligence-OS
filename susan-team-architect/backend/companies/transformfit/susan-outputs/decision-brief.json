@@ -1,0 +1,74 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "recommended_path": "Evidence-First Parallel Sprint: close the four critical unknowns (funnel drop-off map, LLM cost baseline, memory architecture options, behavioral mechanic evidence) within 72 hours, then execute a tightly sequenced three-workstream redesign sprint anchored on onboarding compression, persistent memory MVP, and a single retention mechanic \u2014 all scoped to solo-founder shipping bandwidth and the $200/month hard ceiling.",
+  "options": [
+    {
+      "name": "Evidence-First Parallel Sprint (Recommended)",
+      "tradeoff": "Spends 3-5 days on targeted evidence gathering before any engineering or design work begins. Eliminates the risk of redesigning the wrong funnel stage or architecting a memory layer that blows the cost ceiling. Slightly delays first shipped improvement but dramatically increases probability that the first shipped improvement actually moves the metric.",
+      "when_to_choose": "When the exact abandonment cliff is unknown, the LLM cost model is unvalidated, and shipping the wrong thing first would consume the solo founder's entire sprint capacity on a non-needle-moving output. This is the current state. Choose this path."
+    },
+    {
+      "name": "Immediate Onboarding Redesign Blitz",
+      "tradeoff": "Ships a compressed onboarding redesign within 7-10 days based on current assumptions. Moves fast but risks redesigning a funnel stage that is not the actual abandonment cliff. If the drop-off is at workout generation rather than goal-setting forms, a form compression sprint is wasted. No memory architecture means the 'aha moment' still evaporates after session one.",
+      "when_to_choose": "Only if Michael already has session recording data or a funnel step map that confirms exactly where users are dropping off and has high confidence the fix is form reduction. Not recommended given current evidence gaps."
+    },
+    {
+      "name": "Memory Architecture First",
+      "tradeoff": "Prioritizes building the persistent memory layer before touching onboarding. Solves the stateless AI problem structurally but does nothing to get users past the Day-1 cliff. If 75% of users never return after session one, a memory system has near-zero users to serve. Technically sound but strategically backwards given the abandonment severity.",
+      "when_to_choose": "Only after Day-1 abandonment is reduced below 50% and there is a meaningful cohort of returning users for whom memory continuity becomes the next value-unlocking constraint."
+    },
+    {
+      "name": "Single Retention Mechanic Fast Ship",
+      "tradeoff": "Picks one behavioral mechanic (streak with loss aversion framing) and ships it in under a week. Very low engineering cost. But retention mechanics applied to a broken onboarding funnel will not save users who never reach the first workout. Mechanic fires on Day-2 behavior \u2014 if Day-1 is broken, Day-2 never happens. High effort for low leverage at this stage.",
+      "when_to_choose": "Activate as workstream three, in parallel with onboarding redesign, not before it. The mechanic should be designed now and shipped the moment onboarding delivers a user to session completion."
+    }
+  ],
+  "prioritized_workstreams": [
+    "WS-0 [Days 1-4]: Evidence Sprint \u2014 internal funnel teardown, LLM cost log audit, behavioral mechanic literature pull, competitive onboarding teardown (Fitbod, Noom). Goal: close the four critical unknowns before a single line of redesign code is written.",
+    "WS-1 [Days 5-18]: Onboarding Compression and Aha Moment Delivery \u2014 reduce to maximum 3 goal-oriented inputs, inject first AI-generated personalized workout within 5 minutes of signup, define and instrument the aha moment event, establish minimum 5-event funnel tracking in Supabase.",
+    "WS-2 [Days 5-18, parallel with WS-1]: Persistent Memory MVP \u2014 implement structured JSON user profile schema in Supabase with rolling session summarization layer, wire agent context injection on session open, validate cost envelope against $200/month ceiling at projected 1,000 active user scale.",
+    "WS-3 [Days 14-25]: Behavioral Retention Mechanic Ship \u2014 deploy single highest-evidence mechanic (streak plus loss aversion notification) triggered immediately after first workout completion, instrument Day-7 return event as the primary validation metric.",
+    "WS-4 [Days 20-30]: Coach Persona and Dialogue Quality Gate \u2014 define AI coach voice, apply motivational interviewing framing to onboarding dialogue and first-session coaching script, run quality review against all agent-facing copy before WS-1 changes go live to all new users.",
+    "WS-5 [Post Day-30, conditional]: Competitive Wedge Articulation and Positioning \u2014 activate only after Day-1 abandonment is measurably below 50% and at least one cohort has hit Day-7 with the new retention mechanic active. Premature positioning is a distraction at this stage.",
+    "WS-6 [Post Day-30, conditional]: Adaptive Workout Engine Differentiation \u2014 document and harden progression logic, define the defensible wedge versus Fitbod around emotional coaching continuity plus memory, scope wearable integration only after core retention is validated."
+  ],
+  "immediate_agent_team": [
+    "app-experience-studio",
+    "marcus",
+    "freya",
+    "nova",
+    "knowledge-engineer",
+    "pulse",
+    "mira",
+    "ledger",
+    "algorithm-lab",
+    "compass"
+  ],
+  "research_first": true,
+  "studio_needed": false,
+  "execution_risks": [
+    "CRITICAL: Solo founder bandwidth collapse \u2014 the recommended path assigns 10 agents and 6 workstreams, but all synthesis, decision-making, and shipping falls on Michael. Every agent output must arrive as a ready-to-act spec, not a document requiring further analysis. Agents must produce executable artifacts, not research reports.",
+    "CRITICAL: Assumption invalidation cascade \u2014 if the internal funnel teardown (WS-0) reveals the abandonment cliff is post-workout rather than pre-workout, the entire WS-1 onboarding compression sprint pivots. All downstream workstream timelines shift. Michael must treat WS-0 output as a hard gate before committing engineering hours to WS-1.",
+    "HIGH: Memory architecture cost spike \u2014 a structured profile plus summarization approach is assumed safe within $200/month, but this has not been stress-tested against actual token volumes. A single design error in the summarization trigger frequency could make the memory layer prohibitively expensive before any cost guardrail fires. Nova and ledger must produce a cost model with kill-switch thresholds before any memory code ships.",
+    "HIGH: Aha moment definition ambiguity \u2014 'first personalized workout generated and completed' is the stated target, but 'completed' is undefined. Does it mean the user viewed the workout? Started the first exercise? Logged completion? Without a precise, instrumentable definition agreed before WS-1 begins, the success metric is unmeasurable and the redesign has no validation anchor.",
+    "HIGH: Behavioral mechanic misfit for user segment \u2014 streak mechanics are well-evidenced for general populations but can feel punitive or gamification-inappropriate for busy professionals in the 28-42 segment. If the initial user cohort skews professional rather than beginner, the mechanic may produce neutral or negative Day-7 results. Freya must segment the evidence review by user archetype, not just age range.",
+    "MEDIUM: Funnel instrumentation bootstrapping problem \u2014 pulse needs at least 5 key events instrumented before any redesign ships to establish a pre-redesign baseline. If instrumentation ships after the redesign, there is no counterfactual. This is a sequencing risk that Michael must enforce: instrument first, redesign second, even if it costs 2-3 days.",
+    "MEDIUM: Supabase tier limits for memory architecture \u2014 the current Supabase tier is unknown. A persistent memory schema with per-user summarization objects and vector embeddings could hit free tier storage or function invocation limits before reaching 1,000 users. Knowledge-engineer must audit current Supabase usage and tier limits as part of WS-0 before memory schema is designed.",
+    "MEDIUM: Coach persona inconsistency across workstreams \u2014 if WS-1 ships onboarding dialogue before WS-4 defines the coach persona, the voice established in onboarding will be inconsistent with the voice designed in WS-4. Mira must review WS-1 onboarding copy before it ships, even if WS-4 has not formally completed. A voice draft is required as a WS-1 dependency, not a WS-4 output.",
+    "LOW: Premature positioning activation \u2014 if early WS-1 metrics look promising, there will be pressure to begin marketing and positioning work before retention is validated. Steve and compass are scoped as post-Day-30 conditional activations. Activating them before Day-7 return rate data exists is a distraction risk that could pull Michael's attention from engineering execution at the highest-leverage moment.",
+    "LOW: Fitbod competitive response \u2014 Fitbod or a well-funded competitor could ship persistent memory or emotional coaching continuity features during TransformFit's redesign window. This risk is real but unactionable at this stage. The correct response is to move faster on the memory plus coaching wedge, not to pause and monitor competitors."
+  ],
+  "first_30_day_focus": [
+    "Day 1-2: Michael pulls all available internal data \u2014 Supabase user event logs, any API call logs with token counts, current onboarding step list, and any informal user feedback \u2014 and delivers to app-experience-studio and nova as the WS-0 evidence package. This is the single highest-leverage action Michael can take before any agent work begins.",
+    "Day 1-4: app-experience-studio and marcus execute competitive onboarding teardowns of Fitbod and Noom, mapping step counts, field counts, time-to-first-value, and identified friction patterns. Output must be a ranked friction map, not a narrative report.",
+    "Day 1-4: nova and ledger audit current LLM provider, model tier, and per-call cost structure. Produce a cost model: interactions per user per day multiplied by estimated token consumption multiplied by model tier cost equals monthly ceiling stress test at 100, 500, and 1,000 active users. Output must include a hard budget allocation per interaction type.",
+    "Day 1-4: freya pulls behavioral economics literature specifically for digital health and fitness app Day-7 retention. Output must be a ranked mechanic shortlist with effect size estimates by user archetype \u2014 not a general behavioral economics primer.",
+    "Day 3-4: pulse defines the minimum viable instrumentation schema \u2014 maximum 7 events covering signup, goal input completion, first workout generated, first workout started, first workout completed, Day-1 session end, and Day-7 return. Michael instruments these events in Supabase before any redesign code ships.",
+    "Day 5: WS-0 synthesis gate \u2014 Michael reviews all evidence outputs and makes three binary decisions: (1) confirmed abandonment cliff location, (2) confirmed memory architecture pattern, (3) confirmed single retention mechanic to ship. No workstream 1, 2, or 3 work begins until these three decisions are locked.",
+    "Day 6-18: mira drafts AI coach voice guide (2-page maximum \u2014 persona name, tone spectrum, 10 example response pairs across emotional states) as a WS-1 dependency. This must exist before any onboarding dialogue is written.",
+    "Day 6-18: app-experience-studio delivers compressed onboarding wireframes (maximum 3 goal-input screens plus immediate AI workout generation screen). Marcus reviews for friction. Michael implements. Pulse validates instrumentation is firing correctly on first 10 test sessions before broader rollout.",
+    "Day 6-18: nova and knowledge-engineer deliver persistent memory schema design (Supabase JSON profile structure plus summarization trigger logic plus session context injection pattern) as a ready-to-implement spec. Michael implements memory layer against this spec, not against a whiteboard design.",
+    "Day 14-25: freya delivers retention mechanic implementation spec \u2014 not a recommendation document but a literal product spec including trigger condition, notification copy in the coach voice, streak display component requirements, and loss aversion framing language. Michael ships this mechanic to fire on first workout completion.",
+    "Day 25-30: first cohort analysis \u2014 pulse and compass review Day-1 and Day-7 cohort data from the redesigned onboarding. If Day-1 abandonment has moved below 50%, proceed to WS-5 and WS-6 activation planning. If it has not moved, return to the funnel teardown with new behavioral data and identify the remaining friction source before any further feature work."
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "datasets": [
+    {
+      "name": "TransformFit Internal Funnel Event Logs",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Supabase database \u2014 Michael exports raw session/event data; Pulse defines 7-event schema to instrument before redesign ships",
+      "format": "PostgreSQL tables / CSV export",
+      "size_estimate": "< 10MB at current user volume; schema designed to scale to 1GB at 10K users",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "pulse",
+        "compass",
+        "app_experience_studio"
+      ]
+    },
+    {
+      "name": "LLM API Call Logs with Token Counts and Cost-Per-Interaction",
+      "type": "structured",
+      "status": "needs_acquisition",
+      "source": "OpenAI or Anthropic usage dashboard export; Michael pulls historical API logs with model, token input/output counts, and timestamp",
+      "format": "JSON / CSV",
+      "size_estimate": "< 1MB at current usage volume",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "nova",
+        "ledger"
+      ]
+    },
+    {
+      "name": "Current Onboarding Flow Step Map and Form Field Inventory",
+      "type": "filesystem",
+      "status": "needs_acquisition",
+      "source": "Internal asset review \u2014 Michael documents each onboarding screen, field labels, input types, and current time-to-first-workout from React frontend codebase",
+      "format": "Markdown spec / screen-by-screen annotated export",
+      "size_estimate": "< 100KB",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "app_experience_studio",
+        "pulse",
+        "knowledge_engineer"
+      ]
+    },
+    {
+      "name": "Fitbod and Noom App Store Review Corpus",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "Apple App Store and Google Play scrape via app-scraper or SerpAPI filtered for onboarding, coaching continuity, memory, abandonment, and motivation mentions \u2014 minimum 500 reviews per app, current quarter",
+      "format": "Chunked text embeddings in Supabase pgvector",
+      "size_estimate": "~5MB raw text; ~50MB embedded vectors at 1536 dimensions",
+      "priority": "P0",
+      "cost": "$10\u2013$20 one-time SerpAPI or apify.com scrape cost",
+      "assigned_to": [
+        "app_experience_studio",
+        "freya",
+        "compass"
+      ]
+    },
+    {
+      "name": "Behavioral Economics Digital Health Retention Evidence Base",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "PubMed, Google Scholar, and ACM Digital Library \u2014 curated corpus of 30\u201350 peer-reviewed studies on commitment devices, loss aversion, variable reward schedules, and implementation intentions in digital health and fitness apps for adults 25\u201345",
+      "format": "PDF ingestion \u2192 chunked text embeddings in Supabase pgvector",
+      "size_estimate": "~20MB raw PDFs; ~80MB embedded vectors",
+      "priority": "P0",
+      "cost": "free \u2014 open-access papers; $0 embedding cost via Supabase pgvector on free tier",
+      "assigned_to": [
+        "freya",
+        "mira",
+        "pulse"
+      ]
+    },
+    {
+      "name": "LLM Provider Pricing and Model Tier Reference Sheet",
+      "type": "structured",
+      "status": "needs_acquisition",
+      "source": "OpenAI pricing page, Anthropic pricing page, and Together.ai / Groq open-source tier docs \u2014 manually compiled by Ledger and Nova at sprint start; refreshed monthly",
+      "format": "JSON lookup table keyed by model ID with input/output cost per 1M tokens, context window, and caching availability flags",
+      "size_estimate": "< 50KB",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "ledger",
+        "nova"
+      ]
+    },
+    {
+      "name": "Existing Supabase User Profile Schema and Sample Records",
+      "type": "structured",
+      "status": "needs_acquisition",
+      "source": "Michael exports current Supabase table definitions (pg_dump schema-only) and 10\u201320 anonymized user profile rows to surface what is currently stored per user",
+      "format": "SQL schema DDL + JSON sample records",
+      "size_estimate": "< 500KB",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "knowledge_engineer",
+        "nova",
+        "pulse"
+      ]
+    },
+    {
+      "name": "Fitness App Onboarding Teardown Case Library",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "UX Collective, Mobbin.com, and Product Hunt teardown articles \u2014 curated set of 15\u201325 documented fitness and health app onboarding flows annotated with aha-moment timing, field counts, and conversion outcomes; supplemented by App Experience Studio's internal pattern library",
+      "format": "Chunked markdown/HTML embeddings in Supabase pgvector",
+      "size_estimate": "~10MB raw; ~40MB embedded",
+      "priority": "P1",
+      "cost": "$0 \u2014 Mobbin free tier sufficient for MVP; all sources publicly accessible",
+      "assigned_to": [
+        "app_experience_studio",
+        "mira"
+      ]
+    },
+    {
+      "name": "Reddit and Community Forum Fitness App Sentiment Corpus",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "Reddit API (r/Fitness, r/loseit, r/Biohackers, r/apps) and relevant fitness subreddits \u2014 threads mentioning Fitbod, Noom, AI coaching, onboarding frustration, and app abandonment; filtered to last 6 months",
+      "format": "Chunked text embeddings in Supabase pgvector",
+      "size_estimate": "~8MB raw; ~35MB embedded",
+      "priority": "P1",
+      "cost": "$0 \u2014 Reddit API free tier at current pull volume; ~100 API calls",
+      "assigned_to": [
+        "freya",
+        "mira",
+        "compass"
+      ]
+    },
+    {
+      "name": "AI Agent Persistent Memory Architecture Reference Corpus",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "LangChain documentation, MemGPT paper, OpenAI Cookbook, Anthropic prompt engineering guide, and 5\u201310 curated blog posts on hybrid structured-profile plus rolling-summarization memory patterns \u2014 assembled by Nova and Knowledge Engineer",
+      "format": "Chunked markdown/PDF embeddings in Supabase pgvector",
+      "size_estimate": "~5MB raw; ~20MB embedded",
+      "priority": "P1",
+      "cost": "free \u2014 all sources publicly available",
+      "assigned_to": [
+        "nova",
+        "knowledge_engineer"
+      ]
+    },
+    {
+      "name": "Workout Generation Prompt Templates and Token Consumption Baseline",
+      "type": "filesystem",
+      "status": "needs_acquisition",
+      "source": "Michael exports current FastAPI prompt templates used for workout generation \u2014 raw prompt strings with placeholder variables, plus 10\u201320 sampled actual API request/response pairs showing real token counts",
+      "format": "Plain text / JSON",
+      "size_estimate": "< 200KB",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "nova",
+        "ledger",
+        "knowledge_engineer"
+      ]
+    },
+    {
+      "name": "Day-1 / Day-7 / Day-30 Cohort Retention Baseline Extract",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Supabase \u2014 Pulse defines and backfills cohort retention query against existing user registration timestamps and any available session timestamps; generates pre-redesign baseline even if event coverage is sparse",
+      "format": "PostgreSQL view / CSV cohort table",
+      "size_estimate": "< 1MB at current user volume",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "pulse",
+        "compass",
+        "freya"
+      ]
+    }
+  ],
+  "external_apis": [
+    {
+      "name": "Apify App Store Review Scraper",
+      "purpose": "Automated bulk scrape of Fitbod, Noom, and MyFitnessPal App Store and Google Play reviews filtered by keyword and date range \u2014 feeds the competitive review corpus used by app_experience_studio, freya, and compass for gap analysis",
+      "cost": "$10\u2013$20 one-time run on Apify free/starter tier; ~2,000 reviews per app"
+    },
+    {
+      "name": "Reddit API (Free Tier)",
+      "purpose": "Pull community forum threads mentioning Fitbod, AI fitness coaching, onboarding friction, and app abandonment from fitness and wellness subreddits \u2014 feeds Freya and Mira's persona language pack and sentiment corpus",
+      "cost": "Free \u2014 standard Reddit API access at < 100 requests per minute well within free tier"
+    },
+    {
+      "name": "OpenAI Embeddings API (text-embedding-3-small)",
+      "purpose": "Generate vector embeddings for all RAG corpora (review corpus, behavioral economics papers, teardown case library, memory architecture docs) stored in Supabase pgvector \u2014 lowest cost embedding model at $0.02 per 1M tokens",
+      "cost": "~$2\u2013$5 one-time embedding cost for full corpus build across all 12 datasets; negligible ongoing cost for incremental updates"
+    },
+    {
+      "name": "Supabase REST API and pgvector Extension",
+      "purpose": "Primary vector store and structured data layer for all agent RAG retrieval, user profile persistence, session memory, event tracking schema, and row-level security enforcement \u2014 already in tech stack",
+      "cost": "Free tier sufficient for MVP; $25/month Pro tier required if storage exceeds 500MB or if function invocations exceed free limits at 500+ active users"
+    },
+    {
+      "name": "PubMed E-utilities API",
+      "purpose": "Programmatic retrieval of open-access behavioral economics and digital health retention research papers \u2014 feeds Freya's evidence base for retention mechanic ranking with effect sizes",
+      "cost": "Free \u2014 NIH public API with no cost at research-volume query rates"
+    }
+  ],
+  "total_estimated_cost": "$22\u2013$45 one-time data acquisition; $0\u2013$25/month ongoing depending on Supabase tier trigger at user scale"
+}

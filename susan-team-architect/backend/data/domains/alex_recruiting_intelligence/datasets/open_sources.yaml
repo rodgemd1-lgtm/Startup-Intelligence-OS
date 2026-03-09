@@ -1,0 +1,44 @@
+name: "Alex Recruiting Intelligence Open Sources"
+company_id: "alex-recruiting"
+description: "Public-source recruiting, film, outreach, and social references for Alex Recruiting."
+web_sources:
+  - title: "NCAA Division I and II Recruiting Calendars and Guides"
+    url: "https://www.ncaa.org/student-athletes/resources/recruiting-calendars/division-i-and-ii-recruiting-calendars"
+    data_type: "recruiting_intelligence"
+    tags: ["ncaa", "recruiting", "calendars", "timing"]
+  - title: "NCAA Athletics Eligibility"
+    url: "https://www.ncaa.org/student-athletes/future/amateurism"
+    data_type: "recruiting_intelligence"
+    tags: ["ncaa", "eligibility", "amateurism"]
+  - title: "Submitting a Student's Information"
+    url: "https://www.ncaa.org/sports/2014/12/16/submitting-a-student-s-information"
+    data_type: "recruiting_intelligence"
+    tags: ["ncaa", "eligibility-center", "transcripts"]
+  - title: "Hudl How to Get Noticed"
+    url: "https://www.hudl.com/support/athlete-recruiting/guides/how-to-get-noticed"
+    data_type: "recruiting_intelligence"
+    tags: ["hudl", "recruiting", "visibility"]
+  - title: "Hudl Communicate With College Coaches"
+    url: "https://www.hudl.com/support/athlete-recruiting/guides/communicate-with-college-coaches"
+    data_type: "coach_outreach"
+    tags: ["hudl", "coach outreach", "communication"]
+  - title: "Hudl Build Highlights"
+    url: "https://www.hudl.com/support/balltime/guides/highlights"
+    data_type: "recruiting_film"
+    tags: ["hudl", "highlights", "reels"]
+  - title: "Hudl Highlight Templates"
+    url: "https://www.hudl.com/blog/highlight-templates"
+    data_type: "recruiting_film"
+    tags: ["hudl", "highlight templates", "sharing"]
+  - title: "Hudl Team Messaging"
+    url: "https://www.hudl.com/solutions/sports-management/messaging"
+    data_type: "dashboard_design"
+    tags: ["hudl", "messaging", "workflow"]
+  - title: "X Vertical Video Ads"
+    url: "https://business.x.com/en/products/vertical-video-ads"
+    data_type: "social_growth"
+    tags: ["x", "vertical video", "short form"]
+  - title: "X Creative Ad Specifications"
+    url: "https://business.x.com/en/help/campaign-setup/creative-ad-specifications.html"
+    data_type: "social_growth"
+    tags: ["x", "creative specs", "video"]

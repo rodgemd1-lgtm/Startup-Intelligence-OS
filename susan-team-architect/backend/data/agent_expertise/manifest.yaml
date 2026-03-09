@@ -1,0 +1,412 @@
+version: 1
+required_sections:
+  - Doctrine
+  - What Changed
+  - Canonical Frameworks
+  - Contrarian Beliefs
+  - Innovation Heuristics
+  - Reasoning Modes
+  - Value Detection
+  - Experiment Logic
+  - Best-in-Class References
+  - Collaboration Triggers
+  - Failure Modes
+  - Output Contract
+groups:
+  research:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - research/research_systems.md
+      - research/evidence_operations.md
+      - research/training_research_studio_system.md
+      - research/recruiting_intelligence_system.md
+  studio:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - studio/design_studio_system_2026.md
+      - studio/marketing_studio_system_2026.md
+      - studio/cognitive_studio_operating_system.md
+      - studio/ux_scraper_gold_standard_2026.md
+      - studio/transformfit_design_principles_2026.md
+      - studio/slide_story_systems.md
+      - studio/executive_content_systems.md
+      - studio/transformfit_landing_page_system.md
+      - studio/workout_session_experience_system_2026.md
+  product:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - product/web_experience_2026.md
+      - product/emotional_psychology_design.md
+      - product/accessibility_and_inclusive_interaction.md
+      - studio/ux_scraper_gold_standard_2026.md
+      - product/ai_product_management_for_agentic_products.md
+  engineering:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - engineering/ai_systems_2026.md
+      - engineering/engineering_execution_doctrine.md
+      - engineering/agent_eval_and_qa.md
+      - engineering/knowledge_engineering_and_agent_state.md
+  science:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - science/exercise_science_doctrine.md
+      - science/workout_program_systems_2026.md
+      - science/nutrition_and_adherence.md
+      - science/recovery_and_readiness.md
+      - science/coaching_architecture_system.md
+  psychology:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - psychology/behavior_change_and_motivation.md
+      - psychology/gamification_ethics.md
+      - psychology/relational_endowment_architecture.md
+      - psychology/conversation_design_and_motivational_interviewing.md
+  growth:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - growth/growth_systems_and_lifecycle.md
+      - growth/content_aso_and_community.md
+      - growth/social_media_studio_system.md
+  strategy:
+    packs:
+      - shared/discovery_protocols.md
+      - shared/relationship_protocols.md
+      - shared/agent_operating_doctrine.md
+      - shared/operator_judgment.md
+      - shared/innovation_heuristics.md
+      - shared/reasoning_modes.md
+      - shared/value_detection.md
+      - shared/experiment_logic.md
+      - shared/susan_foundry_operating_system.md
+      - strategy/strategy_evidence_and_decisioning.md
+agents:
+  marcus-ux:
+    group: product
+    packs:
+      - product/web_experience_2026.md
+      - product/emotional_psychology_design.md
+      - product/accessibility_and_inclusive_interaction.md
+    outputs:
+      - experience_direction
+      - layout_system
+      - motion_map
+      - accessibility_fallbacks
+      - implementation_notes
+    handoffs:
+      - lens-accessibility
+      - mira-emotional-experience
+      - prism-brand
+  echo-neuro-design:
+    group: product
+    packs:
+      - product/emotional_psychology_design.md
+      - psychology/behavior_change_and_motivation.md
+    outputs:
+      - motivational_architecture
+      - arousal_regulation
+      - ethical_persuasion_risk
+  atlas-engineering:
+    group: engineering
+    packs:
+      - engineering/engineering_execution_doctrine.md
+      - engineering/agent_eval_and_qa.md
+    outputs:
+      - technical_architecture
+      - service_boundaries
+      - observability_plan
+      - rollout_plan
+    handoffs:
+      - nova-ai
+      - forge-qa
+      - sentinel-security
+  knowledge-engineer:
+    group: engineering
+    packs:
+      - engineering/knowledge_engineering_and_agent_state.md
+      - research/evidence_operations.md
+      - engineering/ai_systems_2026.md
+    outputs:
+      - ontology_model
+      - provenance_rules
+      - memory_boundaries
+      - retrieval_design
+  nova-ai:
+    group: engineering
+    packs:
+      - engineering/ai_systems_2026.md
+      - engineering/agent_eval_and_qa.md
+    outputs:
+      - minimum_viable_intelligence
+      - data_requirements
+      - eval_plan
+      - model_routing
+      - cost_model
+    handoffs:
+      - atlas-engineering
+      - pulse-data-science
+      - forge-qa
+  ai-evaluation-specialist:
+    group: engineering
+    packs:
+      - engineering/agent_eval_and_qa.md
+      - psychology/conversation_design_and_motivational_interviewing.md
+      - engineering/knowledge_engineering_and_agent_state.md
+    outputs:
+      - regression_matrix
+      - trace_rubric
+      - severity_bands
+      - release_recommendation
+  coach-exercise-science:
+    group: science
+    packs:
+      - science/exercise_science_doctrine.md
+      - science/recovery_and_readiness.md
+      - science/nutrition_and_adherence.md
+    outputs:
+      - programming_logic
+      - contraindications
+      - substitutions
+      - progression_rules
+      - safety_flags
+    handoffs:
+      - drift-sleep-recovery
+      - sage-nutrition
+      - shield-legal-compliance
+  freya-behavioral-economics:
+    group: psychology
+    packs:
+      - psychology/behavior_change_and_motivation.md
+      - psychology/gamification_ethics.md
+      - psychology/relational_endowment_architecture.md
+    outputs:
+      - mechanism_map
+      - persuasion_risk
+      - experiment_design
+      - measurement_plan
+    handoffs:
+      - flow-sports-psychology
+      - shield-legal-compliance
+  compass-product:
+    group: product
+    packs:
+      - strategy/strategy_evidence_and_decisioning.md
+      - growth/growth_systems_and_lifecycle.md
+    outputs:
+      - priority_matrix
+      - product_spec
+      - roadmap_sequence
+      - dependencies
+      - success_metrics
+  ai-product-manager:
+    group: product
+    packs:
+      - product/ai_product_management_for_agentic_products.md
+      - strategy/strategy_evidence_and_decisioning.md
+      - engineering/agent_eval_and_qa.md
+    outputs:
+      - rollout_sequence
+      - trust_risk_model
+      - evaluation_gates
+      - fallback_plan
+  conversation-designer:
+    group: product
+    packs:
+      - psychology/conversation_design_and_motivational_interviewing.md
+      - psychology/relational_endowment_architecture.md
+      - shared/relationship_protocols.md
+    outputs:
+      - persona_rules
+      - message_taxonomy
+      - silence_rules
+      - dialogue_eval_criteria
+  research-director:
+    group: research
+    packs:
+      - research/research_systems.md
+      - research/evidence_operations.md
+    outputs:
+      - research_brief
+      - evidence_plan
+      - contradiction_map
+      - knowledge_gaps
+    handoffs:
+      - researcher-web
+      - researcher-appstore
+      - researcher-reddit
+      - researcher-arxiv
+  deck-studio:
+    group: studio
+    packs:
+      - studio/design_studio_system_2026.md
+      - studio/marketing_studio_system_2026.md
+      - studio/slide_story_systems.md
+      - studio/executive_content_systems.md
+    outputs:
+      - narrative_arc
+      - slide_outline
+      - visual_system
+      - source_needs
+  design-studio-director:
+    group: studio
+    packs:
+      - studio/design_studio_system_2026.md
+      - studio/transformfit_design_principles_2026.md
+      - studio/transformfit_landing_page_system.md
+    outputs:
+      - design_doctrine
+      - critique_framework
+      - staffing_plan
+      - moments_of_truth_map
+  landing-page-studio:
+    group: studio
+    packs:
+      - studio/design_studio_system_2026.md
+      - studio/transformfit_design_principles_2026.md
+      - studio/transformfit_landing_page_system.md
+      - studio/marketing_studio_system_2026.md
+    outputs:
+      - emotional_arc
+      - section_blueprint
+      - motion_plan
+      - proof_plan
+  app-experience-studio:
+    group: studio
+    packs:
+      - studio/design_studio_system_2026.md
+      - studio/transformfit_design_principles_2026.md
+      - shared/discovery_protocols.md
+    outputs:
+      - experience_principles
+      - moments_of_truth_map
+      - interaction_model
+      - retention_hooks
+  marketing-studio-director:
+    group: studio
+    packs:
+      - studio/marketing_studio_system_2026.md
+      - studio/transformfit_design_principles_2026.md
+      - shared/discovery_protocols.md
+    outputs:
+      - messaging_architecture
+      - asset_portfolio
+      - proof_spine
+      - derivative_plan
+  workout-program-studio:
+    group: science
+    packs:
+      - science/workout_program_systems_2026.md
+      - science/exercise_science_doctrine.md
+      - science/nutrition_and_adherence.md
+      - science/recovery_and_readiness.md
+    outputs:
+      - program_architecture
+      - progression_rules
+      - substitution_logic
+      - reentry_logic
+    handoffs:
+      - coach-exercise-science
+      - drift-sleep-recovery
+      - sage-nutrition
+      - app-experience-studio
+  training-research-studio:
+    group: research
+    packs:
+      - research/training_research_studio_system.md
+      - research/research_systems.md
+      - research/evidence_operations.md
+      - science/workout_program_systems_2026.md
+    outputs:
+      - evidence_ladder
+      - contradiction_map
+      - product_implications
+      - program_implications
+    handoffs:
+      - research-director
+      - workout-program-studio
+      - coach-exercise-science
+  coaching-architecture-studio:
+    group: science
+    packs:
+      - science/coaching_architecture_system.md
+      - psychology/relational_endowment_architecture.md
+      - shared/relationship_protocols.md
+    outputs:
+      - coach_doctrine
+      - relationship_rules
+      - session_guidance_logic
+      - trust_boundaries
+    handoffs:
+      - freya-behavioral-economics
+      - flow-sports-psychology
+      - workout-session-studio
+  workout-session-studio:
+    group: studio
+    packs:
+      - studio/workout_session_experience_system_2026.md
+      - science/coaching_architecture_system.md
+      - shared/relationship_protocols.md
+    outputs:
+      - session_state_model
+      - spine_thread_layout
+      - motion_rules
+      - relationship_safe_zones
+    handoffs:
+      - coaching-architecture-studio
+      - flow-sports-psychology

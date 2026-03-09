@@ -1,0 +1,17 @@
+id: company-noom-inc
+name: Noom
+headquarters: New York, NY
+founded_year: 2008
+status: private
+aliases: []
+sources:
+  - id: source-noom-editorial
+    title: Noom Competitive Intelligence Profile
+    source_url: apps/nutrition/noom.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+

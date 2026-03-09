@@ -1,0 +1,44 @@
+{
+  "repo_root": "/Users/mikerodgers/ux-design-scraper",
+  "generated_root": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper",
+  "generated_docs": [
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_TO_SUSAN_SYSTEM.md",
+      "data_type": "studio_expertise"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_GOLD_STANDARD_REFERENCE.md",
+      "data_type": "studio_expertise"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_WORKFLOW_OPERATING_SYSTEM.md",
+      "data_type": "studio_templates"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_SIDEPANEL_UI_SYSTEM.md",
+      "data_type": "studio_case_library"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_CASE_LIBRARY.md",
+      "data_type": "studio_case_library"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_ANTIPATTERNS.md",
+      "data_type": "studio_antipatterns"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_MEMORY_SEED.md",
+      "data_type": "studio_memory"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_DOUBLE_BLACK_BOX_TEMPLATES.md",
+      "data_type": "studio_templates"
+    },
+    {
+      "path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/data/studio_assets/generated/ux_design_scraper/UX_SCRAPER_SCHEMA_AND_IMPORT_MODEL.md",
+      "data_type": "ux_research"
+    }
+  ],
+  "repo_chunks_stored": 59,
+  "export_import": {}
+}

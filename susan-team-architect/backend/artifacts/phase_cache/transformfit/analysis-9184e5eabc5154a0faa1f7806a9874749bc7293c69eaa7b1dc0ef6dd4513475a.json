@@ -1,0 +1,112 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "capability_gaps": [
+    {
+      "area": "Behavioral Retention & Economics",
+      "current_state": "No commitment devices, loss aversion triggers, variable reward schedules, or social proof mechanics. Users abandon at 74-77% on Day-1 with no psychological scaffolding to re-engage.",
+      "ideal_state": "Integrated behavioral economics engine with habit loops, variable reward scheduling, micro-commitment sequences, and loss framing applied at key dropout moments \u2014 especially the Day-1 through Day-7 window.",
+      "complexity": 8,
+      "agent_needed": "freya",
+      "risks": [
+        "Dark pattern accusations if loss aversion mechanics are perceived as manipulative",
+        "Over-engineering retention mechanics before validating core product value",
+        "A/B testing infrastructure required to measure which interventions work \u2014 adds engineering overhead"
+      ],
+      "cross_portfolio_synergy": "Retention frameworks are reusable across any consumer subscription product targeting habit formation \u2014 edtech, wellness, productivity apps."
+    },
+    {
+      "area": "AI Persistent Memory & Longitudinal Personalization",
+      "current_state": "No persistent agent memory \u2014 AI context resets between sessions, making each coaching interaction stateless. Personalization cannot compound over time, undermining the core AI value proposition.",
+      "ideal_state": "A lightweight user memory layer (vector store or structured profile) that persists goals, progress, preferences, injury flags, and motivational patterns across sessions \u2014 enabling coaching continuity and compounding personalization within the $200/month AI budget constraint.",
+      "complexity": 9,
+      "agent_needed": "nova",
+      "risks": [
+        "Vector store and embedding costs could breach $200/month AI budget at scale",
+        "Privacy and GDPR compliance risk from storing rich behavioral user profiles",
+        "Cold-start problem remains until sufficient interaction history is accumulated",
+        "Memory retrieval latency could degrade real-time coaching UX"
+      ],
+      "cross_portfolio_synergy": "Persistent memory architecture pattern is reusable for any AI coaching or tutoring product requiring longitudinal user context."
+    },
+    {
+      "area": "Onboarding UX & First-Session Experience",
+      "current_state": "74-77% Day-1 abandonment signals a catastrophic onboarding failure. Users likely face friction, unclear value demonstration, or mismatched expectation-setting before experiencing the AI coaching differentiation.",
+      "ideal_state": "A frictionless, emotionally resonant onboarding flow that delivers a personalized 'wow moment' within the first 3 minutes \u2014 demonstrating AI adaptability before asking for commitment, using progressive disclosure to minimize cognitive overload.",
+      "complexity": 7,
+      "agent_needed": "marcus",
+      "risks": [
+        "Solo founder has no dedicated design resource \u2014 risk of UX improvements being deprioritized under engineering load",
+        "Without user research, redesigned onboarding may solve the wrong friction points",
+        "A/B testing onboarding variants requires instrumentation that adds sprint overhead"
+      ],
+      "cross_portfolio_synergy": "Onboarding conversion frameworks applicable to any freemium consumer app with a complex AI-driven core product."
+    },
+    {
+      "area": "Emotional Narrative & Motivational Experience Design",
+      "current_state": "Product appears functionally driven \u2014 workout generation and plan adaptation without an emotional story arc or identity-based motivation system. Users are treated as data inputs rather than protagonists in a transformation journey.",
+      "ideal_state": "A narrative layer that frames the user's fitness journey as a personal story with identity transformation milestones, emotionally resonant language, and coaching voice that shifts based on user psychological profile \u2014 converting functional utility into emotional loyalty.",
+      "complexity": 6,
+      "agent_needed": "mira",
+      "risks": [
+        "Narrative tone must be calibrated per user segment \u2014 a tone that motivates one user may alienate another",
+        "Over-narrativizing a functional fitness tool risks feeling gimmicky to data-driven users",
+        "Requires tight coordination with Marcus (UX) and Flow (psychology) to avoid fragmented experience"
+      ],
+      "cross_portfolio_synergy": "Emotional narrative design frameworks transfer directly to mental health, recovery, and chronic disease management apps."
+    },
+    {
+      "area": "Data Science & Churn Prediction",
+      "current_state": "No automated or data-driven mechanism to identify high-impact product improvements or predict which users are at risk of churning. Feature prioritization is manual and founder-intuition driven.",
+      "ideal_state": "A lightweight behavioral analytics and early churn signal system that tracks leading indicators of disengagement (session frequency drops, skipped workouts, reduced interaction depth) and surfaces actionable retention triggers \u2014 operable within Supabase/PostgreSQL infrastructure.",
+      "complexity": 7,
+      "agent_needed": "pulse",
+      "risks": [
+        "Insufficient user volume at MVP stage may produce statistically unreliable churn signals",
+        "Building analytics infrastructure competes with core product development for solo founder bandwidth",
+        "Risk of over-indexing on lagging metrics (churn) rather than leading product quality signals"
+      ],
+      "cross_portfolio_synergy": "Churn prediction models and behavioral telemetry pipelines are directly reusable across any subscription consumer app."
+    },
+    {
+      "area": "Exercise Science Integrity & Personalization Validity",
+      "current_state": "AI-generated workout plans may lack grounding in validated exercise science principles \u2014 progressive overload, periodization, recovery windows, and injury prevention \u2014 risking user harm, poor results, and credibility damage.",
+      "ideal_state": "An exercise science knowledge layer embedded into the AI coaching system \u2014 validating generated workout plans against biomechanical principles, recovery requirements, and progressive overload models before delivery to users, with flagging for contraindicated movement patterns.",
+      "complexity": 7,
+      "agent_needed": "coach",
+      "risks": [
+        "Legal liability if AI-generated plans cause injury without proper safety guardrails",
+        "Exercise science constraints may conflict with AI personalization flexibility \u2014 requires careful system prompt engineering",
+        "Scope creep risk if exercise science layer becomes overly complex for MVP stage"
+      ],
+      "cross_portfolio_synergy": "Exercise science validation logic and injury flag systems are reusable across rehabilitation, physical therapy, and senior fitness products."
+    },
+    {
+      "area": "Legal, Privacy & Health Data Compliance",
+      "current_state": "No evidence of privacy framework, health data handling policies, or compliance architecture. Storing behavioral profiles, workout performance data, and psychological motivation patterns creates significant regulatory exposure \u2014 especially under GDPR, CCPA, and potential HIPAA adjacency.",
+      "ideal_state": "A lightweight compliance foundation including privacy policy, health data handling disclosures, consent flows for AI personalization data, and data minimization practices \u2014 sufficient to protect against regulatory risk and build user trust without enterprise compliance overhead.",
+      "complexity": 6,
+      "agent_needed": "shield",
+      "risks": [
+        "Health-adjacent data (recovery patterns, psychological profiles) may trigger HIPAA considerations in some jurisdictions",
+        "Non-compliance discovered post-scale creates costly retroactive remediation",
+        "Over-engineering compliance at MVP stage wastes constrained founder bandwidth"
+      ],
+      "cross_portfolio_synergy": "Privacy and health data compliance frameworks are foundational across all health, wellness, and fitness products in the portfolio."
+    },
+    {
+      "area": "Product Roadmap & Prioritization System",
+      "current_state": "Manual, founder-intuition-driven feature prioritization with no structured framework for evaluating retention impact versus development cost \u2014 creating risk of building low-leverage features while critical retention gaps remain unaddressed.",
+      "ideal_state": "A lean product management system with an ICE or RICE scoring framework, a retention-weighted prioritization model, and a structured sprint cadence \u2014 enabling the solo founder to make defensible, data-informed build decisions under bandwidth constraints.",
+      "complexity": 5,
+      "agent_needed": "compass",
+      "risks": [
+        "Framework adoption overhead may feel bureaucratic for a solo founder in rapid iteration mode",
+        "Prioritization system is only as good as the behavioral data feeding it \u2014 requires Pulse's churn signals to be meaningful",
+        "Risk of analysis paralysis if prioritization process becomes too formalized"
+      ],
+      "cross_portfolio_synergy": "Retention-weighted prioritization frameworks applicable to any early-stage consumer product with constrained engineering resources."
+    }
+  ],
+  "recommended_team_size": 8,
+  "complexity_score": 7.4
+}

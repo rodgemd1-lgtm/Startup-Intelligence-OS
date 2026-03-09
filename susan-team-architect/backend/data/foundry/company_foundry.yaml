@@ -1,0 +1,197 @@
+companies:
+  transformfit:
+    description: TransformFit is the flagship fitness company and reference implementation for Susan's workout, coaching, studio, and product systems.
+    default_mode: design
+    protocols:
+      - Use 5 Whys, JTBD, and moments of truth before proposing app or landing-page work.
+      - Use context before content in coaching and onboarding surfaces; ask about life before prescribing training.
+      - Route active-session work through workout-session-studio, coaching-architecture-studio, and workout-program-studio together.
+      - Pull training_research, exercise_catalog, user_research, session_ux, and emotional_design before redesigning session flows.
+      - Treat workout programming, session UX, and coach cognition as one integrated system.
+      - Treat personal memory as a design system: bounded, fresh, useful, and never creepy.
+    expert_councils:
+      - human-performance-council
+      - coaching-intelligence-council
+      - conversation-design-council
+      - ai-product-council
+      - product-experience-council
+      - algorithm-council
+      - social-distribution-council
+    execution_tracks:
+      - id: team_architecture
+        name: Team Architecture and Hiring
+        description: Build the human org, role scorecards, and advisory network that can actually ship the TransformFit thesis.
+        agents: [susan, steve, compass, ai-product-manager, conversation-designer, atlas]
+        data_types: [business_strategy, operational_protocols, expert_knowledge, market_research]
+        outputs: [hiring roadmap, role scorecards, advisory-network map, org build sequence]
+        notes:
+          - Conversation design is a first-class function, not a copywriting afterthought.
+          - Prompt engineering should be treated as an embedded capability across AI-facing roles, not a standalone hire.
+      - id: coaching_os
+        name: Coaching Operating System
+        description: Build the coach voice, session guidance, behavior logic, and trust architecture behind TransformFit.
+        agents: [coaching-architecture-studio, conversation-designer, coach, flow, freya]
+        data_types: [coaching_architecture, training_research, sports_psychology, behavioral_economics, predictive_coaching, consumer_failure_patterns]
+        outputs: [coach doctrine, conversation rules, escalation rules, motivation maps, cue library, intervention windows]
+        notes:
+          - Must feel like coaching, not generic AI chat.
+          - Must include personal-knowledge-map rules, staleness decay, and relational trust boundaries.
+      - id: workout_experience
+        name: Workout Session Experience
+        description: Design the active workout flow so logging, coaching, adaptation, and emotion all work together.
+        agents: [workout-session-studio, app-experience-studio, ai-product-manager, marcus, mira]
+        data_types: [session_ux, ux_research, emotional_design, user_research]
+        outputs: [session journey maps, state diagrams, UI patterns, motion rules]
+        notes:
+          - Keep the session spine stable and the coach thread dynamic.
+          - Define where remembered personal context is visible and where it stays invisible.
+      - id: workout_programs
+        name: Workout Programs and Research
+        description: Build mesocycles, progression systems, substitution logic, and evidence-backed training rules.
+        agents: [workout-program-studio, training-research-studio, coach, sage, drift]
+        data_types: [program_library, training_research, guru_research, frontier_academic_research, exercise_catalog, nutrition, sleep_recovery, exercise_science]
+        outputs: [program libraries, progression rules, substitution trees, re-entry logic, recommendation matrix, creator delta map]
+      - id: transformfit_growth
+        name: TransformFit Social and Narrative Studio
+        description: Build the social, landing, and content systems that create proof and desire outside the app.
+        agents: [social-media-studio, landing-page-studio, marketing-studio-director, prism]
+        data_types: [social_growth, content_strategy, studio_case_library, studio_memory, visual_asset]
+        outputs: [content systems, launch hooks, creator briefs, proof asset cascades]
+      - id: adaptation_lab
+        name: Adaptation and Algorithm Lab
+        description: Turn behavior, exercise science, and telemetry into adaptation models and decision rules.
+        agents: [algorithm-lab, knowledge-engineer, ai-evaluation-specialist, nova, pulse, atlas]
+        data_types: [algorithm_design, training_research, technical_docs, user_research, simulation_models, predictive_coaching, consumer_failure_patterns]
+        outputs: [scoring models, adaptation policies, telemetry specs, eval harnesses, simulation outputs, intervention triggers]
+    next_actions:
+      - Finalize the founding-team sequence: CTO, senior frontend/full-stack, AI-behavioral product design, exercise science, then conversation design.
+      - Finalize the active-session design system and coach-message architecture.
+      - Build role scorecards and interview loops for conversation designer, AI product manager, and knowledge engineer.
+      - Build the personal knowledge map and freshness-decay rules into the coach system.
+      - Build the first production-grade mesocycle library with re-entry and swap logic.
+      - Pull current creator recommendations and latest frontier literature into program evolution rather than relying on static evidence notes.
+      - Use simulation and failure-window data to prioritize intervention cues, re-entry flows, and fallback session logic.
+      - Stand up algorithm scorecards for readiness, progression, and trust.
+      - Create creator and coach beta councils for real-world validation.
+  alex-recruiting:
+    description: Alex Recruiting is the flagship recruiting domain for building athlete-brand, coach-outreach, film, and dashboard systems.
+    default_mode: foundry
+    protocols:
+      - Route film work through highlight-reel-studio before broader brand or outreach decisions.
+      - Always connect recruiting strategy to school fit, coach behavior, and response timing.
+      - Use X growth and coach outreach together; do not separate attention from conversion.
+      - Treat the dashboard as an operating console, not a reporting afterthought.
+    expert_councils:
+      - recruiting-intelligence-council
+      - social-distribution-council
+      - product-experience-council
+    execution_tracks:
+      - id: recruiting_strategy
+        name: Recruiting Strategy and School Fit
+        description: Build the school-fit logic, target lists, recruiting narrative, and offer-sequencing model.
+        agents: [recruiting-strategy-studio, steve, research-director]
+        data_types: [recruiting_intelligence, market_research, coach_outreach]
+        outputs: [target-school matrix, recruiting thesis, decision calendar, school-fit rubric]
+      - id: film_and_story
+        name: Highlight Reel and Media Storytelling
+        description: Build film strategy, clip taxonomy, reel formats, and coach-attention hooks.
+        agents: [highlight-reel-studio, prism, deck-studio]
+        data_types: [recruiting_film, visual_asset, content_strategy]
+        outputs: [reel blueprints, filming checklist, clip taxonomy, narrative packages]
+      - id: coach_pipeline
+        name: Coach Outreach and Pipeline Intelligence
+        description: Build the coach CRM, outreach sequences, timing rules, and follow-up discipline.
+        agents: [coach-outreach-studio, guide, haven]
+        data_types: [coach_outreach, recruiting_intelligence, user_research]
+        outputs: [DM/email sequences, outreach cadence, coach CRM rules, follow-up playbooks]
+      - id: recruiting_presence
+        name: X and Social Recruiting Presence
+        description: Build the public proof system that makes coaches notice and trust Jake.
+        agents: [x-growth-studio, social-media-studio, article-studio]
+        data_types: [social_growth, content_strategy, studio_case_library]
+        outputs: [posting cadence, proof-post formats, recruiting update templates, engagement loops]
+      - id: recruiting_console
+        name: Recruiting Dashboard and Intelligence Console
+        description: Build the dashboard, metrics, alerts, and recruiting board for daily operation.
+        agents: [recruiting-dashboard-studio, pulse, atlas]
+        data_types: [dashboard_design, technical_docs, recruiting_intelligence]
+        outputs: [dashboard IA, KPI spec, alerting rules, board states]
+    next_actions:
+      - Seed the recruiting intelligence corpus from NCAA, NAIA, and Hudl.
+      - Build the first highlight reel blueprint and coach-outreach sequence system.
+      - Stand up the recruiting dashboard spec and coach response model.
+  founder-intelligence-os:
+    description: Founder Intelligence OS is the product-facing workspace for the production-grade startup foundry and the command surface for turning founder knowledge into reusable company-building systems.
+    default_mode: foundry
+    protocols:
+      - Treat Startup-Intelligence-OS backend as the single operational source of truth; Founder Intelligence OS is the founder workspace and knowledge shell.
+      - Build every new company as a company genome plus evidence graph plus studio tracks plus trust layer plus memory loop.
+      - Require stage gates for new work: thesis, evidence, blueprint, build, launch, memory.
+      - Prefer official docs, primary research, and internal operating logs before tertiary summaries.
+      - Every launch, experiment, and postmortem must write back into reusable memory.
+    expert_councils:
+      - founder-ops-council
+      - product-experience-council
+      - social-distribution-council
+      - trust-governance-council
+    execution_tracks:
+      - id: foundry_kernel
+        name: Foundry Kernel and Company Genome
+        description: Build the core company model, maturity scoring, stage gates, and blueprint logic that Susan uses to stand up new companies.
+        agents: [susan, compass, atlas, research-director]
+        data_types: [business_strategy, operational_protocols, technical_docs, market_research]
+        outputs: [company genome schema, maturity scorecards, blueprint rules, stage-gate model]
+        notes:
+          - The foundry should reason from company state and dependencies, not only keyword routing.
+          - Inventory and gap maps should be generated from live data rather than stale static docs.
+      - id: domain_factory
+        name: Domain and Capability Factory
+        description: Turn missing expertise into first-class domain packs with manifests, ingestion plans, source maps, and operating cadences.
+        agents: [susan, research-ops, atlas, nova]
+        data_types: [expert_knowledge, operational_protocols, market_research, technical_docs]
+        outputs: [domain manifests, capability-gap specs, ingestion plans, source maps]
+        notes:
+          - New domains should not exist without evidence standards, source tiers, and refresh rules.
+          - Founder repo personas and frameworks should be promoted into reusable company and studio systems.
+      - id: cognitive_studios
+        name: Cognitive Studio Fabric
+        description: Build reusable design, marketing, slide, content, and critique systems that compound through memory and evaluation.
+        agents: [design-studio-director, marketing-studio-director, deck-studio, social-media-studio]
+        data_types: [studio_case_library, studio_antipatterns, studio_memory, studio_templates, studio_evals, studio_open_research]
+        outputs: [studio doctrine, critique rubrics, template cascades, asset pipelines]
+        notes:
+          - Studios should diagnose before producing.
+          - All studio systems should run 5 Whys, JTBD, moments of truth, and experiment logic.
+      - id: trust_and_governance
+        name: Trust, Security, and Governance
+        description: Build the consent, accessibility, claims, privacy, and security layer that keeps company systems safe as they scale.
+        agents: [shield, sentinel, lens, forge]
+        data_types: [legal_compliance, security, technical_docs, ux_research]
+        outputs: [launch checklists, governance baselines, consent rules, accessibility gates]
+        notes:
+          - High-stakes domains require primary-source guidance and explicit launch gates.
+          - Accessibility and privacy should be built into the operating model, not treated as cleanup.
+      - id: operator_console
+        name: Founder Operator Console
+        description: Build the metrics, dashboards, decision logs, and operating cadences a founder needs to run multiple companies from one system.
+        agents: [pulse, ledger, guide, steve]
+        data_types: [business_strategy, finance, user_research, market_research]
+        outputs: [kpi trees, dashboard specs, operating cadences, decision-log templates]
+        notes:
+          - The foundry should help founders run companies, not just design them.
+          - Metrics should connect to interventions and next actions, not sit as passive reporting.
+      - id: memory_and_eval
+        name: Memory, Experiments, and Evaluation
+        description: Create the writeback and evaluation layer so every company build compounds instead of resetting every session.
+        agents: [research-ops, forge, pulse, susan]
+        data_types: [studio_memory, studio_evals, operational_protocols, user_research]
+        outputs: [experiment registry, eval harnesses, postmortem templates, refresh cadences]
+        notes:
+          - Every studio and domain should emit memory records, critiques, and experimental outcomes.
+          - Evaluation should score diagnosis quality, proof quality, implementation realism, and reuse value.
+    next_actions:
+      - Promote Founder Intelligence OS into a first-class company and route project work through that company context.
+      - Build the company genome, evidence graph, and stage-gate model behind Susan's foundry mode.
+      - Ingest founder personas, frameworks, and operating docs as reusable expert and protocol layers.
+      - Stand up the founder operator console with KPI trees, operating cadences, and decision logs.
+      - Add trust and governance baselines so new company builds inherit privacy, security, and accessibility rules.

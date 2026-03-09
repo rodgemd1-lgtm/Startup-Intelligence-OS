@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Oracle Health overview hero",
+    "target_url": "https://www.oracle.com/health/",
+    "storage_path": "oracle-health-ai-enablement/oracle-health-overview-hero-ea3b01f08214.png",
+    "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/oracle-health-assets/oracle-health-ai-enablement/oracle-health-overview-hero-ea3b01f08214.png",
+    "reason": "Primary enterprise positioning and visual language",
+    "page_title": "Oracle Health",
+    "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/oracle_health_screenshots/oracle-health-overview-hero-ea3b01f08214.png"
+  },
+  {
+    "title": "Oracle Health EHR page",
+    "target_url": "https://www.oracle.com/health/ehr/",
+    "storage_path": "oracle-health-ai-enablement/oracle-health-ehr-page-5048f961d6e8.png",
+    "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/oracle-health-assets/oracle-health-ai-enablement/oracle-health-ehr-page-5048f961d6e8.png",
+    "reason": "Product framing, workflow clues, and proof language",
+    "page_title": "Page not found | Oracle",
+    "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/oracle_health_screenshots/oracle-health-ehr-page-5048f961d6e8.png"
+  },
+  {
+    "title": "Epic homepage",
+    "target_url": "https://www.epic.com/",
+    "storage_path": "oracle-health-ai-enablement/epic-homepage-559840392370.png",
+    "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/oracle-health-assets/oracle-health-ai-enablement/epic-homepage-559840392370.png",
+    "reason": "Competitor positioning and enterprise narrative contrast",
+    "page_title": "Epic | ...With the patient at the heart",
+    "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/oracle_health_screenshots/epic-homepage-559840392370.png"
+  },
+  {
+    "title": "athenahealth homepage",
+    "target_url": "https://www.athenahealth.com/",
+    "storage_path": "oracle-health-ai-enablement/athenahealth-homepage-6c4031a11fe7.png",
+    "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/oracle-health-assets/oracle-health-ai-enablement/athenahealth-homepage-6c4031a11fe7.png",
+    "reason": "Comparative messaging and product-market framing",
+    "page_title": "Healthcare Products & Services for Ambulatory Care | athenahealth",
+    "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/oracle_health_screenshots/athenahealth-homepage-6c4031a11fe7.png"
+  },
+  {
+    "title": "Firecrawl documentation",
+    "target_url": "https://www.firecrawl.dev/docs",
+    "storage_path": "oracle-health-ai-enablement/firecrawl-documentation-4476d7675e7c.png",
+    "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/oracle-health-assets/oracle-health-ai-enablement/firecrawl-documentation-4476d7675e7c.png",
+    "reason": "Capture workflow reference for screenshot methodology and automation docs",
+    "page_title": "Quickstart | Firecrawl",
+    "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/oracle_health_screenshots/firecrawl-documentation-4476d7675e7c.png"
+  }
+]

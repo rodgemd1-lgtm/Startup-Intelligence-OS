@@ -1,0 +1,380 @@
+{
+  "job_id": "backfill-alex-recruiting",
+  "company_id": "alex-recruiting",
+  "generated_at": "2026-03-08T02:24:20.951958+00:00",
+  "source_files": [
+    "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/companies/alex-recruiting/susan-outputs/problem-framing.json",
+    "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/companies/alex-recruiting/susan-outputs/decision-brief.json"
+  ],
+  "generated_counts": {
+    "decisions": 1,
+    "experiments": 3,
+    "metrics": 6,
+    "stage_reviews": 6
+  },
+  "stored_counts": {
+    "decisions": 1,
+    "experiments": 3,
+    "metrics": 6,
+    "stage_reviews": 6
+  },
+  "record_ids": {
+    "decisions": [
+      "backfill-alex-recruiting-recommended-path"
+    ],
+    "experiments": [
+      "backfill-alex-recruiting-exp-1",
+      "backfill-alex-recruiting-exp-2",
+      "backfill-alex-recruiting-exp-3"
+    ],
+    "metrics": [
+      "backfill-alex-recruiting-metric-1",
+      "backfill-alex-recruiting-metric-2",
+      "backfill-alex-recruiting-metric-3",
+      "backfill-alex-recruiting-metric-4",
+      "backfill-alex-recruiting-metric-5",
+      "backfill-alex-recruiting-metric-6"
+    ],
+    "stage_reviews": [
+      "thesis",
+      "evidence",
+      "blueprint",
+      "build",
+      "launch",
+      "memory"
+    ]
+  },
+  "records": {
+    "decisions": [
+      {
+        "decision_id": "backfill-alex-recruiting-recommended-path",
+        "company_id": "alex-recruiting",
+        "owner": "susan",
+        "summary": "Compliance-First Parallel Build: Lock NCAA guardrails immediately, then run infrastructure, intelligence corpus, and CRM buildout in para...",
+        "context": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+        "chosen_option": "Compliance-First Parallel Build (Recommended)",
+        "why_this_won": "Compliance-First Parallel Build: Lock NCAA guardrails immediately, then run infrastructure, intelligence corpus, and CRM buildout in parallel tracks \u2014 sequenced so no outreach logic ships before compliance gates are encoded and no dashboard ships before the data schema is validated against Jake's actual profile.",
+        "status": "active",
+        "source_refs": [
+          "decision-brief.json",
+          "problem-framing.json"
+        ],
+        "risks_accepted": [
+          "Jake's grade level and graduation year are unconfirmed \u2014 every NCAA contact window determination is invalid until this is locked; if Jake is a rising senior, contact period windows are compressed and outreach must begin immediately",
+          "Hudl API access may require institutional partnership approval that a non-commercial single-athlete project cannot obtain \u2014 if bridge confirms this, the entire film integration architecture must pivot to embed-only before highlight-reel-studio builds anything",
+          "Anthropic Claude API cost is the highest-probability budget blowout vector \u2014 without prompt batching, response caching, and strict call-volume discipline established at build time, the $500 ceiling will be breached within 60 days of full operation",
+          "Twitter/X API pricing has been volatile and tier structures have changed multiple times in 2023-2024 \u2014 ledger must validate current Basic tier cost and rate limits before x-growth-studio designs any automated posting or analytics workflow against it",
+          "NCAA compliance rules differ materially across D1, D2, and D3 and are updated annually \u2014 any compliance encoding done without confirming the 2025-2026 ruleset from an authoritative source (NCAA.org, not secondary summaries) introduces violation risk that defeats the system's core purpose",
+          "Coach outreach emails sent to .edu institutional addresses face aggressive spam filtering \u2014 if Resend is not configured with proper SPF, DKIM, and DMARC records on a custom sending domain from day one, early outreach will fail silently and damage Jake's perceived professionalism",
+          "Program fit scoring model is only as good as the underlying depth chart data freshness \u2014 stale roster data produces false-positive fit signals and wastes Jake's limited outreach bandwidth on programs with no genuine position need",
+          "Single-operator bandwidth is the most fragile constraint in the system \u2014 if Michael's available hours drop, the recruiting pipeline stalls because no redundancy or automation fallback exists for content production and CRM maintenance",
+          "Jake's profile, offers, and target list will change in real time \u2014 any scoring or CRM logic hardcoded against a static snapshot will produce misleading prioritization within 30-60 days without a defined refresh protocol",
+          "Supabase free tier row limits and bandwidth thresholds may be hit faster than assumed if real-time dashboard queries run continuously \u2014 this must be modeled before pro tier upgrade is needed mid-recruiting-season"
+        ],
+        "linked_experiments": [
+          "backfill-alex-recruiting-exp-1",
+          "backfill-alex-recruiting-exp-2",
+          "backfill-alex-recruiting-exp-3"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "immediate_agent_team": [
+            "shield",
+            "recruiting-strategy-studio",
+            "atlas",
+            "bridge",
+            "ledger",
+            "coach-outreach-studio",
+            "highlight-reel-studio",
+            "x-growth-studio",
+            "algorithm-lab"
+          ],
+          "research_first": true,
+          "studio_needed": true
+        },
+        "decided_at": "2026-03-08T02:24:20.951899+00:00"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "backfill-alex-recruiting-exp-1",
+        "company_id": "alex-recruiting",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 1. NCAA Compliance Encoding (P0, gates everything) \u2014 shield encodes D1/D2/D3 contact windows, dead periods, and permissible communication rules as machine-readable logic; outputs compliance ruleset that all other workstreams must reference before shipping",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+        "metric_moved": "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+        "leading_signal": "1. NCAA Compliance Encoding (P0, gates everything) \u2014 shield encodes D1/D2/D3 contact windows, dead periods, and permissible communication rules as machine-re...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "1. NCAA Compliance Encoding (P0, gates everything) \u2014 shield encodes D1/D2/D3 contact windows, dead periods, and permissible communication rules as machine-readable logic; outputs compliance ruleset that all other workstreams must reference before shipping",
+        "linked_decisions": [
+          "backfill-alex-recruiting-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "rank": 1
+        }
+      },
+      {
+        "experiment_id": "backfill-alex-recruiting-exp-2",
+        "company_id": "alex-recruiting",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 2. Jake Profile & Baseline Data Collection (P0, unblocks all scoring and CRM logic) \u2014 gather Jake's position, measurables, GPA, graduation year, test scores, existing interest signals, and target school list; without this no fit scoring or CRM seeding is possible",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+        "metric_moved": "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+        "leading_signal": "2. Jake Profile & Baseline Data Collection (P0, unblocks all scoring and CRM logic) \u2014 gather Jake's position, measurables, GPA, graduation year, test scores,...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "2. Jake Profile & Baseline Data Collection (P0, unblocks all scoring and CRM logic) \u2014 gather Jake's position, measurables, GPA, graduation year, test scores, existing interest signals, and target school list; without this no fit scoring or CRM seeding is possible",
+        "linked_decisions": [
+          "backfill-alex-recruiting-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "rank": 2
+        }
+      },
+      {
+        "experiment_id": "backfill-alex-recruiting-exp-3",
+        "company_id": "alex-recruiting",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 3. Infrastructure Cost Architecture (P0, must be confirmed before any paid API is activated) \u2014 ledger and atlas confirm tool stack, per-service monthly burn estimates, and alert thresholds against the $500 ceiling",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+        "metric_moved": "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+        "leading_signal": "3. Infrastructure Cost Architecture (P0, must be confirmed before any paid API is activated) \u2014 ledger and atlas confirm tool stack, per-service monthly burn...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "3. Infrastructure Cost Architecture (P0, must be confirmed before any paid API is activated) \u2014 ledger and atlas confirm tool stack, per-service monthly burn estimates, and alert thresholds against the $500 ceiling",
+        "linked_decisions": [
+          "backfill-alex-recruiting-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "rank": 3
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "backfill-alex-recruiting-metric-1",
+        "company_id": "alex-recruiting",
+        "name": "Jake has a daily-use dashboard that surfaces actionable recruiting tasks with...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-alex-recruiting-metric-2",
+        "company_id": "alex-recruiting",
+        "name": "Coach outreach cadences are tracked, sequenced, and executed consistently acr...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "Coach outreach cadences are tracked, sequenced, and executed consistently across 20+ target programs",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-alex-recruiting-metric-3",
+        "company_id": "alex-recruiting",
+        "name": "Film and highlight assets are integrated and shareable directly from coach re...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "Film and highlight assets are integrated and shareable directly from coach relationship records",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-alex-recruiting-metric-4",
+        "company_id": "alex-recruiting",
+        "name": "X/Twitter visibility campaigns run on a structured cadence tied to recruiting...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "X/Twitter visibility campaigns run on a structured cadence tied to recruiting calendar milestones",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-alex-recruiting-metric-5",
+        "company_id": "alex-recruiting",
+        "name": "Program fit scoring identifies and prioritizes best-match schools based on Ja...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "Program fit scoring identifies and prioritizes best-match schools based on Jake's athletic and academic profile",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-alex-recruiting-metric-6",
+        "company_id": "alex-recruiting",
+        "name": "All system operations remain demonstrably NCAA-compliant with documented proc...",
+        "category": "growth",
+        "owner": "pulse",
+        "definition": "All system operations remain demonstrably NCAA-compliant with documented process guardrails",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "source": "problem-framing.json"
+        }
+      }
+    ],
+    "stage_reviews": [
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "thesis",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Company definition is present.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "problem framing",
+            "5 whys",
+            "jobs to be done",
+            "target market"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951946+00:00"
+      },
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "evidence",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Track data coverage exists.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "source map",
+            "dataset coverage",
+            "contradiction notes",
+            "freshness checks"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951949+00:00"
+      },
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "blueprint",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Execution tracks, councils, and protocols are defined.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "execution tracks",
+            "expert councils",
+            "protocols",
+            "next actions"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951951+00:00"
+      },
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "build",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Trust or technical baselines are still thin.",
+        "blocking_gaps": [
+          "legal_compliance",
+          "security"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "technical baseline",
+            "trust baseline",
+            "owner mapping",
+            "rollout plan"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951953+00:00"
+      },
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "launch",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Launch-facing inputs are incomplete.",
+        "blocking_gaps": [
+          "ux_research",
+          "business_strategy"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "KPI tree",
+            "launch checklist",
+            "support plan",
+            "dashboard or scorecard"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951955+00:00"
+      },
+      {
+        "company_id": "alex-recruiting",
+        "stage_gate_id": "memory",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Memory writeback or evaluation needs seeding.",
+        "blocking_gaps": [
+          "studio_memory",
+          "studio_evals"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-alex-recruiting",
+          "required_artifacts": [
+            "decision log",
+            "experiment log",
+            "memory writeback",
+            "postmortem or critique"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:20.951956+00:00"
+      }
+    ]
+  },
+  "errors": []
+}

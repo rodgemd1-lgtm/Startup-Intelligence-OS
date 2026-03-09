@@ -1,0 +1,37 @@
+type: case_memory
+id: case_transformfit_flagship_landing_page
+company_id: transformfit
+project: TransformFit flagship landing page
+surface_type: landing_page
+audience:
+  - fitness_app_prospect
+job_to_be_done:
+  functional: understand whether the product coaches better than generic apps
+  emotional: feel seen and guided
+  social: feel like someone who trains intelligently
+belief_shift: The product coaches rather than tracks.
+moments_of_truth:
+  - first_impression
+  - first_trust_handoff
+  - first_ownership
+proof_used:
+  - first_days_sequence
+  - annotated_screenshot
+  - testimonial_specificity
+what_worked:
+  - six_beat_emotional_arc
+  - first_days_ownership_sequence
+what_not_to_copy:
+  - exact_dark_luxury_aesthetic
+  - counters_without_true_loss_logic
+outcome_signal:
+  primary: qualified_signup_rate
+  secondary:
+    - screenshot_engagement
+    - first_days_scroll_depth
+reusable_patterns:
+  - first_days_sequence
+  - proof_after_recognition
+linked_assets:
+  - /Users/mikerodgers/adapt-evolve-progress/docs/design/TRANSFORMFIT_LANDING_PAGE_VNEXT_BLUEPRINT.md
+date_captured: 2026-03-07

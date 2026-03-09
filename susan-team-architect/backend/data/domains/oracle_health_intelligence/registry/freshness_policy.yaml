@@ -1,0 +1,16 @@
+policies:
+  market_intelligence:
+    refresh_days: 30
+    rationale: Market pages, messaging, and competitive signals change quickly.
+  clinical_operational:
+    refresh_days: 90
+    rationale: Workflow and implementation truths are durable but should be revisited quarterly.
+  regulatory_enterprise:
+    refresh_days: 45
+    rationale: Policy, compliance, and procurement material need tighter monitoring.
+  marketing_narrative:
+    refresh_days: 30
+    rationale: Messaging assets and narrative packs should stay current with market movement.
+  firecrawl_screenshots:
+    refresh_days: 21
+    rationale: Visual storytelling assets should be refreshed when page narratives shift.

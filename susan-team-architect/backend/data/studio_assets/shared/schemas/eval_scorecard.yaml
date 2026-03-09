@@ -1,0 +1,21 @@
+type: studio_eval_scorecard
+id: scorecard_studio_output_v1
+dimensions:
+  diagnosis_quality: 1-5
+  value_detection: 1-5
+  proof_quality: 1-5
+  emotional_precision: 1-5
+  originality: 1-5
+  concept_quality: 1-5
+  reuse_value: 1-5
+  experiment_quality: 1-5
+  implementation_realism: 1-5
+fail_conditions:
+  - no_diagnosed_job
+  - no_visible_proof
+  - generic_language
+  - no_validation_path
+  - no_reusable_lesson
+ship_threshold:
+  minimum_score_per_dimension: 3
+  target_score_for_diagnosis_proof_and_realism: 4

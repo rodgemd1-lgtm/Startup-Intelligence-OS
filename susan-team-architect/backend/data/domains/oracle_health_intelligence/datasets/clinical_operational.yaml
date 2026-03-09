@@ -1,0 +1,37 @@
+layer: clinical_operational
+datasets:
+  - id: uscdi_reference
+    name: United States Core Data for Interoperability
+    source_type: official_policy
+    source_url: "https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi"
+    acquisition_method: firecrawl_web_capture
+    data_type: technical_docs
+    outputs:
+      - interoperability_constraints
+      - workflow_data_requirements
+  - id: fhir_reference
+    name: HL7 FHIR specification
+    source_type: standards_body
+    source_url: "https://build.fhir.org/"
+    acquisition_method: firecrawl_web_capture
+    data_type: technical_docs
+    outputs:
+      - integration_reference_pack
+      - interoperability_language
+  - id: clinician_workflow_signals
+    name: Clinician workflow, burden, and implementation pain sources
+    source_type: mixed_research
+    acquisition_method: web_plus_community_research
+    data_type: user_research
+    outputs:
+      - workflow_friction_map
+      - buyer_language_pack
+      - screenshot_targets
+  - id: implementation_case_materials
+    name: Implementation case studies and customer evidence
+    source_type: official_vendor_and_customer
+    acquisition_method: web_capture
+    data_type: market_research
+    outputs:
+      - deployment_risk_map
+      - implementation_proof_pack

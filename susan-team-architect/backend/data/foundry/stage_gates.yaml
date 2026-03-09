@@ -1,0 +1,49 @@
+gates:
+  - id: thesis
+    name: Thesis Gate
+    summary: Confirm the problem, user, and value thesis before broader build-out.
+    required_artifacts:
+      - problem framing
+      - 5 whys
+      - jobs to be done
+      - target market
+  - id: evidence
+    name: Evidence Gate
+    summary: Confirm that the company has enough grounded evidence and datasets to reason from reality.
+    required_artifacts:
+      - source map
+      - dataset coverage
+      - contradiction notes
+      - freshness checks
+  - id: blueprint
+    name: Blueprint Gate
+    summary: Confirm execution tracks, councils, and operating protocols before implementation.
+    required_artifacts:
+      - execution tracks
+      - expert councils
+      - protocols
+      - next actions
+  - id: build
+    name: Build Gate
+    summary: Confirm implementation scaffolding, trust baselines, and operator ownership before shipping.
+    required_artifacts:
+      - technical baseline
+      - trust baseline
+      - owner mapping
+      - rollout plan
+  - id: launch
+    name: Launch Gate
+    summary: Confirm metrics, UX safeguards, and operating rhythms before release.
+    required_artifacts:
+      - KPI tree
+      - launch checklist
+      - support plan
+      - dashboard or scorecard
+  - id: memory
+    name: Memory Gate
+    summary: Confirm that experiments, decisions, and learnings are written back into reusable memory.
+    required_artifacts:
+      - decision log
+      - experiment log
+      - memory writeback
+      - postmortem or critique

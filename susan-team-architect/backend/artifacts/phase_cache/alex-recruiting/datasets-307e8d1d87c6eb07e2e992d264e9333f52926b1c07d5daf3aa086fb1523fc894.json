@@ -1,0 +1,219 @@
+{
+  "datasets": [
+    {
+      "name": "Jake Athletic & Academic Profile",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Direct intake from Jake and family \u2014 position, measurables (height, weight, 40 time, vertical, bench), GPA, graduation year, standardized test scores, intended major, current offer status, camp attendance history",
+      "format": "JSON / Supabase table (athletes)",
+      "size_estimate": "< 1KB structured record; single row",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "recruiting_strategy_studio",
+        "algorithm_lab",
+        "coach_outreach_studio",
+        "shield",
+        "recruiting_dashboard_studio"
+      ]
+    },
+    {
+      "name": "NCAA Contact Rule Calendar \u2014 D1/D2/D3 by Grade Level",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "NCAA.org official legislative database, NCAA Division I Manual (Bylaw 13), Division II Manual, Division III Manual \u2014 machine-readable dead periods, quiet periods, evaluation periods, and contact periods as date ranges by division and recruit class year for 2025-2027 cycles",
+      "format": "JSON date-range objects / Supabase table (ncaa_calendar_windows)",
+      "size_estimate": "~50KB structured; ~200 date-range records across divisions",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "shield",
+        "coach_outreach_studio",
+        "recruiting_strategy_studio",
+        "recruiting_dashboard_studio",
+        "x_growth_studio"
+      ]
+    },
+    {
+      "name": "Target School & Coach Contact Database",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Manual seed from Jake/family target list; enriched via program websites, staff directories, and 247Sports/On3 coaching staff pages \u2014 institution, division, position coach name, recruiting coordinator, email format pattern, Twitter/X handle, prior interaction history",
+      "format": "JSON / Supabase tables (programs, coaches, interactions)",
+      "size_estimate": "~500KB; 20-50 program records, 2-5 coaches per program",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "coach_outreach_studio",
+        "recruiting_strategy_studio",
+        "algorithm_lab",
+        "recruiting_dashboard_studio",
+        "atlas"
+      ]
+    },
+    {
+      "name": "Infrastructure Cost Model & API Burn Estimates",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Anthropic pricing page, Supabase pricing page, Vercel pricing page, Resend pricing page, Twitter/X API developer portal \u2014 per-service monthly burn at projected call volumes with alert thresholds",
+      "format": "JSON cost model / Supabase table (cost_model_snapshots)",
+      "size_estimate": "< 10KB; 6-8 service entries with tiered volume scenarios",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "ledger",
+        "atlas",
+        "algorithm_lab"
+      ]
+    },
+    {
+      "name": "NCAA Social Media Interaction Ruleset",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "NCAA.org legislative database \u2014 bylaws governing athlete-initiated social media contact with coaches, permissible vs. impermissible interaction types (tagging, DMs, reposts, quote tweets) by division and contact period; NCAA social media guidance documents",
+      "format": "Chunked text embeddings / vector store (pgvector in Supabase)",
+      "size_estimate": "~200KB source text; ~500 embedded chunks",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "shield",
+        "x_growth_studio",
+        "coach_outreach_studio"
+      ]
+    },
+    {
+      "name": "Program Fit Scoring Dimensions Dataset",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Composite: depth chart data from 247Sports/On3/ESPN roster pages (manual or scraped), academic program availability from institution websites, geographic distance calculation from Jake's location, division realism benchmarks from recruiting profile comparables",
+      "format": "JSON / Supabase table (program_fit_scores) with dimension columns: position_need_score, academic_match_score, geo_fit_score, composite_score",
+      "size_estimate": "~100KB; one scored record per target program, refreshed weekly",
+      "priority": "P1",
+      "cost": "free (manual assembly) or ~$20/month if On3/247Sports structured data feed required",
+      "assigned_to": [
+        "algorithm_lab",
+        "recruiting_strategy_studio",
+        "recruiting_dashboard_studio"
+      ]
+    },
+    {
+      "name": "Coach Outreach Template Library",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "Coach Outreach Studio generated content \u2014 initial introduction templates, film share messages, follow-up cadence sequences, D1/D2/D3 tone variants, reviewed against Shield compliance brief; stored for RAG retrieval during daily outreach drafting",
+      "format": "Chunked text embeddings / vector store (pgvector in Supabase); raw templates also stored as Supabase table (outreach_templates)",
+      "size_estimate": "~150KB source text; ~400 embedded chunks across 30-50 template variants",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "coach_outreach_studio",
+        "shield",
+        "recruiting_dashboard_studio"
+      ]
+    },
+    {
+      "name": "Hudl Asset Inventory",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Jake's Hudl account \u2014 clip titles, upload dates, view counts, public share link URLs, highlight reel version history, and embed codes; gathered via Hudl web interface if API access is unavailable to non-institutional users",
+      "format": "JSON / Supabase table (film_assets) with embed_url, clip_title, upload_date, view_count, reel_version",
+      "size_estimate": "~50KB; 10-30 clip records",
+      "priority": "P1",
+      "cost": "free (Hudl account assumed existing); $0 if embed fallback; TBD if Hudl API partnership required",
+      "assigned_to": [
+        "coach_outreach_studio",
+        "recruiting_dashboard_studio",
+        "x_growth_studio",
+        "atlas"
+      ]
+    },
+    {
+      "name": "X/Twitter Recruiting Content Corpus & Calendar",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "X Growth Studio generated templates \u2014 milestone announcement formats, film drop post patterns, coach-tag conventions, recruiting community norms sourced from comparable recruit accounts and recruiting Twitter community observation (2024-2025 cycle)",
+      "format": "Chunked text embeddings / vector store (pgvector in Supabase); structured content calendar as Supabase table (content_calendar)",
+      "size_estimate": "~100KB source text; ~300 embedded post templates and calendar entries",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "x_growth_studio",
+        "shield",
+        "recruiting_dashboard_studio"
+      ]
+    },
+    {
+      "name": "Recruiting Pipeline Baseline (CRM Seed State)",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Intake from Jake and family \u2014 any existing coach interest signals, camp invitations received, unofficial visit history, informal offers, prior email or social media contact with coaching staffs; imported as CRM initial state before any automated outreach begins",
+      "format": "JSON / Supabase tables (pipeline_stages, coach_interactions) with stage enum: [identified, contacted, film_shared, responded, visit_scheduled, offer_extended]",
+      "size_estimate": "~50KB; variable by prior activity; likely 0-20 historical interaction records",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "coach_outreach_studio",
+        "recruiting_strategy_studio",
+        "recruiting_dashboard_studio",
+        "atlas"
+      ]
+    },
+    {
+      "name": "Competitor Platform Teardown \u2014 Workflow & Friction Analysis",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "Community research: NCSA, BeRecruited, Athlete1, On3 recruit profiles \u2014 user reviews (Reddit r/CFB, r/sportsrecruiting, Twitter), product walkthrough documentation, App Store/Play Store reviews; synthesized into friction map and feature gap analysis",
+      "format": "Chunked text embeddings / vector store (pgvector in Supabase); summary teardown document in filesystem",
+      "size_estimate": "~300KB source text; ~800 embedded chunks",
+      "priority": "P2",
+      "cost": "free",
+      "assigned_to": [
+        "recruiting_strategy_studio",
+        "coach_outreach_studio",
+        "recruiting_dashboard_studio"
+      ]
+    },
+    {
+      "name": "Family Oversight Requirements & Notification Preferences",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Direct intake from Jake's family \u2014 preferred visibility format (dashboard view, email digest, SMS summary), reporting frequency, notification thresholds for offer signals, compliance risk events, and pipeline milestone changes",
+      "format": "JSON / Supabase table (family_prefs) with fields: preferred_format, digest_frequency, alert_triggers[], timezone",
+      "size_estimate": "< 5KB; single configuration record",
+      "priority": "P2",
+      "cost": "free",
+      "assigned_to": [
+        "recruiting_dashboard_studio",
+        "atlas",
+        "shield"
+      ]
+    }
+  ],
+  "external_apis": [
+    {
+      "name": "Anthropic Claude API",
+      "purpose": "AI-assisted outreach drafting, program fit scoring queries, daily brief summarization, and compliance rule interpretation across all agent workflows",
+      "cost": "Estimated $80-150/month at projected operating volume \u2014 claude-sonnet-4-6 at ~$0.08-0.10/run for 6 agents; claude-haiku-4-5 at ~$0.02/run for Ledger; daily operating cadence with prompt batching and response caching to hold under $150/month ceiling"
+    },
+    {
+      "name": "Supabase (Postgres + pgvector + Auth + Storage)",
+      "purpose": "Primary data persistence layer for all structured CRM tables, NCAA calendar data, pipeline stages, film asset inventory, and vector store for RAG retrieval across all agents",
+      "cost": "Free tier (500MB DB, 2GB bandwidth) sufficient for first 90 days; Pro tier at $25/month if volume exceeds free thresholds \u2014 budget assumption: $0-25/month"
+    },
+    {
+      "name": "Twitter/X API v2",
+      "purpose": "Post scheduling for recruiting content calendar, mention and coach-tag monitoring, profile analytics tracking for Jake's recruiting visibility campaigns",
+      "cost": "Basic tier: $100/month \u2014 covers 10K posts/month write access and basic analytics; this is the confirmed budget assumption pending Ledger validation"
+    },
+    {
+      "name": "Vercel",
+      "purpose": "Next.js deployment for recruiting dashboard and daily brief surface; CI/CD pipeline for Atlas-managed frontend",
+      "cost": "Hobby tier: free (sufficient for single-athlete internal tool); Pro tier at $20/month only if preview deployments or team collaboration features are required \u2014 budget assumption: $0/month"
+    },
+    {
+      "name": "Resend",
+      "purpose": "Transactional email delivery for coach outreach sequences and family digest notifications; chosen for developer-friendly API and lower cost structure vs. Postmark",
+      "cost": "Free tier: 100 emails/day; Pro tier: $20/month for 10K emails/month \u2014 budget assumption: $0-20/month"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+id: scientific-push-pull-legs-12w
+name: Scientific Push Pull Legs
+goal: high-volume hypertrophy with a strength base
+target_athlete: intermediate to advanced lifters with high adherence and full-gym access
+training_age: intermediate_advanced
+frequency_days: 6
+duration_weeks: 12
+session_length_minutes: 80
+equipment_profile: full_gym
+split: push_pull_legs
+phases:
+  - {weeks: 1-3, name: accumulation_1, focus: baseline volume and exercise familiarity}
+  - {weeks: 4, name: deload_1, focus: reduce fatigue}
+  - {weeks: 5-7, name: accumulation_2, focus: ramp weekly set volume toward MRV}
+  - {weeks: 8, name: deload_2, focus: recover}
+  - {weeks: 9-11, name: intensification, focus: heavier compounds and hard accessories}
+  - {weeks: 12, name: deload_3, focus: exit the block fresh}
+progression:
+  compounds: double progression within 6-10 or 8-12 ranges
+  isolations: progress reps first, then minimal load increases
+  stall_rule: remove one set from the lagging movement before resetting load
+deload:
+  weeks: [4, 8, 12]
+  volume_reduction: 40-50 percent
+  intensity_reduction: 10-15 percent
+reentry:
+  one_missed_session: continue the split where it left off
+  one_missed_week: resume with the previous week at 90 percent volume
+  two_plus_weeks: restart the current mesocycle at week 1
+sessions:
+  - day: push_a
+    focus: chest-biased push
+    exercises:
+      - {name: Barbell Bench Press, sets: 4, reps: 6-10, rir: 2, rest_seconds: 150, substitutions: [DB Bench Press]}
+      - {name: Incline DB Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Incline Machine Press]}
+      - {name: Cable Fly, sets: 3, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Pec Deck]}
+      - {name: Overhead Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Seated DB Press]}
+      - {name: Lateral Raise, sets: 4, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Cable Lateral Raise]}
+      - {name: Tricep Pushdown, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Overhead Cable Extension]}
+  - day: pull_a
+    focus: back-width bias
+    exercises:
+      - {name: Pull Up, sets: 4, reps: 6-10, rir: 2, rest_seconds: 120, substitutions: [Lat Pulldown]}
+      - {name: Lat Pulldown, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Assisted Pull Up]}
+      - {name: Seated Cable Row, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Chest Supported Row]}
+      - {name: Face Pull, sets: 4, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Rear Delt Fly]}
+      - {name: Barbell Curl, sets: 3, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [EZ Bar Curl]}
+      - {name: Hammer Curl, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 60, substitutions: [Cable Hammer Curl]}
+  - day: legs_a
+    focus: quad-biased legs
+    exercises:
+      - {name: Barbell Back Squat, sets: 4, reps: 6-10, rir: 2, rest_seconds: 180, substitutions: [Hack Squat]}
+      - {name: Leg Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Split Squat]}
+      - {name: Hack Squat, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Goblet Squat]}
+      - {name: Leg Extension, sets: 4, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Spanish Squat]}
+      - {name: Leg Curl, sets: 3, reps: 10-15, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Standing Calf Raise, sets: 5, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [Seated Calf Raise]}
+  - day: push_b
+    focus: shoulder-biased push
+    exercises:
+      - {name: Overhead Press, sets: 4, reps: 6-10, rir: 2, rest_seconds: 150, substitutions: [Machine Shoulder Press]}
+      - {name: Incline Barbell Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Incline DB Press]}
+      - {name: Machine Shoulder Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Seated DB Press]}
+      - {name: Cable Lateral Raise, sets: 4, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [DB Lateral Raise]}
+      - {name: High-to-Low Cable Fly, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Pec Deck]}
+      - {name: Skull Crusher, sets: 3, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [Overhead Cable Extension]}
+  - day: pull_b
+    focus: thickness and biceps
+    exercises:
+      - {name: Barbell Row, sets: 4, reps: 6-10, rir: 2, rest_seconds: 150, substitutions: [Chest Supported Row]}
+      - {name: Chest Supported Row, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Cable Row]}
+      - {name: Single Arm DB Row, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Machine Row]}
+      - {name: Straight Arm Pulldown, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Machine Pullover]}
+      - {name: Incline DB Curl, sets: 3, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [Cable Curl]}
+      - {name: Cable Curl, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Preacher Curl]}
+  - day: legs_b
+    focus: hamstring and glute bias
+    exercises:
+      - {name: Romanian Deadlift, sets: 4, reps: 8-12, rir: 2, rest_seconds: 150, substitutions: [DB Romanian Deadlift]}
+      - {name: Hip Thrust, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Glute Bridge]}
+      - {name: Bulgarian Split Squat, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Reverse Lunge]}
+      - {name: Leg Curl, sets: 4, reps: 10-15, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Abductor Machine, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Cable Abduction]}
+      - {name: Seated Calf Raise, sets: 4, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Standing Calf Raise]}
+coaching_notes:
+  week_one: emphasize that this plan assumes high consistency and recovery discipline
+  missed_session: never cram two PPL days together just to stay on calendar
+coach_cue_profile:
+  base_profile: high_volume_hypertrophy
+  critical_windows: [first_completed_session, first_load_jump, fatigue_spike, deload_resistance, plateau_two_sessions]
+  moment_bias: protect recovery discipline and keep high-volume ambition from becoming junk fatigue

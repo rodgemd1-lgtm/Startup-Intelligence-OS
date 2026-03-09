@@ -1,0 +1,45 @@
+layer: market_intelligence
+datasets:
+  - id: oracle_health_official_overview
+    name: Oracle Health official overview
+    source_type: official_vendor
+    source_url: "https://www.oracle.com/health/"
+    acquisition_method: firecrawl_web_capture
+    data_type: market_research
+    outputs:
+      - positioning_extract
+      - screenshot_pack
+      - buyer_claims
+  - id: oracle_health_ehr_pages
+    name: Oracle Health EHR and clinical suite pages
+    source_type: official_vendor
+    source_url: "https://www.oracle.com/health/ehr/"
+    acquisition_method: firecrawl_web_capture
+    data_type: market_research
+    outputs:
+      - feature_map
+      - screenshot_pack
+      - workflow_claims
+  - id: competitor_landscape
+    name: Epic, athenahealth, MEDITECH, Veradigm vendor pages
+    source_type: competitor_vendor
+    source_urls:
+      - "https://www.epic.com/"
+      - "https://www.athenahealth.com/"
+      - "https://ehr.meditech.com/"
+      - "https://veradigm.com/"
+    acquisition_method: firecrawl_web_capture
+    data_type: market_research
+    outputs:
+      - competitor_teardowns
+      - screenshot_pack
+      - positioning_gap_map
+  - id: analyst_and_news_monitor
+    name: Analyst and healthcare IT news coverage
+    source_type: secondary_research
+    acquisition_method: monitored_search
+    data_type: market_research
+    outputs:
+      - trend_briefs
+      - category_language
+      - contradiction_report

@@ -1,0 +1,134 @@
+- id: first_completed_session
+  moment: first real win
+  trigger_logic: first workout marked complete within the program
+  predictive_value: strong chance to convert novelty into ownership
+  primary_agents: [coach, flow]
+  cue_principles:
+    - specific acknowledgment
+    - tie effort to identity
+    - preview the next step
+  default_cue: "That counted. You showed up, learned the flow, and now this plan belongs to you."
+  profile_variants:
+    beginner_foundations: "That was your first real rep in this cycle. Keep it simple: show up again and let consistency do the work."
+    mixed_strength_hypertrophy: "Good. The split is live now. The next session is where we make the rhythm feel repeatable."
+    home_gym_momentum: "That proves the setup works in your real environment, not just in theory."
+  actions: [celebrate_completion, preview_next_session]
+  avoid: [generic_hype, overclaiming_results]
+- id: first_load_jump
+  moment: competence proof
+  trigger_logic: first successful load or rep progression on a main lift
+  predictive_value: strengthens competence and trust in progression rules
+  primary_agents: [coach, flow]
+  cue_principles:
+    - explain why progression happened
+    - make progress feel earned
+    - connect today to future compounding
+  default_cue: "That jump was earned. The system moved because your work justified it."
+  profile_variants:
+    beginner_foundations: "Small jumps are the game here. Quiet progress beats chasing numbers."
+    mixed_strength_hypertrophy: "That’s the kind of progression we keep. Heavy enough to matter, controlled enough to repeat."
+  actions: [reinforce_progression_logic]
+  avoid: [max_out_language, reckless_intensity]
+- id: first_missed_session
+  moment: identity threat
+  trigger_logic: first missed workout in the current block
+  predictive_value: high risk of shame spiral and schedule drift
+  primary_agents: [coach, freya]
+  cue_principles:
+    - forgiving stakes
+    - identity protection
+    - immediate re-entry
+  default_cue: "One miss changes nothing important. The win now is getting the next session back on the calendar."
+  profile_variants:
+    beginner_foundations: "Missing once is normal. We keep the chain by showing up next time, not by overthinking this one."
+    busy_intermediate: "Life pressed on the schedule. We adjust the week and keep the plan intact."
+  actions: [reschedule_next_session, preserve_identity]
+  avoid: [guilt, streak_shaming]
+- id: second_miss_window
+  moment: momentum collapse risk
+  trigger_logic: two misses inside 7 to 10 days
+  predictive_value: elevated dropout and restart risk
+  primary_agents: [coach, freya, flow]
+  cue_principles:
+    - shrink threat
+    - reduce scope
+    - restart momentum with a smaller target
+  default_cue: "We’re not trying to win the whole month right now. We’re trying to recover the next clean session."
+  profile_variants:
+    beginner_foundations: "Let’s cut the target down and get one good session done."
+    mixed_strength_hypertrophy: "We’ll protect the split, lower the pressure, and re-enter intelligently."
+  actions: [offer_fallback_session, reduce_next_session_load]
+  avoid: [all_or_nothing_talk]
+- id: plateau_two_sessions
+  moment: plateau interpretation
+  trigger_logic: two consecutive flat or underperforming sessions on the same anchor lift
+  predictive_value: users start doubting the plan rather than interpreting fatigue
+  primary_agents: [coach, flow]
+  cue_principles:
+    - normalize variance
+    - explain adjustment
+    - preserve trust
+  default_cue: "This looks more like fatigue or stale exposure than failure. I’m adjusting the path so the next good session means more."
+  profile_variants:
+    mixed_strength_hypertrophy: "We’re holding load and changing exposure. That protects strength instead of pretending grind equals progress."
+    home_gym_momentum: "This is where tighter exercise rotation matters more than forcing another jump."
+  actions: [hold_load, adjust_volume_or_swap]
+  avoid: [catastrophizing, instant_program_rewrite]
+- id: fatigue_spike
+  moment: recovery mismatch
+  trigger_logic: low recovery markers or repeated high-RPE overshoot with falling performance
+  predictive_value: users often misread fatigue as lack of discipline
+  primary_agents: [coach, drift]
+  cue_principles:
+    - separate fatigue from character
+    - protect adherence
+    - scale rather than quit
+  default_cue: "You do not need a perfect day to keep momentum. You need the right dose for the day you actually have."
+  actions: [reduce_sets, lower_load, extend_rest]
+  avoid: [moralizing_fatigue]
+- id: equipment_mismatch
+  moment: environment mismatch
+  trigger_logic: planned exercise repeatedly skipped or swapped because required equipment is unavailable
+  predictive_value: users may misread substitutions as a broken program
+  primary_agents: [coach]
+  cue_principles:
+    - explain training intent
+    - make substitutions feel first-class
+    - remove gym-chaos shame
+  default_cue: "The target today is the stimulus, not the exact machine. I’m swapping the tool, not lowering the standard."
+  actions: [offer_substitution, explain_equivalent_stimulus]
+  avoid: [making swaps feel second_rate]
+- id: reentry_after_gap
+  moment: restart window
+  trigger_logic: workout resumed after 7 or more days without training
+  predictive_value: biggest chance to lose confidence before the first working set
+  primary_agents: [coach, flow, freya]
+  cue_principles:
+    - lower intimidation
+    - make the comeback feel smart
+    - reconnect to prior identity
+  default_cue: "We’re not starting over. We’re stepping back in at a load you can trust and build from immediately."
+  actions: [reentry_protocol, reduce_threat]
+  avoid: [punitive_makeup_work]
+- id: deload_resistance
+  moment: recovery misunderstanding
+  trigger_logic: user resists or overrides planned deload structure
+  predictive_value: higher fatigue accumulation and lower long-run trust
+  primary_agents: [coach, drift]
+  cue_principles:
+    - explain the purpose of restraint
+    - link less now to more later
+  default_cue: "This easier week is not lost time. It is how we protect the next hard block from becoming junk fatigue."
+  actions: [explain_deload_intent]
+  avoid: [clinical_jargon, sounding_defensive]
+- id: program_completion
+  moment: chapter close
+  trigger_logic: final programmed session completed
+  predictive_value: strong opportunity to preserve continuity into the next block
+  primary_agents: [coach, flow]
+  cue_principles:
+    - summarize earned progress
+    - connect end to next phase
+  default_cue: "You finished the block. Now we carry what you built into the next phase instead of treating this like a finish line."
+  actions: [summarize_progress, tee_up_next_program]
+  avoid: [empty_congratulations]

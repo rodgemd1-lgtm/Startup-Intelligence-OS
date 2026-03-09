@@ -1,0 +1,17 @@
+id: company-fitbod-inc
+name: Fitbod
+headquarters: San Francisco, CA
+founded_year: 2015
+status: private
+aliases: []
+sources:
+  - id: source-fitbod-editorial
+    title: Fitbod Competitive Intelligence Profile
+    source_url: apps/fitness/fitbod.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+

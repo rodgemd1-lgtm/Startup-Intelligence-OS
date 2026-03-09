@@ -1,0 +1,51 @@
+{
+  "company": "Alex Recruiting Project",
+  "domain": "Athlete Recruiting Intelligence & Operations",
+  "stage": "Growth System Buildout",
+  "website": "https://alex-recruiting.local",
+  "founding_date": "2026",
+  "founders": [
+    {
+      "name": "Michael Rodgers",
+      "background": "AI systems architect building recruiting intelligence, media, and dashboard systems for high school athlete visibility and college coach engagement"
+    }
+  ],
+  "product_description": "An end-to-end athlete recruiting operating system purpose-built around Jake's college football recruiting journey. The platform integrates highlight reel curation and film management, coach relationship intelligence and outreach tracking, social media visibility amplification (primarily X/Twitter), a centralized recruiting dashboard, and a structured daily operating rhythm. It coordinates all recruiting touchpoints \u2014 from initial coach interest signals to follow-up cadences \u2014 into one unified, NCAA-compliant system. The goal is to replace fragmented manual workflows with an AI-assisted, data-driven recruiting intelligence layer that gives Jake a measurable edge in recruiting exposure and coach relationship development.",
+  "tech_stack": [
+    "Next.js",
+    "Supabase",
+    "TypeScript",
+    "Anthropic (Claude AI)",
+    "Potential: Vercel (deployment)",
+    "Potential: Resend or Postmark (email outreach)",
+    "Potential: Twitter/X API (social visibility tracking)",
+    "Potential: Hudl API or embed integration (film access)"
+  ],
+  "target_market": "College football recruiting stakeholders centered on Jake's recruiting journey, including Jake as the primary athlete, his family as oversight operators, college football coaching staffs at target programs, and recruiting coordinators at Division I, II, and III institutions evaluating skill-position players",
+  "funding_status": "Internal Initiative (self-funded, non-commercial)",
+  "key_competitors": [
+    "Hudl workflows",
+    "NCSA (Next College Student Athlete) workflows",
+    "Manual recruiting consultants",
+    "Athlete-run social media recruiting",
+    "RecruitingCOM platforms",
+    "On3 / 247Sports recruit profile systems",
+    "BeRecruited athlete profiles",
+    "Athlete1 recruiting tools"
+  ],
+  "current_challenges": [
+    "Need a stronger recruiting intelligence corpus covering target schools, coaches, depth charts, and program fit signals",
+    "Need tighter integration between film libraries, coach outreach sequences, and X (Twitter) visibility campaigns",
+    "Need a daily-use dashboard and structured operating rhythm to maintain consistent recruiting activity",
+    "Need better systemization of recruiting content creation, distribution, and coach follow-up cadences",
+    "Need clear performance metrics to measure recruiting pipeline health and coach engagement over time",
+    "Need a scalable method to identify and prioritize best-fit programs based on Jake's athletic profile and academic standing"
+  ],
+  "constraints": [
+    "Single-athlete focus with limited operator time available for system maintenance and content production",
+    "High trust sensitivity with coaches, families, and recruiting relationships requiring careful tone and professionalism",
+    "Needs clear NCAA-safe process guidance to avoid recruiting violations related to contact rules, dead periods, and permissible communication",
+    "Monthly operating budget capped at $500 USD, requiring cost-efficient tooling and API usage",
+    "Must remain flexible as Jake's recruiting profile, offers, and target school list evolve in real time"
+  ]
+}

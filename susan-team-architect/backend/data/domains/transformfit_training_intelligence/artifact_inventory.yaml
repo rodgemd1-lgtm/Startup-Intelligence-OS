@@ -1,0 +1,78 @@
+artifacts:
+  - id: transformfit_team_architecture
+    name: TransformFit Team Architecture and Hiring Strategy
+    data_type: business_strategy
+    stage_gates: [thesis, blueprint, build]
+    status: active
+    path: editorial/TRANSFORMFIT_TEAM_ARCHITECTURE_AND_HIRING_STRATEGY.md
+    summary: Minimum viable team, expansion sequence, competitor staffing lessons, and hiring triggers for TransformFit.
+  - id: transformfit_role_atlas
+    name: TransformFit Role Atlas and Scorecards
+    data_type: expert_knowledge
+    stage_gates: [blueprint, build]
+    status: active
+    path: editorial/TRANSFORMFIT_ROLE_ATLAS_AND_SCORECARDS_2026.md
+    summary: Role-by-role ownership, 10x signals, interview scorecards, anti-signals, and work-sample expectations.
+  - id: transformfit_conversation_design
+    name: TransformFit Conversation Design and Coaching System
+    data_type: sports_psychology
+    stage_gates: [evidence, blueprint, build]
+    status: active
+    path: editorial/TRANSFORMFIT_CONVERSATION_DESIGN_AND_COACHING_SYSTEM.md
+    summary: Coaching persona system, motivational interviewing logic, trust boundaries, and conversation evaluation rules.
+  - id: transformfit_behavior_change_system
+    name: TransformFit Behavior Change and Adherence System
+    data_type: behavioral_economics
+    stage_gates: [evidence, blueprint, build, memory]
+    status: active
+    path: editorial/TRANSFORMFIT_BEHAVIOR_CHANGE_AND_ADHERENCE_SYSTEM.md
+    summary: Behavior-change frameworks, intervention map, emotional states, experiments, and adherence metrics.
+  - id: transformfit_expert_councils
+    name: TransformFit Expert Councils and Advisory Network
+    data_type: operational_protocols
+    stage_gates: [evidence, blueprint, memory]
+    status: active
+    path: editorial/TRANSFORMFIT_EXPERT_COUNCILS_AND_ADVISORY_NETWORK.md
+    summary: External expert councils, coach beta network, university source targets, and operating cadence for evidence refresh.
+  - id: transformfit_program_library
+    name: TransformFit Program Library
+    data_type: program_library
+    stage_gates: [blueprint, build, launch]
+    status: active
+    path: editorial/TRANSFORMFIT_PROGRAM_LIBRARY_2026.md
+    summary: Actual TransformFit program catalog with athlete fit, progression, re-entry, and selection logic.
+  - id: transformfit_guru_recommendation_map
+    name: TransformFit Guru and Influencer Recommendation Map
+    data_type: guru_research
+    stage_gates: [evidence, blueprint, memory]
+    status: active
+    path: editorial/TRANSFORMFIT_GURU_AND_INFLUENCER_RECOMMENDATION_MAP_2026.md
+    summary: Current evidence-led creator recommendation map and product takeaways for programming and coaching.
+  - id: transformfit_frontier_academic_research
+    name: TransformFit Frontier Academic Research
+    data_type: frontier_academic_research
+    stage_gates: [evidence, blueprint, memory]
+    status: active
+    path: editorial/TRANSFORMFIT_FRONTIER_ACADEMIC_RESEARCH_2026.md
+    summary: Latest literature clusters, institutional watch list, and direct product implications for programming and coaching.
+  - id: transformfit_consumer_failure_patterns
+    name: TransformFit Consumer Failure Patterns
+    data_type: consumer_failure_patterns
+    stage_gates: [evidence, blueprint, build, memory]
+    status: active
+    path: editorial/TRANSFORMFIT_CONSUMER_FAILURE_PATTERNS_2026.md
+    summary: The main adherence cliffs, missed-session spirals, plateau windows, and substitution failures TransformFit should design around.
+  - id: transformfit_predictive_coaching
+    name: TransformFit Predictive Coaching Cue System
+    data_type: predictive_coaching
+    stage_gates: [blueprint, build, launch]
+    status: active
+    path: editorial/TRANSFORMFIT_PREDICTIVE_COACHING_CUE_SYSTEM_2026.md
+    summary: Moments-of-truth cue system that links user states, coach interventions, and adherence outcomes.
+  - id: transformfit_monte_carlo_system
+    name: TransformFit Monte Carlo Simulation System
+    data_type: simulation_models
+    stage_gates: [evidence, blueprint, build]
+    status: active
+    path: editorial/TRANSFORMFIT_MONTE_CARLO_SIMULATION_SYSTEM_2026.md
+    summary: Synthetic adherence and risk-window simulation layer for prioritizing coach interventions and program changes.

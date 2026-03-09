@@ -1,0 +1,17 @@
+type: studio_experiment
+id: experiment_transformfit_first_days_vs_how_it_works
+company_id: transformfit
+surface_type: landing_page
+hypothesis: A first-days sequence will outperform a generic how-it-works section on qualified signups.
+variable_tested:
+  control: generic_how_it_works
+  treatment: first_days_sequence
+expected_signal:
+  - higher_scroll_completion_to_proof
+  - stronger_primary_cta_clicks
+failure_signal:
+  - no_change_in_conversion_quality
+  - improved_engagement_without_downstream_activation
+outcome: pending
+next_decision: ship_if_quality_and_activation_improve
+date_captured: 2026-03-07

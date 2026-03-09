@@ -1,0 +1,64 @@
+id: dumbbell-momentum-3day-12w
+name: Dumbbell Momentum 3-Day
+goal: home-based hypertrophy and training continuity with limited equipment
+target_athlete: beginners to intermediates with dumbbells, bench, and limited space
+training_age: beginner_intermediate
+frequency_days: 3
+duration_weeks: 12
+session_length_minutes: 45
+equipment_profile: dumbbells_bench
+split: full_body_home
+phases:
+  - {weeks: 1-3, name: accumulation_1, focus: movement stability and volume tolerance}
+  - {weeks: 4, name: deload_1, focus: lower fatigue}
+  - {weeks: 5-7, name: accumulation_2, focus: add reps and density}
+  - {weeks: 8, name: deload_2, focus: restore}
+  - {weeks: 9-11, name: intensification, focus: higher effort and slower eccentrics where load is limited}
+  - {weeks: 12, name: deload_3, focus: finish fresh}
+progression:
+  main_lifts: double progression until dumbbell ceiling, then slow eccentric or pause progression
+  accessories: rep progression and shorter rest only after rep ceiling is achieved
+  stall_rule: add a 1-second pause before adding more sets
+deload:
+  weeks: [4, 8, 12]
+  volume_reduction: 35-45 percent
+  intensity_reduction: keep same loads but stop 3 reps further from failure
+reentry:
+  one_missed_session: resume next planned day
+  one_missed_week: repeat the previous week with lower effort
+  two_plus_weeks: restart the current phase from its first week
+sessions:
+  - day: A
+    focus: squat and horizontal press
+    exercises:
+      - {name: Goblet Squat, sets: 3, reps: 8-12, rir: 2, rest_seconds: 90, substitutions: [DB Front Squat]}
+      - {name: DB Bench Press, sets: 3, reps: 8-12, rir: 2, rest_seconds: 90, substitutions: [DB Floor Press]}
+      - {name: One-Arm DB Row, sets: 3, reps: 10-15, rir: 2, rest_seconds: 75, substitutions: [Chest Supported DB Row]}
+      - {name: DB Romanian Deadlift, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Single-Leg RDL]}
+      - {name: DB Lateral Raise, sets: 2, reps: 15-20, rir: 1-2, rest_seconds: 45, substitutions: [Lean-Away Lateral Raise]}
+      - {name: DB Curl, sets: 2, reps: 10-15, rir: 1-2, rest_seconds: 45, substitutions: [Hammer Curl]}
+  - day: B
+    focus: split squat and incline press
+    exercises:
+      - {name: Bulgarian Split Squat, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Reverse Lunge]}
+      - {name: Incline DB Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [DB Floor Press]}
+      - {name: Chest Supported DB Row, sets: 3, reps: 10-15, rir: 2, rest_seconds: 75, substitutions: [One-Arm DB Row]}
+      - {name: DB Shoulder Press, sets: 2, reps: 10-15, rir: 2, rest_seconds: 75, substitutions: [Arnold Press]}
+      - {name: DB Romanian Deadlift, sets: 2, reps: 12-15, rir: 2, rest_seconds: 90, substitutions: [Single-Leg RDL]}
+      - {name: Overhead DB Tricep Extension, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 45, substitutions: [Close-Grip Push Up]}
+  - day: C
+    focus: full-body density and high-quality effort
+    exercises:
+      - {name: DB Front Squat, sets: 3, reps: 10-15, rir: 2, rest_seconds: 90, substitutions: [Goblet Squat]}
+      - {name: DB Floor Press, sets: 3, reps: 10-15, rir: 2, rest_seconds: 75, substitutions: [DB Bench Press]}
+      - {name: One-Arm DB Row, sets: 3, reps: 12-15, rir: 2, rest_seconds: 75, substitutions: [Chest Supported DB Row]}
+      - {name: DB Hip Thrust, sets: 3, reps: 12-20, rir: 2, rest_seconds: 75, substitutions: [Glute Bridge]}
+      - {name: DB Lateral Raise, sets: 2, reps: 15-20, rir: 1-2, rest_seconds: 45, substitutions: [Rear Delt Raise]}
+      - {name: Hammer Curl, sets: 2, reps: 12-15, rir: 1-2, rest_seconds: 45, substitutions: [DB Curl]}
+coaching_notes:
+  week_one: make limited equipment feel like a constraint with a system, not a compromise with chaos
+  missed_session: keep the athlete moving; do not turn one missed day into program guilt
+coach_cue_profile:
+  base_profile: home_gym_momentum
+  critical_windows: [first_completed_session, first_missed_session, plateau_two_sessions, equipment_mismatch, reentry_after_gap]
+  moment_bias: make home training feel legitimate, adaptive, and worth repeating

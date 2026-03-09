@@ -1,0 +1,11 @@
+condition,program_id,completion_rate,dropout_rate,average_sessions_completed
+with_coach,dumbbell-momentum-3day-12w,0.5486,0.5652,19.75
+with_coach,efficient-hypertrophy-3day-12w,0.5679,0.5427,20.45
+with_coach,full-body-foundations-12w,0.5384,0.5997,19.38
+with_coach,scientific-push-pull-legs-12w,0.4754,0.7816,34.23
+with_coach,upper-lower-power-hypertrophy-12w,0.4893,0.6773,23.49
+without_coach,dumbbell-momentum-3day-12w,0.3787,0.8118,13.63
+without_coach,efficient-hypertrophy-3day-12w,0.3959,0.7939,14.25
+without_coach,full-body-foundations-12w,0.3737,0.8291,13.45
+without_coach,scientific-push-pull-legs-12w,0.2936,0.9707,21.14
+without_coach,upper-lower-power-hypertrophy-12w,0.3341,0.8949,16.04

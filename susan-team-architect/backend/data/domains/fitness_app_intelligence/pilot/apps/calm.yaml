@@ -1,0 +1,39 @@
+id: app-calm
+slug: calm
+name: Calm
+category: mindfulness
+subcategory: meditation-sleep
+company_id: company-calm
+editorial_markdown_path: apps/mindfulness/calm.md
+summary: Mindfulness platform centered on guided meditation, sleep stories, relaxation, and enterprise wellness.
+platforms:
+  - iOS
+  - Android
+metrics:
+  - id: metric-calm-paid-subscribers
+    name: Paid Subscribers
+    value: 4M
+    metric_type: subscribers
+    as_of_date: 2026-03-03
+    evidence:
+      - source_id: source-calm-editorial
+        source_url: apps/mindfulness/calm.md
+        source_type: editorial_profile
+        captured_at: 2026-03-03
+        effective_date: 2026-03-03
+        confidence: 0.6
+        verification_status: analyst_reviewed
+        evidence_grade: strong_secondary
+sources:
+  - id: source-calm-editorial
+    title: Calm Competitive Intelligence Profile
+    source_url: apps/mindfulness/calm.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+verification_status: analyst_reviewed
+updated_at: 2026-03-06T00:00:00
+

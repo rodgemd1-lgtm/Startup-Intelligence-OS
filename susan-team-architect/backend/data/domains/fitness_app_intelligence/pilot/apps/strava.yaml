@@ -1,0 +1,40 @@
+id: app-strava
+slug: strava
+name: Strava
+category: fitness
+subcategory: social-fitness
+company_id: company-strava-inc
+editorial_markdown_path: apps/fitness/strava.md
+summary: Social fitness platform for tracking, analyzing, and sharing athletic activities across connected devices and apps.
+platforms:
+  - iOS
+  - Android
+  - Web
+metrics:
+  - id: metric-strava-registered-users
+    name: Registered Users
+    value: 135-180 million
+    metric_type: users
+    as_of_date: 2026-03-03
+    evidence:
+      - source_id: source-strava-editorial
+        source_url: apps/fitness/strava.md
+        source_type: editorial_profile
+        captured_at: 2026-03-03
+        effective_date: 2026-03-03
+        confidence: 0.6
+        verification_status: analyst_reviewed
+        evidence_grade: strong_secondary
+sources:
+  - id: source-strava-editorial
+    title: Strava Competitive Intelligence Profile
+    source_url: apps/fitness/strava.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+verification_status: analyst_reviewed
+updated_at: 2026-03-06T00:00:00
+

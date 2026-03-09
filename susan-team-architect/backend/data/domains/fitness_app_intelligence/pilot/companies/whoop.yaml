@@ -1,0 +1,17 @@
+id: company-whoop
+name: WHOOP
+headquarters: Boston, MA, USA
+founded_year: 2012
+status: private
+aliases: []
+sources:
+  - id: source-whoop-editorial
+    title: WHOOP Competitive Intelligence Profile
+    source_url: apps/recovery/whoop.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+

@@ -1,0 +1,211 @@
+{
+  "datasets": [
+    {
+      "name": "user_behavioral_telemetry",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Supabase/PostgreSQL event logging \u2014 session starts, workout completions, skips, interaction depth, drop-off timestamps",
+      "format": "PostgreSQL tables + JSON event payloads",
+      "size_estimate": "~50MB at 1K MAU, scales linearly",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "pulse",
+        "freya",
+        "compass"
+      ]
+    },
+    {
+      "name": "user_profiles_and_memory",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Supabase \u2014 onboarding intake, goals, injury flags, fitness level, motivational profile, session history summaries",
+      "format": "PostgreSQL relational schema + JSONB fields for flexible attributes",
+      "size_estimate": "~10MB at 1K MAU",
+      "priority": "P0",
+      "cost": "free",
+      "assigned_to": [
+        "nova",
+        "coach",
+        "mira",
+        "freya"
+      ]
+    },
+    {
+      "name": "exercise_science_knowledge_base",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "NSCA guidelines, ACSM standards, PubMed exercise science abstracts, periodization frameworks, contraindication reference tables \u2014 curated and chunked",
+      "format": "Chunked text embeddings stored in pgvector (Supabase extension)",
+      "size_estimate": "~200MB raw corpus, ~50K embedding vectors",
+      "priority": "P0",
+      "cost": "~$15 one-time embedding cost via OpenAI text-embedding-3-small",
+      "assigned_to": [
+        "coach",
+        "nova"
+      ]
+    },
+    {
+      "name": "behavioral_economics_playbook",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "Synthesized corpus from Fogg Behavior Model, BJ Fogg Tiny Habits, Nir Eyal Hooked, academic habit loop literature, ethical nudge design frameworks",
+      "format": "Chunked text embeddings in pgvector",
+      "size_estimate": "~5K embedding vectors",
+      "priority": "P0",
+      "cost": "~$3 one-time embedding cost",
+      "assigned_to": [
+        "freya",
+        "mira",
+        "marcus"
+      ]
+    },
+    {
+      "name": "onboarding_ux_benchmarks",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "Teardowns of Fitbod, Noom, Duolingo, Headspace onboarding flows \u2014 UX audit notes, heuristic analysis, first-session flow maps, App Store review mining for friction patterns",
+      "format": "Structured markdown documents + embeddings in pgvector",
+      "size_estimate": "~2K embedding vectors",
+      "priority": "P0",
+      "cost": "free \u2014 founder-compiled research + manual teardowns",
+      "assigned_to": [
+        "marcus",
+        "mira",
+        "compass"
+      ]
+    },
+    {
+      "name": "churn_signal_model",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Derived from user_behavioral_telemetry \u2014 engineered features: days_since_last_session, workouts_completed_d1_d7, avg_session_duration_trend, skip_rate, notification_response_rate",
+      "format": "PostgreSQL materialized views + lightweight Python scoring model (scikit-learn or heuristic rules at MVP)",
+      "size_estimate": "~5MB feature store at 1K MAU",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "pulse",
+        "compass",
+        "freya"
+      ]
+    },
+    {
+      "name": "workout_generation_templates",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Coach-authored structured workout templates: exercise library with muscle groups, equipment requirements, difficulty tiers, progressive overload parameters, contraindication tags",
+      "format": "PostgreSQL tables \u2014 normalized exercise library with JSONB program templates",
+      "size_estimate": "~5MB \u2014 ~500 exercises, ~100 program templates",
+      "priority": "P1",
+      "cost": "free",
+      "assigned_to": [
+        "coach",
+        "nova",
+        "pulse"
+      ]
+    },
+    {
+      "name": "llm_prompt_cache_and_routing_config",
+      "type": "filesystem",
+      "status": "needs_building",
+      "source": "Internal \u2014 versioned prompt templates, model routing rules (GPT-4o-mini vs Claude Sonnet tiering logic), cached system prompt hashes, token budget configs per agent",
+      "format": "YAML config files + Redis or Supabase KV for runtime cache",
+      "size_estimate": "~1MB config, ~50MB prompt cache at scale",
+      "priority": "P1",
+      "cost": "free \u2014 Redis via Upstash free tier (~$0/month at MVP scale)",
+      "assigned_to": [
+        "nova",
+        "compass"
+      ]
+    },
+    {
+      "name": "user_research_interviews",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "Founder-conducted user interviews, App Store review scrapes (TransformFit + competitors), synthesized personas, Jobs-to-be-Done frameworks, dropout moment qualitative data",
+      "format": "Chunked interview transcripts + review summaries as embeddings in pgvector",
+      "size_estimate": "~3K embedding vectors",
+      "priority": "P1",
+      "cost": "free \u2014 founder research + App Store scraping",
+      "assigned_to": [
+        "compass",
+        "marcus",
+        "mira",
+        "freya",
+        "pulse"
+      ]
+    },
+    {
+      "name": "legal_compliance_templates",
+      "type": "filesystem",
+      "status": "needs_acquisition",
+      "source": "GDPR Article 9 health data guidance, CCPA health data provisions, FTC health app guidance, Iubenda or Termly generated policy templates, health disclaimer frameworks",
+      "format": "Markdown/HTML policy documents + structured consent flow specifications",
+      "size_estimate": "~500KB",
+      "priority": "P1",
+      "cost": "~$29/month Iubenda Starter or one-time $50 Termly export \u2014 or free via open-source templates with founder review",
+      "assigned_to": [
+        "shield",
+        "compass"
+      ]
+    },
+    {
+      "name": "retention_benchmark_data",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "Industry retention benchmarks \u2014 Lenny's Newsletter cohort data, Andreessen Horowitz consumer app retention studies, fitness app category benchmarks from Sensor Tower / data.ai reports, academic mobile health app retention meta-analyses",
+      "format": "Curated research summaries as embeddings in pgvector",
+      "size_estimate": "~2K embedding vectors",
+      "priority": "P2",
+      "cost": "free \u2014 publicly available reports and synthesized summaries",
+      "assigned_to": [
+        "compass",
+        "pulse",
+        "freya"
+      ]
+    },
+    {
+      "name": "sleep_and_recovery_reference",
+      "type": "vector",
+      "status": "needs_building",
+      "source": "Sleep science corpus \u2014 Matthew Walker Why We Sleep summaries, NSCA recovery guidelines, HRV-based readiness research abstracts, overtraining syndrome indicators",
+      "format": "Chunked text embeddings in pgvector",
+      "size_estimate": "~3K embedding vectors",
+      "priority": "P2",
+      "cost": "~$2 one-time embedding cost",
+      "assigned_to": [
+        "coach",
+        "nova"
+      ]
+    }
+  ],
+  "external_apis": [
+    {
+      "name": "OpenAI API (GPT-4o-mini + text-embedding-3-small)",
+      "purpose": "Primary LLM inference for all agents with tiered routing \u2014 GPT-4o-mini for high-volume coaching responses, GPT-4o for complex personalization reasoning, text-embedding-3-small for all RAG vector builds",
+      "cost": "~$80\u2013$120/month at MVP scale within $200 cap \u2014 managed via Nova's prompt caching and token budget configs"
+    },
+    {
+      "name": "Supabase (PostgreSQL + pgvector + Auth + Realtime)",
+      "purpose": "Primary data infrastructure \u2014 structured user data, behavioral telemetry, vector embeddings for RAG, authentication, real-time session event streaming",
+      "cost": "Free tier up to 500MB DB / 50K MAU \u2014 Pro plan $25/month if scale requires"
+    },
+    {
+      "name": "Upstash Redis",
+      "purpose": "LLM prompt caching layer, session context cache, rate limiting for AI inference calls \u2014 reduces redundant LLM calls by caching identical or near-identical prompt hashes",
+      "cost": "Free tier (10K commands/day) \u2014 Pay-as-you-go ~$0.20 per 100K commands beyond free tier"
+    },
+    {
+      "name": "Sentry",
+      "purpose": "Error tracking and performance monitoring for FastAPI backend \u2014 surfaces AI pipeline failures, onboarding flow errors, and workout generation exceptions without requiring dedicated DevOps monitoring",
+      "cost": "Free tier (5K errors/month) \u2014 sufficient for MVP stage"
+    },
+    {
+      "name": "PostHog",
+      "purpose": "Product analytics and behavioral event tracking \u2014 funnel analysis for onboarding drop-off, session replay for UX friction identification, feature flag management for A/B testing retention interventions",
+      "cost": "Free tier (1M events/month) \u2014 covers MVP scale entirely"
+    }
+  ],
+  "total_estimated_cost": "~$20 one-time embedding build cost + $25\u2013$55/month recurring infrastructure (Supabase Pro if needed, Iubenda) \u2014 AI inference budget managed separately within Michael's $200/month cap"
+}

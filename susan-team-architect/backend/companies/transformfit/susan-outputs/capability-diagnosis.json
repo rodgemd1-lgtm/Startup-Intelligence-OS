@@ -1,0 +1,162 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "capability_gaps": [
+    {
+      "area": "Onboarding Funnel & First-Value Delivery",
+      "current_state": "74-77% Day-1 abandonment; users never reach a personalized workout before disengaging; no mapped drop-off points or funnel instrumentation",
+      "ideal_state": "Users reach a completed personalized workout within 5 minutes of signup; Day-1 abandonment below 40%; funnel has discrete measurable checkpoints",
+      "severity": "P0",
+      "complexity": 9,
+      "recommended_agents": [
+        "app-experience-studio",
+        "marcus",
+        "mira",
+        "freya"
+      ],
+      "risks": [
+        "Onboarding form fatigue may replace abandonment at a later funnel stage",
+        "Perceived personalization without true data depth undermines trust on return visits",
+        "A/B testing capacity is near-zero with a solo founder and no analytics infrastructure"
+      ]
+    },
+    {
+      "area": "Persistent AI Agent Memory Architecture",
+      "current_state": "AI coaching is fully stateless; no session continuity, no user profile accumulation, no cross-session recall \u2014 personalization claims are structurally invalid",
+      "ideal_state": "Lightweight persistent memory layer (structured profile + summarization) enables agents to recall goals, history, and preferences across sessions within $200/month ceiling",
+      "severity": "P0",
+      "complexity": 8,
+      "recommended_agents": [
+        "nova",
+        "knowledge-engineer",
+        "atlas"
+      ],
+      "risks": [
+        "Vector store costs can spike unpredictably at scale without retrieval budgeting",
+        "Memory schema design errors early will require expensive migration later",
+        "Supabase row-level security must extend correctly to memory objects to avoid data leakage between users"
+      ]
+    },
+    {
+      "area": "Behavioral Retention & Engagement Loop Design",
+      "current_state": "No behavioral economics mechanics present; engagement relies entirely on user willpower; no commitment devices, streaks, loss aversion triggers, or variable reward schedules",
+      "ideal_state": "At least one high-impact retention mechanic (commitment device or streak with loss aversion framing) measurably improves Day-7 return rate; mechanic is lightweight to ship",
+      "severity": "P0",
+      "complexity": 7,
+      "recommended_agents": [
+        "freya",
+        "quest",
+        "flow"
+      ],
+      "risks": [
+        "Wrong mechanic selection for target user profile (e.g., gamification alienating busy professionals)",
+        "Dark patterns risk if loss aversion is implemented without ethical guardrails",
+        "Mechanic effectiveness requires instrumentation to validate \u2014 no analytics layer currently exists"
+      ]
+    },
+    {
+      "area": "AI Infrastructure Cost Architecture",
+      "current_state": "No model tiering, prompt caching, or batching strategy in place; $200/month ceiling is at structural risk as active users grow; cost-per-interaction is unmodeled",
+      "ideal_state": "Model tiering (lightweight model for routine interactions, frontier model for high-stakes personalization moments) keeps AI costs at or below $200/month at 1,000 active users",
+      "severity": "P0",
+      "complexity": 7,
+      "recommended_agents": [
+        "nova",
+        "algorithm-lab",
+        "ledger"
+      ],
+      "risks": [
+        "A single viral growth event could blow the monthly budget before cost controls are in place",
+        "Over-optimizing for cost too early degrades coaching quality below the threshold that drives retention",
+        "Prompt caching effectiveness varies significantly by LLM provider and requires empirical tuning"
+      ]
+    },
+    {
+      "area": "AI Coaching Quality & Conversation Design",
+      "current_state": "No defined coach persona, motivational interviewing framework, or dialogue quality standards; coaching interactions are likely generic and tonally inconsistent",
+      "ideal_state": "Coach persona with consistent voice, motivational interviewing principles, and contextual guidance scripts that feel personal and emotionally resonant across session types",
+      "severity": "P1",
+      "complexity": 7,
+      "recommended_agents": [
+        "conversation-designer",
+        "coaching-architecture-studio",
+        "mira"
+      ],
+      "risks": [
+        "Poorly designed coach persona erodes trust faster than no coaching at all",
+        "Motivational tone mismatch between user segments (beginners vs. biohackers) requires persona flexibility",
+        "Without evaluation gates, degraded coaching quality ships silently"
+      ]
+    },
+    {
+      "area": "Adaptive Workout Programming Engine",
+      "current_state": "Workout generation exists but lacks documented progression logic, user history integration, or adaptation signals; differentiation from Fitbod is unclear",
+      "ideal_state": "Defensible adaptation engine that evolves programming based on session history, perceived difficulty signals, and schedule constraints \u2014 with a clear wedge Fitbod cannot replicate",
+      "severity": "P1",
+      "complexity": 8,
+      "recommended_agents": [
+        "algorithm-lab",
+        "workout-program-studio",
+        "coach"
+      ],
+      "risks": [
+        "Fitbod has years of training data advantage that cannot be closed with engineering alone",
+        "Adaptation logic bugs silently deliver regressive programs that increase injury risk",
+        "Without exercise science grounding, AI-generated programs may be technically legal but physiologically suboptimal"
+      ]
+    },
+    {
+      "area": "Product Analytics & Data-Driven Prioritization",
+      "current_state": "Feature prioritization is manual and intuition-driven; no funnel instrumentation, no event tracking, no behavioral signal capture to inform roadmap decisions",
+      "ideal_state": "Lightweight analytics layer (event tracking on critical funnel steps, Day-1/Day-7 cohort dashboards) enables evidence-based iteration without adding operational overhead",
+      "severity": "P1",
+      "complexity": 5,
+      "recommended_agents": [
+        "pulse",
+        "compass",
+        "ai-product-manager"
+      ],
+      "risks": [
+        "Without instrumentation, onboarding redesign improvements cannot be attributed or validated",
+        "Supabase can serve basic analytics needs but requires schema discipline from the start",
+        "Solo founder time cost of analytics setup competes directly with feature shipping bandwidth"
+      ]
+    },
+    {
+      "area": "Competitive Differentiation & Strategic Positioning",
+      "current_state": "No clearly articulated defensible wedge versus Fitbod, Noom, or commodity AI fitness apps; value proposition relies on generic 'personalization' claims shared by all competitors",
+      "ideal_state": "Single sharp differentiation thesis \u2014 likely the combination of emotional coaching continuity plus behavioral retention mechanics \u2014 that cannot be replicated by data-only or hardware-dependent competitors",
+      "severity": "P2",
+      "complexity": 6,
+      "recommended_agents": [
+        "steve",
+        "compass"
+      ],
+      "risks": [
+        "Fitbod or a well-funded competitor could ship persistent memory before TransformFit's MVP redesign ships",
+        "Positioning work done before retention is proven is premature and risks wasted messaging investment",
+        "Solo founder has no external pressure-test mechanism for strategic assumptions"
+      ]
+    }
+  ],
+  "domain_teams_needed": [
+    "product",
+    "engineering",
+    "psychology",
+    "science",
+    "strategy"
+  ],
+  "recommended_team_size": 10,
+  "routing_notes": [
+    "P0 gaps must be sequenced strictly: memory architecture (nova + knowledge-engineer) must be specced before onboarding redesign (app-experience-studio) begins, because the aha moment delivery depends on persistent profile reads",
+    "freya is the highest-leverage single agent in this engagement \u2014 behavioral retention mechanic selection directly unlocks Day-7 return rate improvement and should be her first output",
+    "nova and algorithm-lab should produce a cost model (interactions \u00d7 model tier \u00d7 token estimate) before any new AI feature is scoped; this is a hard constraint, not a nice-to-have",
+    "conversation-designer and coaching-architecture-studio should work in parallel with app-experience-studio on onboarding \u2014 coach voice must be defined before onboarding dialogue is written",
+    "pulse and compass are intentionally lean assignments \u2014 instrumentation scope must be minimal (5-7 key events max) to avoid solo founder bandwidth collapse",
+    "steve and compass on positioning (P2) should not be activated until P0 gaps show measurable traction \u2014 premature positioning work is a distraction risk for a solo founder",
+    "mira should review all onboarding screens for emotional resonance after marcus and app-experience-studio produce structure \u2014 she is a quality gate, not a primary designer here",
+    "ledger is scoped narrowly to unit economics modeling for the AI cost architecture question \u2014 do not expand scope to fundraising or financial planning at this stage",
+    "flow and quest are secondary to freya \u2014 activate only if the initial retention mechanic requires motivation framing or gamification layer design",
+    "Exclude studio agents (landing-page-studio, social-media-studio, marketing-studio-director) entirely at this stage \u2014 acquisition optimization before retention is fixed is a leaking bucket error"
+  ],
+  "complexity_score": 8.2
+}

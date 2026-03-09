@@ -1,0 +1,47 @@
+{
+  "assets": [
+    {
+      "title": "Fitbod homepage",
+      "target_url": "https://fitbod.me/",
+      "storage_path": "transformfit/fitbod-homepage-1fb5580cd34c.png",
+      "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/transformfit-assets/transformfit/fitbod-homepage-1fb5580cd34c.png",
+      "reason": "Reference competitor positioning, proof surfaces, and workout-product storytelling.",
+      "page_title": "Home - Fitbod \u2013 Fitbod",
+      "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/transformfit_visual_assets/fitbod-homepage-1fb5580cd34c.png"
+    },
+    {
+      "title": "Future homepage",
+      "target_url": "https://www.future.co/",
+      "storage_path": "transformfit/future-homepage-8af775d62126.png",
+      "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/transformfit-assets/transformfit/future-homepage-8af775d62126.png",
+      "reason": "Reference premium coaching positioning and coach-as-product framing.",
+      "page_title": "Future | Personal Training & Workouts That Adapt to You",
+      "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/transformfit_visual_assets/future-homepage-8af775d62126.png"
+    },
+    {
+      "title": "WHOOP Coach article",
+      "target_url": "https://www.whoop.com/us/en/thelocker/behind-the-development-of-whoop-coach/",
+      "storage_path": "transformfit/whoop-coach-article-b53a4cf3d9f2.png",
+      "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/transformfit-assets/transformfit/whoop-coach-article-b53a4cf3d9f2.png",
+      "reason": "Reference how a leading fitness brand explains AI coaching and trust.",
+      "page_title": "",
+      "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/transformfit_visual_assets/whoop-coach-article-b53a4cf3d9f2.png"
+    },
+    {
+      "title": "Peloton App page",
+      "target_url": "https://www.onepeloton.com/app",
+      "storage_path": "transformfit/peloton-app-page-c6f1b7d5a735.png",
+      "public_url": "https://zqsdadnnpgqhehqxplio.supabase.co/storage/v1/object/public/transformfit-assets/transformfit/peloton-app-page-c6f1b7d5a735.png",
+      "reason": "Reference consumer fitness product proof, content hierarchy, and premium UI cues.",
+      "page_title": "Peloton App: Your on-demand fitness companion",
+      "local_path": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/transformfit_visual_assets/peloton-app-page-c6f1b7d5a735.png"
+    }
+  ],
+  "errors": [
+    {
+      "target": "TransformFit marketing site",
+      "url": "https://transformfit.app",
+      "error": "DNS resolution failed for hostname \"transformfit.app\". This means the domain name could not be translated to an IP address. Possible causes: (1) The domain name is misspelled (check for typos), (2) The domain does not exist or has expired, (3) The DNS servers are temporarily unavailable, or (4) The domain was recently registered and DNS has not propagated yet. Please verify the URL is correct and the website exists."
+    }
+  ]
+}

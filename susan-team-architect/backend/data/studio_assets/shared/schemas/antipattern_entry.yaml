@@ -1,0 +1,19 @@
+type: studio_antipattern
+id: antipattern_premium_ai_glow_soup
+category: design
+symptom: Premium-looking dark page with glow, glass, and vague AI language but weak proof.
+why_it_failed:
+  - interchangeable_visual_language
+  - low_proof_density
+  - weak_message_clarity
+detection_signals:
+  - no_concrete_product_behavior_in_hero
+  - multiple_visual_effects_outweigh_proof
+  - could_swap_logos_without_major_rewrite
+rescue_move:
+  - reduce_effects
+  - anchor_on_one_product_truth
+  - add_visible_behavioral_proof
+linked_examples:
+  - shared_case_library_annotated_screenshot_proof
+date_captured: 2026-03-07

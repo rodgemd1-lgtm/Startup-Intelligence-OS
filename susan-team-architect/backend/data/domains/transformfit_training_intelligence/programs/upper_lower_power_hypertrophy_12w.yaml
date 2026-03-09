@@ -1,0 +1,84 @@
+id: upper-lower-power-hypertrophy-12w
+name: Upper Lower Power Hypertrophy
+goal: mixed strength and hypertrophy
+target_athlete: intermediate lifters wanting size and strength with solid recovery
+training_age: intermediate
+frequency_days: 4
+duration_weeks: 12
+session_length_minutes: 70
+equipment_profile: full_gym
+split: upper_lower_power_hypertrophy
+phases:
+  - weeks: 1-3
+    name: accumulation_1
+    focus: establish baselines and ramp volume
+  - weeks: 4
+    name: deload_1
+    focus: reduce fatigue
+  - weeks: 5-7
+    name: accumulation_2
+    focus: push volume and load
+  - weeks: 8
+    name: deload_2
+    focus: recovery before intensification
+  - weeks: 9-11
+    name: intensification
+    focus: heavier compound work with maintained hypertrophy volume
+  - weeks: 12
+    name: deload_3
+    focus: full recovery
+progression:
+  power_days: linear progression while target RPE stays at or below 8.5
+  hypertrophy_days: double progression across the rep range before load increase
+  stall_rule: hold load for 2 sessions, then reduce 5-10 percent if bar speed and reps degrade
+deload:
+  weeks: [4, 8, 12]
+  volume_reduction: 40-50 percent
+  intensity_reduction: 10-15 percent
+reentry:
+  one_missed_session: slide the week forward and protect lower-body spacing
+  one_missed_week: repeat the prior successful week at 90 percent loading
+  two_plus_weeks: restart from the first week of the current phase
+sessions:
+  - day: upper_power
+    focus: heavy press and pull
+    exercises:
+      - {name: Bench Press, sets: 4, reps: 3-5, rir: 2, rest_seconds: 180, substitutions: [DB Bench Press, Machine Chest Press]}
+      - {name: Overhead Press, sets: 3, reps: 5-8, rir: 2, rest_seconds: 150, substitutions: [Seated DB Press]}
+      - {name: Barbell Row, sets: 4, reps: 5-8, rir: 2, rest_seconds: 150, substitutions: [Chest Supported Row]}
+      - {name: Pull Up, sets: 3, reps: 6-10, rir: 2, rest_seconds: 120, substitutions: [Lat Pulldown]}
+      - {name: Tricep Pushdown, sets: 3, reps: 10-12, rir: 1-2, rest_seconds: 75, substitutions: [Cable Extension]}
+      - {name: Barbell Curl, sets: 3, reps: 10-12, rir: 1-2, rest_seconds: 75, substitutions: [DB Curl]}
+  - day: lower_power
+    focus: heavy squat and hinge
+    exercises:
+      - {name: Squat, sets: 4, reps: 3-5, rir: 2, rest_seconds: 180, substitutions: [Hack Squat, Safety Bar Squat]}
+      - {name: Romanian Deadlift, sets: 3, reps: 6-8, rir: 2, rest_seconds: 150, substitutions: [DB Romanian Deadlift]}
+      - {name: Leg Press, sets: 3, reps: 8-10, rir: 2, rest_seconds: 120, substitutions: [Split Squat]}
+      - {name: Leg Curl, sets: 3, reps: 10-12, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Standing Calf Raise, sets: 4, reps: 10-15, rir: 1-2, rest_seconds: 60, substitutions: [Seated Calf Raise]}
+  - day: upper_hypertrophy
+    focus: upper volume and lengthened-position work
+    exercises:
+      - {name: Incline DB Press, sets: 4, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Incline Machine Press]}
+      - {name: Cable Row, sets: 4, reps: 12-15, rir: 2, rest_seconds: 90, substitutions: [Chest Supported Row]}
+      - {name: Lateral Raise, sets: 4, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Cable Lateral Raise]}
+      - {name: Face Pull, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Rear Delt Fly]}
+      - {name: Overhead Tricep Extension, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Rope Pushdown]}
+      - {name: Cable Curl, sets: 3, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [DB Curl]}
+  - day: lower_hypertrophy
+    focus: quad and glute-biased volume
+    exercises:
+      - {name: Bulgarian Split Squat, sets: 3, reps: 10-15, rir: 2, rest_seconds: 120, substitutions: [Leg Press]}
+      - {name: Hip Thrust, sets: 4, reps: 12-15, rir: 2, rest_seconds: 120, substitutions: [Glute Bridge]}
+      - {name: Hack Squat, sets: 3, reps: 12-15, rir: 2, rest_seconds: 120, substitutions: [Goblet Squat]}
+      - {name: Leg Extension, sets: 4, reps: 15-20, rir: 1, rest_seconds: 60, substitutions: [Spanish Squat]}
+      - {name: Leg Curl, sets: 4, reps: 12-15, rir: 1-2, rest_seconds: 75, substitutions: [Seated Leg Curl]}
+      - {name: Seated Calf Raise, sets: 5, reps: 15-20, rir: 1-2, rest_seconds: 60, substitutions: [Standing Calf Raise]}
+coaching_notes:
+  week_one: explain the difference between power days and hypertrophy days
+  missed_session: preserve the split order rather than skipping straight to the next calendar day
+coach_cue_profile:
+  base_profile: mixed_strength_hypertrophy
+  critical_windows: [first_completed_session, first_load_jump, plateau_two_sessions, fatigue_spike, reentry_after_gap]
+  moment_bias: make progress feel earned and explain fatigue without reducing ambition

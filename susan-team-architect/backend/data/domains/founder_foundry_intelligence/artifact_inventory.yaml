@@ -1,0 +1,64 @@
+artifacts:
+  - id: company_genome_spec
+    name: Company Genome Spec
+    data_type: business_strategy
+    stage_gates: [thesis, blueprint]
+    status: active
+    path: editorial/FOUNDER_COMPANY_GENOME_SPEC.md
+    summary: Canonical company state, entity model, maturity fields, and ownership structure for the foundry.
+  - id: evidence_graph_spec
+    name: Evidence Graph Spec
+    data_type: technical_docs
+    stage_gates: [evidence, build]
+    status: active
+    path: editorial/FOUNDER_EVIDENCE_GRAPH_SPEC.md
+    summary: Source, claim, freshness, contradiction, and confidence model for evidence-backed reasoning.
+  - id: decision_log_protocol
+    name: Decision Log Protocol
+    data_type: operational_protocols
+    stage_gates: [blueprint, memory]
+    status: active
+    path: editorial/FOUNDER_DECISION_LOG_PROTOCOL.md
+    summary: Decision records, approval thresholds, and writeback rules for founder and company choices.
+  - id: experiment_registry_protocol
+    name: Experiment Registry Protocol
+    data_type: operational_protocols
+    stage_gates: [blueprint, memory]
+    status: active
+    path: editorial/FOUNDER_EXPERIMENT_REGISTRY_PROTOCOL.md
+    summary: Experiment lifecycle, hypothesis framing, stop rules, and result capture.
+  - id: kpi_tree_and_scorecards
+    name: KPI Tree and Scorecards
+    data_type: business_strategy
+    stage_gates: [launch]
+    status: active
+    path: editorial/FOUNDER_KPI_TREE_AND_SCORECARDS.md
+    summary: North-star metrics, operating scorecards, and intervention thresholds for the foundry and companies.
+  - id: event_taxonomy
+    name: Event Taxonomy
+    data_type: technical_docs
+    stage_gates: [build, launch]
+    status: active
+    path: editorial/FOUNDER_EVENT_TAXONOMY.md
+    summary: Shared event, metric, and entity naming conventions across companies and studios.
+  - id: launch_readiness_checklist
+    name: Launch Readiness Checklist
+    data_type: legal_compliance
+    stage_gates: [launch]
+    status: active
+    path: editorial/FOUNDER_LAUNCH_READINESS_CHECKLIST.md
+    summary: Readiness checks spanning trust, instrumentation, support, and rollback before shipping.
+  - id: support_operations_baseline
+    name: Support Operations Baseline
+    data_type: user_research
+    stage_gates: [launch]
+    status: active
+    path: editorial/FOUNDER_SUPPORT_OPERATIONS_BASELINE.md
+    summary: Intake, severity, ownership, response templates, and feedback loops for multi-company support.
+  - id: memory_writeback_protocol
+    name: Memory Writeback Protocol
+    data_type: operational_protocols
+    stage_gates: [memory]
+    status: active
+    path: editorial/FOUNDER_MEMORY_WRITEBACK_PROTOCOL.md
+    summary: Required writeback after launches, experiments, design critiques, and incidents.

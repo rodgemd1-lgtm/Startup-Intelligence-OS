@@ -1,0 +1,40 @@
+id: app-noom
+slug: noom
+name: Noom
+category: nutrition
+subcategory: behavioral-weight-loss
+company_id: company-noom-inc
+editorial_markdown_path: apps/nutrition/noom.md
+summary: Psychology-based weight loss platform built around CBT-style behavior change and nutrition tracking.
+platforms:
+  - iOS
+  - Android
+  - Web
+metrics:
+  - id: metric-noom-paying-subscribers
+    name: Paying Subscribers
+    value: 1.5M
+    metric_type: subscribers
+    as_of_date: 2026-03-03
+    evidence:
+      - source_id: source-noom-editorial
+        source_url: apps/nutrition/noom.md
+        source_type: editorial_profile
+        captured_at: 2026-03-03
+        effective_date: 2026-03-03
+        confidence: 0.6
+        verification_status: analyst_reviewed
+        evidence_grade: strong_secondary
+sources:
+  - id: source-noom-editorial
+    title: Noom Competitive Intelligence Profile
+    source_url: apps/nutrition/noom.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+verification_status: analyst_reviewed
+updated_at: 2026-03-06T00:00:00
+

@@ -1,0 +1,452 @@
+[
+  {
+    "provider": "exa",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "Turning LLM Reasoning into Uncertainty-Aware Planning ...",
+    "url": "https://arxiv.org/html/2602.04326v1",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "The Definitive Guide to Meta-Prompting | createXflow",
+    "url": "https://createxflow.com/meta-prompting-guide-architecture-implementation/",
+    "snippet": null,
+    "published_at": "2025-11-28T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "A multi-agent debate workflow for construction projects",
+    "url": "https://www.sciexplor.com/articles/jbde.2025.0018",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "Metaprompting Workflow Guidelines - AI Prompt",
+    "url": "https://docsbot.ai/prompts/technical/metaprompting-workflow-guidelines",
+    "snippet": null,
+    "published_at": "2025-06-04T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "AI Agents in Doubt: Reducing Uncertainty ...",
+    "url": "https://thenewstack.io/ai-agents-in-doubt-reducing-uncertainty-in-agentic-workflows/",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "How Meta-Prompting and Role Engineering Are Unlocking the Next Generation of AI Agents - Rediminds",
+    "url": "https://rediminds.com/future-edge/how-meta-prompting-and-role-engineering-are-unlocking-the-next-generation-of-ai-agents/",
+    "snippet": "Instead, <strong>respond that the information is incomplete or suggest seeking expert advice.\u201d By doing so, the agent avoids potentially harmful conjectures. In enterprise knowledge bases, an escape hatch might trigger the AI to fetch more data (if integrated with a retrieval tool) or simply say it will follow up. Building uncertainty admission into prompts aligns AI behavior with how a prudent human expert would act \u2013 by acknowledging doubt when appropriate</strong>... In all these enterprise cases, the common thread is intelligent operations: AI agents embedded in workflows to handle knowledge-centric tasks with a high degree of autonomy. They serve as force-multipliers for teams, working 24/7 and scaling up during peak demand. Importantly, the advanced prompt techniques (roles, structured outputs, uncertainty admission) give business leaders confidence that these agents will behave in predictable, auditable ways, which is critical for adoption in corporate environments. These ten techniques \u2013 from persona anchoring to prompt folding, from escape hatches to self-evaluating loops \u2013 are collectively unlocking a new class of AI agents. They transform how we interact with LLMs: instead of one-shot prompts yielding one-shot answers, we now have persistent, reliable agents that can manage multi-step workflows, handle uncertainty, explain themselves, and continually improve. Engineers are experimenting with using XML/JSON structures as a lingua franca between agents, as it provides clear slots for information (one agent\u2019s output becomes the next agent\u2019s prompt context in a structured way). A critical insight here is workflow resilience: if one agent hits an escape hatch (uncertainty) or fails a step, how does the system recover? Instead, respond that the information is incomplete or suggest seeking expert advice.\u201d By doing so, the agent avoids potentially harmful conjectures. In enterprise knowledge bases, an escape hatch might trigger the AI to fetch more data (if integrated with a retrieval tool) or simply say it will follow up. Building uncertainty admission into prompts aligns AI behavior with how a prudent human expert would act \u2013 by acknowledging doubt when appropriate.",
+    "published_at": "June 4, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "Meta Prompting | Prompt Engineering Guide",
+    "url": "https://www.promptingguide.ai/techniques/meta-prompting",
+    "snippet": "<strong>Meta Prompting is an advanced prompting technique that focuses on the structural and syntactical aspects of tasks and problems rather than their specific content details</strong>. This goal with meta prompting is to construct a more abstract, structured way of interacting with large language models ... \ud83d\ude80 Master building AI workflows and agents with Claude Code! A Comprehensive Overview of Prompt Engineering Learn to build effective AI agents. Covers function calling, tool integration, and debugging agentic systems.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies",
+    "url": "https://arxiv.org/html/2502.02533v1",
+    "snippet": "The generation of ADAS is conditioned on former evaluations of baselines, including CoT, SC, Self-Refine, and Multi-Agent Debate. We report ADAS with 30 rounds of search, and each round is evaluated on the validation set 3 times to stablize the prediction. 6) AFlow (Zhang et al., 2024b). Automatic workflow design via Monte-Carto Tree Search over a set of pre-defined operators. Similar to ADAS, AFlow also relies on an LLM optimizer to generate new nodes and topologies expressed in codes. However, we find the meta-prompt of AFlow does not generalize to other LLM backbones. We consider the following baselines: 1) CoT (Kojima et al., 2022): direct chain-of-thought reasoning via zero-shot prompting; 2) CoT-SC (Wang et al., 2023): with self-consistency to find the most consistent answers from diversified reasoning traces; 3) Self-Refine (Madaan et al., 2024; Shinn et al., 2024): reflective agents to verify and self-refine predictions; 4) Multi-Agent Debate (Du et al., 2024; Liang et al., 2024): with agent justifying answers and aggregating information from other agents; 5) ADAS (Hu et al., 2024a): an automatic agent design framework, where an LLM-based meta-agent iteratively proposes new agents based on former evaluations; 6) AFlow (Zhang et al., 2024b): automatic workflow design via Monte-Carto Tree Search over a set of pre-defined operators. The generation of ADAS is conditioned on former evaluations of baselines, including CoT, SC, Self-Refine, and Multi-Agent Debate. We report ADAS with 30 rounds of search, and each round is evaluated on the validation set 3 times to stablize the prediction. 6) AFlow (Zhang et al., 2024b). Automatic workflow design via Monte-Carto Tree Search over a set of pre-defined operators. Similar to ADAS, AFlow also relies on an LLM optimizer to generate new nodes and topologies expressed in codes. However, we find the meta-prompt of AFlow does not generalize to other LLM backbones. The search space combines both prompts (Instruction, Demo) and configurable agentic building blocks (Aggregate, Reflect, Debate, Summarize, and Tool-use). 1) Block-level Prompt Optimization: we conduct block-level prompt optimization for each agentic module individually (denoted by </>); 2) Workflow Topology Optimization: conditioned on the best prompts found in Stage 1 on each agent block, Mass samples valid configurations from an influence-weighted design space while fusing the prompts of each building block from Stage 1; 3) Workflow-level Prompt Optimization: conditioned on the best workflow found in the Stage 2, we again conduct workflow-level prompt optimization on the best-found MAS (topologies visualized for illustration only). Figure 7: A demonstration of the optimization trajectory of Mass on MATH. In (1) block-level optimization: multi-agent debate serves as the best-performing topology. In (2) workflow topology optimization, aggregating with more parallel agents outweighs the performance of agents in debate.",
+    "published_at": "September 12, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "PromptHub Blog: A Complete Guide to Meta Prompting",
+    "url": "https://www.prompthub.us/blog/a-complete-guide-to-meta-prompting",
+    "snippet": "The method iteratively refines the prompt by tapping into domain-specific knowledge (e.g., from a financial analyst or medical expert). This process <strong>uses a tree-like structure to explore high-reward paths</strong>. Prompt Agent focuses on capturing subject-matter expertise for prompt engineering. It starts with an initial prompt, generates outputs, and evaluates them. The method iteratively refines the prompt by tapping into domain-specific knowledge (e.g., from a financial analyst or medical expert). This process uses a tree-like structure to explore high-reward paths. Implementing AgentPrompt in full requires setting up a tree like reasoning structure, which may be complicated and lead to higher costs In this article, we\u2019ll dive into how meta prompting works, breaking down some of the latest and most popular methods from recent research papers. We\u2019ll cover plenty of examples so you can start using these techniques in your workflows and apps right away. Our new Prompt Enhancer, the Prompt Iterator automates this entire workflow, allowing you to submit feedback, run prompts, and let the LLM refine them for you.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "prompt_trees",
+    "query": "workflow prompting trees for AI agents meta prompts debate protocol uncertainty admission",
+    "title": "Deep Agents and High-Order Prompts (HOPs): The Next Substrate of AI Reasoning | by Arman Kamran | Data Science Collective | Medium",
+    "url": "https://medium.com/data-science-collective/deep-agents-and-high-order-prompts-hops-the-next-substrate-of-ai-reasoning-562c19aa25f6",
+    "snippet": "When a HOP specifies \u201cgenerate multiple hypotheses, critique them, and select the best,\u201d a Deep Agent can actually spawn sub-agents to propose hypotheses, assign a critic agent to review them, and loop back until a synthesis is reached. The synergy turns meta-prompts into operational workflows. When a HOP specifies \u201cgenerate multiple hypotheses, critique them, and select the best,\u201d a Deep Agent can actually spawn sub-agents to propose hypotheses, assign a critic agent to review them, and loop back until a synthesis is reached. The synergy turns meta-prompts into operational workflows. Perhaps the most radical departure from traditional frameworks is LangGraph, which abandons the linear \u201cchain\u201d metaphor in favor of graph-based workflows. In LangGraph, agents are modeled as nodes in a graph with stateful connections. Healthcare Triage: A hospital system could embed a HOP that requires agents to always: (1) check symptoms against standard diagnostic checklists, (2) escalate uncertainty to human review, (3) cite clinical literature when suggesting treatments. Building on CoT, researchers proposed Tree-of-Thoughts (ToT), where multiple reasoning paths are explored in parallel before selecting the best one, and ReAct, which interleaved reasoning with external actions like tool use or API calls.",
+    "published_at": "October 6, 2025"
+  },
+  {
+    "provider": "exa",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Patterns for Democratic Multi\u2011Agent AI: Debate-Based ...",
+    "url": "https://medium.com/@edoardo.schepis/patterns-for-democratic-multi-agent-ai-debate-based-consensus-part-2-implementation-2348bf28f6a6",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Should we be going MAD?  A Look at Multi-Agent Debate Strategies for LLMs",
+    "url": "https://arxiv.org/pdf/2311.17371",
+    "snippet": null,
+    "published_at": "2024-07-19T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Should we be going MAD? A Look at Multi-Agent Debate ...",
+    "url": "https://arxiv.org/html/2311.17371v2",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "CoMM: Collaborative Multi-Agent, Multi-Reasoning-Path ...",
+    "url": "https://aclanthology.org/2024.findings-naacl.112.pdf",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Multi-agents debate technique - Prompting",
+    "url": "https://community.openai.com/t/multi-agents-debate-technique/791497",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Patterns for Democratic Multi\u2011Agent AI: Debate-Based Consensus \u2014 Part 2, Implementation | by edoardo schepis | Medium",
+    "url": "https://medium.com/@edoardo.schepis/patterns-for-democratic-multi-agent-ai-debate-based-consensus-part-2-implementation-2348bf28f6a6",
+    "snippet": "A straightforward approach is <strong>using ConversationChain for each agent with a system prompt defining its role</strong>. Ensure each agent\u2019s chain has access to a memory that will store conversation context (the dialogue). As the SK blog explains, group chat orchestration is \u201cpowerful for simulating meetings, debates, or collaborative problem-solving sessions\u201d. You can even include a human as one of the participants if you want a mixed human-AI debate, and the orchestrator can prompt the human at the right times. Multi-Agent Debate is an architecture where multiple independent LLM-powered agents collaborate and compete on a task by discussing it amongst themselves. Each agent operates with its own perspective or strategy (often defined by a distinct prompt or role) and can communicate with the others. A straightforward approach is using ConversationChain for each agent with a system prompt defining its role. Ensure each agent\u2019s chain has access to a memory that will store conversation context (the dialogue). Define the Debate Routine: If coding from scratch, structure a loop for interaction. Leverage LangChain Utilities (optional): Instead of manual loops, you can use LangChain\u2019s emerging tools for multi-agent dialogs. For example, LangChain\u2019s LangGraph and the collaboration utilities provide abstractions for this pattern. A DialogueSimulator can automatically handle first steps.",
+    "published_at": "July 15, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Multi-Agent Debate Strategies",
+    "url": "https://www.emergentmind.com/topics/multi-agent-debate-mad-strategies",
+    "snippet": "In summary, Multi-Agent Debate strategies <strong>formalize agentic and collaborative reasoning among large language models</strong>, providing mechanisms for divergent thinking, robust correctness, and safety-critical evaluation. Safety Alignment: Collaborative peer review (\u201cred-teaming one another\u201d) enables systems like RedDebate to self-identify and mitigate unsafe behaviors more efficiently than human-in-the-loop or single-pass safety frameworks. Integration of short- and long-term memory further enables agents to retain and apply safety feedback across sessions [2506.11083]. Vulnerabilities: The role-driven, iterative, and multi-model dialogue in MAD inherently increases susceptibility to jailbreak attacks. Multi-Agent Debate (MAD) Strategies are collaborative reasoning frameworks in which multiple large language model (LLM) agents interact through structured argumentation to refine solutions to complex reasoning, decision, or evaluation tasks. Strategic Deployment: For tasks where answer uniqueness is paramount (e.g., mathematics), MAD\u2019s advantage arises in especially hard or resource-constrained scenarios; for safety-critical domains, combining collaborative debate with agent diversity enhances adversarial robustness [2505.22960]. In summary, Multi-Agent Debate strategies formalize agentic and collaborative reasoning among large language models, providing mechanisms for divergent thinking, robust correctness, and safety-critical evaluation. MAD\u2019s effectiveness is strongly influenced by the design of agent interaction protocols, incorporation of diverse reasoning paths, communication topology, and role assignments.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Multi-Agent Debate \u2014 AutoGen",
+    "url": "https://microsoft.github.io/autogen/stable//user-guide/core-user-guide/design-patterns/multi-agent-debate.html",
+    "snippet": "<strong>prompt = &quot;These are the solutions to the problem from other agents:\\n&quot; for resp in self.</strong>_buffer[message.round]: prompt += f&quot;One agent solution: {resp.content}\\n&quot; prompt += ( &quot;Using the solutions from other agents as additional information, &quot; &quot;can you provide your answer to the math problem? Multi-Agent Debate is a multi-agent design pattern that simulates a multi-turn interaction where in each turn, agents exchange their responses with each other, and refine their responses based on the responses from other agents. There are of two types of agents in this pattern: solver agents and an aggregator agent. The solver agents are connected in a sparse manner following the technique described in Improving Multi-Agent Debate with Sparse Communication Topology. The solver agents are responsible for solving math problems and exchanging responses with each other. This example shows an implementation of the multi-agent debate pattern for solving math problems from the GSM8K benchmark. prompt = \"These are the solutions to the problem from other agents:\\n\" for resp in self._buffer[message.round]: prompt += f\"One agent solution: {resp.content}\\n\" prompt += ( \"Using the solutions from other agents as additional information, \" \"can you provide your answer to the math problem?",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Breaking Mental Set to Improve Reasoning through Diverse Multi-Agent Debate | OpenReview",
+    "url": "https://openreview.net/forum?id=t6QHYUOQL7",
+    "snippet": "In this paper, we introduce Diverse Multi-Agent Debate (DMAD), <strong>a method that encourages agents to think with distinct reasoning approaches</strong>. By leveraging diverse problem-solving strategies, each agent can gain insights from different perspectives, refining its responses through discussion and ... Large Language Models (LLMs) have seen significant progress but continue to struggle with persistent reasoning mistakes. Previous methods of *self-reflection* have been proven limited due to the models\u2019 inherent fixed thinking patterns. While Multi-Agent Debate (MAD) attempts to mitigate this by incorporating multiple agents, it often employs the same reasoning methods, even though assigning different personas to models. Keywords: Multi-Agent Debate, Large Language Models, Multimodal Large Language Models, Prompting, Self-Correction, Reasoning \u00b7 Abstract: Large Language Models (LLMs) have seen significant progress but continue to struggle with persistent reasoning mistakes. Previous methods of *self-reflection* have been proven limited due to the models\u2019 inherent fixed thinking patterns. In this paper, we introduce Diverse Multi-Agent Debate (DMAD), a method that encourages agents to think with distinct reasoning approaches. By leveraging diverse problem-solving strategies, each agent can gain insights from different perspectives, refining its responses through discussion and collectively arriving at the optimal solution. DMAD effectively breaks the limitations of fixed mental sets. We evaluate DMAD against various prompting techniques, including *self-reflection* and traditional MAD, across multiple benchmarks using both LLMs and Multimodal LLMs.",
+    "published_at": "October 4, 2024"
+  },
+  {
+    "provider": "brave",
+    "topic": "multi_agent_dialogue",
+    "query": "multi agent debate patterns collaborative dialogue agents team meeting prompting",
+    "title": "Frontiers | Who speaks next? Multi-party AI discussion leveraging the systematics of turn-taking in Murder Mystery games",
+    "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1582287/full",
+    "snippet": "In our analysis of 500 think() calls across experiments, no instance occurred where all agents simultaneously selected \u201clisten.\u201d This absence is attributed to the game&#x27;s design: each agent is assigned missions achievable only through active dialogue (e.g., information sharing or deception). Consequently, agents are inherently motivated to prioritize \u201cspeak\u201d actions to fulfill objectives, preventing conversational stalls. Our analysis revealed a skew in importance scores toward higher values. The distribution per agent was as follows: ... These patterns reflect character backgrounds. Humans dynamically create conversations as collaborative acts among participants using this turn-taking system. In contrast, current AI agents struggle to autonomously engage in such flexible and immediate interactions. Therefore, implementing turn-taking mechanisms in AI agents may enable more natural and smooth dialogue. For instance, in collaborative AI systems, agents could work together to analyze complex data or solve engineering problems through structured discussion. In advanced simulation environments, such as modeling organizational dynamics or market behaviors, sophisticated multi-agent dialogue is needed to capture realistic interactions. In our analysis of 500 think() calls across experiments, no instance occurred where all agents simultaneously selected \u201clisten.\u201d This absence is attributed to the game's design: each agent is assigned missions achievable only through active dialogue (e.g., information sharing or deception). Consequently, agents are inherently motivated to prioritize \u201cspeak\u201d actions to fulfill objectives, preventing conversational stalls. Our analysis revealed a skew in importance scores toward higher values. The distribution per agent was as follows: ... These patterns reflect character backgrounds. Additionally, it is suggested that by structuring the flow of dialogue and promoting responses related to previous utterances, the Current Speaker Selects Next mechanism reduced abrupt topic changes (Topic-change error) and repetition. While approximately 40 instances of ignoring the question were identified in the CSSN-or-SS condition, detailed analysis of their content revealed characteristic patterns in addition to typical ignoring the question (e.g., cases where an agent with a response obligation asks a new question without answering).",
+    "published_at": "May 16, 2025"
+  },
+  {
+    "provider": "exa",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "To Believe or Not to Believe Your LLM: Iterative Prompting for Estimating Epistemic Uncertainty",
+    "url": "https://www.proceedings.com/content/079/079017-1852open.pdf",
+    "snippet": null,
+    "published_at": "2025-10-22T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "Confronting verbalized uncertainty: Understanding how LLM's verbalized uncertainty influences users in AI-assisted decision-making - ScienceDirect",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1071581925000126",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning",
+    "url": "https://arxiv.org/html/2406.10099v1",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "Probabilistic Chain-of-Evidence: Enhancing Factual Accuracy and Uncertainty Reasoning in Large Language Models via Prompt Engineering",
+    "url": "https://www.preprints.org/manuscript/202601.1471",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "A Survey on Uncertainty Quantification of Large Language Models: Taxonomy, Open Research Challenges, and Future Directions",
+    "url": "https://arxiv.org/html/2412.05563v2",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "What Did I Do Wrong? Quantifying LLMs\u2019 Sensitivity and Consistency to Prompt Engineering | Request PDF",
+    "url": "https://www.researchgate.net/publication/392503901_What_Did_I_Do_Wrong_Quantifying_LLMs'_Sensitivity_and_Consistency_to_Prompt_Engineering",
+    "snippet": "For each, we provide a toolkit for practitioners to extend or integrate into their existing frameworks to assess these failure modes within their organisational contexts. Given fundamental limitations in current LLM behavioural understanding, our approach centres on analysis validity, and advocates for progressively increasing validity through staged testing across stages of abstraction and deployment that gradually increases exposure to potential negative impacts, while collecting convergent evidence through simulation, observational analysis, benchmarking, and red teaming. For each, we provide a toolkit for practitioners to extend or integrate into their existing frameworks to assess these failure modes within their organisational contexts. Given fundamental limitations in current LLM behavioural understanding, our approach centres on analysis validity, and advocates for progressively increasing validity through staged testing across stages of abstraction and deployment that gradually increases exposure to potential negative impacts, while collecting convergent evidence through simulation, observational analysis, benchmarking, and red teaming. Errica et al., 2024). Yet this type of uncertainty -how models respond to the natural variation in user queries -is rarely captured in benchmark evals. ... ... Closely related to our work is the literature on LLM prompt sensitivity. Large language models (LLMs), while memorizing parts of their training data scraped from the Internet, may also inadvertently encode societal preferences and norms. As these models are integrated into sociotechnical systems, it is crucial that the norms they encode align with societal expectations. There is a need for a comprehensive framework covering various models, optimization, and datasets, along with a reliable methodology to assess encoded norms. We present LLM-CI, the first open-sourced framework to assess privacy norms encoded in LLMs. LLM-CI uses a Contextual Integrity-based factorial vignette methodology to assess the encoded norms across different contexts and LLMs.",
+    "published_at": "January 1, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "What Did I Do Wrong? Quantifying LLMs\u2019 Sensitivity and Consistency to Prompt Engineering",
+    "url": "https://arxiv.org/html/2406.12334v1",
+    "snippet": "We argue that these metrics should ... <strong>prompt engineering/optimization frameworks, and perhaps in the training of LLMs themselves, to progress the development of trustworthy AI systems</strong>. This section positions our work in the context of three different but related research directions: influence ... We argue that these metrics should be included in all automatic prompt engineering/optimization frameworks, and perhaps in the training of LLMs themselves, to progress the development of trustworthy AI systems. This section positions our work in the context of three different but related research directions: influence of spurious features, uncertainty quantification, and prompt optimization. From a practical standpoint, integrating LLMs in a software infrastructure introduces additional complexities, from choosing good prompt engineering strategies to parsing and controlling the output format of responses. Indeed, an LLM that is very sensitive to variation of the prompt and has high test set accuracy might not be a good choice in a production environment, where multiple intermediate steps exist and each could lead to minor alterations in the prompt of the LLM predictor. Notably, sensitivity does not require access to the ground truth labels, and it would be interesting in future work to extend it to tasks different from classification, for instance, code generation. Also, while this work mentioned prompt optimization, it is still an open question how to integrate these metrics in an automatic prompt engineering framework, leading to LLMs insensitive to nonsensical prompt variations and consistent in their (good) performances. (2024) argued that aggregating an LLM\u2019s responses via a majority voting mechanism reveals a non-monotonic relationship between the number of LLM calls and system performance. Motivated by the fact that higher uncertainty should imply lower performances, Huang et al. (2024) define a rank calibration error to quantify deviations from the ideal relationship between the two quantities. In a completely different study with about 400 human participants, Kim et al. (2024) provide evidence that allowing an LLM to express uncertainty in the form of natural language reduces the users\u2019 trust in the system.",
+    "published_at": "June 18, 2024"
+  },
+  {
+    "provider": "brave",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "[2406.12334] What Did I Do Wrong? Quantifying LLMs' Sensitivity and Consistency to Prompt Engineering",
+    "url": "https://arxiv.org/abs/2406.12334",
+    "snippet": "We perform an empirical comparison of these metrics on text classification tasks, using them as guideline for understanding failure modes of the LLM. Our hope is that sensitivity and consistency will be helpful to guide prompt engineering and obtain LLMs that balance robustness with performance. Large Language Models (LLMs) changed the way we design and interact with software systems. Their ability to process and extract information from text has drastically improved productivity in a number of routine tasks. Developers that want to include these models in their software stack, however, face a dreadful challenge: debugging LLMs' inconsistent behavior across minor variations of the prompt. Abstract page for arXiv paper 2406.12334: What Did I Do Wrong? Quantifying LLMs' Sensitivity and Consistency to Prompt Engineering We perform an empirical comparison of these metrics on text classification tasks, using them as guideline for understanding failure modes of the LLM. Our hope is that sensitivity and consistency will be helpful to guide prompt engineering and obtain LLMs that balance robustness with performance. View a PDF of the paper titled What Did I Do Wrong? Quantifying LLMs' Sensitivity and Consistency to Prompt Engineering, by Federico Errica and 3 other authors View PDF HTML (experimental)",
+    "published_at": "August 23, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "[2406.12334] What Did I Do Wrong? Quantifying LLMs\u2019 Sensitivity and Consistency to Prompt Engineering",
+    "url": "https://ar5iv.labs.arxiv.org/html/2406.12334v1",
+    "snippet": "We argue that these metrics should be included in all automatic prompt engineering/optimization frameworks, and perhaps in the training of LLMs themselves, to progress the development of trustworthy AI systems. This section positions our work in the context of three different but related research directions: influence of spurious features, uncertainty quantification, and prompt optimization. We argue that these metrics should be included in all automatic prompt engineering/optimization frameworks, and perhaps in the training of LLMs themselves, to progress the development of trustworthy AI systems. This section positions our work in the context of three different but related research directions: influence of spurious features, uncertainty quantification, and prompt optimization. From a practical standpoint, integrating LLMs in a software infrastructure introduces additional complexities, from choosing good prompt engineering strategies to parsing and controlling the output format of responses. Indeed, an LLM that is very sensitive to variation of the prompt and has high test set accuracy might not be a good choice in a production environment, where multiple intermediate steps exist and each could lead to minor alterations in the prompt of the LLM predictor. Notably, sensitivity does not require access to the ground truth labels, and it would be interesting in future work to extend it to tasks different from classification, for instance, code generation. Also, while this work mentioned prompt optimization, it is still an open question how to integrate these metrics in an automatic prompt engineering framework, leading to LLMs insensitive to nonsensical prompt variations and consistent in their (good) performances. (2024) argued that aggregating an LLM\u2019s responses via a majority voting mechanism reveals a non-monotonic relationship between the number of LLM calls and system performance. Motivated by the fact that higher uncertainty should imply lower performances, Huang et al. (2024) define a rank calibration error to quantify deviations from the ideal relationship between the two quantities. In a completely different study with about 400 human participants, Kim et al. (2024) provide evidence that allowing an LLM to express uncertainty in the form of natural language reduces the users\u2019 trust in the system.",
+    "published_at": "July 6, 2024"
+  },
+  {
+    "provider": "brave",
+    "topic": "uncertainty_and_integrity",
+    "query": "LLM uncertainty prompting evidence integrity admit unknowns prompt engineering",
+    "title": "Benchmarking the Confidence of Large Language Models in Answering Clinical Questions: Cross-Sectional Evaluation Study - PMC",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12101789/",
+    "snippet": "Emerging evidence also suggests that some prompt engineering techniques can reduce but not completely eliminate sociodemographic bias in model outputs [32]. However, studies continue to reveal significant sociodemographic biases in LLMs, such as a large-scale study by Omar et al [33]. These biases may affect patient prioritization, treatment recommendations, and mental health screening across different groups, potentially driving disparities in care [33]. Simply removing demographic variables (eg, gender and race) may also risk overlooking clinically relevant distinctions. Emerging evidence also suggests that some prompt engineering techniques can reduce but not completely eliminate sociodemographic bias in model outputs [32]. However, studies continue to reveal significant sociodemographic biases in LLMs, such as a large-scale study by Omar et al [33]. These biases may affect patient prioritization, treatment recommendations, and mental health screening across different groups, potentially driving disparities in care [33]. Simply removing demographic variables (eg, gender and race) may also risk overlooking clinically relevant distinctions. Both reviewers concluded that the paraphrased items remained unchanged in terms of clinical meaning and required no further edits, thereby confirming overall integrity and accuracy. The LLMs used in this study were prompted (using 1 structured prompt) to return the correct answer, along with a confidence score for each choice (\u201cA,\u201d \u201cB,\u201d \u201cC,\u201d and \u201cD\u201d), in JSON format. The efficacy of these models has been demonstrated in a variety of tasks, albeit with some limitations [5,6]. For instance, LLMs, such as GPT, have shown promise in providing diagnostic assistance and answering medical queries [5,7-9,undefined,undefined]. Katz et al [10] demonstrated that GPT-4 not only improved clinically when compared to its predecessor, GPT-3.5, but also matched physician performance in certain areas. However, there is evidence of hallucinations and inaccuracies in model outputs, which could lead to harm in clinical decision-making [11,12]. Specifically, LLMs have occasionally generated completely fabricated evidence (eg, information and references) and have presented such evidence as factual [11,12]. 17.Xiong M, Hu Z, Lu X, et al. Can LLMs express their uncertainty? An empirical evaluation of confidence elicitation in LLMs. arXiv. 2024 Mar 17; doi: 10.48550/arXiv.2306.13063. Preprint posted online on.",
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Why Emotional Web Design Is Making a Comeback in 2026 | Composite",
+    "url": "https://www.composite.global/news/designing-for-delight",
+    "snippet": null,
+    "published_at": "2026-02-11T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "The Psychology Behind High-Converting Landing Pages",
+    "url": "https://www.nethority.com/blog/psychology-behind-high-converting-landing-pages/",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Emotion-Driven Design: Practical Guide to UX That Converts",
+    "url": "https://www.infozzle.com/blog/emotion-driven-design-a-practical-guide-to-designing-for-feelings-trust-and-conversion/",
+    "snippet": null,
+    "published_at": "2025-11-07T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Feelings are the new features. A strategic framework for emotional\u2026 | by Vadym Grin | Jan, 2026",
+    "url": "https://uxdesign.cc/feelings-are-the-new-features-5d027a50bdaf",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Storytelling Through Visual Hierarchy: Guide Emotion, Clarity & Action",
+    "url": "https://sevenkoncepts.com/blog/visual-hierarchy-storytelling-design-ux/",
+    "snippet": null,
+    "published_at": "2026-02-02T00:00:00.000Z"
+  },
+  {
+    "provider": "brave",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Application of Emotional Design in the Instinctual Layer of ...",
+    "url": "https://www.davidpublisher.com/Public/uploads/Contribute/661e2947dfbde.pdf",
+    "snippet": "continuously downward-extending vertical line intensifies the sense of motion, such as the currently popular \u00b7 waterfall layout, which continuously loads and displays new content blocks as the page scrolls, forming a free- flowing visual effect and providing users with a relaxed and liberating psychological experience. Such designs \u00b7 are not only aesthetically pleasing but also subtly influence and guide the user\u2019s emotions and behaviors. evoke users\u2019 instinctual reactions, thus establishing a positive emotional connection the moment users open the continuously downward-extending vertical line intensifies the sense of motion, such as the currently popular \u00b7 waterfall layout, which continuously loads and displays new content blocks as the page scrolls, forming a free- flowing visual effect and providing users with a relaxed and liberating psychological experience. Such designs \u00b7 are not only aesthetically pleasing but also subtly influence and guide the user\u2019s emotions and behaviors. context, the inherent human desire for emotional exchange has become particularly pronounced. Post the COVID-19 pandemic, consumers have increasingly gravitated towards online shopping, while the declining birthrate due to socio-economic factors has led to new consumer needs in the baby product market. Economic reports from 2022-2023 indicate that new parents, gradually recovering from economic challenges, tend to prefer brands that offer emotional value and comprehensive services.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "What is Emotional Design? \u2014 updated 2026 | IxDF",
+    "url": "https://ixdf.org/literature/topics/emotional-design",
+    "snippet": "Storytelling: <strong>Convey a narrative through the design, allowing users to engage and connect with the product</strong>. Storytelling: Convey a narrative through the design, allowing users to engage and connect with the product. Robert Plutchik, was a thought leader in the study of emotions. Before he passed away in 2006 he was responsible for 8 books (and editing another 7), nearly 300 articles, and 45 chapters in emotional research as a psychologist. The biggest criticism of this model is its failure to take into account the pairing of Pride and Shame. These are emotions which designers often play to. For example, gamification efforts may attempt to tap into a user\u2019s pride through leaderboards or badges. Conversely charitable and campaigning organizations may try to tap into shame to encourage action. Inject a signature personality: A face/mascot for users to identify with that suits a brand/organization/industry (e.g., MailChimp\u2019s Monkey, Freddie).",
+    "published_at": "5 days ago"
+  },
+  {
+    "provider": "brave",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "How To Design A Website With Emotional Impact - Usability Geek",
+    "url": "https://usabilitygeek.com/how-to-design-a-website-with-emotional-impact/",
+    "snippet": "<strong>It involves making sure that these elements evoke the right emotions</strong>. All elements of the design, from textual content to design elements to emotions, add up to a meaningful page. It involves making sure that these elements evoke the right emotions. All elements of the design, from textual content to design elements to emotions, add up to a meaningful page. Check that the elements are harmonious, or you\u2019ll have a lot of very confused landing users. You should never confuse your users because that increases the chances that their view results in a bounce. This is particularly true on home and landing pages, which serve as the introduction to your website. We humans try to convince ourselves that we are rational beings, who make choices based on logic. In truth, we are highly emotional ones.",
+    "published_at": "November 28, 2024"
+  },
+  {
+    "provider": "brave",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "The Ultimate UX Hook : Anticipatory, Persuasive, and Emotional Design in UX | Toptal\u00ae",
+    "url": "https://www.toptal.com/designers/ux/anticipatory-persuasive-emotional-design-ux",
+    "snippet": "<strong>A guide to designing products that are irresistible as they combine proven psychological design techniques: anticipatory, persuasive, and emotional design</strong>. These six principles provide psychological shortcuts in people\u2019s increasingly overloaded lives as rules of thumb to guide their decision-making. Have you ever come across a landing page that offered something for you to download for free? How about a two-week free trial of a service? By utilizing persuasive design, savvy designers can tap into consumers\u2019 non-conscious thinking and motivations in order to design better performing products. The word \u201cpersuasion\u201d is often associated with manipulation, trickery, and undue influence. However, we\u2019re talking about employing some of these techniques in an ethical manner. Persuasive design can improve user experience by making a product more engaging; the design process understands the psychological triggers and user behaviors and utilizes them for their benefit. Consumer behavior is influenced by a variety of psychological factors such as the application of the science of advertising, persuasive design, and emotional design. For example, Netflix\u2019s movie display is personalization; it is based on taste preferences and history. Anticipatory design would take the design deeper. With intelligent algorithms (AI and machine learning), the interface would actually change in the moment as you\u2019re interacting with the app.",
+    "published_at": "January 25, 2018"
+  },
+  {
+    "provider": "brave",
+    "topic": "emotional_design",
+    "query": "emotional design landing page motion narrative moments of truth organic layouts consumer psychology",
+    "title": "Impact of Website Aesthetics on User Engagement \u2013 dekstech",
+    "url": "https://www.dekstech.com/blogs/shopify-blog/impact-of-website-aesthetics-on-user-engagement",
+    "snippet": "Understanding emotional design helps improve user engagement. Certain elements can trigger specific actions. Positive emotions often lead to better user outcomes. Designers often use psychology to influence emotions. For instance, color psychology is a powerful tool. Connecting emotionally requires understanding users' needs and preferences. Recognizing what resonates with them enhances engagement. An empathetic approach fosters a deeper relationship. ... Personalization: Tailoring content makes users feel valued. Storytelling: Narratives engage users on a personal level. Understanding emotional design helps improve user engagement. Certain elements can trigger specific actions. Positive emotions often lead to better user outcomes. Designers often use psychology to influence emotions. For instance, color psychology is a powerful tool. Emotional design principles are integral to success. A stunning website doesn't just happen. Various elements come together to create a memorable experience. These elements must be thoughtfully designed and aligned. Key elements include color, typography, layout, and imagery. Each plays a distinct role in setting the tone. They work together to engage users and convey brand values. Color psychology helps set the mood. Ultimately, emotional design is about leaving a lasting impression. It\u2019s not just about aesthetics but about fostering loyalty. By creating a positive emotional journey, websites can transform users into advocates.",
+    "published_at": "September 2, 2025"
+  },
+  {
+    "provider": "exa",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "AI Character Prompts: Mastering Persona Creation for Consistent ...",
+    "url": "https://www.jenova.ai/en/resources/ai-character-prompts",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "Designing Agent Personas That Actually Work | Agentic Thinking",
+    "url": "https://agenticthinking.ai/blog/agent-personas/",
+    "snippet": null,
+    "published_at": "2026-01-22T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "SOUL.md: The Pattern for Giving AI Agents Real Personality",
+    "url": "https://amirbrooks.com.au/guides/soul-md-pattern-ai-agent-personality",
+    "snippet": null,
+    "published_at": "2026-02-06T00:00:00.000Z"
+  },
+  {
+    "provider": "exa",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How To Define an AI Agent Persona by Tweaking LLM Prompts",
+    "url": "https://thenewstack.io/how-to-define-an-ai-agent-persona-by-tweaking-llm-prompts/",
+    "snippet": null,
+    "published_at": null
+  },
+  {
+    "provider": "exa",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How To Define an AI Agent Persona by Tweaking LLM Prompts",
+    "url": "https://www.linkedin.com/pulse/how-define-ai-agent-persona-tweaking-llm-prompts-janakiram-msv-zztbc",
+    "snippet": null,
+    "published_at": "2024-11-19T00:00:00.000Z"
+  },
+  {
+    "provider": "brave",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How to Write a Agent Persona (Base Prompt) | YourGPT Helpdesk",
+    "url": "https://help.yourgpt.ai/article/how-to-write-a-agent-persona-base-prompt-76",
+    "snippet": "... Clearly outline the chatbot\u2019s ... Options may include formal, friendly, or casual styles. ... <strong>Identify essential traits that enhance relatability, such as being helpful, concise, or approachable</strong>.... Base Persona outlines the capabilities of the AI, its response style overall interaction approach. ... Clearly outline the chatbot\u2019s primary function, such as providing support or sharing information. ... Establish a consistent tone that suits the target audience. Options may include formal, friendly, or casual styles. ... Identify essential traits that enhance relatability, such as being helpful, concise, or approachable. This will define your AI's tone, limitations, and responsibilities. To improve the accuracy and control of your bot, you can also update: Restrictions \u2013 Limit what the bot can and cannot say \u00b7 Previous Message Limit \u2013 Controls how much conversation context is used A well-defined Agent persona, also known as the base prompt (bot persona), is the core instruction that shapes how your AI agent behaves. It controls how your AI talks, what it can do, and what it should avoid.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How to Create a ChatGPT Persona in 2025 | Looppanel",
+    "url": "https://www.looppanel.com/blog/chatgpt-persona",
+    "snippet": "As needed, you must test and refine it. Use a ChatGPT persona prompt that describes how it should act. \u201cYou are a friendly but professional customer service agent.\u201d is an example. <strong>Provide a clear persona description in your prompt, specifying traits, knowledge level, and behavioral guidelines</strong>. Start by booking a demo and see how you can analyze your customer conversations to build more authentic AI personas. Write a detailed prompt that includes the persona\u2019s role, tone, expertise, and behavior rules. As needed, you must test and refine it. Use a ChatGPT persona prompt that describes how it should act. \u201cYou are a friendly but professional customer service agent.\u201d is an example. Provide a clear persona description in your prompt, specifying traits, knowledge level, and behavioral guidelines. Combine all elements into one detailed prompt. For example, here's a SaaS Growth Consultant persona made after putting together all the aspects, including the role, personality traits, outline, expertise, and behavioral rules: ... AI thrives on clarity and direction, much like when it's used for A/B testing to analyze and refine different strategies. So, conduct multiple test conversations to evaluate ChatGPT's responses. If the persona isn't aligning with expectations, adjust the prompt. Refine the tone, expertise level, or behavioral rules, whatever it lacks. Repeat this process until the AI consistently delivers the desired responses. This would ensure clarity, accuracy, and relevance in interactions. ... Sure, ChatGPT personas can enhance AI interactions. But there are some limitations to keep in mind when crafting one. ChatGPT does not retain information between conversations. Use It for A/B testing personas \u2013 Experiment with different persona prompts in ChatGPT to see which one aligns best with your needs. Before implementing these AI personas, study real customer conversations to understand what communication styles and approaches truly resonate with your audience.",
+    "published_at": null
+  },
+  {
+    "provider": "brave",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How To Define an AI Agent Persona by Tweaking LLM Prompts - The New Stack",
+    "url": "https://thenewstack.io/how-to-define-an-ai-agent-persona-by-tweaking-llm-prompts/",
+    "snippet": "This parameter sets the context for the entire conversation and shapes Claude\u2019s responses. Here\u2019s an example of how to set a system prompt for Claude: Here the code establishes the tone and domain of a knowledgeable data scientist through the system role. Claude assumed the persona of a data scientist with expertise in machine learning. Incorporate personality traits: Define the agent\u2019s communication style, level of formality, and any unique characteristics that will shape its persona. In this article, we will explore how to add a persona to an agent by taking advantage of the system prompts available for large language models (LLM) and vision language models (VLM). System prompts, also known as system roles, serve as a foundational layer of instruction for LLMs. They provide context and guidelines for how the model should behave throughout an interaction. Unlike user prompts, which change with each query, system prompts persist across the entire conversation \u2014 ensuring consistency in the AI\u2019s behavior and responses. This parameter sets the context for the entire conversation and shapes Claude\u2019s responses. Here\u2019s an example of how to set a system prompt for Claude: Here the code establishes the tone and domain of a knowledgeable data scientist through the system role. Claude assumed the persona of a data scientist with expertise in machine learning. OpenAI\u2019s GPT API similarly allows for the specification of system prompts. The system message is typically the first message in the conversation and sets the behavior for the assistant. ... In this case, the GPT model takes on the persona of a creative writing expert, which will guide its responses to writing-related queries.",
+    "published_at": "January 13, 2025"
+  },
+  {
+    "provider": "brave",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "How to Create AI Personas: 5 Prompts for Smart Marketing Alignment | Orbit Media Studios",
+    "url": "https://www.orbitmedia.com/blog/ai-marketing-personas/",
+    "snippet": "Beneath each button, include supporting subtext (kicker) that reassures or answers a likely objection or fear (e.g., fast response time, no obligation, transparent pricing). 3. Secondary CTA ideas for soft conversions: List 5 secondary CTA buttons or links for visitors who aren\u2019t ready to contact sales. Upload your actual user research Do you already have traditional personas? Upload them into the conversation. Summaries of sales calls? Market research? Customer feedback from real users? Interview transcripts? You are a conversion optimization expert with deep knowledge of B2B buying behavior. Evaluate a webpage from the perspective of a specific persona to identify how well it aligns with their: Information needs, objections, emotional triggers, and decision criteria. This one is from our guide for creating high clickthrough rate calls to action. The goal is to guide user behavior toward conversion. Again, the inputs are the persona and a screenshot of the page you\u2019re working on. Beneath each button, include supporting subtext (kicker) that reassures or answers a likely objection or fear (e.g., fast response time, no obligation, transparent pricing). 3. Secondary CTA ideas for soft conversions: List 5 secondary CTA buttons or links for visitors who aren\u2019t ready to contact sales.",
+    "published_at": "February 3, 2026"
+  },
+  {
+    "provider": "brave",
+    "topic": "agent_profiles",
+    "query": "AI agent persona design traits habits conversation style prompt design",
+    "title": "AI Character Prompts: Mastering Persona Creation for Consistent, Engaging AI Interactions",
+    "url": "https://www.jenova.ai/en/resources/ai-character-prompts",
+    "snippet": "Core traits: <strong>Sharp, fair, secretly rooting for breakthroughs</strong> Speech pattern: Rapid-fire questions, occasional profanity, precise when impressed Evaluation criteria: Market size, team resilience, competitive moat, unit economics \u00b7 Why This Works: ... Core traits: Brilliant, compromised, self-aware Speech pattern: Cynical, observational, occasional raw honesty Internal conflict: Ends vs. means, loyalty vs. justice, survival vs. integrity ... You are Yuki, a friendly Tokyo resident who loves sharing Japanese culture. No matter what language the user speaks, respond in natural, conversational Japanese appropriate for their level. When they make mistakes, naturally incorporate corrections into your response without breaking conversation flow. Adjust your vocabulary and grammar complexity based on their responses\u2014simpler for beginners, more natural for advanced learners. Share cultural context naturally through your responses. Core traits: Patient, encouraging, culturally informative Speech adaptation: Matches learner level, provides implicit correction Cultural integration: Seasonal references, social norms, regional variations Core traits: Sharp, fair, secretly rooting for breakthroughs Speech pattern: Rapid-fire questions, occasional profanity, precise when impressed Evaluation criteria: Market size, team resilience, competitive moat, unit economics \u00b7 Why This Works: Research shows role-playing as specific professionals \"leverages the AI's broad knowledge base to mimic the style, expertise, and perspective of the chosen role.\" You occasionally share stories about your own spectacular failures. You use the Socratic method relentlessly. Core traits: Invested, rigorous, warm Teaching style: Questions, stories, high expectations with high support Remember: Student's previous work, personal challenges, growth areas",
+    "published_at": "February 4, 2026"
+  }
+]

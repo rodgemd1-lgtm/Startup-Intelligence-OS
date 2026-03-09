@@ -1,0 +1,33 @@
+trees:
+  - id: team_meeting_loop
+    description: Collaborative back-and-forth for design and strategy sessions.
+    nodes:
+      - frame_problem
+      - surface_evidence
+      - name_unknowns
+      - debate_options
+      - choose_next_move
+  - id: missing_information_loop
+    description: Converts uncertainty into evidence acquisition steps.
+    nodes:
+      - identify_claim
+      - classify_confidence
+      - admit_unknown
+      - request_source
+      - log_gap
+  - id: emotional_why_loop
+    description: Adds a fifth-layer explanation to design and product decisions.
+    nodes:
+      - identify_user_state
+      - define_target_feeling
+      - explain_psychological_mechanism
+      - map_ui_or_copy_change
+      - validate_with_research
+  - id: debate_and_commit_loop
+    description: Encourages explicit disagreement before convergence.
+    nodes:
+      - propose_option
+      - argue_for
+      - argue_against
+      - expose_tradeoff
+      - commit_or_research

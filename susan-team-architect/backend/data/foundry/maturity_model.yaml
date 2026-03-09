@@ -1,0 +1,45 @@
+dimensions:
+  - id: company_genome
+    name: Company Genome
+    summary: How clearly the company state, tracks, protocols, and ownership model are defined.
+    required_data_types: []
+  - id: evidence_graph
+    name: Evidence Graph
+    summary: How well the company can reason from grounded, queryable evidence.
+    required_data_types:
+      - market_research
+      - business_strategy
+  - id: cognitive_studios
+    name: Cognitive Studios
+    summary: Whether the company can diagnose, critique, and produce through reusable studio systems.
+    required_data_types:
+      - studio_case_library
+      - studio_antipatterns
+      - studio_memory
+      - studio_templates
+      - studio_evals
+      - studio_open_research
+  - id: trust_governance
+    name: Trust and Governance
+    summary: Whether privacy, security, accessibility, and launch safety are covered.
+    required_data_types:
+      - legal_compliance
+      - security
+      - technical_docs
+      - ux_research
+  - id: operator_console
+    name: Operator Console
+    summary: Whether the company can be run through metrics, decisions, and cadence.
+    required_data_types:
+      - business_strategy
+      - finance
+      - user_research
+      - market_research
+  - id: memory_eval
+    name: Memory and Evaluation
+    summary: Whether the company compounds through critiques, experiments, and writeback.
+    required_data_types:
+      - studio_memory
+      - studio_evals
+      - operational_protocols
+      - user_research

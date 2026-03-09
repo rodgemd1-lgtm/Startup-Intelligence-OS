@@ -1,0 +1,34 @@
+layer: marketing_narrative
+datasets:
+  - id: buyer_language_repository
+    name: Oracle Health buyer language repository
+    source_type: synthesized_from_research
+    acquisition_method: derived_asset
+    data_type: content_strategy
+    outputs:
+      - persona_language_cards
+      - objection_language
+  - id: message_architecture_pack
+    name: Message architecture and proof statement system
+    source_type: internal_structured
+    acquisition_method: manual_entry
+    data_type: content_strategy
+    outputs:
+      - core_message_house
+      - proof_statement_library
+  - id: thought_leadership_topics
+    name: White paper, memo, article, and blog topic system
+    source_type: internal_structured
+    acquisition_method: manual_entry
+    data_type: content_strategy
+    outputs:
+      - editorial_calendar
+      - derivative_asset_map
+  - id: visual_evidence_library
+    name: Screenshot and diagram evidence library
+    source_type: firecrawl_capture
+    acquisition_method: screenshot_capture
+    data_type: ux_research
+    outputs:
+      - slide_proof_assets
+      - article_visuals

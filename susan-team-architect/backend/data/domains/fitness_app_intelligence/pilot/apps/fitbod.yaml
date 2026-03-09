@@ -1,0 +1,41 @@
+id: app-fitbod
+slug: fitbod
+name: Fitbod
+category: fitness
+subcategory: ai-strength-training
+company_id: company-fitbod-inc
+editorial_markdown_path: apps/fitness/fitbod.md
+summary: AI-powered strength training app that generates adaptive workouts based on goals, equipment, and muscle recovery status.
+platforms:
+  - iOS
+  - Android
+  - Apple Watch
+  - WearOS
+metrics:
+  - id: metric-fitbod-downloads
+    name: Total Downloads
+    value: 15+ million
+    metric_type: downloads
+    as_of_date: 2026-03-03
+    evidence:
+      - source_id: source-fitbod-editorial
+        source_url: apps/fitness/fitbod.md
+        source_type: editorial_profile
+        captured_at: 2026-03-03
+        effective_date: 2026-03-03
+        confidence: 0.6
+        verification_status: analyst_reviewed
+        evidence_grade: strong_secondary
+sources:
+  - id: source-fitbod-editorial
+    title: Fitbod Competitive Intelligence Profile
+    source_url: apps/fitness/fitbod.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+verification_status: analyst_reviewed
+updated_at: 2026-03-06T00:00:00
+

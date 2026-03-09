@@ -1,0 +1,18 @@
+studio: marketing_studio
+datasets:
+  - buyer_language_repository
+  - message_architecture_pack
+  - thought_leadership_topics
+  - visual_evidence_library
+  - clinician_workflow_signals
+  - regulatory_brief
+techniques:
+  - persona-specific proof mapping
+  - objection-first messaging
+  - research-to-content cascades
+  - compliance-aware copy review
+examples:
+  - cio_memo
+  - cmio_white_paper
+  - interoperability_blog_series
+  - enterprise_workflow_slide_narrative

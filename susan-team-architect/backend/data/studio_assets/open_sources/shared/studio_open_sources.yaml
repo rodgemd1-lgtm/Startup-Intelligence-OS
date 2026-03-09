@@ -1,0 +1,52 @@
+name: "Shared Studio Open Source Research"
+company_id: "shared"
+description: "Refreshable public-source references for design, motion, discovery, and marketing studios."
+web_sources:
+  - title: "Apple Liquid Glass Overview"
+    url: "https://developer.apple.com/documentation/technologyoverviews/liquid-glass"
+    data_type: "studio_open_research"
+    tags: ["apple", "liquid-glass", "visual-systems", "2026"]
+  - title: "Apple Human Interface Guidelines"
+    url: "https://developer.apple.com/design/human-interface-guidelines/"
+    data_type: "studio_open_research"
+    tags: ["apple", "hig", "interaction", "clarity"]
+  - title: "WebKit Scroll-Driven Animations"
+    url: "https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/"
+    data_type: "studio_open_research"
+    tags: ["webkit", "css", "scroll-driven-animation", "motion"]
+  - title: "WebKit Features in Safari 26.0"
+    url: "https://webkit.org/blog/17333/webkit-features-in-safari-26-0/"
+    data_type: "studio_open_research"
+    tags: ["webkit", "safari-26", "platform", "motion"]
+  - title: "Chrome View Transitions in 2025"
+    url: "https://developer.chrome.com/blog/view-transitions-in-2025"
+    data_type: "studio_open_research"
+    tags: ["chrome", "view-transitions", "state-continuity"]
+  - title: "GSAP ScrollTrigger Docs"
+    url: "https://gsap.com/docs/v3/Plugins/ScrollTrigger/"
+    data_type: "studio_open_research"
+    tags: ["gsap", "scrolltrigger", "motion", "narrative"]
+  - title: "GSAP Flip Docs"
+    url: "https://gsap.com/docs/v3/Plugins/Flip/"
+    data_type: "studio_open_research"
+    tags: ["gsap", "flip", "layout-transitions", "motion"]
+  - title: "Design Council Evolved Double Diamond"
+    url: "https://www.designcouncil.org.uk/our-work/skills-learning/tools-frameworks/framework-for-innovation-design-councils-evolved-double-diamond/"
+    data_type: "studio_open_research"
+    tags: ["design-council", "double-diamond", "innovation", "discovery"]
+  - title: "Intercom Jobs To Be Done"
+    url: "https://www.intercom.com/blog/videos/finding-jobs-your-product-is-used-for/"
+    data_type: "studio_open_research"
+    tags: ["jtbd", "discovery", "product", "messaging"]
+  - title: "NNGroup UX Mapping Cheat Sheet"
+    url: "https://www.nngroup.com/articles/ux-mapping-cheat-sheet/"
+    data_type: "studio_open_research"
+    tags: ["journey-mapping", "moments-of-truth", "ux-research"]
+  - title: "NNGroup Journey Mapping 101"
+    url: "https://www.nngroup.com/articles/journey-mapping-101/"
+    data_type: "studio_open_research"
+    tags: ["journey-mapping", "research", "experience-design"]
+  - title: "Think with Google Zero Moment of Truth"
+    url: "https://www.thinkwithgoogle.com/consumer-insights/consumer-journey/zero-moment-of-truth/"
+    data_type: "studio_open_research"
+    tags: ["zmot", "trust", "proof", "marketing"]

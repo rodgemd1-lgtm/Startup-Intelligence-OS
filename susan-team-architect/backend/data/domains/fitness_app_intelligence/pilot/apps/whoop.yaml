@@ -1,0 +1,39 @@
+id: app-whoop
+slug: whoop
+name: WHOOP
+category: recovery
+subcategory: wearable-recovery
+company_id: company-whoop
+editorial_markdown_path: apps/recovery/whoop.md
+summary: Screenless wearable membership platform focused on recovery, strain, sleep, and performance optimization.
+platforms:
+  - iOS
+  - Android
+metrics:
+  - id: metric-whoop-revenue
+    name: Revenue
+    value: $260M
+    metric_type: revenue
+    as_of_date: 2026-03-03
+    evidence:
+      - source_id: source-whoop-editorial
+        source_url: apps/recovery/whoop.md
+        source_type: editorial_profile
+        captured_at: 2026-03-03
+        effective_date: 2026-03-03
+        confidence: 0.6
+        verification_status: analyst_reviewed
+        evidence_grade: strong_secondary
+sources:
+  - id: source-whoop-editorial
+    title: WHOOP Competitive Intelligence Profile
+    source_url: apps/recovery/whoop.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.6
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+verification_status: analyst_reviewed
+updated_at: 2026-03-06T00:00:00
+

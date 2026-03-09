@@ -1,0 +1,55 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "domain": "Fitness Technology / AI Health Coaching",
+  "stage": "MVP Redesign",
+  "website": "https://transformfit.app",
+  "founding_date": "2023",
+  "founders": [
+    {
+      "name": "Michael Rodgers",
+      "background": "AI engineer and multi-agent systems architect with expertise in building autonomous agent pipelines, likely experienced in LLM orchestration, reinforcement learning, and scalable backend systems relevant to adaptive personalization engines."
+    }
+  ],
+  "product_description": "TransformFit is an AI-powered adaptive fitness platform that delivers hyper-personalized coaching experiences through intelligent workout generation, real-time plan adaptation, and behavioral retention systems. The platform leverages multi-agent AI architecture to learn from individual user performance, preferences, recovery patterns, and psychological motivation profiles to continuously refine training programs. Core capabilities include dynamic workout scheduling, progressive overload automation, habit loop reinforcement via behavioral economics principles, and conversational AI coaching. The system is designed to close the gap between generic fitness apps and one-on-one personal training by combining exercise science with AI-driven personalization \u2014 targeting the critical Day-1 through Day-7 retention window where most fitness app users disengage.",
+  "tech_stack": [
+    "React",
+    "FastAPI",
+    "PostgreSQL",
+    "Supabase",
+    "Python (implied via FastAPI)",
+    "REST API architecture",
+    "Supabase Auth (likely)",
+    "Supabase Realtime (likely)",
+    "OpenAI API or equivalent LLM provider (inferred from AI coaching capability and $200/month AI budget)"
+  ],
+  "target_market": "Health-conscious adults (ages 18\u201345) seeking AI-personalized fitness guidance, particularly individuals who have struggled with consistency on generic fitness apps, are motivated but lack access to personal trainers, and respond positively to data-driven, adaptive coaching. Secondary segments include fitness enthusiasts seeking workout optimization and users interested in habit formation and behavioral accountability systems.",
+  "funding_status": "Bootstrapped",
+  "key_competitors": [
+    "Fitbod",
+    "Noom",
+    "Peloton",
+    "WHOOP",
+    "MyFitnessPal",
+    "Future (AI personal training)",
+    "Freeletics",
+    "Caliber",
+    "Vi Trainer",
+    "Trainerize"
+  ],
+  "current_challenges": [
+    "74\u201377% Day-1 user abandonment rate indicating critical onboarding and first-session experience failures",
+    "No persistent agent memory \u2014 AI coaching context resets between sessions, preventing meaningful longitudinal personalization",
+    "Manual feature prioritization \u2014 lack of automated or data-driven mechanisms to identify and rank high-impact product improvements",
+    "No behavioral economics integration \u2014 absence of commitment devices, loss aversion triggers, variable reward schedules, or social proof mechanics to drive retention",
+    "High dependency on solo founder availability for product iteration and bug resolution",
+    "Potential cold-start problem for AI personalization with insufficient early user data",
+    "Differentiating AI value proposition in a crowded fitness app market with established incumbents"
+  ],
+  "constraints": [
+    "Solo founder \u2014 all product, engineering, marketing, and operational decisions managed by one person",
+    "AI infrastructure budget capped at $200/month, requiring cost-efficient LLM usage strategies such as prompt caching, tiered model selection, and batched inference",
+    "Single engineer deployment \u2014 infrastructure must prioritize managed services, low operational overhead, and auto-scaling solutions to minimize DevOps burden",
+    "Limited runway for extended experimentation \u2014 rapid iteration cycles required to validate retention improvements before resource exhaustion",
+    "No dedicated design or growth resources \u2014 UI/UX and user acquisition must be lean and founder-led"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "knowns": [
+    "Day-1 abandonment rate is 74\u201377%, establishing a quantified baseline for retention improvement measurement",
+    "No persistent AI memory layer exists \u2014 coaching context resets between sessions",
+    "AI infrastructure budget is hard-capped at $200/month with no current cost-per-inference tracking",
+    "Tech stack is React + FastAPI + PostgreSQL + Supabase with likely OpenAI API integration",
+    "Founder is a solo AI/ML engineer \u2014 no design, growth, or secondary engineering capacity",
+    "Target demographic is health-conscious adults 18\u201345 who have failed with generic fitness apps",
+    "Core competitors include Fitbod, Noom, Future, Freeletics, Caliber, and WHOOP",
+    "No behavioral economics layer is implemented \u2014 zero commitment devices, loss aversion triggers, or variable reward mechanics",
+    "Cold-start personalization problem is acknowledged \u2014 first-session AI output is effectively generic",
+    "No product instrumentation or funnel analytics currently exist",
+    "Product is bootstrapped with limited runway \u2014 rapid iteration cycles are mandatory",
+    "Primary success threshold is Day-7 retention above 60% and first-session completion above 75%"
+  ],
+  "critical_unknowns": [
+    "Exact drop-off point(s) within the Day-1 session \u2014 is abandonment occurring at signup, onboarding intake, first workout generation, or mid-workout?",
+    "Whether abandonment is driven by onboarding friction, perceived value delay, motivational misalignment, or technical failure",
+    "Current onboarding flow length and number of input fields required before first workout is shown",
+    "Qualitative user exit reasons \u2014 no user interviews, churn surveys, or session recordings are mentioned",
+    "What the current first-session experience actually looks like from a user perspective \u2014 no UX audit data exists",
+    "Whether any users have completed Day-7 and what behavioral patterns differentiate retained vs. churned users",
+    "Actual current AI inference cost-per-session and per-user \u2014 no baseline cost data documented",
+    "Which LLM provider and model tier is currently in use \u2014 no confirmed OpenAI vs. alternative, no model tier specified",
+    "Whether Supabase schema currently supports any user history or performance data storage suitable for memory layer migration",
+    "What competitor retention rates actually look like at Day-7 \u2014 Fitbod, Future, Freeletics benchmarks are unconfirmed",
+    "Which behavioral retention mechanics have empirical validation specifically in fitness app contexts vs. general consumer apps",
+    "Whether the current user base has generated any longitudinal data usable as population-level priors for cold-start logic",
+    "User psychological profile distribution \u2014 what percentage of current/prospective users are intrinsically vs. extrinsically motivated",
+    "App Store and Play Store review sentiment for top competitors \u2014 what are users explicitly praising or condemning in comparable products",
+    "Whether the current exercise catalog has sufficient breadth to support equipment-constrained and beginner user paths",
+    "What minimum viable intake signal set is sufficient to generate a differentiated first workout without excessive onboarding friction",
+    "Whether any A/B testing infrastructure or feature flag system exists, even in rudimentary form",
+    "Regulatory or liability exposure from AI-generated workout programming without certified exercise science guardrails"
+  ],
+  "research_tracks": [
+    {
+      "question": "What are the exact behavioral patterns, stated frustrations, and unmet expectations of users who abandon fitness apps within the first 7 days \u2014 specifically what triggers the decision to quit?",
+      "source_lane": "community",
+      "freshness_requirement": "current_quarter",
+      "assigned_agents": [
+        "freya",
+        "echo"
+      ],
+      "output_type": "persona_language_pack"
+    },
+    {
+      "question": "What onboarding flows, first-session structures, and cold-start personalization mechanisms do Fitbod, Future, Freeletics, and Caliber use \u2014 and where do they deliver or fail to deliver perceived value within the first session?",
+      "source_lane": "appstore",
+      "freshness_requirement": "current_quarter",
+      "assigned_agents": [
+        "app-experience-studio",
+        "compass"
+      ],
+      "output_type": "teardown"
+    },
+    {
+      "question": "What is the empirical evidence for specific behavioral economics mechanisms \u2014 commitment devices, variable reward schedules, loss aversion triggers, implementation intentions \u2014 in improving 7-day and 30-day retention specifically in mobile fitness or health behavior change apps?",
+      "source_lane": "scientific",
+      "freshness_requirement": "durable",
+      "assigned_agents": [
+        "freya",
+        "flow"
+      ],
+      "output_type": "evidence_brief"
+    },
+    {
+      "question": "What are the proven architectural patterns for lightweight persistent memory in LLM-powered applications \u2014 including vector store approaches, structured key-value memory, and hybrid retrieval \u2014 and what are their latency, cost, and complexity tradeoffs at sub-$200/month AI budget constraints?",
+      "source_lane": "enterprise_docs",
+      "freshness_requirement": "current_quarter",
+      "assigned_agents": [
+        "nova",
+        "atlas",
+        "algorithm-lab"
+      ],
+      "output_type": "evidence_brief"
+    },
+    {
+      "question": "What do App Store and Play Store reviews for Fitbod, Future, Noom, Freeletics, and Caliber reveal about the specific language users use to describe AI personalization value, onboarding frustration, and reasons for cancellation or return?",
+      "source_lane": "appstore",
+      "freshness_requirement": "current_quarter",
+      "assigned_agents": [
+        "echo",
+        "pulse"
+      ],
+      "output_type": "persona_language_pack"
+    },
+    {
+      "question": "What is the minimum viable onboarding input set \u2014 across fitness goal, experience level, equipment, schedule, and psychological motivation type \u2014 that exercise science and personalization research indicates is sufficient to generate a meaningfully differentiated initial training recommendation?",
+      "source_lane": "scientific",
+      "freshness_requirement": "durable",
+      "assigned_agents": [
+        "workout-program-studio",
+        "algorithm-lab"
+      ],
+      "output_type": "evidence_brief"
+    },
+    {
+      "question": "What are the current OpenAI and Anthropic model tier pricing structures, prompt caching capabilities, and cost-per-1K-token rates for Haiku, GPT-4o-mini, and equivalent lightweight tiers \u2014 and what routing architectures achieve sub-$0.50 per active user monthly at assumed session frequency?",
+      "source_lane": "enterprise_docs",
+      "freshness_requirement": "immediate",
+      "assigned_agents": [
+        "ledger",
+        "algorithm-lab"
+      ],
+      "output_type": "evidence_brief"
+    },
+    {
+      "question": "Are there documented cases of fitness apps or health behavior platforms that reduced Day-1 to Day-7 abandonment by more than 20 percentage points \u2014 and what specific product, onboarding, or retention interventions were causally attributed to those improvements?",
+      "source_lane": "web",
+      "freshness_requirement": "current_quarter",
+      "assigned_agents": [
+        "compass",
+        "freya"
+      ],
+      "output_type": "contradiction_report"
+    }
+  ],
+  "data_layers_needed": [
+    "Session-level event log with timestamped drop-off events across the current onboarding funnel \u2014 screen-by-screen abandonment rates",
+    "First-session completion rate broken down by completion stage \u2014 intake finished, workout generated, workout started, workout completed",
+    "Day-1, Day-3, Day-7, and Day-30 cohort retention curves from existing user base, however small",
+    "Current AI inference cost log \u2014 per-request token counts, model used, and associated cost over trailing 30 days",
+    "Supabase schema documentation \u2014 tables, relationships, and existing user history storage to assess memory layer migration complexity",
+    "App Store and Play Store review corpus for TransformFit (if live) and top 5 competitors \u2014 minimum 500 reviews per competitor for sentiment pattern extraction",
+    "User intake response distribution \u2014 what fitness goals, experience levels, and equipment configurations current users are self-reporting",
+    "Competitor onboarding screenshot and flow documentation \u2014 minimum Fitbod, Future, Freeletics captured within current quarter",
+    "Exercise catalog inventory \u2014 total exercise count, equipment tags, muscle group coverage, and difficulty tier distribution",
+    "Any existing user feedback, support tickets, or exit survey responses \u2014 even anecdotal qualitative signals from Michael directly"
+  ],
+  "temporary_assumptions": [
+    "Assuming OpenAI GPT-4o-mini or Anthropic Claude Haiku is the primary inference model until confirmed \u2014 cost modeling will use published rates for these tiers",
+    "Assuming the majority of Day-1 abandonment occurs between workout generation and first workout completion, not at signup \u2014 this will be invalidated or confirmed once session event logging is instrumented",
+    "Assuming Supabase PostgreSQL schema can accommodate a structured memory layer without full migration \u2014 vector store will be treated as additive, not replacement, pending schema review",
+    "Assuming a 5\u20137 question intake flow is the current onboarding length \u2014 cold-start personalization strategy will be scoped around this until UX audit confirms actual field count",
+    "Assuming no feature flag or A/B testing infrastructure currently exists \u2014 all onboarding variant testing will require sequential rather than parallel rollout",
+    "Assuming competitor Day-7 retention rates are in the 30\u201345% range based on industry benchmarks for fitness apps \u2014 this will be revised if competitor-specific data surfaces",
+    "Assuming the current user base is under 500 active users \u2014 population-level prior construction will rely on public exercise science datasets rather than internal behavioral data until user volume grows",
+    "Assuming Michael has direct access to raw Supabase logs and can instrument basic event tracking within one sprint cycle without third-party analytics tooling",
+    "Assuming behavioral retention mechanics have not been tested in any form \u2014 if any prior experiment data exists, it must be surfaced before behavioral system design begins",
+    "Assuming exercise science liability exposure is manageable at current user scale without formal certification \u2014 this assumption requires legal validation before public launch at scale"
+  ]
+}

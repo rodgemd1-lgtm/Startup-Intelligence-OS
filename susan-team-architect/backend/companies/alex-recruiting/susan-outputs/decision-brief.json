@@ -1,0 +1,70 @@
+{
+  "company": "Alex Recruiting Project",
+  "recommended_path": "Compliance-First Parallel Build: Lock NCAA guardrails immediately, then run infrastructure, intelligence corpus, and CRM buildout in parallel tracks \u2014 sequenced so no outreach logic ships before compliance gates are encoded and no dashboard ships before the data schema is validated against Jake's actual profile.",
+  "options": [
+    {
+      "name": "Compliance-First Parallel Build (Recommended)",
+      "tradeoff": "Slightly slower to first visible output, but every downstream system is built on a legally safe foundation. Parallel tracks prevent bottlenecking on compliance while still moving fast on infrastructure and corpus. Highest risk-adjusted velocity.",
+      "when_to_choose": "Always \u2014 given that a single NCAA violation can disqualify Jake from programs, compliance encoding is a non-negotiable prerequisite, not a parallel nice-to-have. Choose this path."
+    },
+    {
+      "name": "Dashboard-First Fast Launch",
+      "tradeoff": "Gets a visible daily operating surface in front of Jake quickly, generating early buy-in and operator habit formation. Risk is that the dashboard is built on an unvalidated schema and unconfirmed compliance rules, requiring costly rework once shield and atlas complete their work.",
+      "when_to_choose": "Only if Jake's recruiting calendar has an imminent hard deadline (e.g., a signing period or official visit window opening within 2 weeks) that forces a partial system into use before full buildout is complete."
+    },
+    {
+      "name": "Intelligence Corpus First",
+      "tradeoff": "Prioritizes building the program fit scoring model and coach database before any outreach or dashboard work begins. Produces the highest-quality targeting foundation but delays all operational outputs by 3-4 weeks. Jake's pipeline stagnates during the build window.",
+      "when_to_choose": "Only if Jake's grade level or recruiting calendar indicates a quiet or dead period is in effect, making active outreach impermissible anyway and creating a natural window for pure intelligence-building without opportunity cost."
+    }
+  ],
+  "prioritized_workstreams": [
+    "1. NCAA Compliance Encoding (P0, gates everything) \u2014 shield encodes D1/D2/D3 contact windows, dead periods, and permissible communication rules as machine-readable logic; outputs compliance ruleset that all other workstreams must reference before shipping",
+    "2. Jake Profile & Baseline Data Collection (P0, unblocks all scoring and CRM logic) \u2014 gather Jake's position, measurables, GPA, graduation year, test scores, existing interest signals, and target school list; without this no fit scoring or CRM seeding is possible",
+    "3. Infrastructure Cost Architecture (P0, must be confirmed before any paid API is activated) \u2014 ledger and atlas confirm tool stack, per-service monthly burn estimates, and alert thresholds against the $500 ceiling",
+    "4. Hudl API Feasibility Assessment (P0, gates film integration architecture) \u2014 bridge assesses API access tier and authentication requirements; if blocked, validates embed fallback strategy before highlight-reel-studio commits to integration design",
+    "5. Coach CRM Schema & Pipeline Stage Design (P1, core operational system) \u2014 atlas designs Supabase schema for coach records, pipeline stages, last-contact timestamps, and follow-up triggers; coach-outreach-studio defines outreach templates and cadence logic within compliance guardrails",
+    "6. Program Fit Scoring Model (P1, requires Jake profile + corpus) \u2014 recruiting-strategy-studio defines fit dimensions and weighting; algorithm-lab builds scoring logic against depth chart, academic, and geographic data once corpus sources are confirmed",
+    "7. Daily Recruiting Dashboard (P1, depends on schema and compliance) \u2014 recruiting-dashboard-studio builds single-screen daily brief surfacing task queue, pipeline health, and calendar milestones; atlas implements Next.js + Supabase real-time layer",
+    "8. X/Twitter Visibility System (P1, operates within compliance guardrails) \u2014 x-growth-studio builds content calendar, post templates, and milestone announcement formats; shield confirms permissible coach-tagging behavior before any coach-directed posts are scheduled",
+    "9. Recruiting Intelligence Corpus (P2, ongoing enrichment) \u2014 recruiting-strategy-studio builds structured database of target programs, coach contacts, depth charts, and fit signals using confirmed third-party data sources",
+    "10. Recruiting Performance Metrics (P2, layer on top of operating system) \u2014 algorithm-lab and recruiting-dashboard-studio define leading indicator set and surface weekly trend views once baseline pipeline activity data exists"
+  ],
+  "immediate_agent_team": [
+    "shield",
+    "recruiting-strategy-studio",
+    "atlas",
+    "bridge",
+    "ledger",
+    "coach-outreach-studio",
+    "highlight-reel-studio",
+    "x-growth-studio",
+    "algorithm-lab"
+  ],
+  "research_first": true,
+  "studio_needed": true,
+  "execution_risks": [
+    "Jake's grade level and graduation year are unconfirmed \u2014 every NCAA contact window determination is invalid until this is locked; if Jake is a rising senior, contact period windows are compressed and outreach must begin immediately",
+    "Hudl API access may require institutional partnership approval that a non-commercial single-athlete project cannot obtain \u2014 if bridge confirms this, the entire film integration architecture must pivot to embed-only before highlight-reel-studio builds anything",
+    "Anthropic Claude API cost is the highest-probability budget blowout vector \u2014 without prompt batching, response caching, and strict call-volume discipline established at build time, the $500 ceiling will be breached within 60 days of full operation",
+    "Twitter/X API pricing has been volatile and tier structures have changed multiple times in 2023-2024 \u2014 ledger must validate current Basic tier cost and rate limits before x-growth-studio designs any automated posting or analytics workflow against it",
+    "NCAA compliance rules differ materially across D1, D2, and D3 and are updated annually \u2014 any compliance encoding done without confirming the 2025-2026 ruleset from an authoritative source (NCAA.org, not secondary summaries) introduces violation risk that defeats the system's core purpose",
+    "Coach outreach emails sent to .edu institutional addresses face aggressive spam filtering \u2014 if Resend is not configured with proper SPF, DKIM, and DMARC records on a custom sending domain from day one, early outreach will fail silently and damage Jake's perceived professionalism",
+    "Program fit scoring model is only as good as the underlying depth chart data freshness \u2014 stale roster data produces false-positive fit signals and wastes Jake's limited outreach bandwidth on programs with no genuine position need",
+    "Single-operator bandwidth is the most fragile constraint in the system \u2014 if Michael's available hours drop, the recruiting pipeline stalls because no redundancy or automation fallback exists for content production and CRM maintenance",
+    "Jake's profile, offers, and target list will change in real time \u2014 any scoring or CRM logic hardcoded against a static snapshot will produce misleading prioritization within 30-60 days without a defined refresh protocol",
+    "Supabase free tier row limits and bandwidth thresholds may be hit faster than assumed if real-time dashboard queries run continuously \u2014 this must be modeled before pro tier upgrade is needed mid-recruiting-season"
+  ],
+  "first_30_day_focus": [
+    "Day 1-3: Collect Jake's complete athletic profile \u2014 position, measurables, GPA, graduation year, test scores, highlight reel inventory, existing coach interest signals, and preliminary target school list; this unblocks every other workstream",
+    "Day 1-5: shield produces NCAA compliance brief \u2014 D1/D2/D3 contact windows, dead periods, quiet periods, and evaluation periods for Jake's grade level as machine-readable date ranges; outputs permissible communication ruleset that gates all outreach system design",
+    "Day 1-5: ledger and atlas produce confirmed infrastructure cost model \u2014 per-service monthly burn estimates for Claude API, Supabase, Vercel, Resend, and Twitter/X API at projected operating volume with alert thresholds and headroom buffer against the $500 ceiling",
+    "Day 3-7: bridge delivers Hudl API feasibility brief \u2014 confirms API access tier, authentication path, and embed fallback validity; highlight-reel-studio does not begin integration architecture until this evidence is in hand",
+    "Day 5-14: atlas designs and validates Supabase schema \u2014 coach CRM tables, pipeline stage definitions, NCAA calendar date ranges, Jake's profile record, and program fit scoring dimensions; schema must be reviewed against compliance brief before any data is written",
+    "Day 7-14: coach-outreach-studio drafts outreach template library \u2014 initial coach introduction, film share, and follow-up email templates for D1/D2/D3 contexts; all templates reviewed against compliance ruleset before any sending configuration is activated",
+    "Day 7-14: recruiting-strategy-studio seeds target school list and coach contact database \u2014 structured records for 20+ programs with position coach names, contact formats, division, and any prior interaction history imported from Jake's baseline data",
+    "Day 14-21: recruiting-dashboard-studio and atlas build MVP daily brief surface \u2014 single-screen view surfacing today's outreach tasks, follow-up queue, pipeline stage counts, and upcoming NCAA calendar milestones; no manual assembly required by operator",
+    "Day 14-21: x-growth-studio delivers X/Twitter content calendar and post template library \u2014 milestone announcement formats, film drop patterns, and coach-tag conventions reviewed against shield's social media interaction ruleset before scheduling any posts",
+    "Day 21-30: algorithm-lab scopes program fit scoring model \u2014 three-dimension initial model (position need, academic match, geographic fit) applied to confirmed target school list; output is a ranked program priority list that replaces intuition-driven targeting before active outreach cadence begins"
+  ]
+}

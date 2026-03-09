@@ -1,0 +1,16 @@
+studio: slide_studio
+datasets:
+  - oracle_health_overview_screenshots
+  - competitor_landscape
+  - clinician_workflow_signals
+  - procurement_objection_map
+  - buyer_language_repository
+methodologies:
+  - title-driven storyboarding
+  - screenshot-led proof slides
+  - workflow annotation
+  - comparison matrix narrative
+examples:
+  - executive_market_reframe_deck
+  - interoperability_risk_brief
+  - buyer_problem_solution_deck

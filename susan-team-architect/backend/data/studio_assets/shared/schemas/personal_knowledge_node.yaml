@@ -1,0 +1,26 @@
+type: personal_knowledge_node
+node_id: pkm_transformfit_mike_kids_context
+user_id: user_transformfit_demo
+preferred_name: Mike
+category: family_context
+tier: 3
+fact: Has children whose schedules affect evening availability.
+source_context: onboarding_life_context
+user_supplied: true
+date_shared: 2026-03-07
+last_referenced_at: 2026-03-07T10:15:00Z
+reference_count: 1
+freshness_window_days: 90
+staleness_status: active
+natural_contexts:
+  - onboarding_summary
+  - schedule_reflection
+  - missed_session_reentry
+prohibited_contexts:
+  - heavy_set_entry
+  - high_risk_health_guidance
+  - public_share_copy
+proactive_safe: true
+requires_user_reactivation: false
+confidence: 0.92
+notes: Use sparingly; connect to planning quality rather than performing familiarity.

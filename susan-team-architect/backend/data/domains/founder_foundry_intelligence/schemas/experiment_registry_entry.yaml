@@ -1,0 +1,41 @@
+type: object
+required:
+  - experiment_id
+  - company_id
+  - hypothesis
+  - owner
+  - status
+properties:
+  experiment_id:
+    type: string
+  company_id:
+    type: string
+  hypothesis:
+    type: string
+  user_or_workflow:
+    type: string
+  metric_moved:
+    type: string
+  leading_signal:
+    type: string
+  disconfirming_signal:
+    type: string
+  intervention:
+    type: string
+  owner:
+    type: string
+  start_date:
+    type: string
+    format: date
+  stop_date:
+    type: string
+    format: date
+  status:
+    type: string
+    enum: [proposed, approved, running, paused, completed, invalidated, rolled_into_roadmap]
+  result_summary:
+    type: string
+  linked_decisions:
+    type: array
+    items:
+      type: string

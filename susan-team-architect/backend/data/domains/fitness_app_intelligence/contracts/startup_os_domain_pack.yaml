@@ -1,0 +1,36 @@
+domain: fitness_app_intelligence
+version: 0.1.0
+shared_services:
+  - ingestion_orchestration
+  - storage
+  - embeddings
+  - retrieval
+  - analyst_workflows
+fitness_domain_pack:
+  entities:
+    - App
+    - Company
+    - Category
+    - Feature
+    - PricingPlan
+    - Metric
+    - DemographicSegment
+    - Integration
+    - Evidence
+    - Source
+    - Claim
+    - Opportunity
+  ingestion_lanes:
+    - public_web
+    - paid_datasets
+    - manual_analyst
+  retrieval_capabilities:
+    - competitive_lookup
+    - market_segment_analysis
+    - source_grounded_qna
+  quality_rules:
+    pricing: monthly
+    app_features: quarterly
+    company_metrics: quarterly
+    market_reports: semiannual
+

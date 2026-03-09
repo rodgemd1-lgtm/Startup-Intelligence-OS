@@ -1,0 +1,17 @@
+id: opportunity-glp1-adaptation
+title: GLP-1 medication tracking and adaptation
+summary: Fitness and nutrition apps largely ignore GLP-1 users despite fast market growth and specialized strength and protein needs.
+opportunity_size: VERY HIGH
+execution_difficulty: MEDIUM
+defensibility: MEDIUM
+sources:
+  - id: source-feature-gaps-editorial
+    title: Feature Gaps and Whitespace Analysis
+    source_url: analysis/FEATURE_GAPS.md
+    source_type: editorial_profile
+    captured_at: 2026-03-03
+    effective_date: 2026-03-03
+    confidence: 0.7
+    verification_status: analyst_reviewed
+    evidence_grade: strong_secondary
+

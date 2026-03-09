@@ -1,0 +1,20 @@
+domain_id: oracle_health_intelligence
+name: Oracle Health Intelligence
+version: "1.0"
+owner: shared
+layers:
+  - id: market_intelligence
+    description: Competitive, buyer, vendor, procurement, and analyst intelligence
+  - id: clinical_operational
+    description: Workflow, clinician burden, interoperability, and implementation reality
+  - id: regulatory_enterprise
+    description: Compliance, security, procurement, privacy, and enterprise constraints
+  - id: marketing_narrative
+    description: Messaging, buyer language, thought leadership, and asset production inputs
+studios:
+  - slide_studio
+  - marketing_studio
+source_of_truth:
+  structured: datasets
+  editorial: editorial
+  contracts: contracts

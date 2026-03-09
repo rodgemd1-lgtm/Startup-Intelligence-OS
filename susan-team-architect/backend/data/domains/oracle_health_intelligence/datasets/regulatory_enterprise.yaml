@@ -1,0 +1,35 @@
+layer: regulatory_enterprise
+datasets:
+  - id: cms_interoperability
+    name: CMS interoperability guidance
+    source_type: official_policy
+    source_url: "https://www.cms.gov/priorities/key-initiatives/burden-reduction/interoperability"
+    acquisition_method: firecrawl_web_capture
+    data_type: legal_compliance
+    outputs:
+      - regulatory_brief
+      - policy_claims
+  - id: hipaa_security_and_privacy
+    name: HIPAA and enterprise healthcare privacy/security sources
+    source_type: official_policy
+    acquisition_method: official_source_capture
+    data_type: legal_compliance
+    outputs:
+      - privacy_guardrails
+      - enterprise_risk_notes
+  - id: enterprise_procurement_language
+    name: RFP, procurement, and security-review language
+    source_type: enterprise_docs
+    acquisition_method: manual_entry_and_capture
+    data_type: technical_docs
+    outputs:
+      - procurement_objection_map
+      - enterprise_requirements_matrix
+  - id: implementation_partner_ecosystem
+    name: Oracle and partner ecosystem references
+    source_type: vendor_ecosystem
+    acquisition_method: web_capture
+    data_type: market_research
+    outputs:
+      - partner_map
+      - services_dependency_notes

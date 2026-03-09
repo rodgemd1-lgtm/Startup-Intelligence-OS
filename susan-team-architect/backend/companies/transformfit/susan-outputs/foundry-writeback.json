@@ -1,0 +1,377 @@
+{
+  "job_id": "backfill-transformfit",
+  "company_id": "transformfit",
+  "generated_at": "2026-03-08T02:24:27.216338+00:00",
+  "source_files": [
+    "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/companies/transformfit/susan-outputs/problem-framing.json",
+    "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/companies/transformfit/susan-outputs/decision-brief.json"
+  ],
+  "generated_counts": {
+    "decisions": 1,
+    "experiments": 3,
+    "metrics": 6,
+    "stage_reviews": 6
+  },
+  "stored_counts": {
+    "decisions": 1,
+    "experiments": 3,
+    "metrics": 6,
+    "stage_reviews": 6
+  },
+  "record_ids": {
+    "decisions": [
+      "backfill-transformfit-recommended-path"
+    ],
+    "experiments": [
+      "backfill-transformfit-exp-1",
+      "backfill-transformfit-exp-2",
+      "backfill-transformfit-exp-3"
+    ],
+    "metrics": [
+      "backfill-transformfit-metric-1",
+      "backfill-transformfit-metric-2",
+      "backfill-transformfit-metric-3",
+      "backfill-transformfit-metric-4",
+      "backfill-transformfit-metric-5",
+      "backfill-transformfit-metric-6"
+    ],
+    "stage_reviews": [
+      "thesis",
+      "evidence",
+      "blueprint",
+      "build",
+      "launch",
+      "memory"
+    ]
+  },
+  "records": {
+    "decisions": [
+      {
+        "decision_id": "backfill-transformfit-recommended-path",
+        "company_id": "transformfit",
+        "owner": "susan",
+        "summary": "Instrument First, Memory Second, Retention Third \u2014 a tightly sequenced three-phase execution where no phase begins until the prior phase...",
+        "context": "Reduce Day-1 through Day-7 abandonment from ~75% to below 40% by redesigning the onboarding and first-session experience with persistent AI memory, behavioral retention mechanics, and a personalization loop that delivers perceived value before the user has a reason to quit.",
+        "chosen_option": "Instrument-First Sequential Path (Recommended)",
+        "why_this_won": "Instrument First, Memory Second, Retention Third \u2014 a tightly sequenced three-phase execution where no phase begins until the prior phase delivers a decision-forcing output. Phase 1 (Days 1\u20137): Install lightweight session event logging to identify exact abandonment coordinates within the Day-1 funnel \u2014 this eliminates the single most dangerous assumption in the entire problem frame. Phase 2 (Days 8\u201321): Ship the minimum viable persistent memory layer using structured Supabase key-value storage before any vector approach, bounded by the $200/month constraint \u2014 memory must be live before behavioral mechanics are layered on top or they operate on a broken substrate. Phase 3 (Days 22\u201330): Design and deploy one commitment device and one variable reward mechanic directly informed by the Phase 1 drop-off data and Phase 2 memory architecture \u2014 not before. Onboarding redesign runs in parallel with Phase 2 using Phase 1 findings as the brief. Cold-start personalization is scoped as a Phase 2 output, not a separate workstream. This path is chosen over parallel execution because solo founder bandwidth is the binding constraint \u2014 sequencing forces focus and prevents the three-front execution failure that kills bootstrapped products.",
+        "status": "active",
+        "source_refs": [
+          "decision-brief.json",
+          "problem-framing.json"
+        ],
+        "risks_accepted": [
+          "Assumption invalidation risk \u2014 the current working assumption that abandonment occurs between workout generation and workout completion may be wrong; if drop-off is at signup or intake, the entire onboarding redesign brief changes materially \u2014 instrumentation must run before any redesign work begins",
+          "Memory layer cost blowout \u2014 injecting user history as context tokens into every coaching session is the single most likely path to breaching the $200/month ceiling; structured key-value memory with selective retrieval must be the default architecture, not full-history injection",
+          "Solo founder context-switching overhead \u2014 each workstream transition carries a cognitive switching cost that compounds across a 30-day sprint; Michael must time-box each phase with hard exits, not soft transitions",
+          "Behavioral mechanics misfiring on high-intent users \u2014 loss aversion nudges and streak mechanics calibrated for low-engagement consumer apps may feel patronizing or anxiety-inducing to motivated fitness users who abandoned because of perceived value failure, not motivation failure; freya must segment mechanic design by abandonment reason, not apply a uniform behavioral layer",
+          "Cold-start personalization overpromising \u2014 if the first-session workout recommendation is marketed as AI-personalized but feels generic due to cold-start limitations, the trust deficit created on Day 1 may be harder to recover from than no personalization claim at all; copy and UX framing must be calibrated to signal directional personalization, not complete individualization",
+          "Supabase schema migration risk \u2014 if the existing PostgreSQL schema does not cleanly support a memory layer additive model, a migration mid-sprint could destroy session continuity for existing users during the critical retention improvement cycle",
+          "Research track timing \u2014 if competitor teardowns and behavioral economics evidence briefs are not completed before onboarding redesign begins, the redesign will proceed on assumption rather than evidence; research must be bounded to 48 hours maximum per track to prevent analysis paralysis",
+          "No A/B infrastructure means sequential rollout only \u2014 any onboarding variant must be rolled out to 100% of new users simultaneously, meaning a failed variant cannot be isolated to a cohort; Michael must accept that the first iteration is a learning deployment, not a controlled experiment",
+          "Exercise science liability exposure \u2014 AI-generated programming without certified guardrails creates injury liability at any user scale; legal validation of current exposure level must be completed before any paid marketing or public launch amplification",
+          "Instrumentation privacy compliance \u2014 adding session event logging without reviewing GDPR, CCPA, and App Store data collection disclosure requirements creates compliance exposure; atlas must flag minimum viable compliance requirements before event logging ships"
+        ],
+        "linked_experiments": [
+          "backfill-transformfit-exp-1",
+          "backfill-transformfit-exp-2",
+          "backfill-transformfit-exp-3"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "immediate_agent_team": [
+            "pulse",
+            "atlas",
+            "app-experience-studio",
+            "nova",
+            "algorithm-lab",
+            "freya",
+            "ledger",
+            "workout-program-studio"
+          ],
+          "research_first": true,
+          "studio_needed": true
+        },
+        "decided_at": "2026-03-08T02:24:27.216286+00:00"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "backfill-transformfit-exp-1",
+        "company_id": "transformfit",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 1. Session event instrumentation \u2014 instrument screen-by-screen abandonment tracking across the full Day-1 funnel within the first sprint; this is the prerequisite for every other workstream decision",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Reduce Day-1 through Day-7 abandonment from ~75% to below 40% by redesigning the onboarding and first-session experience with persistent AI memory, behavioral retention mechanics, and a personalization loop that delivers perceived value before the user has a reason to quit.",
+        "metric_moved": "Day-7 retention rate improves from ~25% baseline to 60% or higher within two iteration cycles",
+        "leading_signal": "1. Session event instrumentation \u2014 instrument screen-by-screen abandonment tracking across the full Day-1 funnel within the first sprint; this is the prerequ...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "1. Session event instrumentation \u2014 instrument screen-by-screen abandonment tracking across the full Day-1 funnel within the first sprint; this is the prerequisite for every other workstream decision",
+        "linked_decisions": [
+          "backfill-transformfit-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "rank": 1
+        }
+      },
+      {
+        "experiment_id": "backfill-transformfit-exp-2",
+        "company_id": "transformfit",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 2. Onboarding UX audit \u2014 map current intake flow field count, time-to-first-workout, and perceived value moment; run bounded competitor teardown of Fitbod and Future onboarding in parallel",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Reduce Day-1 through Day-7 abandonment from ~75% to below 40% by redesigning the onboarding and first-session experience with persistent AI memory, behavioral retention mechanics, and a personalization loop that delivers perceived value before the user has a reason to quit.",
+        "metric_moved": "Day-7 retention rate improves from ~25% baseline to 60% or higher within two iteration cycles",
+        "leading_signal": "2. Onboarding UX audit \u2014 map current intake flow field count, time-to-first-workout, and perceived value moment; run bounded competitor teardown of Fitbod an...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "2. Onboarding UX audit \u2014 map current intake flow field count, time-to-first-workout, and perceived value moment; run bounded competitor teardown of Fitbod and Future onboarding in parallel",
+        "linked_decisions": [
+          "backfill-transformfit-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "rank": 2
+        }
+      },
+      {
+        "experiment_id": "backfill-transformfit-exp-3",
+        "company_id": "transformfit",
+        "hypothesis": "If we execute this workstream, the primary objective should improve: 3. Minimum viable persistent memory layer \u2014 design and ship structured Supabase key-value memory for user performance history, goals, and coaching context; defer vector store until structured memory is validated and cost is measured",
+        "owner": "susan",
+        "status": "proposed",
+        "user_or_workflow": "Reduce Day-1 through Day-7 abandonment from ~75% to below 40% by redesigning the onboarding and first-session experience with persistent AI memory, behavioral retention mechanics, and a personalization loop that delivers perceived value before the user has a reason to quit.",
+        "metric_moved": "Day-7 retention rate improves from ~25% baseline to 60% or higher within two iteration cycles",
+        "leading_signal": "3. Minimum viable persistent memory layer \u2014 design and ship structured Supabase key-value memory for user performance history, goals, and coaching context; d...",
+        "disconfirming_signal": "No measurable movement in the target user workflow or success definition.",
+        "intervention": "3. Minimum viable persistent memory layer \u2014 design and ship structured Supabase key-value memory for user performance history, goals, and coaching context; defer vector store until structured memory is validated and cost is measured",
+        "linked_decisions": [
+          "backfill-transformfit-recommended-path"
+        ],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "rank": 3
+        }
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "backfill-transformfit-metric-1",
+        "company_id": "transformfit",
+        "name": "Day-7 retention rate improves from ~25% baseline to 60% or higher within two...",
+        "category": "retention",
+        "owner": "pulse",
+        "definition": "Day-7 retention rate improves from ~25% baseline to 60% or higher within two iteration cycles",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-transformfit-metric-2",
+        "company_id": "transformfit",
+        "name": "First-session completion rate exceeds 75% \u2014 users finish what they start on D...",
+        "category": "completion",
+        "owner": "pulse",
+        "definition": "First-session completion rate exceeds 75% \u2014 users finish what they start on Day 1",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-transformfit-metric-3",
+        "company_id": "transformfit",
+        "name": "AI coaching context persists across sessions \u2014 zero context resets in product...",
+        "category": "trust",
+        "owner": "pulse",
+        "definition": "AI coaching context persists across sessions \u2014 zero context resets in production after memory layer ships",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-transformfit-metric-4",
+        "company_id": "transformfit",
+        "name": "Behavioral trigger system is live \u2014 at minimum one commitment device and one...",
+        "category": "retention",
+        "owner": "pulse",
+        "definition": "Behavioral trigger system is live \u2014 at minimum one commitment device and one variable reward mechanic are measurably influencing return visits",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-transformfit-metric-5",
+        "company_id": "transformfit",
+        "name": "AI cost per active user remains under $0.50/month within the $200/month ceiling",
+        "category": "cost",
+        "owner": "pulse",
+        "definition": "AI cost per active user remains under $0.50/month within the $200/month ceiling",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      },
+      {
+        "metric_id": "backfill-transformfit-metric-6",
+        "company_id": "transformfit",
+        "name": "Cold-start personalization delivers a differentiated workout recommendation w...",
+        "category": "personalization",
+        "owner": "pulse",
+        "definition": "Cold-start personalization delivers a differentiated workout recommendation within the first session using minimal input signals",
+        "cadence": "weekly",
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "source": "problem-framing.json"
+        }
+      }
+    ],
+    "stage_reviews": [
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "thesis",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Company definition is present.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "problem framing",
+            "5 whys",
+            "jobs to be done",
+            "target market"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216328+00:00"
+      },
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "evidence",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Track data coverage exists.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "source map",
+            "dataset coverage",
+            "contradiction notes",
+            "freshness checks"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216331+00:00"
+      },
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "blueprint",
+        "reviewer": "susan",
+        "status": "ready",
+        "summary": "Execution tracks, councils, and protocols are defined.",
+        "blocking_gaps": [],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "execution tracks",
+            "expert councils",
+            "protocols",
+            "next actions"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216332+00:00"
+      },
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "build",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Trust or technical baselines are still thin.",
+        "blocking_gaps": [
+          "legal_compliance",
+          "security"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "technical baseline",
+            "trust baseline",
+            "owner mapping",
+            "rollout plan"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216334+00:00"
+      },
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "launch",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Launch-facing inputs are incomplete.",
+        "blocking_gaps": [
+          "business_strategy"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "KPI tree",
+            "launch checklist",
+            "support plan",
+            "dashboard or scorecard"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216335+00:00"
+      },
+      {
+        "company_id": "transformfit",
+        "stage_gate_id": "memory",
+        "reviewer": "susan",
+        "status": "partial",
+        "summary": "Memory writeback or evaluation needs seeding.",
+        "blocking_gaps": [
+          "studio_evals"
+        ],
+        "artifact_refs": [],
+        "metadata": {
+          "generated_by": "automatic_writeback",
+          "job_id": "backfill-transformfit",
+          "required_artifacts": [
+            "decision log",
+            "experiment log",
+            "memory writeback",
+            "postmortem or critique"
+          ]
+        },
+        "reviewed_at": "2026-03-08T02:24:27.216337+00:00"
+      }
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,9 @@
+trigger_id,occurrences_with_coach,occurrences_without_coach,delta_occurrences,recommended_priority
+fatigue_spike,53406,24704,28702,medium
+plateau_two_sessions,31846,20714,11132,high
+reentry_after_gap,28329,18871,9458,high
+second_miss_window,27271,31622,-4351,high
+first_load_jump,21525,14386,7139,medium
+deload_resistance,12941,11017,1924,medium
+first_missed_session,7500,7500,0,high
+first_completed_session,4450,4240,210,medium

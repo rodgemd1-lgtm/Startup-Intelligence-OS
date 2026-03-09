@@ -1,0 +1,29 @@
+targets:
+  - path: /Users/mikerodgers/adapt-evolve-progress
+    company_id: transformfit
+    project_label: TransformFit
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/oracle-health-vendor-intelligence
+    company_id: oracle-health-ai-enablement
+    project_label: Oracle Health Vendor Intelligence
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/AI-Enablement/oracle-health-ai-enablement
+    company_id: oracle-health-ai-enablement
+    project_label: Oracle Health AI Enablement
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/founder-command-center
+    company_id: shared
+    project_label: Founder Command Center
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/founder-intelligence-os
+    company_id: founder-intelligence-os
+    project_label: Founder Intelligence OS
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/Desktop/alex-recruiting-project/alex-recruiting
+    company_id: alex-recruiting
+    project_label: Alex Recruiting
+    sync_claude_commands: true
+  - path: /Users/mikerodgers/fitness-app-intelligence
+    company_id: transformfit
+    project_label: Fitness App Intelligence Shell
+    sync_claude_commands: true

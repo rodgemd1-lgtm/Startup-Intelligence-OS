@@ -1,0 +1,9 @@
+- id: fitness
+  label: Fitness
+- id: nutrition
+  label: Nutrition
+- id: recovery
+  label: Recovery
+- id: mindfulness
+  label: Mindfulness
+

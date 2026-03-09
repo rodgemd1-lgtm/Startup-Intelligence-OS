@@ -1,0 +1,45 @@
+type: object
+required:
+  - decision_id
+  - company_id
+  - date
+  - owner
+  - summary
+  - chosen_option
+properties:
+  decision_id:
+    type: string
+  company_id:
+    type: string
+  date:
+    type: string
+    format: date
+  owner:
+    type: string
+  summary:
+    type: string
+  context:
+    type: string
+  options_considered:
+    type: array
+    items:
+      type: string
+  chosen_option:
+    type: string
+  why_this_won:
+    type: string
+  evidence_refs:
+    type: array
+    items:
+      type: string
+  risks_accepted:
+    type: array
+    items:
+      type: string
+  review_date:
+    type: string
+    format: date
+  linked_experiments:
+    type: array
+    items:
+      type: string

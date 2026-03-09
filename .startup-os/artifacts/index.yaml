@@ -19,3 +19,10 @@ artifacts:
     path: .startup-os/workspace.yaml
     company_id: founder-intelligence-os
     project_id: decision-capability-os
+  - id: 25x-capability-assessment
+    type: assessment
+    path: .startup-os/artifacts/25x-capability-assessment.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-09
+    assessor: susan

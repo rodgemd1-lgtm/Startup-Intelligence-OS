@@ -1,0 +1,122 @@
+id: full-body-foundations-12w
+name: Full Body Foundations
+goal: habit building, movement learning, beginner hypertrophy
+target_athlete: true beginners or returning lifters with 0-12 months of consistent training
+training_age: beginner
+frequency_days: 3
+duration_weeks: 12
+session_length_minutes: 60
+equipment_profile: full_gym
+split: full_body
+phases:
+  - weeks: 1-4
+    name: learning
+    focus: movement quality, confidence, conservative loading
+  - weeks: 5-8
+    name: building
+    focus: stable linear progression and tolerance building
+  - weeks: 9-11
+    name: strength_intro
+    focus: slightly heavier compounds while keeping volume manageable
+  - weeks: 12
+    name: deload
+    focus: volume reduction and confidence reset
+progression:
+  compounds: add weight when all prescribed reps are completed with 2 or more reps in reserve
+  upper_body_increment: 2.5 kg
+  lower_body_increment: 5 kg
+  stall_rule: repeat load once, then hold for one week before a 10 percent reset
+deload:
+  week: 12
+  volume_reduction: 50 percent
+  intensity_reduction: 10-15 percent
+reentry:
+  one_missed_session: resume next session and keep planned loading
+  one_missed_week: repeat previous successful week with 1 fewer set on compounds
+  two_plus_weeks: restart with week-1 loads plus 5-10 percent if technique is stable
+sessions:
+  - day: A
+    focus: squat + horizontal press
+    exercises:
+      - name: Barbell Back Squat
+        sets: 3
+        reps: 5-8
+        rir: 2-3
+        rest_seconds: 150
+        substitutions: [Goblet Squat, Hack Squat]
+      - name: Barbell Bench Press
+        sets: 3
+        reps: 6-10
+        rir: 2-3
+        rest_seconds: 150
+        substitutions: [DB Bench Press, Machine Chest Press]
+      - name: Barbell Row
+        sets: 3
+        reps: 6-10
+        rir: 2
+        rest_seconds: 120
+        substitutions: [Chest Supported Row, Cable Row]
+      - name: Overhead Press
+        sets: 2
+        reps: 8-12
+        rir: 2
+        rest_seconds: 120
+        substitutions: [Seated DB Press, Machine Shoulder Press]
+      - name: Leg Curl
+        sets: 2
+        reps: 10-15
+        rir: 1-2
+        rest_seconds: 75
+        substitutions: [Seated Leg Curl]
+      - name: Barbell Curl
+        sets: 2
+        reps: 10-15
+        rir: 1-2
+        rest_seconds: 75
+        substitutions: [DB Curl, Cable Curl]
+  - day: B
+    focus: hinge + incline press
+    exercises:
+      - name: Romanian Deadlift
+        sets: 3
+        reps: 8-10
+        rir: 2
+        rest_seconds: 150
+        substitutions: [DB Romanian Deadlift, Trap Bar Deadlift]
+      - name: Incline DB Press
+        sets: 3
+        reps: 10-15
+        rir: 2
+        rest_seconds: 120
+        substitutions: [Incline Machine Press]
+      - name: Lat Pulldown
+        sets: 3
+        reps: 10-15
+        rir: 2
+        rest_seconds: 90
+        substitutions: [Assisted Pull Up, Pull Up]
+      - name: Goblet Squat
+        sets: 2
+        reps: 12-15
+        rir: 2
+        rest_seconds: 90
+        substitutions: [Leg Press]
+      - name: Tricep Pushdown
+        sets: 2
+        reps: 12-15
+        rir: 1-2
+        rest_seconds: 75
+        substitutions: [Overhead Cable Extension]
+      - name: Face Pull
+        sets: 2
+        reps: 15-20
+        rir: 1-2
+        rest_seconds: 60
+        substitutions: [Rear Delt Fly]
+coaching_notes:
+  week_one: emphasize consistency, technique, and small wins over load chasing
+  missed_session: reassure the athlete that one missed workout changes nothing important
+coach_cue_profile:
+  base_profile: beginner_foundations
+  critical_windows: [first_completed_session, first_missed_session, first_load_jump, plateau_two_sessions, reentry_after_gap]
+  moment_bias: protect confidence, reward consistency, and make re-entry feel safe

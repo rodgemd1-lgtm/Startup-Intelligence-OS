@@ -1,0 +1,28 @@
+type: studio_template
+id: template_landing_page_build_brief
+template_type: landing_page_build_brief
+best_for:
+  - homepage_redesign
+  - launch_page
+  - conversion_page
+required_inputs:
+  - audience
+  - belief_shift
+  - objections
+  - proof_assets
+  - moments_of_truth
+sections:
+  - page_objective
+  - five_whys
+  - jtbd
+  - emotional_arc
+  - section_blueprint
+  - proof_plan
+  - motion_plan
+  - experiment_plan
+proof_requirements:
+  - visible_product_behavior
+  - testimonial_or_example
+linked_cases:
+  - case_transformfit_flagship_landing_page
+date_captured: 2026-03-07

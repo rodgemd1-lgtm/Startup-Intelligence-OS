@@ -1,0 +1,76 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "recommended_path": "Instrument First, Memory Second, Retention Third \u2014 a tightly sequenced three-phase execution where no phase begins until the prior phase delivers a decision-forcing output. Phase 1 (Days 1\u20137): Install lightweight session event logging to identify exact abandonment coordinates within the Day-1 funnel \u2014 this eliminates the single most dangerous assumption in the entire problem frame. Phase 2 (Days 8\u201321): Ship the minimum viable persistent memory layer using structured Supabase key-value storage before any vector approach, bounded by the $200/month constraint \u2014 memory must be live before behavioral mechanics are layered on top or they operate on a broken substrate. Phase 3 (Days 22\u201330): Design and deploy one commitment device and one variable reward mechanic directly informed by the Phase 1 drop-off data and Phase 2 memory architecture \u2014 not before. Onboarding redesign runs in parallel with Phase 2 using Phase 1 findings as the brief. Cold-start personalization is scoped as a Phase 2 output, not a separate workstream. This path is chosen over parallel execution because solo founder bandwidth is the binding constraint \u2014 sequencing forces focus and prevents the three-front execution failure that kills bootstrapped products.",
+  "options": [
+    {
+      "name": "Instrument-First Sequential Path (Recommended)",
+      "tradeoff": "Slower to first visible retention improvement \u2014 roughly 3 weeks before behavioral mechanics ship \u2014 but every decision is grounded in actual drop-off data rather than assumption. Eliminates the risk of building the wrong onboarding fix. Requires discipline not to skip Phase 1 when shipping feels urgent.",
+      "when_to_choose": "Always, given the current zero-instrumentation state. Without knowing where Day-1 abandonment actually occurs, any onboarding redesign is a guess. This is the only path that respects the evidence gap."
+    },
+    {
+      "name": "Parallel Execution \u2014 Memory + Onboarding + Behavioral Simultaneously",
+      "tradeoff": "Maximum velocity on paper, catastrophic in practice for a solo founder. Three P0 workstreams running in parallel fragment attention across architecture, UX, and behavioral design simultaneously. High probability of shipping three half-finished systems rather than one complete one. Behavioral mechanics built before memory layer is live will need to be rebuilt.",
+      "when_to_choose": "Only viable if a second engineer is brought in to own memory architecture independently. Do not attempt solo."
+    },
+    {
+      "name": "Behavioral Mechanics First \u2014 Ship Retention Hooks Before Memory",
+      "tradeoff": "Fastest path to a visible retention intervention. Commitment devices and streak mechanics can ship without persistent memory. However, without memory, the AI coaching context that makes those mechanics feel personalized is absent \u2014 the behavioral layer sits on a generic coaching experience, reducing its effectiveness ceiling. Risk of validating mechanics that underperform not because the mechanic is wrong but because the coaching substrate is broken.",
+      "when_to_choose": "Only if instrumentation reveals that abandonment is occurring after first-session completion \u2014 meaning users complete Day 1 but don't return. If drop-off is pre-completion, behavioral mechanics are irrelevant until onboarding and first-session experience are fixed."
+    },
+    {
+      "name": "Competitor Teardown Sprint Before Any Engineering",
+      "tradeoff": "Spends the first 5\u20137 days in research rather than building. High evidence quality \u2014 Fitbod, Future, and Freeletics onboarding teardowns would surface immediately actionable patterns. Risk is that research creates false confidence in solutions that haven't been validated against TransformFit's specific user base and abandonment signature.",
+      "when_to_choose": "Run this as a 2-day bounded research sprint inside Phase 1, not as a standalone phase. Competitor teardowns are inputs to the onboarding redesign brief, not blockers to instrumentation."
+    }
+  ],
+  "prioritized_workstreams": [
+    "1. Session event instrumentation \u2014 instrument screen-by-screen abandonment tracking across the full Day-1 funnel within the first sprint; this is the prerequisite for every other workstream decision",
+    "2. Onboarding UX audit \u2014 map current intake flow field count, time-to-first-workout, and perceived value moment; run bounded competitor teardown of Fitbod and Future onboarding in parallel",
+    "3. Minimum viable persistent memory layer \u2014 design and ship structured Supabase key-value memory for user performance history, goals, and coaching context; defer vector store until structured memory is validated and cost is measured",
+    "4. Cold-start personalization logic \u2014 define minimum viable intake signal set (5 fields maximum) that generates a defensibly differentiated first workout recommendation using population-level exercise science priors",
+    "5. Onboarding redesign execution \u2014 redesign Day-1 flow using Phase 1 drop-off data as the brief; target time-to-first-workout-started under 3 minutes from signup",
+    "6. Behavioral retention system \u2014 design and implement one commitment device (implementation intention scheduling) and one variable reward mechanic (progress-gated insight reveal) informed by drop-off data; freya leads design, quest leads implementation",
+    "7. AI cost architecture \u2014 instrument per-request token logging, implement haiku-tier routing for non-coaching inference tasks, establish real-time budget monitoring dashboard; ledger owns this",
+    "8. Exercise science guardrails \u2014 define minimum constraint set for progressive overload and recovery windows that AI coaching cannot override; P2, must not block P0 shipping but must integrate within 45 days"
+  ],
+  "immediate_agent_team": [
+    "pulse",
+    "atlas",
+    "app-experience-studio",
+    "nova",
+    "algorithm-lab",
+    "freya",
+    "ledger",
+    "workout-program-studio"
+  ],
+  "research_first": true,
+  "studio_needed": true,
+  "execution_risks": [
+    "Assumption invalidation risk \u2014 the current working assumption that abandonment occurs between workout generation and workout completion may be wrong; if drop-off is at signup or intake, the entire onboarding redesign brief changes materially \u2014 instrumentation must run before any redesign work begins",
+    "Memory layer cost blowout \u2014 injecting user history as context tokens into every coaching session is the single most likely path to breaching the $200/month ceiling; structured key-value memory with selective retrieval must be the default architecture, not full-history injection",
+    "Solo founder context-switching overhead \u2014 each workstream transition carries a cognitive switching cost that compounds across a 30-day sprint; Michael must time-box each phase with hard exits, not soft transitions",
+    "Behavioral mechanics misfiring on high-intent users \u2014 loss aversion nudges and streak mechanics calibrated for low-engagement consumer apps may feel patronizing or anxiety-inducing to motivated fitness users who abandoned because of perceived value failure, not motivation failure; freya must segment mechanic design by abandonment reason, not apply a uniform behavioral layer",
+    "Cold-start personalization overpromising \u2014 if the first-session workout recommendation is marketed as AI-personalized but feels generic due to cold-start limitations, the trust deficit created on Day 1 may be harder to recover from than no personalization claim at all; copy and UX framing must be calibrated to signal directional personalization, not complete individualization",
+    "Supabase schema migration risk \u2014 if the existing PostgreSQL schema does not cleanly support a memory layer additive model, a migration mid-sprint could destroy session continuity for existing users during the critical retention improvement cycle",
+    "Research track timing \u2014 if competitor teardowns and behavioral economics evidence briefs are not completed before onboarding redesign begins, the redesign will proceed on assumption rather than evidence; research must be bounded to 48 hours maximum per track to prevent analysis paralysis",
+    "No A/B infrastructure means sequential rollout only \u2014 any onboarding variant must be rolled out to 100% of new users simultaneously, meaning a failed variant cannot be isolated to a cohort; Michael must accept that the first iteration is a learning deployment, not a controlled experiment",
+    "Exercise science liability exposure \u2014 AI-generated programming without certified guardrails creates injury liability at any user scale; legal validation of current exposure level must be completed before any paid marketing or public launch amplification",
+    "Instrumentation privacy compliance \u2014 adding session event logging without reviewing GDPR, CCPA, and App Store data collection disclosure requirements creates compliance exposure; atlas must flag minimum viable compliance requirements before event logging ships"
+  ],
+  "first_30_day_focus": [
+    "Days 1\u20133: pulse instruments session-level event logging across the full onboarding funnel \u2014 every screen transition, input completion, workout generation event, and exit point is captured with timestamps; no new features ship until this is live",
+    "Days 1\u20133: app-experience-studio conducts a 48-hour bounded teardown of Fitbod, Future, and Freeletics onboarding flows \u2014 screenshots, time-to-first-workout measurements, intake field counts, and perceived value moment identification documented as a design brief",
+    "Days 1\u20133: ledger documents current AI inference cost baseline \u2014 pulls trailing 30-day token logs, identifies per-session cost, and outputs a cost-per-active-user estimate against the $200/month ceiling",
+    "Days 4\u20137: pulse delivers first drop-off heatmap \u2014 identifies the top two abandonment coordinates in the Day-1 funnel with percentage of users lost at each point; this output becomes the onboarding redesign brief anchor",
+    "Days 4\u20137: atlas audits existing Supabase schema for memory layer compatibility \u2014 outputs a migration risk assessment and a recommended structured memory schema design requiring no destructive migration",
+    "Days 4\u20137: freya delivers behavioral economics evidence brief \u2014 identifies the two highest-evidence retention mechanics for mobile fitness apps with specific implementation specifications for solo founder execution",
+    "Days 8\u201314: nova and atlas ship minimum viable persistent memory layer \u2014 structured Supabase key-value store capturing user fitness profile, session history summary, last coaching context, and goal state; token injection uses selective retrieval, not full-history dump; ledger validates cost impact before and after deployment",
+    "Days 8\u201314: algorithm-lab defines cold-start personalization logic \u2014 specifies the 5-field intake signal minimum, the population-level prior construction method using public exercise science datasets, and the workout generation decision tree for first-session recommendations",
+    "Days 8\u201314: app-experience-studio designs revised onboarding flow \u2014 informed by Phase 1 drop-off data and competitor teardown brief; targets 3-minute time-to-first-workout-started, maximum 5 intake questions, immediate perceived value signal before workout generation begins",
+    "Days 15\u201321: app-experience-studio ships revised onboarding to 100% of new users \u2014 sequential rollout with Day-1 and Day-3 retention cohort tracking enabled from Day 1 of new flow; no feature flags required, clean cohort break at rollout date",
+    "Days 15\u201321: workout-program-studio defines minimum viable exercise science constraint set \u2014 progressive overload rules, minimum recovery intervals, and movement pattern balance guardrails that become hard constraints in the workout generation pipeline",
+    "Days 22\u201330: freya and quest design and ship one commitment device (implementation intention \u2014 user selects specific workout days and times during onboarding, system confirms and holds them accountable) and one variable reward mechanic (progress-gated performance insight \u2014 users unlock longitudinal trend data after completing three sessions, creating an anticipation loop)",
+    "Days 22\u201330: pulse delivers first 30-day retention cohort comparison \u2014 pre-redesign cohort vs. post-redesign cohort Day-1, Day-3, and Day-7 retention rates; this output determines whether the recommended path has closed the gap or whether a second-cycle intervention is required",
+    "Days 22\u201330: algorithm-lab implements tiered LLM routing \u2014 haiku-tier for workout generation and scheduling logic, full-tier reserved for conversational coaching responses only; ledger validates that cost-per-active-user is tracking toward the $0.50/month target at current user volume"
+  ]
+}

@@ -1,0 +1,245 @@
+name: "TransformFit Training Intelligence Open Sources"
+company_id: "transformfit"
+description: "Public-source training evidence, structured exercise catalogs, and user-research inputs for TransformFit."
+web_sources:
+  - title: "Jeff Nippard programs and articles"
+    url: "https://jeffnippard.com/collections/all"
+    data_type: "guru_research"
+    tags: ["jeff-nippard", "programs", "evidence-based", "hypertrophy"]
+  - title: "RP Hypertrophy App"
+    url: "https://rpstrength.com/pages/hypertrophy-app"
+    data_type: "guru_research"
+    tags: ["renaissance-periodization", "hypertrophy-app", "volume", "fatigue-management"]
+  - title: "Stronger By Science Complete Strength Training Guide"
+    url: "https://www.strongerbyscience.com/complete-strength-training-guide/"
+    data_type: "guru_research"
+    tags: ["stronger-by-science", "greg-nuckols", "strength", "programming"]
+  - title: "BioLayne Choosing a Program"
+    url: "https://help.biolayne.com/article/5-choosing-a-program"
+    data_type: "guru_research"
+    tags: ["biolayne", "program-selection", "constraints", "adherence"]
+  - title: "BioLayne Workout Builder"
+    url: "https://help.biolayne.com/article/45-what-is-the-workout-builder"
+    data_type: "guru_research"
+    tags: ["biolayne", "workout-builder", "customization"]
+  - title: "BioLayne RIR versus Percentage Weight Selection"
+    url: "https://help.biolayne.com/article/29-deciding-between-percentage-or-rir-weight-selection"
+    data_type: "guru_research"
+    tags: ["biolayne", "rir", "autoregulation", "execution"]
+  - title: "BioLayne Training to Failure"
+    url: "https://biolayne.com/reps/issue-23/is-training-to-failure-overrated/"
+    data_type: "guru_research"
+    tags: ["biolayne", "training-to-failure", "fatigue-management"]
+  - title: "Menno Henselmans Physique Trainer"
+    url: "https://mennohenselmans.com/mh-physique-app/"
+    data_type: "guru_research"
+    tags: ["menno-henselmans", "adaptive-training", "nutrition", "hypertrophy"]
+  - title: "House of Hypertrophy"
+    url: "https://houseofhypertrophy.com/"
+    data_type: "guru_research"
+    tags: ["house-of-hypertrophy", "research-translation", "hypertrophy"]
+  - title: "Andy Galpin"
+    url: "https://www.andygalpin.com/"
+    data_type: "guru_research"
+    tags: ["andy-galpin", "performance", "recovery", "strength"]
+  - title: "CDC Physical Activity Guidelines for Adults"
+    url: "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+    data_type: "training_research"
+    tags: ["cdc", "guidelines", "adults", "baseline"]
+  - title: "Health.gov Current Physical Activity Guidelines"
+    url: "https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines/current-guidelines"
+    data_type: "training_research"
+    tags: ["health-gov", "guidelines", "physical-activity"]
+  - title: "WHO Physical Activity Topic Page"
+    url: "https://www.who.int/health-topics/physical-activity"
+    data_type: "training_research"
+    tags: ["who", "physical-activity", "public-health"]
+  - title: "Resistance Training Volume and Muscle Hypertrophy Review"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877/"
+    data_type: "training_research"
+    tags: ["hypertrophy", "volume", "systematic-review"]
+  - title: "Autoregulated Resistance Training Review"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12336695/"
+    data_type: "training_research"
+    tags: ["autoregulation", "strength", "systematic-review"]
+  - title: "Protein Supplementation During Resistance Training Review"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/"
+    data_type: "nutrition"
+    tags: ["protein", "resistance-training", "review"]
+  - title: "Sleep Interventions and Athletic Performance Review"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10354314/"
+    data_type: "sleep_recovery"
+    tags: ["sleep", "performance", "systematic-review"]
+  - title: "Using AI for Exercise Prescription in Women"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9921013/"
+    data_type: "training_research"
+    tags: ["ai", "exercise-prescription", "pilot-study"]
+  - title: "Acceptance and Trust in AI-Generated Exercise Plans"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11908068/"
+    data_type: "training_research"
+    tags: ["ai", "trust", "exercise-plans"]
+  - title: "Resistance Training Variables for Optimization of Muscle Hypertrophy"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9302196/"
+    data_type: "training_research"
+    tags: ["hypertrophy", "umbrella-review", "program-design"]
+  - title: "Resistance Training Volume Enhances Muscle Hypertrophy but Not Strength in Trained Men"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/pmid/30153194/"
+    data_type: "training_research"
+    tags: ["volume", "hypertrophy", "trained"]
+  - title: "Effect of Resistance Training to Muscle Failure vs Non-Failure"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7725035/"
+    data_type: "training_research"
+    tags: ["failure", "hypertrophy", "strength"]
+  - title: "Effects of Resistance Training Performed to Repetition Failure or Non-Failure"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9068575/"
+    data_type: "training_research"
+    tags: ["failure", "meta-analysis", "hypertrophy"]
+  - title: "Resistance Training Load Effects on Muscle Hypertrophy and Strength Gain"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8126497/"
+    data_type: "training_research"
+    tags: ["load", "hypertrophy", "strength", "network-meta-analysis"]
+  - title: "Rest Interval Duration and Muscle Hypertrophy"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11349676/"
+    data_type: "training_research"
+    tags: ["rest-intervals", "hypertrophy", "systematic-review"]
+  - title: "Anthropic: Building Effective Agents"
+    url: "https://www.anthropic.com/research/building-effective-agents/"
+    data_type: "operational_protocols"
+    tags: ["anthropic", "agents", "orchestration", "operating-model"]
+  - title: "OpenAI Agent Builder Guide"
+    url: "https://platform.openai.com/docs/guides/agent-builder"
+    data_type: "operational_protocols"
+    tags: ["openai", "agent-builder", "product", "agentic-systems"]
+  - title: "OpenAI Evals Guide"
+    url: "https://platform.openai.com/docs/guides/evals"
+    data_type: "operational_protocols"
+    tags: ["openai", "evals", "quality", "ai-product"]
+  - title: "Self-Determination Theory and Physical Activity"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7039520/"
+    data_type: "sports_psychology"
+    tags: ["self-determination-theory", "physical-activity", "motivation"]
+  - title: "Motivational Interviewing and Physical Activity Interventions"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5127408/"
+    data_type: "sports_psychology"
+    tags: ["motivational-interviewing", "physical-activity", "behavior-change"]
+  - title: "Behaviour Change Techniques in Physical Activity Apps"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4307824/"
+    data_type: "behavioral_economics"
+    tags: ["behavior-change-techniques", "fitness-apps", "adherence"]
+  - title: "Coach-Athlete Relationship and Performance Review"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232940/"
+    data_type: "sports_psychology"
+    tags: ["coach-athlete-relationship", "trust", "performance"]
+  - title: "AI Product Management for Agentic Systems"
+    url: "https://platform.openai.com/docs/guides/agent-builder"
+    data_type: "expert_knowledge"
+    tags: ["ai-product-management", "agentic-products", "operating-model"]
+  - title: "Weekly Sets and Muscle Hypertrophy Narrative Review"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40119469/"
+    data_type: "frontier_academic_research"
+    tags: ["hypertrophy", "weekly-sets", "2025", "narrative-review"]
+  - title: "Low versus High Load Resistance Training in Older Adults"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40127553/"
+    data_type: "frontier_academic_research"
+    tags: ["load", "older-adults", "strength", "hypertrophy", "2025"]
+  - title: "Training Frequency and Muscle Strength or Hypertrophy"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40277324/"
+    data_type: "frontier_academic_research"
+    tags: ["frequency", "hypertrophy", "strength", "2025"]
+  - title: "Muscle Hypertrophy in Lean and Energy-Restricted States"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40713769/"
+    data_type: "frontier_academic_research"
+    tags: ["energy-deficit", "hypertrophy", "2025"]
+  - title: "Training to Failure Current Evidence Synthesis"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40785598/"
+    data_type: "frontier_academic_research"
+    tags: ["training-to-failure", "fatigue", "2025"]
+  - title: "Current Perspectives of Physical Activity and Self-Determination Theory"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40394779/"
+    data_type: "frontier_academic_research"
+    tags: ["self-determination-theory", "motivation", "2025"]
+  - title: "Predictors of Exercise Intervention Dropout and Adherence"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39696753/"
+    data_type: "consumer_failure_patterns"
+    tags: ["dropout", "adherence", "2024", "systematic-review"]
+  - title: "Barriers and Motivations to Exercise in Older Adults"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40441917/"
+    data_type: "consumer_failure_patterns"
+    tags: ["barriers", "motivation", "older-adults", "2025"]
+  - title: "Physical Activity App Engagement and Adherence Review"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39892512/"
+    data_type: "consumer_failure_patterns"
+    tags: ["app-engagement", "adherence", "digital-health", "2025"]
+  - title: "McMaster Exercise Metabolism Research Group"
+    url: "https://emrg.science.mcmaster.ca/"
+    data_type: "frontier_academic_research"
+    tags: ["mcmaster", "lab", "resistance-training"]
+  - title: "Stanford Lifestyle Medicine"
+    url: "https://lifestylemedicine.stanford.edu/"
+    data_type: "frontier_academic_research"
+    tags: ["stanford", "lifestyle-medicine", "exercise"]
+  - title: "Loughborough Sport Performance Research"
+    url: "https://www.lboro.ac.uk/schools/sport-exercise-health-sciences/research-innovation/sport-performance/"
+    data_type: "frontier_academic_research"
+    tags: ["loughborough", "sport-performance", "research"]
+  - title: "UQ Human Movement and Nutrition Sciences"
+    url: "https://hmns.uq.edu.au/"
+    data_type: "frontier_academic_research"
+    tags: ["uq", "hmns", "sport-science", "nutrition"]
+structured_sources:
+  - title: "free-exercise-db"
+    url: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json"
+    dataset_id: "free_exercise_db"
+    data_type: "exercise_catalog"
+    group_size: 5
+  - title: "wger exercise info"
+    url: "https://wger.de/api/v2/exerciseinfo/?limit=100&language=2"
+    dataset_id: "wger_exerciseinfo"
+    data_type: "exercise_catalog"
+    group_size: 5
+  - title: "Jeff Nippard recent YouTube videos"
+    url: "https://www.youtube.com/@JeffNippard/videos"
+    dataset_id: "youtube_channel_recent_videos"
+    data_type: "guru_research"
+    channel_name: "Jeff Nippard"
+    channel_handle: "@JeffNippard"
+    max_videos: 24
+    group_size: 4
+  - title: "Renaissance Periodization recent YouTube videos"
+    url: "https://www.youtube.com/@RenaissancePeriodization/videos"
+    dataset_id: "youtube_channel_recent_videos"
+    data_type: "guru_research"
+    channel_name: "Renaissance Periodization"
+    channel_handle: "@RenaissancePeriodization"
+    max_videos: 24
+    group_size: 4
+  - title: "BioLayne recent YouTube videos"
+    url: "https://www.youtube.com/@biolayne1/videos"
+    dataset_id: "youtube_channel_recent_videos"
+    data_type: "guru_research"
+    channel_name: "BioLayne"
+    channel_handle: "@biolayne1"
+    max_videos: 24
+    group_size: 4
+  - title: "Stronger By Science recent YouTube videos"
+    url: "https://www.youtube.com/@StrongerByScience/videos"
+    dataset_id: "youtube_channel_recent_videos"
+    data_type: "guru_research"
+    channel_name: "Stronger By Science"
+    channel_handle: "@StrongerByScience"
+    max_videos: 24
+    group_size: 4
+reddit_sources:
+  - title: "Fitness subreddit user research"
+    subreddits: ["fitness", "AdvancedFitness", "bodyweightfitness", "xxfitness"]
+    data_type: "user_research"
+    limit: 20
+    time_filter: "year"
+appstore_sources:
+  - title: "Competitor app-store reviews"
+    data_type: "user_research"
+    apps:
+      fitbod: "1041517543"
+      noom: "634598719"
+      strava: "426826309"
+      peloton: "792750948"

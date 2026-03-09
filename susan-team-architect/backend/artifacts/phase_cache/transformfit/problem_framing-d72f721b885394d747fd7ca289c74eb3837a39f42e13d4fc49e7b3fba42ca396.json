@@ -1,0 +1,58 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "primary_objective": "Eliminate Day-1 abandonment and establish persistent AI coaching continuity to unlock retention and compounding user value before scaling acquisition.",
+  "decision_type": "mixed",
+  "timeline_pressure": "high",
+  "critical_constraints": [
+    "74\u201377% Day-1 abandonment means the product has no retention foundation to build on \u2014 growth is currently a leaking bucket",
+    "AI infrastructure hard-capped at $200/month \u2014 every agent interaction must be cost-architected, not just cost-aware",
+    "Solo founder carrying product, engineering, design, and BD simultaneously \u2014 execution bandwidth is the binding constraint",
+    "No persistent agent memory \u2014 AI coaching is stateless, making personalization claims structurally false at the session boundary",
+    "No behavioral economics layer \u2014 engagement loops are absent, leaving habit formation entirely to user willpower"
+  ],
+  "success_definition": [
+    "Day-1 abandonment reduced from 75%+ to below 40% within one redesigned onboarding cycle",
+    "Users reach a defined 'aha moment' (first personalized workout generated and completed) within 5 minutes of signup",
+    "Persistent memory layer operational \u2014 AI agent recalls user history, preferences, and progress across sessions",
+    "AI infrastructure cost remains at or below $200/month at up to 1,000 active users via model tiering and prompt optimization",
+    "At least one behavioral retention mechanic (commitment device, streak, or variable reward) measurably improves Day-7 return rate",
+    "Solo founder can ship, monitor, and iterate without adding headcount or DevOps overhead"
+  ],
+  "value_pools": [
+    {
+      "audience": "Fitness beginners (25\u201335)",
+      "value_type": "Confidence and clarity",
+      "description": "Overwhelmed by choice \u2014 needs a frictionless, guided first workout that feels personal and achievable within minutes of signup"
+    },
+    {
+      "audience": "Intermediate users experiencing plateaus (30\u201345)",
+      "value_type": "Adaptive progression",
+      "description": "Needs an AI coach that remembers their history and evolves programming intelligently \u2014 stateless agents destroy this value entirely"
+    },
+    {
+      "audience": "Busy professionals (28\u201342)",
+      "value_type": "Time efficiency and reliability",
+      "description": "Values a system that adapts to schedule constraints and delivers a ready-to-execute plan without configuration overhead each session"
+    },
+    {
+      "audience": "Biohackers and self-quantifiers",
+      "value_type": "Data integration and feedback loops",
+      "description": "Secondary segment seeking wearable integration and recovery-aware programming \u2014 high LTV if platform can ingest and act on biometric signals"
+    }
+  ],
+  "core_questions": [
+    "What is the exact drop-off point in the current onboarding funnel and what is the minimum viable 'aha moment' that must be delivered before that point?",
+    "What is the lowest-cost persistent memory architecture (vector store, summarization layer, or structured profile) that keeps AI continuity within the $200/month ceiling?",
+    "Which single behavioral economics mechanic \u2014 commitment device, loss aversion trigger, or variable reward \u2014 has the highest expected impact on Day-7 return rate for this user profile?",
+    "How should the AI coaching agent tier its model usage (e.g., GPT-4o-mini for routine interactions, GPT-4o for high-stakes personalization moments) to stay cost-viable at scale?",
+    "What is the minimum onboarding data collection required to generate a genuinely personalized first workout without creating form fatigue that drives abandonment?",
+    "How does TransformFit credibly differentiate from Fitbod's adaptive strength engine given identical budget and solo-founder constraints \u2014 what is the defensible wedge?"
+  ],
+  "domains_required": [
+    "product",
+    "engineering",
+    "psychology",
+    "growth",
+    "strategy"
+  ]
+}

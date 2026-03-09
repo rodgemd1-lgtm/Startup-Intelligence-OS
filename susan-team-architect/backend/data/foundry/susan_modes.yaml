@@ -1,0 +1,25 @@
+modes:
+  - id: quick
+    name: Fast Answer
+    runtime_mode: quick
+    command: /susan-fast
+    use_when: Need a fast route, answer, or recommendation without a heavy build-out.
+    output_shape: Routed agents, evidence hits, compact plan.
+  - id: deep
+    name: Deep Research
+    runtime_mode: full
+    command: /susan-think
+    use_when: Need deeper research, contradiction handling, and a stronger decision brief.
+    output_shape: Full Susan phases with deeper evidence and sequencing.
+  - id: design
+    name: Design Session
+    runtime_mode: full
+    command: /susan-design
+    use_when: Need UX, UI, motion, moments of truth, or narrative surface design.
+    output_shape: Design-heavy planning with studio routing and visual asset pull-through.
+  - id: foundry
+    name: Company Foundry
+    runtime_mode: full
+    command: /susan-foundry
+    use_when: Need to build or expand a company capability, studio, domain, or operating system.
+    output_shape: Execution blueprint, studio tracks, expert councils, and domain build plan.

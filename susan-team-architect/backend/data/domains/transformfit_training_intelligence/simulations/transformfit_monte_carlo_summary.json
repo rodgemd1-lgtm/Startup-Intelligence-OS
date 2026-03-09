@@ -1,0 +1,234 @@
+{
+  "generated_at": "2026-03-08T03:28:56.080111+00:00",
+  "users_per_archetype": 1500,
+  "total_users_per_condition": 7500,
+  "with_coach": {
+    "program_summary": [
+      {
+        "program_id": "dumbbell-momentum-3day-12w",
+        "completion_rate": 0.5486,
+        "dropout_rate": 0.5652,
+        "average_sessions_completed": 19.75
+      },
+      {
+        "program_id": "efficient-hypertrophy-3day-12w",
+        "completion_rate": 0.5679,
+        "dropout_rate": 0.5427,
+        "average_sessions_completed": 20.45
+      },
+      {
+        "program_id": "full-body-foundations-12w",
+        "completion_rate": 0.5384,
+        "dropout_rate": 0.5997,
+        "average_sessions_completed": 19.38
+      },
+      {
+        "program_id": "scientific-push-pull-legs-12w",
+        "completion_rate": 0.4754,
+        "dropout_rate": 0.7816,
+        "average_sessions_completed": 34.23
+      },
+      {
+        "program_id": "upper-lower-power-hypertrophy-12w",
+        "completion_rate": 0.4893,
+        "dropout_rate": 0.6773,
+        "average_sessions_completed": 23.49
+      }
+    ],
+    "trigger_totals": {
+      "fatigue_spike": 53406,
+      "plateau_two_sessions": 31846,
+      "reentry_after_gap": 28329,
+      "second_miss_window": 27271,
+      "first_load_jump": 21525,
+      "deload_resistance": 12941,
+      "first_missed_session": 7500,
+      "first_completed_session": 4450
+    },
+    "failure_reason_totals": {
+      "fatigue_spike": 27378,
+      "confidence_drop": 25008,
+      "post_miss_shame_risk": 18643,
+      "deload_resistance": 12941,
+      "plateau_doubt": 11597,
+      "week_2_schedule_collision": 11079,
+      "session_2_friction": 2117
+    },
+    "overall_completion_rate": 0.5314,
+    "overall_dropout_rate": 0.6113
+  },
+  "without_coach": {
+    "program_summary": [
+      {
+        "program_id": "dumbbell-momentum-3day-12w",
+        "completion_rate": 0.3787,
+        "dropout_rate": 0.8118,
+        "average_sessions_completed": 13.63
+      },
+      {
+        "program_id": "efficient-hypertrophy-3day-12w",
+        "completion_rate": 0.3959,
+        "dropout_rate": 0.7939,
+        "average_sessions_completed": 14.25
+      },
+      {
+        "program_id": "full-body-foundations-12w",
+        "completion_rate": 0.3737,
+        "dropout_rate": 0.8291,
+        "average_sessions_completed": 13.45
+      },
+      {
+        "program_id": "scientific-push-pull-legs-12w",
+        "completion_rate": 0.2936,
+        "dropout_rate": 0.9707,
+        "average_sessions_completed": 21.14
+      },
+      {
+        "program_id": "upper-lower-power-hypertrophy-12w",
+        "completion_rate": 0.3341,
+        "dropout_rate": 0.8949,
+        "average_sessions_completed": 16.04
+      }
+    ],
+    "trigger_totals": {
+      "second_miss_window": 31622,
+      "fatigue_spike": 24704,
+      "plateau_two_sessions": 20714,
+      "reentry_after_gap": 18871,
+      "first_load_jump": 14386,
+      "deload_resistance": 11017,
+      "first_missed_session": 7500,
+      "first_completed_session": 4240
+    },
+    "failure_reason_totals": {
+      "confidence_drop": 27724,
+      "post_miss_shame_risk": 22625,
+      "fatigue_spike": 18505,
+      "plateau_doubt": 14154,
+      "week_2_schedule_collision": 14022,
+      "deload_resistance": 11017,
+      "session_2_friction": 2515
+    },
+    "overall_completion_rate": 0.3638,
+    "overall_dropout_rate": 0.844
+  },
+  "archetype_summary": [
+    {
+      "archetype_id": "beginner_restart",
+      "label": "Beginner or returning lifter",
+      "completion_rate_with_coach": 0.6198,
+      "completion_rate_without_coach": 0.4357,
+      "dropout_rate_with_coach": 0.4727,
+      "dropout_rate_without_coach": 0.756,
+      "completion_lift": 0.1841,
+      "dropout_delta": 0.2833
+    },
+    {
+      "archetype_id": "busy_parent_intermediate",
+      "label": "Busy intermediate with schedule compression",
+      "completion_rate_with_coach": 0.45,
+      "completion_rate_without_coach": 0.2948,
+      "dropout_rate_with_coach": 0.7273,
+      "dropout_rate_without_coach": 0.9087,
+      "completion_lift": 0.1552,
+      "dropout_delta": 0.1814
+    },
+    {
+      "archetype_id": "ambitious_hypertrophy_user",
+      "label": "Ambitious hypertrophy-focused intermediate",
+      "completion_rate_with_coach": 0.5334,
+      "completion_rate_without_coach": 0.3624,
+      "dropout_rate_with_coach": 0.6547,
+      "dropout_rate_without_coach": 0.892,
+      "completion_lift": 0.171,
+      "dropout_delta": 0.2373
+    },
+    {
+      "archetype_id": "home_gym_time_crunched",
+      "label": "Home gym user with limited equipment and time",
+      "completion_rate_with_coach": 0.5865,
+      "completion_rate_without_coach": 0.4086,
+      "dropout_rate_with_coach": 0.4887,
+      "dropout_rate_without_coach": 0.7713,
+      "completion_lift": 0.1779,
+      "dropout_delta": 0.2826
+    },
+    {
+      "archetype_id": "confidence_fragile_returner",
+      "label": "Detrained user with high shame risk",
+      "completion_rate_with_coach": 0.4672,
+      "completion_rate_without_coach": 0.3174,
+      "dropout_rate_with_coach": 0.7133,
+      "dropout_rate_without_coach": 0.892,
+      "completion_lift": 0.1498,
+      "dropout_delta": 0.1787
+    }
+  ],
+  "completion_rate_lift": 0.1676,
+  "dropout_rate_reduction": 0.2327,
+  "risk_windows": [
+    {
+      "trigger_id": "fatigue_spike",
+      "occurrences_with_coach": 53406,
+      "occurrences_without_coach": 24704,
+      "delta_occurrences": 28702,
+      "recommended_priority": "medium"
+    },
+    {
+      "trigger_id": "plateau_two_sessions",
+      "occurrences_with_coach": 31846,
+      "occurrences_without_coach": 20714,
+      "delta_occurrences": 11132,
+      "recommended_priority": "high"
+    },
+    {
+      "trigger_id": "reentry_after_gap",
+      "occurrences_with_coach": 28329,
+      "occurrences_without_coach": 18871,
+      "delta_occurrences": 9458,
+      "recommended_priority": "high"
+    },
+    {
+      "trigger_id": "second_miss_window",
+      "occurrences_with_coach": 27271,
+      "occurrences_without_coach": 31622,
+      "delta_occurrences": -4351,
+      "recommended_priority": "high"
+    },
+    {
+      "trigger_id": "first_load_jump",
+      "occurrences_with_coach": 21525,
+      "occurrences_without_coach": 14386,
+      "delta_occurrences": 7139,
+      "recommended_priority": "medium"
+    },
+    {
+      "trigger_id": "deload_resistance",
+      "occurrences_with_coach": 12941,
+      "occurrences_without_coach": 11017,
+      "delta_occurrences": 1924,
+      "recommended_priority": "medium"
+    },
+    {
+      "trigger_id": "first_missed_session",
+      "occurrences_with_coach": 7500,
+      "occurrences_without_coach": 7500,
+      "delta_occurrences": 0,
+      "recommended_priority": "high"
+    },
+    {
+      "trigger_id": "first_completed_session",
+      "occurrences_with_coach": 4450,
+      "occurrences_without_coach": 4240,
+      "delta_occurrences": 210,
+      "recommended_priority": "medium"
+    }
+  ],
+  "recommended_top_cues": [
+    "first_missed_session",
+    "second_miss_window",
+    "plateau_two_sessions",
+    "reentry_after_gap",
+    "fatigue_spike"
+  ]
+}

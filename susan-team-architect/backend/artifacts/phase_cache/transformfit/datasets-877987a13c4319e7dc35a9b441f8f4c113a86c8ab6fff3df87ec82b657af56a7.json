@@ -1,0 +1,209 @@
+{
+  "datasets": [
+    {
+      "name": "session_event_log",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Supabase event instrumentation \u2014 screen-level telemetry injected into existing FastAPI endpoints by Atlas/Pulse within Sprint 1",
+      "format": "PostgreSQL table: {user_id, session_id, event_type, screen_name, timestamp, metadata_jsonb}",
+      "size_estimate": "~50K rows in first 30 days at current user volume; <5MB",
+      "priority": "P0",
+      "cost": "free \u2014 built on existing Supabase instance",
+      "assigned_to": [
+        "pulse",
+        "app_experience_studio",
+        "ledger"
+      ]
+    },
+    {
+      "name": "ai_inference_cost_log",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "LLM provider API response metadata (token counts, model tier, latency) captured via FastAPI middleware and written to Supabase; backfilled from OpenAI/Anthropic usage dashboard for trailing 30 days",
+      "format": "PostgreSQL table: {request_id, user_id, session_id, model_tier, prompt_tokens, completion_tokens, cost_usd, timestamp}",
+      "size_estimate": "<1MB for 30-day baseline; grows ~500KB/month",
+      "priority": "P0",
+      "cost": "free \u2014 middleware instrumentation on existing stack",
+      "assigned_to": [
+        "ledger",
+        "nova",
+        "algorithm_lab"
+      ]
+    },
+    {
+      "name": "supabase_schema_audit",
+      "type": "filesystem",
+      "status": "needs_building",
+      "source": "Supabase introspection query (pg_catalog) + manual review by Atlas \u2014 exported as annotated ERD and table inventory",
+      "format": "Markdown + JSON: {table_name, columns, relationships, row_estimates, indexing, notes_on_memory_compatibility}",
+      "size_estimate": "<100KB",
+      "priority": "P0",
+      "cost": "free \u2014 one-time founder-run export",
+      "assigned_to": [
+        "atlas",
+        "nova"
+      ]
+    },
+    {
+      "name": "competitor_onboarding_teardown",
+      "type": "filesystem",
+      "status": "needs_acquisition",
+      "source": "Manual screen-capture walkthroughs of Fitbod, Future, and Freeletics onboarding flows \u2014 conducted by App Experience Studio within 48-hour bounded sprint; supplemented by existing teardown repositories (Mobbin, UserOnboard archive)",
+      "format": "Structured JSON per app: {app_name, onboarding_steps[], time_to_first_workout_seconds, intake_field_count, perceived_value_moment, screenshots_path, notes}",
+      "size_estimate": "~50MB including screenshots; <10KB structured JSON",
+      "priority": "P0",
+      "cost": "~$30 \u2014 app subscription costs for 1-month access to Future ($19) and Freeletics ($11); Fitbod has free tier",
+      "assigned_to": [
+        "app_experience_studio",
+        "algorithm_lab"
+      ]
+    },
+    {
+      "name": "competitor_app_store_review_corpus",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "App Store and Google Play reviews for Fitbod, Future, Freeletics, Caliber, Noom \u2014 scraped via app-store-scraper (Python OSS) or purchased via AppFollow/Sensor Tower API; minimum 500 reviews per app, filtered to trailing 12 months",
+      "format": "JSONL: {app_name, review_id, rating, review_text, date, platform} + embedded vectors via text-embedding-3-small for semantic clustering",
+      "size_estimate": "~2,500 reviews raw (~3MB text); vector store ~15MB at 1536 dimensions",
+      "priority": "P0",
+      "cost": "~$0 if OSS scraper used (app-store-scraper); ~$50/month if AppFollow tier required \u2014 recommend OSS first",
+      "assigned_to": [
+        "pulse",
+        "app_experience_studio",
+        "freya"
+      ]
+    },
+    {
+      "name": "behavioral_economics_evidence_library",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "PubMed / PsycINFO / Google Scholar \u2014 curated set of 40\u201360 peer-reviewed papers on commitment devices, implementation intentions, variable reward schedules, and loss aversion in mobile health and fitness behavior change contexts; augmented with Nir Eyal Hook Model documentation",
+      "format": "PDF \u2192 chunked text \u2192 JSONL with metadata: {paper_id, title, authors, year, abstract, key_finding, mechanic_type, study_population, effect_size}; embedded for RAG retrieval",
+      "size_estimate": "~20MB PDF source; ~8MB chunked vector store",
+      "priority": "P1",
+      "cost": "~$0 \u2014 PubMed open access + Semantic Scholar API (free tier); ~$20 if paywalled papers required via Unpaywall fallback",
+      "assigned_to": [
+        "freya",
+        "app_experience_studio",
+        "algorithm_lab"
+      ]
+    },
+    {
+      "name": "exercise_science_constraint_corpus",
+      "type": "vector",
+      "status": "needs_acquisition",
+      "source": "NSCA guidelines, ACSM Position Stands, peer-reviewed periodization literature \u2014 30\u201350 documents covering progressive overload principles, minimum recovery intervals, movement pattern balance, beginner programming guardrails; supplemented by ExRx.net structured exercise taxonomy",
+      "format": "Chunked JSONL with metadata: {source, document_type, constraint_type, rule_statement, population_scope, evidence_grade}; embedded for retrieval by Workout Program Studio and Algorithm Lab",
+      "size_estimate": "~15MB source documents; ~6MB vector store",
+      "priority": "P1",
+      "cost": "~$0 \u2014 ACSM/NSCA guidelines are publicly available or accessible via open repositories; ExRx.net scrape is permissible for internal use",
+      "assigned_to": [
+        "workout_program_studio",
+        "algorithm_lab",
+        "nova"
+      ]
+    },
+    {
+      "name": "exercise_catalog",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Curated from ExRx.net taxonomy + Wger open-source exercise database (MIT license) + any existing TransformFit internal exercise list \u2014 normalized by Atlas into Supabase",
+      "format": "PostgreSQL table: {exercise_id, name, primary_muscle_group[], secondary_muscle_group[], equipment_required[], difficulty_tier, movement_pattern, contraindications, demo_url}",
+      "size_estimate": "300\u2013800 exercises; <2MB",
+      "priority": "P1",
+      "cost": "free \u2014 wger database is open-source; ExRx taxonomy is manual curation",
+      "assigned_to": [
+        "workout_program_studio",
+        "algorithm_lab",
+        "app_experience_studio"
+      ]
+    },
+    {
+      "name": "user_memory_store",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Designed and built by Atlas \u2014 new Supabase table(s) for persistent user fitness profile, session history summary, coaching context snapshot, and goal state; populated by Nova's selective context injection layer",
+      "format": "PostgreSQL JSONB key-value store: {user_id, profile_snapshot_jsonb, session_history_summary_jsonb, last_coaching_context_jsonb, goal_state_jsonb, updated_at}",
+      "size_estimate": "<50KB per user; ~25MB at 500 users",
+      "priority": "P1",
+      "cost": "free \u2014 additive schema on existing Supabase instance",
+      "assigned_to": [
+        "atlas",
+        "nova",
+        "algorithm_lab"
+      ]
+    },
+    {
+      "name": "llm_pricing_and_routing_reference",
+      "type": "filesystem",
+      "status": "needs_acquisition",
+      "source": "OpenAI pricing page, Anthropic pricing page, and published prompt caching documentation \u2014 point-in-time snapshot captured by Ledger and Algorithm Lab; refreshed monthly",
+      "format": "JSON: {provider, model_id, input_cost_per_1k_tokens, output_cost_per_1k_tokens, context_window, caching_available, caching_discount_rate, recommended_use_case}",
+      "size_estimate": "<50KB",
+      "priority": "P1",
+      "cost": "free \u2014 public pricing documentation",
+      "assigned_to": [
+        "ledger",
+        "algorithm_lab",
+        "nova"
+      ]
+    },
+    {
+      "name": "user_cohort_retention_baseline",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Reconstructed from existing Supabase auth logs and any available session records \u2014 computed by Pulse using signup timestamp vs. last_active_at to derive Day-1, Day-3, Day-7 retention curves for current user base",
+      "format": "PostgreSQL materialized view: {cohort_week, day_1_rate, day_3_rate, day_7_rate, day_30_rate, n_users, computed_at}",
+      "size_estimate": "<1MB; reference dataset for all Phase 3 pre/post comparison",
+      "priority": "P1",
+      "cost": "free \u2014 computed from existing auth data",
+      "assigned_to": [
+        "pulse",
+        "ledger",
+        "freya"
+      ]
+    },
+    {
+      "name": "user_intake_response_distribution",
+      "type": "structured",
+      "status": "needs_building",
+      "source": "Extracted from existing Supabase user profile records by Pulse \u2014 frequency distribution of self-reported fitness goals, experience levels, equipment access, and schedule preferences from current user base",
+      "format": "PostgreSQL aggregation table: {field_name, field_value, count, percentage, updated_at}; exported to JSON for Algorithm Lab cold-start prior construction",
+      "size_estimate": "<500KB",
+      "priority": "P2",
+      "cost": "free \u2014 computed from existing user data",
+      "assigned_to": [
+        "algorithm_lab",
+        "pulse",
+        "workout_program_studio"
+      ]
+    }
+  ],
+  "external_apis": [
+    {
+      "name": "OpenAI API (or Anthropic API)",
+      "purpose": "Primary LLM inference for conversational coaching (full-tier model) and workout generation (haiku/mini-tier model); prompt caching enabled to reduce repeat-context costs",
+      "cost": "Existing $200/month budget ceiling; no additional acquisition cost \u2014 optimize via tiered routing designed by Nova and Algorithm Lab"
+    },
+    {
+      "name": "OpenAI Embeddings API (text-embedding-3-small)",
+      "purpose": "Vector embedding generation for competitor review corpus and behavioral economics / exercise science RAG document stores; text-embedding-3-small at $0.02/1M tokens is the cost-optimal choice",
+      "cost": "~$1\u2013$3 one-time for initial corpus embedding at estimated 10M tokens total; negligible ongoing cost for incremental updates"
+    },
+    {
+      "name": "app-store-scraper (OSS Python library) / AppFollow API",
+      "purpose": "Acquisition of App Store and Google Play review corpora for Fitbod, Future, Freeletics, Caliber, and Noom \u2014 500+ reviews per app for sentiment clustering and persona language extraction",
+      "cost": "Free via OSS scraper (app-store-scraper on PyPI); $0\u2013$50/month if AppFollow API required for volume or rate-limit compliance \u2014 recommend OSS path first with manual fallback"
+    },
+    {
+      "name": "Supabase REST + Realtime API",
+      "purpose": "Existing infrastructure for session event log writes, memory store reads/writes, and real-time cost monitoring dashboard \u2014 no new integration required, existing plan covers estimated data volume",
+      "cost": "Covered by existing Supabase plan (free tier supports up to 500MB DB, 2GB bandwidth \u2014 adequate for current user scale)"
+    },
+    {
+      "name": "Semantic Scholar API",
+      "purpose": "Programmatic retrieval of peer-reviewed papers on behavioral economics, habit formation, and exercise science for RAG corpus construction",
+      "cost": "Free tier available for academic research queries"
+    }
+  ]
+}

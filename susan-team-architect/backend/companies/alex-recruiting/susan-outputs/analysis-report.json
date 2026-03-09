@@ -1,0 +1,423 @@
+{
+  "company": "alex-recruiting",
+  "problem_framing": {
+    "company": "Alex Recruiting Project",
+    "primary_objective": "Build a unified, AI-assisted recruiting operating system that gives Jake a measurable edge in coach engagement and program fit identification \u2014 replacing fragmented manual workflows with a structured, NCAA-compliant daily intelligence layer.",
+    "decision_type": "mixed",
+    "timeline_pressure": "high",
+    "critical_constraints": [
+      "Single-athlete scope with limited operator bandwidth for content production and system maintenance",
+      "Monthly tool and API budget capped at $500 USD",
+      "NCAA compliance guardrails required across all communication, contact timing, and outreach sequencing",
+      "Recruiting profile, target school list, and offer landscape shift in real time requiring system flexibility",
+      "High trust sensitivity with coaches and families demands consistent professional tone across all touchpoints"
+    ],
+    "success_definition": [
+      "Jake has a daily-use dashboard that surfaces actionable recruiting tasks without manual assembly",
+      "Coach outreach cadences are tracked, sequenced, and executed consistently across 20+ target programs",
+      "Film and highlight assets are integrated and shareable directly from coach relationship records",
+      "X/Twitter visibility campaigns run on a structured cadence tied to recruiting calendar milestones",
+      "Program fit scoring identifies and prioritizes best-match schools based on Jake's athletic and academic profile",
+      "All system operations remain demonstrably NCAA-compliant with documented process guardrails"
+    ],
+    "value_pools": [
+      {
+        "audience": "Jake (primary athlete)",
+        "value_type": "operational leverage",
+        "description": "Reduces daily recruiting friction by consolidating outreach, film, and social activity into one structured workflow with AI-assisted prioritization"
+      },
+      {
+        "audience": "Jake's family",
+        "value_type": "oversight and confidence",
+        "description": "Provides visibility into recruiting pipeline health, coach engagement status, and compliance posture without requiring deep system involvement"
+      },
+      {
+        "audience": "College coaching staffs",
+        "value_type": "signal quality",
+        "description": "Receives timely, professional, relevant outreach with direct film access \u2014 improving Jake's perceived seriousness and reducing coach-side friction"
+      },
+      {
+        "audience": "Michael Rodgers (builder/operator)",
+        "value_type": "system scalability proof",
+        "description": "Validates an end-to-end recruiting intelligence architecture that could generalize beyond a single athlete"
+      }
+    ],
+    "core_questions": [
+      "What is the minimum viable daily operating rhythm that keeps Jake's recruiting pipeline active without overwhelming operator time?",
+      "How should program fit scoring be structured given real-time changes to Jake's profile, offers, and target list?",
+      "What is the right integration architecture between film (Hudl), coach CRM records, and X visibility campaigns?",
+      "Which NCAA contact and communication rules most directly constrain outreach sequencing and how should they be encoded into the system?",
+      "How do we keep total monthly infrastructure and API costs under $500 while maintaining core system functionality?",
+      "What are the leading indicators of recruiting pipeline health that should surface daily on the dashboard?"
+    ],
+    "domains_required": [
+      "strategy",
+      "product",
+      "engineering",
+      "growth",
+      "compliance"
+    ]
+  },
+  "capability_gaps": [
+    {
+      "area": "NCAA Compliance Encoding",
+      "current_state": "No documented compliance guardrails exist; outreach sequencing is unstructured and potentially violation-prone",
+      "ideal_state": "All contact rules, dead periods, and permissible communication windows are encoded into system logic with auditable process documentation",
+      "severity": "P0",
+      "complexity": 8,
+      "recommended_agents": [
+        "shield",
+        "recruiting-strategy-studio"
+      ],
+      "risks": [
+        "A single NCAA violation could disqualify Jake from programs or trigger scholarship revocation",
+        "Contact timing errors during dead periods are easy to make without systematic guardrails",
+        "Compliance rules vary by division (D1/D2/D3) and must be version-controlled as rules change"
+      ]
+    },
+    {
+      "area": "Recruiting Intelligence Corpus & Program Fit Scoring",
+      "current_state": "No structured database of target schools, coach profiles, depth charts, or fit signals; prioritization is manual and intuition-driven",
+      "ideal_state": "A scored, ranked program list updated dynamically as Jake's profile, offers, and athletic standing evolve \u2014 with explicit fit dimensions (position need, academic match, roster depth)",
+      "severity": "P0",
+      "complexity": 7,
+      "recommended_agents": [
+        "recruiting-strategy-studio",
+        "algorithm-lab",
+        "nova"
+      ],
+      "risks": [
+        "Without fit scoring, outreach is spray-and-pray rather than targeted, wasting limited operator bandwidth",
+        "Depth chart data degrades quickly; stale data produces false-positive fit signals",
+        "Scoring model bias toward prestige over genuine fit could misalign Jake's actual opportunities"
+      ]
+    },
+    {
+      "area": "Coach Outreach CRM & Cadence System",
+      "current_state": "Coach relationships are tracked manually with no sequenced follow-up cadences, engagement history, or pipeline stage logic",
+      "ideal_state": "A coach CRM with pipeline stages, last-contact tracking, follow-up triggers, and AI-drafted outreach templates across 20+ programs \u2014 all NCAA-compliant",
+      "severity": "P0",
+      "complexity": 7,
+      "recommended_agents": [
+        "coach-outreach-studio",
+        "recruiting-dashboard-studio",
+        "atlas"
+      ],
+      "risks": [
+        "Inconsistent follow-up causes coaches to deprioritize Jake in favor of athletes who maintain contact rhythm",
+        "Manual tracking at 20+ programs is unsustainable for a single operator",
+        "Email tooling selection (Resend vs. Postmark) must not trigger spam filters on coach institutional addresses"
+      ]
+    },
+    {
+      "area": "Daily Recruiting Dashboard & Operating Rhythm",
+      "current_state": "No centralized dashboard exists; daily recruiting tasks are assembled manually from fragmented sources",
+      "ideal_state": "A single-screen daily brief surfacing today's tasks, coach follow-up queue, pipeline health metrics, and upcoming calendar milestones \u2014 zero manual assembly required",
+      "severity": "P0",
+      "complexity": 6,
+      "recommended_agents": [
+        "recruiting-dashboard-studio",
+        "atlas",
+        "compass"
+      ],
+      "risks": [
+        "Without a daily rhythm, recruiting activity will be episodic rather than consistent, damaging pipeline health",
+        "Dashboard overload (too many metrics) will cause abandonment by a high school athlete",
+        "Supabase real-time query costs must be monitored against the $500/month budget ceiling"
+      ]
+    },
+    {
+      "area": "Film & Highlight Reel Integration",
+      "current_state": "Highlight assets exist in Hudl but are disconnected from coach records, outreach sequences, and sharing workflows",
+      "ideal_state": "Film clips are tagged, indexed, and directly linkable from coach CRM records; highlight reels are version-controlled and shareable with one action per coach context",
+      "severity": "P1",
+      "complexity": 6,
+      "recommended_agents": [
+        "highlight-reel-studio",
+        "atlas",
+        "bridge"
+      ],
+      "risks": [
+        "Hudl API access may be restricted or require partnership-level approval \u2014 fallback embed strategy needed",
+        "Coach-facing film links must be mobile-friendly given coaches review film on phones",
+        "Outdated or low-quality clips hurt Jake's perception if not curated and updated regularly"
+      ]
+    },
+    {
+      "area": "X/Twitter Visibility & Social Proof System",
+      "current_state": "No structured X presence or content calendar tied to recruiting milestones; social visibility is ad hoc",
+      "ideal_state": "A cadenced X content system with post templates, recruiting milestone announcements, film clip drops, and coach-tag strategy \u2014 timed to recruiting calendar inflection points",
+      "severity": "P1",
+      "complexity": 5,
+      "recommended_agents": [
+        "x-growth-studio",
+        "coach-outreach-studio"
+      ],
+      "risks": [
+        "Overly promotional or unprofessional posts damage Jake's brand with coaches who monitor athlete social behavior",
+        "X API rate limits and costs must be budgeted against the $500/month cap",
+        "NCAA rules around social media and coach interaction on public platforms must be respected"
+      ]
+    },
+    {
+      "area": "Recruiting Performance Metrics & Pipeline Health Indicators",
+      "current_state": "No defined KPIs for recruiting pipeline health; no way to measure coach engagement trends or outreach effectiveness over time",
+      "ideal_state": "A small set of leading indicators (coach response rate, pipeline stage velocity, offer signal frequency, social reach per post) surfaced weekly with trend visibility",
+      "severity": "P1",
+      "complexity": 5,
+      "recommended_agents": [
+        "algorithm-lab",
+        "recruiting-dashboard-studio",
+        "pulse"
+      ],
+      "risks": [
+        "Vanity metrics (total emails sent) crowd out signal metrics (coach reply rate, film view rate)",
+        "Over-instrumentation on a $500 budget creates unnecessary API overhead",
+        "Metrics must be interpretable by Jake and his family without data literacy training"
+      ]
+    },
+    {
+      "area": "Infrastructure Cost Architecture & Budget Discipline",
+      "current_state": "Tech stack is partially defined with several 'potential' tools unconfirmed; no cost model exists for API usage at operating scale",
+      "ideal_state": "A confirmed, costed tool stack with monthly burn estimates per service \u2014 designed to deliver full system functionality under $500/month with headroom for growth",
+      "severity": "P2",
+      "complexity": 4,
+      "recommended_agents": [
+        "ledger",
+        "atlas",
+        "sentinel"
+      ],
+      "risks": [
+        "Uncontrolled Anthropic Claude API usage is the most likely budget blowout vector",
+        "Vercel, Supabase, Resend, and Twitter API costs stack quickly without active monitoring",
+        "Cost overruns force mid-recruiting-season tool cutoffs \u2014 operationally catastrophic"
+      ]
+    }
+  ],
+  "domain_teams_needed": [
+    "strategy",
+    "engineering",
+    "growth",
+    "studio"
+  ],
+  "recommended_team_size": 9,
+  "complexity_score": 7.2,
+  "evidence_gap_map": {
+    "company": "Alex Recruiting Project",
+    "knowns": [
+      "Primary athlete is Jake; system is single-athlete scoped with limited operator bandwidth",
+      "Michael Rodgers is the builder/operator with an AI systems architecture background",
+      "Tech stack is partially confirmed: Next.js, Supabase, TypeScript, Anthropic Claude AI",
+      "Monthly infrastructure and API budget is hard-capped at $500 USD",
+      "Target audience spans D1, D2, and D3 college football coaching staffs",
+      "Highlight film assets currently live in Hudl but are disconnected from outreach workflows",
+      "No NCAA compliance guardrails are currently encoded into any system logic",
+      "No centralized dashboard or daily operating rhythm exists today",
+      "X/Twitter is the primary social visibility channel identified for recruiting amplification",
+      "Coach outreach is currently manual with no CRM, pipeline stages, or follow-up cadencing",
+      "Program fit scoring does not exist; target school prioritization is intuition-driven",
+      "Project is internal and non-commercial; no external investors or revenue obligations",
+      "NCAA rules vary by division (D1/D2/D3) and are subject to annual rule change cycles",
+      "Competitors include Hudl, NCSA, On3, 247Sports, BeRecruited, and manual consultants",
+      "Key value pools identified: operational leverage for Jake, oversight for family, signal quality for coaches, scalability proof for Michael"
+    ],
+    "critical_unknowns": [
+      "Jake's current athletic profile: position, measurables (height, weight, 40 time, GPA), highlight reel quality, and current offer status",
+      "Jake's current grade level and expected graduation year \u2014 directly gates which NCAA contact windows are active or imminent",
+      "Jake's target school list: specific programs, divisions, and geographic preferences already identified or under consideration",
+      "Whether any coach relationships or informal interest signals exist today that need to be imported into the CRM as baseline data",
+      "Hudl API availability and access tier for non-institutional users \u2014 partnership requirement unknown, fallback embed strategy unvalidated",
+      "Twitter/X API current pricing tier and rate limits applicable to a $500/month budget constraint for recruiting visibility use cases",
+      "Specific NCAA contact rule windows currently active for Jake's grade level across D1, D2, and D3 divisions including dead periods, quiet periods, and evaluation periods",
+      "Anthropic Claude API cost-per-call estimates at projected daily operating volume for outreach drafting, fit scoring, and dashboard summarization",
+      "Supabase free vs. pro tier thresholds and real-time query cost model at 20+ coach records with daily read/write activity",
+      "Resend vs. Postmark deliverability performance on college institutional (.edu) email domains used by coaching staffs",
+      "Whether Jake or his family has any existing recruiting consultant, service, or platform relationship that constrains or duplicates planned system functions",
+      "Depth chart and roster data sources: which third-party providers (247Sports, On3, Rivals, ESPN) offer structured or scrapeable roster and depth chart data at usable freshness",
+      "NCAA rules governing athlete social media interaction with coaches on public platforms including tagging, DMs, and repost behavior",
+      "Minimum viable post frequency and content format on X/Twitter that demonstrably drives coach profile views based on current recruiting community norms",
+      "Whether any prior recruiting activity (camp attendance, coach visits, unofficial visits) has already occurred that should be documented as pipeline history",
+      "Jake's academic profile: current GPA, standardized test scores, intended major or academic interests \u2014 required for academic fit dimension in program scoring",
+      "Family oversight requirements: how much visibility do Jake's parents need, at what frequency, and in what format (dashboard view, email digest, text summary)"
+    ],
+    "research_tracks": [
+      {
+        "question": "What are the current NCAA Division I, II, and III contact rule windows, dead periods, quiet periods, and evaluation periods applicable to a high school football recruit by grade level for the 2025-2026 recruiting cycle?",
+        "source_lane": "enterprise_docs",
+        "freshness_requirement": "immediate",
+        "assigned_agents": [
+          "shield",
+          "recruiting-strategy-studio"
+        ],
+        "output_type": "evidence_brief"
+      },
+      {
+        "question": "What is the current Hudl API access model for non-institutional users \u2014 specifically: is public API access available, what are the authentication requirements, what embed and share link options exist as fallbacks, and are there documented recruiting platform integration precedents?",
+        "source_lane": "enterprise_docs",
+        "freshness_requirement": "immediate",
+        "assigned_agents": [
+          "bridge",
+          "highlight-reel-studio"
+        ],
+        "output_type": "evidence_brief"
+      },
+      {
+        "question": "What are the current Twitter/X API v2 pricing tiers, monthly rate limits, and practical cost-per-call estimates for a recruiting visibility use case involving post scheduling, profile analytics, and mention tracking within a $500/month total budget envelope?",
+        "source_lane": "enterprise_docs",
+        "freshness_requirement": "immediate",
+        "assigned_agents": [
+          "ledger",
+          "x-growth-studio"
+        ],
+        "output_type": "evidence_brief"
+      },
+      {
+        "question": "What are realistic monthly cost estimates for Anthropic Claude API, Supabase (pro tier), Vercel (hobby vs. pro), Resend, and Postmark at the operating volumes required for a single-athlete recruiting CRM with daily AI-assisted outreach drafting, fit scoring queries, and dashboard summarization \u2014 and can the combined stack stay under $500/month?",
+        "source_lane": "enterprise_docs",
+        "freshness_requirement": "immediate",
+        "assigned_agents": [
+          "ledger",
+          "atlas"
+        ],
+        "output_type": "evidence_brief"
+      },
+      {
+        "question": "What recruiting content formats, posting cadences, and coach-tagging strategies on X/Twitter currently generate measurable coach engagement and profile visibility for high school football recruits \u2014 based on real athlete accounts and recruiting community behavior in 2024-2025?",
+        "source_lane": "community",
+        "freshness_requirement": "current_quarter",
+        "assigned_agents": [
+          "x-growth-studio",
+          "recruiting-strategy-studio"
+        ],
+        "output_type": "persona_language_pack"
+      },
+      {
+        "question": "Which third-party data sources (247Sports, On3, Rivals, ESPN, MaxPreps) provide structured or accessible depth chart, roster, and coach contact data for college football programs across D1, D2, and D3 \u2014 including data freshness, access method, cost, and terms of use for a non-commercial recruiting intelligence system?",
+        "source_lane": "web",
+        "freshness_requirement": "current_quarter",
+        "assigned_agents": [
+          "recruiting-strategy-studio",
+          "algorithm-lab"
+        ],
+        "output_type": "evidence_brief"
+      },
+      {
+        "question": "How do existing competing recruiting platforms (NCSA, BeRecruited, Athlete1, On3 recruit profiles) structure their coach CRM workflows, program fit matching logic, and daily athlete task surfaces \u2014 and where do athletes and families report the most friction or unmet needs?",
+        "source_lane": "community",
+        "freshness_requirement": "current_quarter",
+        "assigned_agents": [
+          "recruiting-strategy-studio",
+          "coach-outreach-studio"
+        ],
+        "output_type": "teardown"
+      },
+      {
+        "question": "What email deliverability practices, sending domain configurations, and provider choices (Resend vs. Postmark) produce the highest inbox placement rates when sending to college athletic department .edu addresses \u2014 and are there documented cases of recruiting outreach emails being flagged as spam by institutional mail filters?",
+        "source_lane": "enterprise_docs",
+        "freshness_requirement": "durable",
+        "assigned_agents": [
+          "coach-outreach-studio",
+          "ledger"
+        ],
+        "output_type": "evidence_brief"
+      }
+    ],
+    "data_layers_needed": [
+      "Jake's complete athletic profile: position, measurables, GPA, graduation year, test scores, intended major, highlight reel inventory and quality assessment",
+      "Jake's current target school list with division, program name, position coach name, recruiting coordinator contact, and any prior interaction history",
+      "Active NCAA contact calendar for Jake's grade level across D1, D2, and D3 divisions \u2014 dead periods, evaluation periods, quiet periods, contact periods \u2014 structured as machine-readable date ranges",
+      "Coach contact database: name, title, institution, division, email format pattern, Twitter/X handle, and last known interaction for each target program",
+      "Hudl asset inventory: clip titles, upload dates, view counts, share link status, and highlight reel version history",
+      "Monthly infrastructure cost model: per-service burn estimates for Claude API, Supabase, Vercel, Resend or Postmark, and Twitter/X API at projected operating volume",
+      "Program fit scoring dimensions: position need by school (depth chart gaps at Jake's position), academic match (major availability, admission profile), geographic preference alignment, division realism given Jake's measurables",
+      "Recruiting pipeline baseline: any existing coach interest signals, camp invitations, unofficial visit history, or informal offers that must be imported as starting CRM state",
+      "X/Twitter recruiting content corpus: sample post formats, milestone announcement templates, film drop patterns, and coach-tag conventions used by comparable recruits",
+      "NCAA social media interaction ruleset: permissible vs. impermissible coach-athlete interaction on public platforms by division and contact period type",
+      "Family oversight requirements: preferred visibility format, reporting frequency, and notification thresholds for offer signals or compliance risk events",
+      "Depth chart and roster data refresh cadence: how frequently position need signals change at target programs and what source provides the most reliable real-time roster data"
+    ],
+    "temporary_assumptions": [
+      "Jake is currently a high school junior (Class of 2026 or 2027) \u2014 this assumption gates NCAA contact rule applicability and must be confirmed before any outreach system logic is encoded",
+      "Jake plays a skill position (WR, RB, DB, QB, TE) \u2014 assumed based on the 'skill-position players' reference in the target market definition; position-specific depth chart logic will need revision if incorrect",
+      "Jake does not currently have any Division I scholarship offers \u2014 assumed based on the 'early pipeline buildout' framing; if offers exist, CRM initial state and fit scoring weights change materially",
+      "Hudl embed links (non-API) are available as a workable fallback if the Hudl API requires institutional partnership access \u2014 proceeding on this assumption until bridge agent confirms API feasibility",
+      "Anthropic Claude API usage can be held under $150/month through prompt batching, response caching, and restricting AI calls to outreach drafting and daily brief summarization only",
+      "Supabase free tier is sufficient for early-stage operating volume (under 500MB database, under 2GB bandwidth/month) and will not require pro tier upgrade in the first 90 days",
+      "Twitter/X Basic API tier ($100/month) is sufficient for post scheduling, mention monitoring, and profile analytics at the planned recruiting content cadence",
+      "Resend is the email provider default assumption given developer-friendly API and lower cost structure \u2014 Postmark will be evaluated only if .edu deliverability issues are documented",
+      "Jake's family wants lightweight oversight via a read-only dashboard view rather than active system operation \u2014 they are not expected to manage outreach or content production directly",
+      "NCAA compliance rules applicable to this system are those governing athlete-initiated contact and third-party recruiting services, not institutional coaching staff contact rules \u2014 this boundary must be confirmed with shield agent before encoding any outreach logic",
+      "Program fit scoring will initially weight three dimensions equally (position need, academic match, geographic fit) until recruiting-strategy-studio defines a validated weighting model based on Jake's actual profile and offer landscape"
+    ]
+  },
+  "decision_brief": {
+    "company": "Alex Recruiting Project",
+    "recommended_path": "Compliance-First Parallel Build: Lock NCAA guardrails immediately, then run infrastructure, intelligence corpus, and CRM buildout in parallel tracks \u2014 sequenced so no outreach logic ships before compliance gates are encoded and no dashboard ships before the data schema is validated against Jake's actual profile.",
+    "options": [
+      {
+        "name": "Compliance-First Parallel Build (Recommended)",
+        "tradeoff": "Slightly slower to first visible output, but every downstream system is built on a legally safe foundation. Parallel tracks prevent bottlenecking on compliance while still moving fast on infrastructure and corpus. Highest risk-adjusted velocity.",
+        "when_to_choose": "Always \u2014 given that a single NCAA violation can disqualify Jake from programs, compliance encoding is a non-negotiable prerequisite, not a parallel nice-to-have. Choose this path."
+      },
+      {
+        "name": "Dashboard-First Fast Launch",
+        "tradeoff": "Gets a visible daily operating surface in front of Jake quickly, generating early buy-in and operator habit formation. Risk is that the dashboard is built on an unvalidated schema and unconfirmed compliance rules, requiring costly rework once shield and atlas complete their work.",
+        "when_to_choose": "Only if Jake's recruiting calendar has an imminent hard deadline (e.g., a signing period or official visit window opening within 2 weeks) that forces a partial system into use before full buildout is complete."
+      },
+      {
+        "name": "Intelligence Corpus First",
+        "tradeoff": "Prioritizes building the program fit scoring model and coach database before any outreach or dashboard work begins. Produces the highest-quality targeting foundation but delays all operational outputs by 3-4 weeks. Jake's pipeline stagnates during the build window.",
+        "when_to_choose": "Only if Jake's grade level or recruiting calendar indicates a quiet or dead period is in effect, making active outreach impermissible anyway and creating a natural window for pure intelligence-building without opportunity cost."
+      }
+    ],
+    "prioritized_workstreams": [
+      "1. NCAA Compliance Encoding (P0, gates everything) \u2014 shield encodes D1/D2/D3 contact windows, dead periods, and permissible communication rules as machine-readable logic; outputs compliance ruleset that all other workstreams must reference before shipping",
+      "2. Jake Profile & Baseline Data Collection (P0, unblocks all scoring and CRM logic) \u2014 gather Jake's position, measurables, GPA, graduation year, test scores, existing interest signals, and target school list; without this no fit scoring or CRM seeding is possible",
+      "3. Infrastructure Cost Architecture (P0, must be confirmed before any paid API is activated) \u2014 ledger and atlas confirm tool stack, per-service monthly burn estimates, and alert thresholds against the $500 ceiling",
+      "4. Hudl API Feasibility Assessment (P0, gates film integration architecture) \u2014 bridge assesses API access tier and authentication requirements; if blocked, validates embed fallback strategy before highlight-reel-studio commits to integration design",
+      "5. Coach CRM Schema & Pipeline Stage Design (P1, core operational system) \u2014 atlas designs Supabase schema for coach records, pipeline stages, last-contact timestamps, and follow-up triggers; coach-outreach-studio defines outreach templates and cadence logic within compliance guardrails",
+      "6. Program Fit Scoring Model (P1, requires Jake profile + corpus) \u2014 recruiting-strategy-studio defines fit dimensions and weighting; algorithm-lab builds scoring logic against depth chart, academic, and geographic data once corpus sources are confirmed",
+      "7. Daily Recruiting Dashboard (P1, depends on schema and compliance) \u2014 recruiting-dashboard-studio builds single-screen daily brief surfacing task queue, pipeline health, and calendar milestones; atlas implements Next.js + Supabase real-time layer",
+      "8. X/Twitter Visibility System (P1, operates within compliance guardrails) \u2014 x-growth-studio builds content calendar, post templates, and milestone announcement formats; shield confirms permissible coach-tagging behavior before any coach-directed posts are scheduled",
+      "9. Recruiting Intelligence Corpus (P2, ongoing enrichment) \u2014 recruiting-strategy-studio builds structured database of target programs, coach contacts, depth charts, and fit signals using confirmed third-party data sources",
+      "10. Recruiting Performance Metrics (P2, layer on top of operating system) \u2014 algorithm-lab and recruiting-dashboard-studio define leading indicator set and surface weekly trend views once baseline pipeline activity data exists"
+    ],
+    "immediate_agent_team": [
+      "shield",
+      "recruiting-strategy-studio",
+      "atlas",
+      "bridge",
+      "ledger",
+      "coach-outreach-studio",
+      "highlight-reel-studio",
+      "x-growth-studio",
+      "algorithm-lab"
+    ],
+    "research_first": true,
+    "studio_needed": true,
+    "execution_risks": [
+      "Jake's grade level and graduation year are unconfirmed \u2014 every NCAA contact window determination is invalid until this is locked; if Jake is a rising senior, contact period windows are compressed and outreach must begin immediately",
+      "Hudl API access may require institutional partnership approval that a non-commercial single-athlete project cannot obtain \u2014 if bridge confirms this, the entire film integration architecture must pivot to embed-only before highlight-reel-studio builds anything",
+      "Anthropic Claude API cost is the highest-probability budget blowout vector \u2014 without prompt batching, response caching, and strict call-volume discipline established at build time, the $500 ceiling will be breached within 60 days of full operation",
+      "Twitter/X API pricing has been volatile and tier structures have changed multiple times in 2023-2024 \u2014 ledger must validate current Basic tier cost and rate limits before x-growth-studio designs any automated posting or analytics workflow against it",
+      "NCAA compliance rules differ materially across D1, D2, and D3 and are updated annually \u2014 any compliance encoding done without confirming the 2025-2026 ruleset from an authoritative source (NCAA.org, not secondary summaries) introduces violation risk that defeats the system's core purpose",
+      "Coach outreach emails sent to .edu institutional addresses face aggressive spam filtering \u2014 if Resend is not configured with proper SPF, DKIM, and DMARC records on a custom sending domain from day one, early outreach will fail silently and damage Jake's perceived professionalism",
+      "Program fit scoring model is only as good as the underlying depth chart data freshness \u2014 stale roster data produces false-positive fit signals and wastes Jake's limited outreach bandwidth on programs with no genuine position need",
+      "Single-operator bandwidth is the most fragile constraint in the system \u2014 if Michael's available hours drop, the recruiting pipeline stalls because no redundancy or automation fallback exists for content production and CRM maintenance",
+      "Jake's profile, offers, and target list will change in real time \u2014 any scoring or CRM logic hardcoded against a static snapshot will produce misleading prioritization within 30-60 days without a defined refresh protocol",
+      "Supabase free tier row limits and bandwidth thresholds may be hit faster than assumed if real-time dashboard queries run continuously \u2014 this must be modeled before pro tier upgrade is needed mid-recruiting-season"
+    ],
+    "first_30_day_focus": [
+      "Day 1-3: Collect Jake's complete athletic profile \u2014 position, measurables, GPA, graduation year, test scores, highlight reel inventory, existing coach interest signals, and preliminary target school list; this unblocks every other workstream",
+      "Day 1-5: shield produces NCAA compliance brief \u2014 D1/D2/D3 contact windows, dead periods, quiet periods, and evaluation periods for Jake's grade level as machine-readable date ranges; outputs permissible communication ruleset that gates all outreach system design",
+      "Day 1-5: ledger and atlas produce confirmed infrastructure cost model \u2014 per-service monthly burn estimates for Claude API, Supabase, Vercel, Resend, and Twitter/X API at projected operating volume with alert thresholds and headroom buffer against the $500 ceiling",
+      "Day 3-7: bridge delivers Hudl API feasibility brief \u2014 confirms API access tier, authentication path, and embed fallback validity; highlight-reel-studio does not begin integration architecture until this evidence is in hand",
+      "Day 5-14: atlas designs and validates Supabase schema \u2014 coach CRM tables, pipeline stage definitions, NCAA calendar date ranges, Jake's profile record, and program fit scoring dimensions; schema must be reviewed against compliance brief before any data is written",
+      "Day 7-14: coach-outreach-studio drafts outreach template library \u2014 initial coach introduction, film share, and follow-up email templates for D1/D2/D3 contexts; all templates reviewed against compliance ruleset before any sending configuration is activated",
+      "Day 7-14: recruiting-strategy-studio seeds target school list and coach contact database \u2014 structured records for 20+ programs with position coach names, contact formats, division, and any prior interaction history imported from Jake's baseline data",
+      "Day 14-21: recruiting-dashboard-studio and atlas build MVP daily brief surface \u2014 single-screen view surfacing today's outreach tasks, follow-up queue, pipeline stage counts, and upcoming NCAA calendar milestones; no manual assembly required by operator",
+      "Day 14-21: x-growth-studio delivers X/Twitter content calendar and post template library \u2014 milestone announcement formats, film drop patterns, and coach-tag conventions reviewed against shield's social media interaction ruleset before scheduling any posts",
+      "Day 21-30: algorithm-lab scopes program fit scoring model \u2014 three-dimension initial model (position need, academic match, geographic fit) applied to confirmed target school list; output is a ranked program priority list that replaces intuition-driven targeting before active outreach cadence begins"
+    ]
+  }
+}

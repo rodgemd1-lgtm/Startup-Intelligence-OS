@@ -1,0 +1,150 @@
+councils:
+  human-performance-council:
+    name: Human Performance Council
+    focus: Build training, recovery, and programming systems grounded in current exercise science and elite coaching reality.
+    disciplines:
+      - strength and conditioning
+      - exercise physiology
+      - hypertrophy and performance programming
+      - recovery and readiness
+      - nutrition and adherence
+    source_priorities:
+      - PubMed and PMC reviews
+      - CDC, WHO, and Health.gov guidelines
+      - top university labs
+      - elite coach frameworks
+  coaching-intelligence-council:
+    name: Coaching Intelligence Council
+    focus: Design cognitive coaching architectures, coach voice, trust, motivation, and session guidance systems.
+    disciplines:
+      - sports psychology
+      - motivational interviewing
+      - behavior change
+      - coaching communication
+      - emotional design
+      - relationship science
+    source_priorities:
+      - coaching doctrine
+      - sports psychology research
+      - Gottman and relationship-memory frameworks
+      - therapeutic alliance and perceived-responsiveness research
+      - conversational UX references
+      - product behavior data
+  conversation-design-council:
+    name: Conversation Design Council
+    focus: Define coaching voices, message taxonomies, motivational interviewing rules, and trust-respecting coach interactions for TransformFit.
+    disciplines:
+      - conversation design
+      - coaching communication
+      - motivational interviewing
+      - relational memory design
+      - conversational UX
+      - dialogue evaluation
+    source_priorities:
+      - motivational interviewing research
+      - coach-athlete relationship research
+      - AI conversation quality guidance
+      - internal coach-message evaluations
+      - workout-session user feedback
+  ai-product-council:
+    name: AI Product Council
+    focus: Build product strategy for non-deterministic coaching systems across rollout, trust, evaluation, and memory.
+    disciplines:
+      - AI product management
+      - experimentation and rollout
+      - evaluation design
+      - release governance
+      - product analytics
+    source_priorities:
+      - primary-source AI product guidance
+      - evaluation frameworks
+      - internal telemetry
+      - launch postmortems
+      - company decision logs
+  product-experience-council:
+    name: Product Experience Council
+    focus: Set design principles for apps, landing pages, motion systems, and daily-use product loops.
+    disciplines:
+      - UX strategy
+      - UI systems
+      - motion narrative
+      - accessibility
+      - conversion psychology
+    source_priorities:
+      - Apple HIG
+      - WebKit and Chrome platform guidance
+      - GSAP patterns
+      - NNGroup and Design Council
+  algorithm-council:
+    name: Algorithm Council
+    focus: Turn evidence, behavior, and product telemetry into adaptation, scoring, and recommendation logic.
+    disciplines:
+      - data science
+      - optimization
+      - statistics
+      - recommendation systems
+      - agent evaluation
+    source_priorities:
+      - engineering doctrines
+      - open algorithm references
+      - internal telemetry
+      - evaluators and scorecards
+  recruiting-intelligence-council:
+    name: Recruiting Intelligence Council
+    focus: Build athlete recruiting systems across school fit, coach behavior, outreach timing, and recruiting content.
+    disciplines:
+      - college recruiting strategy
+      - coach outreach
+      - video storytelling
+      - dashboard analytics
+      - NCAA and eligibility understanding
+    source_priorities:
+      - NCAA official resources
+      - NAIA official resources
+      - Hudl guides
+      - recruiting-market operator examples
+  social-distribution-council:
+    name: Social Distribution Council
+    focus: Build social systems that turn company narratives into distribution, credibility, and inbound interest.
+    disciplines:
+      - short-form video strategy
+      - X and Twitter distribution
+      - creator systems
+      - content analytics
+      - screenshot-first storytelling
+    source_priorities:
+      - official platform guidance
+      - studio case libraries
+      - campaign teardowns
+      - internal experiment memory
+  founder-ops-council:
+    name: Founder Operations Council
+    focus: Build the operating system for product, growth, finance, hiring, and execution so new companies can be stood up and governed quickly.
+    disciplines:
+      - company building
+      - product operations
+      - growth systems
+      - founder finance
+      - hiring and org design
+      - operating cadence design
+    source_priorities:
+      - official documentation and primary-source operator guidance
+      - internal founder frameworks and role atlases
+      - benchmark datasets and operating reports
+      - internal decision logs and experiment memory
+  trust-governance-council:
+    name: Trust and Governance Council
+    focus: Define the privacy, security, accessibility, AI governance, and claims standards that make the foundry safe to use across products.
+    disciplines:
+      - privacy and consent
+      - application security
+      - accessibility
+      - AI risk management
+      - claims governance
+      - policy operations
+    source_priorities:
+      - NIST AI RMF
+      - OWASP security guidance
+      - W3C accessibility standards
+      - FTC and platform policy guidance
+      - internal launch and audit checklists

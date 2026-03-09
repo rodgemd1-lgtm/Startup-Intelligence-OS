@@ -1,0 +1,152 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "capability_gaps": [
+    {
+      "area": "Persistent AI Memory Architecture",
+      "current_state": "No cross-session memory \u2014 AI coaching context resets on every session, making longitudinal personalization architecturally impossible",
+      "ideal_state": "Lightweight vector or structured memory layer persists user performance history, preferences, and coaching context across sessions within $200/month AI budget",
+      "severity": "P0",
+      "complexity": 8,
+      "recommended_agents": [
+        "nova",
+        "atlas",
+        "algorithm-lab"
+      ],
+      "risks": [
+        "Memory retrieval latency degrades active session UX",
+        "Token overhead from context injection blows $200/month AI budget",
+        "Cold-start gap persists until minimum viable history is accumulated",
+        "Supabase storage schema may require significant migration"
+      ]
+    },
+    {
+      "area": "Day-1 Onboarding & First-Session Experience",
+      "current_state": "74\u201377% Day-1 abandonment indicates onboarding fails to deliver perceived value before disengagement threshold; no instrumentation to identify exact drop-off point",
+      "ideal_state": "Onboarding flow delivers a differentiated, personalized first workout within minutes using minimal input signals; first-session completion exceeds 75%",
+      "severity": "P0",
+      "complexity": 7,
+      "recommended_agents": [
+        "app-experience-studio",
+        "freya",
+        "echo"
+      ],
+      "risks": [
+        "Over-engineering onboarding length increases friction rather than reducing it",
+        "Cold-start personalization feels generic without sufficient early signals",
+        "Motivational misalignment if fitness identity framing is wrong at intake",
+        "No A/B testing infrastructure to validate onboarding variants solo"
+      ]
+    },
+    {
+      "area": "Behavioral Retention Mechanics",
+      "current_state": "No commitment devices, loss aversion triggers, variable reward schedules, or habit loop reinforcement are implemented; retention is purely dependent on product utility",
+      "ideal_state": "At minimum one commitment device and one variable reward mechanic are live, measurably influencing Day-3 and Day-7 return visits",
+      "severity": "P0",
+      "complexity": 6,
+      "recommended_agents": [
+        "freya",
+        "quest",
+        "flow"
+      ],
+      "risks": [
+        "Poorly calibrated loss aversion mechanics increase anxiety and churn",
+        "Gamification layers feel patronizing to high-intent fitness users",
+        "Solo implementation risk \u2014 behavioral system requires coordinated UX, copy, and timing logic",
+        "Without instrumentation, retention mechanic efficacy cannot be measured"
+      ]
+    },
+    {
+      "area": "Cold-Start Personalization Engine",
+      "current_state": "AI personalization requires longitudinal data that new users haven't yet generated; first-session recommendations are effectively generic",
+      "ideal_state": "Cold-start logic uses intake signals (fitness level, goals, equipment, schedule, psychological profile) plus population-level priors to generate a meaningfully differentiated Day-1 workout",
+      "severity": "P1",
+      "complexity": 7,
+      "recommended_agents": [
+        "algorithm-lab",
+        "nova",
+        "workout-program-studio"
+      ],
+      "risks": [
+        "Intake form length required for useful priors increases onboarding friction",
+        "Population-level priors may not exist without historical user data at current stage",
+        "Personalization that feels generic on Day 1 undermines core value proposition",
+        "Model inference cost for cold-start logic must be tightly budgeted"
+      ]
+    },
+    {
+      "area": "Product Instrumentation & Data-Driven Prioritization",
+      "current_state": "No automated or data-driven feature prioritization; founder relies on intuition and manual observation with no funnel visibility or behavioral analytics",
+      "ideal_state": "Lightweight event tracking surfaces session completion rates, drop-off points, and feature engagement signals that automatically inform sprint priorities",
+      "severity": "P1",
+      "complexity": 5,
+      "recommended_agents": [
+        "pulse",
+        "compass",
+        "atlas"
+      ],
+      "risks": [
+        "Instrumentation overhead diverts solo engineering time from retention-critical features",
+        "Without baseline data, prioritization signals take weeks to accumulate",
+        "Over-instrumentation creates data noise rather than signal",
+        "Privacy compliance requirements add implementation complexity"
+      ]
+    },
+    {
+      "area": "AI Cost Architecture & Budget Governance",
+      "current_state": "$200/month AI budget with no documented cost-per-inference tracking, no tiered model selection, and no prompt caching strategy \u2014 budget risk increases with user growth",
+      "ideal_state": "Cost-per-active-user stays under $0.50/month via prompt caching, haiku-tier routing for lightweight tasks, batched inference, and real-time budget monitoring",
+      "severity": "P1",
+      "complexity": 6,
+      "recommended_agents": [
+        "nova",
+        "algorithm-lab",
+        "ledger"
+      ],
+      "risks": [
+        "Uncapped LLM usage causes budget breach at modest user scale",
+        "Aggressive cost cutting degrades coaching quality and perceived AI value",
+        "Tiered model routing logic adds engineering complexity for solo founder",
+        "No monitoring means budget overruns are discovered after the fact"
+      ]
+    },
+    {
+      "area": "Exercise Science Grounding for AI Coaching",
+      "current_state": "AI coaching outputs are driven by LLM inference without validated exercise science constraints \u2014 progressive overload, recovery windows, and contraindications may be inconsistent",
+      "ideal_state": "Workout generation is constrained by evidence-based programming rules (progressive overload logic, minimum recovery intervals, movement pattern balance) that the AI cannot override",
+      "severity": "P2",
+      "complexity": 6,
+      "recommended_agents": [
+        "workout-program-studio",
+        "coaching-architecture-studio",
+        "coach"
+      ],
+      "risks": [
+        "Injury risk from AI-generated programs lacking biomechanical guardrails creates liability",
+        "Overly conservative science constraints reduce perceived AI responsiveness",
+        "Exercise catalog gaps limit workout variety for users with equipment constraints",
+        "Science layer implementation competes for solo founder engineering time"
+      ]
+    }
+  ],
+  "domain_teams_needed": [
+    "engineering",
+    "psychology",
+    "studio",
+    "science",
+    "product"
+  ],
+  "recommended_team_size": 9,
+  "routing_notes": [
+    "nova + atlas + algorithm-lab form the critical path triad \u2014 memory architecture must ship before behavioral or personalization work can compound; sequence these first",
+    "app-experience-studio is the primary onboarding execution agent \u2014 route Day-1 UX redesign here before freya or echo add behavioral layers on top",
+    "freya owns behavioral economics strategy; quest handles gamification mechanics \u2014 keep them coordinated but do not merge; freya sets the retention architecture, quest implements engagement loops",
+    "algorithm-lab owns cold-start logic and cost routing \u2014 this agent bridges engineering and science domains and should be treated as the AI system design lead",
+    "pulse + compass handle instrumentation and prioritization \u2014 activate these in parallel with onboarding redesign so baseline data collection begins immediately",
+    "workout-program-studio + coaching-architecture-studio handle science grounding as a P2 \u2014 do not block P0 shipping on science constraints, but integrate guardrails within two sprints",
+    "ledger is Haiku-tier and cost-efficient \u2014 route AI budget governance and unit economics questions here, not to nova or atlas",
+    "Do not activate haven, herald, beacon, vault, bridge, or shield at this stage \u2014 community, PR, ASO, fundraising, partnerships, and compliance are post-retention-fix priorities; activating them now fragments solo founder attention",
+    "flow (sports psychology) can be deferred to Cycle 2 \u2014 freya covers the behavioral economics core; flow adds motivational depth once retention baseline is established",
+    "echo adds neuroscience-informed design value but overlaps significantly with app-experience-studio and freya at this stage \u2014 activate only if onboarding redesign stalls on emotional resonance gaps"
+  ],
+  "complexity_score": 7.8
+}

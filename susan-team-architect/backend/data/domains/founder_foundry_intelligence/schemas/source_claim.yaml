@@ -1,0 +1,36 @@
+type: object
+required:
+  - claim_id
+  - company_id
+  - source_url
+  - source_type
+  - claim
+  - confidence
+  - verification_status
+properties:
+  claim_id:
+    type: string
+  company_id:
+    type: string
+  source_url:
+    type: string
+  source_type:
+    type: string
+  captured_at:
+    type: string
+    format: date-time
+  effective_date:
+    type: string
+    format: date
+  claim:
+    type: string
+  confidence:
+    type: number
+  verification_status:
+    type: string
+  contradiction_refs:
+    type: array
+    items:
+      type: string
+  owner:
+    type: string

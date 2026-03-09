@@ -1,0 +1,65 @@
+{
+  "company": "TransformFit (Superman Protocol)",
+  "primary_objective": "Reduce Day-1 through Day-7 abandonment from ~75% to below 40% by redesigning the onboarding and first-session experience with persistent AI memory, behavioral retention mechanics, and a personalization loop that delivers perceived value before the user has a reason to quit.",
+  "decision_type": "mixed",
+  "timeline_pressure": "high",
+  "critical_constraints": [
+    "Solo founder \u2014 zero parallel workstreams without automation or async tooling",
+    "AI infrastructure hard capped at $200/month \u2014 no brute-force LLM usage; every inference must earn its cost",
+    "No persistent agent memory today \u2014 longitudinal personalization is architecturally blocked until solved",
+    "No behavioral economics layer \u2014 retention mechanics must be designed from scratch during MVP redesign",
+    "Cold-start data gap \u2014 AI cannot personalize meaningfully until sufficient early signal is collected per user",
+    "No design or growth headcount \u2014 every UX and acquisition decision is founder-executed"
+  ],
+  "success_definition": [
+    "Day-7 retention rate improves from ~25% baseline to 60% or higher within two iteration cycles",
+    "First-session completion rate exceeds 75% \u2014 users finish what they start on Day 1",
+    "AI coaching context persists across sessions \u2014 zero context resets in production after memory layer ships",
+    "Behavioral trigger system is live \u2014 at minimum one commitment device and one variable reward mechanic are measurably influencing return visits",
+    "AI cost per active user remains under $0.50/month within the $200/month ceiling",
+    "Cold-start personalization delivers a differentiated workout recommendation within the first session using minimal input signals"
+  ],
+  "value_pools": [
+    {
+      "audience": "Motivated but inconsistent fitness app users",
+      "value_type": "Functional",
+      "description": "Adaptive plans that adjust to actual performance and schedule \u2014 eliminating the guilt and friction of falling behind a rigid program"
+    },
+    {
+      "audience": "Users who cannot afford a personal trainer",
+      "value_type": "Economic",
+      "description": "Personal-trainer-quality responsiveness and progressive programming at a fraction of the cost via AI coaching"
+    },
+    {
+      "audience": "Data-driven fitness enthusiasts",
+      "value_type": "Informational",
+      "description": "Longitudinal performance insights, recovery pattern recognition, and progressive overload visibility that generic apps do not surface"
+    },
+    {
+      "audience": "Habit-formation seekers",
+      "value_type": "Psychological",
+      "description": "Behavioral accountability structures \u2014 commitment devices, streak mechanics, loss aversion nudges \u2014 that make quitting feel costlier than continuing"
+    },
+    {
+      "audience": "Michael Rodgers (founder)",
+      "value_type": "Operational",
+      "description": "Automated feature prioritization and data-driven iteration signals that reduce the cognitive load of solo product decision-making"
+    }
+  ],
+  "core_questions": [
+    "What is the single highest-leverage intervention in the Day-1 experience that would prevent the majority of immediate abandonment \u2014 is it onboarding friction, perceived value delay, or motivational misalignment?",
+    "What is the minimum viable memory architecture that enables persistent AI coaching context within the $200/month AI budget constraint?",
+    "Which behavioral economics mechanisms \u2014 commitment devices, variable rewards, loss aversion \u2014 are most implementable solo and most validated for fitness retention specifically?",
+    "How do we solve the cold-start personalization problem to deliver a meaningfully individualized first workout before sufficient longitudinal data exists?",
+    "What is the fastest instrumentation approach to generate automated, data-driven feature prioritization signals without a dedicated analytics or growth function?",
+    "How does TransformFit articulate a defensible AI value proposition to users within the first session, given that competitors like Fitbod and Future have established AI-adjacent positioning?"
+  ],
+  "domains_required": [
+    "product",
+    "engineering",
+    "psychology",
+    "strategy",
+    "research",
+    "growth"
+  ]
+}
