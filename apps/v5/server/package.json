@@ -1,0 +1,19 @@
+{
+  "name": "jake-terminal-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx tsx server/terminal.ts",
+    "build": "npx tsc -p server/tsconfig.json",
+    "start": "node server/dist/terminal.js"
+  },
+  "dependencies": {
+    "node-pty": "^1.0.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "@types/ws": "^8.5.0",
+    "typescript": "^5"
+  }
+}

@@ -13,6 +13,13 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "uvicorn", "apps.decision_os.api:app", "--host", "0.0.0.0", "--port", "8420", "--reload"],
       "port": 8420
+    },
+    {
+      "name": "terminal-server",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["tsx", "server/terminal.ts"],
+      "port": 8421,
+      "cwd": "apps/v5"
     }
   ]
 }
