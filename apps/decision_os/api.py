@@ -54,6 +54,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://localhost:3001",
+        "http://localhost:3500",
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:8080",
@@ -250,6 +251,64 @@ def get_decision(decision_id: str) -> dict:
     if dec is None:
         raise HTTPException(status_code=404, detail=f"Decision {decision_id} not found")
     return dec.model_dump(mode="json")
+
+
+# ---------------------------------------------------------------------------
+# Debate
+# ---------------------------------------------------------------------------
+
+class DebateRequest(BaseModel):
+    mode: str  # builder, skeptic, contrarian, operator, red_team
+
+
+DEBATE_STUBS: dict[str, dict] = {
+    "builder": {
+        "argument": "This approach maximizes value delivery and aligns with strategic goals. The technical foundation supports execution at the proposed pace.",
+        "confidence": 0.82,
+        "counter": "Speed of execution may introduce technical debt.",
+    },
+    "skeptic": {
+        "argument": "Key assumptions remain untested. The projected outcomes lack supporting evidence within the proposed timeline.",
+        "confidence": 0.65,
+        "counter": "Perfect information is unavailable — waiting has its own cost.",
+    },
+    "contrarian": {
+        "argument": "The opposite approach may yield better results. Conventional framing could be anchoring us to a suboptimal path.",
+        "confidence": 0.58,
+        "counter": "Contrarian positions should pressure-test, not override strong evidence.",
+    },
+    "operator": {
+        "argument": "Resource allocation and dependency sequencing need careful mapping before capacity commitment.",
+        "confidence": 0.75,
+        "counter": "Over-planning can be as costly as under-planning.",
+    },
+    "red_team": {
+        "argument": "Failure modes need explicit enumeration. Blast radius analysis and mitigation strategies must be pre-positioned.",
+        "confidence": 0.70,
+        "counter": "Risk analysis should inform, not paralyze, decision-making.",
+    },
+}
+
+
+@app.post("/api/decision/{decision_id}/debate")
+def run_debate(decision_id: str, req: DebateRequest) -> dict:
+    """Run a single-mode debate on a decision."""
+    dec = store.decisions.get(decision_id)
+    if dec is None:
+        raise HTTPException(status_code=404, detail=f"Decision {decision_id} not found")
+
+    valid_modes = {"builder", "skeptic", "contrarian", "operator", "red_team"}
+    if req.mode not in valid_modes:
+        raise HTTPException(status_code=400, detail=f"Mode must be one of {valid_modes}")
+
+    # Use engine if available
+    if _engine_available and engine is not None and hasattr(engine, "debate"):
+        result = engine.debate(decision_id=decision_id, mode=req.mode)
+        return {"mode": req.mode, **result}
+
+    # Stub response
+    stub = DEBATE_STUBS.get(req.mode, DEBATE_STUBS["builder"])
+    return {"mode": req.mode, **stub}
 
 
 # ---------------------------------------------------------------------------

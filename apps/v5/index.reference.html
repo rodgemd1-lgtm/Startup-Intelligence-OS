@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Jake Console — Startup Intelligence OS v5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07090e;
+      --surface-1: #0d1017;
+      --surface-2: #131821;
+      --surface-3: #1a2030;
+      --surface-raised: #1e2638;
+      --border: #1f2a3c;
+      --border-subtle: #161e2c;
+      --text: #dfe6f0;
+      --text-secondary: #8793a8;
+      --text-tertiary: #5c6a82;
+      --accent: #5b8def;
+      --accent-glow: rgba(91,141,239,0.12);
+      --accent-border: rgba(91,141,239,0.3);
+      --success: #5cd4a0;
+      --success-glow: rgba(92,212,160,0.1);
+      --warning: #e8a84c;
+      --warning-glow: rgba(232,168,76,0.1);
+      --danger: #e06565;
+      --danger-glow: rgba(224,101,101,0.1);
+      --font: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 15px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.45;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* === LAYOUT === */
+    .app {
+      display: grid;
+      grid-template-columns: 252px 1fr 300px;
+      height: 100vh;
+    }
+
+    .sidebar {
+      background: var(--surface-1);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 20px 14px;
+      animation: slideInLeft 0.5s ease;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(13,16,23,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 10;
+      flex-shrink: 0;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .pane {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 20px;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(91,141,239,0.04), transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(92,212,160,0.03), transparent 60%),
+        var(--bg);
+    }
+
+    .pane-inner {
+      max-width: 1100px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .pane-inner.exit {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .rightbar {
+      background: var(--surface-1);
+      border-left: 1px solid var(--border-subtle);
+      padding: 20px 14px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: slideInRight 0.5s ease;
+    }
+
+    /* === SCROLLBAR === */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+    /* === TYPOGRAPHY === */
+    h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
+    h2 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+    h3 { font-size: 0.87rem; font-weight: 500; }
+    p { color: var(--text-secondary); font-size: 0.87rem; }
+    .muted { color: var(--text-secondary); }
+    .tertiary { color: var(--text-tertiary); }
+    .accent { color: var(--accent); }
+    .success { color: var(--success); }
+    .warning { color: var(--warning); }
+    .danger { color: var(--danger); }
+    .mono { font-family: var(--mono); font-size: 0.8rem; }
+    .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    /* === SIDEBAR === */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 8px 16px;
+    }
+    .logo-mark {
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #3b6fd4);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; color: #fff;
+      box-shadow: 0 0 20px rgba(91,141,239,0.25);
+    }
+    .logo-text { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .logo-sub { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 1px; }
+
+    .section-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      padding: 16px 10px 8px;
+      font-weight: 500;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .nav-item:hover {
+      color: var(--text);
+      background: var(--surface-2);
+    }
+    .nav-item.active {
+      color: var(--text);
+      background: var(--surface-2);
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 3px; height: 16px;
+      border-radius: 0 3px 3px 0;
+      background: var(--accent);
+    }
+    .nav-icon { font-size: 1rem; width: 20px; text-align: center; }
+    .nav-badge {
+      margin-left: auto;
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-family: var(--mono);
+    }
+    .nav-badge.danger-badge { background: var(--danger-glow); color: var(--danger); }
+    .nav-badge.accent-badge { background: var(--accent-glow); color: var(--accent); }
+
+    .workspace-card {
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+    }
+    .workspace-card:hover { background: var(--surface-2); }
+    .workspace-card.active {
+      background: var(--surface-2);
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+    .workspace-card .ws-name { font-size: 0.87rem; font-weight: 500; }
+    .workspace-card .ws-meta { font-size: 0.72rem; color: var(--text-tertiary); margin-top: 2px; }
+    .workspace-card .ws-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .ws-dot.live { background: var(--success); box-shadow: 0 0 6px var(--success); }
+    .ws-dot.idle { background: var(--text-tertiary); }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 12px 10px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+
+    /* === TOPBAR === */
+    .ctx-badges { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .badge {
+      padding: 5px 10px;
+      border-radius: 99px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+    .badge .badge-label { color: var(--text-tertiary); margin-right: 4px; }
+
+    .toolbar { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn {
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--surface-3); border-color: var(--accent-border); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #4a78d4);
+      border-color: transparent;
+      color: #fff;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+
+    /* === CARDS === */
+    .card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s ease;
+    }
+    .card:hover { border-color: var(--border); }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .card-glow {
+      border-color: var(--accent-border);
+      box-shadow: var(--shadow), 0 0 30px var(--accent-glow);
+    }
+
+    /* === METRICS === */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .metric-card {
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .metric-card.m-accent::after { background: var(--accent); }
+    .metric-card.m-warning::after { background: var(--warning); }
+    .metric-card.m-success::after { background: var(--success); }
+    .metric-card.m-danger::after { background: var(--danger); }
+    .metric-label { font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500; }
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-value.count-up {
+      animation: countUp 0.6s ease forwards;
+    }
+
+    /* === GRID LAYOUTS === */
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+    .grid-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .stack { display: flex; flex-direction: column; gap: 14px; }
+
+    /* === JAKE BRIEF === */
+    .jake-msg {
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--accent-border);
+      background: linear-gradient(135deg, rgba(91,141,239,0.06), rgba(91,141,239,0.02));
+      line-height: 1.55;
+      font-size: 0.87rem;
+    }
+    .jake-msg .jake-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .jake-msg .jake-label::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+
+    /* === LIST ITEMS === */
+    .list-stack { display: flex; flex-direction: column; gap: 8px; }
+    .list-item {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .list-item:hover { border-color: var(--border); }
+    .list-item .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .list-item .item-meta { color: var(--text-secondary); font-size: 0.78rem; margin-top: 4px; }
+
+    /* === STATUS TAGS === */
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-gap { background: var(--danger-glow); color: var(--danger); }
+    .tag-partial { background: var(--warning-glow); color: var(--warning); }
+    .tag-ok { background: var(--success-glow); color: var(--success); }
+    .tag-active { background: var(--accent-glow); color: var(--accent); }
+    .tag-draft { background: rgba(140,150,170,0.12); color: var(--text-secondary); }
+
+    /* === PROGRESS BARS === */
+    .progress-track {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--surface-3);
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .progress-fill.accent { background: linear-gradient(90deg, var(--accent), #7aa3f5); }
+    .progress-fill.success { background: linear-gradient(90deg, var(--success), #7ee8b8); }
+    .progress-fill.warning { background: linear-gradient(90deg, var(--warning), #f0c070); }
+    .progress-fill.danger { background: linear-gradient(90deg, var(--danger), #f08080); }
+
+    /* === MATURITY BAR (special) === */
+    .maturity-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+    }
+    .maturity-row .domain-name { width: 160px; font-size: 0.82rem; font-weight: 500; flex-shrink: 0; }
+    .maturity-row .bar-wrap { flex: 1; }
+    .maturity-row .score-label {
+      width: 60px; text-align: right; font-family: var(--mono);
+      font-size: 0.75rem; color: var(--text-secondary); flex-shrink: 0;
+    }
+    .maturity-segments {
+      display: flex; gap: 2px; height: 8px;
+    }
+    .maturity-seg {
+      flex: 1;
+      border-radius: 2px;
+      background: var(--surface-3);
+      transition: background 0.6s ease;
+    }
+    .maturity-seg.filled { background: var(--accent); }
+    .maturity-seg.filled.warn { background: var(--warning); }
+    .maturity-seg.filled.bad { background: var(--danger); }
+    .maturity-seg.target {
+      background: transparent;
+      border: 1px dashed var(--text-tertiary);
+    }
+
+    /* === TERMINAL === */
+    .terminal {
+      background: #060810;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .terminal-header {
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+    .terminal-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .terminal-output {
+      padding: 12px 14px;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: #8ba4cc;
+      max-height: 160px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+    .terminal-input-wrap {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-top: 1px solid var(--border-subtle);
+      gap: 8px;
+    }
+    .terminal-prompt { color: var(--accent); font-family: var(--mono); font-size: 0.75rem; }
+    .terminal-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      outline: none;
+    }
+
+    /* === SCORING BARS === */
+    .score-bar-wrap { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+    .score-bar-track { flex: 1; height: 10px; border-radius: 5px; background: var(--surface-3); overflow: hidden; }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--accent), #7dbbf7);
+      transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .score-bar-fill.best { background: linear-gradient(90deg, var(--success), #5cd4a0); }
+    .score-num {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      width: 30px;
+      text-align: right;
+    }
+
+    /* === AGENT GRID === */
+    .agent-card {
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+    .agent-card:hover {
+      border-color: var(--accent-border);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .agent-name { font-weight: 500; font-size: 0.82rem; }
+    .agent-role { font-size: 0.72rem; color: var(--text-tertiary); margin-top: 3px; }
+    .agent-group-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+    /* === RIGHT RAIL === */
+    .next-action-item {
+      padding: 11px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-left: 3px solid var(--accent);
+    }
+    .next-action-item:hover {
+      background: var(--surface-3);
+      border-left-color: var(--success);
+    }
+    .next-action-item:first-child {
+      border-left-color: var(--success);
+      animation: softPulse 3s ease infinite;
+    }
+
+    .design-rule {
+      padding: 14px;
+      border-radius: var(--radius);
+      background: rgba(232,168,76,0.06);
+      border: 1px solid rgba(232,168,76,0.2);
+      color: #e8c88c;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+    .design-rule strong { color: var(--warning); }
+
+    .system-pulse {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s ease infinite;
+    }
+
+    /* === DEBATE TABS === */
+    .debate-tabs { display: flex; gap: 4px; margin-bottom: 14px; }
+    .debate-tab {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+    .debate-tab.active {
+      background: var(--accent-glow);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+    .debate-tab:hover { border-color: var(--border); }
+
+    /* === TIMELINE === */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--success), var(--warning));
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px; top: 18px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-item.current::before {
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .timeline-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .timeline-title { font-weight: 500; margin-top: 4px; }
+    .timeline-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px; }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    @keyframes softPulse {
+      0%, 100% { box-shadow: none; }
+      50% { box-shadow: 0 0 12px var(--success-glow); }
+    }
+    @keyframes typeIn {
+      from { max-height: 0; opacity: 0; }
+      to { max-height: 400px; opacity: 1; }
+    }
+    @keyframes barGrow {
+      from { width: 0; }
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes borderPulse {
+      0%, 100% { border-color: var(--border-subtle); }
+      50% { border-color: var(--accent-border); }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeInUp 0.45s ease forwards;
+      animation-delay: var(--d, 0ms);
+    }
+
+    /* === BEHAVIORAL HOOKS === */
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: var(--danger-glow);
+      color: var(--danger);
+      animation: breathe 3s ease infinite;
+    }
+    .urgency-badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--danger);
+    }
+    .streak-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(92,212,160,0.1), rgba(91,141,239,0.1));
+      border: 1px solid rgba(92,212,160,0.2);
+      color: var(--success);
+    }
+    .critical-path {
+      border-left: 3px solid var(--danger) !important;
+      position: relative;
+    }
+    .critical-path::after {
+      content: 'CRITICAL PATH';
+      position: absolute;
+      top: 8px; right: 12px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--danger);
+      opacity: 0.7;
+    }
+    .progress-since {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(92,212,160,0.06), rgba(91,141,239,0.04));
+      border: 1px solid rgba(92,212,160,0.15);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+    .progress-since strong { color: var(--success); }
+    .wave-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .wave-label.w1 { background: var(--accent-glow); color: var(--accent); }
+    .wave-label.w2 { background: var(--warning-glow); color: var(--warning); }
+    .wave-label.w3 { background: var(--success-glow); color: var(--success); }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 220px 1fr 260px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar, .rightbar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-mark">J</div>
+        <div>
+          <div class="logo-text">Jake Console</div>
+          <div class="logo-sub">Startup Intelligence OS v5</div>
+        </div>
+      </div>
+
+      <div class="section-label">Workspaces</div>
+      <div id="workspaces"></div>
+
+      <div class="section-label">Navigation</div>
+      <div id="nav"></div>
+
+      <div class="section-label">Team</div>
+      <div id="team-nav"></div>
+
+      <div class="sidebar-footer" id="sidebar-footer">
+        System ready
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="topbar">
+        <div class="ctx-badges" id="ctx-badges"></div>
+        <div class="toolbar">
+          <button class="btn" onclick="toggleTerminal()">Terminal</button>
+          <button class="btn" onclick="switchView('agents')">Run Susan</button>
+          <button class="btn btn-primary" onclick="switchView('decisions')">Decision Room</button>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="pane-inner" id="pane"></div>
+      </div>
+    </main>
+
+    <!-- RIGHT RAIL -->
+    <aside class="rightbar">
+      <div>
+        <div class="label" style="margin-bottom:10px;">Next Actions</div>
+        <div class="list-stack" id="next-actions"></div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:10px;">Workspace</div>
+        <div class="list-stack" id="ws-summary"></div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:10px;">System</div>
+        <div class="system-pulse">
+          <span class="pulse-dot"></span>
+          <span id="system-status">Connecting...</span>
+        </div>
+      </div>
+      <div class="design-rule">
+        <strong>Design rule:</strong> The operator should never wonder which workspace, company, branch, or decision is active.
+      </div>
+    </aside>
+  </div>
+
+<script>
+// =============================================================================
+// STATE
+// =============================================================================
+var API = 'http://localhost:8420';
+var currentView = 'home';
+var apiLive = false;
+var terminalVisible = false;
+var terminalHistory = [];
+
+var state = {
+  context: {
+    name: 'startup-intelligence-os', mode: 'decision-capability-os',
+    front_door: 'jake', foundry: 'susan',
+    active_company: 'founder-intelligence-os',
+    active_project: 'decision-capability-os',
+    active_decision: 'phase-a-runtime-foundation',
+    active_branch: 'main',
+  },
+  status: { decisions: 2, capabilities: 6, projects: 1, companies: 1, runs: 2, evidence: 0, artifacts: 0 },
+  debrief: {
+    greeting: getGreeting(),
+    actions: { mike: [
+      'Run Innovation Studio for 5-year strategic vision',
+      'Review 25X capability assessment (12 domains mapped)',
+      'Audit 6 capabilities for maturity progression',
+      'Wire decision engine debate to Claude API',
+    ]}
+  },
+  decisions: [
+    { id: 'dec-87215ce29d09', title: 'Adopt event-driven architecture for data pipeline', status: 'proposed',
+      context: 'Current batch processing creates 4-hour lag. Event-driven could reduce to minutes.',
+      options: [
+        { title: 'Kafka-based streaming', scores: { feasibility: 72, impact: 88, risk: 65, speed: 60 }, total: 76 },
+        { title: 'Scoped CDC experiment', scores: { feasibility: 85, impact: 75, risk: 80, speed: 82 }, total: 84 },
+        { title: 'Defer and optimize batch', scores: { feasibility: 90, impact: 40, risk: 95, speed: 90 }, total: 61 },
+      ]
+    },
+    { id: 'dec-motion-ui-v1', title: 'Motion UI narrative strategy for TransformFit', status: 'draft',
+      context: 'Define the motion language that communicates progress, effort, and recovery.',
+      options: [
+        { title: 'Minimal motion shell', scores: { feasibility: 90, impact: 55, risk: 90, speed: 88 }, total: 72 },
+        { title: 'Motion narrative + telemetry', scores: { feasibility: 78, impact: 85, risk: 75, speed: 70 }, total: 80 },
+        { title: 'Full adaptive coaching now', scores: { feasibility: 45, impact: 92, risk: 50, speed: 35 }, total: 58 },
+      ]
+    }
+  ],
+  capabilities: [
+    { name: 'Decision Kernel', maturity: 2, target: 4, gaps: ['LLM debate', 'evidence scoring', 'outcome tracking'], wave: 1 },
+    { name: 'Capability Management', maturity: 2, target: 4, gaps: ['automated discovery', 'outcome-based scoring'], wave: 1 },
+    { name: 'Innovation & Strategy', maturity: 1.8, target: 4, gaps: ['future-back planning', 'scenario branching', 'assumption register'], wave: 2 },
+    { name: 'UX & Design', maturity: 2.2, target: 4, gaps: ['design system', 'Figma integration', 'visual artifacts'], wave: 2 },
+    { name: 'Agent Orchestration', maturity: 2, target: 4.5, gaps: ['semantic routing', 'agent memory', 'multi-agent reasoning'], wave: 1 },
+    { name: 'Studio Operations', maturity: 1.8, target: 4, gaps: ['studio writeback', 'case libraries', 'experiment tracking'], wave: 2 },
+    { name: 'Intelligence & Research', maturity: 2.8, target: 4.5, gaps: ['triangulation', 'contradiction detection', 'coverage mapping'], wave: 1 },
+    { name: 'Portfolio Management', maturity: 1.8, target: 4, gaps: ['multi-company orchestration', 'cross-pollination'], wave: 3 },
+    { name: 'Operator Experience', maturity: 1.5, target: 4, gaps: ['real-time dashboard', 'proactive suggestions'], wave: 1 },
+    { name: 'Platform Infrastructure', maturity: 1.3, target: 4, gaps: ['auth', 'CI/CD', 'monitoring', 'WebSockets'], wave: 1 },
+    { name: 'Content & Marketing', maturity: 1.8, target: 4, gaps: ['publishing pipeline', 'asset cascade', 'proof spines'], wave: 3 },
+    { name: 'Data & Analytics', maturity: 1.2, target: 4, gaps: ['outcome tracking', 'feedback loops', 'A/B testing'], wave: 1 },
+  ],
+  agents: [
+    { name: 'Susan', group: 'orchestration', role: 'Team architect & orchestrator' },
+    { name: 'Steve', group: 'strategy', role: 'Business strategy' },
+    { name: 'Shield', group: 'strategy', role: 'Legal compliance' },
+    { name: 'Bridge', group: 'strategy', role: 'Partnerships' },
+    { name: 'Ledger', group: 'strategy', role: 'Finance & unit economics' },
+    { name: 'Vault', group: 'strategy', role: 'Fundraising' },
+    { name: 'Herald', group: 'growth', role: 'PR & communications' },
+    { name: 'Marcus', group: 'product', role: 'UX/UI design' },
+    { name: 'Mira', group: 'product', role: 'Emotional experience' },
+    { name: 'Lens', group: 'product', role: 'Accessibility' },
+    { name: 'Echo', group: 'product', role: 'Neuroscience-informed design' },
+    { name: 'Compass', group: 'product', role: 'Product management' },
+    { name: 'Prism', group: 'product', role: 'Brand strategy' },
+    { name: 'Atlas', group: 'engineering', role: 'Full-stack engineering' },
+    { name: 'Nova', group: 'engineering', role: 'AI/ML strategy' },
+    { name: 'Pulse', group: 'engineering', role: 'Data science' },
+    { name: 'Sentinel', group: 'engineering', role: 'Security' },
+    { name: 'Forge', group: 'engineering', role: 'QA & testing' },
+    { name: 'Coach', group: 'science', role: 'Exercise science' },
+    { name: 'Sage', group: 'science', role: 'Nutrition science' },
+    { name: 'Drift', group: 'science', role: 'Sleep & recovery' },
+    { name: 'Freya', group: 'psychology', role: 'Behavioral economics' },
+    { name: 'Flow', group: 'psychology', role: 'Sports psychology' },
+    { name: 'Quest', group: 'psychology', role: 'Gamification' },
+    { name: 'Aria', group: 'growth', role: 'Growth strategy' },
+    { name: 'Haven', group: 'growth', role: 'Community' },
+    { name: 'Guide', group: 'growth', role: 'Customer success' },
+    { name: 'Beacon', group: 'growth', role: 'ASO & SEO' },
+    { name: 'Research-Web', group: 'research', role: 'Web research' },
+    { name: 'Research-Reddit', group: 'research', role: 'Reddit intelligence' },
+    { name: 'Research-ArXiv', group: 'research', role: 'Academic papers' },
+    { name: 'Research-AppStore', group: 'research', role: 'App store analysis' },
+    { name: 'Design Studio Director', group: 'studio', role: 'Design doctrine & critique' },
+    { name: 'Landing Page Studio', group: 'studio', role: 'Acquisition surfaces' },
+    { name: 'App Experience Studio', group: 'studio', role: 'Onboarding & retention' },
+    { name: 'Marketing Studio Director', group: 'studio', role: 'Message architecture' },
+    { name: 'Deck Studio', group: 'studio', role: 'Executive decks' },
+    { name: 'Article Studio', group: 'studio', role: 'Thought leadership' },
+    { name: 'Social Media Studio', group: 'studio', role: 'Social content' },
+    { name: 'Algorithm Lab', group: 'engineering', role: 'Algorithm R&D' },
+  ],
+  vision: [
+    { year: '2026', label: 'Year 0 — Now', title: 'Stabilize + Ship', desc: 'Decision kernel stable. TransformFit prototype. Agent evaluation framework. 40K+ RAG chunks.', current: true },
+    { year: '2027', label: 'Year 1', title: 'Foundation', desc: 'TransformFit ships to app stores. 50K+ chunks. Susan foundry proven for 3+ companies. Agent eval live.' },
+    { year: '2028', label: 'Year 2', title: 'Portfolio Expansion', desc: '5+ companies. 30-day launch protocol. Automated daily ops. Agent memory v1. Cross-company intel v1.' },
+    { year: '2029', label: 'Year 3', title: 'Inflection Point', desc: 'Multi-operator alpha. Agent memory v2. Studios 70% autonomous. Decision rooms automated. 80+ agents.' },
+    { year: '2030', label: 'Year 4', title: 'Platform Maturity', desc: '5+ paying operators. Agent factory ships. $100K+ ARR. 3 domain packs published.' },
+    { year: '2031', label: 'Year 5', title: 'North Star', desc: '10+ companies. $500K+ ARR. 120+ agents. Autonomous operations. Capability marketplace.' },
+  ]
+};
+
+// =============================================================================
+// HELPERS
+// =============================================================================
+function getGreeting() {
+  var h = new Date().getHours();
+  if (h < 12) return 'Good morning, Mike';
+  if (h < 17) return 'Good afternoon, Mike';
+  return 'Evening, Mike';
+}
+
+function maturityLabel(n) {
+  if (n <= 1) return 'nascent';
+  if (n <= 2) return 'emerging';
+  if (n <= 3) return 'scaling';
+  if (n <= 4) return 'optimizing';
+  return 'leading';
+}
+
+function maturityColor(n) {
+  if (n <= 1.5) return 'danger';
+  if (n <= 2.5) return 'warning';
+  if (n <= 3.5) return 'accent';
+  return 'success';
+}
+
+var groupColors = {
+  orchestration: '#a78bfa', strategy: '#f0b45a', product: '#5b8def',
+  engineering: '#5cd4a0', science: '#e88a5a', psychology: '#e06565',
+  growth: '#5abbe8', research: '#8ba4cc', studio: '#d48aef',
+};
+
+function delay(i) { return 'style="--d:' + (i * 60) + 'ms"'; }
+
+// =============================================================================
+// NAVIGATION
+// =============================================================================
+var navItems = [
+  { id: 'home', icon: '◆', label: 'Workspace Home' },
+  { id: 'decisions', icon: '⬡', label: 'Decision Room', badge: function() { return state.status.decisions; }, badgeType: 'accent-badge' },
+  { id: 'capabilities', icon: '◎', label: 'Capability Map', badge: function() { var g = 0; state.capabilities.forEach(function(c){ g += c.gaps.length; }); return g; }, badgeType: 'danger-badge' },
+  { id: 'innovation', icon: '✦', label: 'Innovation Studio' },
+  { id: 'agents', icon: '⊕', label: 'Agent Console', badge: function(){ return state.agents.length; }, badgeType: 'accent-badge' },
+  { id: 'dashboard', icon: '◈', label: '25X Dashboard' },
+];
+
+var workspaces = [
+  { name: 'Founder Intelligence OS', meta: 'main • decision-capability-os', active: true, live: true },
+  { name: 'TransformFit', meta: 'main • motion-ui', active: false, live: false },
+  { name: 'Oracle Health AI', meta: 'main • enablement', active: false, live: false },
+];
+
+var teamItems = [
+  { id: 'jake', label: 'Jake', active: true },
+  { id: 'susan', label: 'Susan', active: false },
+  { id: 'research', label: 'Research', active: false },
+  { id: 'build', label: 'Build', active: false },
+];
+
+function renderNav() {
+  var wsHtml = '';
+  workspaces.forEach(function(ws) {
+    wsHtml += '<div class="workspace-card' + (ws.active ? ' active' : '') + '">' +
+      '<div class="ws-name"><span class="ws-dot ' + (ws.live ? 'live' : 'idle') + '"></span>' + ws.name + '</div>' +
+      '<div class="ws-meta">' + ws.meta + '</div></div>';
+  });
+  document.getElementById('workspaces').innerHTML = wsHtml;
+
+  var navHtml = '';
+  navItems.forEach(function(item) {
+    var badge = item.badge ? '<span class="nav-badge ' + item.badgeType + '">' + item.badge() + '</span>' : '';
+    navHtml += '<div class="nav-item' + (currentView === item.id ? ' active' : '') + '" onclick="switchView(\'' + item.id + '\')">' +
+      '<span class="nav-icon">' + item.icon + '</span>' + item.label + badge + '</div>';
+  });
+  document.getElementById('nav').innerHTML = navHtml;
+
+  var teamHtml = '';
+  teamItems.forEach(function(t) {
+    teamHtml += '<div class="nav-item' + (t.active ? ' active' : '') + '">' +
+      '<span class="nav-icon">●</span>' + t.label + '</div>';
+  });
+  document.getElementById('team-nav').innerHTML = teamHtml;
+}
+
+function renderTopbar() {
+  var c = state.context;
+  var html = '<span class="badge"><span class="badge-label">company</span>' + c.active_company + '</span>' +
+    '<span class="badge"><span class="badge-label">project</span>' + c.active_project + '</span>' +
+    '<span class="badge"><span class="badge-label">decision</span>' + c.active_decision + '</span>' +
+    '<span class="badge"><span class="badge-label">branch</span>' + c.active_branch + '</span>';
+  document.getElementById('ctx-badges').innerHTML = html;
+}
+
+function renderRightRail() {
+  var actions = (state.debrief.actions || {}).mike || [];
+  var html = '';
+  actions.forEach(function(a) {
+    html += '<div class="next-action-item">' + a + '</div>';
+  });
+  document.getElementById('next-actions').innerHTML = html;
+
+  var c = state.context;
+  var ws = '<div class="list-item"><strong>Mode:</strong> ' + c.mode + '</div>' +
+    '<div class="list-item"><strong>Front door:</strong> ' + c.front_door + '</div>' +
+    '<div class="list-item"><strong>Foundry:</strong> ' + c.foundry + '</div>' +
+    '<div class="list-item"><strong>Company:</strong> ' + c.active_company + '</div>';
+  document.getElementById('ws-summary').innerHTML = ws;
+}
+
+// =============================================================================
+// VIEW RENDERERS
+// =============================================================================
+function switchView(viewId) {
+  currentView = viewId;
+  renderNav();
+  var pane = document.getElementById('pane');
+  pane.classList.add('exit');
+  setTimeout(function() {
+    pane.innerHTML = renderView(viewId);
+    pane.classList.remove('exit');
+    if (viewId === 'home' || viewId === 'decisions') initTerminal();
+    animateBars();
+  }, 180);
+}
+
+function renderView(id) {
+  switch(id) {
+    case 'home': return viewHome();
+    case 'decisions': return viewDecisions();
+    case 'capabilities': return viewCapabilities();
+    case 'innovation': return viewInnovation();
+    case 'agents': return viewAgents();
+    case 'dashboard': return viewDashboard();
+    default: return viewHome();
+  }
+}
+
+// --- HOME ---
+function viewHome() {
+  var s = state.status;
+  var totalGaps = 0;
+  state.capabilities.forEach(function(c) { totalGaps += c.gaps.length; });
+
+  var html = '<div class="metrics-row">' +
+    '<div class="metric-card m-accent reveal" ' + delay(0) + '><div class="metric-label">Open decisions</div><div class="metric-value accent count-up">' + s.decisions + '</div></div>' +
+    '<div class="metric-card m-danger reveal" ' + delay(1) + '><div class="metric-label">Capability gaps</div><div class="metric-value danger count-up">' + totalGaps + '</div></div>' +
+    '<div class="metric-card m-success reveal" ' + delay(2) + '><div class="metric-label">Active runs</div><div class="metric-value success count-up">' + s.runs + '</div></div>' +
+    '<div class="metric-card m-warning reveal" ' + delay(3) + '><div class="metric-label">Agents</div><div class="metric-value warning count-up">' + state.agents.length + '</div></div>' +
+    '</div>';
+
+  // Session context + streak
+  var sessionDay = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+  html += '<div class="reveal" ' + delay(4) + ' style="display:flex;justify-content:space-between;align-items:center">' +
+    '<div class="streak-badge">Session active · ' + sessionDay + '</div>' +
+    '<div class="urgency-badge">Wave 1: 7 capabilities unresolved</div>' +
+    '</div>';
+
+  // Jake brief
+  html += '<div class="card card-glow reveal" ' + delay(5) + '>' +
+    '<div class="jake-msg">' +
+    '<div class="jake-label">JAKE — ACTIVE</div>' +
+    state.debrief.greeting + ' — we\'re in <span class="accent">' + state.context.active_company + '</span>. ' +
+    'Active decision: <span class="accent">' + state.context.active_decision + '</span>.<br><br>' +
+    'System maturity: <span class="warning">1.6 / 5.0 (Emerging)</span>. ' +
+    'The 25X assessment identified <span class="danger">' + totalGaps + ' capability gaps</span> across 12 domains.<br><br>' +
+    '<strong style="color:var(--text)">Best next moves:</strong><br>' +
+    '1. Review the 5-year strategic vision (Innovation Studio)<br>' +
+    '2. Address Wave 1 gaps — platform infrastructure, closed-loop learning, agent collaboration<br>' +
+    '3. Wire the decision engine to Claude for real AI-powered debate' +
+    '</div></div>';
+
+  // Decision summary + Capability summary
+  html += '<div class="grid-2">';
+
+  // Decision room preview
+  html += '<div class="card reveal" ' + delay(6) + '><div class="card-header"><h2>Decision Room</h2><span class="tag tag-active">' + state.decisions.length + ' active</span></div>';
+  html += '<div class="list-stack">';
+  state.decisions.forEach(function(d) {
+    var best = d.options.reduce(function(a,b){ return a.total > b.total ? a : b; });
+    html += '<div class="list-item"><div class="row"><strong>' + d.title + '</strong><span class="tag tag-' + (d.status === 'proposed' ? 'active' : 'draft') + '">' + d.status + '</span></div>' +
+      '<div class="item-meta">Best option: ' + best.title + ' (score ' + best.total + ')</div></div>';
+  });
+  html += '</div></div>';
+
+  // Capability foundry preview — show Wave 1 items first with critical path framing
+  html += '<div class="card reveal" ' + delay(7) + '><div class="card-header"><h2>Capability Foundry</h2><span class="tag tag-gap">' + totalGaps + ' gaps</span></div>';
+  html += '<div class="list-stack">';
+  var w1First = state.capabilities.slice().sort(function(a,b){ return a.wave - b.wave || a.maturity - b.maturity; });
+  w1First.slice(0, 4).forEach(function(c) {
+    var tagClass = c.maturity < 1.5 ? 'tag-gap' : c.maturity < 2.5 ? 'tag-partial' : 'tag-ok';
+    var critClass = c.wave === 1 && c.maturity < 2 ? ' critical-path' : '';
+    html += '<div class="list-item' + critClass + '"><div class="row"><span>' + c.name + '</span><div style="display:flex;gap:6px;align-items:center"><span class="wave-label w' + c.wave + '">W' + c.wave + '</span><span class="tag ' + tagClass + '">' + maturityLabel(c.maturity) + '</span></div></div>' +
+      '<div class="progress-track" style="margin-top:8px"><div class="progress-fill ' + maturityColor(c.maturity) + ' bar-anim" data-width="' + (c.maturity/5*100) + '"></div></div></div>';
+  });
+  html += '</div></div></div>';
+
+  // Terminal
+  html += '<div class="reveal" ' + delay(8) + '>' + renderTerminal() + '</div>';
+
+  return html;
+}
+
+// --- DECISION ROOM ---
+function viewDecisions() {
+  var html = '<h1 class="reveal" ' + delay(0) + ' style="margin-bottom:4px">Decision Room</h1>' +
+    '<p class="reveal" ' + delay(0) + '>Strategic decisions with multi-perspective debate and weighted scoring.</p>';
+
+  state.decisions.forEach(function(d, di) {
+    html += '<div class="card reveal" ' + delay(di + 1) + '>' +
+      '<div class="card-header"><h2>' + d.title + '</h2><span class="tag tag-' + (d.status === 'proposed' ? 'active' : 'draft') + '">' + d.status + '</span></div>' +
+      '<p style="margin-bottom:14px">' + d.context + '</p>';
+
+    // Debate tabs
+    html += '<div class="debate-tabs">' +
+      '<div class="debate-tab active">Builder</div>' +
+      '<div class="debate-tab">Skeptic</div>' +
+      '<div class="debate-tab">Contrarian</div>' +
+      '<div class="debate-tab">Operator</div>' +
+      '<div class="debate-tab">Red Team</div></div>';
+
+    // Options with scoring bars
+    html += '<div class="list-stack">';
+    d.options.forEach(function(opt) {
+      var isBest = opt.total >= Math.max.apply(null, d.options.map(function(o){return o.total}));
+      html += '<div class="list-item">' +
+        '<div class="row"><strong>' + opt.title + '</strong><span class="score-num ' + (isBest ? 'success' : '') + '">' + opt.total + '</span></div>';
+      // Score breakdown
+      Object.keys(opt.scores).forEach(function(key) {
+        html += '<div style="display:flex;align-items:center;gap:8px;margin-top:6px">' +
+          '<span class="tertiary" style="width:70px;font-size:0.72rem">' + key + '</span>' +
+          '<div class="score-bar-track"><div class="score-bar-fill' + (isBest ? ' best' : '') + ' bar-anim" data-width="' + opt.scores[key] + '"></div></div>' +
+          '<span class="mono tertiary" style="width:24px;text-align:right;font-size:0.7rem">' + opt.scores[key] + '</span></div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Output contract
+    html += '<div style="margin-top:14px;padding:12px;border-radius:10px;background:var(--surface-2);border:1px solid var(--border-subtle)">' +
+      '<div class="label" style="margin-bottom:6px">Output Contract</div>' +
+      '<div style="font-size:0.78rem;color:var(--text-secondary)">recommendation · counter_recommendation · why_now · failure_modes · next_experiment</div></div>';
+    html += '</div>';
+  });
+
+  html += '<div class="reveal" ' + delay(state.decisions.length + 1) + '>' + renderTerminal() + '</div>';
+  return html;
+}
+
+// --- CAPABILITY MAP ---
+function viewCapabilities() {
+  var html = '<h1 class="reveal" ' + delay(0) + ' style="margin-bottom:4px">Capability Map</h1>' +
+    '<p class="reveal" ' + delay(0) + '>12 domains scored from the 25X assessment. Current aggregate: <span class="warning">1.6 / 5.0</span>.</p>';
+
+  // Wave summary
+  var waves = [0,0,0];
+  state.capabilities.forEach(function(c) { waves[c.wave - 1]++; });
+  html += '<div class="grid-3 reveal" ' + delay(1) + '>' +
+    '<div class="metric-card m-accent"><div class="metric-label">Wave 1 (Foundation)</div><div class="metric-value accent">' + waves[0] + '</div></div>' +
+    '<div class="metric-card m-warning"><div class="metric-label">Wave 2 (Scale)</div><div class="metric-value warning">' + waves[1] + '</div></div>' +
+    '<div class="metric-card m-success"><div class="metric-label">Wave 3 (Compound)</div><div class="metric-value success">' + waves[2] + '</div></div>' +
+    '</div>';
+
+  // Maturity bars
+  html += '<div class="card reveal" ' + delay(2) + '>';
+  html += '<div class="card-header"><h2>Domain Maturity</h2><div class="label">current / target</div></div>';
+  html += '<div class="stack">';
+  state.capabilities.forEach(function(c) {
+    html += '<div class="maturity-row">' +
+      '<div class="domain-name">' + c.name + '</div>' +
+      '<div class="bar-wrap"><div class="maturity-segments">';
+    for (var i = 1; i <= 5; i++) {
+      var filled = i <= Math.round(c.maturity);
+      var isTarget = i <= Math.round(c.target) && !filled;
+      var colorClass = filled ? (c.maturity < 1.5 ? ' bad' : c.maturity < 2.5 ? ' warn' : '') : '';
+      html += '<div class="maturity-seg' + (filled ? ' filled' + colorClass : '') + (isTarget ? ' target' : '') + '"></div>';
+    }
+    html += '</div></div>' +
+      '<div class="score-label">' + c.maturity.toFixed(1) + ' → ' + c.target.toFixed(1) + '</div>' +
+      '<span class="tag tag-' + (c.wave === 1 ? 'active' : c.wave === 2 ? 'partial' : 'ok') + '">W' + c.wave + '</span>' +
+      '</div>';
+  });
+  html += '</div></div>';
+
+  // Gaps detail — Wave 1 critical path framing (loss aversion)
+  html += '<div class="card reveal" ' + delay(3) + '>';
+  html += '<div class="card-header"><h2>Critical Gaps</h2><span class="urgency-badge">Foundation at risk</span></div>';
+  html += '<div class="list-stack">';
+  state.capabilities.filter(function(c){ return c.gaps.length > 0; }).sort(function(a,b){ return a.wave - b.wave || a.maturity - b.maturity; }).forEach(function(c) {
+    var critClass = c.wave === 1 && c.maturity < 2 ? ' critical-path' : '';
+    html += '<div class="list-item' + critClass + '"><div class="row"><strong>' + c.name + '</strong><div style="display:flex;gap:6px;align-items:center"><span class="wave-label w' + c.wave + '">W' + c.wave + '</span><span class="tag tag-gap">' + c.gaps.length + ' gaps</span></div></div>' +
+      '<div class="item-meta">' + c.gaps.join(' · ') + '</div></div>';
+  });
+  html += '</div></div>';
+
+  return html;
+}
+
+// --- INNOVATION STUDIO ---
+function viewInnovation() {
+  var html = '<h1 class="reveal" ' + delay(0) + ' style="margin-bottom:4px">Innovation Studio</h1>' +
+    '<p class="reveal" ' + delay(0) + '>Strategos future-back vision. 5-year strategic plan working backward from the north star.</p>';
+
+  // Strategic bets
+  html += '<div class="grid-3 reveal" ' + delay(1) + '>' +
+    '<div class="card"><h3 class="accent">Bet 1</h3><p style="margin-top:6px;font-size:0.82rem">Intelligence Compounding</p><p style="margin-top:4px;font-size:0.75rem">Knowledge from Company N makes Company N+1 faster. The moat.</p></div>' +
+    '<div class="card"><h3 class="success">Bet 2</h3><p style="margin-top:6px;font-size:0.82rem">Agent Factory as Platform</p><p style="margin-top:4px;font-size:0.75rem">Other founders configure their own agent teams and domain packs.</p></div>' +
+    '<div class="card"><h3 class="warning">Bet 3</h3><p style="margin-top:6px;font-size:0.82rem">TransformFit as Proof</p><p style="margin-top:4px;font-size:0.75rem">A company built by 60 agents + 1 human with real users and revenue.</p></div>' +
+    '</div>';
+
+  // Timeline
+  html += '<div class="card reveal" ' + delay(2) + '>';
+  html += '<div class="card-header"><h2>5-Year Timeline</h2></div>';
+  html += '<div class="timeline">';
+  state.vision.forEach(function(v) {
+    html += '<div class="timeline-item' + (v.current ? ' current' : '') + '">' +
+      '<div class="timeline-year">' + v.year + ' — ' + v.label + '</div>' +
+      '<div class="timeline-title">' + v.title + '</div>' +
+      '<div class="timeline-desc">' + v.desc + '</div></div>';
+  });
+  html += '</div></div>';
+
+  // Risks
+  html += '<div class="card reveal" ' + delay(3) + '>';
+  html += '<div class="card-header"><h2>Highest-Risk Assumptions</h2></div>';
+  html += '<div class="list-stack">' +
+    '<div class="list-item"><div class="row"><strong>Solo Operator Ceiling</strong><span class="tag tag-gap">high risk</span></div><div class="item-meta">Can one person manage 5+ companies through AI? Cognitive load does not scale linearly.</div></div>' +
+    '<div class="list-item"><div class="row"><strong>LLM Provider Dependency</strong><span class="tag tag-partial">medium risk</span></div><div class="item-meta">Entire system tuned for Claude. Price increase or capability regression would be disruptive.</div></div>' +
+    '<div class="list-item"><div class="row"><strong>Knowledge Quality at Scale</strong><span class="tag tag-partial">medium risk</span></div><div class="item-meta">500K+ chunk RAG might degrade into noise. More data is not always better.</div></div>' +
+    '</div></div>';
+
+  return html;
+}
+
+// --- AGENT CONSOLE ---
+function viewAgents() {
+  var groups = {};
+  state.agents.forEach(function(a) {
+    if (!groups[a.group]) groups[a.group] = [];
+    groups[a.group].push(a);
+  });
+
+  var html = '<h1 class="reveal" ' + delay(0) + ' style="margin-bottom:4px">Agent Console</h1>' +
+    '<p class="reveal" ' + delay(0) + '>' + state.agents.length + ' agents across ' + Object.keys(groups).length + ' groups. The team behind the operating system.</p>';
+
+  var i = 1;
+  Object.keys(groups).forEach(function(group) {
+    html += '<div class="reveal" ' + delay(i) + '>' +
+      '<div class="label" style="margin:8px 0">' + group.toUpperCase() + ' (' + groups[group].length + ')</div>' +
+      '<div class="grid-3">';
+    groups[group].forEach(function(a) {
+      var gc = groupColors[group] || '#8ba4cc';
+      html += '<div class="agent-card">' +
+        '<div class="agent-name">' + a.name + '</div>' +
+        '<div class="agent-role">' + a.role + '</div>' +
+        '<div class="agent-group-badge" style="background:' + gc + '20;color:' + gc + '">' + group + '</div></div>';
+    });
+    html += '</div></div>';
+    i++;
+  });
+
+  return html;
+}
+
+// --- 25X DASHBOARD ---
+function viewDashboard() {
+  var total = 0;
+  state.capabilities.forEach(function(c) { total += c.maturity; });
+  var avg = (total / state.capabilities.length).toFixed(1);
+
+  var html = '<h1 class="reveal" ' + delay(0) + ' style="margin-bottom:4px">25X Dashboard</h1>' +
+    '<p class="reveal" ' + delay(0) + '>Tracking progress from current state to 25X target across all capability domains.</p>';
+
+  // Progress since framing (endowed progress effect)
+  html += '<div class="progress-since reveal" ' + delay(1) + '>' +
+    '<strong>Assessment complete.</strong> 12 domains scored. ' +
+    'You are <strong>' + avg + '</strong> out of 5.0 — that\'s <strong>' + Math.round((avg/5)*100) + '%</strong> of the way to baseline. ' +
+    'Wave 1 addresses the <strong>7 most critical</strong> capabilities first.' +
+    '</div>';
+
+  // Aggregate
+  html += '<div class="grid-3 reveal" ' + delay(2) + '>' +
+    '<div class="metric-card m-warning"><div class="metric-label">Aggregate Maturity</div><div class="metric-value warning">' + avg + ' / 5.0</div></div>' +
+    '<div class="metric-card m-accent"><div class="metric-label">Domains Assessed</div><div class="metric-value accent">' + state.capabilities.length + '</div></div>' +
+    '<div class="metric-card m-danger"><div class="metric-label">Total Gaps</div><div class="metric-value danger">' + state.capabilities.reduce(function(s,c){return s+c.gaps.length},0) + '</div></div>' +
+    '</div>';
+
+  // Progress per domain
+  html += '<div class="card reveal" ' + delay(3) + '>';
+  html += '<div class="card-header"><h2>Domain Progress to 25X</h2></div>';
+  html += '<div class="stack">';
+  state.capabilities.forEach(function(c) {
+    var pct = Math.round((c.maturity / c.target) * 100);
+    var barColor = maturityColor(c.maturity);
+    html += '<div>' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">' +
+      '<span style="font-size:0.82rem;font-weight:500">' + c.name + '</span>' +
+      '<div style="display:flex;gap:6px;align-items:center"><span class="wave-label w' + c.wave + '">W' + c.wave + '</span>' +
+      '<span class="mono tertiary" style="font-size:0.72rem">' + pct + '%</span></div></div>' +
+      '<div class="progress-track"><div class="progress-fill ' + barColor + ' bar-anim" data-width="' + pct + '"></div></div></div>';
+  });
+  html += '</div></div>';
+
+  // Multiplier targets
+  html += '<div class="card reveal" ' + delay(4) + '>';
+  html += '<div class="card-header"><h2>25X Multiplier Targets</h2></div>';
+  html += '<div class="list-stack">' +
+    '<div class="list-item"><div class="row"><span>Decision cycle time</span><span class="mono">1 week → &lt; 1 day</span></div></div>' +
+    '<div class="list-item"><div class="row"><span>Capability assessments</span><span class="mono">manual → auto-generated</span></div></div>' +
+    '<div class="list-item"><div class="row"><span>Company onboarding</span><span class="mono">2-3 days → &lt; 2 hours</span></div></div>' +
+    '<div class="list-item"><div class="row"><span>Agent team deployment</span><span class="mono">per-company → shared foundry</span></div></div>' +
+    '<div class="list-item"><div class="row"><span>Research synthesis</span><span class="mono">ad hoc → continuous</span></div></div>' +
+    '</div></div>';
+
+  return html;
+}
+
+// =============================================================================
+// TERMINAL
+// =============================================================================
+function renderTerminal() {
+  return '<div class="terminal" id="terminal"' + (terminalVisible ? '' : ' style="display:none"') + '>' +
+    '<div class="terminal-header">' +
+    '<div class="terminal-dot" style="background:#e06565"></div>' +
+    '<div class="terminal-dot" style="background:#e8a84c"></div>' +
+    '<div class="terminal-dot" style="background:#5cd4a0"></div>' +
+    '<span style="margin-left:8px">jake terminal</span></div>' +
+    '<div class="terminal-output" id="terminal-output">' + terminalHistory.join('\n') + '</div>' +
+    '<div class="terminal-input-wrap">' +
+    '<span class="terminal-prompt">$</span>' +
+    '<input class="terminal-input" id="terminal-input" placeholder="Type a command..." autocomplete="off" />' +
+    '</div></div>';
+}
+
+function toggleTerminal() {
+  terminalVisible = !terminalVisible;
+  var el = document.getElementById('terminal');
+  if (el) el.style.display = terminalVisible ? 'block' : 'none';
+  if (terminalVisible) {
+    var input = document.getElementById('terminal-input');
+    if (input) input.focus();
+  }
+}
+
+var staticCommands = {
+  help: 'Available commands:\n  help        Show this message\n  status      System status\n  decisions   Open decisions\n  capabilities  Capability gaps\n  context     Active workspace context\n  clear       Clear terminal\n\nKeyboard shortcuts:\n  1-6   Switch views · t  Toggle terminal',
+  status: 'jake: Decision OS status\n  decisions: ' + state.status.decisions + '\n  capabilities: ' + state.status.capabilities + '\n  runs: ' + state.status.runs + '\n  agents: ' + state.agents.length,
+  context: 'Startup Intelligence OS Context\n  Company: ' + state.context.active_company + '\n  Project: ' + state.context.active_project + '\n  Decision: ' + state.context.active_decision + '\n  Branch: ' + state.context.active_branch,
+};
+
+// Dynamic commands that reference state at execution time
+var dynamicCommands = {
+  decisions: function() {
+    var lines = ['Open decisions (' + state.decisions.length + '):'];
+    state.decisions.forEach(function(d, i) {
+      var best = d.options.reduce(function(a,b){ return a.total > b.total ? a : b; });
+      lines.push('  ' + (i+1) + '. ' + d.title + ' [' + d.status + '] — best: ' + best.title + ' (' + best.total + ')');
+    });
+    return lines.join('\n');
+  },
+  capabilities: function() {
+    var lines = ['Capability domains (' + state.capabilities.length + '):'];
+    state.capabilities.forEach(function(c) {
+      var bar = '';
+      for (var i = 0; i < 5; i++) bar += i < Math.round(c.maturity) ? '█' : '░';
+      lines.push('  ' + bar + '  ' + c.maturity.toFixed(1) + '/' + c.target.toFixed(1) + '  ' + c.name + ' [W' + c.wave + ']');
+    });
+    return lines.join('\n');
+  }
+};
+
+function initTerminal() {
+  var input = document.getElementById('terminal-input');
+  if (!input) return;
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    var cmd = input.value.trim();
+    if (!cmd) return;
+    input.value = '';
+    terminalHistory.push('$ ' + cmd);
+    if (cmd === 'clear') { terminalHistory = []; }
+    else if (staticCommands[cmd]) { terminalHistory.push(staticCommands[cmd]); }
+    else if (dynamicCommands[cmd]) { terminalHistory.push(dynamicCommands[cmd]()); }
+    else {
+      fetch(API + '/api/' + cmd).then(function(r) { return r.json(); })
+        .then(function(data) { terminalHistory.push(JSON.stringify(data, null, 2)); })
+        .catch(function() { terminalHistory.push('Unknown command: ' + cmd + '\nType "help" for available commands.'); });
+    }
+    var output = document.getElementById('terminal-output');
+    if (output) {
+      output.textContent = terminalHistory.join('\n');
+      output.scrollTop = output.scrollHeight;
+    }
+  });
+}
+
+// =============================================================================
+// ANIMATED BARS
+// =============================================================================
+function animateBars() {
+  setTimeout(function() {
+    var bars = document.querySelectorAll('.bar-anim');
+    bars.forEach(function(bar) {
+      var w = bar.getAttribute('data-width');
+      bar.style.width = w + '%';
+    });
+  }, 200);
+}
+
+// =============================================================================
+// API
+// =============================================================================
+function fetchFromApi() {
+  Promise.all([
+    fetch(API + '/api/context').then(function(r){ return r.json(); }),
+    fetch(API + '/api/status').then(function(r){ return r.json(); }),
+    fetch(API + '/api/debrief?operator=mike').then(function(r){ return r.json(); }),
+  ]).then(function(results) {
+    state.context = results[0];
+    state.status = results[1];
+    state.debrief = results[2];
+    state.debrief.greeting = state.debrief.greeting || getGreeting();
+    apiLive = true;
+    document.getElementById('system-status').textContent = 'API connected — localhost:8420';
+    document.getElementById('sidebar-footer').textContent = 'API: live • ' + state.agents.length + ' agents';
+    renderTopbar();
+    renderRightRail();
+    switchView(currentView);
+  }).catch(function() {
+    apiLive = false;
+    document.getElementById('system-status').textContent = 'Static mode — API offline';
+    document.getElementById('sidebar-footer').textContent = 'Static mode • ' + state.agents.length + ' agents';
+  });
+}
+
+// =============================================================================
+// BOOT
+// =============================================================================
+function boot() {
+  renderNav();
+  renderTopbar();
+  renderRightRail();
+  switchView('home');
+  terminalVisible = true;
+  fetchFromApi();
+
+  // Boot message in terminal
+  terminalHistory.push('jake v5 — Startup Intelligence OS');
+  terminalHistory.push('Session: ' + new Date().toLocaleString());
+  terminalHistory.push('Type "help" for available commands.\n');
+
+  // Keyboard shortcuts for view switching
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    var map = { '1': 'home', '2': 'decisions', '3': 'capabilities', '4': 'innovation', '5': 'agents', '6': 'dashboard' };
+    if (map[e.key]) { switchView(map[e.key]); }
+    if (e.key === 't' || e.key === '`') { e.preventDefault(); toggleTerminal(); }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', boot);
+</script>
+</body>
+</html>
