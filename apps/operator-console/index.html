@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decision OS Operator Console</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="console">
+    <!-- LEFT RAIL -->
+    <aside class="rail rail-left">
+      <h2>Workspaces</h2>
+      <nav id="nav-workspaces">
+        <div class="nav-item active">Startup Intelligence OS</div>
+      </nav>
+      <h2>Team Console</h2>
+      <ul id="team-console">
+        <li>Jake — Expert System Architect</li>
+        <li>Susan — Capability Foundry Lead</li>
+      </ul>
+      <h2>Navigation</h2>
+      <ul class="nav-links">
+        <li><a href="#decisions">Decisions</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#companies">Companies</a></li>
+        <li><a href="#runs">Runs</a></li>
+      </ul>
+    </aside>
+
+    <!-- CENTER -->
+    <main class="center">
+      <header>
+        <h1>Decision & Capability OS</h1>
+        <p id="hello" class="hello">Loading briefing...</p>
+      </header>
+
+      <section class="card" id="section-debrief">
+        <h2>Jake Brief</h2>
+        <ul id="debrief"></ul>
+      </section>
+
+      <section class="card" id="section-actions">
+        <h2>Decision Room</h2>
+        <ol id="actions"></ol>
+      </section>
+
+      <section class="card" id="section-terminal">
+        <h2>Terminal</h2>
+        <div class="terminal">
+          <div id="terminal-output" class="terminal-output"></div>
+          <div class="terminal-input-row">
+            <span class="prompt-char">$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type help, bin/jake, bin/jake status, bin/jake sync-intel, bin/os-context..." autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- RIGHT RAIL -->
+    <aside class="rail rail-right">
+      <h2>Next Actions</h2>
+      <ol id="next-actions"></ol>
+
+      <h2>Workspace Summary</h2>
+      <ul id="workspace-summary"></ul>
+
+      <h2>System Status</h2>
+      <ul id="status"></ul>
+
+      <div class="design-rule">
+        <h2>Design Rule</h2>
+        <p>The operator should never wonder what workspace, repo, branch, or decision is active.</p>
+      </div>
+    </aside>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>

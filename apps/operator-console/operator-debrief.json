@@ -1,0 +1,29 @@
+{
+  "debrief": [
+    "Runtime source of truth: susan-team-architect/backend",
+    "Susan agent roster synced: 60 agents indexed",
+    "Decision OS objects \u2014 decisions: 2, capabilities: 6, projects: 1, runs: 2",
+    "Evidence store: 0 items indexed",
+    "Jake roles active: Expert System Architect + Cognitive Orchestrator",
+    "Susan roles active: Capability Foundry Lead + Cognitive Team Architect"
+  ],
+  "actions": {
+    "mike": [
+      "Review unresolved strategic decisions in .startup-os/decisions/",
+      "Prioritize top 3 capabilities to mature this week",
+      "Run bin/jake before publishing any structural updates"
+    ],
+    "susan": [
+      "Review capability backlog and propose next implementation wave",
+      "Sync agent readiness and update debrief package",
+      "Prepare execution tracks for blocked projects"
+    ]
+  },
+  "status": [
+    "Jake front door: bin/jake",
+    "Context command: bin/os-context",
+    "Workspace contract: .startup-os/workspace.yaml",
+    "API server: apps/decision_os/api.py (port 8420)",
+    "Operator mode: three-zone command center"
+  ]
+}

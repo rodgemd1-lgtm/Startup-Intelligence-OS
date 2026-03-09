@@ -1,0 +1,8 @@
+id: run-{{timestamp}}
+type: {{run_type}}
+started_at: {{started_at}}
+owner: {{owner}}
+status: running
+inputs: []
+outputs: []
+

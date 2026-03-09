@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "susan-intelligence": {
+      "command": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/.venv/bin/python3",
+      "args": [
+        "-m",
+        "mcp_server.server"
+      ],
+      "cwd": "/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend"
+    }
+  }
+}

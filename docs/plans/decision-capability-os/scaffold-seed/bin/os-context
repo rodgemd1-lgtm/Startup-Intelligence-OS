@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORKSPACE_FILE=".startup-os/workspace.yaml"
+
+echo "Jake front-door context:"
+if [[ -f "$WORKSPACE_FILE" ]]; then
+  echo ""
+  echo "Workspace file found at $WORKSPACE_FILE"
+  echo "Use it as the source of truth for active workspace context."
+  echo ""
+  cat "$WORKSPACE_FILE"
+else
+  echo ""
+  echo "No workspace file found."
+  echo "Assume the current directory is the active workspace and confirm company/project/decision before major work."
+fi

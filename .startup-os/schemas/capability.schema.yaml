@@ -1,0 +1,22 @@
+type: capability
+required_fields:
+  - id
+  - name
+  - owner
+  - maturity
+  - outcome_metric
+optional_fields:
+  - dependencies
+  - interfaces
+  - roles
+  - briefing_sources
+  - startup_greeting
+  - gaps
+  - evidence
+  - linked_decisions
+maturity_levels:
+  - nascent
+  - emerging
+  - scaling
+  - optimizing
+  - leading

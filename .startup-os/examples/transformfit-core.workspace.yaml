@@ -1,0 +1,12 @@
+workspace_id: transformfit-core
+repo_root: /Users/mikerodgers/adapt-evolve-progress
+default_backend: claude
+active_company: transformfit
+active_project: workout-session-v2
+active_decision: coach-thread-shell
+active_branch: main
+runtime_root: /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend
+artifacts_root: .startup-os/artifacts
+notes:
+  - Jake is the front door.
+  - Susan is the capability foundry.

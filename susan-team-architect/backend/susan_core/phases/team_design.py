@@ -2,15 +2,13 @@
 from __future__ import annotations
 import json
 import yaml
-from pathlib import Path
-from anthropic import Anthropic
 from susan_core.config import config
+from susan_core.phase_runtime import run_cached_json_phase
 
 
 async def run(company: str, context: dict) -> dict:
     """Design the agent team based on gap analysis."""
-    client = Anthropic(api_key=config.anthropic_api_key)
-
+    max_agents = 5 if context.get("mode") == "quick" else 8
     registry_path = config.data_dir / "agent_registry.yaml"
     with open(registry_path) as f:
         agents = yaml.safe_load(f)
@@ -20,8 +18,11 @@ async def run(company: str, context: dict) -> dict:
 Company Profile:
 {json.dumps(context.get('profile', {}), indent=2)}
 
-Gap Analysis:
+Capability Diagnosis / Analysis:
 {json.dumps(context.get('analysis', {}), indent=2)}
+
+Decision Brief:
+{json.dumps(context.get('decision_brief', {}), indent=2)}
 
 Agent Registry:
 {json.dumps(agents, indent=2, default=str)}
@@ -44,19 +45,22 @@ Return a JSON object (TeamManifest) with:
 - total_agents (int): Count of agents
 - estimated_monthly_cost (string): Total monthly estimate
 
-Select agents based on the gaps identified. Include all agents that map to identified gaps.
+Select agents based on the diagnosed gaps, evidence needs, and decision brief. Include at most {max_agents} agents and prefer the leanest effective team.
+If the company depends on emotional conversion, landing-page persuasion, trust, or brand feeling, include emotional-experience coverage via Mira and strengthened Marcus/Echo/Prism roles.
+If the company needs heavy research or document-production capability, include the research and studio agents selectively rather than by default.
 Budget constraint: under $200/month total.
 Return ONLY the JSON object."""
-
-    response = client.messages.create(
+    return run_cached_json_phase(
+        company=company,
+        phase="team_design",
+        cache_payload={
+            "company": company,
+            "profile": context.get("profile", {}),
+            "analysis": context.get("analysis", {}),
+            "agents": agents,
+        },
+        prompt=prompt,
         model=config.model_sonnet,
-        max_tokens=8192,
-        messages=[{"role": "user", "content": prompt}],
+        max_tokens=4096,
+        refresh=context.get("refresh", False),
     )
-
-    text = response.content[0].text
-    start = text.find('{')
-    end = text.rfind('}') + 1
-    if start >= 0 and end > start:
-        return json.loads(text[start:end])
-    return {"error": "Failed to parse", "raw": text}

@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BACKEND="claude"
+PROMPT=""
+WORKSPACE_PATH=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --backend)
+      BACKEND="$2"
+      shift 2
+      ;;
+    --workspace)
+      WORKSPACE_PATH="$2"
+      shift 2
+      ;;
+    *)
+      PROMPT="$*"
+      break
+      ;;
+  esac
+done
+
+if [[ -n "$WORKSPACE_PATH" ]]; then
+  cd "$WORKSPACE_PATH"
+fi
+
+if [[ -f ".startup-os/workspace.yaml" ]]; then
+  echo "Jake here — opening workspace from .startup-os/workspace.yaml"
+  grep -E "workspace_id|active_company|active_project|active_decision|active_branch" .startup-os/workspace.yaml || true
+else
+  echo "Jake here — opening current directory as the active workspace"
+fi
+
+echo ""
+echo "Backend: $BACKEND"
+echo ""
+
+if [[ "$BACKEND" == "codex" ]]; then
+  if [[ -n "$PROMPT" ]]; then
+    exec codex "$PROMPT"
+  else
+    exec codex
+  fi
+else
+  if [[ -n "$PROMPT" ]]; then
+    exec claude "$PROMPT"
+  else
+    exec claude
+  fi
+fi

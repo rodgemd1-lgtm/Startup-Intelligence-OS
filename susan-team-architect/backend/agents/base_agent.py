@@ -37,7 +37,22 @@ class BaseAgent:
 
     def get_system_prompt(self) -> str:
         """Build full system prompt with BE lens injection."""
-        return f"{self.system_prompt}\n\n{BE_LENS}"
+        try:
+            from pathlib import Path
+            from control_plane.prompts import compile_prompt_bundle_for_agent, render_runtime_prompt
+
+            authoring_dir = Path(__file__).resolve().parents[1] / "agents"
+            bundle = compile_prompt_bundle_for_agent(
+                agent_id=self.agent_id,
+                authoring_dir=authoring_dir,
+                fallback_name=self.agent_name,
+                fallback_role=self.role,
+                fallback_system_prompt=self.system_prompt,
+            )
+            compiled_prompt = render_runtime_prompt(bundle)
+            return f"{compiled_prompt}\n\n{BE_LENS}"
+        except Exception:
+            return f"{self.system_prompt}\n\n{BE_LENS}"
 
     def query_rag(
         self,

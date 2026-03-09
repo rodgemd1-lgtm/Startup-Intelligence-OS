@@ -1,0 +1,20 @@
+id: workspace-contract
+name: Workspace Contract
+status: building
+current_state: Repo root lacks an explicit file-backed workspace contract; context is inferred from cwd and Susan project packs.
+target_state: Repo root has a durable workspace contract that names the active company, project, decision, branch, backend, and artifact root.
+maturity_current: 1
+maturity_target: 4
+owner_human: Mike Rodgers
+owner_agent: jake
+evidence:
+  - CLAUDE.md
+  - docs/plans/decision-capability-os/operating-model.md
+build_sequence:
+  - create .startup-os/workspace.yaml
+  - add bin/jake and bin/os-context
+  - add starter company, project, and decision records
+success_criteria:
+  - workspace state is visible from files
+  - Jake can open the workspace consistently
+  - runtime root stays explicit

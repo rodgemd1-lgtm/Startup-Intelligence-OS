@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Jake Console — Decision & Capability OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-2: #1f2430;
+      --text: #e7ecf3;
+      --muted: #9aa4b2;
+      --line: #2d3442;
+      --accent: #6ea8ff;
+      --accent-2: #9ae6b4;
+      --warn: #f6ad55;
+      --danger: #fc8181;
+      --card: #12161f;
+      --shadow: 0 8px 24px rgba(0,0,0,.25);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 260px 1fr 320px;
+      min-height: 100vh;
+    }
+    .sidebar, .rightbar {
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+      padding: 18px;
+    }
+    .rightbar {
+      border-right: 0;
+      border-left: 1px solid var(--line);
+    }
+    .main {
+      display: grid;
+      grid-template-rows: 74px 1fr;
+      min-width: 0;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(23,26,33,.92);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+    }
+    .workspace {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .accent { color: var(--accent); }
+    .accent2 { color: var(--accent-2); }
+    .warn { color: var(--warn); }
+    .danger { color: var(--danger); }
+    .pane {
+      padding: 18px;
+      overflow: auto;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      background:
+        linear-gradient(180deg, rgba(110,168,255,.06), transparent 120px),
+        var(--bg);
+    }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1 { font-size: 20px; }
+    h2 { font-size: 16px; }
+    h3 { font-size: 14px; }
+    .muted { color: var(--muted); }
+    .nav-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin: 14px 0 10px;
+    }
+    .nav-item, .workspace-item {
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: default;
+      margin-bottom: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+    }
+    .nav-item.active, .workspace-item.active {
+      background: var(--panel-2);
+      border-color: var(--line);
+      box-shadow: var(--shadow);
+    }
+    .workspace-item small { display:block; color: var(--muted); margin-top: 2px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .grid-2 {
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+    }
+    .metrics {
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 12px;
+    }
+    .metric {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .metric .value { font-size: 22px; font-weight: 700; margin-top: 6px; }
+    .chat {
+      display:grid;
+      gap: 12px;
+    }
+    .msg {
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      max-width: 900px;
+      white-space: pre-line;
+    }
+    .msg.jake {
+      background: rgba(110,168,255,.08);
+      border-color: rgba(110,168,255,.25);
+    }
+    .msg.user {
+      background: rgba(154,230,180,.08);
+      border-color: rgba(154,230,180,.25);
+      margin-left: auto;
+    }
+    .toolbar {
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .list { display:grid; gap: 10px; }
+    .list-item {
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .row {
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .code {
+      padding: 12px;
+      border-radius: 12px;
+      background: #0b0d12;
+      border: 1px solid var(--line);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      white-space: pre-wrap;
+      font-size: 12px;
+      color: #cfe0ff;
+    }
+    .footer-note {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(246,173,85,.08);
+      border: 1px solid rgba(246,173,85,.25);
+      color: #fbd38d;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>Jake Console</h1>
+      <p class="muted" style="margin-top:6px;">Decision & Capability OS</p>
+
+      <div class="nav-title">Workspaces</div>
+      <div class="workspace-item active">
+        TransformFit / motion-ui
+        <small>claude • local • main</small>
+      </div>
+      <div class="workspace-item">
+        Apex Ventures / studio-os
+        <small>codex • worktree • feature/kernel</small>
+      </div>
+      <div class="workspace-item">
+        New Company / stealth-health
+        <small>claude • local • discovery</small>
+      </div>
+
+      <div class="nav-title">Navigation</div>
+      <div class="nav-item active">Workspace Home</div>
+      <div class="nav-item">Decision Room</div>
+      <div class="nav-item">Capability Foundry</div>
+      <div class="nav-item">Research Packets</div>
+      <div class="nav-item">Company Builder</div>
+      <div class="nav-item">Project Builder</div>
+      <div class="nav-item">Artifact Explorer</div>
+      <div class="nav-item">Team Console</div>
+      <div class="nav-item">Runs</div>
+
+      <div class="nav-title">Exposed team</div>
+      <div class="nav-item active">Jake</div>
+      <div class="nav-item">Susan</div>
+      <div class="nav-item">Research</div>
+      <div class="nav-item">Build</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="workspace">
+          <span class="badge">workspace: transformfit-core</span>
+          <span class="badge">repo: /companies/transformfit</span>
+          <span class="badge">branch: main</span>
+          <span class="badge">backend: claude</span>
+          <span class="badge">decision: motion-ui-v1</span>
+        </div>
+        <div class="toolbar">
+          <button class="btn">Open Terminal</button>
+          <button class="btn">Run Susan</button>
+          <button class="btn">Send to Build</button>
+          <button class="btn">Create Worktree</button>
+        </div>
+      </div>
+
+      <div class="pane">
+        <div class="metrics">
+          <div class="metric">
+            <div class="muted">Open decisions</div>
+            <div class="value">4</div>
+          </div>
+          <div class="metric">
+            <div class="muted">Capability gaps</div>
+            <div class="value warn">7</div>
+          </div>
+          <div class="metric">
+            <div class="muted">Active runs</div>
+            <div class="value accent">2</div>
+          </div>
+          <div class="metric">
+            <div class="muted">Artifacts</div>
+            <div class="value accent2">38</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="row">
+              <div>
+                <h2>Jake</h2>
+                <p class="muted">Front door • co-founder • architect • strategist</p>
+              </div>
+              <span class="badge">active</span>
+            </div>
+
+            <div class="chat" style="margin-top:16px;">
+              <div class="msg jake">Jake here — we’re in <span class="accent">TransformFit / motion-ui</span>.
+Active decision: <span class="accent">motion-ui-v1</span>.
+
+Best next move:
+1. lock the user journey for set / rest / transition
+2. run Susan on capability gaps for telemetry + experimentation
+3. spin a Codex worktree for the UI shell once the decision record is approved</div>
+
+              <div class="msg user">Build out the aggressive plan. Keep the terminal as my main surface. I want Jake and Susan to help me build companies and projects.</div>
+
+              <div class="msg jake">Got it. I’m treating this as a Decision & Capability OS build.
+I’ll keep the terminal as the cockpit and use this interface as mission control.
+
+I’m routing:
+- Susan → capability design
+- Research → methods / definitions / targets
+- Build → worktree-ready implementation tasks
+
+I’ll write:
+- decision record
+- capability gap map
+- interface spec
+- implementation backlog</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Decision Room</h2>
+            <p class="muted" style="margin-top:4px;">Current decision: motion-ui-v1</p>
+            <div class="list" style="margin-top:14px;">
+              <div class="list-item">
+                <div class="row"><strong>Option A</strong><span class="badge">score 76</span></div>
+                <div class="muted" style="margin-top:4px;">Minimal motion narrative shell; fastest to validate.</div>
+              </div>
+              <div class="list-item">
+                <div class="row"><strong>Option B</strong><span class="badge">score 84</span></div>
+                <div class="muted" style="margin-top:4px;">Motion narrative UI + telemetry spine; best base path.</div>
+              </div>
+              <div class="list-item">
+                <div class="row"><strong>Option C</strong><span class="badge">score 61</span></div>
+                <div class="muted" style="margin-top:4px;">Full adaptive coaching now; too much scope.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h2>Susan — Capability Foundry</h2>
+            <div class="list" style="margin-top:14px;">
+              <div class="list-item">
+                <div class="row"><strong>Telemetry confidence</strong><span class="danger">gap</span></div>
+                <div class="muted">Need event taxonomy, time-to-value tracking, and journey instrumentation.</div>
+              </div>
+              <div class="list-item">
+                <div class="row"><strong>Experiment design</strong><span class="warn">partial</span></div>
+                <div class="muted">Need hypothesis template, kill criteria, and experiment registry.</div>
+              </div>
+              <div class="list-item">
+                <div class="row"><strong>Decision traceability</strong><span class="danger">gap</span></div>
+                <div class="muted">Need first-class decision records, assumptions, and reversal criteria.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Build Queue</h2>
+            <div class="list" style="margin-top:14px;">
+              <div class="list-item">
+                <div class="row"><strong>codex / worktree</strong><span class="badge">running</span></div>
+                <div class="muted">Implement workspace registry + artifact index</div>
+              </div>
+              <div class="list-item">
+                <div class="row"><strong>claude / local</strong><span class="badge">ready</span></div>
+                <div class="muted">Open Jake session in current workspace</div>
+              </div>
+            </div>
+            <div class="code" style="margin-top:14px;">$ ./bin/jake --backend claude --workspace transformfit-core
+Jake here — opening TransformFit / motion-ui
+Decision: motion-ui-v1
+Next move: run Susan on capability gaps or send Option B to build</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Artifact Explorer</h2>
+          <div class="list" style="margin-top:14px;">
+            <div class="list-item">decision-record.motion-ui-v1.md</div>
+            <div class="list-item">capability-map.motion-ui-v1.md</div>
+            <div class="list-item">research-packet.motion-ui-telemetry.md</div>
+            <div class="list-item">prd.motion-ui-v1.md</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="rightbar">
+      <div class="card">
+        <h2>Next actions</h2>
+        <div class="list" style="margin-top:12px;">
+          <div class="list-item">Approve Option B as the current base path</div>
+          <div class="list-item">Run Susan on telemetry + experimentation capability gaps</div>
+          <div class="list-item">Create worktree for UI shell implementation</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Workspace summary</h2>
+        <div class="list" style="margin-top:12px;">
+          <div class="list-item"><strong>Company:</strong> TransformFit</div>
+          <div class="list-item"><strong>Project:</strong> motion-ui</div>
+          <div class="list-item"><strong>Decision:</strong> motion-ui-v1</div>
+          <div class="list-item"><strong>Backend:</strong> Claude for chat, Codex for build</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Terminal truth</h2>
+        <p class="muted" style="margin-top:8px;">The terminal stays primary. This interface only routes, tracks, and surfaces state.</p>
+      </div>
+
+      <div class="footer-note">
+        Design rule: the interface should never leave you wondering which repo, branch, worktree, company, project, or decision is active.
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

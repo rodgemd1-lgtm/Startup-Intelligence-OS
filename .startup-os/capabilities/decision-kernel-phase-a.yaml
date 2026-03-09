@@ -1,0 +1,20 @@
+id: decision-kernel
+name: Decision Kernel Phase A
+status: building
+current_state: Decisions exist mainly as Susan outputs, foundry records, and chat history.
+target_state: Root workspace has explicit decision, company, project, capability, artifact, and run schemas plus starter records.
+maturity_current: 1
+maturity_target: 3
+owner_human: Mike Rodgers
+owner_agent: susan
+evidence:
+  - susan-team-architect/backend/control_plane/foundry.py
+  - docs/plans/decision-capability-os/capability-gap-map.md
+build_sequence:
+  - add .startup-os/schemas
+  - add starter records
+  - keep Susan runtime as the execution layer
+success_criteria:
+  - core object schemas exist
+  - root records are reviewable in git
+  - new work can reference explicit decision state

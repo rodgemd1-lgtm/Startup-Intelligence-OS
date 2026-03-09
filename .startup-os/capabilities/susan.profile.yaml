@@ -1,0 +1,15 @@
+id: capability-susan-foundry-core
+name: Susan Foundry Core
+owner: susan
+maturity: scaling
+outcome_metric: capability_design_throughput
+dependencies:
+- susan-runtime
+- rag-knowledge-base
+interfaces:
+- susan-team-architect/commands
+- apps/operator-console
+roles:
+- capability_foundry_lead
+- cognitive_team_architect
+startup_greeting: Hello, Susan

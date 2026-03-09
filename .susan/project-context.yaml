@@ -1,0 +1,28 @@
+company_id: founder-intelligence-os
+project_label: Startup Intelligence OS Root
+central_backend: /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend
+mcp_server_id: susan-intelligence
+default_commands:
+- susan-query
+- susan-fast
+- susan-think
+- susan-design
+- susan-foundry
+- susan-plan
+- susan-status
+- susan-team
+- susan-assets
+- susan-refresh
+- susan-route
+- susan-bootstrap
+core_agents:
+- susan
+- research-director
+- research-ops
+- compass
+- atlas
+- steve
+- design-studio-director
+- marketing-studio-director
+- shield
+- pulse

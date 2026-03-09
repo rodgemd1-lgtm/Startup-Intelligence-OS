@@ -1,0 +1,10 @@
+runs:
+  - id: phase-a-bootstrap
+    status: planned
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    decision_id: adopt-decision-capability-os-phase-a
+    runtime: hybrid
+    notes:
+      - Preserve existing Susan backend.
+      - Add root Jake front door and workspace contract.

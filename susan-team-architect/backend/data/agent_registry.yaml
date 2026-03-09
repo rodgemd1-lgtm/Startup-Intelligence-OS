@@ -4,8 +4,9 @@ agents:
     name: "Susan"
     role: "Team Architect / Orchestrator"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["business_strategy", "market_research"]
+    rag_data_types: ["business_strategy", "market_research", "behavioral_economics", "emotional_design", "user_research", "operational_protocols", "expert_knowledge"]
     group: "orchestration"
+    expertise_types: ["strategy_expertise", "psychology_expertise", "agent_expertise"]
 
   steve:
     name: "Steve"
@@ -13,13 +14,23 @@ agents:
     model: "claude-opus-4-6"
     rag_data_types: ["business_strategy", "market_research", "finance"]
     group: "strategy"
+    expertise_types: ["strategy_expertise", "agent_expertise"]
 
   marcus:
     name: "Marcus"
     role: "UX/UI Designer"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["ux_research", "user_research"]
+    rag_data_types: ["ux_research", "user_research", "emotional_design", "product_expertise", "studio_open_research"]
     group: "product"
+    expertise_types: ["product_expertise", "agent_expertise"]
+
+  mira:
+    name: "Mira"
+    role: "Emotional Experience & Narrative Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["emotional_design", "ux_research", "behavioral_economics", "product_expertise", "studio_open_research"]
+    group: "product"
+    expertise_types: ["product_expertise", "psychology_expertise", "agent_expertise"]
 
   aria:
     name: "Aria"
@@ -27,6 +38,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["growth_marketing", "content_strategy", "user_research"]
     group: "growth"
+    expertise_types: ["growth_expertise", "agent_expertise"]
 
   atlas:
     name: "Atlas"
@@ -34,6 +46,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["technical_docs", "security"]
     group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_expertise"]
 
   nova:
     name: "Nova"
@@ -41,13 +54,15 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["ai_ml_research", "technical_docs"]
     group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_expertise", "agent_eval_expertise"]
 
   coach:
     name: "Coach"
     role: "Exercise Science & Biomechanics"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["exercise_science", "nutrition", "sleep_recovery"]
+    rag_data_types: ["program_library", "exercise_science", "training_research", "guru_research", "frontier_academic_research", "exercise_catalog", "nutrition", "sleep_recovery", "user_research", "predictive_coaching", "consumer_failure_patterns"]
     group: "science"
+    expertise_types: ["science_expertise", "agent_expertise"]
 
   sage:
     name: "Sage"
@@ -55,6 +70,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["nutrition", "exercise_science"]
     group: "science"
+    expertise_types: ["science_expertise", "agent_expertise"]
 
   drift:
     name: "Drift"
@@ -62,20 +78,23 @@ agents:
     model: "claude-haiku-4-5-20251001"
     rag_data_types: ["sleep_recovery", "exercise_science"]
     group: "science"
+    expertise_types: ["science_expertise", "agent_expertise"]
 
   freya:
     name: "Freya"
     role: "Behavioral Economics & Retention"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["behavioral_economics", "sports_psychology", "user_research"]
+    rag_data_types: ["behavioral_economics", "sports_psychology", "user_research", "consumer_failure_patterns", "predictive_coaching"]
     group: "psychology"
+    expertise_types: ["psychology_expertise", "agent_expertise"]
 
   flow:
     name: "Flow"
     role: "Sports Psychology & Motivation"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["sports_psychology", "behavioral_economics"]
+    rag_data_types: ["sports_psychology", "behavioral_economics", "user_research", "consumer_failure_patterns", "predictive_coaching"]
     group: "psychology"
+    expertise_types: ["psychology_expertise", "agent_expertise"]
 
   quest:
     name: "Quest"
@@ -83,6 +102,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["gamification", "behavioral_economics", "ux_research"]
     group: "psychology"
+    expertise_types: ["psychology_expertise", "agent_expertise"]
 
   haven:
     name: "Haven"
@@ -90,6 +110,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["community", "user_research"]
     group: "growth"
+    expertise_types: ["growth_expertise", "agent_expertise"]
 
   guide:
     name: "Guide"
@@ -97,6 +118,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["behavioral_economics", "user_research", "community"]
     group: "growth"
+    expertise_types: ["growth_expertise", "psychology_expertise", "agent_expertise"]
 
   shield:
     name: "Shield"
@@ -104,6 +126,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["legal_compliance", "security"]
     group: "strategy"
+    expertise_types: ["strategy_expertise", "agent_expertise"]
 
   bridge:
     name: "Bridge"
@@ -111,6 +134,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["partnerships", "technical_docs"]
     group: "strategy"
+    expertise_types: ["strategy_expertise", "agent_expertise"]
 
   ledger:
     name: "Ledger"
@@ -118,13 +142,15 @@ agents:
     model: "claude-haiku-4-5-20251001"
     rag_data_types: ["finance", "business_strategy"]
     group: "strategy"
+    expertise_types: ["strategy_expertise", "agent_expertise"]
 
   pulse:
     name: "Pulse"
     role: "Data Science & Churn Prediction"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["user_research", "market_research", "behavioral_economics"]
+    rag_data_types: ["user_research", "market_research", "behavioral_economics", "consumer_failure_patterns", "simulation_models"]
     group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_expertise"]
 
   sentinel:
     name: "Sentinel"
@@ -132,6 +158,7 @@ agents:
     model: "claude-haiku-4-5-20251001"
     rag_data_types: ["security", "technical_docs", "legal_compliance"]
     group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_expertise"]
 
   herald:
     name: "Herald"
@@ -139,6 +166,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["pr_communications", "content_strategy"]
     group: "growth"
+    expertise_types: ["growth_expertise", "agent_expertise"]
 
   lens:
     name: "Lens"
@@ -146,20 +174,55 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["ux_research", "exercise_science"]
     group: "product"
+    expertise_types: ["product_expertise", "agent_expertise"]
 
   echo:
     name: "Echo"
     role: "Neuroscience-Informed Product Design"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["behavioral_economics", "ux_research", "gamification"]
+    rag_data_types: ["behavioral_economics", "ux_research", "gamification", "emotional_design"]
     group: "product"
+    expertise_types: ["product_expertise", "psychology_expertise", "agent_expertise"]
 
   compass:
     name: "Compass"
     role: "Product Management & Roadmap"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["user_research", "market_research", "business_strategy"]
+    rag_data_types: ["user_research", "market_research", "business_strategy", "operational_protocols"]
     group: "product"
+    expertise_types: ["strategy_expertise", "growth_expertise", "agent_expertise"]
+
+  ai-product-manager:
+    name: "AI Product Manager"
+    role: "AI Product Management, Rollout Strategy & Evaluation-Gated Sequencing"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["business_strategy", "operational_protocols", "technical_docs", "user_research", "market_research", "consumer_failure_patterns", "predictive_coaching", "simulation_models", "agent_eval_expertise"]
+    group: "product"
+    expertise_types: ["product_expertise", "strategy_expertise", "agent_expertise", "agent_eval_expertise"]
+
+  conversation-designer:
+    name: "Conversation Designer"
+    role: "Coach Persona Design, Motivational Interviewing & Dialogue Systems"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["coaching_architecture", "sports_psychology", "behavioral_economics", "user_research", "emotional_design", "predictive_coaching", "consumer_failure_patterns", "studio_case_library"]
+    group: "product"
+    expertise_types: ["product_expertise", "psychology_expertise", "agent_expertise"]
+
+  knowledge-engineer:
+    name: "Knowledge Engineer"
+    role: "Ontology, Retrieval Structure, Memory Schemas & Provenance Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["technical_docs", "expert_knowledge", "operational_protocols", "training_research", "exercise_catalog", "simulation_models", "predictive_coaching", "agent_eval_expertise"]
+    group: "engineering"
+    expertise_types: ["engineering_expertise", "research_expertise", "agent_expertise"]
+
+  ai-evaluation-specialist:
+    name: "AI Evaluation Specialist"
+    role: "Regression Sets, Trace Review & Conversational Quality Gates"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["agent_eval_expertise", "technical_docs", "user_research", "operational_protocols", "coaching_architecture", "predictive_coaching", "simulation_models"]
+    group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_eval_expertise", "agent_expertise"]
 
   vault:
     name: "Vault"
@@ -167,6 +230,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["finance", "business_strategy", "market_research"]
     group: "strategy"
+    expertise_types: ["strategy_expertise", "agent_expertise"]
 
   beacon:
     name: "Beacon"
@@ -174,6 +238,7 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["growth_marketing", "market_research", "content_strategy"]
     group: "growth"
+    expertise_types: ["growth_expertise", "agent_expertise"]
 
   forge:
     name: "Forge"
@@ -181,13 +246,199 @@ agents:
     model: "claude-sonnet-4-6"
     rag_data_types: ["technical_docs", "security"]
     group: "engineering"
+    expertise_types: ["engineering_expertise", "agent_expertise", "agent_eval_expertise"]
 
   prism:
     name: "Prism"
     role: "Brand Strategy & Creative Direction"
     model: "claude-sonnet-4-6"
-    rag_data_types: ["content_strategy", "ux_research", "growth_marketing"]
+    rag_data_types: ["content_strategy", "ux_research", "growth_marketing", "emotional_design", "product_expertise", "studio_open_research"]
     group: "product"
+    expertise_types: ["product_expertise", "growth_expertise", "agent_expertise"]
+
+  research-director:
+    name: "Research Director"
+    role: "Research Scoping, Evidence Strategy & Synthesis"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["market_research", "business_strategy", "technical_docs", "training_research", "operational_protocols", "expert_knowledge"]
+    group: "research"
+    expertise_types: ["research_expertise", "strategy_expertise", "agent_expertise"]
+
+  research-ops:
+    name: "Research Ops"
+    role: "Research Operations, Provenance & Refresh Management"
+    model: "claude-haiku-4-5-20251001"
+    rag_data_types: ["technical_docs", "market_research"]
+    group: "research"
+    expertise_types: ["research_expertise", "agent_expertise"]
+
+  deck-studio:
+    name: "Deck Studio"
+    role: "Presentation Strategy & Slide Narrative Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["content_strategy", "market_research", "ux_research", "studio_expertise", "studio_open_research"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "agent_expertise"]
+
+  design-studio-director:
+    name: "Design Studio Director"
+    role: "Design Principles, Critique & Experience Systems"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals", "product_expertise", "ux_research", "emotional_design"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "agent_expertise"]
+
+  landing-page-studio:
+    name: "Landing Page Studio"
+    role: "Landing Page Strategy, Motion Narrative & Conversion Trust"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals", "product_expertise", "ux_research", "content_strategy", "emotional_design"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "growth_expertise", "agent_expertise"]
+
+  app-experience-studio:
+    name: "App Experience Studio"
+    role: "Onboarding, Core Loops & Repeat-Use Product Experience"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals", "product_expertise", "ux_research", "user_research", "behavioral_economics"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "psychology_expertise", "agent_expertise"]
+
+  marketing-studio-director:
+    name: "Marketing Studio Director"
+    role: "Message Architecture, Asset Systems & Research-to-Content Operations"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals", "content_strategy", "market_research", "business_strategy", "growth_marketing"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "strategy_expertise", "agent_expertise"]
+
+  workout-program-studio:
+    name: "Workout Program Studio"
+    role: "Workout Programming, Progression Systems & Exercise Selection"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["program_library", "training_research", "guru_research", "frontier_academic_research", "exercise_catalog", "exercise_science", "user_research", "sleep_recovery", "nutrition", "predictive_coaching"]
+    group: "science"
+    expertise_types: ["science_expertise", "research_expertise", "agent_expertise"]
+
+  training-research-studio:
+    name: "Training Research Studio"
+    role: "Exercise Science Research, Structured Catalogs & User-Language Synthesis"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["program_library", "training_research", "guru_research", "frontier_academic_research", "exercise_catalog", "user_research", "market_research", "sleep_recovery", "nutrition", "consumer_failure_patterns"]
+    group: "research"
+    expertise_types: ["research_expertise", "science_expertise", "agent_expertise"]
+
+  coaching-architecture-studio:
+    name: "Coaching Architecture Studio"
+    role: "Coach Voice, Session Guidance & Cognitive Coaching Systems"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["coaching_architecture", "training_research", "sports_psychology", "behavioral_economics", "user_research", "predictive_coaching", "consumer_failure_patterns", "simulation_models"]
+    group: "science"
+    expertise_types: ["science_expertise", "psychology_expertise", "agent_expertise"]
+
+  workout-session-studio:
+    name: "Workout Session Studio"
+    role: "Workout Logging, Active Session UX & Gym-State Product Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["session_ux", "ux_research", "emotional_design", "user_research", "training_research", "studio_open_research", "coaching_architecture", "behavioral_economics", "sports_psychology", "predictive_coaching", "consumer_failure_patterns"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "psychology_expertise", "agent_expertise"]
+
+  social-media-studio:
+    name: "Social Media Studio"
+    role: "Social Narrative Systems, Short-Form Distribution & Creator-Ready Asset Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["social_growth", "content_strategy", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "growth_marketing", "visual_asset"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  algorithm-lab:
+    name: "Algorithm Lab"
+    role: "Adaptation Logic, Scoring Models & Decision-System Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["algorithm_design", "training_research", "technical_docs", "user_research", "consumer_failure_patterns", "predictive_coaching", "simulation_models", "agent_eval_expertise"]
+    group: "engineering"
+    expertise_types: ["engineering_expertise", "science_expertise", "agent_expertise", "agent_eval_expertise"]
+
+  whitepaper-studio:
+    name: "White Paper Studio"
+    role: "White Paper Strategy & Long-Form Authority Assets"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["content_strategy", "market_research", "business_strategy", "studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_templates", "studio_evals"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "strategy_expertise", "agent_expertise"]
+
+  memo-studio:
+    name: "Memo Studio"
+    role: "Executive Memo Architecture & Strategic Writing"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["business_strategy", "market_research", "content_strategy", "studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_templates", "studio_evals"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "strategy_expertise", "agent_expertise"]
+
+  article-studio:
+    name: "Article Studio"
+    role: "Article, Blog & Thought Leadership Production"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["content_strategy", "market_research", "pr_communications", "studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_templates", "studio_evals"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  oracle-health-marketing-lead:
+    name: "Oracle Health Marketing Lead"
+    role: "Enterprise Healthcare Marketing Strategy & Editorial Direction"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["market_research", "content_strategy", "business_strategy", "legal_compliance", "studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "strategy_expertise", "agent_expertise"]
+
+  oracle-health-product-marketing:
+    name: "Oracle Health Product Marketing"
+    role: "Persona Messaging, Buyer Narratives & Enablement"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["market_research", "content_strategy", "user_research", "legal_compliance", "studio_expertise", "studio_open_research", "studio_case_library", "studio_antipatterns", "studio_memory", "studio_templates", "studio_evals"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  recruiting-strategy-studio:
+    name: "Recruiting Strategy Studio"
+    role: "School Fit, Recruiting Positioning & Offer-Sequencing Strategy"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["recruiting_intelligence", "coach_outreach", "market_research", "content_strategy"]
+    group: "strategy"
+    expertise_types: ["strategy_expertise", "research_expertise", "agent_expertise"]
+
+  highlight-reel-studio:
+    name: "Highlight Reel Studio"
+    role: "Film Strategy, Clip Taxonomy & Coach-Attention Storytelling"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["recruiting_film", "visual_asset", "content_strategy", "studio_case_library", "studio_antipatterns"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  coach-outreach-studio:
+    name: "Coach Outreach Studio"
+    role: "Coach Contact Strategy, Message Sequencing & Pipeline Discipline"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["coach_outreach", "recruiting_intelligence", "user_research", "content_strategy"]
+    group: "growth"
+    expertise_types: ["growth_expertise", "research_expertise", "agent_expertise"]
+
+  x-growth-studio:
+    name: "X Growth Studio"
+    role: "X/Twitter Presence, Recruiting Proof Posts & Social Distribution"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["social_growth", "content_strategy", "studio_case_library", "studio_memory", "visual_asset"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  recruiting-dashboard-studio:
+    name: "Recruiting Dashboard Studio"
+    role: "Recruiting Board, Coach CRM & Pipeline Intelligence Console Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["dashboard_design", "technical_docs", "recruiting_intelligence", "user_research", "studio_templates"]
+    group: "studio"
+    expertise_types: ["studio_expertise", "product_expertise", "engineering_expertise", "agent_expertise"]
 
 # Group definitions
 groups:
@@ -196,19 +447,25 @@ groups:
     agents: ["susan"]
   strategy:
     description: "Business strategy, legal, finance, partnerships"
-    agents: ["steve", "shield", "bridge", "ledger", "vault"]
+    agents: ["steve", "shield", "bridge", "ledger", "vault", "recruiting-strategy-studio"]
   product:
-    description: "Product design, accessibility, neuroscience"
-    agents: ["marcus", "lens", "echo", "compass", "prism"]
+    description: "Product design, emotional experience, accessibility, neuroscience"
+    agents: ["marcus", "mira", "lens", "echo", "compass", "prism", "ai-product-manager", "conversation-designer"]
   engineering:
     description: "Engineering, AI/ML, data science, security"
-    agents: ["atlas", "nova", "pulse", "sentinel", "forge"]
+    agents: ["atlas", "nova", "pulse", "sentinel", "forge", "algorithm-lab", "knowledge-engineer", "ai-evaluation-specialist"]
   science:
     description: "Exercise science, nutrition, sleep/recovery"
-    agents: ["coach", "sage", "drift"]
+    agents: ["coach", "sage", "drift", "workout-program-studio", "coaching-architecture-studio"]
   psychology:
     description: "Behavioral economics, sports psychology, gamification"
     agents: ["freya", "flow", "quest"]
   growth:
     description: "Growth marketing, community, customer success, PR"
-    agents: ["aria", "haven", "guide", "herald", "beacon"]
+    agents: ["aria", "haven", "guide", "herald", "beacon", "coach-outreach-studio"]
+  research:
+    description: "Research direction, operations, and evidence acquisition"
+    agents: ["research-director", "research-ops", "training-research-studio", "researcher-web", "researcher-appstore", "researcher-reddit", "researcher-arxiv"]
+  studio:
+    description: "Slides, white papers, memos, articles, and Oracle Health marketing systems"
+    agents: ["design-studio-director", "landing-page-studio", "app-experience-studio", "marketing-studio-director", "deck-studio", "whitepaper-studio", "memo-studio", "article-studio", "oracle-health-marketing-lead", "oracle-health-product-marketing", "social-media-studio", "workout-session-studio", "highlight-reel-studio", "x-growth-studio", "recruiting-dashboard-studio"]

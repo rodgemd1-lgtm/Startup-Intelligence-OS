@@ -1,0 +1,8 @@
+id: capability-{{slug}}
+name: {{name}}
+owner: {{owner}}
+maturity: seed
+outcome_metric: {{metric}}
+dependencies: []
+interfaces: []
+

@@ -1,0 +1,9 @@
+id: project-{{slug}}
+name: {{name}}
+company: {{company_id}}
+objective: {{objective}}
+status: planned
+owner: {{owner}}
+decision_links: []
+capability_links: []
+

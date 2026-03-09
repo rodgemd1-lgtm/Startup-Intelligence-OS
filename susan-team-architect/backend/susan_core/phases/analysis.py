@@ -1,58 +1,26 @@
-"""Phase 2: Gap Analysis — map capabilities to agent specialties."""
+"""Composite analysis wrapper for backward compatibility."""
 from __future__ import annotations
-import json
-import yaml
-from pathlib import Path
-from anthropic import Anthropic
-from susan_core.config import config
+
+from susan_core.phases import capability_diagnosis, decision_brief, evidence_gap_map, problem_framing
 
 
 async def run(company: str, context: dict) -> dict:
-    """Analyze capability gaps and map to agents."""
-    client = Anthropic(api_key=config.anthropic_api_key)
-
-    # Load agent registry for available agents
-    registry_path = config.data_dir / "agent_registry.yaml"
-    with open(registry_path) as f:
-        agents = yaml.safe_load(f)
-
-    agent_list = []
-    for agent_id, agent_info in agents.get("agents", {}).items():
-        agent_list.append(f"- {agent_id}: {agent_info['name']} — {agent_info['role']}")
-
-    prompt = f"""You are Susan, the Team Architect. Analyze this company and identify capability gaps.
-
-Company Profile:
-{json.dumps(context.get('profile', {}), indent=2)}
-
-Available agents:
-{chr(10).join(agent_list)}
-
-Return a JSON object with:
-- company (string): Company name
-- capability_gaps (array): Each gap has:
-  - area (string): Capability area
-  - current_state (string): What exists now
-  - ideal_state (string): What should exist
-  - complexity (int 1-10): How hard to address
-  - agent_needed (string): Agent ID from the list above
-  - risks (array of strings): Key risks
-  - cross_portfolio_synergy (string or null): Reusable across portfolio
-- recommended_team_size (int): How many agents needed
-- complexity_score (float): Overall complexity 1-10
-
-Be thorough. Consider all dimensions: product, engineering, science, psychology, growth, legal, finance, security.
-Return ONLY the JSON object."""
-
-    response = client.messages.create(
-        model=config.model_sonnet,
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    text = response.content[0].text
-    start = text.find('{')
-    end = text.rfind('}') + 1
-    if start >= 0 and end > start:
-        return json.loads(text[start:end])
-    return {"error": "Failed to parse", "raw": text}
+    """Return a stable merged analysis payload for older consumers."""
+    framing = context.get("problem_framing") or await problem_framing.run(company, context)
+    context["problem_framing"] = framing
+    diagnosis = context.get("capability_diagnosis") or await capability_diagnosis.run(company, context)
+    context["capability_diagnosis"] = diagnosis
+    evidence = context.get("evidence_gap_map") or await evidence_gap_map.run(company, context)
+    context["evidence_gap_map"] = evidence
+    brief = context.get("decision_brief") or await decision_brief.run(company, context)
+    context["decision_brief"] = brief
+    return {
+        "company": company,
+        "problem_framing": framing,
+        "capability_gaps": diagnosis.get("capability_gaps", []),
+        "domain_teams_needed": diagnosis.get("domain_teams_needed", []),
+        "recommended_team_size": diagnosis.get("recommended_team_size"),
+        "complexity_score": diagnosis.get("complexity_score"),
+        "evidence_gap_map": evidence,
+        "decision_brief": brief,
+    }

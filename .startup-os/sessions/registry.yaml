@@ -1,0 +1,10 @@
+sessions:
+  - id: root-phase-a
+    status: active
+    workspace_id: startup-intelligence-os-root
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    decision_id: phase-a-runtime-foundation
+    notes:
+      - Root session should greet as Jake.
+      - Susan remains available as the capability foundry.

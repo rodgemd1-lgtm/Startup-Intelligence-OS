@@ -1,0 +1,19 @@
+id: example-decision
+title: Example decision
+status: draft
+decision_statement: Choose the safest Phase A path.
+why_now: Example record for new workspaces.
+constraints:
+  - Keep runtime stable
+options:
+  - id: option-a
+    name: additive overlay
+  - id: option-b
+    name: rewrite
+recommendation: option-a
+assumptions:
+  - runtime remains stable
+reversal_criteria:
+  - integration causes drift
+next_actions:
+  - update the record after review

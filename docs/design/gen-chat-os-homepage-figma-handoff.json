@@ -1,0 +1,45 @@
+{
+  "project": "Gen Chat OS Homepage",
+  "version": "1.0",
+  "handoff_date": "2026-03-09",
+  "layout": {
+    "type": "three-zone-command-center",
+    "zones": {
+      "left_rail": {
+        "width": "240px",
+        "sections": ["workspaces", "team_console", "navigation"]
+      },
+      "center": {
+        "sections": ["greeting_header", "jake_brief", "decision_room", "primary_terminal"]
+      },
+      "right_rail": {
+        "width": "280px",
+        "sections": ["next_actions", "workspace_summary", "system_status", "design_rule"]
+      }
+    }
+  },
+  "color_tokens": {
+    "bg_primary": "#0a0e1a",
+    "bg_card": "#111828",
+    "bg_rail": "#0d1224",
+    "border": "#1e2a4a",
+    "text_primary": "#c8d0e8",
+    "text_secondary": "#7888b0",
+    "text_accent": "#7b9eff",
+    "text_label": "#5a6a9a",
+    "terminal_bg": "#070b14",
+    "terminal_cursor": "#4a6aff"
+  },
+  "typography": {
+    "font_family": "SF Mono, Fira Code, Cascadia Code, JetBrains Mono, monospace",
+    "heading_size": "1.2rem",
+    "body_size": "0.82rem",
+    "label_size": "0.7rem"
+  },
+  "operator_modes": {
+    "default": { "greeting": "Hello, Mike", "action_set": "mike" },
+    "susan": { "greeting": "Hello, Susan", "action_set": "susan", "url_param": "?operator=susan" }
+  },
+  "terminal_commands": ["help", "bin/jake", "bin/jake status", "bin/jake sync-intel", "bin/os-context", "clear"],
+  "design_rule": "The operator should never wonder what workspace, repo, branch, or decision is active."
+}

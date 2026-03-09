@@ -1,0 +1,27 @@
+type: company
+required_fields:
+  - id
+  - name
+  - domain
+  - stage
+  - owner
+optional_fields:
+  - website
+  - founding_date
+  - founders
+  - product_description
+  - tech_stack
+  - target_market
+  - funding_status
+  - key_competitors
+  - current_challenges
+  - constraints
+  - budget_per_month_usd
+  - linked_projects
+  - linked_capabilities
+stages:
+  - concept
+  - validation
+  - mvp
+  - growth
+  - scale

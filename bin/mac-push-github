@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+REMOTE="$(git remote 2>/dev/null | head -1 || echo '')"
+
+if [[ -z "$REMOTE" ]]; then
+    echo "No git remote configured. Add one with: git remote add origin <url>" >&2
+    exit 1
+fi
+
+echo "Safe push helper"
+echo "  branch: $BRANCH"
+echo "  remote: $REMOTE"
+echo ""
+
+# Check for uncommitted changes
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "WARNING: You have uncommitted changes."
+    echo ""
+    git status --short
+    echo ""
+    read -rp "Continue anyway? (y/N) " confirm
+    if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+        echo "Aborted."
+        exit 0
+    fi
+fi
+
+# Check if remote branch exists
+if git ls-remote --exit-code "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
+    echo "Remote branch exists. Pulling latest..."
+    git pull --rebase "$REMOTE" "$BRANCH" || {
+        echo "Rebase failed. Resolve conflicts and try again." >&2
+        exit 1
+    }
+else
+    echo "Remote branch '$BRANCH' does not exist. Will create on push."
+fi
+
+# Optional merge from main
+if [[ "$BRANCH" != "main" ]]; then
+    read -rp "Merge latest main before pushing? (y/N) " merge_main
+    if [[ "$merge_main" == "y" || "$merge_main" == "Y" ]]; then
+        git fetch "$REMOTE" main
+        git merge "$REMOTE/main" --no-edit || {
+            echo "Merge conflict. Resolve and try again." >&2
+            exit 1
+        }
+    fi
+fi
+
+# Push
+echo ""
+echo "Pushing $BRANCH to $REMOTE..."
+git push -u "$REMOTE" "$BRANCH"
+echo ""
+echo "Done. Branch '$BRANCH' pushed to '$REMOTE'."

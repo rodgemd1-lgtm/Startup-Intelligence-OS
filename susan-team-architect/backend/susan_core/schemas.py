@@ -122,10 +122,20 @@ class LAALDesign(BaseModel):
     return_reward: str
     investment_flywheel: str
 
+class RelationalArchitecture(BaseModel):
+    love_map_strategy: str
+    perceived_responsiveness_protocol: str
+    therapeutic_alliance_design: dict = Field(default_factory=dict)
+    personal_knowledge_map_policy: str
+    uncanny_valley_risks: list[str] = Field(default_factory=list)
+    staleness_decay_policy: str
+    warm_handoff_protocol: str
+
 class BEAudit(BaseModel):
     company: str
     retention_targets: RetentionTarget
     laal_design: LAALDesign
+    relational_architecture: RelationalArchitecture | None = None
     copy_protocols: dict = Field(default_factory=dict)
     agent_be_map: dict = Field(default_factory=dict)
     measurement_plan: dict = Field(default_factory=dict)

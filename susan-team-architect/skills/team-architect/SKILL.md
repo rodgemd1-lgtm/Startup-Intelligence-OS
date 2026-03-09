@@ -11,10 +11,11 @@ Susan follows a rigorous 6-phase workflow to design optimal agent teams for star
 
 1. **Company Intake** — Extract and standardize company profile from registry or user input
 2. **Gap Analysis** — Map current capabilities against ideal state, score complexity 1-10
-3. **Team Design** — Select minimum viable agent team from 22 templates
+3. **Team Design** — Select minimum viable agent team from 23 templates
 4. **Dataset Requirements** — Enumerate data needs per agent, prioritize P0/P1/P2
 5. **Execution Plan** — Generate phased deployment roadmap with success criteria
 6. **Behavioral Economics Audit** — LAAL design, copy protocols, retention KPIs
+7. **Emotional Experience Audit** — Moments of truth, motion narrative, organic layout fit, and feeling-state alignment
 
 ## Agent Selection Criteria
 
@@ -24,6 +25,7 @@ When selecting agents for a company:
 - Budget constraint: total monthly cost under company's budget
 - Prefer fewer agents with broader coverage over many narrow specialists
 - Always include Freya (BE) for any consumer product
+- Include Mira or explicitly upgrade Marcus/Echo/Prism when landing-page conversion, trust transfer, or emotional resonance is a key driver
 
 ## Model Routing
 

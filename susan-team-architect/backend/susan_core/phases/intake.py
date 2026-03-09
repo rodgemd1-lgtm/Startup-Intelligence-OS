@@ -2,9 +2,8 @@
 from __future__ import annotations
 import json
 import yaml
-from pathlib import Path
-from anthropic import Anthropic
 from susan_core.config import config
+from susan_core.phase_runtime import run_cached_json_phase
 
 
 async def run(company: str, context: dict) -> dict:
@@ -18,8 +17,6 @@ async def run(company: str, context: dict) -> dict:
     if not company_data:
         raise ValueError(f"Company '{company}' not found in registry")
 
-    # Enrich with Claude
-    client = Anthropic(api_key=config.anthropic_api_key)
     prompt = f"""Analyze this company profile and return an enriched, standardized version as JSON.
 
 Company data:
@@ -42,16 +39,12 @@ Return a JSON object with these exact fields:
 
 Preserve all existing data. Add detail where possible based on the domain.
 Return ONLY the JSON object, no other text."""
-
-    response = client.messages.create(
+    return run_cached_json_phase(
+        company=company,
+        phase="intake",
+        cache_payload={"company": company, "company_data": company_data},
+        prompt=prompt,
         model=config.model_sonnet,
         max_tokens=2048,
-        messages=[{"role": "user", "content": prompt}],
+        refresh=context.get("refresh", False),
     )
-
-    text = response.content[0].text
-    start = text.find('{')
-    end = text.rfind('}') + 1
-    if start >= 0 and end > start:
-        return json.loads(text[start:end])
-    return company_data

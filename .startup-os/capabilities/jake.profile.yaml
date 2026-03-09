@@ -1,0 +1,19 @@
+id: capability-jake-operator-core
+name: Jake Operator Core
+owner: mike
+maturity: scaling
+outcome_metric: operator_decision_cycle_time_days
+dependencies:
+- susan-runtime
+- decision-os-workspace
+interfaces:
+- bin/jake
+- apps/operator-console
+roles:
+- expert_system_architect
+- cognitive_orchestrator
+briefing_sources:
+- .startup-os
+- docs/plans/decision-capability-os
+- susan-team-architect/backend/data/company_registry.yaml
+startup_greeting: Hello, Mike

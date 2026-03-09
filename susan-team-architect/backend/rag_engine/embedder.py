@@ -1,14 +1,14 @@
 """Voyage AI embedding client."""
 from __future__ import annotations
-import voyageai
 from susan_core.config import config
+from susan_core.clients import get_voyage_client
 
 
 class Embedder:
     """Wraps Voyage AI for text → vector conversion."""
 
     def __init__(self, api_key: str | None = None):
-        self.client = voyageai.Client(api_key=api_key or config.voyage_api_key)
+        self.client = get_voyage_client()
         self.model = config.embedding_model
         self.dim = config.embedding_dim
 

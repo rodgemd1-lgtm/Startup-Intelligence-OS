@@ -1,0 +1,11 @@
+workspace_id: example-workspace
+repo_root: /path/to/repo
+default_backend: claude
+active_company: ExampleCo
+active_project: example-project
+active_decision: example-decision
+active_branch: main
+artifacts_root: .startup-os/artifacts
+notes:
+  - Jake is the front door
+  - Susan is the capability foundry

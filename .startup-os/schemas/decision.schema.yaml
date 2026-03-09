@@ -1,0 +1,25 @@
+type: decision
+required_fields:
+  - id
+  - title
+  - status
+  - created_date
+  - owner
+  - context
+  - options
+  - recommendation
+  - assumptions
+  - risks
+optional_fields:
+  - outcome
+  - artifacts
+  - next_actions
+  - linked_capabilities
+  - linked_projects
+  - review_date
+statuses:
+  - draft
+  - proposed
+  - approved
+  - rejected
+  - superseded

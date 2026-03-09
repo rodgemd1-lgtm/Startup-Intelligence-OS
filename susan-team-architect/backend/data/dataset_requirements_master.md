@@ -1,6 +1,8 @@
 # Susan Intelligence OS — Master Dataset Requirements
 
-> **Purpose:** Comprehensive inventory of all datasets needed to power Susan's 22 AI agents.
+> Warning: this file is a legacy planning snapshot and not the live source of truth for current foundry coverage. Use the generated blueprint and assessment outputs from `control_plane.foundry` and `scripts/run_foundry_assessment.py` for current status.
+
+> **Purpose:** Comprehensive inventory of all datasets needed to power Susan's 23 registered AI agents.
 > Each dataset maps to specific agents, data_types, and ingestion pipelines.
 > Status: ✅ = ingested, 🔄 = partially done, ❌ = not started
 
@@ -19,6 +21,7 @@
 | market_research | 12 | ✅ web scraping |
 | sleep_recovery | 9 | ✅ books synthesis |
 | business_strategy | 8 | ✅ books synthesis |
+| emotional_design | 0 | ❌ experience-intelligence seed docs exist locally but are not ingested |
 
 ### Pending Ingestion (in progress)
 - agent_prompts (TransformFit Elite Skillset) → company: transformfit
@@ -201,6 +204,22 @@
 | Fitness app design case studies | UX case study sites | Web | ❌ MEDIUM |
 | Double Black Box framework (expanded) | Internal playbook | ✅ Ingesting |
 
+### 10A. Emotional Design, Motion Narrative & Feeling Data
+**Agents:** Marcus, Mira, Echo, Prism
+**data_type:** `emotional_design`
+**Status:** ❌ 0 chunks (NEW CRITICAL GAP)
+
+| Dataset | Source | Pipeline | Priority |
+|---------|--------|----------|----------|
+| Motion narrative patterns for landing pages and onboarding | Editorial design analysis, motion case studies | Manual + web | ❌ CRITICAL |
+| Moments-of-truth library (first fold, pricing reveal, CTA, reassurance) | High-performing health, wellness, and premium SaaS pages | Manual + web | ❌ CRITICAL |
+| Feeling-state maps by funnel stage | Consumer interviews, UX research, behavior science synthesis | Manual + AI synthesis | ❌ HIGH |
+| Organic layout references and composition studies | Editorial/web design archives, design books | Web + manual | ❌ HIGH |
+| Emotional copy and tonal shift examples | D2C wellness brands, calm/fitness brands, premium apps | Web + manual | ❌ HIGH |
+| Trust-transfer patterns for skeptical consumers | Conversion research, health-tech landing page teardowns | Web + books | ❌ HIGH |
+| Felt-safety and body-image-sensitive design principles | Health psychology, inclusive design, mental health UX | Books + web | ❌ HIGH |
+| Motion restraint and pacing guidelines | Motion system case studies, accessibility references | Web | ❌ MEDIUM |
+
 ### 11. Technical Documentation
 **Agents:** Atlas, Nova, Sentinel
 **data_type:** `technical_docs`
@@ -331,7 +350,7 @@
 ## TIER 6: TRANSFORMFIT-SPECIFIC DATA
 
 ### 19. TransformFit Agent Prompts & Skillsets
-**Agents:** All 22
+**Agents:** All 23
 **data_type:** `agent_prompts`
 **Status:** 🔄 Ingesting now
 
@@ -368,22 +387,23 @@
 5. **sports_psychology** — Flow has zero data
 6. **gamification** — Quest has zero data
 7. **community** — Haven has zero data
+8. **emotional_design** — Marcus, Mira, Echo, and Prism do not yet have ingested feeling-state data
 
 ### HIGH PRIORITY GAPS (some data, need 5-10x more)
-8. **sleep_recovery** — Only 9 chunks (Drift needs 100+)
-9. **market_research** — Only 12 chunks (Steve needs 100+)
-10. **ux_research** — Only 25 chunks (Marcus needs 200+)
-11. **growth_marketing** — Only 23 chunks (Aria needs 100+)
-12. **exercise_science** — Only 118 chunks (Coach needs 500+)
+9. **sleep_recovery** — Only 9 chunks (Drift needs 100+)
+10. **market_research** — Only 12 chunks (Steve needs 100+)
+11. **ux_research** — Only 25 chunks (Marcus needs 200+)
+12. **growth_marketing** — Only 23 chunks (Aria needs 100+)
+13. **exercise_science** — Only 118 chunks (Coach needs 500+)
 
 ### ADEQUATE (good base, continue expanding)
-13. **behavioral_economics** — 186 chunks ✅
-14. **user_research** — 282 chunks ✅
-15. **ai_ml_research** — 35 chunks (Nova, adequate for now)
+14. **behavioral_economics** — 186 chunks ✅
+15. **user_research** — 282 chunks ✅
+16. **ai_ml_research** — 35 chunks (Nova, adequate for now)
 
 ---
 
-## TOTAL DATASETS IDENTIFIED: 150+ individual datasets across 20 categories
+## TOTAL DATASETS IDENTIFIED: 150+ individual datasets across 21 categories
 
 ## INGESTION PIPELINE MAPPING
 

@@ -1,0 +1,46 @@
+id: adopt-decision-capability-os-phase-a
+title: Adopt a Phase A Decision & Capability OS overlay at repo root
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Add a root-level Jake front door and workspace contract while preserving the current Susan runtime untouched.
+why_now: The repo has diverged between a founder resource hub identity and a Susan-centered runtime, creating context drift at root.
+constraints:
+  - Do not break susan-team-architect runtime behavior.
+  - Do not rename or remove current Susan commands or MCP server.
+  - Keep the terminal as the primary execution surface.
+options:
+  - id: option-a
+    name: Additive root overlay
+    summary: Introduce Jake, .startup-os, and launch helpers at repo root while leaving Susan backend intact.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: fast
+  - id: option-b
+    name: Full Susan-to-Jake rewrite
+    summary: Replace root and backend identity in one pass.
+    impact: high
+    effort: very_high
+    risk: very_high
+    confidence: low
+    time_to_signal: slow
+  - id: option-c
+    name: Plan-only import
+    summary: Import the packet but avoid active runtime changes.
+    impact: medium
+    effort: low
+    risk: low
+    confidence: high
+    time_to_signal: fast
+recommendation: option-a
+assumptions:
+  - Existing Susan runtime remains the operational source of truth.
+  - Root instructions are the correct place to switch the conversational front door to Jake.
+reversal_criteria:
+  - If root Jake instructions create conflicts with existing Susan sessions or MCP behavior, reduce Jake to launcher-only and keep Susan as default.
+next_actions:
+  - Import the plan docs.
+  - Add root workspace files and launchers.
+  - Reconcile root CLAUDE instructions.

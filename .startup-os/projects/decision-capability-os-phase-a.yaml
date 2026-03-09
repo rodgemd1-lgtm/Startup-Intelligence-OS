@@ -1,0 +1,17 @@
+id: decision-capability-os
+name: Decision & Capability OS Phase A
+type: project
+company_id: founder-intelligence-os
+status: active
+objective: Add the root workspace contract, Jake front door, and file-backed operating kernel without breaking the current Susan runtime.
+deliverables:
+  - root AGENTS.md
+  - merged root CLAUDE.md
+  - .startup-os workspace contract
+  - Jake launcher and context helper
+  - starter schemas and records
+linked_decisions:
+  - adopt-decision-capability-os-phase-a
+linked_capabilities:
+  - workspace-contract
+  - decision-kernel

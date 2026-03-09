@@ -1,0 +1,530 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+cmd="${1:-check}"
+shift 2>/dev/null || true
+
+# ── check / validate ─────────────────────────────────────────────────────────
+run_checks() {
+python3 - <<'PY'
+from pathlib import Path
+import yaml, json, sys
+
+errors = []
+
+# 1. Required files
+required_paths = [
+    'README.md', 'CLAUDE.md', 'AGENTS.md',
+    '.startup-os/workspace.yaml',
+    'docs/startup-intelligence-overview.md',
+    'susan-team-architect/backend/data/company_registry.yaml',
+    '.startup-os/schemas/decision.schema.yaml',
+    '.startup-os/schemas/capability.schema.yaml',
+    '.startup-os/schemas/project.schema.yaml',
+    '.startup-os/schemas/company.schema.yaml',
+    '.startup-os/schemas/run.schema.yaml',
+    '.startup-os/schemas/templates/decision.template.md',
+    '.startup-os/schemas/templates/capability.template.yaml',
+    '.startup-os/schemas/templates/project.template.yaml',
+    '.startup-os/schemas/templates/company.template.yaml',
+    '.startup-os/schemas/templates/run.template.yaml',
+    '.startup-os/capabilities/jake.profile.yaml',
+    '.startup-os/capabilities/susan.profile.yaml',
+    '.startup-os/capabilities/agent-readiness-index.yaml',
+    '.startup-os/capabilities/gen-chat-os.system.yaml',
+    'apps/operator-console/index.html',
+    'apps/operator-console/main.js',
+    'apps/operator-console/operator-debrief.json',
+    'apps/operator-console/vercel.json',
+]
+for p in required_paths:
+    if not Path(p).exists():
+        errors.append(f"MISS  {p}")
+
+# 2. Workspace contract
+ws_path = Path('.startup-os/workspace.yaml')
+if ws_path.exists():
+    ws = yaml.safe_load(ws_path.read_text()) or {}
+    if ws.get('front_door') != 'jake':
+        errors.append("workspace.yaml front_door must be 'jake'")
+    if ws.get('runtime_source_of_truth') != 'susan-team-architect/backend':
+        errors.append("workspace.yaml runtime_source_of_truth must be 'susan-team-architect/backend'")
+    if ws.get('mode') != 'decision-capability-os':
+        errors.append("workspace.yaml mode must be 'decision-capability-os'")
+
+# 3. Jake profile roles
+jp = Path('.startup-os/capabilities/jake.profile.yaml')
+if jp.exists():
+    jake = yaml.safe_load(jp.read_text()) or {}
+    roles = set(jake.get('roles', []))
+    if not {'expert_system_architect', 'cognitive_orchestrator'}.issubset(roles):
+        errors.append("jake.profile.yaml missing required roles")
+
+# 4. Gen Chat OS debate modes
+gcos = Path('.startup-os/capabilities/gen-chat-os.system.yaml')
+if gcos.exists():
+    gco = yaml.safe_load(gcos.read_text()) or {}
+    modes = [m.get('id') for m in gco.get('debate_modes', [])]
+    if 'red_team_challenge' not in modes:
+        errors.append("gen-chat-os.system.yaml must include red_team_challenge debate mode")
+
+# 5. Company registry
+reg_path = Path('susan-team-architect/backend/data/company_registry.yaml')
+if reg_path.exists():
+    reg = yaml.safe_load(reg_path.read_text()) or {}
+    companies = reg.get('companies', {})
+    required_companies = [
+        'apex-social-studio', 'apex-fitness-studio',
+        'apex-design-studio', 'apex-template-studio',
+        'apex-innovation-studios',
+    ]
+    for c in required_companies:
+        if c not in companies:
+            errors.append(f"Missing company: {c}")
+    for c in ['apex-social-studio', 'apex-fitness-studio', 'apex-design-studio', 'apex-template-studio']:
+        if c in companies:
+            for key in ['scale_multiplier_goal', 'process_lanes', 'workflows',
+                        'research_programs', 'datasets', 'user_insight_streams',
+                        'domain_experts', 'cognitive_architecture_agents']:
+                if key not in companies[c]:
+                    errors.append(f"Missing '{key}' in {c}")
+    if 'apex-innovation-studios' in companies:
+        tool = companies['apex-innovation-studios'].get('innovation_studio_tool', {})
+        for key in ['callable_name', 'invocation_modes', 'required_inputs',
+                    'default_outputs', 'governance', 'callable_workflow',
+                    'delivery_slas', 'decision_artifacts']:
+            if key not in tool:
+                errors.append(f"Missing innovation_studio_tool.{key}")
+
+# 6. Operator debrief payload
+debrief_path = Path('apps/operator-console/operator-debrief.json')
+if debrief_path.exists():
+    try:
+        d = json.loads(debrief_path.read_text())
+        if 'mike' not in d.get('actions', {}):
+            errors.append("operator-debrief.json missing mike actions")
+        if 'susan' not in d.get('actions', {}):
+            errors.append("operator-debrief.json missing susan actions")
+    except Exception as e:
+        errors.append(f"operator-debrief.json invalid: {e}")
+
+# 7. Startup overview sections
+overview = Path('docs/startup-intelligence-overview.md')
+if overview.exists():
+    text = overview.read_text()
+    # Normalize smart quotes for matching
+    import unicodedata
+    norm_text = text.replace('\u201c', '"').replace('\u201d', '"').replace('\u2018', "'").replace('\u2019', "'")
+    for section in [
+        '## 1) What startup intelligence is',
+        '## 3) Capability map (what you likely still need)',
+        '## 5) What "done" looks like (examples)',
+        '## 8) 30-60-90 day build-out plan',
+    ]:
+        if section not in norm_text:
+            errors.append(f"Missing section: {section}")
+
+# 8. Merge conflict detection
+import subprocess
+result = subprocess.run(
+    ['grep', '-rl', '<<<<<<<', '--include=*.yaml', '--include=*.md',
+     '--include=*.json', '.'],
+    capture_output=True, text=True
+)
+if result.stdout.strip():
+    for f in result.stdout.strip().split('\n'):
+        errors.append(f"CONFLICT  {f}")
+
+# Report
+if errors:
+    print('jake: checks FAILED')
+    for e in errors:
+        print(f"  ✗ {e}")
+    sys.exit(1)
+else:
+    print('jake: checks passed')
+PY
+}
+
+# ── status ────────────────────────────────────────────────────────────────────
+print_status() {
+python3 - <<'PY'
+from pathlib import Path
+
+def count_files(path, suffixes=None):
+    p = Path(path)
+    if not p.exists():
+        return 0
+    items = [x for x in p.iterdir() if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
+    if suffixes:
+        items = [x for x in items if x.suffix in suffixes]
+    return len(items)
+
+print('jake: Decision OS status')
+print(f"  decisions:    {count_files('.startup-os/decisions', {'.yaml', '.md'})}")
+print(f"  capabilities: {count_files('.startup-os/capabilities', {'.yaml'})}")
+print(f"  projects:     {count_files('.startup-os/projects', {'.yaml'})}")
+print(f"  companies:    {count_files('.startup-os/companies', {'.yaml'})}")
+print(f"  runs:         {count_files('apps/decision_os/data/runs', {'.yaml'})}")
+print(f"  evidence:     {count_files('apps/decision_os/data/evidence', {'.yaml'})}")
+print(f"  artifacts:    {count_files('apps/decision_os/data/artifacts', {'.yaml'})}")
+PY
+}
+
+# ── sync-intel ────────────────────────────────────────────────────────────────
+sync_intel() {
+python3 - <<'PY'
+from pathlib import Path
+import yaml, json, datetime
+
+root = Path('.')
+
+# Regenerate agent readiness index
+agents = []
+for p in sorted((root / 'susan-team-architect/agents').glob('*.md')):
+    agents.append({
+        'agent': p.stem,
+        'path': str(p),
+        'status': 'synced',
+        'last_synced': datetime.date.today().isoformat(),
+        'sync_source': 'local_runtime_and_os_docs',
+    })
+
+idx = {
+    'generated_at': datetime.datetime.utcnow().isoformat() + 'Z',
+    'agent_count': len(agents),
+    'sync_policy': 'all agents consume same Decision OS debrief package each launch',
+    'agents': agents,
+}
+(root / '.startup-os/capabilities/agent-readiness-index.yaml').write_text(
+    yaml.safe_dump(idx, sort_keys=False))
+
+# Count objects
+def count_files(path, suffixes=None):
+    p = Path(path)
+    if not p.exists():
+        return 0
+    items = [x for x in p.iterdir() if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
+    if suffixes:
+        items = [x for x in items if x.suffix in suffixes]
+    return len(items)
+
+cap_count = count_files('.startup-os/capabilities', {'.yaml'})
+proj_count = count_files('.startup-os/projects', {'.yaml'})
+dec_count = count_files('.startup-os/decisions', {'.yaml', '.md'})
+run_count = count_files('apps/decision_os/data/runs', {'.yaml'})
+ev_count = count_files('apps/decision_os/data/evidence', {'.yaml'})
+
+# Generate operator debrief
+payload = {
+    'debrief': [
+        'Runtime source of truth: susan-team-architect/backend',
+        f'Susan agent roster synced: {len(agents)} agents indexed',
+        f'Decision OS objects — decisions: {dec_count}, capabilities: {cap_count}, projects: {proj_count}, runs: {run_count}',
+        f'Evidence store: {ev_count} items indexed',
+        'Jake roles active: Expert System Architect + Cognitive Orchestrator',
+        'Susan roles active: Capability Foundry Lead + Cognitive Team Architect',
+    ],
+    'actions': {
+        'mike': [
+            'Review unresolved strategic decisions in .startup-os/decisions/',
+            'Prioritize top 3 capabilities to mature this week',
+            'Run bin/jake before publishing any structural updates',
+        ],
+        'susan': [
+            'Review capability backlog and propose next implementation wave',
+            'Sync agent readiness and update debrief package',
+            'Prepare execution tracks for blocked projects',
+        ],
+    },
+    'status': [
+        'Jake front door: bin/jake',
+        'Context command: bin/os-context',
+        'Workspace contract: .startup-os/workspace.yaml',
+        'API server: apps/decision_os/api.py (port 8420)',
+        'Operator mode: three-zone command center',
+    ],
+}
+(root / 'apps/operator-console/operator-debrief.json').write_text(
+    json.dumps(payload, indent=2) + '\n')
+print('jake: intel sync complete')
+PY
+}
+
+# ── context ───────────────────────────────────────────────────────────────────
+print_context() {
+    exec "$ROOT_DIR/bin/os-context"
+}
+
+# ── new <type> ────────────────────────────────────────────────────────────────
+create_new() {
+    local objtype="${1:-}"
+    if [[ -z "$objtype" ]]; then
+        echo "Usage: bin/jake new <decision|capability|project|run>" >&2
+        exit 2
+    fi
+python3 - "$objtype" "$@" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.models import Decision, Capability, Project, Run
+from decision_os.store import Store
+
+objtype = sys.argv[1]
+title = ' '.join(sys.argv[2:]) if len(sys.argv) > 2 else ''
+store = Store()
+
+if objtype == 'decision':
+    if not title:
+        title = input('Decision title: ')
+    obj = Decision(title=title)
+    store.decisions.save(obj)
+    print(f'jake: created decision {obj.id}')
+elif objtype == 'capability':
+    if not title:
+        title = input('Capability name: ')
+    obj = Capability(name=title)
+    store.capabilities.save(obj)
+    print(f'jake: created capability {obj.id}')
+elif objtype == 'project':
+    if not title:
+        title = input('Project name: ')
+    obj = Project(name=title)
+    store.projects.save(obj)
+    print(f'jake: created project {obj.id}')
+elif objtype == 'run':
+    trigger = title or 'manual'
+    obj = Run(trigger=trigger)
+    store.runs.save(obj)
+    print(f'jake: created run {obj.id}')
+else:
+    print(f'Unknown type: {objtype}. Use: decision, capability, project, run', file=sys.stderr)
+    sys.exit(2)
+PY
+}
+
+# ── run-decision <id> ─────────────────────────────────────────────────────────
+run_decision() {
+    local decision_id="${1:-}"
+    if [[ -z "$decision_id" ]]; then
+        echo "Usage: bin/jake run-decision <decision_id_or_title>" >&2
+        exit 2
+    fi
+python3 - "$decision_id" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.store import Store
+from decision_os.decision_engine import DecisionEngine
+
+arg = sys.argv[1]
+store = Store()
+engine = DecisionEngine(store)
+
+# Try as title first, then as ID
+result = engine.run(title=arg, context=f"Decision requested via CLI: {arg}")
+print(f'jake: decision pipeline complete')
+print(f'  id: {result.id}')
+print(f'  status: {result.status.value}')
+print(f'  options: {len(result.options)}')
+print(f'  recommendation: {result.output.recommendation[:120]}...' if len(result.output.recommendation) > 120 else f'  recommendation: {result.output.recommendation}')
+print(f'  run: {result.run_id}')
+PY
+}
+
+# ── debate <id> ───────────────────────────────────────────────────────────────
+run_debate() {
+    local decision_id="${1:-}"
+    if [[ -z "$decision_id" ]]; then
+        echo "Usage: bin/jake debate <decision_id>" >&2
+        exit 2
+    fi
+python3 - "$decision_id" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.store import Store
+from decision_os.decision_engine import DecisionEngine
+
+store = Store()
+engine = DecisionEngine(store)
+result = engine.debate(sys.argv[1])
+if result:
+    print(f'jake: debate complete for {result.id}')
+    for entry in result.debate_log[-5:]:
+        print(f'  [{entry.mode}] {entry.argument[:100]}')
+else:
+    print(f'jake: decision not found: {sys.argv[1]}', file=sys.stderr)
+    sys.exit(1)
+PY
+}
+
+# ── ingest-intel ──────────────────────────────────────────────────────────────
+ingest_intel() {
+python3 - <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.store import Store
+from decision_os.ingestion import IntelligenceIngestion
+
+store = Store()
+ing = IntelligenceIngestion(store)
+results = ing.run_scheduled()
+print(f'jake: ingested {len(results)} evidence items')
+for ev in results:
+    print(f'  {ev.id}: {ev.title[:80]}')
+PY
+}
+
+# ── debrief ───────────────────────────────────────────────────────────────────
+print_debrief() {
+    local operator="${1:-mike}"
+python3 - "$operator" <<'PY'
+import sys, json
+from pathlib import Path
+
+operator = sys.argv[1].lower()
+if operator not in ('mike', 'susan'):
+    operator = 'mike'
+
+debrief_path = Path('apps/operator-console/operator-debrief.json')
+if not debrief_path.exists():
+    print('jake: no debrief available. Run bin/jake sync-intel first.', file=sys.stderr)
+    sys.exit(1)
+
+d = json.loads(debrief_path.read_text())
+greeting = 'Hello, Susan' if operator == 'susan' else 'Hello, Mike'
+print(f'\n{greeting} — Decision OS debrief\n')
+print('Debrief:')
+for item in d.get('debrief', []):
+    print(f'  - {item}')
+print(f'\nActions ({operator}):')
+for item in d.get('actions', {}).get(operator, []):
+    print(f'  1. {item}')
+print('\nStatus:')
+for item in d.get('status', []):
+    print(f'  - {item}')
+print()
+PY
+}
+
+# ── smoke ─────────────────────────────────────────────────────────────────────
+run_smoke() {
+    echo "jake: running smoke test..."
+    echo ""
+
+    # 1. Check passes
+    echo "Step 1: contract validation"
+    run_checks || { echo "FAIL: checks did not pass"; exit 1; }
+    echo ""
+
+    # 2. Status works
+    echo "Step 2: status"
+    print_status
+    echo ""
+
+    # 3. Sync intel works
+    echo "Step 3: sync-intel"
+    sync_intel
+    echo ""
+
+    # 4. Context works
+    echo "Step 4: os-context"
+    "$ROOT_DIR/bin/os-context"
+    echo ""
+
+    # 5. Create and run a decision
+    echo "Step 5: end-to-end decision pipeline"
+python3 - <<'PY'
+import sys, os
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+try:
+    from decision_os.store import Store
+    from decision_os.decision_engine import DecisionEngine
+    store = Store()
+    engine = DecisionEngine(store)
+    result = engine.run(
+        title="Smoke test decision",
+        context="Automated smoke test to verify end-to-end pipeline",
+        company="founder-intelligence-os",
+        assumptions=["System is operational"],
+        risks=["Smoke test may not cover all edge cases"],
+    )
+    assert result.id, "Decision must have an ID"
+    assert len(result.options) >= 3, "Must generate >= 3 options"
+    assert len(result.debate_log) >= 5, "Must run all 5 debate modes"
+    assert result.output.recommendation, "Must have recommendation"
+    assert result.output.counter_recommendation, "Must have counter-recommendation"
+    assert result.output.why_now, "Must have why_now"
+    assert result.output.failure_modes, "Must have failure_modes"
+    assert result.output.next_experiment, "Must have next_experiment"
+    assert result.run_id, "Must have run_id"
+
+    run = store.runs.get(result.run_id)
+    assert run, "Run must be persisted"
+    assert len(run.events) > 0, "Run must have events"
+
+    # Cleanup smoke test artifacts
+    store.decisions.delete(result.id)
+    store.runs.delete(result.run_id)
+
+    print('  decision pipeline: PASS')
+    print(f'    options: {len(result.options)}, debates: {len(result.debate_log)}')
+    print(f'    recommendation: {result.output.recommendation[:80]}...')
+except Exception as e:
+    print(f'  decision pipeline: FAIL ({e})')
+    sys.exit(1)
+PY
+    echo ""
+    echo "jake: smoke test PASSED"
+}
+
+# ── dispatch ──────────────────────────────────────────────────────────────────
+case "$cmd" in
+    check|validate)
+        run_checks
+        ;;
+    context)
+        print_context
+        ;;
+    status)
+        print_status
+        ;;
+    sync-intel)
+        sync_intel
+        ;;
+    new)
+        create_new "$@"
+        ;;
+    run-decision)
+        run_decision "$@"
+        ;;
+    debate)
+        run_debate "$@"
+        ;;
+    ingest-intel)
+        ingest_intel
+        ;;
+    debrief)
+        print_debrief "$@"
+        ;;
+    smoke)
+        run_smoke
+        ;;
+    *)
+        echo "Usage: bin/jake <command>"
+        echo ""
+        echo "Commands:"
+        echo "  check|validate     Validate OS contract and critical assets"
+        echo "  status             Print Decision OS object counts"
+        echo "  sync-intel         Regenerate agent readiness index and operator debrief"
+        echo "  context            Print active OS context (delegates to bin/os-context)"
+        echo "  new <type>         Create a new decision|capability|project|run"
+        echo "  run-decision <id>  Execute decision pipeline"
+        echo "  debate <id>        Run debate cycle on existing decision"
+        echo "  ingest-intel       Ingest intelligence from configured sources"
+        echo "  debrief [operator] Show operator debrief (mike|susan)"
+        echo "  smoke              Run end-to-end smoke test"
+        exit 2
+        ;;
+esac

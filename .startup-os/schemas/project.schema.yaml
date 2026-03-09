@@ -1,0 +1,22 @@
+type: project
+required_fields:
+  - id
+  - name
+  - status
+  - owner
+  - company
+  - objective
+optional_fields:
+  - milestones
+  - linked_decisions
+  - linked_capabilities
+  - risks
+  - artifacts
+  - start_date
+  - target_date
+statuses:
+  - planning
+  - active
+  - paused
+  - completed
+  - cancelled

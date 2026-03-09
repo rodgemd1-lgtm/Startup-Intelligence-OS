@@ -1,0 +1,21 @@
+artifacts:
+  - id: decision-capability-plan
+    type: plan
+    path: docs/plans/decision-capability-os/aggressive-plan.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+  - id: operating-model
+    type: plan
+    path: docs/plans/decision-capability-os/operating-model.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+  - id: interface-spec
+    type: plan
+    path: docs/plans/decision-capability-os/interface-spec.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+  - id: root-workspace-contract
+    type: workspace
+    path: .startup-os/workspace.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os

@@ -28,6 +28,10 @@ class Config:
     # Paths
     base_dir: Path = Path(__file__).parent.parent
     data_dir: Path = Path(__file__).parent.parent / "data"
+    artifacts_dir: Path = Path(__file__).parent.parent / "artifacts"
+    phase_cache_dir: Path = Path(__file__).parent.parent / "artifacts" / "phase_cache"
+    domains_dir: Path = Path(__file__).parent.parent / "data" / "domains"
+    fitness_domain_dir: Path = Path(__file__).parent.parent / "data" / "domains" / "fitness_app_intelligence"
     companies_dir: Path = Path.cwd() / "companies"
 
     # RAG settings

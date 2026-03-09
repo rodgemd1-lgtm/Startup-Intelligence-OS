@@ -1,0 +1,19 @@
+type: run
+required_fields:
+  - id
+  - trigger
+  - started_at
+  - status
+optional_fields:
+  - completed_at
+  - company
+  - project
+  - decision
+  - mode
+  - artifacts_produced
+  - notes
+statuses:
+  - running
+  - completed
+  - failed
+  - cancelled

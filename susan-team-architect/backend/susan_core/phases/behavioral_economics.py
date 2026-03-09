@@ -1,14 +1,13 @@
 """Phase 6: Behavioral Economics Audit — retention architecture and LAAL design."""
 from __future__ import annotations
 import json
-from anthropic import Anthropic
 from susan_core.config import config
+from susan_core.phase_runtime import run_cached_json_phase
 
 
 async def run(company: str, context: dict) -> dict:
     """Run the behavioral economics audit."""
-    client = Anthropic(api_key=config.anthropic_api_key)
-
+    trigger_limit = 3 if context.get("mode") == "quick" else 5
     prompt = f"""You are Freya, the Behavioral Economics specialist. Conduct a comprehensive BE audit.
 
 Company Profile:
@@ -36,7 +35,15 @@ Conduct a full behavioral economics audit and return a JSON object (BEAudit) wit
   - minimum_return_action (string): Lowest friction return (under 2 min)
   - return_reward (string): What they get for returning
   - investment_flywheel (string): How investment compounds
-- copy_protocols (object): Keys are trigger types (dormant_d3, dormant_d7, etc.), values are objects with loss_frame and gain_frame versions
+- relational_architecture:
+  - love_map_strategy (string): How the product remembers user context without crossing trust boundaries
+  - perceived_responsiveness_protocol (string): How the product shows understanding, validation, and care
+  - therapeutic_alliance_design (object): goals, tasks, and bond design principles
+  - personal_knowledge_map_policy (string): What kinds of personal details are stored and how they are used
+  - uncanny_valley_risks (array of strings): The top relational risks to avoid
+  - staleness_decay_policy (string): How old details go dormant
+  - warm_handoff_protocol (string): How Susan or coach agents should bring in specialists while preserving context
+- copy_protocols (object): Keys are trigger types (dormant_d3, dormant_d7, etc.), values are objects with loss_frame and gain_frame versions. Limit to the top {trigger_limit} trigger types.
 - agent_be_map (object): Maps agent IDs to their behavioral economics responsibilities
 - measurement_plan (object): KPIs and measurement methodology
 
@@ -48,17 +55,15 @@ For fitness apps:
 
 Apply all 12 BE mechanisms: loss aversion, endowment effect, sunk cost, status quo bias, IKEA effect, social proof, commitment/consistency, default effect, anchoring, framing effect, present bias, hyperbolic discounting.
 
+Also incorporate these relational frameworks where relevant: Love Maps, therapeutic alliance, perceived responsiveness, social penetration, relatedness, and relational depth.
+
 Return ONLY the JSON object."""
-
-    response = client.messages.create(
+    return run_cached_json_phase(
+        company=company,
+        phase="behavioral_economics",
+        cache_payload={"company": company, "profile": context.get("profile", {}), "team": context.get("team", {})},
+        prompt=prompt,
         model=config.model_sonnet,
-        max_tokens=8192,
-        messages=[{"role": "user", "content": prompt}],
+        max_tokens=4096,
+        refresh=context.get("refresh", False),
     )
-
-    text = response.content[0].text
-    start = text.find('{')
-    end = text.rfind('}') + 1
-    if start >= 0 and end > start:
-        return json.loads(text[start:end])
-    return {"error": "Failed to parse", "raw": text}

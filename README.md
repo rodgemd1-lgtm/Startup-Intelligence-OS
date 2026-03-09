@@ -1,38 +1,115 @@
-# Startup Founder Resource Hub
+# Startup Intelligence OS (Decision & Capability OS)
 
-**Purpose:** A curated collection of the best-in-class resources for startup founders building AI-powered companies. Covers everything from UX/UI design to decentralized AI, agent architectures, and product management.
+This repository is the **Decision & Capability OS** for Apex Ventures.
 
----
+- **Jake** is the root front door (`bin/jake`)
+- **Susan** is the capability foundry (`susan-team-architect/`)
+- **Susan runtime source of truth** is `susan-team-architect/backend/`
+- **Workspace kernel** is `.startup-os/`
 
-## Resource Categories
+## Quick start
 
-| Category | Description | Link |
-|----------|-------------|------|
-| **UX/UI Design** | Design systems, AI design tools, prototyping, accessibility | [View Resources](ux-ui-design/README.md) |
-| **AI Product Development** | Frameworks, LLM tools, MLOps, vector DBs, model providers | [View Resources](ai-product-development/README.md) |
-| **Decentralized AI (DAI)** | Protocols, decentralized compute, federated learning, Web3+AI | [View Resources](decentralized-ai/README.md) |
-| **AI Approaches & Frameworks** | Architectures, agent frameworks, prompt engineering, fine-tuning | [View Resources](ai-approaches-frameworks/README.md) |
-| **Agent Skills & Super Nesting** | Claude Code ecosystem, MCP, agent orchestration, nested repos | [View Resources](agent-skills-and-nesting/README.md) |
-| **Product Building & Management** | Startup methodology, PLG, fundraising, go-to-market, hiring | [View Resources](product-building-management/README.md) |
+```bash
+# Validate OS contract and critical assets
+bin/jake
 
----
+# Print active OS context
+bin/os-context
 
-## How to Use This Repository
+# Print Decision OS object counts
+bin/jake status
 
-1. **Browse by category** — Each folder contains a comprehensive README with curated resources
-2. **Star repos that matter** — Each resource includes GitHub links where applicable
-3. **Clone what you need** — Use git submodules to pull in specific tool repos
-4. **Stay current** — Resources are tagged with discovery date for freshness tracking
+# Sync agent readiness and operator debrief
+bin/jake sync-intel
+```
 
-## Quick Reference: The Essentials
+## Operating layout
 
-### If You Only Have 5 Minutes
-- **Design:** [shadcn/ui](https://github.com/shadcn-ui/ui) + [v0.dev](https://v0.dev) for instant UI
-- **AI Framework:** [LangChain](https://github.com/langchain-ai/langchain) or [LlamaIndex](https://github.com/run-llama/llama_index) for RAG
-- **Agent Building:** [Claude Agent SDK](https://github.com/anthropics/claude-code) + [CrewAI](https://github.com/crewAIInc/crewAI)
-- **Product Management:** [Linear](https://linear.app) for tracking + [Shape Up](https://basecamp.com/shapeup) for methodology
-- **Decentralized AI:** [Bittensor](https://github.com/opentensor/bittensor) for decentralized ML networks
+- `.startup-os/` — file-backed workspace kernel (companies, projects, decisions, capabilities, runs)
+- `bin/` — root operating commands (`jake`, `os-context`, `mac-push-github`)
+- `susan-team-architect/` — foundry/plugin layer for Susan agents/commands/skills
+- `susan-team-architect/backend/` — orchestration + MCP + retrieval runtime
+- `docs/plans/decision-capability-os/` — architecture and strategy plans
+- `apps/operator-console/` — three-zone operator command center
+- `archive/resource-hub/` — legacy founder-resource materials
 
----
+## Decision OS objects and templates
 
-*Curated for startup founders building the future with AI. Last updated: March 2026.*
+- Schemas: `.startup-os/schemas/*.schema.yaml`
+- Templates: `.startup-os/schemas/templates/*`
+- Workspaces:
+  - `.startup-os/decisions/` (decision records)
+  - `.startup-os/capabilities/` (capability YAML records)
+  - `.startup-os/projects/` (project YAML records)
+  - `.startup-os/companies/` (company snapshot YAML records)
+  - `.startup-os/runs/` (execution run YAML records)
+
+## Jake front door commands
+
+| Command | Description |
+|---------|-------------|
+| `bin/jake` | Validate OS contract and critical assets |
+| `bin/jake check` | Same as default — run all checks |
+| `bin/jake status` | Print Decision OS object counts |
+| `bin/jake sync-intel` | Regenerate agent readiness index and operator debrief |
+| `bin/jake context` | Print active OS context (delegates to `bin/os-context`) |
+
+## Susan runtime quick run
+
+```bash
+cd susan-team-architect/backend
+source .venv/bin/activate
+python3 -c "from susan_core.orchestrator import run_susan; run_susan('TransformFit', mode='full')"
+```
+
+## Operator console
+
+The console is a three-zone command center at `apps/operator-console/`:
+- **Left rail**: workspaces, navigation, team console
+- **Center**: Jake brief, decision room, primary terminal
+- **Right rail**: next actions, workspace summary, design rules
+
+Operator-aware greeting:
+- default: `Hello, Mike`
+- Susan view: `?operator=susan` (shows `Hello, Susan`)
+
+```bash
+cd apps/operator-console
+python3 -m http.server 4173
+# http://localhost:4173
+# http://localhost:4173/?operator=susan
+```
+
+### Vercel deployment
+
+```bash
+cd apps/operator-console
+vercel
+vercel --prod
+```
+
+## Safe push helper
+
+```bash
+bin/mac-push-github
+```
+
+Handles remote/branch mismatch, optional merge-main flow, and safe push with confirmation.
+
+## Strategic docs
+
+- [Startup Intelligence Overview](docs/startup-intelligence-overview.md)
+- [Implementation Roadmap](docs/plans/decision-capability-os/implementation-roadmap.md)
+- [Repo Cleanup Assessment](docs/plans/decision-capability-os/repo-cleanup-assessment.md)
+- [One-Year 25x Strategy](docs/plans/decision-capability-os/one-year-25x-strategy.md)
+- [Gen Chat OS Execution Plan](docs/plans/decision-capability-os/gen-chat-os-25x-execution-plan.md)
+- [Parity Migration Plan](docs/plans/decision-capability-os/startup-intelligence-os-1-parity-migration.md)
+
+## Runtime boundaries
+
+We preserve and do not redefine the active runtime contracts in:
+- `susan-team-architect/backend/control_plane/`
+- `susan-team-architect/backend/mcp_server/`
+- `susan-team-architect/backend/susan_core/`
+
+Changes to these surfaces should be minimal, explicit, and validated.

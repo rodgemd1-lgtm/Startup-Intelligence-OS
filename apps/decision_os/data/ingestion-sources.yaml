@@ -1,0 +1,13 @@
+sources:
+  - url: "https://news.ycombinator.com/rss"
+    domain: "tech"
+    topic_tags: ["startups", "technology", "engineering"]
+  - url: "https://techcrunch.com/feed/"
+    domain: "startup_news"
+    topic_tags: ["funding", "startups", "venture"]
+  - url: "https://a16z.com/feed/"
+    domain: "venture_strategy"
+    topic_tags: ["strategy", "venture", "ai"]
+schedule:
+  mode: manual
+  interval_hours: 24

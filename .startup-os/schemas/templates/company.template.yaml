@@ -1,0 +1,7 @@
+id: company-{{slug}}
+name: {{name}}
+domain: {{domain}}
+stage: {{stage}}
+strategic_focus: []
+key_metrics: []
+

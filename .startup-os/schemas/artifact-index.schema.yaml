@@ -1,0 +1,13 @@
+title: artifact-index
+type: object
+required:
+  - artifacts
+properties:
+  artifacts:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - type
+        - path

@@ -1,0 +1,35 @@
+version: 1
+name: startup-intelligence-os
+mode: decision-capability-os
+front_door: jake
+foundry: susan
+runtime_source_of_truth: susan-team-architect/backend
+repo_root: /Users/mikerodgers/Startup-Intelligence-OS
+active_company: founder-intelligence-os
+active_project: decision-capability-os
+active_decision: phase-a-runtime-foundation
+active_branch: main
+paths:
+  companies: .startup-os/companies
+  projects: .startup-os/projects
+  decisions: .startup-os/decisions
+  capabilities: .startup-os/capabilities
+  artifacts: .startup-os/artifacts
+  runs: .startup-os/runs
+  sessions: .startup-os/sessions
+  schemas: .startup-os/schemas
+contracts:
+  startup_context_script: bin/os-context
+  validation_script: bin/jake
+  operator_console: apps/operator-console
+  templates:
+    decision: .startup-os/schemas/templates/decision.template.md
+    capability: .startup-os/schemas/templates/capability.template.yaml
+    project: .startup-os/schemas/templates/project.template.yaml
+    company: .startup-os/schemas/templates/company.template.yaml
+    run: .startup-os/schemas/templates/run.template.yaml
+notes:
+  - Jake is the root front door.
+  - Susan remains the capability foundry.
+  - The terminal stays primary and the interface stays secondary.
+  - Root workspace state should be explicit even when Susan owns execution.

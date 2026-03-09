@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+echo "Startup Intelligence OS Context"
+echo "================================"
+echo "- Root: $ROOT_DIR"
+echo "- Branch: $(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'unknown')"
+echo "- Front door: bin/jake"
+echo "- Foundry: susan-team-architect/"
+echo "- Runtime source of truth: susan-team-architect/backend/"
+echo "- Workspace kernel: .startup-os/workspace.yaml"
+echo ""
+
+python3 - <<'PY'
+from pathlib import Path
+import yaml
+
+workspace = Path('.startup-os/workspace.yaml')
+if not workspace.exists():
+    raise SystemExit('Missing .startup-os/workspace.yaml')
+
+cfg = yaml.safe_load(workspace.read_text()) or {}
+print('Workspace contract:')
+print(f"  name:                    {cfg.get('name', 'unknown')}")
+print(f"  mode:                    {cfg.get('mode', 'unknown')}")
+print(f"  front_door:              {cfg.get('front_door', 'unknown')}")
+print(f"  foundry:                 {cfg.get('foundry', 'unknown')}")
+print(f"  runtime_source_of_truth: {cfg.get('runtime_source_of_truth', 'unknown')}")
+print(f"  active_company:          {cfg.get('active_company', 'none')}")
+print(f"  active_project:          {cfg.get('active_project', 'none')}")
+print(f"  active_decision:         {cfg.get('active_decision', 'none')}")
+print(f"  active_branch:           {cfg.get('active_branch', 'none')}")
+print()
+
+templates = cfg.get('contracts', {}).get('templates', {})
+if templates:
+    print('Templates:')
+    for key, value in templates.items():
+        exists = '✓' if Path(value).exists() else '✗'
+        print(f"  [{exists}] {key}: {value}")
+    print()
+
+# Object counts
+def count_files(path, suffixes=None):
+    p = Path(path)
+    if not p.exists():
+        return 0
+    items = [x for x in p.iterdir() if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
+    if suffixes:
+        items = [x for x in items if x.suffix in suffixes]
+    return len(items)
+
+print('Object store:')
+print(f"  decisions:    {count_files('.startup-os/decisions', {'.yaml', '.md'})}")
+print(f"  capabilities: {count_files('.startup-os/capabilities', {'.yaml'})}")
+print(f"  projects:     {count_files('.startup-os/projects', {'.yaml'})}")
+print(f"  companies:    {count_files('.startup-os/companies', {'.yaml'})}")
+print(f"  runs:         {count_files('apps/decision_os/data/runs', {'.yaml'})}")
+print(f"  evidence:     {count_files('apps/decision_os/data/evidence', {'.yaml'})}")
+PY

@@ -1,0 +1,17 @@
+id: example-capability
+name: Example capability
+status: draft
+current_state: Unclear
+target_state: Explicit and measurable
+maturity_current: 1
+maturity_target: 4
+owner_human: Mike Rodgers
+owner_agent: susan
+evidence:
+  - docs/plans/decision-capability-os/capability-gap-map.md
+build_sequence:
+  - define
+  - measure
+  - improve
+success_criteria:
+  - capability has a clear owner and target

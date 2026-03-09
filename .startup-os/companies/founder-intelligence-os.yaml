@@ -1,0 +1,16 @@
+id: founder-intelligence-os
+name: Founder Intelligence OS
+type: company
+repo_root: /Users/mikerodgers/Startup-Intelligence-OS
+primary_runtime: susan-team-architect/backend
+primary_domain_pack: founder_foundry_intelligence
+stage: active_build
+summary: Product-facing founder workspace for the Decision & Capability OS and the command surface for building reusable company systems.
+linked_projects:
+  - decision-capability-os
+linked_capabilities:
+  - workspace-contract
+  - decision-kernel
+  - capability-foundry
+linked_decisions:
+  - adopt-decision-capability-os-phase-a

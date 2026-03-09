@@ -1,0 +1,58 @@
+id: gen-chat-os-system
+name: Gen Chat OS
+type: system_contract
+version: 1
+owner: mike
+
+core_capabilities:
+  - id: live-intelligence-ingestion
+    name: Live Intelligence Ingestion
+    description: Real-time ingestion of market, competitor, and domain signals into structured knowledge
+  - id: prompt-data-source-market
+    name: Prompt and Data-Source Market
+    description: Marketplace of reusable prompts, data sources, and domain packs for rapid capability assembly
+  - id: cognitive-architecture-loops
+    name: Cognitive Architecture Loops
+    description: Multi-agent reasoning loops with planning, execution, reflection, and memory persistence
+  - id: debate-point-of-view-modes
+    name: Debate and Point-of-View Modes
+    description: Structured argumentation modes for stress-testing strategies and exposing blind spots
+  - id: self-learning-feedback-loops
+    name: Self-Learning Feedback Loops
+    description: Closed-loop systems that learn from outcomes, update priors, and improve recommendations
+
+debate_modes:
+  - id: builder_pov
+    name: Builder POV
+    description: Optimistic builder perspective focused on what can be built and shipped
+  - id: skeptic_pov
+    name: Skeptic POV
+    description: Cautious perspective questioning feasibility, timing, and hidden costs
+  - id: contrarian_pov
+    name: Contrarian POV
+    description: Deliberately opposing perspective to surface non-obvious alternatives
+  - id: operator_pov
+    name: Operator POV
+    description: Operational perspective focused on execution, resources, and daily reality
+  - id: red_team_challenge
+    name: Red Team Challenge
+    description: Adversarial stress test of assumptions, strategy, and failure modes
+
+session_boot_greetings:
+  mike: "Hello, Mike"
+  susan: "Hello, Susan"
+
+output_contract:
+  required_fields:
+    - recommendation
+    - counter_recommendation
+    - why_now
+    - failure_modes
+    - next_experiment
+  description: Every major output must include a recommendation, its counter-argument, urgency rationale, failure scenarios, and the next experiment to run
+
+maturity: emerging
+dependencies:
+  - susan-runtime
+  - decision-os-workspace
+  - rag-knowledge-base
