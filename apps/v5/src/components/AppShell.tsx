@@ -19,6 +19,12 @@ export function useAppState() {
   return ctx;
 }
 
+export function useAppRefresh() {
+  const ctx = useContext(AppStateContext);
+  if (!ctx) throw new Error("useAppRefresh must be used within AppShell");
+  return { refreshCapabilities: ctx.refreshCapabilities };
+}
+
 export function AppShell({ children }: { children: React.ReactNode }) {
   const state = useApi();
   const pathname = usePathname();

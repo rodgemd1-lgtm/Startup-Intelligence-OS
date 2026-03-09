@@ -19,7 +19,14 @@ interface MaturityBarProps {
 
 export function MaturityBar({ maturity, target, threshold, compact }: MaturityBarProps) {
   return (
-    <div className="maturity-bar-v6">
+    <div
+      className="maturity-bar-v6"
+      role="meter"
+      aria-valuenow={maturity}
+      aria-valuemin={0}
+      aria-valuemax={5}
+      aria-label={`Maturity: ${maturity.toFixed(1)} of 5`}
+    >
       {[1, 2, 3, 4, 5].map((level) => {
         const filled = level <= Math.floor(maturity) || (level === Math.ceil(maturity) && maturity >= level);
         const isPartial = !filled && level === Math.ceil(maturity) && maturity % 1 > 0;

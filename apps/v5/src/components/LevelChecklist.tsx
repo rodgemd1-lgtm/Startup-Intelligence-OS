@@ -75,12 +75,22 @@ export function LevelChecklist({ capabilityId, levels, currentMaturity, onToggle
                 {level.items.map((item, idx) => (
                   <div
                     key={idx}
+                    role="checkbox"
+                    aria-checked={item.done}
+                    aria-label={item.text}
+                    tabIndex={isFuture ? -1 : 0}
                     className={`level-item${item.done ? " done" : ""}`}
                     onClick={() => {
                       if (!isFuture) onToggle(levelNum, idx);
                     }}
+                    onKeyDown={(e) => {
+                      if (!isFuture && (e.key === "Enter" || e.key === " ")) {
+                        e.preventDefault();
+                        onToggle(levelNum, idx);
+                      }
+                    }}
                   >
-                    <div className={`checkbox${item.done ? " checked" : ""}`}>
+                    <div className={`checkbox${item.done ? " checked" : ""}`} aria-hidden="true">
                       {item.done && (
                         <svg
                           width="10"

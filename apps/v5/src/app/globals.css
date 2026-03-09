@@ -518,23 +518,6 @@ p { color: var(--text-secondary); font-size: 0.87rem; }
   width: 60px; text-align: right; font-family: var(--mono);
   font-size: 0.75rem; color: var(--text-secondary); flex-shrink: 0;
 }
-.maturity-segments {
-  display: flex; gap: 2px; height: 8px;
-}
-.maturity-seg {
-  flex: 1;
-  border-radius: 2px;
-  background: var(--surface-3);
-  transition: background 0.6s ease;
-}
-.maturity-seg.filled { background: var(--accent); }
-.maturity-seg.filled.warn { background: var(--warning); }
-.maturity-seg.filled.bad { background: var(--danger); }
-.maturity-seg.target {
-  background: transparent;
-  border: 1px dashed var(--text-tertiary);
-}
-
 /* === TERMINAL (legacy removed — now using xterm.js) === */
 
 /* === LEVEL CHECKLIST === */

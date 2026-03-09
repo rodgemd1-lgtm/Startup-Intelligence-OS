@@ -47,7 +47,7 @@ export default function DashboardPage() {
       }));
 
   const total = capabilities.reduce((s, c) => s + c.maturity, 0);
-  const avg = (total / capabilities.length).toFixed(1);
+  const avg = capabilities.length > 0 ? (total / capabilities.length).toFixed(1) : "0.0";
   const totalGaps = capabilities.reduce((s, c) => s + c.gaps.length, 0);
   const pctBaseline = Math.round((parseFloat(avg) / 5) * 100);
 
@@ -166,7 +166,7 @@ export default function DashboardPage() {
         </div>
         <div className="stack">
           {capabilities.map((c) => {
-            const pct = Math.round((c.maturity / c.target) * 100);
+            const pct = c.target > 0 ? Math.round((c.maturity / c.target) * 100) : 0;
             return (
               <div key={c.name}>
                 <div

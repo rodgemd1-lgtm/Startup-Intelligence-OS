@@ -50,6 +50,7 @@ interface CapabilityDrilldownProps {
   capabilityId?: string;
   agents: Agent[];
   expanded: boolean;
+  onDataChange?: () => void;
 }
 
 export function CapabilityDrilldown({
@@ -57,24 +58,29 @@ export function CapabilityDrilldown({
   capabilityId,
   agents,
   expanded,
+  onDataChange,
 }: CapabilityDrilldownProps) {
   const [levelsData, setLevelsData] = useState<CapabilityWithLevels | null>(null);
   const [loading, setLoading] = useState(false);
+  const [toggling, setToggling] = useState(false);
 
   useEffect(() => {
-    if (expanded && capabilityId && !levelsData) {
-      setLoading(true);
-      api
-        .capabilityLevels(capabilityId)
-        .then((data) => {
+    if (!expanded || !capabilityId) return;
+    let cancelled = false;
+    setLoading(true);
+    api
+      .capabilityLevels(capabilityId)
+      .then((data) => {
+        if (!cancelled) {
           setLevelsData(data);
           setLoading(false);
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    }
-  }, [expanded, capabilityId, levelsData]);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [expanded, capabilityId]);
 
   if (!expanded) return null;
 
@@ -82,14 +88,17 @@ export function CapabilityDrilldown({
   const matchedAgents = agents.filter((a) => groups.includes(a.group));
 
   const handleToggle = async (level: number, index: number) => {
-    if (!capabilityId) return;
+    if (!capabilityId || toggling) return;
+    setToggling(true);
     try {
       await api.toggleItem(capabilityId, level, index);
-      // Refresh levels data
       const updated = await api.capabilityLevels(capabilityId);
       setLevelsData(updated);
+      onDataChange?.();
     } catch {
       // Silently fail if API not available
+    } finally {
+      setToggling(false);
     }
   };
 

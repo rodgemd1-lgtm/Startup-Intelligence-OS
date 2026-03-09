@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
-import { useAppState } from "@/components/AppShell";
+import { useAppState, useAppRefresh } from "@/components/AppShell";
 import { CapabilityDrilldown } from "@/components/CapabilityDrilldown";
 import { MaturityBar } from "@/components/MaturityBar";
 import { delay } from "@/lib/utils";
 
 export default function CapabilitiesPage() {
   const state = useAppState();
+  const { refreshCapabilities } = useAppRefresh();
   const [expandedDomain, setExpandedDomain] = useState<string | null>(null);
 
   // Use capability summary data when available, fall back to static capabilities
@@ -42,9 +43,9 @@ export default function CapabilitiesPage() {
       }));
 
   const totalGaps = capabilities.reduce((s, c) => s + c.gaps.length, 0);
-  const avgMaturity = +(
-    capabilities.reduce((s, c) => s + c.maturity, 0) / capabilities.length
-  ).toFixed(1);
+  const avgMaturity = capabilities.length > 0
+    ? +(capabilities.reduce((s, c) => s + c.maturity, 0) / capabilities.length).toFixed(1)
+    : 0;
 
   // Wave counts
   const waves = [0, 0, 0];
@@ -104,10 +105,19 @@ export default function CapabilitiesPage() {
               <div key={c.name}>
                 <div
                   className="maturity-row"
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isExpanded}
                   style={{ cursor: "pointer" }}
                   onClick={() =>
                     setExpandedDomain(isExpanded ? null : c.name)
                   }
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setExpandedDomain(isExpanded ? null : c.name);
+                    }
+                  }}
                 >
                   <div className="domain-name">{c.name}</div>
                   <div className="bar-wrap">
@@ -154,6 +164,7 @@ export default function CapabilitiesPage() {
                   capabilityId={c.id}
                   agents={state.agents}
                   expanded={isExpanded}
+                  onDataChange={refreshCapabilities}
                 />
               </div>
             );
