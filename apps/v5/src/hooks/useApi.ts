@@ -1,6 +1,7 @@
 "use client";
 import useSWR from "swr";
 import { api } from "@/lib/api";
+import type { CapabilitySummary } from "@/lib/api";
 import { defaultState } from "@/lib/state";
 
 export function useApi() {
@@ -18,8 +19,15 @@ export function useApi() {
     fallbackData: defaultState.debrief as unknown as { greeting: string; actions: Record<string, string[]>; debrief: string[]; status: string[] },
     onError: () => {},
   });
+  const capSummary = useSWR("capabilitySummary", () => api.capabilitySummary(), {
+    onError: () => {},
+    refreshInterval: 30000,
+  });
 
   const apiLive = !ctx.error && !status.error;
+
+  // When summary data is available, build enriched capabilities for downstream consumers
+  const capabilitySummary: CapabilitySummary[] | null = capSummary.data ?? null;
 
   return {
     context: (ctx.data as unknown as typeof defaultState.context) ?? defaultState.context,
@@ -27,6 +35,7 @@ export function useApi() {
     debrief: (debrief.data as unknown as typeof defaultState.debrief) ?? defaultState.debrief,
     decisions: defaultState.decisions,
     capabilities: defaultState.capabilities,
+    capabilitySummary,
     agents: defaultState.agents,
     vision: defaultState.vision,
     apiLive,
@@ -34,6 +43,9 @@ export function useApi() {
       ctx.mutate();
       status.mutate();
       debrief.mutate();
+    },
+    refreshCapabilities: () => {
+      capSummary.mutate();
     },
   };
 }
