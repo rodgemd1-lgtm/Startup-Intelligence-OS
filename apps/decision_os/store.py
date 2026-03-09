@@ -181,10 +181,10 @@ class Store:
         data = yaml.safe_load(path.read_text())
         levels = data.get("levels", {})
         level_data = levels.get(level)
-        if not level_data or index >= len(level_data.get("items", [])):
+        if not level_data or index < 0 or index >= len(level_data.get("items", [])):
             return None
         level_data["items"][index]["done"] = not level_data["items"][index]["done"]
-        # Auto-compute maturity: highest level where all items are done
+        # Auto-compute checklist maturity: highest level where all items are done
         computed_maturity = 0
         for lvl in sorted(levels.keys()):
             items = levels[lvl].get("items", [])
@@ -192,6 +192,10 @@ class Store:
                 computed_maturity = lvl
             else:
                 break
-        data["maturity_current"] = computed_maturity
+        # Only advance maturity_current when checklist maturity exceeds it
+        # (preserves fractional human-assessed values until checklist proves higher)
+        current = data.get("maturity_current", 0)
+        if computed_maturity > current:
+            data["maturity_current"] = computed_maturity
         path.write_text(yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
         return data
