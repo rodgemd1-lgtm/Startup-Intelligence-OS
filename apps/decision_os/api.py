@@ -12,7 +12,9 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from .store import Store
+import yaml
+
+from .store import Store, _STARTUP_OS
 from .models import Decision, DecisionStatus
 
 # ---------------------------------------------------------------------------
@@ -348,6 +350,85 @@ def list_artifacts() -> list[dict]:
 def list_capabilities() -> list[dict]:
     """List all capabilities."""
     return [c.model_dump(mode="json") for c in store.capabilities.list_all()]
+
+
+# ---------------------------------------------------------------------------
+# Capability Levels
+# ---------------------------------------------------------------------------
+
+@app.get("/api/capabilities/summary")
+def get_capabilities_summary() -> list[dict]:
+    """Return all capabilities with computed maturity from level checklists."""
+    caps_dir = _STARTUP_OS / "capabilities"
+    results = []
+    for path in sorted(caps_dir.glob("*.yaml")):
+        if path.stem in ("README", "agent-readiness-index", "workspace-contract",
+                         "jake.profile", "susan.profile", "gen-chat-os.system",
+                         "decision-kernel-phase-a"):
+            continue
+        data = yaml.safe_load(path.read_text())
+        if not data or "levels" not in data:
+            continue
+        levels = data.get("levels", {})
+        total_items = sum(len(l.get("items", [])) for l in levels.values())
+        done_items = sum(
+            sum(1 for item in l.get("items", []) if item.get("done"))
+            for l in levels.values()
+        )
+        # Find next incomplete level
+        next_level = None
+        next_item = None
+        for lvl in sorted(levels.keys()):
+            items = levels[lvl].get("items", [])
+            for item in items:
+                if not item.get("done"):
+                    next_level = lvl
+                    next_item = item.get("text")
+                    break
+            if next_level:
+                break
+        # Check threshold (1 item from leveling up)
+        threshold = False
+        for lvl in sorted(levels.keys()):
+            items = levels[lvl].get("items", [])
+            undone = [i for i in items if not i.get("done")]
+            if len(undone) == 1:
+                threshold = True
+                break
+
+        results.append({
+            "id": data.get("id", path.stem),
+            "name": data.get("name", path.stem),
+            "maturity_current": data.get("maturity_current", 0),
+            "maturity_target": data.get("maturity_target", 4),
+            "wave": data.get("wave", 1),
+            "gaps": data.get("gaps", []),
+            "total_items": total_items,
+            "done_items": done_items,
+            "progress_percent": round(done_items / total_items * 100) if total_items else 0,
+            "next_level": next_level,
+            "next_item": next_item,
+            "threshold": threshold,
+            "owner_agent": data.get("owner_agent", ""),
+        })
+    results.sort(key=lambda r: (r["wave"], r["maturity_current"]))
+    return results
+
+
+@app.get("/api/capabilities/{capability_id}/levels")
+def get_capability_levels(capability_id: str) -> dict:
+    data = store.get_capability_levels(capability_id)
+    if data is None:
+        raise HTTPException(404, f"Capability {capability_id} not found")
+    return data
+
+
+@app.put("/api/capabilities/{capability_id}/levels/{level}/items/{index}")
+def toggle_capability_item(capability_id: str, level: int, index: int) -> dict:
+    data = store.toggle_capability_item(capability_id, level, index)
+    if data is None:
+        raise HTTPException(404, f"Capability {capability_id} not found or invalid level/index")
+    return data
 
 
 # ---------------------------------------------------------------------------

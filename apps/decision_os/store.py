@@ -164,3 +164,34 @@ class Store:
         if workspace_path.exists():
             return yaml.safe_load(workspace_path.read_text()) or {}
         return {}
+
+    def get_capability_levels(self, capability_id: str) -> dict | None:
+        """Read capability YAML and return levels structure."""
+        path = _STARTUP_OS / "capabilities" / f"{capability_id}.yaml"
+        if not path.exists():
+            return None
+        data = yaml.safe_load(path.read_text())
+        return data
+
+    def toggle_capability_item(self, capability_id: str, level: int, index: int) -> dict | None:
+        """Toggle a checklist item in a capability level."""
+        path = _STARTUP_OS / "capabilities" / f"{capability_id}.yaml"
+        if not path.exists():
+            return None
+        data = yaml.safe_load(path.read_text())
+        levels = data.get("levels", {})
+        level_data = levels.get(level)
+        if not level_data or index >= len(level_data.get("items", [])):
+            return None
+        level_data["items"][index]["done"] = not level_data["items"][index]["done"]
+        # Auto-compute maturity: highest level where all items are done
+        computed_maturity = 0
+        for lvl in sorted(levels.keys()):
+            items = levels[lvl].get("items", [])
+            if items and all(item.get("done") for item in items):
+                computed_maturity = lvl
+            else:
+                break
+        data["maturity_current"] = computed_maturity
+        path.write_text(yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
+        return data
