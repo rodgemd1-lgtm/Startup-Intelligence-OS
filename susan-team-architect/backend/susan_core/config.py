@@ -19,6 +19,8 @@ class Config:
     supabase_url: str = os.environ.get("SUPABASE_URL", "")
     supabase_key: str = os.environ.get("SUPABASE_SERVICE_KEY", "")
     firecrawl_api_key: str = os.environ.get("FIRECRAWL_API_KEY", "")
+    exa_api_key: str = os.environ.get("EXA_API_KEY", "")
+    jina_api_key: str = os.environ.get("JINA_API_KEY", "")
 
     # Model routing
     model_opus: str = "claude-opus-4-6"
@@ -31,6 +33,7 @@ class Config:
     artifacts_dir: Path = Path(__file__).parent.parent / "artifacts"
     phase_cache_dir: Path = Path(__file__).parent.parent / "artifacts" / "phase_cache"
     domains_dir: Path = Path(__file__).parent.parent / "data" / "domains"
+    scrape_manifests_dir: Path = Path(__file__).parent.parent / "data" / "scrape_manifests"
     fitness_domain_dir: Path = Path(__file__).parent.parent / "data" / "domains" / "fitness_app_intelligence"
     companies_dir: Path = Path.cwd() / "companies"
 
