@@ -2,26 +2,58 @@
 import { useState } from "react";
 import { useAppState } from "@/components/AppShell";
 import { CapabilityDrilldown } from "@/components/CapabilityDrilldown";
+import { MaturityBar } from "@/components/MaturityBar";
 import { delay } from "@/lib/utils";
 
 export default function CapabilitiesPage() {
   const state = useAppState();
   const [expandedDomain, setExpandedDomain] = useState<string | null>(null);
 
-  const totalGaps = state.capabilities.reduce((s, c) => s + c.gaps.length, 0);
+  // Use capability summary data when available, fall back to static capabilities
+  const hasSummary = state.capabilitySummary && state.capabilitySummary.length > 0;
+  const capabilities = hasSummary
+    ? state.capabilitySummary!.map((s) => ({
+        name: s.name,
+        maturity: s.maturity_current,
+        target: s.maturity_target,
+        gaps: s.gaps,
+        wave: s.wave,
+        id: s.id,
+        total_items: s.total_items,
+        done_items: s.done_items,
+        progress_percent: s.progress_percent,
+        threshold: s.threshold,
+        next_item: s.next_item,
+        owner_agent: s.owner_agent,
+      }))
+    : state.capabilities.map((c) => ({
+        name: c.name,
+        maturity: c.maturity,
+        target: c.target,
+        gaps: c.gaps,
+        wave: c.wave,
+        id: c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+        total_items: 0,
+        done_items: 0,
+        progress_percent: 0,
+        threshold: false,
+        next_item: null as string | null,
+        owner_agent: "",
+      }));
+
+  const totalGaps = capabilities.reduce((s, c) => s + c.gaps.length, 0);
   const avgMaturity = +(
-    state.capabilities.reduce((s, c) => s + c.maturity, 0) /
-    state.capabilities.length
+    capabilities.reduce((s, c) => s + c.maturity, 0) / capabilities.length
   ).toFixed(1);
 
   // Wave counts
   const waves = [0, 0, 0];
-  state.capabilities.forEach((c) => {
+  capabilities.forEach((c) => {
     waves[c.wave - 1]++;
   });
 
   // Sort for critical gaps: wave ascending, then maturity ascending
-  const sortedCaps = [...state.capabilities]
+  const sortedCaps = [...capabilities]
     .filter((c) => c.gaps.length > 0)
     .sort((a, b) => a.wave - b.wave || a.maturity - b.maturity);
 
@@ -35,7 +67,7 @@ export default function CapabilitiesPage() {
         Capability Map
       </h1>
       <p className="reveal" {...delay(0)}>
-        {state.capabilities.length} domains scored from the 25X assessment.
+        {capabilities.length} domains scored from the 25X assessment.
         Current aggregate:{" "}
         <span className="warning">
           {avgMaturity} / 5.0
@@ -66,7 +98,7 @@ export default function CapabilitiesPage() {
           <div className="label">current / target</div>
         </div>
         <div className="stack">
-          {state.capabilities.map((c) => {
+          {capabilities.map((c) => {
             const isExpanded = expandedDomain === c.name;
             return (
               <div key={c.name}>
@@ -79,32 +111,24 @@ export default function CapabilitiesPage() {
                 >
                   <div className="domain-name">{c.name}</div>
                   <div className="bar-wrap">
-                    <div className="maturity-segments">
-                      {[1, 2, 3, 4, 5].map((i) => {
-                        const filled = i <= Math.round(c.maturity);
-                        const isTarget =
-                          i <= Math.round(c.target) && !filled;
-                        const colorClass = filled
-                          ? c.maturity < 1.5
-                            ? " filled bad"
-                            : c.maturity < 2.5
-                            ? " filled warn"
-                            : " filled"
-                          : "";
-                        return (
-                          <div
-                            key={i}
-                            className={`maturity-seg${colorClass}${
-                              isTarget ? " target" : ""
-                            }`}
-                          />
-                        );
-                      })}
-                    </div>
+                    <MaturityBar
+                      maturity={c.maturity}
+                      target={c.target}
+                      threshold={c.threshold}
+                      compact
+                    />
                   </div>
                   <div className="score-label">
                     {c.maturity.toFixed(1)} &rarr; {c.target.toFixed(1)}
                   </div>
+                  {hasSummary && c.total_items > 0 && (
+                    <span
+                      className="mono tertiary"
+                      style={{ fontSize: "0.68rem", minWidth: 60, textAlign: "right" }}
+                    >
+                      {c.done_items}/{c.total_items} &mdash; {c.progress_percent}%
+                    </span>
+                  )}
                   <span
                     className={`tag tag-${
                       c.wave === 1
@@ -120,7 +144,14 @@ export default function CapabilitiesPage() {
 
                 {/* Drilldown inline */}
                 <CapabilityDrilldown
-                  capability={c}
+                  capability={{
+                    name: c.name,
+                    maturity: c.maturity,
+                    target: c.target,
+                    gaps: c.gaps,
+                    wave: c.wave,
+                  }}
+                  capabilityId={c.id}
                   agents={state.agents}
                   expanded={isExpanded}
                 />

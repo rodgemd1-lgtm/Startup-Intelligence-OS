@@ -1,5 +1,9 @@
 "use client";
+import { useState, useEffect } from "react";
 import type { Capability, Agent } from "@/lib/state";
+import { api } from "@/lib/api";
+import type { CapabilityWithLevels } from "@/lib/api";
+import { LevelChecklist } from "@/components/LevelChecklist";
 import { groupColors } from "@/lib/utils";
 
 const DOMAIN_AGENT_GROUPS: Record<string, string[]> = {
@@ -43,19 +47,51 @@ function getAction(gap: string): string {
 
 interface CapabilityDrilldownProps {
   capability: Capability;
+  capabilityId?: string;
   agents: Agent[];
   expanded: boolean;
 }
 
 export function CapabilityDrilldown({
   capability,
+  capabilityId,
   agents,
   expanded,
 }: CapabilityDrilldownProps) {
+  const [levelsData, setLevelsData] = useState<CapabilityWithLevels | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (expanded && capabilityId && !levelsData) {
+      setLoading(true);
+      api
+        .capabilityLevels(capabilityId)
+        .then((data) => {
+          setLevelsData(data);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+        });
+    }
+  }, [expanded, capabilityId, levelsData]);
+
   if (!expanded) return null;
 
   const groups = DOMAIN_AGENT_GROUPS[capability.name] || [];
   const matchedAgents = agents.filter((a) => groups.includes(a.group));
+
+  const handleToggle = async (level: number, index: number) => {
+    if (!capabilityId) return;
+    try {
+      await api.toggleItem(capabilityId, level, index);
+      // Refresh levels data
+      const updated = await api.capabilityLevels(capabilityId);
+      setLevelsData(updated);
+    } catch {
+      // Silently fail if API not available
+    }
+  };
 
   return (
     <div
@@ -68,6 +104,60 @@ export function CapabilityDrilldown({
         marginBottom: 8,
       }}
     >
+      {/* Next item highlight */}
+      {levelsData && levelsData.done_items < levelsData.total_items && (
+        <div
+          style={{
+            padding: "10px 14px",
+            borderRadius: "var(--radius-sm)",
+            background: "linear-gradient(135deg, rgba(91,141,239,0.08), rgba(92,212,160,0.06))",
+            border: "1px solid var(--accent-border)",
+            marginBottom: 14,
+            fontSize: "0.82rem",
+          }}
+        >
+          <div className="label" style={{ marginBottom: 4, color: "var(--accent)" }}>
+            Next Step
+          </div>
+          <div style={{ color: "var(--text)" }}>
+            {/* Find the first undone item */}
+            {(() => {
+              for (let l = 1; l <= 4; l++) {
+                const level = levelsData.levels[l];
+                if (level) {
+                  const nextItem = level.items.find((i) => !i.done);
+                  if (nextItem) return nextItem.text;
+                }
+              }
+              return "All items complete";
+            })()}
+          </div>
+          <div className="mono tertiary" style={{ marginTop: 4, fontSize: "0.72rem" }}>
+            {levelsData.done_items}/{levelsData.total_items} steps complete ({levelsData.progress_percent}%)
+          </div>
+        </div>
+      )}
+
+      {/* Level checklist */}
+      {loading && (
+        <div style={{ padding: "8px 0", fontSize: "0.78rem", color: "var(--text-tertiary)" }}>
+          Loading levels...
+        </div>
+      )}
+      {levelsData && levelsData.levels && (
+        <div style={{ marginBottom: 14 }}>
+          <div className="label" style={{ marginBottom: 8 }}>
+            Level Progression
+          </div>
+          <LevelChecklist
+            capabilityId={capabilityId || ""}
+            levels={levelsData.levels}
+            currentMaturity={capability.maturity}
+            onToggle={handleToggle}
+          />
+        </div>
+      )}
+
       {/* Gap list with recommended actions */}
       {capability.gaps.length > 0 && (
         <div style={{ marginBottom: 14 }}>
