@@ -40,12 +40,23 @@ export interface Decision {
   options: DecisionOption[];
 }
 
+export interface LevelItem {
+  text: string;
+  done: boolean;
+}
+
+export interface CapabilityLevel {
+  name: string;
+  items: LevelItem[];
+}
+
 export interface Capability {
   name: string;
   maturity: number;
   target: number;
   gaps: string[];
   wave: number;
+  levels?: Record<number, CapabilityLevel>;
 }
 
 export interface Agent {

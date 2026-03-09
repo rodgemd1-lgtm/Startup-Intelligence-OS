@@ -137,6 +137,23 @@ class Capability(BaseModel):
             self.id = _deterministic_id("cap", f"{self.name}-{self.created_at}")
 
 
+class LevelItem(BaseModel):
+    text: str
+    done: bool = False
+
+
+class CapabilityLevel(BaseModel):
+    name: str  # Nascent, Emerging, Scaling, Optimizing, Leading
+    items: list[LevelItem] = Field(default_factory=list)
+
+
+class CapabilityWithLevels(Capability):
+    """Extended capability with per-level checklists."""
+    wave: int = 1
+    maturity_target: float = 4.0
+    levels: dict[int, CapabilityLevel] = Field(default_factory=dict)
+
+
 class Project(BaseModel):
     id: str = ""
     name: str
