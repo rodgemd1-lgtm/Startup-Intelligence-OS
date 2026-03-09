@@ -1,0 +1,35 @@
+manifest:
+  name: "Competitive Intelligence"
+  company: transformfit
+  data_type: competitive_intel
+  created: 2026-03-09
+  priority: high
+
+sources:
+  - tool: exa
+    query: "Fitbod app review workout generation AI personalization features"
+    num_results: 10
+
+  - tool: exa
+    query: "Hevy workout tracker app features pricing UX review"
+    num_results: 8
+
+  - tool: exa
+    query: "Future fitness app personal training AI coaching review"
+    num_results: 8
+
+  - tool: exa
+    query: "Noom weight loss app behavioral psychology design review"
+    num_results: 8
+
+  - tool: exa
+    query: "AI fitness app market landscape 2025 2026 personalization"
+    num_results: 10
+
+  - tool: exa
+    query: "Peloton app subscription fitness features engagement retention"
+    num_results: 8
+
+  - tool: exa
+    query: "fitness app subscription pricing models freemium conversion"
+    num_results: 8

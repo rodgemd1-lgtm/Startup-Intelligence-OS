@@ -1,0 +1,37 @@
+manifest:
+  name: "Emotional Design, Motion Narrative & Feeling Data"
+  company: transformfit
+  data_type: emotional_design
+  created: 2026-03-09
+  priority: high
+
+sources:
+  - tool: exa
+    query: "emotional design principles health wellness apps user engagement"
+    num_results: 15
+
+  - tool: exa
+    query: "motion design principles micro-interactions mobile apps trust building"
+    num_results: 10
+
+  - tool: exa
+    query: "moments of truth customer journey health fitness app first experience"
+    num_results: 10
+
+  - tool: exa
+    query: "behavioral design felt safety body image sensitive inclusive fitness"
+    num_results: 10
+
+  - tool: exa
+    query: "premium brand design restraint luxury digital product dark mode"
+    num_results: 8
+
+  - tool: exa
+    query: "copy tone voice health wellness app motivational not preachy"
+    num_results: 8
+
+  - tool: jina
+    url: "https://www.nngroup.com/articles/emotional-design/"
+
+  - tool: jina
+    url: "https://material.io/design/motion/understanding-motion.html"

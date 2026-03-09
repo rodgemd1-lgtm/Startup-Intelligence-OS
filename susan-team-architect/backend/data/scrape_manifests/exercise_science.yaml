@@ -1,0 +1,48 @@
+manifest:
+  name: "Exercise Science & Biomechanics"
+  company: transformfit
+  data_type: exercise_science
+  created: 2026-03-09
+  priority: high
+
+sources:
+  - tool: exa
+    query: "progressive overload training protocols evidence-based strength"
+    num_results: 15
+
+  - tool: exa
+    query: "exercise regression progression alternatives for common lifts"
+    num_results: 10
+
+  - tool: exa
+    query: "form cues and common errors barbell squat bench press deadlift"
+    num_results: 10
+
+  - tool: exa
+    query: "periodization models for intermediate lifters hypertrophy strength"
+    num_results: 10
+
+  - tool: exa
+    query: "injury prevention protocols strength training shoulders knees lower back"
+    num_results: 10
+
+  - tool: exa
+    query: "warm up protocols dynamic stretching activation drills before lifting"
+    num_results: 8
+
+  - tool: exa
+    query: "RPE RIR autoregulation strength training programming"
+    num_results: 10
+
+  - tool: exa
+    query: "training volume landmarks per muscle group hypertrophy research"
+    num_results: 10
+
+  - tool: jina
+    url: "https://www.strongerbyscience.com/hypertrophy-range-fact-fiction/"
+
+  - tool: jina
+    url: "https://www.strongerbyscience.com/the-new-approach-to-training-volume/"
+
+  - tool: jina
+    url: "https://rpstrength.com/blogs/articles/training-volume-landmarks-for-muscle-growth"

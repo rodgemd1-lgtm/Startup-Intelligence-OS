@@ -1,0 +1,40 @@
+manifest:
+  name: "UX/UI Research & Design Patterns"
+  company: transformfit
+  data_type: ux_research
+  created: 2026-03-09
+  priority: high
+
+sources:
+  - tool: exa
+    query: "mobile fitness app UX design patterns best practices 2025 2026"
+    num_results: 15
+
+  - tool: exa
+    query: "onboarding flow design patterns mobile health apps reduce abandonment"
+    num_results: 10
+
+  - tool: exa
+    query: "interaction design principles dark mode mobile apps premium feel"
+    num_results: 10
+
+  - tool: exa
+    query: "workout logging UX design patterns mobile gym apps"
+    num_results: 10
+
+  - tool: exa
+    query: "WCAG 2.2 accessibility guidelines mobile fitness applications"
+    num_results: 8
+
+  - tool: exa
+    query: "design system architecture component library best practices React"
+    num_results: 8
+
+  - tool: jina
+    url: "https://lawsofux.com/"
+
+  - tool: jina
+    url: "https://www.nngroup.com/articles/ten-usability-heuristics/"
+
+  - tool: jina
+    url: "https://www.nngroup.com/articles/onboarding/"

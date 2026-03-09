@@ -1,0 +1,37 @@
+manifest:
+  name: "Behavioral Economics & Retention"
+  company: transformfit
+  data_type: behavioral_economics
+  created: 2026-03-09
+  priority: high
+
+sources:
+  - tool: exa
+    query: "gamification health fitness apps evidence-based engagement mechanics"
+    num_results: 15
+
+  - tool: exa
+    query: "loss aversion fitness app retention design churn prevention"
+    num_results: 10
+
+  - tool: exa
+    query: "habit formation BJ Fogg tiny habits fitness exercise adherence"
+    num_results: 10
+
+  - tool: exa
+    query: "variable reward schedules mobile app engagement ethical design"
+    num_results: 10
+
+  - tool: exa
+    query: "streak reward system design Duolingo Strava engagement case study"
+    num_results: 10
+
+  - tool: exa
+    query: "notification timing psychology mobile health app re-engagement"
+    num_results: 8
+
+  - tool: jina
+    url: "https://www.behavioraleconomics.com/resources/mini-encyclopedia-of-be/loss-aversion/"
+
+  - tool: jina
+    url: "https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/"
