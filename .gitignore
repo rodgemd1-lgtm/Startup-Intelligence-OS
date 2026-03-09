@@ -4,3 +4,6 @@ susan-team-architect/backend/.venv/
 susan-team-architect/backend/.pytest_cache/
 __pycache__/
 *.pyc
+
+# Node
+node_modules/
