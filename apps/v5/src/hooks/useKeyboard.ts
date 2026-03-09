@@ -11,7 +11,7 @@ const VIEW_MAP: Record<string, string> = {
   "6": "/dashboard",
 };
 
-export function useKeyboard(onToggleTerminal: () => void) {
+export function useKeyboard() {
   const router = useRouter();
 
   useEffect(() => {
@@ -21,12 +21,8 @@ export function useKeyboard(onToggleTerminal: () => void) {
       if (VIEW_MAP[e.key]) {
         router.push(VIEW_MAP[e.key]);
       }
-      if (e.key === "t" || e.key === "`") {
-        e.preventDefault();
-        onToggleTerminal();
-      }
     }
     document.addEventListener("keydown", handleKeydown);
     return () => document.removeEventListener("keydown", handleKeydown);
-  }, [router, onToggleTerminal]);
+  }, [router]);
 }

@@ -4,10 +4,9 @@ import type { AppContext } from "@/lib/state";
 
 interface TopbarProps {
   context: AppContext;
-  onToggleTerminal?: () => void;
 }
 
-export function Topbar({ context, onToggleTerminal }: TopbarProps) {
+export function Topbar({ context }: TopbarProps) {
   const router = useRouter();
 
   return (
@@ -31,9 +30,6 @@ export function Topbar({ context, onToggleTerminal }: TopbarProps) {
         </span>
       </div>
       <div className="toolbar">
-        <button className="btn" onClick={onToggleTerminal}>
-          Terminal
-        </button>
         <button className="btn" onClick={() => router.push("/agents")}>
           Run Susan
         </button>

@@ -1,14 +1,14 @@
 "use client";
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 import { RightRail } from "./RightRail";
 import { BottomNav } from "./BottomNav";
-import { Terminal } from "./Terminal";
+import { XTerminal } from "./XTerminal";
+import { DragHandle } from "./DragHandle";
 import { useApi } from "@/hooks/useApi";
 import { useKeyboard } from "@/hooks/useKeyboard";
-import type { AppState } from "@/lib/state";
 
 type AppStateType = ReturnType<typeof useApi>;
 const AppStateContext = createContext<AppStateType | null>(null);
@@ -19,61 +19,36 @@ export function useAppState() {
   return ctx;
 }
 
-const TerminalContext = createContext<{ visible: boolean; toggle: () => void }>({
-  visible: false,
-  toggle: () => {},
-});
-
-export function useTerminal() {
-  return useContext(TerminalContext);
-}
-
 export function AppShell({ children }: { children: React.ReactNode }) {
   const state = useApi();
   const pathname = usePathname();
-  const [terminalVisible, setTerminalVisible] = useState(false);
-  const toggleTerminal = useCallback(() => setTerminalVisible((v) => !v), []);
+  const [splitPercent, setSplitPercent] = useState(65);
 
-  useKeyboard(toggleTerminal);
-
-  const terminalState: AppState = {
-    context: state.context,
-    status: state.status,
-    debrief: state.debrief,
-    decisions: state.decisions,
-    capabilities: state.capabilities,
-    agents: state.agents,
-    vision: state.vision,
-  };
+  useKeyboard();
 
   return (
     <AppStateContext.Provider value={state}>
-      <TerminalContext.Provider value={{ visible: terminalVisible, toggle: toggleTerminal }}>
-        <div className="app">
-          <Sidebar
-            currentPath={pathname}
-            apiLive={state.apiLive}
-            agentCount={state.agents.length}
-            decisionCount={state.status.decisions ?? state.decisions.length}
-            totalGaps={state.capabilities.reduce((s, c) => s + c.gaps.length, 0)}
-          />
-          <div className="main">
-            <Topbar context={state.context} onToggleTerminal={toggleTerminal} />
-            <div className="pane">
-              <div className="pane-inner">
-                {children}
-                <Terminal
-                  visible={terminalVisible}
-                  onToggle={toggleTerminal}
-                  state={terminalState}
-                />
-              </div>
-            </div>
+      <div className="app">
+        <Sidebar
+          currentPath={pathname}
+          apiLive={state.apiLive}
+          agentCount={state.agents.length}
+          decisionCount={state.status.decisions ?? state.decisions.length}
+          totalGaps={state.capabilities.reduce((s, c) => s + c.gaps.length, 0)}
+        />
+        <div className="main">
+          <Topbar context={state.context} />
+          <div className="terminal-zone" style={{ flex: `0 0 ${splitPercent}%` }}>
+            <XTerminal />
           </div>
-          <RightRail debrief={state.debrief} context={state.context} />
-          <BottomNav currentPath={pathname} />
+          <DragHandle onResize={setSplitPercent} />
+          <div className="context-zone">
+            {children}
+          </div>
         </div>
-      </TerminalContext.Provider>
+        <RightRail debrief={state.debrief} context={state.context} />
+        <BottomNav currentPath={pathname} />
+      </div>
     </AppStateContext.Provider>
   );
 }
