@@ -406,6 +406,89 @@ def sync_protocols() -> str:
     return json.dumps({"results": sync_project_protocols()}, indent=2)
 
 
+# ── Tool 16: scrape_url ──────────────────────────────────────
+
+@mcp.tool()
+def scrape_url(
+    url: str,
+    tool: str = "firecrawl",
+    data_type: str = "market_research",
+    company_id: str = "transformfit",
+) -> str:
+    """Scrape a single URL and ingest into Susan's knowledge base.
+
+    Args:
+        url: The URL to scrape
+        tool: Scraping tool to use -- "firecrawl" or "jina"
+        data_type: Knowledge category (exercise_science, ux_research, etc.)
+        company_id: Company namespace
+    """
+    if tool == "jina":
+        from rag_engine.ingestion.jina_reader import JinaReaderIngestor
+        ingestor = JinaReaderIngestor()
+    else:
+        ingestor = WebIngestor()
+
+    count = ingestor.ingest(source=url, company_id=company_id, data_type=data_type)
+    return json.dumps({"url": url, "tool": tool, "chunks_ingested": count})
+
+
+# ── Tool 17: scrape_search ───────────────────────────────────
+
+@mcp.tool()
+def scrape_search(
+    query: str,
+    num_results: int = 10,
+    data_type: str = "market_research",
+    company_id: str = "transformfit",
+) -> str:
+    """Run Exa semantic search and ingest results into Susan's knowledge base.
+
+    Finds thematically related content that keyword search would miss.
+
+    Args:
+        query: Natural language search query
+        num_results: Number of results to discover and ingest
+        data_type: Knowledge category
+        company_id: Company namespace
+    """
+    from rag_engine.ingestion.exa_search import ExaSearchIngestor
+
+    ingestor = ExaSearchIngestor()
+    count = ingestor.ingest(
+        source=query,
+        company_id=company_id,
+        data_type=data_type,
+        num_results=num_results,
+    )
+    return json.dumps({"query": query, "num_results": num_results, "chunks_ingested": count})
+
+
+# ── Tool 18: scrape_batch ────────────────────────────────────
+
+@mcp.tool()
+def scrape_batch(
+    manifest_name: str,
+    dry_run: bool = False,
+    company_id: str = "transformfit",
+) -> str:
+    """Execute a batch scraping manifest from data/scrape_manifests/.
+
+    Args:
+        manifest_name: Manifest filename (e.g., "exercise_science.yaml")
+        dry_run: If True, list sources without executing
+        company_id: Company namespace
+    """
+    from rag_engine.batch import execute_manifest
+
+    manifest_path = config.scrape_manifests_dir / manifest_name
+    if not manifest_path.exists():
+        return json.dumps({"error": f"Manifest not found: {manifest_name}"})
+
+    result = execute_manifest(manifest_path, dry_run=dry_run)
+    return json.dumps(result)
+
+
 # ── Entry point ──────────────────────────────────────────────
 
 def main():
