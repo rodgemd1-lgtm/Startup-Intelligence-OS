@@ -17,12 +17,14 @@ export function XTerminal() {
     if (!termRef.current) return;
     const term = termRef.current;
 
+    // Close previous connection if any
+    wsRef.current?.close();
+
     const ws = new WebSocket(WS_URL);
     wsRef.current = ws;
 
     ws.onopen = () => {
       term.writeln("\x1b[32mConnected to shell.\x1b[0m");
-      // Send initial resize
       const fitAddon = fitAddonRef.current;
       if (fitAddon) {
         fitAddon.fit();
@@ -41,16 +43,6 @@ export function XTerminal() {
     ws.onerror = () => {
       term.writeln("\x1b[31mConnection failed. Is the terminal server running on port 8421?\x1b[0m");
     };
-
-    // Terminal input -> WebSocket
-    term.onData((data) => {
-      if (ws.readyState === WebSocket.OPEN) {
-        ws.send(data);
-      } else if (data === "\r") {
-        // Reconnect on Enter if disconnected
-        connect();
-      }
-    });
   }, []);
 
   useEffect(() => {
@@ -98,19 +90,34 @@ export function XTerminal() {
     term.open(containerRef.current);
     fitAddon.fit();
 
-    // Handle container resize
-    const resizeObserver = new ResizeObserver(() => {
-      fitAddon.fit();
+    // Register onData once — references wsRef.current for the active connection
+    term.onData((data) => {
       const ws = wsRef.current;
       if (ws && ws.readyState === WebSocket.OPEN) {
-        ws.send(`\x1b[RESIZE:${term.cols}:${term.rows}`);
+        ws.send(data);
+      } else if (data === "\r") {
+        connect();
       }
+    });
+
+    // Debounced resize observer
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        fitAddon.fit();
+        const ws = wsRef.current;
+        if (ws && ws.readyState === WebSocket.OPEN) {
+          ws.send(`\x1b[RESIZE:${term.cols}:${term.rows}`);
+        }
+      }, 100);
     });
     resizeObserver.observe(containerRef.current);
 
     connect();
 
     return () => {
+      clearTimeout(resizeTimeout);
       resizeObserver.disconnect();
       wsRef.current?.close();
       term.dispose();

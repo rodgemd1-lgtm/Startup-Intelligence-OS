@@ -16,8 +16,11 @@ export function useKeyboard() {
 
   useEffect(() => {
     function handleKeydown(e: KeyboardEvent) {
-      const tag = (e.target as HTMLElement).tagName;
+      const el = e.target as HTMLElement;
+      const tag = el.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
+      // Don't intercept keys when xterm has focus
+      if (el.closest(".xterminal") || el.closest(".xterm")) return;
       if (VIEW_MAP[e.key]) {
         router.push(VIEW_MAP[e.key]);
       }

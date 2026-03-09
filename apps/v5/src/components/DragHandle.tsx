@@ -16,8 +16,8 @@ export function DragHandle({ onResize }: DragHandleProps) {
       const mainEl = (e.target as HTMLElement).closest(".main");
       if (!mainEl) return;
       const rect = mainEl.getBoundingClientRect();
-      // Subtract topbar height (~52px)
-      const topbarHeight = 52;
+      const topbar = mainEl.querySelector('.topbar');
+      const topbarHeight = topbar ? topbar.getBoundingClientRect().height : 52;
       const availableHeight = rect.height - topbarHeight;
 
       const onMouseMove = (moveEvent: MouseEvent) => {

@@ -5,13 +5,30 @@ import { platform } from "os";
 
 const PORT = parseInt(process.env.TERMINAL_PORT || "8421", 10);
 const SHELL = process.env.SHELL || (platform() === "win32" ? "powershell.exe" : "zsh");
-const CWD = process.env.TERMINAL_CWD || "/Users/mikerodgers/Startup-Intelligence-OS";
+const CWD = process.env.TERMINAL_CWD || process.cwd();
+const MAX_CONNECTIONS = 5;
 
-const wss = new WebSocketServer({ port: PORT });
-console.log(`Terminal server listening on ws://localhost:${PORT}`);
+let connectionCount = 0;
 
-wss.on("connection", (ws: WebSocket) => {
-  console.log("Client connected — spawning PTY");
+const wss = new WebSocketServer({ port: PORT, host: "127.0.0.1" });
+console.log(`Terminal server listening on ws://127.0.0.1:${PORT}`);
+
+wss.on("connection", (ws: WebSocket, req) => {
+  // Origin validation
+  const origin = req.headers.origin;
+  if (origin && !origin.startsWith("http://localhost")) {
+    ws.close(1008, "Origin not allowed");
+    return;
+  }
+
+  // Connection limit
+  if (connectionCount >= MAX_CONNECTIONS) {
+    ws.close(1013, "Maximum connections reached");
+    return;
+  }
+  connectionCount++;
+
+  console.log(`Client connected (${connectionCount}/${MAX_CONNECTIONS}) — spawning PTY`);
 
   const ptyProcess = pty.spawn(SHELL, [], {
     name: "xterm-256color",
@@ -50,7 +67,8 @@ wss.on("connection", (ws: WebSocket) => {
   });
 
   ws.on("close", () => {
-    console.log("Client disconnected — killing PTY");
+    connectionCount--;
+    console.log(`Client disconnected (${connectionCount}/${MAX_CONNECTIONS}) — killing PTY`);
     ptyProcess.kill();
   });
 
