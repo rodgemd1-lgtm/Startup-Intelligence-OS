@@ -54,6 +54,54 @@ class WebIngestor(BaseIngestor):
 
         return total
 
+    def crawl(
+        self,
+        source: str,
+        company_id: str = "shared",
+        data_type: str = "market_research",
+        agent_id: str | None = None,
+        max_pages: int = 50,
+        **kwargs,
+    ) -> int:
+        """Deep crawl a site via Firecrawl, following internal links.
+
+        Args:
+            source: Base URL to crawl.
+            max_pages: Maximum number of pages to crawl.
+        """
+        app = FirecrawlApp(api_key=config.firecrawl_api_key)
+        total = 0
+
+        try:
+            result = app.crawl_url(source, params={"limit": max_pages})
+            pages = result.data if hasattr(result, "data") else []
+        except Exception as e:
+            print(f"  Warning: Firecrawl crawl failed for {source}: {e}")
+            return 0
+
+        for page in pages:
+            markdown = getattr(page, "markdown", "") or ""
+            if not markdown.strip():
+                continue
+
+            metadata = getattr(page, "metadata", None)
+            title = getattr(metadata, "title", "") if metadata else ""
+            page_url = getattr(metadata, "sourceURL", source) if metadata else source
+
+            text_chunks = chunk_markdown(markdown, max_tokens=500)
+            chunks = self._make_chunks(
+                texts=text_chunks,
+                data_type=data_type,
+                company_id=company_id,
+                agent_id=agent_id,
+                source=f"firecrawl-crawl:{page_url}",
+                source_url=page_url,
+                metadata={"title": title, "tool": "firecrawl-crawl", "base_url": source},
+            )
+            total += self.retriever.store_chunks(chunks)
+
+        return total
+
     def _resolve_urls(self, source: str) -> list[str]:
         """Resolve source to a list of URLs."""
         path = Path(source)

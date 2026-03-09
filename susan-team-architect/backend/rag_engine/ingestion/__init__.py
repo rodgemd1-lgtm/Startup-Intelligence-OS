@@ -8,6 +8,9 @@ from rag_engine.ingestion.arxiv_ingestor import ArxivIngestor
 from rag_engine.ingestion.reddit import RedditIngestor
 from rag_engine.ingestion.appstore import AppStoreIngestor
 from rag_engine.ingestion.nhanes import NHANESIngestor
+from rag_engine.ingestion.exa_search import ExaSearchIngestor
+from rag_engine.ingestion.jina_reader import JinaReaderIngestor
+from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
 
 __all__ = [
     "MarkdownIngestor",
@@ -18,4 +21,7 @@ __all__ = [
     "RedditIngestor",
     "AppStoreIngestor",
     "NHANESIngestor",
+    "ExaSearchIngestor",
+    "JinaReaderIngestor",
+    "PlaywrightIngestor",
 ]
