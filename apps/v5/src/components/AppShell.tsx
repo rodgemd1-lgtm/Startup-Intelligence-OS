@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
@@ -22,7 +22,18 @@ export function useAppState() {
 export function AppShell({ children }: { children: React.ReactNode }) {
   const state = useApi();
   const pathname = usePathname();
-  const [splitPercent, setSplitPercent] = useState(65);
+  const [splitPercent, setSplitPercent] = useState(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("cockpit-split");
+      return stored ? parseFloat(stored) : 65;
+    }
+    return 65;
+  });
+
+  const handleResize = useCallback((pct: number) => {
+    setSplitPercent(pct);
+    localStorage.setItem("cockpit-split", String(pct));
+  }, []);
 
   useKeyboard();
 
@@ -41,7 +52,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="terminal-zone" style={{ flex: `0 0 ${splitPercent}%` }}>
             <XTerminal />
           </div>
-          <DragHandle onResize={setSplitPercent} />
+          <DragHandle onResize={handleResize} />
           <div className="context-zone">
             {children}
           </div>
