@@ -1,0 +1,59 @@
+id: platform-infrastructure
+name: Platform Infrastructure
+maturity_current: 1.3
+maturity_target: 4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Atlas
+gaps:
+  - auth
+  - CI/CD
+  - monitoring
+  - WebSockets
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Git repository with .startup-os kernel and workspace.yaml contract"
+        done: true
+      - text: "Atlas engineering agent defined (susan-team-architect/agents/atlas-engineering.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "FastAPI server running on port 8420 (apps/decision_os/api.py)"
+        done: true
+      - text: "Supabase database operational (pgvector, embeddings, knowledge base)"
+        done: true
+      - text: "CORS configured for local development ports (3000, 3001, 5173, 5174)"
+        done: true
+      - text: "WebSocket server for terminal relay operational"
+        done: false
+      - text: "Authentication layer (API keys or OAuth) for production endpoints"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "CI/CD pipeline with automated tests on push (GitHub Actions)"
+        done: false
+      - text: "Monitoring and alerting for API health, error rates, and latency"
+        done: false
+      - text: "Environment-based configuration (dev/staging/production)"
+        done: false
+      - text: "Database migrations versioned and automated (Supabase migrations)"
+        done: false
+      - text: "API rate limiting and request validation"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Zero-downtime deployments with blue-green or canary strategy"
+        done: false
+      - text: "Infrastructure as code — all resources reproducible from config"
+        done: false
+      - text: "Performance benchmarks with sub-200ms API response times"
+        done: false
+      - text: "Security audit passes (Sentinel agent validates compliance)"
+        done: false

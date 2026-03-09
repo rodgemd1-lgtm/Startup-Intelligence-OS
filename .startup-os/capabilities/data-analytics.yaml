@@ -1,0 +1,54 @@
+id: data-analytics
+name: Data & Analytics
+maturity_current: 1.2
+maturity_target: 4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Pulse
+gaps:
+  - outcome tracking
+  - feedback loops
+  - A/B testing
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Pulse data science agent defined (susan-team-architect/agents/pulse-data-science.md)"
+        done: true
+      - text: "Telemetry module exists (apps/decision_os/telemetry.py)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Monte Carlo simulation tool operational (run_simulation MCP tool)"
+        done: true
+      - text: "Object counts tracked via store.status() endpoint (/api/status)"
+        done: true
+      - text: "Outcome tracking links decisions to measurable results over time"
+        done: false
+      - text: "Feedback loops capture operator satisfaction and decision quality scores"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "A/B testing framework for feature and content experiments"
+        done: false
+      - text: "Capability maturity trend analysis with velocity and forecast"
+        done: false
+      - text: "Agent performance analytics — response quality, latency, cost per run"
+        done: false
+      - text: "Decision outcome correlation — which factors predict successful decisions"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Real-time analytics dashboard with drill-down by company, domain, and time"
+        done: false
+      - text: "Predictive models recommend next best action based on historical patterns"
+        done: false
+      - text: "Data quality monitoring flags stale, contradictory, or low-confidence data"
+        done: false
+      - text: "Automated weekly analytics digest with key trends and anomalies"
+        done: false

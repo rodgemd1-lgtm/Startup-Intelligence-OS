@@ -1,0 +1,56 @@
+id: content-marketing
+name: Content & Marketing
+maturity_current: 1.8
+maturity_target: 4
+wave: 3
+owner_human: Mike Rodgers
+owner_agent: Aria
+gaps:
+  - publishing pipeline
+  - asset cascade
+  - proof spines
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Aria growth agent defined (susan-team-architect/agents/aria-growth.md)"
+        done: true
+      - text: "Content studio agents created (article-studio, social-media-studio, deck-studio)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Marketing Studio Director agent coordinates content strategy"
+        done: true
+      - text: "Beacon ASO/SEO agent provides search optimization guidance"
+        done: true
+      - text: "Herald PR agent drafted for communications strategy"
+        done: true
+      - text: "Publishing pipeline from draft to review to publish with approval gates"
+        done: false
+      - text: "Asset cascade — single insight generates blog, social, deck, and email variants"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Proof spines link every marketing claim to evidence in RAG knowledge base"
+        done: false
+      - text: "Content calendar automated with scheduled publishing across channels"
+        done: false
+      - text: "Content performance tracking measures engagement and conversion per asset"
+        done: false
+      - text: "X Growth Studio produces Twitter/X thread content (x-growth-studio.md)"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Content recommendations driven by competitive intelligence and gap analysis"
+        done: false
+      - text: "Automated A/B testing of headlines and messaging variants"
+        done: false
+      - text: "Content library with reusable proof points, case studies, and templates"
+        done: false
+      - text: "Multi-channel publishing pipeline with format-specific optimization"
+        done: false

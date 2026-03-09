@@ -1,0 +1,58 @@
+id: ux-design
+name: UX & Design
+maturity_current: 2.2
+maturity_target: 4
+wave: 2
+owner_human: Mike Rodgers
+owner_agent: Marcus
+gaps:
+  - design system
+  - Figma integration
+  - visual artifacts
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Marcus UX agent defined (susan-team-architect/agents/marcus-ux.md)"
+        done: true
+      - text: "Design Studio Director agent defined (design-studio-director.md)"
+        done: true
+      - text: "UX Design Process orchestrator agent created (ux-design-process.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Jake Console v5 cockpit layout operational (apps/v5/src/components/AppShell.tsx)"
+        done: true
+      - text: "CapabilityDrilldown component renders maturity bars and wave groups"
+        done: true
+      - text: "XTerminal component provides WebSocket-backed terminal in cockpit"
+        done: true
+      - text: "Tailwind CSS design tokens consistent across all v5 components"
+        done: true
+      - text: "Design system component library documented with usage patterns"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Figma integration for design artifact export and version control"
+        done: false
+      - text: "Visual artifact generation — charts, diagrams, capability maps as SVG/PNG"
+        done: false
+      - text: "Responsive mobile layout for operator console"
+        done: false
+      - text: "Dark mode / light mode theming via CSS custom properties"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Automated UI regression testing via visual snapshot comparison"
+        done: false
+      - text: "Accessibility audit passes WCAG 2.1 AA (Lens agent validation)"
+        done: false
+      - text: "Design system versioned and published as shared package"
+        done: false
+      - text: "User research insights automatically inform design decisions"
+        done: false

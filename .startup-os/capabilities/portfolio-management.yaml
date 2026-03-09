@@ -1,0 +1,53 @@
+id: portfolio-management
+name: Portfolio Management
+maturity_current: 1.8
+maturity_target: 4
+wave: 3
+owner_human: Mike Rodgers
+owner_agent: Steve
+gaps:
+  - multi-company orchestration
+  - cross-pollination
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Company model defined in models.py (Company, CompanyStage enum)"
+        done: true
+      - text: "Company store operational (store.py CompanyStore, .startup-os/companies/)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Company registry YAML tracks all companies (data/company_registry.yaml)"
+        done: true
+      - text: "Susan foundry runs per-company with company_id scoping"
+        done: true
+      - text: "Company builder skill (.claude/skills/company-builder/) scaffolds new companies"
+        done: false
+      - text: "Multi-company dashboard shows all companies with key metrics"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Cross-company intelligence sharing — insights flow between related companies"
+        done: false
+      - text: "Portfolio-level capability view aggregates maturity across companies"
+        done: false
+      - text: "Shared agent pool — agents serve multiple companies with context switching"
+        done: false
+      - text: "30-day launch protocol automates new company bootstrapping"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Portfolio optimization — resource allocation recommendations across companies"
+        done: false
+      - text: "Cross-pollination engine identifies transferable capabilities between companies"
+        done: false
+      - text: "5+ companies managed with automated daily operations"
+        done: false
+      - text: "Portfolio health score aggregates company-level metrics"
+        done: false

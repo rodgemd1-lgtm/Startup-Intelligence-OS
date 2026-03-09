@@ -1,0 +1,54 @@
+id: innovation-strategy
+name: Innovation & Strategy
+maturity_current: 1.8
+maturity_target: 4
+wave: 2
+owner_human: Mike Rodgers
+owner_agent: Steve
+gaps:
+  - future-back planning
+  - scenario branching
+  - assumption register
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Steve strategy agent defined (susan-team-architect/agents/steve-strategy.md)"
+        done: true
+      - text: "5-year vision roadmap documented in state.ts (2026-2031)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Innovation Studio skill produces structured strategic vision documents"
+        done: false
+      - text: "Future-back planning template with 5-year horizon and backcast milestones"
+        done: false
+      - text: "Scenario branching — at least 3 strategic scenarios modeled per decision"
+        done: false
+      - text: "Assumption register tracks key assumptions with invalidation criteria"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Steve agent runs Monte Carlo simulations for strategic scenarios"
+        done: false
+      - text: "Strategy artifacts auto-linked to decisions and capabilities"
+        done: false
+      - text: "Competitive intelligence integrated (Susan get_competitor tool operational)"
+        done: false
+      - text: "Quarterly strategy reviews automated with progress tracking"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Strategy recommendations update dynamically based on new evidence"
+        done: false
+      - text: "Cross-company strategic pattern recognition identifies opportunities"
+        done: false
+      - text: "Automated weekly strategy digest for operator with key signals"
+        done: false
+      - text: "Strategy playbook library with reusable templates and frameworks"
+        done: false

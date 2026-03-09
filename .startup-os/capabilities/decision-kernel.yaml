@@ -1,0 +1,58 @@
+id: decision-kernel
+name: Decision Kernel
+maturity_current: 2
+maturity_target: 4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Jake
+gaps:
+  - LLM debate
+  - evidence scoring
+  - outcome tracking
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Decision model defined in models.py (Decision, ScoredOption, DebateEntry, OutputContract)"
+        done: true
+      - text: "YAML-backed decision store operational (store.py DecisionStore)"
+        done: true
+      - text: "At least one decision record exists in .startup-os/decisions/"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "FastAPI decision endpoints operational (api.py /api/decisions, /api/decision/run)"
+        done: true
+      - text: "Stub debate endpoint returns structured arguments (/api/decision/{id}/debate)"
+        done: true
+      - text: "Decision status lifecycle (draft/proposed/approved/rejected/superseded) enforced"
+        done: true
+      - text: "LLM-powered debate engine wired to Claude API (decision_engine.py)"
+        done: false
+      - text: "Evidence linking functional — decisions reference evidence IDs"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Multi-round debate with builder/skeptic/contrarian/operator/red_team modes via LLM"
+        done: false
+      - text: "Evidence scoring with confidence and recency weighting"
+        done: false
+      - text: "Outcome tracking with reversal criteria and post-decision audit"
+        done: false
+      - text: "Decision room skill (.claude/skills/decision-room/) generates full decision packets"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Automated decision quality scoring based on evidence coverage and debate depth"
+        done: false
+      - text: "Cross-decision pattern detection identifies recurring failure modes"
+        done: false
+      - text: "Decision replay — re-run historical decisions with new evidence"
+        done: false
+      - text: "Decision API consumed by operator console with real-time WebSocket updates"
+        done: false

@@ -1,0 +1,54 @@
+id: studio-operations
+name: Studio Operations
+maturity_current: 1.8
+maturity_target: 4
+wave: 2
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - studio writeback
+  - case libraries
+  - experiment tracking
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Studio agents defined (design-studio-director, landing-page-studio, app-experience-studio, etc.)"
+        done: true
+      - text: "Marketing Studio Director agent created (marketing-studio-director.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Studio foundry operational in control_plane/foundry.py"
+        done: true
+      - text: "Control plane writeback writes studio outputs to file system (writeback.py)"
+        done: true
+      - text: "Deck Studio, Article Studio, Social Media Studio agents produce structured outputs"
+        done: false
+      - text: "Case library stores reusable studio artifacts with metadata and search"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Experiment tracking records A/B variants and measures conversion impact"
+        done: false
+      - text: "Studio pipelines chain multiple agents (research -> strategy -> content -> review)"
+        done: false
+      - text: "Studio audit trail logs every generation with inputs, outputs, and scores"
+        done: false
+      - text: "Studios produce assets in multiple formats (markdown, HTML, PDF, image)"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Studios 70% autonomous — produce draft assets without operator input"
+        done: false
+      - text: "Studio quality scoring predicts asset performance before publishing"
+        done: false
+      - text: "Cross-studio coordination — marketing and design studios share brand context"
+        done: false
+      - text: "Studio templates versioned and shareable across companies"
+        done: false

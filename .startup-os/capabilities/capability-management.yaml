@@ -1,0 +1,57 @@
+id: capability-management
+name: Capability Management
+maturity_current: 2
+maturity_target: 4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - automated discovery
+  - outcome-based scoring
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Capability model defined in models.py (Capability, CapabilityMaturity enum)"
+        done: true
+      - text: "YAML-backed capability store operational (store.py CapabilityStore)"
+        done: true
+      - text: "12 capability domains enumerated in state.ts with maturity scores"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "FastAPI capability list endpoint operational (/api/capabilities)"
+        done: true
+      - text: "Per-level checklist schema defined (LevelItem, CapabilityLevel in models.py)"
+        done: true
+      - text: "Capability YAML files seeded in .startup-os/capabilities/ with level checklists"
+        done: true
+      - text: "Susan capability-gap-map skill produces structured gap analysis"
+        done: false
+      - text: "Automated maturity computation from checklist completion"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Susan orchestrator runs automated capability discovery across codebase"
+        done: false
+      - text: "Outcome-based scoring links capabilities to measurable business metrics"
+        done: false
+      - text: "Capability dependency graph generated and validated"
+        done: false
+      - text: "Wave sequencing automatically rebalances when maturity changes"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Capability health dashboard with trend lines and forecasted maturity dates"
+        done: false
+      - text: "Cross-company capability benchmarking via Susan foundry"
+        done: false
+      - text: "Automated capability recommendations based on company stage and gaps"
+        done: false
+      - text: "Capability marketplace — shareable domain packs between companies"
+        done: false

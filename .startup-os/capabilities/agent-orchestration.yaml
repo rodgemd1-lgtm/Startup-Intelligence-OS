@@ -1,0 +1,62 @@
+id: agent-orchestration
+name: Agent Orchestration
+maturity_current: 2
+maturity_target: 4.5
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Nova
+gaps:
+  - semantic routing
+  - agent memory
+  - multi-agent reasoning
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "60+ agent definitions in susan-team-architect/agents/"
+        done: true
+      - text: "Nova AI/ML agent defined (susan-team-architect/agents/nova-ai.md)"
+        done: true
+      - text: "Susan orchestrator operational (susan_core/orchestrator.py)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "MCP server with 7+ tools operational (mcp_server/server.py)"
+        done: true
+      - text: "Susan run_agent tool executes agents with RAG context"
+        done: true
+      - text: "route_task tool routes company tasks to appropriate agents"
+        done: true
+      - text: "Agent registry YAML tracks all agent metadata (data/agent_registry.yaml)"
+        done: true
+      - text: "Semantic routing selects agents based on task content and capability match"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Multi-agent reasoning chains — agents collaborate on complex tasks"
+        done: false
+      - text: "Agent memory persists across sessions with context retrieval"
+        done: false
+      - text: "Agent evaluation framework measures output quality and accuracy"
+        done: false
+      - text: "Phase runtime (phase_runtime.py) orchestrates multi-step agent workflows"
+        done: false
+      - text: "Agent cost tracking and budget management per run"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Agent factory — create new specialized agents from templates in minutes"
+        done: false
+      - text: "Self-improving agents learn from operator feedback loops"
+        done: false
+      - text: "Agent marketplace — shareable agent packs across companies"
+        done: false
+      - text: "Autonomous agent scheduling — agents run proactive tasks without prompting"
+        done: false
+      - text: "120+ agents operational with measured quality scores above 80%"
+        done: false

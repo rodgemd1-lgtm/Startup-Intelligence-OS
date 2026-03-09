@@ -1,0 +1,55 @@
+id: operator-experience
+name: Operator Experience
+maturity_current: 1.5
+maturity_target: 4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Marcus
+gaps:
+  - real-time dashboard
+  - proactive suggestions
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Operator console shell exists (apps/operator-console/)"
+        done: true
+      - text: "Terminal remains primary execution surface (bin/jake, bin/os-context)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Jake Console v5 cockpit operational (apps/v5/) with Next.js 15"
+        done: true
+      - text: "Debrief endpoint generates dynamic operator briefings (/api/debrief)"
+        done: true
+      - text: "XTerminal component provides WebSocket terminal in cockpit"
+        done: true
+      - text: "Session banner shows active workspace, company, and project"
+        done: false
+      - text: "Proactive action suggestions surfaced based on capability gaps"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Real-time dashboard with live capability maturity progression"
+        done: false
+      - text: "Operator notifications for decision deadlines and capability threshold alerts"
+        done: false
+      - text: "Keyboard shortcuts for common operator actions (decision review, run trigger)"
+        done: false
+      - text: "Operator context persists across sessions (useSession hook)"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Proactive operator suggestions powered by agent analysis of current state"
+        done: false
+      - text: "Operator performance metrics — decisions per week, capability velocity"
+        done: false
+      - text: "Multi-operator support with role-based views and permissions"
+        done: false
+      - text: "Mobile-responsive operator interface for on-the-go management"
+        done: false

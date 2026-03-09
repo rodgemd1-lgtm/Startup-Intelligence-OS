@@ -1,0 +1,58 @@
+id: intelligence-research
+name: Intelligence & Research
+maturity_current: 2.8
+maturity_target: 4.5
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Research-Web
+gaps:
+  - triangulation
+  - contradiction detection
+  - coverage mapping
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Research agents defined (researcher-web, researcher-reddit, researcher-arxiv, researcher-appstore)"
+        done: true
+      - text: "Research director agent coordinates research workflows (research-director.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "RAG knowledge base operational with 10,700+ chunks across 22 data types"
+        done: true
+      - text: "search_knowledge MCP tool queries Supabase pgvector with Voyage AI embeddings"
+        done: true
+      - text: "ingest_url MCP tool scrapes and chunks web content into knowledge base"
+        done: true
+      - text: "Research enrichment skill (.claude/skills/research-enrichment/) runs structured research"
+        done: true
+      - text: "Evidence model (models.py) tracks source, confidence, recency, and dedup hash"
+        done: true
+  3:
+    name: Scaling
+    items:
+      - text: "Triangulation — cross-reference 3+ sources before high-confidence claims"
+        done: false
+      - text: "Contradiction detection flags conflicting evidence across sources"
+        done: false
+      - text: "Coverage mapping identifies blind spots in research corpus"
+        done: false
+      - text: "Research packet skill produces decision-ready evidence bundles"
+        done: false
+      - text: "Automated research quality scoring with source reputation weighting"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Continuous monitoring — agents proactively surface new relevant evidence"
+        done: false
+      - text: "Research corpus reaches 40K+ chunks with balanced domain coverage"
+        done: false
+      - text: "Evidence graph links related findings across domains and companies"
+        done: false
+      - text: "Research insights automatically trigger decision reviews when thresholds change"
+        done: false
