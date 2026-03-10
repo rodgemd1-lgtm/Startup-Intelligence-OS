@@ -24,6 +24,7 @@ from control_plane.protocols import (
     sync_project_protocols,
 )
 from susan_core.config import config
+from susan_core.production_engine import ProductionEngine
 from rag_engine.retriever import Retriever
 from rag_engine.ingestion.web import WebIngestor
 
@@ -32,6 +33,14 @@ mcp = FastMCP("Susan Intelligence")
 # Lazy singletons
 _retriever: Retriever | None = None
 _registry: dict | None = None
+_production_engine: ProductionEngine | None = None
+
+
+def _get_production_engine() -> ProductionEngine:
+    global _production_engine
+    if _production_engine is None:
+        _production_engine = ProductionEngine()
+    return _production_engine
 
 
 def _get_retriever() -> Retriever:
@@ -487,6 +496,438 @@ def scrape_batch(
 
     result = execute_manifest(manifest_path, dry_run=dry_run)
     return json.dumps(result)
+
+
+# ── Tool 19: start_production ──────────────────────────────────
+
+@mcp.tool()
+def start_production(
+    brief: str,
+    company_id: str,
+    format: str,
+    title: str | None = None,
+) -> str:
+    """Start a new film/image production.
+
+    Initializes a production lifecycle (design → storyboard → generation → refinement → delivered).
+
+    Args:
+        brief: Description of what to produce
+        company_id: Company namespace (e.g., "transformfit", "founder-intelligence-os")
+        format: Production format — film, reel, photo, series, carousel, brand-film, documentary
+        title: Optional production title
+    """
+    engine = _get_production_engine()
+    prod = engine.start(brief=brief, company_id=company_id, format=format, title=title)
+    return json.dumps({
+        "production_id": prod.production_id,
+        "brief": prod.brief,
+        "company_id": prod.company_id,
+        "format": prod.format,
+        "phase": prod.status.value,
+    }, indent=2)
+
+
+# ── Tool 20: production_status ────────────────────────────────
+
+@mcp.tool()
+def production_status(production_id: str) -> str:
+    """Get the current status of a production.
+
+    Returns phase, assigned agents, and outputs.
+
+    Args:
+        production_id: The production ID returned by start_production
+    """
+    engine = _get_production_engine()
+    try:
+        status = engine.get_status(production_id)
+        return json.dumps(status, indent=2)
+    except KeyError:
+        return json.dumps({"error": f"Production not found: {production_id}"})
+
+
+# ── Tool 21: list_productions ─────────────────────────────────
+
+@mcp.tool()
+def list_productions(
+    company_id: str,
+    status_filter: str | None = None,
+) -> str:
+    """List all productions for a company.
+
+    Args:
+        company_id: Company namespace
+        status_filter: Optional phase filter (design, storyboard, generation, refinement, delivered)
+    """
+    engine = _get_production_engine()
+    prods = engine.list_productions(company_id)
+    results = []
+    for p in prods:
+        if status_filter and p.status.value != status_filter:
+            continue
+        results.append({
+            "production_id": p.production_id,
+            "brief": p.brief,
+            "format": p.format,
+            "phase": p.status.value,
+            "agents_count": len(p.agents_assigned),
+            "outputs_count": len(p.outputs),
+        })
+    return json.dumps({"company_id": company_id, "productions": results, "total": len(results)}, indent=2)
+
+
+# ── Tool 22: run_studio_agent ─────────────────────────────────
+
+@mcp.tool()
+def run_studio_agent(
+    agent_id: str,
+    prompt: str,
+    production_id: str | None = None,
+    company_id: str = "shared",
+) -> str:
+    """Execute a studio agent with RAG context and optional production binding.
+
+    Routes to any of the 18 film studio agents (creative direction, generation engines).
+
+    Args:
+        agent_id: Studio agent ID (e.g., "film-studio-director", "image-gen-engine")
+        prompt: The task or question for the agent
+        production_id: Optional production ID to bind context
+        company_id: Company namespace for RAG scoping
+    """
+    registry = _get_registry()
+    agents = registry.get("agents", {})
+
+    if agent_id not in agents:
+        return json.dumps({"error": f"Unknown agent: {agent_id}. Available: {list(agents.keys())}"})
+
+    from agents.base_agent import BaseAgent
+
+    agent_info = agents[agent_id]
+    agent = BaseAgent(company_id=company_id)
+    agent.agent_id = agent_id
+    agent.agent_name = agent_info["name"]
+    agent.role = agent_info["role"]
+    agent.model = agent_info["model"]
+    agent.rag_data_types = agent_info.get("rag_data_types", [])
+
+    # Enrich prompt with production context if bound
+    enriched_prompt = prompt
+    if production_id:
+        engine = _get_production_engine()
+        try:
+            status = engine.get_status(production_id)
+            enriched_prompt = (
+                f"[Production Context: {status['brief']} | Phase: {status['phase']} | "
+                f"Format: {status['format']} | Company: {status['company_id']}]\n\n{prompt}"
+            )
+        except KeyError:
+            pass
+
+    agent.system_prompt = (
+        f"You are {agent_info['name']}, {agent_info['role']}. "
+        f"You provide expert analysis grounded in the knowledge base context provided. "
+        f"Be specific, data-driven, and actionable."
+    )
+
+    result = agent.run(enriched_prompt)
+    return json.dumps({
+        "agent": agent_id,
+        "name": agent_info["name"],
+        "production_id": production_id,
+        "response": result["text"],
+        "input_tokens": result["input_tokens"],
+        "output_tokens": result["output_tokens"],
+        "cost_usd": result["cost_usd"],
+    }, indent=2)
+
+
+# ── Tool 23: generate_shot_list ───────────────────────────────
+
+@mcp.tool()
+def generate_shot_list(
+    script_or_brief: str,
+    format: str = "film",
+    style_reference: str | None = None,
+) -> str:
+    """Generate a structured shot list from a script or brief.
+
+    Uses cinematography and production management knowledge to create
+    a detailed shot list with tool assignments per shot.
+
+    Args:
+        script_or_brief: The script text or production brief
+        format: Production format (film, reel, photo, carousel)
+        style_reference: Optional style/mood reference description
+    """
+    retriever = _get_retriever()
+
+    # Gather relevant cinematography knowledge
+    context_chunks = retriever.search(
+        query=f"shot list cinematography {format} {style_reference or ''}",
+        data_types=["cinematography", "film_production"],
+        top_k=5,
+    )
+    context = "\n".join([c["content"] for c in context_chunks]) if context_chunks else ""
+
+    return json.dumps({
+        "format": format,
+        "style_reference": style_reference,
+        "brief": script_or_brief[:200],
+        "rag_context_chunks": len(context_chunks) if context_chunks else 0,
+        "instruction": (
+            "Use film-studio-director and cinematography-studio agents to generate "
+            "a full shot list. Route each shot to the optimal generation engine tool."
+        ),
+        "context_preview": context[:500] if context else "No RAG context found — run scrape manifests first.",
+    }, indent=2)
+
+
+# ── Tool 24: generate_content_calendar ────────────────────────
+
+@mcp.tool()
+def generate_content_calendar(
+    company_id: str,
+    month: str,
+    content_pillars: list[str] | None = None,
+    posts_per_week: int = 4,
+) -> str:
+    """Generate a monthly Instagram content calendar.
+
+    Uses instagram-studio agent knowledge for hook optimization,
+    content pillar mapping, and batch production scheduling.
+
+    Args:
+        company_id: Company namespace
+        month: Target month (e.g., "2026-04")
+        content_pillars: Optional content pillar categories
+        posts_per_week: Target posts per week (default 4)
+    """
+    retriever = _get_retriever()
+
+    context_chunks = retriever.search(
+        query="Instagram content calendar planning content pillars Reels strategy",
+        data_types=["instagram_production", "content_strategy"],
+        top_k=5,
+    )
+    context = "\n".join([c["content"] for c in context_chunks]) if context_chunks else ""
+
+    return json.dumps({
+        "company_id": company_id,
+        "month": month,
+        "content_pillars": content_pillars or ["educational", "behind-the-scenes", "social-proof", "promotional"],
+        "posts_per_week": posts_per_week,
+        "rag_context_chunks": len(context_chunks) if context_chunks else 0,
+        "instruction": (
+            "Use instagram-studio agent to create a full monthly calendar with "
+            "hook concepts, content types, and batch production schedule."
+        ),
+        "context_preview": context[:500] if context else "No RAG context found — run scrape manifests first.",
+    }, indent=2)
+
+
+# ── Tool 25: review_production ────────────────────────────────
+
+@mcp.tool()
+def review_production(
+    production_id: str,
+    review_type: str = "quality",
+) -> str:
+    """Run a review on a production.
+
+    Review types: quality (technical quality gates), legal (rights clearance),
+    technical (format specs and delivery requirements).
+
+    Args:
+        production_id: The production ID to review
+        review_type: Type of review — quality, legal, or technical
+    """
+    engine = _get_production_engine()
+    try:
+        status = engine.get_status(production_id)
+    except KeyError:
+        return json.dumps({"error": f"Production not found: {production_id}"})
+
+    review_agents = {
+        "quality": "film-studio-director",
+        "legal": "legal-rights-studio",
+        "technical": "distribution-studio",
+    }
+
+    agent_id = review_agents.get(review_type, "film-studio-director")
+
+    return json.dumps({
+        "production_id": production_id,
+        "review_type": review_type,
+        "reviewing_agent": agent_id,
+        "production_phase": status["phase"],
+        "production_format": status["format"],
+        "agents_assigned": status["agents_assigned"],
+        "outputs_count": len(status["outputs"]),
+        "instruction": (
+            f"Use {agent_id} to run a {review_type} review on this production. "
+            f"Check all relevant quality gates and compliance requirements."
+        ),
+    }, indent=2)
+
+
+# ── Tool 26: route_to_engine ──────────────────────────────────
+
+@mcp.tool()
+def route_to_engine(
+    task_description: str,
+    format: str = "image",
+    requirements: str | None = None,
+) -> str:
+    """Route a generation task to the optimal AI tool.
+
+    Evaluates requirements against the image, film, and audio engine
+    tool capability maps and recommends the best tool(s).
+
+    Args:
+        task_description: What needs to be generated
+        format: Target format — image, video, audio, voice, music, sfx
+        requirements: Specific requirements (resolution, duration, style, etc.)
+    """
+    engine_map = {
+        "image": "image-gen-engine",
+        "video": "film-gen-engine",
+        "film": "film-gen-engine",
+        "audio": "audio-gen-engine",
+        "voice": "audio-gen-engine",
+        "music": "audio-gen-engine",
+        "sfx": "audio-gen-engine",
+    }
+
+    engine_id = engine_map.get(format, "image-gen-engine")
+
+    retriever = _get_retriever()
+    data_type_map = {
+        "image-gen-engine": "ai_image_tools",
+        "film-gen-engine": "ai_video_tools",
+        "audio-gen-engine": "ai_audio_tools",
+    }
+
+    context_chunks = retriever.search(
+        query=f"{task_description} {requirements or ''}",
+        data_types=[data_type_map.get(engine_id, "ai_image_tools")],
+        top_k=5,
+    )
+    context = "\n".join([c["content"] for c in context_chunks]) if context_chunks else ""
+
+    return json.dumps({
+        "task": task_description,
+        "format": format,
+        "requirements": requirements,
+        "routed_engine": engine_id,
+        "rag_context_chunks": len(context_chunks) if context_chunks else 0,
+        "instruction": (
+            f"Use {engine_id} agent to select the optimal tool for this task. "
+            f"Apply routing logic and quality gates from the engine's capability map."
+        ),
+        "context_preview": context[:500] if context else "No RAG context found — run scrape manifests first.",
+    }, indent=2)
+
+
+# ── Tool 27: design_session ───────────────────────────────────
+
+@mcp.tool()
+def design_session(
+    brief: str,
+    company_id: str,
+    style_preferences: str | None = None,
+) -> str:
+    """Start an interactive design session for a production.
+
+    Phase 1 of the production process: explores look & feel with references,
+    builds mood boards, and locks visual language.
+
+    Args:
+        brief: What the production is about
+        company_id: Company namespace
+        style_preferences: Optional style direction (e.g., "cinematic dark", "bright minimal")
+    """
+    retriever = _get_retriever()
+
+    context_chunks = retriever.search(
+        query=f"design session mood board visual language {style_preferences or ''} {brief}",
+        data_types=["cinematography", "ai_image_tools", "photography"],
+        top_k=5,
+    )
+    context = "\n".join([c["content"] for c in context_chunks]) if context_chunks else ""
+
+    return json.dumps({
+        "session_type": "design",
+        "brief": brief,
+        "company_id": company_id,
+        "style_preferences": style_preferences,
+        "rag_context_chunks": len(context_chunks) if context_chunks else 0,
+        "workflow": [
+            "1. Brief intake — purpose, audience, tone, references",
+            "2. Reference gathering — Image Gen Engine generates 20-30 style references",
+            "3. Look & feel lock — Cinematography Studio defines visual language",
+            "4. Brand system generation — character refs, environment refs, typography",
+        ],
+        "agents_needed": [
+            "film-studio-director",
+            "cinematography-studio",
+            "image-gen-engine",
+            "production-designer-studio",
+        ],
+        "context_preview": context[:500] if context else "No RAG context found — run scrape manifests first.",
+    }, indent=2)
+
+
+# ── Tool 28: generate_storyboard ──────────────────────────────
+
+@mcp.tool()
+def generate_storyboard(
+    script_or_brief: str,
+    num_shots: int = 12,
+    format: str = "film",
+    style: str | None = None,
+) -> str:
+    """Generate a structured storyboard with shot descriptions and tool assignments.
+
+    Phase 2 of the production process: creates visual storyboard from script/brief.
+
+    Args:
+        script_or_brief: Script text or production brief
+        num_shots: Target number of shots (default 12)
+        format: Production format (film, reel, carousel)
+        style: Visual style reference
+    """
+    retriever = _get_retriever()
+
+    context_chunks = retriever.search(
+        query=f"storyboard creation shot description visual storytelling {format}",
+        data_types=["screenwriting", "cinematography", "film_production"],
+        top_k=5,
+    )
+    context = "\n".join([c["content"] for c in context_chunks]) if context_chunks else ""
+
+    return json.dumps({
+        "session_type": "storyboard",
+        "brief": script_or_brief[:200],
+        "num_shots": num_shots,
+        "format": format,
+        "style": style,
+        "rag_context_chunks": len(context_chunks) if context_chunks else 0,
+        "workflow": [
+            "1. Script/narrative — Screenwriter Studio produces beat sheet + scene breakdown",
+            "2. Visual storyboard — Image Gen Engine generates frame per shot",
+            "3. Animatic (optional) — Film Gen Engine creates rough motion test",
+            "4. Production plan — Production Manager generates shot list with tool assignments",
+        ],
+        "agents_needed": [
+            "screenwriter-studio",
+            "cinematography-studio",
+            "image-gen-engine",
+            "production-manager-studio",
+        ],
+        "context_preview": context[:500] if context else "No RAG context found — run scrape manifests first.",
+    }, indent=2)
 
 
 # ── Entry point ──────────────────────────────────────────────
