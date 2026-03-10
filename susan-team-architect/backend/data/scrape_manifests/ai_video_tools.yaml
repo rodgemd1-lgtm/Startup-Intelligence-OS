@@ -1,0 +1,75 @@
+manifest:
+  name: "AI Video Generation Tools"
+  company: shared
+  data_type: ai_video_tools
+  priority: high
+  description: "AI video generation platforms — capabilities, prompting, APIs, pricing, quality benchmarks"
+
+sources:
+  - tool: exa
+    query: "Sora 2 prompting techniques cinematic video generation OpenAI"
+    num_results: 10
+
+  - tool: exa
+    query: "Runway Gen-4.5 character consistency multi-shot video generation"
+    num_results: 10
+
+  - tool: exa
+    query: "Kling 3.0 AI video generation tutorial workflow Director Mode"
+    num_results: 10
+
+  - tool: exa
+    query: "Veo 3.1 Google DeepMind video generation capabilities native audio"
+    num_results: 10
+
+  - tool: exa
+    query: "Seedance 2.0 ByteDance video model capabilities dual-branch audio"
+    num_results: 8
+
+  - tool: exa
+    query: "LTX-2 open source video generation 4K self-hosted"
+    num_results: 8
+
+  - tool: exa
+    query: "AI video generation comparison benchmark 2025 2026 quality ranking"
+    num_results: 10
+
+  - tool: exa
+    query: "Moonvalley Marey ethical AI video generation IP-safe"
+    num_results: 5
+
+  - tool: exa
+    query: "Luma Dream Machine Ray 3.14 video generation HDR"
+    num_results: 8
+
+  - tool: exa
+    query: "HeyGen AI avatar multilingual lip sync corporate video"
+    num_results: 8
+
+  - tool: exa
+    query: "Synthesia AI talking head video presentation enterprise"
+    num_results: 5
+
+  - tool: exa
+    query: "Topaz Video AI upscaling frame interpolation 4K 8K enhancement"
+    num_results: 8
+
+  - tool: exa
+    query: "Pika 2.5 Scene Ingredients stylized social video generation"
+    num_results: 5
+
+  - tool: exa
+    query: "Higgsfield cinematic camera presets AI video generation"
+    num_results: 5
+
+  - tool: exa
+    query: "CapCut commercial video editing auto-captions social media"
+    num_results: 5
+
+  - tool: exa
+    query: "Descript text-based video editing AI transcription"
+    num_results: 5
+
+  - tool: exa
+    query: "OpusClip AI long-form to viral clips repurposing"
+    num_results: 5

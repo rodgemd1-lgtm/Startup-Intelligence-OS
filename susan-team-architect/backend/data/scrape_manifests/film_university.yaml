@@ -1,0 +1,47 @@
+manifest:
+  name: "Film University Curricula"
+  company: shared
+  data_type: film_production
+  priority: medium
+  description: "Top film school curricula, course content, industry-standard education frameworks"
+
+sources:
+  - tool: exa
+    query: "USC School of Cinematic Arts curriculum course descriptions film production"
+    num_results: 10
+
+  - tool: exa
+    query: "NYU Tisch School of the Arts film program curriculum courses"
+    num_results: 10
+
+  - tool: exa
+    query: "AFI American Film Institute Conservatory curriculum directing cinematography"
+    num_results: 8
+
+  - tool: exa
+    query: "UCLA School of Theater Film Television curriculum production"
+    num_results: 8
+
+  - tool: exa
+    query: "CalArts film video program experimental animation curriculum"
+    num_results: 5
+
+  - tool: exa
+    query: "Chapman University Dodge College film media arts curriculum"
+    num_results: 5
+
+  - tool: exa
+    query: "Columbia University Film MFA program screenwriting directing"
+    num_results: 5
+
+  - tool: exa
+    query: "film school curriculum what do you learn directing cinematography editing"
+    num_results: 10
+
+  - tool: exa
+    query: "film production masterclass online education MasterClass Skillshare"
+    num_results: 8
+
+  - tool: exa
+    query: "MIT OpenCourseWare film studies visual arts media education"
+    num_results: 5

@@ -1,0 +1,43 @@
+manifest:
+  name: "Photography Craft & Workflow"
+  company: shared
+  data_type: photography
+  priority: medium
+  description: "Commercial, editorial, product photography — technique, retouching, AI-assisted workflows"
+
+sources:
+  - tool: exa
+    query: "commercial photography workflow shooting tethered Capture One Lightroom"
+    num_results: 10
+
+  - tool: exa
+    query: "product photography lighting white background e-commerce professional"
+    num_results: 10
+
+  - tool: exa
+    query: "portrait photography posing lighting retouching frequency separation"
+    num_results: 10
+
+  - tool: exa
+    query: "editorial photography composition storytelling magazine commercial"
+    num_results: 8
+
+  - tool: exa
+    query: "AI photography tools enhancement culling AfterShoot Topaz"
+    num_results: 8
+
+  - tool: exa
+    query: "food photography styling techniques lighting composition"
+    num_results: 5
+
+  - tool: exa
+    query: "architectural photography real estate interior exterior technique"
+    num_results: 5
+
+  - tool: exa
+    query: "photo retouching workflow skin tone correction color accuracy"
+    num_results: 8
+
+  - tool: exa
+    query: "photography composition golden ratio leading lines negative space"
+    num_results: 5

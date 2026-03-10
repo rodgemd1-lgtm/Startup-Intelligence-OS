@@ -1,0 +1,67 @@
+manifest:
+  name: "AI Image Generation Tools"
+  company: shared
+  data_type: ai_image_tools
+  priority: high
+  description: "AI image generation platforms — capabilities, prompting, APIs, pricing, style control"
+
+sources:
+  - tool: exa
+    query: "Midjourney v7 prompting guide style reference character reference sref cref"
+    num_results: 10
+
+  - tool: exa
+    query: "Flux Pro 1.1 Ultra photorealistic image generation BFL API"
+    num_results: 10
+
+  - tool: exa
+    query: "DALL-E 3 GPT-4o image generation text rendering inline editing"
+    num_results: 10
+
+  - tool: exa
+    query: "Stable Diffusion 3.5 LoRA training custom models fine-tuning"
+    num_results: 10
+
+  - tool: exa
+    query: "AI image generation comparison benchmark 2025 2026 quality ranking"
+    num_results: 10
+
+  - tool: exa
+    query: "product photography AI generation workflow e-commerce professional"
+    num_results: 8
+
+  - tool: exa
+    query: "brand consistent AI image generation style locking Recraft"
+    num_results: 8
+
+  - tool: exa
+    query: "Ideogram 3.0 typography AI image generation text rendering"
+    num_results: 8
+
+  - tool: exa
+    query: "ComfyUI node-based workflow Stable Diffusion automation pipeline"
+    num_results: 8
+
+  - tool: exa
+    query: "Topaz Photo AI Magnific upscaling enhancement noise removal"
+    num_results: 8
+
+  - tool: exa
+    query: "Adobe Firefly Image 3 commercial-safe licensed training data"
+    num_results: 5
+
+  - tool: exa
+    query: "Leonardo AI Phoenix game art concept iteration Canva"
+    num_results: 5
+
+  - tool: exa
+    query: "Krea AI real-time generation live canvas creative tools"
+    num_results: 5
+
+  - tool: exa
+    query: "Astria custom AI fine-tuning faces products brands"
+    num_results: 5
+
+  - tool: exa
+    query: "Google Imagen 3 Gemini Vertex AI photorealistic generation"
+    num_results: 5

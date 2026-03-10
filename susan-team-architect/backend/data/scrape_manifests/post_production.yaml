@@ -1,0 +1,46 @@
+manifest:
+  name: "Post-Production Pipeline"
+  company: shared
+  data_type: post_production
+  priority: high
+  description: "Editing, color grading, sound design, VFX compositing, mixing, mastering workflows"
+
+sources:
+  - tool: exa
+    query: "film editing workflow assembly rough cut fine cut picture lock"
+    num_results: 10
+
+  - tool: exa
+    query: "color grading DaVinci Resolve primary secondary correction workflow"
+    num_results: 10
+
+  - tool: exa
+    query: "sound design foley SFX ambience mixing workflow film post-production"
+    num_results: 10
+
+  - tool: exa
+    query: "VFX compositing pipeline rotoscoping tracking Nuke After Effects"
+    num_results: 10
+
+  - tool: exa
+    query: "Dolby Atmos mixing spatial audio film immersive sound"
+    num_results: 8
+
+  - tool: exa
+    query: "Walter Murch editing theory six priorities emotion story rhythm"
+    num_results: 8
+
+  - tool: exa
+    query: "HDR mastering Dolby Vision HDR10 grading workflow delivery"
+    num_results: 8
+
+  - tool: exa
+    query: "audio post-production Netflix delivery specifications loudness LUFS"
+    num_results: 8
+
+  - tool: firecrawl
+    url: "https://www.provideocoalition.com/"
+
+  - tool: exa
+    query: "motion graphics animation After Effects Cinema 4D pipeline"
+    num_results: 5

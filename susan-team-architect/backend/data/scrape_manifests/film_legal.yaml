@@ -1,0 +1,51 @@
+manifest:
+  name: "Film & AI Legal Compliance"
+  company: shared
+  data_type: film_legal
+  priority: high
+  description: "SAG-AFTRA AI, WGA AI, copyright, music licensing, voice consent, digital replica rights"
+
+sources:
+  - tool: exa
+    query: "SAG-AFTRA AI digital replica provisions 2024 2025 contract terms"
+    num_results: 10
+
+  - tool: exa
+    query: "WGA Writers Guild AI contract terms credit compensation artificial intelligence"
+    num_results: 10
+
+  - tool: exa
+    query: "IATSE position AI post-production visual effects automation"
+    num_results: 8
+
+  - tool: exa
+    query: "US Copyright Office AI registration guidance copyright eligibility"
+    num_results: 10
+
+  - tool: exa
+    query: "music licensing sync license master license film television commercial"
+    num_results: 10
+
+  - tool: exa
+    query: "AI voice cloning consent ethics legal requirements digital replica"
+    num_results: 10
+
+  - tool: exa
+    query: "AI generated content copyright ownership who owns AI art"
+    num_results: 8
+
+  - tool: exa
+    query: "entertainment law AI film production legal compliance checklist"
+    num_results: 8
+
+  - tool: exa
+    query: "BMI ASCAP SESAC music rights organization licensing songwriter"
+    num_results: 5
+
+  - tool: exa
+    query: "fair use doctrine AI generated content film transformative"
+    num_results: 5
+
+  - tool: exa
+    query: "model release AI generated likeness right of publicity"
+    num_results: 5

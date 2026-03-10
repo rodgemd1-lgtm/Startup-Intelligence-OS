@@ -1,0 +1,41 @@
+manifest:
+  name: "Film Production Core"
+  company: shared
+  data_type: film_production
+  priority: high
+  description: "Production management, crew workflows, scheduling, budgeting, set operations"
+
+sources:
+  - tool: exa
+    query: "film production management scheduling budgeting crew workflow"
+    num_results: 10
+
+  - tool: exa
+    query: "script breakdown production schedule shot list call sheet creation"
+    num_results: 10
+
+  - tool: exa
+    query: "indie film production workflow pre-production checklist"
+    num_results: 10
+
+  - tool: exa
+    query: "film crew hierarchy roles responsibilities department structure"
+    num_results: 10
+
+  - tool: exa
+    query: "production design set decoration props art department workflow"
+    num_results: 8
+
+  - tool: firecrawl
+    url: "https://www.studiobinder.com/blog/film-production-process/"
+
+  - tool: firecrawl
+    url: "https://nofilmschool.com/film-production"
+
+  - tool: exa
+    query: "location scouting permits film production logistics"
+    num_results: 8
+
+  - tool: exa
+    query: "on-set protocol first AD director workflow production day"
+    num_results: 8

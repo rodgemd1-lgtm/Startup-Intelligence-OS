@@ -1,0 +1,47 @@
+manifest:
+  name: "Screenwriting Craft"
+  company: shared
+  data_type: screenwriting
+  priority: high
+  description: "Story structure, screenplay format, dialogue craft, scene construction, narrative frameworks"
+
+sources:
+  - tool: exa
+    query: "screenplay structure three act five act story structure paradigm"
+    num_results: 10
+
+  - tool: exa
+    query: "scene construction objective obstacle tactics dramatic writing"
+    num_results: 10
+
+  - tool: exa
+    query: "dialogue writing subtext economy craft screenplay technique"
+    num_results: 10
+
+  - tool: exa
+    query: "screenplay format industry standard scene heading action description"
+    num_results: 8
+
+  - tool: exa
+    query: "story structure save the cat beat sheet Blake Snyder"
+    num_results: 8
+
+  - tool: exa
+    query: "Robert McKee story substance structure style principles"
+    num_results: 8
+
+  - tool: exa
+    query: "short film screenplay writing under 15 minutes structure pacing"
+    num_results: 8
+
+  - tool: exa
+    query: "brand film storytelling commercial narrative corporate video script"
+    num_results: 8
+
+  - tool: exa
+    query: "storyboard creation shot description visual storytelling pre-visualization"
+    num_results: 8
+
+  - tool: exa
+    query: "logline treatment synopsis screenplay development process"
+    num_results: 5

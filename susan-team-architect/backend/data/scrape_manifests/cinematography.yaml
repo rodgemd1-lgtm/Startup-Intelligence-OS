@@ -1,0 +1,46 @@
+manifest:
+  name: "Cinematography & Visual Language"
+  company: shared
+  data_type: cinematography
+  priority: high
+  description: "Shot composition, lighting, camera movement, color science, lens selection, ACES pipeline"
+
+sources:
+  - tool: exa
+    query: "cinematography shot composition framing rules rule of thirds leading lines"
+    num_results: 10
+
+  - tool: exa
+    query: "lighting design three-point key fill back cinematic film lighting"
+    num_results: 10
+
+  - tool: exa
+    query: "camera movement dolly crane steadicam handheld meaning cinematic vocabulary"
+    num_results: 10
+
+  - tool: exa
+    query: "ACES color management workflow cinematography pipeline ACEScg"
+    num_results: 8
+
+  - tool: exa
+    query: "lens selection focal length depth of field cinematic look anamorphic spherical"
+    num_results: 8
+
+  - tool: exa
+    query: "color temperature Kelvin white balance practical lighting cinematography"
+    num_results: 8
+
+  - tool: exa
+    query: "exposure triangle ISO aperture shutter speed cinematography"
+    num_results: 5
+
+  - tool: exa
+    query: "Roger Deakins Denis Villeneuve cinematography masterclass techniques"
+    num_results: 8
+
+  - tool: exa
+    query: "ARRI Alexa RED camera system comparison sensor science cinema"
+    num_results: 8
+
+  - tool: firecrawl
+    url: "https://ascmag.com/"

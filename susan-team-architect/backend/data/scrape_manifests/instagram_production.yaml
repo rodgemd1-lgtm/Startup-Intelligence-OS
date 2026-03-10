@@ -1,0 +1,47 @@
+manifest:
+  name: "Instagram & Social Media Production"
+  company: shared
+  data_type: instagram_production
+  priority: high
+  description: "Instagram Reels, Stories, carousels, algorithm optimization, content strategy, batch production"
+
+sources:
+  - tool: exa
+    query: "Instagram Reels algorithm 2025 2026 watch time shares saves ranking"
+    num_results: 10
+
+  - tool: exa
+    query: "Instagram content strategy pillar system batch production workflow"
+    num_results: 10
+
+  - tool: exa
+    query: "Instagram Reels hook optimization first 1.7 seconds engagement"
+    num_results: 10
+
+  - tool: exa
+    query: "Instagram carousel design best practices engagement optimization"
+    num_results: 8
+
+  - tool: exa
+    query: "social media content calendar monthly planning batch creation"
+    num_results: 8
+
+  - tool: exa
+    query: "Instagram hashtag strategy 2025 2026 reach discovery"
+    num_results: 8
+
+  - tool: exa
+    query: "vertical video production 9:16 format mobile-first cinematography"
+    num_results: 8
+
+  - tool: exa
+    query: "Instagram business analytics metrics KPI tracking growth"
+    num_results: 5
+
+  - tool: exa
+    query: "content repurposing long-form to short-form video social clips"
+    num_results: 8
+
+  - tool: exa
+    query: "Adam Mosseri Instagram head recommendations creators algorithm"
+    num_results: 5

@@ -1,0 +1,67 @@
+manifest:
+  name: "AI Audio Generation Tools"
+  company: shared
+  data_type: ai_audio_tools
+  priority: high
+  description: "AI voice, music, SFX, and audio repair — capabilities, APIs, licensing, quality"
+
+sources:
+  - tool: exa
+    query: "ElevenLabs voice cloning text to speech API guide professional"
+    num_results: 10
+
+  - tool: exa
+    query: "AI music generation commercial licensing 2025 2026 ownership rights"
+    num_results: 10
+
+  - tool: exa
+    query: "AIVA AI music composition orchestral full copyright ownership"
+    num_results: 8
+
+  - tool: exa
+    query: "Suno AI music generation prompting techniques guide"
+    num_results: 8
+
+  - tool: exa
+    query: "Udio AI music generation 4-stem separation quality"
+    num_results: 8
+
+  - tool: exa
+    query: "iZotope RX 11 audio repair professional workflow de-noise de-reverb"
+    num_results: 8
+
+  - tool: exa
+    query: "AI sound effects generation foley ambient ElevenLabs SFX"
+    num_results: 8
+
+  - tool: exa
+    query: "AI dubbing multilingual translation ElevenLabs voice localization"
+    num_results: 8
+
+  - tool: exa
+    query: "PlayHT voice generation 142 languages API enterprise"
+    num_results: 5
+
+  - tool: exa
+    query: "Cartesia ultra-low-latency voice synthesis 100ms streaming"
+    num_results: 5
+
+  - tool: exa
+    query: "Stable Audio music generation licensed commercial use API"
+    num_results: 5
+
+  - tool: exa
+    query: "LALAL AI stem separation vocal isolation instrument extraction"
+    num_results: 5
+
+  - tool: exa
+    query: "AI voice consent ethics protocol cloning rights digital replica"
+    num_results: 8
+
+  - tool: exa
+    query: "Soundraw customizable AI music generation full ownership"
+    num_results: 5
+
+  - tool: exa
+    query: "Fish Audio voice cloning multilingual low latency API"
+    num_results: 5
