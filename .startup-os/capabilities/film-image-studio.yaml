@@ -1,0 +1,69 @@
+id: film-image-studio
+name: Film & Image Studio
+maturity_current: 0
+maturity_target: 5
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - all 18 studio agents
+  - generation engine sub-studios
+  - film production RAG knowledge
+  - MCP studio tools
+  - production workflow engine
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability identified and scoped"
+        done: true
+      - text: "Design document approved"
+        done: true
+      - text: "Agent roster defined (18 agents)"
+        done: false
+      - text: "RAG data types registered"
+        done: false
+  2:
+    name: Emerging
+    items:
+      - text: "All 15 creative direction agents operational"
+        done: false
+      - text: "All 3 generation engine sub-studios operational"
+        done: false
+      - text: "Agent registry updated with film studio agents"
+        done: false
+      - text: "RAG knowledge base populated (5,100+ chunks)"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "10 MCP tools added to server.py"
+        done: false
+      - text: "Production engine manages lifecycle (start, status, review)"
+        done: false
+      - text: "Design session workflow operational"
+        done: false
+      - text: "Storyboard generation workflow operational"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Full film production workflow tested end-to-end"
+        done: false
+      - text: "Instagram batch production workflow tested"
+        done: false
+      - text: "Multi-tenant production across 3+ companies"
+        done: false
+      - text: "Quality gates automated for all engines"
+        done: false
+  5:
+    name: Hollywood-Grade Autonomous
+    items:
+      - text: "AI-directed multi-agent productions"
+        done: false
+      - text: "All tool routing logic validated"
+        done: false
+      - text: "Legal clearance workflow for every production"
+        done: false
+      - text: "External client capacity proven"
+        done: false
