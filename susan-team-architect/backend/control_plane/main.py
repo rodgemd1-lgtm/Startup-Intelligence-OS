@@ -9,6 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from susan_core.health import health as _health_checker
+from susan_core.metrics import metrics as _metrics_collector
+
 from .catalog import ControlPlaneCatalog
 from .foundry import build_foundry_assessment
 from .foundry_ops import (
@@ -63,8 +66,15 @@ app.add_middleware(
 
 
 @app.get("/api/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+def health():
+    """Return component health status and queue depth."""
+    return _health_checker.check()
+
+
+@app.get("/api/metrics")
+def get_metrics():
+    """Return runtime metrics: latencies, costs, errors, token usage."""
+    return _metrics_collector.summary()
 
 
 @app.get("/api/tenants", response_model=list[Tenant])
