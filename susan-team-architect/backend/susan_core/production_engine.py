@@ -1,10 +1,16 @@
 """Production engine — manages the lifecycle of film and image productions."""
 from __future__ import annotations
 
+import logging
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from susan_core.production_store import ProductionStore
+
+logger = logging.getLogger(__name__)
 
 
 class ProductionStatus(str, Enum):
@@ -113,11 +119,24 @@ _DEFAULT_QUALITY_GATES: dict[str, list[QualityGateConfig]] = {
 
 
 class ProductionEngine:
-    """In-memory production lifecycle manager with quality gate automation."""
+    """In-memory production lifecycle manager with quality gate automation.
 
-    def __init__(self) -> None:
+    Optionally backed by a :class:`ProductionStore` for cross-session
+    persistence.  When a *store* is provided every mutation is persisted
+    to Supabase and active productions are rehydrated on init.
+    """
+
+    def __init__(self, store: ProductionStore | None = None) -> None:
         self._productions: dict[str, Production] = {}
         self._quality_gates: dict[str, list[QualityGateConfig]] = dict(_DEFAULT_QUALITY_GATES)
+        self._store = store
+        if store:
+            try:
+                for prod in store.list_active():
+                    self._productions[prod.production_id] = prod
+                logger.info("Loaded %d active productions from store", len(self._productions))
+            except Exception:
+                logger.warning("Failed to load productions from store — starting fresh", exc_info=True)
 
     # ── Production lifecycle ──────────────────────────────────
 
@@ -136,6 +155,11 @@ class ProductionEngine:
             format=format,
         )
         self._productions[prod_id] = prod
+        if self._store:
+            try:
+                self._store.save(prod)
+            except Exception:
+                logger.warning("Failed to persist new production %s", prod_id, exc_info=True)
         return prod
 
     def list_productions(self, company_id: str) -> list[Production]:
@@ -170,13 +194,30 @@ class ProductionEngine:
         idx = _PHASE_ORDER.index(prod.status)
         if idx < len(_PHASE_ORDER) - 1:
             prod.status = _PHASE_ORDER[idx + 1]
+            if self._store:
+                try:
+                    self._store.update_status(production_id, prod.status.value)
+                except Exception:
+                    logger.warning("Failed to persist status for %s", production_id, exc_info=True)
         return prod.status
 
     def assign_agents(self, production_id: str, agent_ids: list[str]) -> None:
         self._productions[production_id].agents_assigned.extend(agent_ids)
+        if self._store:
+            try:
+                self._store.update_agents(
+                    production_id, self._productions[production_id].agents_assigned
+                )
+            except Exception:
+                logger.warning("Failed to persist agents for %s", production_id, exc_info=True)
 
     def add_output(self, production_id: str, output: dict[str, Any]) -> None:
         self._productions[production_id].outputs.append(output)
+        if self._store:
+            try:
+                self._store.add_output(production_id, output)
+            except Exception:
+                logger.warning("Failed to persist output for %s", production_id, exc_info=True)
 
     # ── Quality gate automation ───────────────────────────────
 
@@ -215,6 +256,16 @@ class ProductionEngine:
             r for r in prod.quality_results if r.gate_name != gate_name
         ]
         prod.quality_results.append(result)
+        if self._store:
+            try:
+                self._store.add_quality_result(production_id, {
+                    "gate_name": result.gate_name,
+                    "passed": result.passed,
+                    "score": result.score,
+                    "details": result.details,
+                })
+            except Exception:
+                logger.warning("Failed to persist quality result for %s", production_id, exc_info=True)
         return result
 
     def quality_gate_summary(self, production_id: str) -> dict[str, Any]:
@@ -337,6 +388,11 @@ class ProductionEngine:
         new_agents = [a for a in phase_agents if a not in prod.agents_assigned]
         if new_agents:
             prod.agents_assigned.extend(new_agents)
+            if self._store:
+                try:
+                    self._store.update_agents(production_id, prod.agents_assigned)
+                except Exception:
+                    logger.warning("Failed to persist agents for %s", production_id, exc_info=True)
 
         # Build phase-specific instructions
         phase_instructions = {

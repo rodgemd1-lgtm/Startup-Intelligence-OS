@@ -1,4 +1,8 @@
-"""Tests for the production engine lifecycle manager, quality gates, and V5 orchestration."""
+"""Tests for the production engine lifecycle manager, quality gates, V5 orchestration, and persistence."""
+from __future__ import annotations
+
+from unittest.mock import MagicMock, patch, call
+
 import pytest
 from susan_core.production_engine import (
     ProductionEngine,
@@ -8,6 +12,7 @@ from susan_core.production_engine import (
     QualityGateError,
     QualityGateResult,
 )
+from susan_core.production_store import ProductionStore
 
 
 # ── V3 Core lifecycle tests ──────────────────────────────────
@@ -1001,3 +1006,247 @@ def test_external_client_full_delivery():
     # Verify no data leaks to other companies
     assert len(engine.list_productions("transformfit")) == 0
     assert len(engine.list_productions("acme-corp-external")) == 1
+
+
+# ═══════════════════════════════════════════════════════════════
+# V5 — Persistence layer tests (ProductionStore + engine integration)
+# ═══════════════════════════════════════════════════════════════
+
+
+# ── ProductionStore serialization round-trip ───────────────────
+
+
+def test_production_store_to_row_basic():
+    """_to_row serializes a Production to a DB-compatible dict."""
+    prod = Production(
+        production_id="prod-abc123",
+        brief="Test brief",
+        company_id="test-co",
+        format="film",
+        status=ProductionStatus.DESIGN,
+        agents_assigned=["agent-a", "agent-b"],
+        outputs=[{"type": "design_brief"}],
+        quality_results=[
+            QualityGateResult(gate_name="resolution", passed=True, score=0.95, details="Good"),
+        ],
+    )
+    row = ProductionStore._to_row(prod)
+    assert row["production_id"] == "prod-abc123"
+    assert row["status"] == "design"
+    assert row["agents_assigned"] == ["agent-a", "agent-b"]
+    assert len(row["quality_results"]) == 1
+    assert row["quality_results"][0]["gate_name"] == "resolution"
+    assert row["quality_results"][0]["passed"] is True
+
+
+def test_production_store_from_row_basic():
+    """_from_row deserializes a DB row back to a Production."""
+    row = {
+        "production_id": "prod-xyz789",
+        "brief": "Round-trip test",
+        "company_id": "test-co",
+        "format": "reel",
+        "status": "storyboard",
+        "agents_assigned": ["film-studio-director"],
+        "outputs": [{"type": "shot_list", "shots": 12}],
+        "quality_results": [
+            {"gate_name": "hook_impact", "passed": True, "score": 0.88, "details": "Strong hook"},
+        ],
+    }
+    prod = ProductionStore._from_row(row)
+    assert prod.production_id == "prod-xyz789"
+    assert prod.status == ProductionStatus.STORYBOARD
+    assert prod.format == "reel"
+    assert len(prod.agents_assigned) == 1
+    assert len(prod.quality_results) == 1
+    assert prod.quality_results[0].gate_name == "hook_impact"
+
+
+def test_production_store_round_trip():
+    """_to_row → _from_row preserves all fields."""
+    original = Production(
+        production_id="prod-rt001",
+        brief="Round trip",
+        company_id="test",
+        format="photo",
+        status=ProductionStatus.GENERATION,
+        agents_assigned=["photography-studio", "image-gen-engine"],
+        outputs=[
+            {"type": "design_brief", "palette": ["#fff"]},
+            {"type": "storyboard", "frames": 6},
+        ],
+        quality_results=[
+            QualityGateResult("resolution", True, 0.95, "OK"),
+            QualityGateResult("composition", False, 0.6, "Needs work"),
+        ],
+    )
+    row = ProductionStore._to_row(original)
+    restored = ProductionStore._from_row(row)
+
+    assert restored.production_id == original.production_id
+    assert restored.brief == original.brief
+    assert restored.company_id == original.company_id
+    assert restored.format == original.format
+    assert restored.status == original.status
+    assert restored.agents_assigned == original.agents_assigned
+    assert restored.outputs == original.outputs
+    assert len(restored.quality_results) == 2
+    assert restored.quality_results[0].gate_name == "resolution"
+    assert restored.quality_results[1].passed is False
+
+
+def test_production_store_from_row_missing_optional_fields():
+    """_from_row handles missing optional fields gracefully."""
+    row = {
+        "production_id": "prod-min",
+        "brief": "Minimal",
+        "company_id": "test",
+        "format": "image",
+        "status": "design",
+    }
+    prod = ProductionStore._from_row(row)
+    assert prod.agents_assigned == []
+    assert prod.outputs == []
+    assert prod.quality_results == []
+
+
+# ── Engine + store integration ────────────────────────────────
+
+
+def _make_mock_store() -> MagicMock:
+    """Create a mock ProductionStore with list_active returning empty."""
+    store = MagicMock(spec=ProductionStore)
+    store.list_active.return_value = []
+    return store
+
+
+def test_engine_with_store_saves_on_start():
+    """Engine calls store.save() when a new production is started."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="film")
+    store.save.assert_called_once()
+    saved_prod = store.save.call_args[0][0]
+    assert saved_prod.production_id == prod.production_id
+
+
+def test_engine_with_store_updates_status_on_advance():
+    """Engine calls store.update_status() when phase advances."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="reel")
+    engine.advance_phase(prod.production_id)
+    store.update_status.assert_called_once_with(prod.production_id, "storyboard")
+
+
+def test_engine_with_store_updates_agents_on_assign():
+    """Engine calls store.update_agents() when agents are assigned."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.assign_agents(prod.production_id, ["film-studio-director"])
+    store.update_agents.assert_called_once_with(
+        prod.production_id, ["film-studio-director"]
+    )
+
+
+def test_engine_with_store_persists_output():
+    """Engine calls store.add_output() when output is added."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="reel")
+    output = {"type": "shot_list", "shots": 8}
+    engine.add_output(prod.production_id, output)
+    store.add_output.assert_called_once_with(prod.production_id, output)
+
+
+def test_engine_with_store_persists_quality_result():
+    """Engine calls store.add_quality_result() when a gate is run."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.run_quality_gate(prod.production_id, "resolution", 0.95, "Good")
+    store.add_quality_result.assert_called_once()
+    call_args = store.add_quality_result.call_args[0]
+    assert call_args[0] == prod.production_id
+    assert call_args[1]["gate_name"] == "resolution"
+    assert call_args[1]["passed"] is True
+
+
+def test_engine_with_store_orchestrate_persists_agents():
+    """orchestrate() persists agent assignments through the store."""
+    store = _make_mock_store()
+    engine = ProductionEngine(store=store)
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.orchestrate(prod.production_id)
+    # store.update_agents called (once from orchestrate's direct extend)
+    store.update_agents.assert_called()
+    call_args = store.update_agents.call_args[0]
+    assert call_args[0] == prod.production_id
+    assert "film-studio-director" in call_args[1]
+
+
+def test_engine_loads_from_store_on_init():
+    """Engine loads active productions from store on initialization."""
+    existing = Production(
+        production_id="prod-existing",
+        brief="Existing production",
+        company_id="test",
+        format="film",
+        status=ProductionStatus.GENERATION,
+        agents_assigned=["film-studio-director"],
+    )
+    store = MagicMock(spec=ProductionStore)
+    store.list_active.return_value = [existing]
+
+    engine = ProductionEngine(store=store)
+    store.list_active.assert_called_once()
+
+    # Should be able to access the loaded production
+    status = engine.get_status("prod-existing")
+    assert status["phase"] == "generation"
+    assert status["company_id"] == "test"
+
+
+def test_engine_without_store_works_normally():
+    """Engine works without a store (backward compatibility)."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.advance_phase(prod.production_id)
+    engine.assign_agents(prod.production_id, ["agent-a"])
+    engine.add_output(prod.production_id, {"type": "test"})
+    engine.run_quality_gate(prod.production_id, "resolution", 0.9)
+    # No errors — all in-memory operations work fine
+    assert engine.get_status(prod.production_id)["phase"] == "storyboard"
+
+
+def test_engine_store_failure_doesnt_crash():
+    """Store failures are caught and logged, not propagated."""
+    store = _make_mock_store()
+    store.save.side_effect = Exception("Supabase down")
+    store.update_status.side_effect = Exception("Supabase down")
+    store.update_agents.side_effect = Exception("Supabase down")
+    store.add_output.side_effect = Exception("Supabase down")
+    store.add_quality_result.side_effect = Exception("Supabase down")
+
+    engine = ProductionEngine(store=store)
+    # All operations should succeed in-memory despite store failures
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.advance_phase(prod.production_id)
+    engine.assign_agents(prod.production_id, ["agent-a"])
+    engine.add_output(prod.production_id, {"type": "test"})
+    engine.run_quality_gate(prod.production_id, "resolution", 0.9)
+
+    assert engine.get_status(prod.production_id)["phase"] == "storyboard"
+
+
+def test_engine_store_init_failure_doesnt_crash():
+    """If store.list_active fails on init, engine starts with empty state."""
+    store = MagicMock(spec=ProductionStore)
+    store.list_active.side_effect = Exception("Connection refused")
+    engine = ProductionEngine(store=store)
+    # Should have no productions
+    assert engine.list_productions("any") == []
+    # Should still work normally for new productions
+    prod = engine.start("New", company_id="test", format="reel")
+    assert prod.production_id is not None

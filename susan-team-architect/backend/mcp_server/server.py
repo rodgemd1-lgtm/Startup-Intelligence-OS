@@ -25,6 +25,7 @@ from control_plane.protocols import (
 )
 from susan_core.config import config
 from susan_core.production_engine import ProductionEngine
+from susan_core.production_store import ProductionStore
 from rag_engine.retriever import Retriever
 from rag_engine.ingestion.web import WebIngestor
 
@@ -39,7 +40,16 @@ _production_engine: ProductionEngine | None = None
 def _get_production_engine() -> ProductionEngine:
     global _production_engine
     if _production_engine is None:
-        _production_engine = ProductionEngine()
+        store = None
+        try:
+            from susan_core.config import config as _cfg
+            if _cfg.supabase_url and _cfg.supabase_key:
+                from supabase import create_client
+                _sb = create_client(_cfg.supabase_url, _cfg.supabase_key)
+                store = ProductionStore(_sb)
+        except Exception:
+            pass  # Supabase unavailable — use in-memory only
+        _production_engine = ProductionEngine(store=store)
     return _production_engine
 
 

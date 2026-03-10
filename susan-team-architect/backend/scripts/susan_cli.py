@@ -187,6 +187,7 @@ def cmd_shell(subcommand: str, raw: str) -> int:
         "shell-plan": (_plan_parser(), cmd_plan),
         "shell-foundry": (_foundry_parser(), cmd_foundry),
         "shell-bootstrap": (_bootstrap_parser(), cmd_bootstrap),
+        "shell-production": (_production_parser(), cmd_production),
     }
     parser, handler = dispatch[subcommand]
     parsed = parser.parse_args(_raw_arguments(raw))
@@ -197,6 +198,86 @@ def cmd_shell(subcommand: str, raw: str) -> int:
         elif not parsed.company:
             parsed.company = _default_company()
     return handler(parsed)
+
+
+def _production_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="susan production")
+    parser.add_argument("subcmd", choices=["start", "status", "list", "advance", "route", "auto-run"])
+    parser.add_argument("target", nargs="*", default=[])
+    parser.add_argument("--company", default=_default_company())
+    parser.add_argument("--format", default="film",
+                        choices=["film", "reel", "photo", "carousel", "image", "documentary"])
+    parser.add_argument("--title", default=None)
+    parser.add_argument("--force", action="store_true")
+    return parser
+
+
+def cmd_production(args: argparse.Namespace) -> int:
+    """Manage film/image productions."""
+    from susan_core.production_engine import ProductionEngine
+
+    engine = ProductionEngine()
+    subcmd = args.subcmd
+
+    if subcmd == "start":
+        brief = " ".join(args.target) if args.target else "Untitled production"
+        prod = engine.start(brief=brief, company_id=args.company,
+                            format=args.format, title=args.title)
+        orch = engine.orchestrate(prod.production_id)
+        _dump({
+            "production_id": prod.production_id,
+            "brief": prod.brief,
+            "company_id": prod.company_id,
+            "format": prod.format,
+            "phase": prod.status.value,
+            "agents_assigned": orch["agents_assigned_this_phase"],
+            "instruction": orch["instruction"],
+        })
+
+    elif subcmd == "status":
+        if not args.target:
+            print("Error: production_id required")
+            return 1
+        status = engine.get_status(args.target[0])
+        _dump(status)
+
+    elif subcmd == "list":
+        prods = engine.list_productions(args.company)
+        _dump({
+            "company_id": args.company,
+            "productions": [
+                {"id": p.production_id, "brief": p.brief,
+                 "format": p.format, "phase": p.status.value}
+                for p in prods
+            ],
+            "total": len(prods),
+        })
+
+    elif subcmd == "advance":
+        if not args.target:
+            print("Error: production_id required")
+            return 1
+        try:
+            new_status = engine.advance_phase(args.target[0], force=args.force)
+            _dump({"production_id": args.target[0], "new_phase": new_status.value})
+        except Exception as e:
+            _dump({"error": str(e)})
+
+    elif subcmd == "route":
+        if not args.target:
+            print("Error: task_type required")
+            return 1
+        result = engine.route_to_tool(args.target[0])
+        _dump(result)
+
+    elif subcmd == "auto-run":
+        if not args.target:
+            print("Error: production_id required")
+            return 1
+        steps = engine.auto_run(args.target[0])
+        _dump({"production_id": args.target[0], "steps": steps})
+
+    return 0
 
 
 def cmd_scrape(args: argparse.Namespace) -> int:
@@ -331,6 +412,17 @@ def build_parser() -> argparse.ArgumentParser:
     bootstrap.add_argument("--config", default=str(BACKEND_ROOT / "data" / "project_protocol_targets.yaml"))
     bootstrap.set_defaults(func=cmd_bootstrap)
 
+    # ── production subcommand ───────────────────────────────────
+    production = subparsers.add_parser("production", help="Film & Image Studio production lifecycle")
+    production.add_argument("subcmd", choices=["start", "status", "list", "advance", "route", "auto-run"])
+    production.add_argument("target", nargs="*", default=[])
+    production.add_argument("--company", default=_default_company())
+    production.add_argument("--format", default="film",
+                            choices=["film", "reel", "photo", "carousel", "image", "documentary"])
+    production.add_argument("--title", default=None)
+    production.add_argument("--force", action="store_true")
+    production.set_defaults(func=cmd_production)
+
     # ── scrape subcommand with nested sub-subcommands ───────────
     scrape = subparsers.add_parser("scrape", help="Scraper CLI for data collection")
     scrape_sub = scrape.add_subparsers(dest="scrape_command", required=True)
@@ -392,6 +484,7 @@ def build_parser() -> argparse.ArgumentParser:
         "shell-plan",
         "shell-foundry",
         "shell-bootstrap",
+        "shell-production",
     ]:
         shell = subparsers.add_parser(name)
         shell.add_argument("raw", nargs="?", default="")
