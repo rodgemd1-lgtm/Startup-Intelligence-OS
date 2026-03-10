@@ -1,118 +1,143 @@
-"""Batch manifest parser and executor for systematic data scraping."""
+"""Batch manifest executor — runs scrape manifests across multiple tools."""
 from __future__ import annotations
 from pathlib import Path
+from typing import Any
 import yaml
-
-from rag_engine.ingestion.exa_search import ExaSearchIngestor
-from rag_engine.ingestion.jina_reader import JinaReaderIngestor
-from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
-from rag_engine.ingestion.web import WebIngestor
-
-
-def parse_manifest(path: Path) -> dict:
-    """Parse a scrape manifest YAML file."""
-    if not path.exists():
-        raise FileNotFoundError(f"Manifest not found: {path}")
-    with open(path) as f:
-        return yaml.safe_load(f)
 
 
 def execute_manifest(
     manifest_path: Path,
     dry_run: bool = False,
     resume: bool = False,
-) -> dict:
-    """Execute all sources in a manifest.
+) -> dict[str, Any]:
+    """Execute a scrape manifest YAML file.
+
+    Manifest format:
+        manifest:
+          name: "Exercise Science Core"
+          company: transformfit
+          data_type: exercise_science
+          priority: high
+        sources:
+          - tool: firecrawl
+            url: https://example.com/article
+          - tool: exa
+            query: "progressive overload protocols"
+            num_results: 10
+          - tool: jina
+            url: https://example.com/page
+          - tool: playwright
+            url: https://dynamic-site.com
+            wait_for: ".content-loaded"
 
     Args:
         manifest_path: Path to the YAML manifest file.
         dry_run: If True, list sources without executing.
-        resume: If True, skip already-ingested source_urls (not yet implemented).
+        resume: If True, skip URLs that have already been ingested.
 
     Returns:
-        Summary dict with total_chunks, sources_processed, errors.
+        Summary dict with counts, errors, and per-source results.
     """
-    data = parse_manifest(manifest_path)
+    with open(manifest_path) as f:
+        data = yaml.safe_load(f)
+
     meta = data.get("manifest", {})
     sources = data.get("sources", [])
-    company = meta.get("company", "shared")
+    company_id = meta.get("company", "shared")
     data_type = meta.get("data_type", "market_research")
 
-    if dry_run:
-        print(f"DRY RUN: {meta.get('name', 'Unnamed')} ({len(sources)} sources)")
-        for i, src in enumerate(sources, 1):
-            tool = src.get("tool", "unknown")
-            target = src.get("query") or src.get("url") or src.get("url_file", "")
-            print(f"  [{i}/{len(sources)}] {tool}: {target}")
-        return {"total_chunks": 0, "sources_processed": 0, "sources_total": len(sources), "errors": 0}
+    results: list[dict[str, Any]] = []
+    total_chunks = 0
+    errors: list[str] = []
 
+    if dry_run:
+        for src in sources:
+            tool = src.get("tool", "firecrawl")
+            target = src.get("url") or src.get("query", "")
+            results.append({"tool": tool, "target": target, "status": "dry_run"})
+        return {
+            "manifest": meta.get("name", manifest_path.name),
+            "dry_run": True,
+            "source_count": len(sources),
+            "sources": results,
+        }
+
+    # Lazy-import ingestors to avoid pulling in all deps at module level
+    from rag_engine.ingestion.web import WebIngestor
+    from rag_engine.ingestion.exa_search import ExaSearchIngestor
+    from rag_engine.ingestion.jina_reader import JinaReaderIngestor
+    from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
+
+    web = WebIngestor()
     exa = ExaSearchIngestor()
     jina = JinaReaderIngestor()
-    playwright = PlaywrightIngestor()
-    web = WebIngestor()
+    pw = PlaywrightIngestor()
 
-    total_chunks = 0
-    processed = 0
-    errors = 0
+    existing_urls: set[str] = set()
+    if resume:
+        existing_urls = _get_existing_source_urls(company_id)
 
-    for i, src in enumerate(sources, 1):
+    for src in sources:
         tool = src.get("tool", "firecrawl")
-        target = src.get("query") or src.get("url") or src.get("url_file", "")
-        print(f"  [{i}/{len(sources)}] {tool}: {target[:80]}...")
+        url = src.get("url", "")
+        query = src.get("query", "")
+        target = url or query
+
+        if resume and url and url in existing_urls:
+            results.append({"tool": tool, "target": target, "status": "skipped", "chunks": 0})
+            continue
 
         try:
-            if tool == "exa":
-                count = exa.ingest(
-                    source=src["query"],
-                    company_id=company,
-                    data_type=data_type,
-                    num_results=src.get("num_results", 10),
-                    search_type=src.get("search_type", "autoprompt"),
-                )
+            if tool == "firecrawl":
+                count = web.ingest(source=url, company_id=company_id, data_type=data_type)
+            elif tool == "firecrawl-crawl":
+                max_pages = src.get("max_pages", 50)
+                count = web.crawl(source=url, company_id=company_id, data_type=data_type, max_pages=max_pages)
+            elif tool == "exa":
+                num_results = src.get("num_results", 10)
+                search_type = src.get("search_type", "autoprompt")
+                count = exa.ingest(source=query, company_id=company_id, data_type=data_type,
+                                    num_results=num_results, search_type=search_type)
             elif tool == "jina":
-                count = jina.ingest(
-                    source=src.get("url") or src.get("url_file", ""),
-                    company_id=company,
-                    data_type=data_type,
-                )
+                count = jina.ingest(source=url, company_id=company_id, data_type=data_type)
             elif tool == "playwright":
-                count = playwright.ingest(
-                    source=src["url"],
-                    company_id=company,
-                    data_type=data_type,
-                    wait_for=src.get("wait_for"),
-                )
-            elif tool == "firecrawl":
-                mode = src.get("mode", "single")
-                if mode == "crawl":
-                    count = web.crawl(
-                        source=src["url"],
-                        company_id=company,
-                        data_type=data_type,
-                        max_pages=src.get("max_pages", 50),
-                    )
-                else:
-                    count = web.ingest(
-                        source=src.get("url") or src.get("url_file", ""),
-                        company_id=company,
-                        data_type=data_type,
-                    )
+                wait_for = src.get("wait_for")
+                count = pw.ingest(source=url, company_id=company_id, data_type=data_type,
+                                   wait_for=wait_for)
             else:
-                print(f"    Unknown tool: {tool}")
-                errors += 1
+                errors.append(f"Unknown tool '{tool}' for {target}")
+                results.append({"tool": tool, "target": target, "status": "error", "chunks": 0})
                 continue
 
             total_chunks += count
-            processed += 1
-            print(f"    -> {count} chunks")
-
+            results.append({"tool": tool, "target": target, "status": "ok", "chunks": count})
         except Exception as e:
-            print(f"    ERROR: {e}")
-            errors += 1
+            errors.append(f"{tool}:{target} — {e}")
+            results.append({"tool": tool, "target": target, "status": "error", "chunks": 0})
 
     return {
+        "manifest": meta.get("name", manifest_path.name),
+        "dry_run": False,
         "total_chunks": total_chunks,
-        "sources_processed": processed,
-        "sources_total": len(sources),
+        "source_count": len(sources),
+        "completed": sum(1 for r in results if r["status"] == "ok"),
+        "skipped": sum(1 for r in results if r["status"] == "skipped"),
+        "errored": len(errors),
         "errors": errors,
+        "sources": results,
     }
+
+
+def _get_existing_source_urls(company_id: str) -> set[str]:
+    """Query existing chunks to find already-ingested source URLs."""
+    try:
+        from rag_engine.retriever import Retriever
+        retriever = Retriever()
+        result = retriever.supabase.table("knowledge_chunks") \
+            .select("source_url") \
+            .eq("company_id", company_id) \
+            .not_.is_("source_url", "null") \
+            .execute()
+        return {row["source_url"] for row in (result.data or []) if row.get("source_url")}
+    except Exception:
+        return set()

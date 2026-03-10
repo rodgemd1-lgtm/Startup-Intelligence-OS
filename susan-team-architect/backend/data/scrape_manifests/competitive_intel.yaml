@@ -1,35 +1,39 @@
 manifest:
   name: "Competitive Intelligence"
   company: transformfit
-  data_type: competitive_intel
-  created: 2026-03-09
+  data_type: market_research
   priority: high
+  description: "Fitbod, Noom, Peloton, Hevy, Future, MyFitnessPal analysis"
 
 sources:
   - tool: exa
-    query: "Fitbod app review workout generation AI personalization features"
-    num_results: 10
-
-  - tool: exa
-    query: "Hevy workout tracker app features pricing UX review"
+    query: "Fitbod app workout generation AI algorithm personalization review"
     num_results: 8
 
   - tool: exa
-    query: "Future fitness app personal training AI coaching review"
+    query: "Noom behavioral psychology weight loss app coaching methodology"
     num_results: 8
 
   - tool: exa
-    query: "Noom weight loss app behavioral psychology design review"
+    query: "Peloton digital fitness subscription retention engagement strategy"
+    num_results: 5
+
+  - tool: exa
+    query: "Hevy workout tracker app features user experience review"
+    num_results: 5
+
+  - tool: exa
+    query: "Future personal training app AI coaching premium fitness"
+    num_results: 5
+
+  - tool: exa
+    query: "fitness app market size 2025 2026 growth trends revenue"
     num_results: 8
 
   - tool: exa
-    query: "AI fitness app market landscape 2025 2026 personalization"
-    num_results: 10
-
-  - tool: exa
-    query: "Peloton app subscription fitness features engagement retention"
+    query: "fitness app user retention churn rates industry benchmarks"
     num_results: 8
 
   - tool: exa
-    query: "fitness app subscription pricing models freemium conversion"
+    query: "AI personal trainer apps comparison features pricing 2025 2026"
     num_results: 8

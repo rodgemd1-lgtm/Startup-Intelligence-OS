@@ -1,0 +1,41 @@
+manifest:
+  name: "Nutrition Science"
+  company: transformfit
+  data_type: nutrition
+  priority: critical
+  description: "Macronutrient guidelines, meal timing, supplementation, dietary strategies"
+
+sources:
+  - tool: exa
+    query: "macronutrient guidelines muscle building protein intake evidence-based ISSN"
+    num_results: 10
+
+  - tool: exa
+    query: "meal timing nutrient timing pre-workout post-workout protein synthesis"
+    num_results: 8
+
+  - tool: exa
+    query: "creatine supplementation evidence-based benefits dosing protocols"
+    num_results: 5
+
+  - tool: exa
+    query: "caloric deficit surplus body recomposition evidence-based guidelines"
+    num_results: 8
+
+  - tool: exa
+    query: "dietary adherence flexible dieting IIFYM habit-based nutrition coaching"
+    num_results: 8
+
+  - tool: exa
+    query: "hydration guidelines athletes electrolytes performance"
+    num_results: 5
+
+  - tool: exa
+    query: "metabolic adaptation reverse dieting diet breaks research"
+    num_results: 5
+
+  - tool: firecrawl
+    url: https://examine.com/supplements/creatine/
+
+  - tool: firecrawl
+    url: https://examine.com/supplements/whey-protein/

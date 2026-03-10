@@ -1,37 +1,43 @@
 manifest:
-  name: "Behavioral Economics & Retention"
+  name: "Behavioral Economics and Retention"
   company: transformfit
   data_type: behavioral_economics
-  created: 2026-03-09
   priority: high
+  description: "Gamification, loss aversion, habit formation, variable rewards, fitness app retention"
 
 sources:
   - tool: exa
-    query: "gamification health fitness apps evidence-based engagement mechanics"
-    num_results: 15
-
-  - tool: exa
-    query: "loss aversion fitness app retention design churn prevention"
+    query: "gamification fitness apps engagement mechanics Octalysis framework"
     num_results: 10
 
   - tool: exa
-    query: "habit formation BJ Fogg tiny habits fitness exercise adherence"
-    num_results: 10
-
-  - tool: exa
-    query: "variable reward schedules mobile app engagement ethical design"
-    num_results: 10
-
-  - tool: exa
-    query: "streak reward system design Duolingo Strava engagement case study"
-    num_results: 10
-
-  - tool: exa
-    query: "notification timing psychology mobile health app re-engagement"
+    query: "loss aversion fitness app retention behavioral economics user engagement"
     num_results: 8
 
-  - tool: jina
-    url: "https://www.behavioraleconomics.com/resources/mini-encyclopedia-of-be/loss-aversion/"
+  - tool: exa
+    query: "streak mechanics Duolingo habit loop design variable reward schedules"
+    num_results: 8
 
-  - tool: jina
-    url: "https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/"
+  - tool: exa
+    query: "BJ Fogg tiny habits behavior design model fitness application"
+    num_results: 5
+
+  - tool: exa
+    query: "push notification timing psychology engagement optimal send times"
+    num_results: 5
+
+  - tool: exa
+    query: "social proof fitness community accountability partner research"
+    num_results: 5
+
+  - tool: exa
+    query: "commitment devices stickK GymPact behavioral contracts fitness"
+    num_results: 5
+
+  - tool: exa
+    query: "endowment effect sunk cost progress tracking user retention digital products"
+    num_results: 5
+
+  - tool: exa
+    query: "peak-end rule experience design session completion UX psychology"
+    num_results: 5

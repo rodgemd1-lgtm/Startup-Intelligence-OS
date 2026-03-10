@@ -1,0 +1,39 @@
+manifest:
+  name: "Sports Psychology and Motivation"
+  company: transformfit
+  data_type: sports_psychology
+  priority: medium
+  description: "Motivation, adherence, identity, self-determination theory, mindset"
+
+sources:
+  - tool: exa
+    query: "self-determination theory exercise motivation autonomy competence relatedness"
+    num_results: 8
+
+  - tool: exa
+    query: "exercise adherence barriers motivation long-term fitness habits"
+    num_results: 8
+
+  - tool: exa
+    query: "athletic identity formation recreational exercisers psychology"
+    num_results: 5
+
+  - tool: exa
+    query: "motivational interviewing fitness coaching behavior change techniques"
+    num_results: 8
+
+  - tool: exa
+    query: "growth mindset fixed mindset exercise performance improvement"
+    num_results: 5
+
+  - tool: exa
+    query: "goal setting SMART goals fitness training outcome process identity"
+    num_results: 5
+
+  - tool: exa
+    query: "psychological barriers gym anxiety beginner fitness intimidation"
+    num_results: 5
+
+  - tool: exa
+    query: "flow state exercise optimal experience Csikszentmihalyi training"
+    num_results: 5

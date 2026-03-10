@@ -1,48 +1,47 @@
 manifest:
-  name: "Exercise Science & Biomechanics"
+  name: "Exercise Science Core"
   company: transformfit
   data_type: exercise_science
-  created: 2026-03-09
   priority: high
+  description: "Movement patterns, progressive overload, injury prevention, biomechanics, form cues"
 
 sources:
   - tool: exa
-    query: "progressive overload training protocols evidence-based strength"
-    num_results: 15
-
-  - tool: exa
-    query: "exercise regression progression alternatives for common lifts"
+    query: "progressive overload protocols strength training evidence-based programming"
     num_results: 10
 
   - tool: exa
-    query: "form cues and common errors barbell squat bench press deadlift"
+    query: "exercise regression progression trees movement patterns beginner to advanced"
     num_results: 10
 
   - tool: exa
-    query: "periodization models for intermediate lifters hypertrophy strength"
+    query: "compound movement biomechanics squat bench press deadlift form cues"
     num_results: 10
 
   - tool: exa
-    query: "injury prevention protocols strength training shoulders knees lower back"
+    query: "injury prevention strength training rotator cuff lower back knee"
     num_results: 10
 
   - tool: exa
-    query: "warm up protocols dynamic stretching activation drills before lifting"
+    query: "periodization models undulating linear block programming hypertrophy strength"
+    num_results: 10
+
+  - tool: exa
+    query: "resistance training volume landmarks optimal sets per muscle group"
     num_results: 8
 
   - tool: exa
-    query: "RPE RIR autoregulation strength training programming"
-    num_results: 10
+    query: "warm-up protocols dynamic stretching activation exercises pre-workout"
+    num_results: 5
 
   - tool: exa
-    query: "training volume landmarks per muscle group hypertrophy research"
-    num_results: 10
+    query: "rep ranges hypertrophy strength endurance evidence-based recommendations"
+    num_results: 8
 
-  - tool: jina
-    url: "https://www.strongerbyscience.com/hypertrophy-range-fact-fiction/"
+  - tool: exa
+    query: "deload protocols fatigue management autoregulation RPE RIR"
+    num_results: 8
 
-  - tool: jina
-    url: "https://www.strongerbyscience.com/the-new-approach-to-training-volume/"
-
-  - tool: jina
-    url: "https://rpstrength.com/blogs/articles/training-volume-landmarks-for-muscle-growth"
+  - tool: exa
+    query: "exercise substitution alternatives home gym equipment constraints"
+    num_results: 5

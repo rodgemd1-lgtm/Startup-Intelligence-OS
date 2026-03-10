@@ -1,4 +1,4 @@
-"""Exa semantic search ingestion -- discovers and extracts thematically related content."""
+"""Exa semantic search ingestion — discovers and ingests thematically related content."""
 from __future__ import annotations
 from exa_py import Exa
 from rag_engine.ingestion.base import BaseIngestor
@@ -7,7 +7,7 @@ from susan_core.config import config
 
 
 class ExaSearchIngestor(BaseIngestor):
-    """Semantic search via Exa, then ingest top results into knowledge base."""
+    """Discover and ingest content via Exa semantic search."""
 
     def ingest(
         self,
@@ -19,26 +19,29 @@ class ExaSearchIngestor(BaseIngestor):
         search_type: str = "autoprompt",
         **kwargs,
     ) -> int:
-        """Run Exa semantic search and ingest result content.
+        """Run an Exa semantic search and ingest the results.
 
         Args:
             source: The search query string.
-            num_results: Number of results to fetch (default 10).
-            search_type: Exa search type -- autoprompt, keyword, or neural.
+            num_results: Number of results to discover and ingest.
+            search_type: One of 'autoprompt', 'keyword', 'neural'.
         """
         client = Exa(api_key=config.exa_api_key)
         total = 0
+
+        use_autoprompt = search_type == "autoprompt"
+        exa_type = "auto" if search_type == "autoprompt" else search_type
 
         try:
             response = client.search_and_contents(
                 source,
                 num_results=num_results,
-                type=search_type,
+                type=exa_type,
+                use_autoprompt=use_autoprompt,
                 text=True,
-                use_autoprompt=(search_type == "autoprompt"),
             )
         except Exception as e:
-            print(f"  Warning: Exa search failed: {e}")
+            print(f"  Warning: Exa search failed for '{source}': {e}")
             return 0
 
         for result in response.results:
@@ -55,9 +58,14 @@ class ExaSearchIngestor(BaseIngestor):
                 data_type=data_type,
                 company_id=company_id,
                 agent_id=agent_id,
-                source=f"exa:{source[:80]}",
+                source=f"exa:{url}",
                 source_url=url,
-                metadata={"title": title, "tool": "exa", "query": source},
+                metadata={
+                    "title": title,
+                    "tool": "exa",
+                    "query": source,
+                    "search_type": search_type,
+                },
             )
             total += self.retriever.store_chunks(chunks)
 

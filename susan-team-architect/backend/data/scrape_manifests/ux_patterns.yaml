@@ -1,0 +1,39 @@
+manifest:
+  name: "UX Patterns for Fitness Apps"
+  company: transformfit
+  data_type: ux_research
+  priority: medium
+  description: "Mobile fitness UX, onboarding flows, engagement patterns, dark mode design"
+
+sources:
+  - tool: exa
+    query: "mobile fitness app onboarding flow best practices conversion"
+    num_results: 8
+
+  - tool: exa
+    query: "workout logging UX design minimal friction input patterns"
+    num_results: 8
+
+  - tool: exa
+    query: "dark mode mobile app design system premium luxury aesthetic"
+    num_results: 5
+
+  - tool: exa
+    query: "progress visualization fitness data dashboard design patterns"
+    num_results: 8
+
+  - tool: exa
+    query: "haptic feedback mobile interaction design touch patterns"
+    num_results: 5
+
+  - tool: exa
+    query: "micro-interaction animation mobile app engagement delight"
+    num_results: 5
+
+  - tool: exa
+    query: "accessibility fitness app inclusive design adaptive exercise"
+    num_results: 5
+
+  - tool: exa
+    query: "mobile app notification design permission request timing UX"
+    num_results: 5

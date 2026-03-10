@@ -1,0 +1,39 @@
+manifest:
+  name: "Sleep and Recovery"
+  company: transformfit
+  data_type: sleep_recovery
+  priority: high
+  description: "Sleep hygiene, recovery modalities, HRV, overtraining, circadian rhythm"
+
+sources:
+  - tool: exa
+    query: "sleep hygiene protocols evidence-based sleep optimization athletes"
+    num_results: 8
+
+  - tool: exa
+    query: "cold water immersion ice bath recovery evidence-based meta-analysis"
+    num_results: 8
+
+  - tool: exa
+    query: "sauna heat therapy recovery muscle soreness evidence"
+    num_results: 5
+
+  - tool: exa
+    query: "HRV heart rate variability training readiness recovery monitoring"
+    num_results: 8
+
+  - tool: exa
+    query: "overtraining syndrome markers prevention recovery strategies"
+    num_results: 8
+
+  - tool: exa
+    query: "circadian rhythm exercise timing chronotype performance"
+    num_results: 5
+
+  - tool: exa
+    query: "active recovery deload week rest day programming"
+    num_results: 5
+
+  - tool: exa
+    query: "wearable sleep tracking accuracy Whoop Oura Fitbit research validation"
+    num_results: 5
