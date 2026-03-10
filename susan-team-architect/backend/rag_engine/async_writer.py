@@ -7,6 +7,7 @@ or when :meth:`flush` is called explicitly.
 """
 from __future__ import annotations
 
+import atexit
 import threading
 from typing import Callable
 
@@ -38,6 +39,8 @@ class AsyncBatchWriter:
         self._lock = threading.Lock()
         self._total_written = 0
         self._total_errors = 0
+        self._closed = False
+        atexit.register(self.flush)
 
     # ------------------------------------------------------------------
     # Public API
@@ -63,6 +66,25 @@ class AsyncBatchWriter:
                 "total_written": self._total_written,
                 "total_errors": self._total_errors,
             }
+
+    def close(self) -> None:
+        """Flush remaining chunks and unregister the atexit hook."""
+        self.flush()
+        try:
+            atexit.unregister(self.flush)
+        except Exception:
+            pass
+        self._closed = True
+
+    # ------------------------------------------------------------------
+    # Context manager
+    # ------------------------------------------------------------------
+
+    def __enter__(self) -> "AsyncBatchWriter":
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.close()
 
     # ------------------------------------------------------------------
     # Internals
