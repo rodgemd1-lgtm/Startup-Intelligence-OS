@@ -34,6 +34,38 @@ def test_cache_invalidate():
     assert cache.get("q", "c", ["t"]) is None
 
 
+def test_cache_invalidate_scoped():
+    """Invalidating one company_id must not evict another company's entries."""
+    cache = QueryCache(ttl_seconds=60)
+    cache.put("q1", "alpha", ["t"], [{"content": "alpha-result"}])
+    cache.put("q2", "beta", ["t"], [{"content": "beta-result"}])
+    cache.put("q3", "alpha", ["t2"], [{"content": "alpha-result-2"}])
+
+    evicted = cache.invalidate(company_id="alpha")
+    assert evicted == 2  # only the two alpha entries
+
+    # beta entry must survive
+    result = cache.get("q2", "beta", ["t"])
+    assert result is not None
+    assert result[0]["content"] == "beta-result"
+
+    # alpha entries must be gone
+    assert cache.get("q1", "alpha", ["t"]) is None
+    assert cache.get("q3", "alpha", ["t2"]) is None
+
+
+def test_cache_invalidate_all():
+    """Passing company_id=None must clear everything (backward compat)."""
+    cache = QueryCache(ttl_seconds=60)
+    cache.put("q1", "alpha", ["t"], [{"content": "a"}])
+    cache.put("q2", "beta", ["t"], [{"content": "b"}])
+
+    evicted = cache.invalidate(company_id=None)
+    assert evicted == 2
+    assert cache.get("q1", "alpha", ["t"]) is None
+    assert cache.get("q2", "beta", ["t"]) is None
+
+
 def test_cache_stats():
     cache = QueryCache(ttl_seconds=60)
     cache.put("q", "c", [], [{"content": "r"}])

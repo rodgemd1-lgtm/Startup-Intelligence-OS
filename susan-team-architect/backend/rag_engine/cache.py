@@ -19,7 +19,7 @@ class QueryCache:
 
     def __init__(self, ttl_seconds: float = 300.0, max_entries: int = 1000):
         self._lock = Lock()
-        self._cache: dict[str, tuple[float, list[dict]]] = {}
+        self._cache: dict[str, tuple[float, str, list[dict]]] = {}
         self._ttl = ttl_seconds
         self._max_entries = max_entries
         self._hits = 0
@@ -48,7 +48,7 @@ class QueryCache:
             if entry is None:
                 self._misses += 1
                 return None
-            ts, results = entry
+            ts, _cid, results = entry
             if time.time() - ts > self._ttl:
                 del self._cache[key]
                 self._misses += 1
@@ -69,21 +69,25 @@ class QueryCache:
             if len(self._cache) >= self._max_entries:
                 oldest_key = min(self._cache, key=lambda k: self._cache[k][0])
                 del self._cache[oldest_key]
-            self._cache[key] = (time.time(), results)
+            self._cache[key] = (time.time(), company_id, results)
 
     def invalidate(self, company_id: str | None = None) -> int:
         """Drop cached entries.
 
-        If *company_id* is given, only entries whose key was generated
-        with that company are cleared.  Because the SHA-256 key does not
-        store the company_id in plain text, this implementation clears
-        the entire cache -- a pragmatic trade-off for simplicity.
-        Passing ``None`` also clears everything.
+        If *company_id* is given, only entries for that company are
+        removed.  Passing ``None`` clears the entire cache.
         """
         with self._lock:
-            count = len(self._cache)
-            self._cache.clear()
-            return count
+            if company_id is None:
+                count = len(self._cache)
+                self._cache.clear()
+                return count
+            keys_to_drop = [
+                k for k, (_, cid, _) in self._cache.items() if cid == company_id
+            ]
+            for k in keys_to_drop:
+                del self._cache[k]
+            return len(keys_to_drop)
 
     def stats(self) -> dict:
         """Return cache statistics."""
