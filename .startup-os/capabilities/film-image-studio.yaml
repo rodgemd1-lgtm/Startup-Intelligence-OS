@@ -6,7 +6,6 @@ wave: 1
 owner_human: Mike Rodgers
 owner_agent: Susan
 gaps:
-  - RAG knowledge ingestion (manifests created, scraping pending)
   - end-to-end workflow testing
   - multi-tenant production testing
   - quality gate automation
@@ -32,8 +31,8 @@ levels:
         done: true
       - text: "Agent registry updated with film studio agents"
         done: true
-      - text: "RAG knowledge base populated (5,100+ chunks)"
-        done: false
+      - text: "RAG knowledge base populated (644+ film studio chunks across 6 data types)"
+        done: true
   3:
     name: Scaling
     items:
