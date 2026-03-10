@@ -1,13 +1,17 @@
 # rag_engine/prefilter.py
 """Lexical + metadata prefilter for vector search.
 
-Generates SQL clause fragments that can be composed into a WHERE clause
-before the similarity search runs, narrowing the candidate set and
-reducing embedding-comparison cost.
+Generates parameterized SQL clause fragments that can be composed into
+a WHERE clause before the similarity search runs, narrowing the
+candidate set and reducing embedding-comparison cost.
+
+All user-supplied values are returned as bind parameters to prevent
+SQL injection.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import Any
 
 
 @dataclass
@@ -21,28 +25,33 @@ class PrefilterSpec:
     min_similarity: float = 0.0
 
 
-def apply_prefilter_sql(spec: PrefilterSpec) -> dict[str, str]:
-    """Build SQL filter clauses from a :class:`PrefilterSpec`.
+def apply_prefilter_sql(
+    spec: PrefilterSpec,
+) -> dict[str, tuple[str, list[Any]]]:
+    """Build parameterized SQL filter clauses from a :class:`PrefilterSpec`.
 
-    Returns a dict mapping logical filter names to SQL expression strings.
-    The caller is responsible for joining them with ``AND`` and
-    interpolating them safely into its query builder.
+    Returns a dict mapping logical filter names to
+    ``(sql_template, param_values)`` tuples.  The SQL template uses
+    ``%s`` placeholders; the caller must pass *param_values* through
+    its database driver so they are properly escaped.
     """
-    parts: dict[str, str] = {}
+    parts: dict[str, tuple[str, list[Any]]] = {}
 
     if spec.company_id:
         parts["company_id"] = (
-            f"company_id = '{spec.company_id}' OR company_id = 'shared'"
+            "company_id = %s OR company_id = 'shared'",
+            [spec.company_id],
         )
 
     if spec.data_types:
-        type_list = ", ".join(f"'{t}'" for t in spec.data_types)
-        parts["data_type"] = f"data_type IN ({type_list})"
+        parts["data_type"] = (
+            "data_type = ANY(%s)",
+            [spec.data_types],
+        )
 
     if spec.keywords:
-        keyword_conditions = " OR ".join(
-            f"content ILIKE '%{kw}%'" for kw in spec.keywords
-        )
-        parts["keywords"] = f"({keyword_conditions})"
+        placeholders = " OR ".join("content ILIKE %s" for _ in spec.keywords)
+        params = [f"%{kw}%" for kw in spec.keywords]
+        parts["keywords"] = (f"({placeholders})", params)
 
     return parts

@@ -83,8 +83,49 @@ def test_prefilter_spec():
         keywords=["retention", "churn"],
     )
     sql_parts = apply_prefilter_sql(spec)
+
+    # All three filter keys should be present
     assert "company_id" in sql_parts
     assert "data_type" in sql_parts
+    assert "keywords" in sql_parts
+
+    # Each value is a (sql_template, params) tuple
+    cid_sql, cid_params = sql_parts["company_id"]
+    assert "%s" in cid_sql
+    assert cid_params == ["transformfit"]
+    assert "transformfit" not in cid_sql  # value must NOT be interpolated
+
+    dt_sql, dt_params = sql_parts["data_type"]
+    assert "%s" in dt_sql
+    assert dt_params == [["exercise_science", "growth_marketing"]]
+
+    kw_sql, kw_params = sql_parts["keywords"]
+    assert kw_sql.count("%s") == 2  # one placeholder per keyword
+    assert kw_params == ["%retention%", "%churn%"]
+
+
+def test_prefilter_no_injection():
+    """Malicious input must end up in the params list, never in the SQL string."""
+    malicious = "'; DROP TABLE --"
+    spec = PrefilterSpec(
+        company_id=malicious,
+        data_types=[malicious],
+        keywords=[malicious],
+    )
+    sql_parts = apply_prefilter_sql(spec)
+
+    for key, (sql_template, params) in sql_parts.items():
+        # The raw malicious string must never appear in the SQL template
+        assert malicious not in sql_template, (
+            f"SQL injection possible in '{key}': malicious value found in SQL template"
+        )
+        # It must be safely captured in the params list
+        if key == "company_id":
+            assert params == [malicious]
+        elif key == "data_type":
+            assert params == [[malicious]]
+        elif key == "keywords":
+            assert params == [f"%{malicious}%"]
 
 
 def test_async_writer_batching():
