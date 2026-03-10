@@ -930,6 +930,156 @@ def generate_storyboard(
     }, indent=2)
 
 
+# ── Tool 29: orchestrate_production ──────────────────────────
+
+@mcp.tool()
+def orchestrate_production(production_id: str) -> str:
+    """Auto-assign agents for the current production phase.
+
+    Uses the AI-directed agent roster to assign the right specialists
+    based on production format and current phase.
+
+    Args:
+        production_id: The production ID to orchestrate
+    """
+    engine = _get_production_engine()
+    try:
+        result = engine.orchestrate(production_id)
+        return json.dumps(result, indent=2)
+    except KeyError:
+        return json.dumps({"error": f"Production not found: {production_id}"})
+
+
+# ── Tool 30: auto_run_production ─────────────────────────────
+
+@mcp.tool()
+def auto_run_production(production_id: str) -> str:
+    """Fully autonomous production run through all phases.
+
+    Advances through design → storyboard → generation → refinement,
+    auto-assigning agents at each phase. Stops at refinement
+    (quality gates must be satisfied before delivery).
+
+    Args:
+        production_id: The production ID to auto-run
+    """
+    engine = _get_production_engine()
+    try:
+        steps = engine.auto_run(production_id)
+        return json.dumps({"production_id": production_id, "steps": steps}, indent=2)
+    except KeyError:
+        return json.dumps({"error": f"Production not found: {production_id}"})
+
+
+# ── Tool 31: advance_production ──────────────────────────────
+
+@mcp.tool()
+def advance_production(production_id: str, force: bool = False) -> str:
+    """Advance production to the next phase.
+
+    Quality gates are enforced on refinement → delivered transition.
+    Use force=True to bypass quality gates (not recommended).
+
+    Args:
+        production_id: The production ID to advance
+        force: Bypass quality gate enforcement (default False)
+    """
+    engine = _get_production_engine()
+    try:
+        new_status = engine.advance_phase(production_id, force=force)
+        return json.dumps({
+            "production_id": production_id,
+            "new_phase": new_status.value,
+        }, indent=2)
+    except KeyError:
+        return json.dumps({"error": f"Production not found: {production_id}"})
+    except Exception as e:
+        return json.dumps({"error": str(e), "production_id": production_id})
+
+
+# ── Tool 32: run_quality_gate ────────────────────────────────
+
+@mcp.tool()
+def run_quality_gate(
+    production_id: str,
+    gate_name: str,
+    score: float,
+    details: str = "",
+) -> str:
+    """Record a quality gate result for a production.
+
+    Score (0.0-1.0) is compared against the gate's threshold.
+    All gates must pass before delivery.
+
+    Args:
+        production_id: The production ID
+        gate_name: Gate name (e.g., physics_plausibility, hook_impact, resolution)
+        score: Quality score between 0.0 and 1.0
+        details: Optional details about the assessment
+    """
+    engine = _get_production_engine()
+    try:
+        result = engine.run_quality_gate(production_id, gate_name, score, details)
+        return json.dumps({
+            "gate_name": result.gate_name,
+            "passed": result.passed,
+            "score": result.score,
+            "details": result.details,
+        }, indent=2)
+    except (KeyError, ValueError) as e:
+        return json.dumps({"error": str(e)})
+
+
+# ── Tool 33: route_generation_task ───────────────────────────
+
+@mcp.tool()
+def route_generation_task(task_type: str) -> str:
+    """Route a generation task to the optimal AI tool.
+
+    28 task types across image, video, and audio engines.
+    Examples: photorealistic, dialogue_scene, music_orchestral.
+
+    Args:
+        task_type: Task type key (e.g., 'photorealistic', 'dialogue_scene', 'voice_dialogue')
+    """
+    engine = _get_production_engine()
+    result = engine.route_to_tool(task_type)
+    return json.dumps(result, indent=2)
+
+
+# ── Tool 34: production_legal_clearance ──────────────────────
+
+@mcp.tool()
+def production_legal_clearance(
+    production_id: str,
+    asset_name: str,
+    clearance_type: str,
+    status: str = "pending",
+    notes: str = "",
+) -> str:
+    """Add or update a legal clearance record for a production asset.
+
+    7 clearance types: copyright, trademark, likeness, music_sync,
+    music_master, talent_consent, ai_disclosure.
+    4 statuses: pending, cleared, blocked, waived.
+
+    Args:
+        production_id: The production ID
+        asset_name: Name of the asset requiring clearance
+        clearance_type: Type of clearance needed
+        status: Clearance status (default: pending)
+        notes: Additional context
+    """
+    engine = _get_production_engine()
+    try:
+        result = engine.add_legal_clearance(
+            production_id, asset_name, clearance_type, status, notes
+        )
+        return json.dumps(result, indent=2)
+    except (KeyError, ValueError) as e:
+        return json.dumps({"error": str(e)})
+
+
 # ── Entry point ──────────────────────────────────────────────
 
 def main():
