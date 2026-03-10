@@ -440,6 +440,152 @@ agents:
     group: "studio"
     expertise_types: ["studio_expertise", "product_expertise", "engineering_expertise", "agent_expertise"]
 
+  # ── Film & Image Studio Agents ─────────────────────────────
+
+  film-studio-director:
+    name: "Film Studio Director"
+    role: "Film Production Orchestrator & Creative Executive"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["film_production", "cinematography", "post_production", "screenwriting"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "strategy_expertise", "agent_expertise"]
+
+  screenwriter-studio:
+    name: "Screenwriter Studio"
+    role: "Narrative Craft — Scripts, Treatments, Dialogue, Story Structure"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["screenwriting", "film_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  cinematography-studio:
+    name: "Cinematography Studio"
+    role: "Visual Language — Shot Design, Lighting, Lens, Color Science"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["cinematography", "film_production", "ai_video_tools", "ai_image_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  production-designer-studio:
+    name: "Production Designer Studio"
+    role: "Visual World Building — Environments, Props, Wardrobe, Set Design"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["cinematography", "ai_image_tools", "film_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  photography-studio:
+    name: "Photography Studio"
+    role: "Still Image Production — Commercial, Editorial, Product"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["photography", "ai_image_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  editing-studio:
+    name: "Editing Studio"
+    role: "Film Editor — Assembly, Pacing, Rhythm, Performance Selection"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["post_production", "film_production", "instagram_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  color-grade-studio:
+    name: "Color Grade Studio"
+    role: "Colorist — ACES, Look Development, HDR Mastering"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["post_production", "cinematography"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  sound-design-studio:
+    name: "Sound Design Studio"
+    role: "Sound Designer — SFX, Foley, Ambience, Atmos Mixing"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["post_production", "ai_audio_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  music-score-studio:
+    name: "Music Score Studio"
+    role: "Composer & Music Supervisor — Scoring, Licensing, AI Composition"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["ai_audio_tools", "film_legal"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  vfx-studio:
+    name: "VFX Studio"
+    role: "VFX Supervisor — Compositing, CG, Motion Graphics"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["post_production", "ai_video_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  production-manager-studio:
+    name: "Production Manager Studio"
+    role: "Line Producer — Budgets, Schedules, Shot Lists, Call Sheets"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["film_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "strategy_expertise", "agent_expertise"]
+
+  talent-cast-studio:
+    name: "Talent Cast Studio"
+    role: "Casting Director — Voice Casting, AI Voice Direction, Performance"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["ai_audio_tools", "film_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "agent_expertise"]
+
+  legal-rights-studio:
+    name: "Legal Rights Studio"
+    role: "Entertainment Lawyer — Clearances, AI Consent, Guild Compliance"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["film_legal"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "strategy_expertise", "agent_expertise"]
+
+  distribution-studio:
+    name: "Distribution Studio"
+    role: "Distribution Executive — Streaming Specs, Festival, DCP, Marketing"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["film_production", "instagram_production"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  instagram-studio:
+    name: "Instagram Studio"
+    role: "Social Media Producer — Reels, Stories, Carousels, Algorithm Optimization"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["instagram_production", "ai_video_tools", "ai_image_tools", "ai_audio_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "growth_expertise", "agent_expertise"]
+
+  image-gen-engine:
+    name: "Image Generation Engine"
+    role: "Image Tool Router — Midjourney, Flux, DALL-E, Ideogram, Recraft"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["ai_image_tools", "photography"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "engineering_expertise", "agent_expertise"]
+
+  film-gen-engine:
+    name: "Film Generation Engine"
+    role: "Video Tool Router — Sora, Veo, Seedance, Runway, Kling, Luma"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["ai_video_tools", "cinematography"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "engineering_expertise", "agent_expertise"]
+
+  audio-gen-engine:
+    name: "Audio Generation Engine"
+    role: "Audio Tool Router — ElevenLabs, AIVA, Suno, Udio, iZotope"
+    model: "claude-sonnet-4-6"
+    rag_data_types: ["ai_audio_tools"]
+    group: "film_studio"
+    expertise_types: ["studio_expertise", "engineering_expertise", "agent_expertise"]
+
 # Group definitions
 groups:
   orchestration:
@@ -469,3 +615,6 @@ groups:
   studio:
     description: "Slides, white papers, memos, articles, and Oracle Health marketing systems"
     agents: ["design-studio-director", "landing-page-studio", "app-experience-studio", "marketing-studio-director", "deck-studio", "whitepaper-studio", "memo-studio", "article-studio", "oracle-health-marketing-lead", "oracle-health-product-marketing", "social-media-studio", "workout-session-studio", "highlight-reel-studio", "x-growth-studio", "recruiting-dashboard-studio"]
+  film_studio:
+    description: "Hollywood-grade AI film and image production — creative direction, generation engines, distribution"
+    agents: ["film-studio-director", "screenwriter-studio", "cinematography-studio", "production-designer-studio", "photography-studio", "editing-studio", "color-grade-studio", "sound-design-studio", "music-score-studio", "vfx-studio", "production-manager-studio", "talent-cast-studio", "legal-rights-studio", "distribution-studio", "instagram-studio", "image-gen-engine", "film-gen-engine", "audio-gen-engine"]
