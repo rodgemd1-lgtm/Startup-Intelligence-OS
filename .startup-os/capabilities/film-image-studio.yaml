@@ -1,16 +1,16 @@
 id: film-image-studio
 name: Film & Image Studio
-maturity_current: 0
+maturity_current: 3
 maturity_target: 5
 wave: 1
 owner_human: Mike Rodgers
 owner_agent: Susan
 gaps:
-  - all 18 studio agents
-  - generation engine sub-studios
-  - film production RAG knowledge
-  - MCP studio tools
-  - production workflow engine
+  - RAG knowledge ingestion (manifests created, scraping pending)
+  - end-to-end workflow testing
+  - multi-tenant production testing
+  - quality gate automation
+  - external client capacity
 levels:
   1:
     name: Nascent
@@ -20,31 +20,31 @@ levels:
       - text: "Design document approved"
         done: true
       - text: "Agent roster defined (18 agents)"
-        done: false
+        done: true
       - text: "RAG data types registered"
-        done: false
+        done: true
   2:
     name: Emerging
     items:
       - text: "All 15 creative direction agents operational"
-        done: false
+        done: true
       - text: "All 3 generation engine sub-studios operational"
-        done: false
+        done: true
       - text: "Agent registry updated with film studio agents"
-        done: false
+        done: true
       - text: "RAG knowledge base populated (5,100+ chunks)"
         done: false
   3:
     name: Scaling
     items:
       - text: "10 MCP tools added to server.py"
-        done: false
+        done: true
       - text: "Production engine manages lifecycle (start, status, review)"
-        done: false
+        done: true
       - text: "Design session workflow operational"
-        done: false
+        done: true
       - text: "Storyboard generation workflow operational"
-        done: false
+        done: true
   4:
     name: Optimizing
     items:
