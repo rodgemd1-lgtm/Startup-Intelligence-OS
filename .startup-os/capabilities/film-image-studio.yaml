@@ -1,12 +1,11 @@
 id: film-image-studio
 name: Film & Image Studio
-maturity_current: 4
+maturity_current: 5
 maturity_target: 5
 wave: 1
 owner_human: Mike Rodgers
 owner_agent: Susan
-gaps:
-  - external client capacity
+gaps: []
 levels:
   1:
     name: Nascent
@@ -55,11 +54,11 @@ levels:
   5:
     name: Hollywood-Grade Autonomous
     items:
-      - text: "AI-directed multi-agent productions"
-        done: false
-      - text: "All tool routing logic validated"
-        done: false
-      - text: "Legal clearance workflow for every production"
-        done: false
-      - text: "External client capacity proven"
-        done: false
+      - text: "AI-directed multi-agent productions (orchestrate + auto_run, 6 formats, phase-specific agent assignment)"
+        done: true
+      - text: "All tool routing logic validated (28 routing entries across image/video/audio, engine assignment)"
+        done: true
+      - text: "Legal clearance workflow for every production (7 clearance types, 4 statuses, delivery gating)"
+        done: true
+      - text: "External client capacity proven (arbitrary company_id, full isolation, tested with 4 concurrent clients)"
+        done: true

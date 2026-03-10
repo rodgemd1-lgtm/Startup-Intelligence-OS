@@ -1,4 +1,4 @@
-"""Tests for the production engine lifecycle manager and quality gate automation."""
+"""Tests for the production engine lifecycle manager, quality gates, and V5 orchestration."""
 import pytest
 from susan_core.production_engine import (
     ProductionEngine,
@@ -614,3 +614,390 @@ def test_unknown_format_has_no_gates():
     assert prod.status == ProductionStatus.REFINEMENT
     can, _ = engine.can_advance(prod.production_id)
     assert can is True
+
+
+# ═══════════════════════════════════════════════════════════════
+# V5 — Hollywood-Grade Autonomous tests
+# ═══════════════════════════════════════════════════════════════
+
+
+# ── V5: AI-directed multi-agent orchestration ─────────────────
+
+
+def test_orchestrate_assigns_correct_agents_for_film():
+    """orchestrate() assigns format- and phase-specific agents."""
+    engine = ProductionEngine()
+    prod = engine.start("Test film", company_id="test", format="film")
+    plan = engine.orchestrate(prod.production_id)
+    assert plan["phase"] == "design"
+    assert "film-studio-director" in plan["agents_assigned_this_phase"]
+    assert "screenwriter-studio" in plan["agents_assigned_this_phase"]
+    assert "cinematography-studio" in plan["agents_assigned_this_phase"]
+    assert "production-designer-studio" in plan["agents_assigned_this_phase"]
+    assert plan["next_phase"] == "storyboard"
+
+
+def test_orchestrate_assigns_correct_agents_for_reel():
+    """Reel format gets instagram-studio in design phase."""
+    engine = ProductionEngine()
+    prod = engine.start("Test reel", company_id="test", format="reel")
+    plan = engine.orchestrate(prod.production_id)
+    assert "instagram-studio" in plan["agents_assigned_this_phase"]
+    assert "film-studio-director" in plan["agents_assigned_this_phase"]
+
+
+def test_orchestrate_no_duplicate_agents():
+    """Calling orchestrate twice doesn't duplicate agent assignments."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.orchestrate(prod.production_id)
+    plan2 = engine.orchestrate(prod.production_id)
+    assert plan2["agents_assigned_this_phase"] == []
+    # But all_agents still has them
+    assert len(plan2["all_agents"]) == 4
+
+
+def test_orchestrate_different_agents_per_phase():
+    """Each phase gets its own set of agents."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+
+    design_plan = engine.orchestrate(prod.production_id)
+    engine.advance_phase(prod.production_id)
+
+    storyboard_plan = engine.orchestrate(prod.production_id)
+    assert storyboard_plan["phase"] == "storyboard"
+    assert "image-gen-engine" in storyboard_plan["agents_assigned_this_phase"]
+    assert "production-manager-studio" in storyboard_plan["agents_assigned_this_phase"]
+
+
+def test_auto_run_film_production():
+    """auto_run advances through all phases to refinement."""
+    engine = ProductionEngine()
+    prod = engine.start("Full auto film", company_id="test", format="film")
+    steps = engine.auto_run(prod.production_id)
+
+    # Should have 4 steps: design, storyboard, generation, refinement
+    assert len(steps) == 4
+    assert steps[0]["phase"] == "design"
+    assert steps[1]["phase"] == "storyboard"
+    assert steps[2]["phase"] == "generation"
+    assert steps[3]["phase"] == "refinement"
+
+    # Production should be in refinement (not delivered — gates needed)
+    assert prod.status == ProductionStatus.REFINEMENT
+
+    # All phase agents should be assigned
+    assert "film-studio-director" in prod.agents_assigned
+    assert "film-gen-engine" in prod.agents_assigned
+    assert "editing-studio" in prod.agents_assigned
+
+
+def test_auto_run_photo_production():
+    """auto_run works for photo format with fewer agents."""
+    engine = ProductionEngine()
+    prod = engine.start("Product photos", company_id="test", format="photo")
+    steps = engine.auto_run(prod.production_id)
+    assert len(steps) == 4
+    assert prod.status == ProductionStatus.REFINEMENT
+    assert "photography-studio" in prod.agents_assigned
+    assert "image-gen-engine" in prod.agents_assigned
+
+
+def test_orchestrate_all_formats_have_agents():
+    """Every defined format has agent assignments for all phases."""
+    engine = ProductionEngine()
+    formats = ["film", "reel", "photo", "carousel", "image", "documentary"]
+    for fmt in formats:
+        prod = engine.start(f"Test {fmt}", company_id="test", format=fmt)
+        for phase in ["design", "storyboard", "generation", "refinement"]:
+            agents = engine._AGENT_ROSTER.get(fmt, {}).get(phase, [])
+            assert len(agents) >= 1, f"Format '{fmt}' phase '{phase}' has no agents"
+
+
+# ── V5: Tool routing logic validation ─────────────────────────
+
+
+def test_route_image_tools():
+    """Image generation routing returns correct tools."""
+    engine = ProductionEngine()
+    assert engine.route_to_tool("photorealistic")["recommended_tool"] == "Flux Pro 1.1 Ultra"
+    assert engine.route_to_tool("concept_art")["recommended_tool"] == "Midjourney v7"
+    assert engine.route_to_tool("text_heavy")["recommended_tool"] == "Ideogram 3.0"
+    assert engine.route_to_tool("brand_consistent")["recommended_tool"] == "Recraft V3"
+    assert engine.route_to_tool("commercial_safe")["recommended_tool"] == "Adobe Firefly Image 3"
+
+
+def test_route_video_tools():
+    """Video generation routing returns correct tools."""
+    engine = ProductionEngine()
+    assert engine.route_to_tool("dialogue_scene")["recommended_tool"] == "Sora 2"
+    assert engine.route_to_tool("long_establishing")["recommended_tool"] == "Veo 3.1"
+    assert engine.route_to_tool("character_lock")["recommended_tool"] == "Runway Gen-4.5"
+    assert engine.route_to_tool("budget_batch")["recommended_tool"] == "Kling 3.0"
+    assert engine.route_to_tool("talking_head")["recommended_tool"] == "Synthesia"
+
+
+def test_route_audio_tools():
+    """Audio generation routing returns correct tools."""
+    engine = ProductionEngine()
+    assert engine.route_to_tool("voice_dialogue")["recommended_tool"] == "ElevenLabs"
+    assert engine.route_to_tool("music_orchestral")["recommended_tool"] == "AIVA"
+    assert engine.route_to_tool("music_pop")["recommended_tool"] == "Suno"
+    assert engine.route_to_tool("sfx_foley")["recommended_tool"] == "ElevenLabs SFX"
+    assert engine.route_to_tool("audio_repair")["recommended_tool"] == "iZotope RX 11"
+
+
+def test_route_returns_correct_engine():
+    """Routing returns the correct engine for each domain."""
+    engine = ProductionEngine()
+    assert engine.route_to_tool("photorealistic")["engine"] == "image-gen-engine"
+    assert engine.route_to_tool("dialogue_scene")["engine"] == "film-gen-engine"
+    assert engine.route_to_tool("voice_dialogue")["engine"] == "audio-gen-engine"
+
+
+def test_route_unknown_returns_error():
+    """Unknown task type returns error with available types."""
+    engine = ProductionEngine()
+    result = engine.route_to_tool("nonexistent_task")
+    assert result["recommended_tool"] is None
+    assert "error" in result
+    assert "available_types" in result
+    assert "image" in result["available_types"]
+    assert "video" in result["available_types"]
+    assert "audio" in result["available_types"]
+
+
+def test_all_routing_entries_resolve():
+    """Every entry in the routing table resolves to a tool and engine."""
+    engine = ProductionEngine()
+    for task_type in engine._TOOL_ROUTING:
+        result = engine.route_to_tool(task_type)
+        assert result["recommended_tool"] is not None, f"Task '{task_type}' has no tool"
+        assert result["engine"] in ("image-gen-engine", "film-gen-engine", "audio-gen-engine")
+
+
+# ── V5: Legal clearance workflow ──────────────────────────────
+
+
+def test_add_legal_clearance():
+    """Add a legal clearance record to a production."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    record = engine.add_legal_clearance(
+        prod.production_id,
+        "hero_music_track",
+        "music_sync",
+        "cleared",
+        "Licensed via AIVA Pro — full ownership",
+    )
+    assert record["asset_name"] == "hero_music_track"
+    assert record["clearance_type"] == "music_sync"
+    assert record["status"] == "cleared"
+
+
+def test_legal_clearance_invalid_type_raises():
+    """Invalid clearance type raises ValueError."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    with pytest.raises(ValueError, match="Invalid clearance type"):
+        engine.add_legal_clearance(prod.production_id, "asset", "invalid_type")
+
+
+def test_legal_clearance_invalid_status_raises():
+    """Invalid clearance status raises ValueError."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    with pytest.raises(ValueError, match="Invalid status"):
+        engine.add_legal_clearance(
+            prod.production_id, "asset", "copyright", "invalid_status"
+        )
+
+
+def test_legal_clearance_summary_all_cleared():
+    """Summary shows all resolved when every clearance is cleared/waived."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.add_legal_clearance(prod.production_id, "music_track", "music_sync", "cleared")
+    engine.add_legal_clearance(prod.production_id, "music_master", "music_master", "cleared")
+    engine.add_legal_clearance(prod.production_id, "voice_clone", "talent_consent", "cleared")
+    engine.add_legal_clearance(prod.production_id, "ai_generated", "ai_disclosure", "waived")
+
+    summary = engine.legal_clearance_summary(prod.production_id)
+    assert summary["all_resolved"] is True
+    assert summary["can_deliver"] is True
+    assert summary["total_clearances"] == 4
+    assert len(summary["by_status"]["cleared"]) == 3
+    assert len(summary["by_status"]["waived"]) == 1
+
+
+def test_legal_clearance_summary_has_pending():
+    """Summary shows not resolved when pending clearances exist."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.add_legal_clearance(prod.production_id, "music", "music_sync", "cleared")
+    engine.add_legal_clearance(prod.production_id, "likeness", "likeness", "pending")
+
+    summary = engine.legal_clearance_summary(prod.production_id)
+    assert summary["all_resolved"] is False
+    assert summary["can_deliver"] is False
+
+
+def test_legal_clearance_summary_has_blocked():
+    """Summary shows not resolved when blocked clearances exist."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    engine.add_legal_clearance(prod.production_id, "stock_footage", "copyright", "blocked", "Licensing dispute")
+
+    summary = engine.legal_clearance_summary(prod.production_id)
+    assert summary["all_resolved"] is False
+    assert summary["can_deliver"] is False
+    assert len(summary["by_status"]["blocked"]) == 1
+
+
+def test_legal_clearance_summary_empty():
+    """Summary with no clearances returns can_deliver=False."""
+    engine = ProductionEngine()
+    prod = engine.start("Test", company_id="test", format="film")
+    summary = engine.legal_clearance_summary(prod.production_id)
+    assert summary["total_clearances"] == 0
+    assert summary["can_deliver"] is False  # No clearances means not deliverable
+
+
+# ── V5: Full autonomous production with legal clearance ───────
+
+
+def test_e2e_v5_autonomous_film_with_legal():
+    """V5 full autonomous: auto_run + tool routing + legal clearance + quality gates."""
+    engine = ProductionEngine()
+
+    # Start production
+    prod = engine.start(
+        "TransformFit brand anthem — 90s cinematic fitness journey",
+        company_id="transformfit",
+        format="film",
+    )
+
+    # Auto-run through all phases to refinement
+    steps = engine.auto_run(prod.production_id)
+    assert len(steps) == 4
+    assert prod.status == ProductionStatus.REFINEMENT
+
+    # Route specific generation tasks to optimal tools
+    hero_shot = engine.route_to_tool("dialogue_scene")
+    assert hero_shot["recommended_tool"] == "Sora 2"
+
+    slow_mo = engine.route_to_tool("long_establishing")
+    assert slow_mo["recommended_tool"] == "Veo 3.1"
+
+    music = engine.route_to_tool("music_orchestral")
+    assert music["recommended_tool"] == "AIVA"
+
+    # Add legal clearances
+    engine.add_legal_clearance(prod.production_id, "hero_music", "music_sync", "cleared", "AIVA Pro full ownership")
+    engine.add_legal_clearance(prod.production_id, "hero_music_master", "music_master", "cleared", "AIVA Pro full ownership")
+    engine.add_legal_clearance(prod.production_id, "voiceover", "talent_consent", "cleared", "ElevenLabs PVC consent signed")
+    engine.add_legal_clearance(prod.production_id, "ai_generated_footage", "ai_disclosure", "cleared", "Disclosed in credits")
+    engine.add_legal_clearance(prod.production_id, "brand_assets", "trademark", "cleared", "TransformFit owns all marks")
+    engine.add_legal_clearance(prod.production_id, "all_footage", "copyright", "cleared", "AI-generated, company owns")
+
+    legal = engine.legal_clearance_summary(prod.production_id)
+    assert legal["all_resolved"] is True
+    assert legal["can_deliver"] is True
+
+    # Pass quality gates
+    for gate in engine.get_quality_gates(prod.production_id):
+        engine.run_quality_gate(prod.production_id, gate.gate_name, 0.9)
+
+    # Deliver
+    engine.advance_phase(prod.production_id)
+    assert prod.status == ProductionStatus.DELIVERED
+
+    # Final checks
+    status = engine.get_status(prod.production_id)
+    assert status["phase"] == "delivered"
+    assert status["quality_gates"]["all_passed"] is True
+    assert len(prod.agents_assigned) >= 10
+
+
+# ── V5: External client capacity ──────────────────────────────
+
+
+def test_external_client_capacity():
+    """Arbitrary external companies can run full productions with isolation."""
+    engine = ProductionEngine()
+
+    # External client 1: Fitness brand
+    client_a = engine.start(
+        "FitLife hero video", company_id="fitlife-external", format="film"
+    )
+    steps_a = engine.auto_run(client_a.production_id)
+    assert len(steps_a) == 4
+
+    # External client 2: Restaurant
+    client_b = engine.start(
+        "TacoTuesday menu carousel", company_id="tacotuesday-external", format="carousel"
+    )
+    steps_b = engine.auto_run(client_b.production_id)
+    assert len(steps_b) == 4
+
+    # External client 3: Tech startup
+    client_c = engine.start(
+        "CodeShip product demo reel", company_id="codeship-external", format="reel"
+    )
+    steps_c = engine.auto_run(client_c.production_id)
+
+    # Internal company running simultaneously
+    internal = engine.start(
+        "TransformFit monthly content", company_id="transformfit", format="reel"
+    )
+    engine.auto_run(internal.production_id)
+
+    # All 4 companies isolated
+    assert len(engine.list_productions("fitlife-external")) == 1
+    assert len(engine.list_productions("tacotuesday-external")) == 1
+    assert len(engine.list_productions("codeship-external")) == 1
+    assert len(engine.list_productions("transformfit")) == 1
+
+    # Each has correct format-specific agents
+    assert "film-studio-director" in client_a.agents_assigned
+    assert "instagram-studio" in client_b.agents_assigned or "production-designer-studio" in client_b.agents_assigned
+    assert "instagram-studio" in client_c.agents_assigned
+
+    # Quality gates are format-specific per client
+    a_gates = {g.gate_name for g in engine.get_quality_gates(client_a.production_id)}
+    b_gates = {g.gate_name for g in engine.get_quality_gates(client_b.production_id)}
+    c_gates = {g.gate_name for g in engine.get_quality_gates(client_c.production_id)}
+
+    assert "physics_plausibility" in a_gates  # film
+    assert "slide_consistency" in b_gates     # carousel
+    assert "hook_impact" in c_gates           # reel
+
+
+def test_external_client_full_delivery():
+    """External client can complete full production through delivery."""
+    engine = ProductionEngine()
+
+    prod = engine.start(
+        "External brand video", company_id="acme-corp-external", format="film"
+    )
+
+    # Auto-run to refinement
+    engine.auto_run(prod.production_id)
+    assert prod.status == ProductionStatus.REFINEMENT
+
+    # Add legal clearances
+    engine.add_legal_clearance(prod.production_id, "all_assets", "copyright", "cleared")
+    engine.add_legal_clearance(prod.production_id, "ai_content", "ai_disclosure", "cleared")
+
+    # Pass quality gates (use 0.95 to exceed all thresholds including audio_sync=0.9)
+    for gate in engine.get_quality_gates(prod.production_id):
+        engine.run_quality_gate(prod.production_id, gate.gate_name, 0.95)
+
+    # Deliver
+    engine.advance_phase(prod.production_id)
+    assert prod.status == ProductionStatus.DELIVERED
+
+    # Verify no data leaks to other companies
+    assert len(engine.list_productions("transformfit")) == 0
+    assert len(engine.list_productions("acme-corp-external")) == 1
