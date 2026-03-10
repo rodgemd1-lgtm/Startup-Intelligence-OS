@@ -1,0 +1,70 @@
+{
+  "topic": "AI-powered rep counting in fitness apps",
+  "created": "2026-03-10T15:00:00Z",
+  "depth": "shallow",
+  "engines_used": ["web_search", "firecrawl"],
+  "company_id": "transformfit",
+  "data_type": "ai_ml_research",
+  "ingested_to_rag": false,
+  "sources": [
+    {
+      "url": "https://www.ongraph.com/ai-in-fitness-industry/",
+      "title": "AI in Fitness Industry (2026): Use Cases, Benefits & Challenges",
+      "domain": "ongraph.com",
+      "discovered_by": "web_search",
+      "extracted_by": "webfetch",
+      "file": "sources/ongraph-com--ai-in-fitness-industry.md",
+      "relevance": "high"
+    },
+    {
+      "url": "https://fittonic.app/",
+      "title": "Fittonic: Computer Vision AI for Fitness Apps",
+      "domain": "fittonic.app",
+      "discovered_by": "web_search",
+      "extracted_by": "webfetch",
+      "file": "sources/fittonic-app--computer-vision-fitness.md",
+      "relevance": "high"
+    },
+    {
+      "url": "https://orangesoft.co/blog/ai-in-fitness-industry",
+      "title": "AI in Fitness 2026: Use Cases, Apps, Challenges & Trends",
+      "domain": "orangesoft.co",
+      "discovered_by": "web_search",
+      "extracted_by": "webfetch",
+      "file": "sources/orangesoft-co--ai-in-fitness-industry.md",
+      "relevance": "high"
+    },
+    {
+      "url": "https://github.com/yakupzengin/fitness-trainer-pose-estimation",
+      "title": "AI Fitness Trainer Pose Estimation (GitHub)",
+      "domain": "github.com",
+      "discovered_by": "web_search",
+      "extracted_by": "not_extracted",
+      "file": null,
+      "relevance": "medium"
+    },
+    {
+      "url": "https://agitapp.com/",
+      "title": "Agit - Fitness Tracking Using Smartphone Camera",
+      "domain": "agitapp.com",
+      "discovered_by": "web_search",
+      "extracted_by": "not_extracted",
+      "file": null,
+      "relevance": "medium"
+    },
+    {
+      "url": "https://trainfitness.ai/",
+      "title": "Motra - Automatic Exercise Tracking",
+      "domain": "trainfitness.ai",
+      "discovered_by": "web_search",
+      "extracted_by": "not_extracted",
+      "file": null,
+      "relevance": "medium"
+    }
+  ],
+  "stats": {
+    "urls_discovered": 10,
+    "urls_extracted": 3,
+    "extraction_failures": 0
+  }
+}
