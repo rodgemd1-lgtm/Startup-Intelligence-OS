@@ -1,14 +1,11 @@
 id: film-image-studio
 name: Film & Image Studio
-maturity_current: 3
+maturity_current: 4
 maturity_target: 5
 wave: 1
 owner_human: Mike Rodgers
 owner_agent: Susan
 gaps:
-  - end-to-end workflow testing
-  - multi-tenant production testing
-  - quality gate automation
   - external client capacity
 levels:
   1:
@@ -47,14 +44,14 @@ levels:
   4:
     name: Optimizing
     items:
-      - text: "Full film production workflow tested end-to-end"
-        done: false
-      - text: "Instagram batch production workflow tested"
-        done: false
-      - text: "Multi-tenant production across 3+ companies"
-        done: false
-      - text: "Quality gates automated for all engines"
-        done: false
+      - text: "Full film production workflow tested end-to-end (31 tests, 5-phase lifecycle)"
+        done: true
+      - text: "Instagram batch production workflow tested (4-reel batch with quality gates)"
+        done: true
+      - text: "Multi-tenant production across 3+ companies (transformfit, founder-intelligence-os, oracle-health-ai)"
+        done: true
+      - text: "Quality gates automated for all engines (6 formats, 30+ gates, enforcement on delivery)"
+        done: true
   5:
     name: Hollywood-Grade Autonomous
     items:
