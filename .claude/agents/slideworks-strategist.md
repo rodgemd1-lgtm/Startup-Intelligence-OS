@@ -1,0 +1,1 @@
+../../susan-team-architect/agents/slideworks-strategist.md

@@ -37,7 +37,7 @@ def _default_company() -> str:
 
 
 def _known_companies() -> set[str]:
-    return {"shared", "transformfit", "oracle-health-ai-enablement", "alex-recruiting"}
+    return {"shared", "transformfit", "oracle-health-ai-enablement", "alex-recruiting", "mike-job-studio"}
 
 
 def _parse_types(raw: str | None) -> list[str] | None:

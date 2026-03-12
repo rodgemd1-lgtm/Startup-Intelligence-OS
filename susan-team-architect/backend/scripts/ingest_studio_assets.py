@@ -42,6 +42,11 @@ COMPANY_PATHS = {
             ROOT / "companies" / "oracle-health-ai-enablement",
         ],
     },
+    "mike-job-studio": {
+        "studio_memory": [
+            ROOT / "companies" / "mike-job-studio",
+        ],
+    },
 }
 
 
