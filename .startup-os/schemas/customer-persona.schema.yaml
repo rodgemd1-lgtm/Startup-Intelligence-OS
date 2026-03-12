@@ -1,0 +1,68 @@
+title: customer-persona
+type: object
+required:
+  - id
+  - name
+  - segment
+  - applications
+  - goals
+  - constraints
+  - preferences
+  - behavioral_profile
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  segment:
+    type: string
+  applications:
+    type: array
+    items:
+      type: string
+  goals:
+    type: array
+    items:
+      type: string
+  constraints:
+    type: array
+    items:
+      type: string
+  preferences:
+    type: object
+    required:
+      - likes
+      - dislikes
+      - future_wants
+    properties:
+      likes:
+        type: array
+        items:
+          type: string
+      dislikes:
+        type: array
+        items:
+          type: string
+      future_wants:
+        type: array
+        items:
+          type: string
+  behavioral_profile:
+    type: object
+    required:
+      - proficiency
+      - risk_tolerance
+      - patience_budget_minutes
+    properties:
+      proficiency:
+        type: string
+        enum: [novice, intermediate, expert]
+      risk_tolerance:
+        type: string
+        enum: [low, medium, high]
+      patience_budget_minutes:
+        type: number
+  evidence_links:
+    type: array
+    items:
+      type: string

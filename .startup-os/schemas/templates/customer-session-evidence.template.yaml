@@ -1,0 +1,17 @@
+id: customer-session-{{slug}}
+app_id: {{app_id}}
+persona_id: {{persona_id}}
+scenario_id: {{scenario_id}}
+run_at: {{timestamp}}
+result:
+  status: warn
+  completion_rate: 0.0
+  critical_errors: 0
+  frustration_index: 0.0
+findings: []
+preference_signals:
+  likes: []
+  dislikes: []
+  future_wants: []
+roadmap_candidates: []
+evidence_links: []

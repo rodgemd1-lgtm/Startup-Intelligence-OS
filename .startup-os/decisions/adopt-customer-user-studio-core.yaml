@@ -1,0 +1,65 @@
+id: adopt-customer-user-studio-core
+title: Adopt Customer User Studio as a core Startup OS capability
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Establish a Customer User Studio capability that runs adaptive customer agents, captures preferences, and informs roadmap decisions across applications.
+why_now: Upcoming multi-application rollout requires scalable customer simulation and beta feedback loops to de-risk releases and improve prioritization.
+constraints:
+  - Preserve Susan runtime behavior under susan-team-architect/backend.
+  - Keep changes additive and file-backed under .startup-os.
+  - Ensure every roadmap recommendation links to session evidence artifacts.
+options:
+  - id: option-a
+    name: Lean validation layer
+    summary: Scripted browser tests with bug logging and limited feedback extraction.
+    impact: medium
+    effort: low
+    risk: medium
+    confidence: high
+    time_to_signal: fast
+  - id: option-b
+    name: Core customer user studio
+    summary: Persona/scenario schemas, adaptive agents, preference capture, and roadmap intelligence mapping.
+    impact: high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+  - id: option-c
+    name: Autonomous customer twin platform
+    summary: Population simulation, longitudinal memory, causal forecasting, and autonomous experimentation.
+    impact: very_high
+    effort: very_high
+    risk: high
+    confidence: medium
+    time_to_signal: slow
+recommendation: option-b
+assumptions:
+  - Synthetic agents and beta cohorts can be reconciled through shared evidence schema.
+  - Weekly decision-room cadence is sufficient for roadmap updates in phase 1.
+  - Release quality gates can be introduced incrementally without blocking current delivery velocity.
+risks:
+  - name: Synthetic-user bias
+    mitigation: Blend synthetic evidence with beta cohort signals and track divergence score.
+  - name: Signal overload
+    mitigation: Use severity and confidence scoring with strict ranking thresholds.
+  - name: Governance gaps
+    mitigation: Define beta consent boundaries and release gate ownership before rollout.
+next_actions:
+  - Add customer persona/scenario/session schemas and templates.
+  - Stand up first scenario pack for onboarding, activation, and retention workflows.
+  - Generate weekly roadmap intelligence artifact from session evidence.
+  - Define beta cohort playbook and release gate policy in wave 1.
+linked_capabilities:
+  - customer-user-studio
+linked_projects:
+  - decision-capability-os
+artifacts:
+  - .startup-os/capabilities/customer-user-studio.yaml
+  - .startup-os/artifacts/customer-user-studio-research-packet.md
+  - .startup-os/artifacts/customer-user-studio-roadmap-intelligence-spec.yaml
+  - .startup-os/schemas/customer-persona.schema.yaml
+  - .startup-os/schemas/customer-scenario.schema.yaml
+  - .startup-os/schemas/customer-session-evidence.schema.yaml
+  - .startup-os/artifacts/customer-user-studio-beta-cohort-playbook.md

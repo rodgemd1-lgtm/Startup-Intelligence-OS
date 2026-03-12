@@ -1,0 +1,62 @@
+id: advance-customer-user-studio-to-world-class-maturity
+title: Advance Customer User Studio from core baseline to world-class L5 maturity
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Adopt a phased L1-L5 world-class maturity model for Customer User Studio, with explicit release gates and roadmap intelligence accountability.
+why_now: Core scaffolding exists; the next value frontier is reliable adaptive coverage, beta alignment, and predictive roadmap prioritization before multi-app scale accelerates.
+constraints:
+  - Keep Susan runtime behavior unchanged under susan-team-architect/backend.
+  - Keep Customer User Studio artifacts additive and file-backed under .startup-os.
+  - Require evidence lineage for all roadmap recommendations.
+options:
+  - id: option-a
+    name: Maintain core-only mode
+    summary: Keep deterministic testing and basic preference capture without predictive or autonomous layers.
+    impact: medium
+    effort: low
+    risk: medium
+    confidence: high
+    time_to_signal: fast
+  - id: option-b
+    name: Phase to world-class L5
+    summary: Implement a staged progression through operational, adaptive, predictive, and autonomous maturity.
+    impact: very_high
+    effort: high
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+  - id: option-c
+    name: Jump directly to autonomous platform
+    summary: Build full population simulation and autonomous scenario generation immediately.
+    impact: very_high
+    effort: very_high
+    risk: very_high
+    confidence: low
+    time_to_signal: slow
+recommendation: option-b
+assumptions:
+  - Phase-based delivery reduces risk while preserving momentum.
+  - World-class maturity requires synthetic and beta evidence reconciliation on every release cycle.
+  - Decision-room cadence can absorb weekly ranked opportunity packets.
+risks:
+  - name: Over-complexity before adoption
+    mitigation: Gate scope by maturity level with measurable exit criteria.
+  - name: Recommendation trust erosion
+    mitigation: Track hit rate of shipped recommendations vs KPI outcomes.
+  - name: Governance bottlenecks
+    mitigation: Assign single-threaded ownership for triage, waivers, and release gate decisions.
+next_actions:
+  - Define L1-L5 exit criteria and owners for each level.
+  - Launch top 25 deterministic journeys and nightly run cadence.
+  - Add synthetic-vs-beta alignment reporting and release waiver protocol.
+  - Stand up predictive ranking model pilot on one flagship application.
+linked_capabilities:
+  - customer-user-studio
+linked_projects:
+  - decision-capability-os
+artifacts:
+  - .startup-os/artifacts/customer-user-studio-world-class-blueprint.md
+  - .startup-os/capabilities/customer-user-studio.yaml
+  - .startup-os/artifacts/customer-user-studio-roadmap-intelligence-spec.yaml
+  - .startup-os/artifacts/customer-user-studio-beta-cohort-playbook.md

@@ -12,6 +12,9 @@ deliverables:
   - starter schemas and records
 linked_decisions:
   - adopt-decision-capability-os-phase-a
+  - adopt-customer-user-studio-core
+  - advance-customer-user-studio-to-world-class-maturity
 linked_capabilities:
   - workspace-contract
   - decision-kernel
+  - customer-user-studio
