@@ -195,3 +195,46 @@ companies:
       - Ingest founder personas, frameworks, and operating docs as reusable expert and protocol layers.
       - Stand up the founder operator console with KPI trees, operating cadences, and decision logs.
       - Add trust and governance baselines so new company builds inherit privacy, security, and accessibility rules.
+  mike-job-studio:
+    description: Mike Job Studio is Mike's personal execution and memory studio inside Startup Intelligence OS, built to retrieve work history, writing style, and linked company corpora.
+    default_mode: foundry
+    protocols:
+      - Treat the local Outlook-derived corpus as recall support, not a complete historical record.
+      - Prefer authored and work-related subsets before broad email retrieval when drafting or pattern-matching.
+      - Use locator files to jump into company-specific raw corpora such as Oracle Health rather than pretending those binaries are fully embedded.
+      - Separate personal operator memory from company delivery memory when synthesizing recommendations.
+    expert_councils:
+      - founder-ops-council
+      - product-experience-council
+      - social-distribution-council
+    execution_tracks:
+      - id: work_memory
+        name: Work Memory and Retrieval
+        description: Turn Mike's cached Outlook corpus and linked documents into usable retrieval context for recall, synthesis, and follow-up.
+        agents: [susan, research-director, research-ops, atlas]
+        data_types: [mike_job_studio_email_work, mike_job_studio_email_authored, studio_memory]
+        outputs: [retrieval brief, thread recap, source map, follow-up draft]
+        notes:
+          - Treat date coverage as partial until a full mailbox export is ingested.
+          - Prefer direct source evidence over fuzzy recollection.
+      - id: writing_intelligence
+        name: Writing Style and Work Product Intelligence
+        description: Use Mike-authored emails and related memory to recover tone, persuasion patterns, and reusable structures.
+        agents: [susan, marketing-studio-director, steve, pulse]
+        data_types: [mike_job_studio_email_authored, studio_memory, content_strategy]
+        outputs: [voice guide, draft scaffold, rewrite options, message critique]
+        notes:
+          - Start with authored material before inferring style from received threads.
+      - id: linked_company_context
+        name: Linked Company Context
+        description: Bridge personal operator memory with company-specific corpora such as Oracle Health when tasks depend on both.
+        agents: [susan, research-director, design-studio-director, atlas]
+        data_types: [studio_memory, market_research, business_strategy]
+        outputs: [context bridge memo, corpus locator map, briefing pack]
+        notes:
+          - Use locator files to open raw corpora directly when markdown coverage is incomplete.
+    next_actions:
+      - Expand from the local Outlook cache to a full mailbox export if full-year coverage is needed.
+      - Convert the highest-value authored emails into reusable writing-pattern playbooks.
+      - Link the Oracle Health corpus and other mounted datasets into Mike Job Studio through maintained locator files.
+      - Add more personal work artifacts beyond email so Job Studio can reason from deliverables, not just correspondence.

@@ -11,3 +11,11 @@ __pycache__/
 # Node
 node_modules/
 .worktrees/
+
+# Local corpora mounted into Susan without committing binaries
+susan-team-architect/backend/data/studio_assets/companies/oracle-health-ai-enablement/raw-docs
+
+# Generated Outlook-derived email corpus for Mike's Job Studio
+susan-team-architect/backend/data/studio_assets/generated/mike-job-studio/email_corpus/
+susan-team-architect/backend/artifacts/mike_job_studio_email_corpus/
+susan-team-architect/backend/artifacts/mike_job_studio_oracle_health_storage/

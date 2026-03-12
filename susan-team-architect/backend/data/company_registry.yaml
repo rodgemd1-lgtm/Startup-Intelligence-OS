@@ -136,6 +136,38 @@ companies:
       - "Need lightweight project-native usage with central retrieval and routing"
       - "Must support both quick founder answers and deep foundry buildouts"
     budget_per_month_usd: 300
+  mike-job-studio:
+    name: "Mike Job Studio"
+    domain: "personal_operator_intelligence"
+    stage: "memory_bootstrap"
+    website: "https://startup-intelligence-os.local/mike-job-studio"
+    founding_date: "2026"
+    founders:
+      - name: "Michael Rodgers"
+        background: "AI systems architect building a personal work-memory, writing, and operator studio inside Startup Intelligence OS"
+    product_description: "A personal studio inside Startup Intelligence OS for Mike's work corpus, writing-style recall, opportunity intelligence, and cross-company context retrieval."
+    tech_stack:
+      - "Startup-Intelligence-OS backend"
+      - "Supabase"
+      - "Claude Code"
+      - "Anthropic"
+      - "Markdown knowledge base"
+    target_market: "Internal Mike Rodgers workflows across job, operator, writing, and personal knowledge retrieval"
+    funding_status: "internal_initiative"
+    key_competitors:
+      - "manual email search"
+      - "scattered local folders"
+      - "generic AI chat without memory"
+      - "Notion note dumps"
+    current_challenges:
+      - "Need a searchable work-memory layer grounded in real emails and artifacts"
+      - "Need writing-style recall tied to successful past work"
+      - "Need a single studio entry point that can bridge personal memory and linked company corpora"
+    constraints:
+      - "Available email coverage is limited to the locally cached Outlook window unless broader mailbox export access is added"
+      - "Personal and work materials require careful namespace separation"
+      - "Some linked corpora still live as raw binaries and locator files rather than embedded text"
+    budget_per_month_usd: 300
 
   apex-social-studio:
     name: "Apex Social Studio"

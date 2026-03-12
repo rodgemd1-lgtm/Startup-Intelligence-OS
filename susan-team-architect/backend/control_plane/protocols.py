@@ -204,6 +204,18 @@ COMPANY_CORE_AGENTS = {
         "shield",
         "pulse",
     ],
+    "mike-job-studio": [
+        "susan",
+        "research-director",
+        "research-ops",
+        "compass",
+        "atlas",
+        "steve",
+        "design-studio-director",
+        "marketing-studio-director",
+        "shield",
+        "pulse",
+    ],
 }
 
 TRANSFORMFIT_EXPERIENCE_BENCH = {
