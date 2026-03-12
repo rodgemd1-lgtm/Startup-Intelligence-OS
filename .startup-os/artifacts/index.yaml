@@ -26,3 +26,31 @@ artifacts:
     project_id: decision-capability-os
     created: 2026-03-09
     assessor: susan
+  - id: customer-user-studio-research-packet
+    type: research-packet
+    path: .startup-os/artifacts/customer-user-studio-research-packet.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-roadmap-intelligence-spec
+    type: spec
+    path: .startup-os/artifacts/customer-user-studio-roadmap-intelligence-spec.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-beta-cohort-playbook
+    type: playbook
+    path: .startup-os/artifacts/customer-user-studio-beta-cohort-playbook.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-world-class-blueprint
+    type: blueprint
+    path: .startup-os/artifacts/customer-user-studio-world-class-blueprint.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake

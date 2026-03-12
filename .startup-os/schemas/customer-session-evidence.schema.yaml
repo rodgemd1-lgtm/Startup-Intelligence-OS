@@ -1,0 +1,88 @@
+title: customer-session-evidence
+type: object
+required:
+  - id
+  - app_id
+  - persona_id
+  - scenario_id
+  - run_at
+  - result
+  - findings
+  - preference_signals
+  - roadmap_candidates
+properties:
+  id:
+    type: string
+  app_id:
+    type: string
+  persona_id:
+    type: string
+  scenario_id:
+    type: string
+  run_at:
+    type: string
+  result:
+    type: object
+    required: [status, completion_rate, critical_errors]
+    properties:
+      status:
+        type: string
+        enum: [pass, warn, fail]
+      completion_rate:
+        type: number
+      critical_errors:
+        type: integer
+      frustration_index:
+        type: number
+  findings:
+    type: array
+    items:
+      type: object
+      required: [type, summary, severity, evidence]
+      properties:
+        type:
+          type: string
+          enum: [bug, friction, confusion, delight, request]
+        summary:
+          type: string
+        severity:
+          type: string
+          enum: [low, medium, high, critical]
+        evidence:
+          type: string
+  preference_signals:
+    type: object
+    required: [likes, dislikes, future_wants]
+    properties:
+      likes:
+        type: array
+        items:
+          type: string
+      dislikes:
+        type: array
+        items:
+          type: string
+      future_wants:
+        type: array
+        items:
+          type: string
+  roadmap_candidates:
+    type: array
+    items:
+      type: object
+      required: [theme, candidate, impact, confidence]
+      properties:
+        theme:
+          type: string
+        candidate:
+          type: string
+        impact:
+          type: string
+          enum: [low, medium, high]
+        confidence:
+          type: string
+          enum: [low, medium, high]
+  evidence_links:
+    type: array
+    items:
+      type: string

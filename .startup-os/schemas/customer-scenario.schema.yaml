@@ -1,0 +1,59 @@
+title: customer-scenario
+type: object
+required:
+  - id
+  - app_id
+  - persona_id
+  - objective
+  - entry_state
+  - tasks
+  - success_criteria
+  - adaptation_rules
+properties:
+  id:
+    type: string
+  app_id:
+    type: string
+  persona_id:
+    type: string
+  objective:
+    type: string
+  entry_state:
+    type: object
+  tasks:
+    type: array
+    items:
+      type: object
+      required: [step_id, action, expected_outcome]
+      properties:
+        step_id:
+          type: string
+        action:
+          type: string
+        expected_outcome:
+          type: string
+        fallback_action:
+          type: string
+  success_criteria:
+    type: array
+    items:
+      type: string
+  adaptation_rules:
+    type: array
+    items:
+      type: object
+      required: [trigger, adaptation]
+      properties:
+        trigger:
+          type: string
+        adaptation:
+          type: string
+  instrumentation:
+    type: object
+    properties:
+      capture_console_errors:
+        type: boolean
+      capture_network_failures:
+        type: boolean
+      capture_replay:
+        type: boolean

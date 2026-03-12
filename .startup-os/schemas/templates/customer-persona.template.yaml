@@ -1,0 +1,15 @@
+id: customer-persona-{{slug}}
+name: {{name}}
+segment: {{segment}}
+applications: []
+goals: []
+constraints: []
+preferences:
+  likes: []
+  dislikes: []
+  future_wants: []
+behavioral_profile:
+  proficiency: intermediate
+  risk_tolerance: medium
+  patience_budget_minutes: 15
+evidence_links: []

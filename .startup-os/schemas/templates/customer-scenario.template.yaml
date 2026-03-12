@@ -1,0 +1,18 @@
+id: customer-scenario-{{slug}}
+app_id: {{app_id}}
+persona_id: {{persona_id}}
+objective: {{objective}}
+entry_state: {}
+tasks:
+  - step_id: step-1
+    action: ""
+    expected_outcome: ""
+    fallback_action: ""
+success_criteria: []
+adaptation_rules:
+  - trigger: ""
+    adaptation: ""
+instrumentation:
+  capture_console_errors: true
+  capture_network_failures: true
+  capture_replay: true

@@ -1,0 +1,64 @@
+id: customer-user-studio-roadmap-intelligence-spec
+type: roadmap-intelligence-spec
+version: 2
+owner: jake
+objective: Convert customer-agent and beta evidence into ranked roadmap priorities with confidence, causal rationale, and release decision support.
+inputs:
+  - customer-session-evidence
+  - bug-tracker-events
+  - beta-feedback-notes
+  - product-analytics-signals
+  - support-ticket-themes
+mapping_rules:
+  severity_weights:
+    low: 1
+    medium: 2
+    high: 3
+    critical: 5
+  impact_weights:
+    low: 1
+    medium: 2
+    high: 3
+  confidence_weights:
+    low: 1
+    medium: 2
+    high: 3
+  strategic_alignment_weights:
+    low: 1
+    medium: 2
+    high: 3
+  alignment_multiplier_formula: "alignment_multiplier = (synthetic_beta_alignment + 1)"
+  score_formula: "priority_score = severity_weight * impact_weight * confidence_weight * strategic_alignment_weight * alignment_multiplier"
+output_fields:
+  - app_id
+  - affected_module
+  - issue_type
+  - summary
+  - user_impact
+  - suggested_fix_or_feature
+  - roadmap_theme
+  - candidate_epic
+  - severity
+  - confidence
+  - strategic_alignment
+  - synthetic_beta_alignment
+  - causal_rationale
+  - priority_score
+  - evidence_links
+cadence:
+  run_frequency: weekly
+  decision_forum: decision-room
+  release_review: mandatory
+quality_gates:
+  critical_error_rate_max: 0.02
+  task_completion_min: 0.9
+  frustration_index_max: 0.25
+  beta_alignment_min: 0.7
+  recommendation_hit_rate_min: 0.35
+waiver_policy:
+  allowed: true
+  requires:
+    - owner
+    - rationale
+    - mitigation
+    - expiry_date
