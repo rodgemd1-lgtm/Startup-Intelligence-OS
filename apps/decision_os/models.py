@@ -64,6 +64,24 @@ class RunStatus(str, Enum):
     cancelled = "cancelled"
 
 
+class DecisionRequirement(str, Enum):
+    none = "none"
+    optional = "optional"
+    required = "required"
+
+
+class SignalSeverity(str, Enum):
+    info = "info"
+    warning = "warning"
+    critical = "critical"
+
+
+class SignalStatus(str, Enum):
+    open = "open"
+    acknowledged = "acknowledged"
+    resolved = "resolved"
+
+
 # --- Option / Debate ---
 
 class ScoredOption(BaseModel):
@@ -281,3 +299,127 @@ class Evidence(BaseModel):
     fetched_at: str = Field(default_factory=_now)
     normalized: bool = False
     dedup_hash: str = ""
+
+
+class DepartmentIntakeField(BaseModel):
+    name: str
+    label: str
+    required: bool = True
+    help_text: str = ""
+
+
+class DepartmentHandoff(BaseModel):
+    to_department: str
+    when: str
+    deliverable: str = ""
+
+
+class Department(BaseModel):
+    id: str = ""
+    name: str
+    mission: str = ""
+    owner_agent: str = ""
+    supporting_agents: list[str] = Field(default_factory=list)
+    primary_mode: str = "foundry"
+    decision_requirement: DecisionRequirement = DecisionRequirement.optional
+    linked_capabilities: list[str] = Field(default_factory=list)
+    canonical_resource_paths: list[str] = Field(default_factory=list)
+    canonical_artifact_types: list[str] = Field(default_factory=list)
+    current_maturity: float | None = None
+    target_maturity: float | None = None
+    created_at: str = Field(default_factory=_now)
+    updated_at: str = Field(default_factory=_now)
+
+    def model_post_init(self, __context: Any) -> None:
+        if not self.id:
+            self.id = _deterministic_id("dept", f"{self.name}-{self.created_at}")
+
+
+class DepartmentPack(Department):
+    routing_keywords: list[str] = Field(default_factory=list)
+    intake_schema: list[DepartmentIntakeField] = Field(default_factory=list)
+    diagnosis_protocol: list[str] = Field(default_factory=list)
+    default_outputs: list[str] = Field(default_factory=list)
+    scorecard: list[str] = Field(default_factory=list)
+    memory_writeback_path: str = ""
+    required_evidence: list[str] = Field(default_factory=list)
+    required_artifacts: list[str] = Field(default_factory=list)
+    handoff_rules: list[DepartmentHandoff] = Field(default_factory=list)
+    source_tracks: list[str] = Field(default_factory=list)
+
+
+class DepartmentStep(BaseModel):
+    department_id: str
+    department_name: str = ""
+    role: str = "supporting"
+    depends_on: list[str] = Field(default_factory=list)
+    expected_outputs: list[str] = Field(default_factory=list)
+
+
+class ActionPacket(BaseModel):
+    id: str = Field(default_factory=lambda: f"ap-{_uuid()}")
+    request_text: str
+    inferred_intent: str = ""
+    company_context_id: str = ""
+    company_context_name: str = ""
+    execution_track_id: str = ""
+    primary_department: str = ""
+    supporting_departments: list[str] = Field(default_factory=list)
+    dependency_order: list[str] = Field(default_factory=list)
+    department_sequence: list[DepartmentStep] = Field(default_factory=list)
+    recommended_susan_mode: str = "foundry"
+    required_evidence: list[str] = Field(default_factory=list)
+    required_artifacts: list[str] = Field(default_factory=list)
+    context_sources: list[str] = Field(default_factory=list)
+    routing_notes: list[str] = Field(default_factory=list)
+    decision_requirement: DecisionRequirement = DecisionRequirement.optional
+    linked_decision_id: str = ""
+    linked_run_id: str = ""
+    artifact_paths: list[str] = Field(default_factory=list)
+    routing_quality: float | None = None
+    output_usefulness: float | None = None
+    follow_through: float | None = None
+    reuse_value: float | None = None
+    status: str = "proposed"
+    created_at: str = Field(default_factory=_now)
+    updated_at: str = Field(default_factory=_now)
+
+
+class SignalEvent(BaseModel):
+    id: str = Field(default_factory=lambda: f"sig-{_uuid()}")
+    signal_type: str
+    severity: SignalSeverity = SignalSeverity.warning
+    title: str
+    description: str = ""
+    source: str = ""
+    auto_generated: bool = False
+    status: SignalStatus = SignalStatus.open
+    related_ids: dict[str, Any] = Field(default_factory=dict)
+    recommended_departments: list[str] = Field(default_factory=list)
+    next_action: str = ""
+    created_at: str = Field(default_factory=_now)
+    updated_at: str = Field(default_factory=_now)
+
+
+class GraphNode(BaseModel):
+    id: str
+    type: str
+    label: str
+    status: str = ""
+    path: str = ""
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+
+class GraphLink(BaseModel):
+    id: str = ""
+    source_id: str
+    target_id: str
+    relation: str
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+    def model_post_init(self, __context: Any) -> None:
+        if not self.id:
+            self.id = _deterministic_id(
+                "link",
+                f"{self.source_id}-{self.relation}-{self.target_id}",
+            )

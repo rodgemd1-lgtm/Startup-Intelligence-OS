@@ -1,0 +1,37 @@
+generated_at: '2026-03-17T01:39:03.288744+00:00'
+period: 2026-03-09 to 2026-03-13
+avg_quality: 0.9979
+avg_tokens: 237
+improvement_trend: 0.0042
+agents_ranked:
+- agent_name: simulated_maturity
+  composite_score: 0.132
+  avg_quality: 1.0
+  success_rate: 1.0
+  avg_tokens: 190
+  total_runs: 10
+  output_reuse_rate: 1.0
+  rank: 1
+- agent_name: debate
+  composite_score: 0.114
+  avg_quality: 0.975
+  success_rate: 1.0
+  avg_tokens: 375
+  total_runs: 1
+  output_reuse_rate: 0.0
+  rank: 2
+- agent_name: decision
+  composite_score: 0.1091
+  avg_quality: 1.0
+  success_rate: 1.0
+  avg_tokens: 575
+  total_runs: 1
+  output_reuse_rate: 0.0
+  rank: 3
+top_learnings:
+- 'Top agent: ''simulated_maturity'' with composite score 0.132 across 10 runs.'
+- Performance trend is stable.
+- 'Most active domain: ''simulated_maturity'' with 10 runs and 100% success rate.'
+- 'Most token-efficient agent: ''simulated_maturity'' averaging 190 tokens/run.'
+- 'High output-reuse agents (>50%): simulated_maturity.'
+record_count: 12

@@ -1,0 +1,22 @@
+manifest:
+  name: "Startup OS Talent and Org Design Officials"
+  company: founder-intelligence-os
+  data_type: operational_protocols
+  priority: critical
+  description: "Direct hiring, management, onboarding, and org-design references for talent and org maturity."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://rework.withgoogle.com/guides/hiring/
+    max_pages: 25
+  - tool: firecrawl-crawl
+    url: https://rework.withgoogle.com/guides/managers-identify-what-makes-a-great-manager/
+    max_pages: 20
+  - tool: firecrawl-crawl
+    url: https://handbook.gitlab.com/handbook/hiring/
+    max_pages: 35
+  - tool: firecrawl-crawl
+    url: https://handbook.gitlab.com/handbook/people-group/onboarding/
+    max_pages: 35
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/departments/talent-org-design-studio.yaml

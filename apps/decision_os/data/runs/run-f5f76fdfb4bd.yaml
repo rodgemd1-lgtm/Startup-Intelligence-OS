@@ -1,0 +1,48 @@
+id: run-f5f76fdfb4bd
+trigger: simulated-maturity:job-studio-simulated-review
+started_at: '2026-03-13T05:06:27Z'
+completed_at: '2026-03-13T05:06:27Z'
+status: completed
+company: mike-job-studio
+project: job-studio-maturity-and-training-factory
+decision: ''
+capability: ''
+mode: simulation
+events:
+- step: load_benchmark_evidence
+  timestamp: '2026-03-13T05:06:27Z'
+  data:
+    benchmark_chunks: 319
+  evidence_ids:
+  - ev-acd1ad252bcc
+  - ev-7686de84392c
+  - ev-b55005ae6884
+  - ev-ba8e41232bb5
+  confidence: 0.95
+  uncertainty: 0.050000000000000044
+- step: load_eval_evidence
+  timestamp: '2026-03-13T05:06:27Z'
+  data:
+    eval_chunks: 382
+    training_chunks: 216
+  evidence_ids:
+  - ev-acd1ad252bcc
+  - ev-7686de84392c
+  - ev-b55005ae6884
+  - ev-ba8e41232bb5
+  confidence: 0.95
+  uncertainty: 0.050000000000000044
+artifacts_produced:
+- art-dcfd2161170a
+notes: ''
+output:
+  recommendation: Use Job Studio Training Simulated Review as a benchmark-backed simulated
+    maturity review packet.
+  counter_recommendation: Do not treat synthetic proof as live 10/10 proof.
+  why_now: The stronger benchmark and eval corpora are now available for grounded
+    scenario grading.
+  failure_modes:
+  - Benchmark corpus may still be too generic for some domains.
+  - Monte Carlo scenarios remain proxies, not live operating proof.
+  next_experiment: Promote this scenario into a repeated eval and compare synthetic
+    scores to live outcomes.

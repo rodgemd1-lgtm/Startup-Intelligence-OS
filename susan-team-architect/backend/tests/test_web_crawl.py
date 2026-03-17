@@ -15,7 +15,7 @@ class TestWebIngestorCrawl:
     def test_crawl_calls_firecrawl_crawl(self, mock_retriever):
         from rag_engine.ingestion.web import WebIngestor
         mock_app = MagicMock()
-        mock_app.crawl_url.return_value = MagicMock(data=[
+        mock_app.crawl.return_value = MagicMock(data=[
             MagicMock(markdown="# Page 1\n\nContent of page 1.",
                       metadata=MagicMock(title="Page 1", sourceURL="https://example.com/page1")),
             MagicMock(markdown="# Page 2\n\nContent of page 2.",
@@ -25,13 +25,13 @@ class TestWebIngestorCrawl:
             ingestor = WebIngestor(retriever=mock_retriever)
             count = ingestor.crawl(source="https://example.com",
                                     company_id="transformfit", data_type="exercise_science", max_pages=20)
-        mock_app.crawl_url.assert_called_once()
+        mock_app.crawl.assert_called_once()
         assert count == 20  # 10 per call x 2 pages
 
     def test_crawl_skips_empty_pages(self, mock_retriever):
         from rag_engine.ingestion.web import WebIngestor
         mock_app = MagicMock()
-        mock_app.crawl_url.return_value = MagicMock(data=[
+        mock_app.crawl.return_value = MagicMock(data=[
             MagicMock(markdown="", metadata=MagicMock(title="Empty", sourceURL="https://example.com/empty")),
             MagicMock(markdown=None, metadata=MagicMock(title="None", sourceURL="https://example.com/none")),
         ])
@@ -43,8 +43,26 @@ class TestWebIngestorCrawl:
     def test_crawl_handles_api_error(self, mock_retriever):
         from rag_engine.ingestion.web import WebIngestor
         mock_app = MagicMock()
-        mock_app.crawl_url.side_effect = Exception("Rate limited")
+        mock_app.crawl.side_effect = Exception("Rate limited")
         with patch("rag_engine.ingestion.web.FirecrawlApp", return_value=mock_app):
             ingestor = WebIngestor(retriever=mock_retriever)
             count = ingestor.crawl(source="https://example.com", company_id="transformfit", data_type="test")
         assert count == 0
+
+    def test_crawl_falls_back_to_crawl_url(self, mock_retriever):
+        from rag_engine.ingestion.web import WebIngestor
+        mock_app = MagicMock()
+        mock_app.crawl.side_effect = AttributeError("crawl unavailable")
+        mock_app.crawl_url.return_value = {
+            "data": [
+                {
+                    "markdown": "# Fallback\n\nContent",
+                    "metadata": {"title": "Fallback", "sourceURL": "https://example.com/fallback"},
+                }
+            ]
+        }
+        with patch("rag_engine.ingestion.web.FirecrawlApp", return_value=mock_app):
+            ingestor = WebIngestor(retriever=mock_retriever)
+            count = ingestor.crawl(source="https://example.com", company_id="transformfit", data_type="test")
+        mock_app.crawl_url.assert_called_once()
+        assert count == 10

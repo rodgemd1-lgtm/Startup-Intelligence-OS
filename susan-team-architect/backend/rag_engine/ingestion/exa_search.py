@@ -6,6 +6,22 @@ from rag_engine.chunker import chunk_markdown
 from susan_core.config import config
 
 
+LEGACY_SEARCH_TYPE_MAP = {
+    "autoprompt": "auto",
+    "keyword": "fast",
+}
+
+SUPPORTED_SEARCH_TYPES = {
+    "auto",
+    "fast",
+    "deep",
+    "deep-reasoning",
+    "deep-max",
+    "neural",
+    "instant",
+}
+
+
 class ExaSearchIngestor(BaseIngestor):
     """Discover and ingest content via Exa semantic search."""
 
@@ -29,15 +45,15 @@ class ExaSearchIngestor(BaseIngestor):
         client = Exa(api_key=config.exa_api_key)
         total = 0
 
-        use_autoprompt = search_type == "autoprompt"
-        exa_type = "auto" if search_type == "autoprompt" else search_type
+        exa_type = LEGACY_SEARCH_TYPE_MAP.get(search_type, search_type)
+        if exa_type not in SUPPORTED_SEARCH_TYPES:
+            exa_type = "auto"
 
         try:
             response = client.search_and_contents(
                 source,
                 num_results=num_results,
                 type=exa_type,
-                use_autoprompt=use_autoprompt,
                 text=True,
             )
         except Exception as e:

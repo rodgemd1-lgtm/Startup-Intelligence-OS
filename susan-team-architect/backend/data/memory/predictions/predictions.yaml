@@ -1,0 +1,588 @@
+generated_at: '2026-03-17T01:41:13Z'
+prediction_count: 21
+predictions:
+- capability_id: intelligence-research
+  capability_name: Intelligence & Research
+  current_maturity: 2.8
+  target_maturity: 4.5
+  predicted_weeks_to_target: 30
+  confidence: 0.26
+  blockers:
+  - 'Knowledge gap: triangulation'
+  - 'Knowledge gap: contradiction detection'
+  - 'Knowledge gap: coverage mapping'
+  - "Level 3 has 5 incomplete items: Triangulation \u2014 cross-reference 3+ sources\
+    \ before high-confidence claims; Contradiction detection flags conflicting evidence\
+    \ across sources; Coverage mapping identifies blind spots in research corpus"
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Research-Web'
+  - Focused execution on checklist items
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - "Complete: Triangulation \u2014 cross-reference 3+ sources before high-confidence\
+    \ claims"
+  - 'Complete: Contradiction detection flags conflicting evidence across sources'
+  - 'Complete: Coverage mapping identifies blind spots in research corpus'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: capability-management
+  capability_name: Capability Management
+  current_maturity: 2.0
+  target_maturity: 4.0
+  predicted_weeks_to_target: 32
+  confidence: 0.3
+  blockers:
+  - 'Knowledge gap: automated discovery'
+  - 'Knowledge gap: outcome-based scoring'
+  - 'Level 2 has 2 incomplete items: Susan capability-gap-map skill produces structured
+    gap analysis; Automated maturity computation from checklist completion'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Susan'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Susan capability-gap-map skill produces structured gap analysis'
+  - 'Complete: Automated maturity computation from checklist completion'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: ux-design
+  capability_name: UX & Design
+  current_maturity: 2.2
+  target_maturity: 4.0
+  predicted_weeks_to_target: 32
+  confidence: 0.26
+  blockers:
+  - 'Knowledge gap: design system'
+  - 'Knowledge gap: Figma integration'
+  - 'Knowledge gap: visual artifacts'
+  - "Level 3 has 4 incomplete items: Figma integration for design artifact export\
+    \ and version control; Visual artifact generation \u2014 charts, diagrams, capability\
+    \ maps as SVG/PNG; Responsive mobile layout for operator console"
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Marcus'
+  - Focused execution on checklist items
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Figma integration for design artifact export and version control'
+  - "Complete: Visual artifact generation \u2014 charts, diagrams, capability maps\
+    \ as SVG/PNG"
+  - 'Complete: Responsive mobile layout for operator console'
+  predicted_at: '2026-03-17T01:41:13Z'
+- capability_id: workspace-contract
+  capability_name: Workspace Contract
+  current_maturity: 1.0
+  target_maturity: 4.0
+  predicted_weeks_to_target: 35
+  confidence: 0.4
+  blockers:
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: jake'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  predicted_at: '2026-03-17T01:41:13Z'
+- capability_id: portfolio-management
+  capability_name: Portfolio Management
+  current_maturity: 1.8
+  target_maturity: 4.0
+  predicted_weeks_to_target: 36
+  confidence: 0.29
+  blockers:
+  - 'Knowledge gap: multi-company orchestration'
+  - 'Knowledge gap: cross-pollination'
+  - 'Level 2 has 2 incomplete items: Company builder skill (.claude/skills/company-builder/)
+    scaffolds new companies; Multi-company dashboard shows all companies with key
+    metrics'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Steve'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Company builder skill (.claude/skills/company-builder/) scaffolds new
+    companies'
+  - 'Complete: Multi-company dashboard shows all companies with key metrics'
+  predicted_at: '2026-03-17T01:41:13Z'
+- capability_id: content-marketing
+  capability_name: Content & Marketing
+  current_maturity: 1.8
+  target_maturity: 4.0
+  predicted_weeks_to_target: 39
+  confidence: 0.24
+  blockers:
+  - 'Knowledge gap: publishing pipeline'
+  - 'Knowledge gap: asset cascade'
+  - 'Knowledge gap: proof spines'
+  - "Level 2 has 2 incomplete items: Publishing pipeline from draft to review to publish\
+    \ with approval gates; Asset cascade \u2014 single insight generates blog, social,\
+    \ deck, and email variants"
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Aria'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Publishing pipeline from draft to review to publish with approval gates'
+  - "Complete: Asset cascade \u2014 single insight generates blog, social, deck, and\
+    \ email variants"
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: innovation-strategy
+  capability_name: Innovation & Strategy
+  current_maturity: 1.8
+  target_maturity: 4.0
+  predicted_weeks_to_target: 39
+  confidence: 0.24
+  blockers:
+  - 'Knowledge gap: future-back planning'
+  - 'Knowledge gap: scenario branching'
+  - 'Knowledge gap: assumption register'
+  - "Level 2 has 4 incomplete items: Innovation Studio skill produces structured strategic\
+    \ vision documents; Future-back planning template with 5-year horizon and backcast\
+    \ milestones; Scenario branching \u2014 at least 3 strategic scenarios modeled\
+    \ per decision"
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Steve'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Innovation Studio skill produces structured strategic vision documents'
+  - 'Complete: Future-back planning template with 5-year horizon and backcast milestones'
+  - "Complete: Scenario branching \u2014 at least 3 strategic scenarios modeled per\
+    \ decision"
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: studio-operations
+  capability_name: Studio Operations
+  current_maturity: 1.8
+  target_maturity: 4.0
+  predicted_weeks_to_target: 39
+  confidence: 0.24
+  blockers:
+  - 'Knowledge gap: studio writeback'
+  - 'Knowledge gap: case libraries'
+  - 'Knowledge gap: experiment tracking'
+  - 'Level 2 has 2 incomplete items: Deck Studio, Article Studio, Social Media Studio
+    agents produce structured outputs; Case library stores reusable studio artifacts
+    with metadata and search'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Susan'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Deck Studio, Article Studio, Social Media Studio agents produce structured
+    outputs'
+  - 'Complete: Case library stores reusable studio artifacts with metadata and search'
+  predicted_at: '2026-03-17T01:41:13Z'
+- capability_id: operator-experience
+  capability_name: Operator Experience
+  current_maturity: 1.5
+  target_maturity: 4.0
+  predicted_weeks_to_target: 40
+  confidence: 0.27
+  blockers:
+  - 'Knowledge gap: real-time dashboard'
+  - 'Knowledge gap: proactive suggestions'
+  - 'Level 2 has 2 incomplete items: Session banner shows active workspace, company,
+    and project; Proactive action suggestions surfaced based on capability gaps'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Marcus'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Session banner shows active workspace, company, and project'
+  - 'Complete: Proactive action suggestions surfaced based on capability gaps'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: agent-orchestration
+  capability_name: Agent Orchestration
+  current_maturity: 2.0
+  target_maturity: 4.5
+  predicted_weeks_to_target: 44
+  confidence: 0.22
+  blockers:
+  - 'Knowledge gap: semantic routing'
+  - 'Knowledge gap: agent memory'
+  - 'Knowledge gap: multi-agent reasoning'
+  - 'Level 2 has 1 incomplete items: Semantic routing selects agents based on task
+    content and capability match'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Nova'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Semantic routing selects agents based on task content and capability
+    match'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: job-memory-intelligence
+  capability_name: Job Memory Intelligence
+  current_maturity: 2.3
+  target_maturity: 4.4
+  predicted_weeks_to_target: 44
+  confidence: 0.19
+  blockers:
+  - 'Knowledge gap: full-mailbox-coverage'
+  - 'Knowledge gap: authored-writing-playbooks'
+  - 'Knowledge gap: deliverable-memory-beyond-email'
+  - 'Knowledge gap: linked-corpus-bridging'
+  - 'Knowledge gap: namespace-governance'
+  - 'Level 3 has 3 incomplete items: Job Studio retrieves across email, deliverables,
+    notes, and linked company corpora through one routing surface; Resume, opportunity,
+    interview, and work-history packets are generated from grounded source evidence;
+    Cross-company bridges produce briefing packs that separate personal memory from
+    client or employer delivery memory'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Susan'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Job Studio retrieves across email, deliverables, notes, and linked
+    company corpora through one routi'
+  - 'Complete: Resume, opportunity, interview, and work-history packets are generated
+    from grounded source evidence'
+  - 'Complete: Cross-company bridges produce briefing packs that separate personal
+    memory from client or employer d'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: simulated-maturity-harness
+  capability_name: Simulated Maturity Harness
+  current_maturity: 6.6
+  target_maturity: 9.4
+  predicted_weeks_to_target: 45
+  confidence: 0.26
+  blockers:
+  - 'Knowledge gap: dashboard-surface-for-simulated-scores'
+  - 'Knowledge gap: recurring-harness-scheduling'
+  - 'Knowledge gap: per-department-live-proof-thresholds'
+  - 'Knowledge gap: operator-console-simulated-vs-operational-view'
+  required_resources:
+  - 'Primary agent: Jake'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence: []
+  predicted_at: '2026-03-17T01:41:13Z'
+- capability_id: agentic-operator-console
+  capability_name: Agentic Operator Console
+  current_maturity: 1.9
+  target_maturity: 4.3
+  predicted_weeks_to_target: 46
+  confidence: 0.18
+  blockers:
+  - 'Knowledge gap: state graph'
+  - 'Knowledge gap: event-driven routing'
+  - 'Knowledge gap: next-best-action engine'
+  - 'Knowledge gap: cross-run memory'
+  - 'Level 2 has 4 incomplete items: Dashboard reads from a canonical state graph
+    of workspace, company, project, decision, capability, artifact, run, and experiment
+    objects; Dashboard emits next-best actions, not just passive metrics, with clear
+    agent and studio routing; System events trigger routing, escalation, and writeback
+    flows when evidence is stale, tests fail, or stage gates block progress'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Atlas'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Dashboard reads from a canonical state graph of workspace, company,
+    project, decision, capability, a'
+  - 'Complete: Dashboard emits next-best actions, not just passive metrics, with clear
+    agent and studio routing'
+  - 'Complete: System events trigger routing, escalation, and writeback flows when
+    evidence is stale, tests fail, o'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: decision-kernel
+  capability_name: Decision Kernel
+  current_maturity: 1.0
+  target_maturity: 4.0
+  predicted_weeks_to_target: 48
+  confidence: 0.25
+  blockers:
+  - 'Knowledge gap: LLM debate'
+  - 'Knowledge gap: evidence scoring'
+  - 'Knowledge gap: outcome tracking'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Jake'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: department-studios-of-excellence
+  capability_name: Department Studios of Excellence
+  current_maturity: 1.7
+  target_maturity: 4.2
+  predicted_weeks_to_target: 48
+  confidence: 0.17
+  blockers:
+  - 'Knowledge gap: department wrappers'
+  - 'Knowledge gap: universal process packs'
+  - 'Knowledge gap: canonical resource libraries'
+  - 'Knowledge gap: duplicate-surface reduction'
+  - 'Level 2 has 4 incomplete items: Each startup department has a single callable
+    studio entrypoint with explicit purpose, owner, and handoff rules; Each department
+    ships with a universal process pack: intake, diagnosis, options, execution, measurement,
+    memory; Canonical resource libraries exist for research, templates, anti-patterns,
+    and SOPs by department'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Susan'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Each startup department has a single callable studio entrypoint with
+    explicit purpose, owner, and ha'
+  - 'Complete: Each department ships with a universal process pack: intake, diagnosis,
+    options, execution, measurem'
+  - 'Complete: Canonical resource libraries exist for research, templates, anti-patterns,
+    and SOPs by department'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: data-analytics
+  capability_name: Data & Analytics
+  current_maturity: 1.2
+  target_maturity: 4.0
+  predicted_weeks_to_target: 49
+  confidence: 0.21
+  blockers:
+  - 'Knowledge gap: outcome tracking'
+  - 'Knowledge gap: feedback loops'
+  - 'Knowledge gap: A/B testing'
+  - 'Level 2 has 2 incomplete items: Outcome tracking links decisions to measurable
+    results over time; Feedback loops capture operator satisfaction and decision quality
+    scores'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Pulse'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: Outcome tracking links decisions to measurable results over time'
+  - 'Complete: Feedback loops capture operator satisfaction and decision quality scores'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: platform-infrastructure
+  capability_name: Platform Infrastructure
+  current_maturity: 1.3
+  target_maturity: 4.0
+  predicted_weeks_to_target: 52
+  confidence: 0.16
+  blockers:
+  - 'Knowledge gap: auth'
+  - 'Knowledge gap: CI/CD'
+  - 'Knowledge gap: monitoring'
+  - 'Knowledge gap: WebSockets'
+  - 'Level 2 has 2 incomplete items: WebSocket server for terminal relay operational;
+    Authentication layer (API keys or OAuth) for production endpoints'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Atlas'
+  - Targeted research on specific gaps
+  - Regular progress reviews
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Document processes and gather examples
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - 'Complete: WebSocket server for terminal relay operational'
+  - 'Complete: Authentication layer (API keys or OAuth) for production endpoints'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: customer-user-studio
+  capability_name: Customer User Studio
+  current_maturity: 2.0
+  target_maturity: 5.0
+  predicted_weeks_to_target: 71
+  confidence: 0.15
+  blockers:
+  - 'Knowledge gap: cross-app-experience-graph'
+  - 'Knowledge gap: adaptive-agent-runtime'
+  - 'Knowledge gap: scenario-coverage-planning'
+  - 'Knowledge gap: synthetic-beta-alignment-intelligence'
+  - 'Knowledge gap: predictive-roadmap-ranking'
+  - 'Knowledge gap: release-gate-governance'
+  - 'Knowledge gap: autonomous-portfolio-optimization'
+  - 'Level 2 has 4 incomplete items: Nightly synthetic customer regression runs across
+    priority apps; Session evidence includes outcomes, frictions, errors, and preferences;
+    Roadmap intelligence mapping produces ranked candidates with confidence'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Susan'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Nightly synthetic customer regression runs across priority apps'
+  - 'Complete: Session evidence includes outcomes, frictions, errors, and preferences'
+  - 'Complete: Roadmap intelligence mapping produces ranked candidates with confidence'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: department-ten-state-verification
+  capability_name: Department Ten-State Verification
+  current_maturity: 4.1
+  target_maturity: 9.2
+  predicted_weeks_to_target: 90
+  confidence: 0.15
+  blockers:
+  - 'Knowledge gap: machine-readable-verification-contract'
+  - 'Knowledge gap: all-department-source-stack-completeness'
+  - 'Knowledge gap: operator-visible-maturity-dashboard'
+  - 'Knowledge gap: proof-path-linkage-for-each-department'
+  - 'Knowledge gap: recurring-score-refresh'
+  required_resources:
+  - 'Primary agent: Jake'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Pursue industry-leading practices and innovation
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: all-department-maturity-gap-closure
+  capability_name: All-Department Maturity Gap Closure
+  current_maturity: 3.1
+  target_maturity: 8.7
+  predicted_weeks_to_target: 115
+  confidence: 0.1
+  blockers:
+  - 'Knowledge gap: low-maturity-department-evidence'
+  - 'Knowledge gap: training-evaluation-corpus'
+  - 'Knowledge gap: official-doc-refresh'
+  - 'Knowledge gap: cross-department-scorecards'
+  - 'Knowledge gap: role-packet-and-cadence-templates'
+  - 'Knowledge gap: trust-gate-operationalization'
+  - 'Level 4 has 3 incomplete items: New evidence is converted into role scorecards,
+    KPI trees, growth playbooks, trust gates, and evaluation rubrics.; Department
+    scorecards and console signals reflect evidence freshness and readiness automatically.;
+    Gap closure becomes a recurring measured program rather than a one-time cleanup
+    pass.'
+  required_resources:
+  - 'Primary agent: Jake'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: New evidence is converted into role scorecards, KPI trees, growth playbooks,
+    trust gates, and evalua'
+  - 'Complete: Department scorecards and console signals reflect evidence freshness
+    and readiness automatically.'
+  - 'Complete: Gap closure becomes a recurring measured program rather than a one-time
+    cleanup pass.'
+  predicted_at: '2026-03-17T01:41:12Z'
+- capability_id: job-studio-training-factory
+  capability_name: Job Studio Training Factory
+  current_maturity: 2.4
+  target_maturity: 8.9
+  predicted_weeks_to_target: 153
+  confidence: 0.1
+  blockers:
+  - 'Knowledge gap: ai-foundations-curriculum'
+  - 'Knowledge gap: ellen-transition-curriculum'
+  - 'Knowledge gap: facilitator-asset-production'
+  - 'Knowledge gap: evaluation-panel-and-rubrics'
+  - 'Knowledge gap: corpus-conversion-and-tagging'
+  - 'Knowledge gap: codex-skill-packaging'
+  - 'Knowledge gap: current-state-visualization'
+  - 'Level 3 has 4 incomplete items: Every session has a deck, facilitator guide,
+    learner handout, activity script, and evaluation rubric; Job Studio can convert
+    Oracle binary files into named examples and reusable training references; Training
+    runs produce writeback, learner feedback, and conversational quality evidence'
+  - 'Resource gap: significant investment needed to reach optimizing maturity.'
+  required_resources:
+  - 'Primary agent: Jake'
+  - Dedicated research program for knowledge gaps
+  - Cross-functional agent collaboration
+  - Research program to close knowledge gaps
+  recommended_sequence:
+  - Establish metrics and measurement frameworks
+  - Implement optimization and automation
+  - Pursue industry-leading practices and innovation
+  - 'Complete: Every session has a deck, facilitator guide, learner handout, activity
+    script, and evaluation rubric'
+  - 'Complete: Job Studio can convert Oracle binary files into named examples and
+    reusable training references'
+  - 'Complete: Training runs produce writeback, learner feedback, and conversational
+    quality evidence'
+  predicted_at: '2026-03-17T01:41:12Z'
+build_sequence:
+- workspace-contract
+- capability-management
+- operator-experience
+- decision-kernel
+- simulated-maturity-harness
+- portfolio-management
+- data-analytics
+- agent-orchestration
+- intelligence-research
+- department-ten-state-verification
+- content-marketing
+- innovation-strategy
+- studio-operations
+- ux-design
+- agentic-operator-console
+- department-studios-of-excellence
+- platform-infrastructure
+- all-department-maturity-gap-closure
+- job-memory-intelligence
+- job-studio-training-factory
+- customer-user-studio

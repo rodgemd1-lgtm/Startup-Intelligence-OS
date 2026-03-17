@@ -1,0 +1,25 @@
+manifest:
+  name: "Startup OS Stronger Benchmark Case Library"
+  company: founder-intelligence-os
+  data_type: studio_case_library
+  priority: critical
+  description: "Stronger benchmark cases, operating handbooks, and benchmark report sources for founder, revenue, finance, talent, and operator systems."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://handbook.gitlab.com/handbook/
+    max_pages: 10
+  - tool: firecrawl-crawl
+    url: https://about.gitlab.com/company/culture/all-remote/guide/
+    max_pages: 6
+  - tool: firecrawl
+    url: https://www.saas-capital.com/blog-posts/2024-private-saas-company-survey/
+  - tool: firecrawl
+    url: https://www.salesforce.com/resources/research-reports/state-of-sales/
+  - tool: firecrawl
+    url: https://www.hubspot.com/state-of-marketing
+  - tool: exa
+    query: "official SaaS benchmark survey pricing pipeline revenue operations operating handbook benchmark case"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/artifacts/research/department-ten-state-benchmark-packet-2026-03-12.md

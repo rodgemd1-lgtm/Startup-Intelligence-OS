@@ -1,0 +1,20 @@
+manifest:
+  name: "Startup OS Consumer User Studio Officials"
+  company: founder-intelligence-os
+  data_type: ux_research
+  priority: high
+  description: "User research, discovery, journey-mapping, and insight-conversion sources for the Consumer User Studio."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://www.nngroup.com/articles/
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://www.designkit.org/methods
+    max_pages: 20
+  - tool: exa
+    query: "jobs to be done interview guide user discovery synthesis opportunity ranking best practices"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/departments/consumer-user-studio.yaml
+

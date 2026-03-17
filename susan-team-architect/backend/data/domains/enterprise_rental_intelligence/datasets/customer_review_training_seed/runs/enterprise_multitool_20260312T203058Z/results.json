@@ -1,0 +1,120 @@
+{
+  "exa": [
+    {
+      "provider": "exa",
+      "query": "Enterprise Rent-A-Car customer reviews service quality themes",
+      "status": "skipped",
+      "reason": "EXA_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520190+00:00"
+    },
+    {
+      "provider": "exa",
+      "query": "Enterprise Rent-A-Car customer complaint patterns pickup dropoff billing",
+      "status": "skipped",
+      "reason": "EXA_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520214+00:00"
+    },
+    {
+      "provider": "exa",
+      "query": "Enterprise Rent-A-Car Trustpilot Better Business Bureau complaints",
+      "status": "skipped",
+      "reason": "EXA_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520220+00:00"
+    }
+  ],
+  "brave": [
+    {
+      "provider": "brave",
+      "query": "Enterprise Rent-A-Car customer reviews service quality themes",
+      "status": "skipped",
+      "reason": "BRAVE_API_KEY/BRAVE_SEARCH_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520229+00:00"
+    },
+    {
+      "provider": "brave",
+      "query": "Enterprise Rent-A-Car customer complaint patterns pickup dropoff billing",
+      "status": "skipped",
+      "reason": "BRAVE_API_KEY/BRAVE_SEARCH_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520236+00:00"
+    },
+    {
+      "provider": "brave",
+      "query": "Enterprise Rent-A-Car Trustpilot Better Business Bureau complaints",
+      "status": "skipped",
+      "reason": "BRAVE_API_KEY/BRAVE_SEARCH_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520243+00:00"
+    }
+  ],
+  "firecrawl": [
+    {
+      "provider": "firecrawl",
+      "url": "https://www.trustpilot.com/review/www.enterprise.com",
+      "status": "skipped",
+      "reason": "FIRECRAWL_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520249+00:00"
+    },
+    {
+      "provider": "firecrawl",
+      "url": "https://www.consumeraffairs.com/travel/enterprise.html",
+      "status": "skipped",
+      "reason": "FIRECRAWL_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520254+00:00"
+    },
+    {
+      "provider": "firecrawl",
+      "url": "https://www.sitejabber.com/reviews/enterprise.com",
+      "status": "skipped",
+      "reason": "FIRECRAWL_API_KEY not set",
+      "at": "2026-03-12T20:30:58.520259+00:00"
+    }
+  ],
+  "jina": [
+    {
+      "provider": "jina",
+      "alias": "jing",
+      "url": "https://www.trustpilot.com/review/www.enterprise.com",
+      "status": "error",
+      "error": "403 Forbidden",
+      "at": "2026-03-12T20:30:59.216778+00:00"
+    },
+    {
+      "provider": "jina",
+      "alias": "jing",
+      "url": "https://www.consumeraffairs.com/travel/enterprise.html",
+      "status": "error",
+      "error": "403 Forbidden",
+      "at": "2026-03-12T20:30:59.241611+00:00"
+    },
+    {
+      "provider": "jina",
+      "alias": "jing",
+      "url": "https://www.sitejabber.com/reviews/enterprise.com",
+      "status": "error",
+      "error": "403 Forbidden",
+      "at": "2026-03-12T20:30:59.256162+00:00"
+    }
+  ],
+  "apify": [
+    {
+      "provider": "apify",
+      "url": "https://www.trustpilot.com/review/www.enterprise.com",
+      "status": "skipped",
+      "reason": "APIFY_TOKEN/APIFY_API_TOKEN not set",
+      "at": "2026-03-12T20:30:59.256616+00:00"
+    },
+    {
+      "provider": "apify",
+      "url": "https://www.consumeraffairs.com/travel/enterprise.html",
+      "status": "skipped",
+      "reason": "APIFY_TOKEN/APIFY_API_TOKEN not set",
+      "at": "2026-03-12T20:30:59.256631+00:00"
+    },
+    {
+      "provider": "apify",
+      "url": "https://www.sitejabber.com/reviews/enterprise.com",
+      "status": "skipped",
+      "reason": "APIFY_TOKEN/APIFY_API_TOKEN not set",
+      "at": "2026-03-12T20:30:59.256638+00:00"
+    }
+  ]
+}

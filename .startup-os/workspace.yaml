@@ -5,15 +5,19 @@ front_door: jake
 foundry: susan
 runtime_source_of_truth: susan-team-architect/backend
 repo_root: /Users/mikerodgers/Startup-Intelligence-OS
-active_company: founder-intelligence-os
-active_project: decision-capability-os
-active_decision: phase-a-runtime-foundation
+active_company: mike-job-studio
+active_project: job-studio-maturity-and-training-factory
+active_decision: launch-all-department-maturity-gap-closure-wave
 active_branch: main
 paths:
   companies: .startup-os/companies
   projects: .startup-os/projects
   decisions: .startup-os/decisions
   capabilities: .startup-os/capabilities
+  departments: .startup-os/departments
+  signals: .startup-os/signals
+  action_packets: .startup-os/action-packets
+  graph_links: .startup-os/graph-links
   artifacts: .startup-os/artifacts
   runs: .startup-os/runs
   sessions: .startup-os/sessions

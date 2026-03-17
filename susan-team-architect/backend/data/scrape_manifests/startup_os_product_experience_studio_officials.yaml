@@ -1,0 +1,24 @@
+manifest:
+  name: "Startup OS Product and Experience Studio Officials"
+  company: founder-intelligence-os
+  data_type: ux_research
+  priority: high
+  description: "Workflow design, service design, and product experience system sources for Product and Experience Studio."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://m3.material.io/foundations/interaction
+    max_pages: 8
+  - tool: firecrawl-crawl
+    url: https://developer.apple.com/design/human-interface-guidelines/
+    max_pages: 25
+  - tool: firecrawl-crawl
+    url: https://www.gov.uk/service-manual
+    max_pages: 20
+  - tool: jina
+    url: https://m3.material.io/
+  - tool: exa
+    query: "workflow design critique implementation handoff product experience scorecard service design"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/departments/product-experience-studio.yaml

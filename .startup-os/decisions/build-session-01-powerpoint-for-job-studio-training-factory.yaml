@@ -1,0 +1,45 @@
+id: build-session-01-powerpoint-for-job-studio-training-factory
+title: Build Session 1 as an editable PowerPoint deck with an adult-learning-first design system for Job Studio
+status: accepted
+company_id: mike-job-studio
+project_id: job-studio-maturity-and-training-factory
+decision_statement: Build Session 1 as an editable PowerPoint deck in the Oracle Health AI Enablement repository, using a reusable executive-workshop visual system and visible adult-learning layers so the rest of Track C can scale from the same template.
+why_now: Session 1 needs to be usable immediately in a training setting, and the fastest durable move is an editable `.pptx` with facilitator notes, a defined visual system, and real-work learning structure.
+constraints:
+  - Preserve Oracle Health visual standards while making the deck feel like a training system rather than a sales deck.
+  - Keep the output editable in Microsoft PowerPoint and rebuildable from source.
+  - Embed adult-learning layers directly into the deck structure instead of leaving them in a separate facilitation note.
+options:
+  - id: option-a
+    name: Convert the markdown outline into plain slides
+    summary: Build a straightforward deck from the existing slide script with minimal design or learning architecture changes.
+    impact: medium
+    effort: low
+    risk: medium
+    confidence: medium
+    time_to_signal: immediate
+  - id: option-b
+    name: Build a reusable Job Studio workshop deck system
+    summary: Create a PowerPoint-native Session 1 deck with a visual system, facilitator notes, adult-learning layers, and rebuildable source.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: immediate
+recommendation: option-b
+assumptions:
+  - Session 1 should establish the look and feel for the rest of Track C.
+  - Speaker notes inside PowerPoint are more useful tonight than keeping facilitation logic only in markdown.
+  - Adult learners will respond better to a visible session arc built around relevance, mental model, practice, reflection, and transfer.
+reversal_criteria:
+  - If a different brand or delivery surface becomes required, keep the content model and rebuild the deck system on a new visual shell rather than rewriting the curriculum.
+next_actions:
+  - Build Session 2 and Session 3 on the same deck system.
+  - Add learner handout and facilitator guide parity for Session 1.
+  - Reuse the same visual shell across Track B once Ellen transition materials move into PowerPoint.
+artifacts:
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/.build/session-01-deck/session_01_training_deck.js
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/my-job-studio/decks/SESSION_01_MYJOBSTUDIO_TRAINING_FACTORY.pptx
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/my-job-studio/decks/src/session_01_training_deck.js
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/my-job-studio/decks/rendered/session-01-montage.png
+  - .startup-os/artifacts/job-studio-session-01-powerpoint-2026-03-12.md

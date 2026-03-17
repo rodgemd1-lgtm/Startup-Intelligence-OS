@@ -12,5 +12,8 @@ linked_capabilities:
   - workspace-contract
   - decision-kernel
   - capability-foundry
+  - department-studios-of-excellence
+  - agentic-operator-console
 linked_decisions:
   - adopt-decision-capability-os-phase-a
+  - reframe-startup-intelligence-os-as-a-decision-and-build-os

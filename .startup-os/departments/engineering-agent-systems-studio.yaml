@@ -1,0 +1,78 @@
+id: engineering-agent-systems-studio
+name: Engineering & Agent Systems Studio
+mission: Turn routed asks into architecture, implementation packets, and operational systems without breaking the Susan runtime.
+owner_agent: steve
+supporting_agents:
+  - atlas
+  - shield
+  - susan
+primary_mode: foundry
+decision_requirement: required
+linked_capabilities:
+  - agent-orchestration
+  - platform-infrastructure
+  - operator-experience
+canonical_resource_paths:
+  - apps/decision_os
+  - apps/v5
+  - .startup-os/artifacts/engineering-agent-systems
+  - susan-team-architect/backend
+canonical_artifact_types:
+  - architecture path
+  - implementation packet
+  - eval and QA notes
+current_maturity: 5.0
+target_maturity: 8.4
+routing_keywords:
+  - build
+  - engineering
+  - architecture
+  - system
+  - implementation
+  - backend
+  - agent
+intake_schema:
+  - name: target_surface
+    label: Target surface
+    required: true
+    help_text: The app, service, or runtime surface to change.
+  - name: requested_change
+    label: Requested change
+    required: true
+    help_text: The build, architecture, or operational improvement needed.
+  - name: constraints
+    label: Constraints
+    required: false
+    help_text: Compatibility, runtime, or timeline constraints that must be preserved.
+diagnosis_protocol:
+  - Identify the impacted runtime, interface, and file-backed objects.
+  - Choose additive architecture path before touching protected Susan surfaces.
+  - Build the implementation packet and QA plan.
+  - Write back evaluation and monitoring notes after execution.
+default_outputs:
+  - architecture path
+  - implementation packet
+  - QA and eval plan
+scorecard:
+  - runtime safety
+  - implementation quality
+  - eval coverage
+  - reuse leverage
+memory_writeback_path: .startup-os/artifacts/engineering-agent-systems
+required_evidence:
+  - current system behavior
+  - target behavior
+required_artifacts:
+  - implementation packet
+  - evaluation notes
+handoff_rules:
+  - to_department: product-experience-studio
+    when: Engineering work requires clarified workflow or interaction design.
+    deliverable: product clarification request
+  - to_department: founder-decision-room
+    when: Architecture choices materially change operating model or company leverage.
+    deliverable: architecture decision brief
+source_tracks:
+  - operator console
+  - agent orchestration
+  - platform implementation

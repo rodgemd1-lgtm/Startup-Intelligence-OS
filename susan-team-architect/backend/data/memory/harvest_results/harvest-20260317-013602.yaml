@@ -1,0 +1,1160 @@
+generated_at: '2026-03-17T01:36:02.435001+00:00'
+total_results: 96
+results:
+- id: harvest-3a8f898448d2
+  gap_id: gap-33f5fcafa6ce
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'firecrawl-crawl harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via firecrawl-crawl. Expected content: agent orchestration documentation.'
+  quality_score: 0.94
+  relevance_score: 0.18518518518518517
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.431741+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-55846b78be39
+  gap_id: gap-33f5fcafa6ce
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'jina harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via jina. Expected content: agent orchestration documentation.'
+  quality_score: 0.94
+  relevance_score: 0.18518518518518517
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.431796+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-2d8910fb418b
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/c2d92cf5629d
+  title: 'Exa search result 1: agent orchestration best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent orchestration best practices official
+    documentation''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431805+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-460c3bb0a2ad
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/b68b50d14ee2
+  title: 'Exa search result 2: agent orchestration best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent orchestration best practices official
+    documentation''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431810+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-502db4c49ddf
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/003cd02c7232
+  title: 'Exa search result 3: agent orchestration best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent orchestration best practices official
+    documentation''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431814+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-1a36f0354f44
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/39d551f8b94d
+  title: 'Exa search result 4: agent orchestration best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent orchestration best practices official
+    documentation''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431818+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-667b389b513b
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/e458804db7e9
+  title: 'Exa search result 5: agent orchestration best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent orchestration best practices official
+    documentation''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431821+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-6b78897158dd
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/bf61b452da69
+  title: 'Exa search result 1: agent orchestration framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration framework methodology
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431825+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-f17689d4f721
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/c2f1fc748c8e
+  title: 'Exa search result 2: agent orchestration framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration framework methodology
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431828+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-db016e7e89c9
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/35b0eb61a05d
+  title: 'Exa search result 3: agent orchestration framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration framework methodology
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431835+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-d8ac0e0cad7e
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/a63a0ebf32de
+  title: 'Exa search result 4: agent orchestration framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration framework methodology
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431839+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-ec6766e76e26
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/778c91ecbe23
+  title: 'Exa search result 5: agent orchestration framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration framework methodology
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431842+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-ae726cfb7d54
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/f3ac415c0d2f
+  title: 'Exa search result 1: agent orchestration startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent orchestration startup implementation
+    playbook''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431845+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-8549fa68fc60
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/a3589f631184
+  title: 'Exa search result 2: agent orchestration startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent orchestration startup implementation
+    playbook''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431849+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-89abd8fbdcac
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/dee4448323cb
+  title: 'Exa search result 3: agent orchestration startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent orchestration startup implementation
+    playbook''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431852+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-505d9cd9117c
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/0d9446974686
+  title: 'Exa search result 4: agent orchestration startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent orchestration startup implementation
+    playbook''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431855+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-98a3c7743e17
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/18f11d0939f9
+  title: 'Exa search result 5: agent orchestration startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent orchestration startup implementation
+    playbook''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431858+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-c8d57aba7f97
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/0204e4ca5230
+  title: 'Exa search result 1: Capability ''Agent Orchestration'' coverage score research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agent Orchestration'' coverage
+    score research''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431861+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-bf2cc01a1d10
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/5df9dc6f161e
+  title: 'Exa search result 2: Capability ''Agent Orchestration'' coverage score research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agent Orchestration'' coverage
+    score research''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431864+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-e002e1d2b3b3
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/11f95c7a3b57
+  title: 'Exa search result 3: Capability ''Agent Orchestration'' coverage score research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agent Orchestration'' coverage
+    score research''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431867+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-8f6a030eeaa0
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/c97910521ea3
+  title: 'Exa search result 4: Capability ''Agent Orchestration'' coverage score research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agent Orchestration'' coverage
+    score research''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431870+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-e4e91732619d
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/c5b11c1b9a9b
+  title: 'Exa search result 5: Capability ''Agent Orchestration'' coverage score research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agent Orchestration'' coverage
+    score research''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431873+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-09862209bd19
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/eb2f55ad8650
+  title: 'Exa search result 1: agent orchestration official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration official documentation
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431876+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-f0df395b2bc4
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/c707908a24b3
+  title: 'Exa search result 2: agent orchestration official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration official documentation
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431878+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-9f56a27d8912
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/506de868628e
+  title: 'Exa search result 3: agent orchestration official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration official documentation
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431881+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-bceb2649896d
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/30290c5f8bc2
+  title: 'Exa search result 4: agent orchestration official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration official documentation
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431884+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-cd523aea037e
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/cf0c21934e74
+  title: 'Exa search result 5: agent orchestration official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent orchestration official documentation
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431887+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-7af34c90a17e
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/e54f87a2137f
+  title: 'Exa search result 1: site:github.com agent orchestration README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent orchestration
+    README''. Result 1 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431890+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-d585241d8be6
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/666dc092161e
+  title: 'Exa search result 2: site:github.com agent orchestration README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent orchestration
+    README''. Result 2 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431893+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-1aef447ce7e5
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/cd317aa4c321
+  title: 'Exa search result 3: site:github.com agent orchestration README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent orchestration
+    README''. Result 3 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431896+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-6bb1ae7b34a6
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/bc88ae5b3a8c
+  title: 'Exa search result 4: site:github.com agent orchestration README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent orchestration
+    README''. Result 4 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431899+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-1cfea715fd81
+  gap_id: gap-33f5fcafa6ce
+  source_url: exa://search/e72e27650c97
+  title: 'Exa search result 5: site:github.com agent orchestration README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent orchestration
+    README''. Result 5 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.431902+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-3a8f898448d2
+  gap_id: gap-a319e82cee02
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'firecrawl-crawl harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via firecrawl-crawl. Expected content: agent readiness index documentation.'
+  quality_score: 0.94
+  relevance_score: 0.18518518518518517
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.433189+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-55846b78be39
+  gap_id: gap-a319e82cee02
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'jina harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via jina. Expected content: agent readiness index documentation.'
+  quality_score: 0.94
+  relevance_score: 0.18518518518518517
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.433200+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-427cf46c0e9f
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/d83a6e7e7ffb
+  title: 'Exa search result 1: agent readiness index best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent readiness index best practices
+    official documentation''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433205+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-3d6a4f758177
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/ac0b68d4147a
+  title: 'Exa search result 2: agent readiness index best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent readiness index best practices
+    official documentation''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433209+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-5c95890fa95f
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/47cd468a8611
+  title: 'Exa search result 3: agent readiness index best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent readiness index best practices
+    official documentation''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433213+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-4431cc08f419
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/eedb82dbfd07
+  title: 'Exa search result 4: agent readiness index best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent readiness index best practices
+    official documentation''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433216+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-e3a0071e969a
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/a158fc027036
+  title: 'Exa search result 5: agent readiness index best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agent readiness index best practices
+    official documentation''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433220+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-904184387f54
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/542350ee0b77
+  title: 'Exa search result 1: agent readiness index framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index framework methodology
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433224+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-23dac7853a53
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/9ad7b8194480
+  title: 'Exa search result 2: agent readiness index framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index framework methodology
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433227+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-c8ac53dd2dea
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/89517cc5bfb6
+  title: 'Exa search result 3: agent readiness index framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index framework methodology
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433230+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-d1af886e8091
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/ecf3fc7c662e
+  title: 'Exa search result 4: agent readiness index framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index framework methodology
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433233+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-bbdc443ddd98
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/faedf30b0a0a
+  title: 'Exa search result 5: agent readiness index framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index framework methodology
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433236+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-4c611f5faf66
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/2d5f81ff41e5
+  title: 'Exa search result 1: agent readiness index startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent readiness index startup implementation
+    playbook''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433240+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-509af738b052
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/3aec4a8f29cc
+  title: 'Exa search result 2: agent readiness index startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent readiness index startup implementation
+    playbook''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433243+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-84a7ea6fc99d
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/1364cb8caf9c
+  title: 'Exa search result 3: agent readiness index startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent readiness index startup implementation
+    playbook''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433247+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-1d373d23c735
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/34a6b45abc4a
+  title: 'Exa search result 4: agent readiness index startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent readiness index startup implementation
+    playbook''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433250+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-b6d644cd720b
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/902c5603860c
+  title: 'Exa search result 5: agent readiness index startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agent readiness index startup implementation
+    playbook''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433253+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-ae110a3ef656
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/384b0df14657
+  title: 'Exa search result 1: Capability ''agent-readiness-index'' coverage score
+    matching research'
+  content_summary: 'Pending Exa search for: ''Capability ''agent-readiness-index''
+    coverage score matching research''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433256+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-367316f94f75
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/eab70b2bb609
+  title: 'Exa search result 2: Capability ''agent-readiness-index'' coverage score
+    matching research'
+  content_summary: 'Pending Exa search for: ''Capability ''agent-readiness-index''
+    coverage score matching research''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433259+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-2502835a44dd
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/37abf3dc4f42
+  title: 'Exa search result 3: Capability ''agent-readiness-index'' coverage score
+    matching research'
+  content_summary: 'Pending Exa search for: ''Capability ''agent-readiness-index''
+    coverage score matching research''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433263+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-95cb49a4fc5b
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/320e5859289f
+  title: 'Exa search result 4: Capability ''agent-readiness-index'' coverage score
+    matching research'
+  content_summary: 'Pending Exa search for: ''Capability ''agent-readiness-index''
+    coverage score matching research''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433266+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-bde7cd7d4748
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/1e1f984d0710
+  title: 'Exa search result 5: Capability ''agent-readiness-index'' coverage score
+    matching research'
+  content_summary: 'Pending Exa search for: ''Capability ''agent-readiness-index''
+    coverage score matching research''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433269+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-87c1574a8a09
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/31424b26be9a
+  title: 'Exa search result 1: agent readiness index official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index official documentation
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433272+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-9af6bb964818
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/b71769442bb4
+  title: 'Exa search result 2: agent readiness index official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index official documentation
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433275+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-236f8d8e418e
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/93b139780f34
+  title: 'Exa search result 3: agent readiness index official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index official documentation
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433278+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-115a02da8e16
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/21a2668479e7
+  title: 'Exa search result 4: agent readiness index official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index official documentation
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433282+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-ebb3a5699e39
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/f24f3605cdf4
+  title: 'Exa search result 5: agent readiness index official documentation guide'
+  content_summary: 'Pending Exa search for: ''agent readiness index official documentation
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433285+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-545980cb57a8
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/b8bc9be3699d
+  title: 'Exa search result 1: site:github.com agent readiness index README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent readiness index
+    README''. Result 1 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433288+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-dd9af391a374
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/486d867ebea6
+  title: 'Exa search result 2: site:github.com agent readiness index README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent readiness index
+    README''. Result 2 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433292+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-8e72a98f869d
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/2c24104f3b19
+  title: 'Exa search result 3: site:github.com agent readiness index README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent readiness index
+    README''. Result 3 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433295+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-ff79ee6e5bd3
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/a9e96817538e
+  title: 'Exa search result 4: site:github.com agent readiness index README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent readiness index
+    README''. Result 4 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433298+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-2b084e82d992
+  gap_id: gap-a319e82cee02
+  source_url: exa://search/69ab9bf0d4a6
+  title: 'Exa search result 5: site:github.com agent readiness index README'
+  content_summary: 'Pending Exa search for: ''site:github.com agent readiness index
+    README''. Result 5 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.433301+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-3a8f898448d2
+  gap_id: gap-bd91ac819683
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'firecrawl-crawl harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via firecrawl-crawl. Expected content: agentic operator console documentation.'
+  quality_score: 0.94
+  relevance_score: 0.37037037037037035
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.434447+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-55846b78be39
+  gap_id: gap-bd91ac819683
+  source_url: https://docs.anthropic.com/en/docs/agents
+  title: 'jina harvest: https://docs.anthropic.com/en/docs/agents'
+  content_summary: 'Pending harvest from https://docs.anthropic.com/en/docs/agents
+    via jina. Expected content: agentic operator console documentation.'
+  quality_score: 0.94
+  relevance_score: 0.37037037037037035
+  source_authority: official
+  harvested_at: '2026-03-17T01:36:02.434456+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-b3357483fa41
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/bdbc761e7c57
+  title: 'Exa search result 1: agentic operator console best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agentic operator console best practices
+    official documentation''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434461+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-41e63465a9f2
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/60882e7de7ec
+  title: 'Exa search result 2: agentic operator console best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agentic operator console best practices
+    official documentation''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434464+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-de3ed8d8d3aa
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/d0e9e56560c1
+  title: 'Exa search result 3: agentic operator console best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agentic operator console best practices
+    official documentation''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434468+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-d322d9c7aff7
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/0ba0d77f2f70
+  title: 'Exa search result 4: agentic operator console best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agentic operator console best practices
+    official documentation''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434471+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-5f83a2d0f2ec
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/f825bb88cc13
+  title: 'Exa search result 5: agentic operator console best practices official documentation'
+  content_summary: 'Pending Exa search for: ''agentic operator console best practices
+    official documentation''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434474+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-4d18ea10cea6
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/bcbabd80bc76
+  title: 'Exa search result 1: agentic operator console framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console framework methodology
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434478+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-d090e4b9452e
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/9b919782663e
+  title: 'Exa search result 2: agentic operator console framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console framework methodology
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434481+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-00c057483a98
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/99389f0b00aa
+  title: 'Exa search result 3: agentic operator console framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console framework methodology
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434484+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-f5cefa91dfc0
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/7e2c0ca86eaf
+  title: 'Exa search result 4: agentic operator console framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console framework methodology
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434487+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-b8cc57f4367f
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/3363bd794f95
+  title: 'Exa search result 5: agentic operator console framework methodology guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console framework methodology
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434491+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-db5f0778f149
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/dc071ca808cb
+  title: 'Exa search result 1: agentic operator console startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agentic operator console startup implementation
+    playbook''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434494+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-9eaa20ce7c81
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/e49209451ecf
+  title: 'Exa search result 2: agentic operator console startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agentic operator console startup implementation
+    playbook''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434497+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-e5587c5914e3
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/479cf5577e31
+  title: 'Exa search result 3: agentic operator console startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agentic operator console startup implementation
+    playbook''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434500+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-91bc719284a5
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/66a215972d3d
+  title: 'Exa search result 4: agentic operator console startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agentic operator console startup implementation
+    playbook''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434503+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-e1314c050fc7
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/a4ba3786e7e8
+  title: 'Exa search result 5: agentic operator console startup implementation playbook'
+  content_summary: 'Pending Exa search for: ''agentic operator console startup implementation
+    playbook''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434506+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-a3de19e35b7e
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/c6bc77b23e62
+  title: 'Exa search result 1: Capability ''Agentic Operator Console'' coverage research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agentic Operator Console''
+    coverage research''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434509+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-59b11f5fccea
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/d6f2bdd09291
+  title: 'Exa search result 2: Capability ''Agentic Operator Console'' coverage research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agentic Operator Console''
+    coverage research''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434513+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-3212535e25c5
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/dccfcdf8a9ec
+  title: 'Exa search result 3: Capability ''Agentic Operator Console'' coverage research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agentic Operator Console''
+    coverage research''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434516+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-239a75b13a6b
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/74fe857091dc
+  title: 'Exa search result 4: Capability ''Agentic Operator Console'' coverage research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agentic Operator Console''
+    coverage research''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434519+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-27fd8c3f54a6
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/2790b0a368e0
+  title: 'Exa search result 5: Capability ''Agentic Operator Console'' coverage research'
+  content_summary: 'Pending Exa search for: ''Capability ''Agentic Operator Console''
+    coverage research''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434523+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-9c2dd40d0bb6
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/bb662c19fdd9
+  title: 'Exa search result 1: agentic operator console official documentation guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console official documentation
+    guide''. Result 1 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434526+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-f02f153dbc68
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/489832f523e9
+  title: 'Exa search result 2: agentic operator console official documentation guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console official documentation
+    guide''. Result 2 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434529+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-b9259a3f3b6d
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/70168b100cb6
+  title: 'Exa search result 3: agentic operator console official documentation guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console official documentation
+    guide''. Result 3 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434532+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-afcff8a1d03c
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/910b5e60aee5
+  title: 'Exa search result 4: agentic operator console official documentation guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console official documentation
+    guide''. Result 4 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434535+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-f08a9a136236
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/eba69cbc494b
+  title: 'Exa search result 5: agentic operator console official documentation guide'
+  content_summary: 'Pending Exa search for: ''agentic operator console official documentation
+    guide''. Result 5 of 8.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434538+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-43170cfa45b7
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/8395fbf58e29
+  title: 'Exa search result 1: site:github.com agentic operator console README'
+  content_summary: 'Pending Exa search for: ''site:github.com agentic operator console
+    README''. Result 1 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434542+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-44f657714a38
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/e905654e9b9c
+  title: 'Exa search result 2: site:github.com agentic operator console README'
+  content_summary: 'Pending Exa search for: ''site:github.com agentic operator console
+    README''. Result 2 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434545+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-a3b0c114ab1b
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/84225969c132
+  title: 'Exa search result 3: site:github.com agentic operator console README'
+  content_summary: 'Pending Exa search for: ''site:github.com agentic operator console
+    README''. Result 3 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434548+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-fe5ae22af75f
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/6488de0e2d5d
+  title: 'Exa search result 4: site:github.com agentic operator console README'
+  content_summary: 'Pending Exa search for: ''site:github.com agentic operator console
+    README''. Result 4 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434551+00:00'
+  integrated: false
+  chunk_ids: []
+- id: harvest-23e28c437a47
+  gap_id: gap-bd91ac819683
+  source_url: exa://search/9d708de75c72
+  title: 'Exa search result 5: site:github.com agentic operator console README'
+  content_summary: 'Pending Exa search for: ''site:github.com agentic operator console
+    README''. Result 5 of 5.'
+  quality_score: 0.51
+  relevance_score: 0.6
+  source_authority: unknown
+  harvested_at: '2026-03-17T01:36:02.434554+00:00'
+  integrated: false
+  chunk_ids: []

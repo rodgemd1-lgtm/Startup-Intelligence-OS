@@ -1,8 +1,32 @@
 "use client";
 import useSWR from "swr";
 import { api } from "@/lib/api";
-import type { CapabilitySummary } from "@/lib/api";
+import type {
+  ActionPacket,
+  CapabilitySummary,
+  DecisionRecord,
+  DepartmentPack,
+  SignalEvent,
+} from "@/lib/api";
 import { defaultState } from "@/lib/state";
+
+function deriveAgentsFromDepartments(departments: DepartmentPack[]) {
+  const seen = new Set<string>();
+  const derived = [];
+  for (const department of departments) {
+    const agents = [department.owner_agent, ...department.supporting_agents];
+    for (const agent of agents) {
+      if (!agent || seen.has(agent)) continue;
+      seen.add(agent);
+      derived.push({
+        name: agent,
+        group: department.name,
+        role: agent === department.owner_agent ? "owner" : "support",
+      });
+    }
+  }
+  return derived;
+}
 
 export function useApi() {
   const ctx = useSWR("context", () => api.context(), {
@@ -23,20 +47,51 @@ export function useApi() {
     onError: () => {},
     refreshInterval: 30000,
   });
+  const decisions = useSWR("decisions", () => api.decisions(), {
+    fallbackData: defaultState.decisions as unknown as DecisionRecord[],
+    onError: () => {},
+    refreshInterval: 30000,
+  });
+  const departments = useSWR("departments", () => api.departments(), {
+    fallbackData: [] as DepartmentPack[],
+    onError: () => {},
+    refreshInterval: 30000,
+  });
+  const signals = useSWR("signals", () => api.signals(), {
+    fallbackData: [] as SignalEvent[],
+    onError: () => {},
+    refreshInterval: 30000,
+  });
+  const actionPackets = useSWR("actionPackets", () => api.actionPackets(), {
+    fallbackData: [] as ActionPacket[],
+    onError: () => {},
+    refreshInterval: 30000,
+  });
+  const graph = useSWR("graph", () => api.graph(), {
+    onError: () => {},
+    refreshInterval: 30000,
+  });
 
   const apiLive = !ctx.error && !status.error;
 
-  // When summary data is available, build enriched capabilities for downstream consumers
   const capabilitySummary: CapabilitySummary[] | null = capSummary.data ?? null;
+  const departmentData = departments.data ?? [];
+  const derivedAgents = departmentData.length > 0
+    ? deriveAgentsFromDepartments(departmentData)
+    : defaultState.agents;
 
   return {
     context: (ctx.data as unknown as typeof defaultState.context) ?? defaultState.context,
     status: (status.data as unknown as typeof defaultState.status) ?? defaultState.status,
     debrief: (debrief.data as unknown as typeof defaultState.debrief) ?? defaultState.debrief,
-    decisions: defaultState.decisions,
+    decisions: (decisions.data as unknown as typeof defaultState.decisions) ?? defaultState.decisions,
     capabilities: defaultState.capabilities,
     capabilitySummary,
-    agents: defaultState.agents,
+    departments: departmentData,
+    signals: signals.data ?? [],
+    actionPackets: actionPackets.data ?? [],
+    graph: graph.data ?? null,
+    agents: derivedAgents,
     vision: defaultState.vision,
     apiLive,
     refresh: () => {
@@ -46,6 +101,15 @@ export function useApi() {
     },
     refreshCapabilities: () => {
       capSummary.mutate();
+    },
+    refreshOperator: () => {
+      decisions.mutate();
+      departments.mutate();
+      signals.mutate();
+      actionPackets.mutate();
+      graph.mutate();
+      debrief.mutate();
+      status.mutate();
     },
   };
 }

@@ -1,0 +1,26 @@
+id: job-studio-maturity-and-training-factory
+name: Job Studio Maturity and Training Factory
+type: project
+company_id: mike-job-studio
+status: active
+objective: Build Job Studio as a sixth core department with a full zero-to-ten maturity roadmap, a multi-gigabyte training and behavioral-science corpus, and explicit agentic training protocols.
+deliverables:
+  - full zero-to-ten maturity roadmap across all departments and system layers
+  - Job Studio training factory roadmap and protocol stack
+  - resumable corpus extraction and ingest pipeline
+  - persona and agent access protocol
+  - live and local scrape manifests
+  - all-department maturity gap closure wave
+linked_decisions:
+  - reframe-startup-intelligence-os-as-a-decision-and-build-os
+  - operationalize-zero-to-ten-maturity-system
+  - build-job-studio-training-corpus-and-protocol-layer
+  - launch-all-department-maturity-gap-closure-wave
+linked_capabilities:
+  - department-studios-of-excellence
+  - agentic-operator-console
+  - job-memory-intelligence
+  - job-studio-training-factory
+  - intelligence-research
+  - operator-experience
+  - all-department-maturity-gap-closure

@@ -1,0 +1,46 @@
+id: build-my-job-studio-training-hub-in-oracle-health-ai-enablement
+title: Build a MyJobStudio training hub directly inside the Oracle Health AI Enablement repository for tonight's training-site need
+status: proposed
+company_id: mike-job-studio
+project_id: job-studio-maturity-and-training-factory
+decision_statement: Stand up a no-build static training hub in the Oracle Health AI Enablement repo, backed by MyJobStudio session packets and a reusable Oracle Gen Chat access prompt, so training materials can be built tonight without waiting on a framework setup.
+why_now: The Oracle training content exists as markdown and facilitation guides, but there is no navigable site surface. The fastest reliable move tonight is a static hub that can be served locally and expanded immediately.
+constraints:
+  - Preserve the existing Oracle Health AI Enablement repository structure.
+  - Avoid a heavy framework or package install tonight.
+  - Keep the site usable from local HTTP hosting with minimal setup.
+options:
+  - id: option-a
+    name: Keep working from markdown files only
+    summary: Continue building from raw markdown without a site surface.
+    impact: medium
+    effort: low
+    risk: high
+    confidence: medium
+    time_to_signal: immediate
+  - id: option-b
+    name: Build a static training hub now
+    summary: Add a direct-access prompt, MyJobStudio session packets, and a static HTML training site in the Oracle repo.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: immediate
+recommendation: option-b
+assumptions:
+  - The training site needs to exist tonight more than it needs a full app framework.
+  - Existing Oracle workshop guides for Sessions 4-8 are strong enough to act as the applied source spine.
+  - Track C needs new MyJobStudio session packets because the existing workshop arc does not fully cover strategist AI foundations.
+reversal_criteria:
+  - If the team needs LMS features, auth, or hosted distribution later, migrate the content into a fuller app surface after the static hub proves the information architecture.
+next_actions:
+  - Expand the session packets into facilitator guides, handouts, and deck files.
+  - Add slide and handout build pipelines for each session.
+  - Connect the training site to a hosted preview when distribution is ready.
+artifacts:
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/my-job-studio/README.md
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/my-job-studio/MY_JOB_STUDIO_ACCESS_PROMPT.md
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/training-site/index.html
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/training-site/app.js
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/training-site/styles.css
+  - .startup-os/artifacts/oracle-health-my-job-studio-training-hub-2026-03-12.md

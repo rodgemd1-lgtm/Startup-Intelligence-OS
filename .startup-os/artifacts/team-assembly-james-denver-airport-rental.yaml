@@ -1,0 +1,45 @@
+version: 1
+artifact_id: team-assembly-james-denver-airport-rental-2026-03-12
+workspace: startup-intelligence-os
+company: founder-intelligence-os
+project: decision-capability-os
+decision: phase-a-runtime-foundation
+objective: Assemble the right Susan + Studio + market intelligence team to help James compete against Enterprise in Denver airport rentals.
+team_assembly:
+  susan_full_team_connected: true
+  susan_context: .susan/project-context.yaml
+  lead_agents:
+    - susan
+    - research-director
+    - researcher-web
+    - research-ops
+    - steve-strategy
+    - compass-product
+    - aria-growth
+    - marketing-studio-director
+    - shield-legal-compliance
+    - pulse-data-science
+  james_os_or_studio:
+    mode: denver-airport-rental-war-room
+    operating_model:
+      - evidence collection sprint
+      - competitive strategy sprint
+      - conversion and CX sprint
+      - pricing and fleet sprint
+      - weekly review loop
+  mikes_job_market_and_competitive_intelligence:
+    role: market_competitive_intel_operator
+    tools:
+      - exa
+      - brave
+      - firecrawl
+      - jina_reader
+      - apify
+      - susan scrape manifest + batch executor
+  collaboration_contract:
+    - researcher-web sources and grades evidence
+    - research-director resolves contradictions and prioritizes unknowns
+    - steve-strategy converts evidence into options + bets
+    - compass-product and aria-growth convert bets into branch-level offers and GTM tests
+    - pulse-data-science builds KPI and holdout test design
+    - shield-legal-compliance checks ad/pricing/comparison claims

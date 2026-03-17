@@ -1,0 +1,60 @@
+id: separate-simulated-maturity-from-operational-maturity
+title: Separate simulated maturity from operational maturity in the Startup Intelligence OS score model
+status: accepted
+company_id: founder-intelligence-os
+project_id: job-studio-maturity-and-training-factory
+decision_statement: Treat tests, simulations, Monte Carlo runs, and dataset ingestion as valid proof for simulated maturity, but reserve true 10 out of 10 maturity for sustained live operating proof.
+why_now: The OS now has full data and capability coverage across the contract layer, but verified maturity still lags because the remaining gap is operational proof. We need an explicit rule for what can be closed by automation versus what requires real-world execution.
+constraints:
+  - Do not falsify 10 out of 10 maturity by using static artifacts alone.
+  - Preserve the current ten-state verification matrix and make the proof model more explicit, not less rigorous.
+  - Reuse the existing Susan runtime, corpora, and run summaries.
+options:
+  - id: option-a
+    name: Let tests and datasets count as full maturity
+    summary: Treat complete source coverage, evaluations, and simulations as enough to declare 10 out of 10.
+    impact: high
+    effort: low
+    risk: very_high
+    confidence: low
+    time_to_signal: fast
+  - id: option-b
+    name: Use a dual-track maturity model
+    summary: Allow automated validation to prove simulated maturity, but require live run history and outcome reviews for operational 10 out of 10.
+    impact: very_high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: fast
+recommendation: option-b
+scoring:
+  option-a:
+    rigor: 2
+    speed: 9
+    trustworthiness: 2
+    reversibility: 5
+  option-b:
+    rigor: 10
+    speed: 7
+    trustworthiness: 10
+    reversibility: 8
+assumptions:
+  - Tests can prove correctness, completeness, and reliability under defined conditions.
+  - Monte Carlo and scenario simulations can materially improve decision quality, forecast quality, and failure preparedness.
+  - Dataset ingestion can close evidence gaps and improve benchmark coverage, but cannot by itself prove that humans or agents will use the system well in production.
+  - The last maturity gap is mostly about repeated operating proof, not missing files.
+reversal_criteria:
+  - If the OS later supports trustworthy closed-loop autonomous execution with verified run histories and outcome quality at scale, some live-proof requirements can be reduced.
+  - If simulated and live scores converge over repeated runs, the operating model can rely more heavily on simulation for intermediate stages.
+next_actions:
+  - Add maturity drift alerts and section-level simulated summaries to the operator surface.
+  - Define per-department live-proof thresholds for what counts as 10 out of 10.
+  - Add recurring harness runs so simulated score movement is measurable over time.
+artifacts:
+  - .startup-os/artifacts/research/maturity-proof-ladder-2026-03-12.md
+  - .startup-os/artifacts/department-ten-state-verification-matrix-2026-03-12.yaml
+  - .startup-os/artifacts/department-maturity-dashboard-2026-03-12.md
+  - .startup-os/artifacts/simulated-maturity-harness-2026-03-12.md
+  - .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+  - .startup-os/capabilities/simulated-maturity-harness.yaml
+  - bin/refresh_maturity_surfaces.py

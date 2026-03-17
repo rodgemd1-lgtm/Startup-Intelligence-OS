@@ -1,0 +1,52 @@
+id: operationalize-department-ten-state-verification-and-dashboard
+title: Operationalize a machine-readable 10-state verification matrix and visual dashboard for all Startup Intelligence OS sections and departments
+status: accepted
+company_id: founder-intelligence-os
+project_id: job-studio-maturity-and-training-factory
+decision_statement: Add a machine-readable verification matrix, department source-stack manifests, and a visual maturity dashboard so every core section and department has explicit 10/10 requirements for data sources and capabilities, current proof paths, and visible gap states.
+why_now: The OS already has maturity language, but not a rigorous verification surface. Without an explicit matrix and dashboard, the team can talk about maturity without proving it.
+constraints:
+  - Preserve the existing department registry as the canonical wrapper layer.
+  - Keep the verification system file-backed and reviewable in the repo.
+  - Distinguish between defined source stacks and fully verified 10/10 operating maturity.
+options:
+  - id: option-a
+    name: Keep maturity in prose only
+    summary: Continue using narrative maturity artifacts and department YAML files without a machine-readable verification surface.
+    impact: low
+    effort: low
+    risk: high
+    confidence: low
+    time_to_signal: immediate
+  - id: option-b
+    name: Add a verification matrix and dashboard
+    summary: Create a machine-readable maturity contract for sections and departments, add missing source manifests, and render a dashboard from actual proof paths.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: immediate
+recommendation: option-b
+assumptions:
+  - Visible proof is more useful than another purely narrative roadmap.
+  - Source-stack definition is a necessary precursor to full 10/10 data maturity.
+  - Operator visibility itself is one of the missing capabilities for several departments.
+reversal_criteria:
+  - If the matrix becomes too heavy to maintain, collapse it into a smaller contract with only the most decision-useful data and capability gates.
+next_actions:
+  - Execute the expanded department gap-closure wave using the new manifests.
+  - Update current scores after the next source refresh completes.
+  - Add maturity drift alerts and section-level simulated summaries to the operator console.
+artifacts:
+  - .startup-os/capabilities/department-ten-state-verification.yaml
+  - .startup-os/artifacts/department-ten-state-verification-matrix-2026-03-12.yaml
+  - .startup-os/artifacts/department-maturity-dashboard-2026-03-12.md
+  - .startup-os/artifacts/department-maturity-dashboard-2026-03-12.html
+  - .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+  - bin/refresh_maturity_surfaces.py
+  - .startup-os/artifacts/research/department-ten-state-benchmark-packet-2026-03-12.md
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_founder_decision_room_foundations.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_consumer_user_studio_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_product_experience_studio_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_marketing_narrative_studio_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_engineering_agent_systems_studio_officials.yaml

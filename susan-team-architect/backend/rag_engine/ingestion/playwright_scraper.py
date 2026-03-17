@@ -4,7 +4,11 @@ from pathlib import Path
 from markdownify import markdownify as md
 from rag_engine.ingestion.base import BaseIngestor
 from rag_engine.chunker import chunk_markdown
-from susan_core.config import config
+
+try:
+    from playwright.sync_api import sync_playwright
+except Exception:  # pragma: no cover - keeps module importable without Playwright.
+    sync_playwright = None
 
 
 class PlaywrightIngestor(BaseIngestor):
@@ -25,55 +29,54 @@ class PlaywrightIngestor(BaseIngestor):
             source: URL string, or path to a file with one URL per line.
             wait_for: Optional CSS selector to wait for before extracting content.
         """
+        if sync_playwright is None:
+            return 0
+
         urls = self._resolve_urls(source)
         total = 0
 
-        from playwright.sync_api import sync_playwright
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                context = browser.new_context()
+                page = context.new_page()
 
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
+                for url in urls:
+                    try:
+                        page.goto(url, wait_until="networkidle")
 
-            for url in urls:
-                try:
-                    page.goto(url, wait_until="networkidle", timeout=30000)
+                        if wait_for:
+                            page.wait_for_selector(wait_for, timeout=15000)
 
-                    if wait_for:
-                        page.wait_for_selector(wait_for, timeout=10000)
+                        title = page.title() or ""
+                        html = page.content()
 
-                    # Extract page title
-                    title = page.title() or ""
+                        if not html or not html.strip():
+                            continue
 
-                    # Get the main content HTML, prefer article/main, fall back to body
-                    html = page.evaluate("""() => {
-                        const main = document.querySelector('article') || document.querySelector('main') || document.querySelector('[role="main"]');
-                        return main ? main.innerHTML : document.body.innerHTML;
-                    }""")
+                        markdown = md(html, heading_style="ATX", strip=["script", "style", "nav", "footer"])
+                        if not markdown.strip():
+                            continue
 
-                    if not html or not html.strip():
-                        continue
+                        text_chunks = chunk_markdown(markdown, max_tokens=500)
+                        chunks = self._make_chunks(
+                            texts=text_chunks,
+                            data_type=data_type,
+                            company_id=company_id,
+                            agent_id=agent_id,
+                            source=f"playwright:{url}",
+                            source_url=url,
+                            metadata={"title": title, "tool": "playwright", "wait_for": wait_for or ""},
+                        )
+                        total += self.retriever.store_chunks(chunks)
+                    except Exception as e:
+                        print(f"  Warning: Playwright failed for {url}: {e}")
 
-                    # Convert HTML to markdown
-                    markdown = md(html, heading_style="ATX", strip=["script", "style", "nav", "footer"])
-
-                    if not markdown.strip():
-                        continue
-
-                    text_chunks = chunk_markdown(markdown, max_tokens=500)
-                    chunks = self._make_chunks(
-                        texts=text_chunks,
-                        data_type=data_type,
-                        company_id=company_id,
-                        agent_id=agent_id,
-                        source=f"playwright:{url}",
-                        source_url=url,
-                        metadata={"title": title, "tool": "playwright", "wait_for": wait_for or ""},
-                    )
-                    total += self.retriever.store_chunks(chunks)
-                except Exception as e:
-                    print(f"  Warning: Playwright failed for {url}: {e}")
-
-            browser.close()
+                context.close()
+                browser.close()
+        except Exception as e:
+            print(f"  Warning: Playwright bootstrap failed: {e}")
+            return 0
 
         return total
 

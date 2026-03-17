@@ -1,0 +1,790 @@
+version: 1
+date: 2026-03-12
+title: Startup Intelligence OS Department Ten-State Verification Matrix
+data_source_categories:
+  internal_memory: File-backed workspace memory, prior artifacts, and decision history.
+  local_repo_assets: Local repo code, docs, studio assets, and structured OS files.
+  live_web_manifests: Declared Firecrawl, Exa, Jina, or Playwright source stacks for live refresh.
+  operational_metrics: Metrics, run summaries, test surfaces, or measurable operating data.
+  evaluation_artifacts: Rubrics, transcript reviews, scorecards, or quality-evaluation outputs.
+  benchmark_case_library: Case libraries, examples, antipattern datasets, or benchmark references.
+  policy_or_compliance_sources: Policy, governance, security, legal, or accessibility reference sources.
+  automation_job_proofs: Runners, monitors, or refresh jobs proving the source stack can be maintained.
+capability_categories:
+  structured_contracts: File-backed mission, ownership, and contract definitions.
+  intake_and_diagnosis: Explicit intake schema and diagnosis protocol.
+  reusable_artifacts: Named output types and reusable artifact paths.
+  scorecard: Defined success criteria or scoring surface.
+  memory_writeback: Explicit writeback path or memory policy.
+  handoff_or_dependency_rules: Handoff, routing, or dependency rules.
+  operator_visibility: Visible maturity or readiness surface for the operator.
+  automation_refresh: Jobs or scripts that refresh evidence or status.
+  evaluation_loop: Explicit review, rubric, or post-run improvement loop.
+  decision_linking_or_stage_gates: Decision records, stage gates, or explicit approval logic.
+sections:
+  - id: company-genome
+    name: Company Genome
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - reusable_artifacts
+      - handoff_or_dependency_rules
+      - decision_linking_or_stage_gates
+      - operator_visibility
+    current_capabilities:
+      - structured_contracts
+      - reusable_artifacts
+      - handoff_or_dependency_rules
+      - decision_linking_or_stage_gates
+      - operator_visibility
+    proof_paths:
+      - .startup-os/workspace.yaml
+      - .startup-os/companies
+      - .startup-os/projects
+      - .startup-os/decisions
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+      - .startup-os/artifacts/company-genome-operator-visibility-pack-2026-03-12.md
+    next_lifts:
+      - Add more graph-link and run objects to remove remaining orphan work.
+      - Reflect company and project dependency state in an operator-facing surface.
+  - id: evidence-graph
+    name: Evidence Graph
+    current_maturity: 4.8
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - memory_writeback
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - memory_writeback
+      - automation_refresh
+      - evaluation_loop
+      - operator_visibility
+    proof_paths:
+      - susan-team-architect/backend/artifacts
+      - susan-team-architect/backend/data
+      - .startup-os/artifacts/job-studio-training-factory-data-program-2026-03-12.md
+      - .startup-os/artifacts/core-sections-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/core-sections/source-bundle-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+      - .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+      - .startup-os/artifacts/simulated-maturity-harness-2026-03-12.md
+    next_lifts:
+      - Add contradiction and freshness visibility to the evidence layer.
+      - Attach section-level simulated summaries and freshness alerts as proof paths.
+  - id: operator-console
+    name: Operator Console
+    current_maturity: 5.9
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - operational_metrics
+      - evaluation_artifacts
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - operational_metrics
+      - evaluation_artifacts
+    required_capabilities:
+      - structured_contracts
+      - operator_visibility
+      - scorecard
+      - automation_refresh
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - operator_visibility
+      - scorecard
+      - automation_refresh
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - apps/v5
+      - apps/decision_os
+      - .startup-os/capabilities/agentic-operator-console.yaml
+      - .startup-os/artifacts/core-sections/operator-widget-contract-template.md
+      - .startup-os/artifacts/department-maturity-dashboard-2026-03-12.png
+      - .startup-os/artifacts/operator-console-live-metrics-2026-03-12.md
+      - .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+      - bin/refresh_maturity_surfaces.py
+    next_lifts:
+      - Add maturity drift alerts and one-click reruns from the operator surface.
+      - Add corpus readiness and section-level simulated deltas as live widgets.
+  - id: memory-and-evaluation
+    name: Memory and Evaluation
+    current_maturity: 5.6
+    required_data_sources:
+      - internal_memory
+      - evaluation_artifacts
+      - local_repo_assets
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - evaluation_artifacts
+      - local_repo_assets
+      - automation_job_proofs
+    required_capabilities:
+      - memory_writeback
+      - evaluation_loop
+      - reusable_artifacts
+      - operator_visibility
+    current_capabilities:
+      - memory_writeback
+      - reusable_artifacts
+      - evaluation_loop
+      - operator_visibility
+    proof_paths:
+      - susan-team-architect/backend/data/studio_assets/shared/evals/studio_eval_rubric.md
+      - susan-team-architect/backend/data/studio_assets/shared/memory/studio_memory_schema.md
+      - .startup-os/artifacts/core-sections/writeback-and-eval-template.md
+      - .startup-os/artifacts/core-sections-operating-pack-2026-03-12.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+      - .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+      - .startup-os/artifacts/simulated-maturity-harness-2026-03-12.md
+    next_lifts:
+      - Standardize rubric-backed writeback across all departments.
+      - Surface evaluation freshness, simulation freshness, and failure patterns in the operator layer.
+  - id: data-acquisition
+    name: Data Acquisition
+    current_maturity: 4.0
+    required_data_sources:
+      - live_web_manifests
+      - local_repo_assets
+      - automation_job_proofs
+      - operational_metrics
+    current_data_sources:
+      - live_web_manifests
+      - local_repo_assets
+      - automation_job_proofs
+      - operational_metrics
+    required_capabilities:
+      - structured_contracts
+      - automation_refresh
+      - operator_visibility
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - automation_refresh
+      - evaluation_loop
+      - operator_visibility
+    proof_paths:
+      - susan-team-architect/backend/data/scrape_manifests
+      - susan-team-architect/backend/scripts/run_department_gap_closure_wave.py
+      - susan-team-architect/backend/scripts/build_job_studio_training_factory_corpus.py
+      - .startup-os/artifacts/core-sections/data-refresh-run-template.md
+      - .startup-os/artifacts/operator-console-live-metrics-2026-03-12.md
+    next_lifts:
+      - Add more visible summaries and failure metrics for each run.
+      - Bring Brave-class live search into the batch path or an equivalent governed source.
+  - id: persona-agent-access
+    name: Persona and Agent Access
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - evaluation_artifacts
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - evaluation_artifacts
+    required_capabilities:
+      - structured_contracts
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+    current_capabilities:
+      - structured_contracts
+      - handoff_or_dependency_rules
+      - memory_writeback
+      - operator_visibility
+    proof_paths:
+      - .startup-os/artifacts/job-studio-agent-access-protocol-2026-03-12.md
+      - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_AGENT_ACCESS_PROTOCOL.md
+      - .startup-os/artifacts/core-sections/context-bundle-contract-template.md
+      - .startup-os/artifacts/persona-agent-evaluation-pack-2026-03-12.md
+    next_lifts:
+      - Extend access-bundle enforcement beyond Job Studio into every department wrapper.
+      - Add proof that routed action packets always attach required context bundles.
+  - id: protocols-processes
+    name: Protocols and Processes
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - .startup-os/departments
+      - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_TRAINING_FACTORY_PROTOCOL.md
+      - .startup-os/artifacts/core-sections-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/protocols-processes-evaluation-pack-2026-03-12.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add more per-department playbooks, rubrics, and evidence refresh behavior.
+departments:
+  - id: founder-decision-room
+    name: Founder Decision Room
+    current_maturity: 5.6
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - .startup-os/departments/founder-decision-room.yaml
+      - .startup-os/decisions
+      - .startup-os/artifacts/founder-decision-room-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/founder-decision-room/decision-outcome-review-template.md
+      - .startup-os/artifacts/founder-decision-room/benchmark-case-library.md
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_founder_decision_room_foundations.yaml
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add reusable option-comparison templates and outcome writeback loops.
+      - Turn strategic benchmark sources into a maintained case library.
+  - id: consumer-user-studio
+    name: Consumer User Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/consumer-user-studio.yaml
+      - .startup-os/artifacts/customer-user-studio
+      - .startup-os/artifacts/consumer-user-studio/research-evaluation-rubric.md
+      - susan-team-architect/backend/data/studio_assets/shared/case_library/design_case_library.md
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_consumer_user_studio_officials.yaml
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Attach transcript and evaluation artifacts to user research outputs.
+      - Add recurring refresh jobs for discovery and journey evidence.
+  - id: product-experience-studio
+    name: Product & Experience Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - operational_metrics
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - operational_metrics
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/product-experience-studio.yaml
+      - apps/v5
+      - .startup-os/artifacts/product-experience/product-telemetry-and-critique-scorecard.md
+      - susan-team-architect/backend/data/studio_assets/shared/case_library/design_case_library.md
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_product_experience_studio_officials.yaml
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Connect product-direction artifacts to implementation telemetry and eval loops.
+      - Add more workflow critique and instrumentation templates.
+  - id: marketing-narrative-studio
+    name: Marketing & Narrative Studio
+    current_maturity: 4.3
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/marketing-narrative-studio.yaml
+      - susan-team-architect/backend/data/studio_assets/shared/case_library/marketing_case_library.md
+      - .startup-os/artifacts/marketing-narrative-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/marketing-narrative/message-proof-scorecard-template.md
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_marketing_narrative_studio_officials.yaml
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add asset-level evaluation and proof-density scoring.
+      - Standardize campaign experiment writeback.
+  - id: engineering-agent-systems-studio
+    name: Engineering & Agent Systems Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - .startup-os/departments/engineering-agent-systems-studio.yaml
+      - apps/decision_os
+      - apps/v5
+      - .startup-os/artifacts/engineering-agent-systems/engineering-run-quality-review-template.md
+      - susan-team-architect/backend/scripts/run_department_gap_closure_wave.py
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_engineering_agent_systems_studio_officials.yaml
+    next_lifts:
+      - Add more evaluation artifacts linked to operator and runtime changes.
+      - Surface monitoring state directly in the app shell.
+  - id: job-studio
+    name: Job Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - evaluation_artifacts
+      - benchmark_case_library
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - evaluation_artifacts
+      - benchmark_case_library
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - .startup-os/departments/job-studio.yaml
+      - .startup-os/artifacts/job-studio-training-operator-packet-2026-03-12.md
+      - .startup-os/artifacts/job-studio-session-01-powerpoint-2026-03-12.md
+      - .startup-os/artifacts/job-studio/training-evaluation-and-stage-gate-pack.md
+      - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_TRAINING_FACTORY_PROTOCOL.md
+      - susan-team-architect/backend/data/scrape_manifests/job_studio_training_ai_foundations.yaml
+    next_lifts:
+      - Complete rubric-backed evaluation for all eight sessions.
+      - Add more reusable work-memory and opportunity packets.
+  - id: data-decision-science-studio
+    name: Data & Decision Science Studio
+    current_maturity: 5.4
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/data-decision-science-studio.yaml
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_data_decision_science_officials.yaml
+      - susan-team-architect/backend/artifacts
+      - .startup-os/artifacts/data-decision-science-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/data-decision-science/experiment-recalibration-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Turn more operating data into reusable scorecards and simulations.
+      - Add explicit forecast validation loops.
+  - id: revenue-growth-studio
+    name: Revenue & Growth Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - operational_metrics
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - operational_metrics
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/revenue-growth-studio.yaml
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_revenue_growth_officials.yaml
+      - .startup-os/artifacts/revenue-growth-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/revenue-growth/growth-system-scorecard-template.md
+      - .startup-os/artifacts/revenue-growth/offer-and-funnel-brief-template.md
+      - .startup-os/artifacts/revenue-growth/revenue-benchmark-case-library.md
+      - .startup-os/artifacts/revenue-growth/pipeline-operating-metrics-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Build growth scorecards and pipeline review artifacts.
+      - Add more offer and pricing benchmark cases.
+  - id: finance-operating-cadence-studio
+    name: Finance & Operating Cadence Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - operational_metrics
+      - evaluation_artifacts
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/finance-operating-cadence-studio.yaml
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_finance_operating_cadence_officials.yaml
+      - .startup-os/artifacts/finance-operating-cadence-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/finance-operating-cadence/kpi-tree-template.md
+      - .startup-os/artifacts/finance-operating-cadence/weekly-operating-review-template.md
+      - .startup-os/artifacts/finance-operating-cadence/operating-metrics-scoreboard-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add KPI-tree artifacts, review packets, and variance-response loops.
+      - Bring operating review outputs into a recurring run cadence.
+  - id: talent-org-design-studio
+    name: Talent & Org Design Studio
+    current_maturity: 5.0
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - operational_metrics
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - benchmark_case_library
+      - evaluation_artifacts
+      - operational_metrics
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+    proof_paths:
+      - .startup-os/departments/talent-org-design-studio.yaml
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_talent_org_design_officials.yaml
+      - .startup-os/artifacts/talent-org-design-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/talent-org-design/role-scorecard-template.md
+      - .startup-os/artifacts/talent-org-design/hiring-loop-and-onboarding-template.md
+      - .startup-os/artifacts/talent-org-design/org-design-benchmark-case-library.md
+      - .startup-os/artifacts/talent-org-design/org-operating-metrics-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add role-scorecard templates, hiring loops, and onboarding proofs.
+      - Link org design more directly to capability gaps and budget planning.
+  - id: trust-governance-studio
+    name: Trust & Governance Studio
+    current_maturity: 4.1
+    required_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - policy_or_compliance_sources
+      - evaluation_artifacts
+      - automation_job_proofs
+    current_data_sources:
+      - internal_memory
+      - local_repo_assets
+      - live_web_manifests
+      - policy_or_compliance_sources
+      - evaluation_artifacts
+      - automation_job_proofs
+    required_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    current_capabilities:
+      - structured_contracts
+      - intake_and_diagnosis
+      - reusable_artifacts
+      - scorecard
+      - memory_writeback
+      - handoff_or_dependency_rules
+      - operator_visibility
+      - automation_refresh
+      - evaluation_loop
+      - decision_linking_or_stage_gates
+    proof_paths:
+      - .startup-os/departments/trust-governance-studio.yaml
+      - susan-team-architect/backend/data/scrape_manifests/startup_os_trust_governance_officials.yaml
+      - susan-team-architect/backend/control_plane
+      - .startup-os/artifacts/trust-governance-studio-operating-pack-2026-03-12.md
+      - .startup-os/artifacts/trust-governance/release-gate-template.md
+      - .startup-os/artifacts/trust-governance/remediation-and-audit-template.md
+      - susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.md
+    next_lifts:
+      - Add more reusable release-gate and remediation packets.
+      - Connect trust review state to automated operator signals.

@@ -1,0 +1,81 @@
+id: data-decision-science-studio
+name: Data & Decision Science Studio
+mission: Turn signals, evidence, experiments, and metrics into decision support, forecasts, scoring systems, and measurable operating insight.
+owner_agent: pulse
+supporting_agents:
+  - algorithm-lab
+  - ai-evaluation-specialist
+  - ledger
+  - susan
+primary_mode: deep
+decision_requirement: optional
+linked_capabilities:
+  - data-analytics
+  - capability-management
+  - portfolio-management
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - .startup-os/artifacts/data-decision-science
+  - susan-team-architect/backend/data
+  - susan-team-architect/backend/artifacts
+canonical_artifact_types:
+  - metrics tree
+  - forecast brief
+  - simulation report
+  - scorecard
+current_maturity: 5.4
+target_maturity: 8.4
+routing_keywords:
+  - metrics
+  - analytics
+  - data
+  - scoring
+  - model
+  - forecast
+  - simulation
+  - evaluation
+intake_schema:
+  - name: decision_or_metric
+    label: Decision or metric
+    required: true
+    help_text: The decision, KPI, or model target that needs measurement or prediction.
+  - name: evidence_sources
+    label: Evidence sources
+    required: false
+    help_text: The available datasets, runs, and artifact sources.
+  - name: time_horizon
+    label: Time horizon
+    required: false
+    help_text: The horizon for the score, forecast, or recommendation.
+diagnosis_protocol:
+  - Define the dependent decision, metric, or simulation question.
+  - Audit the available evidence quality and freshness.
+  - Choose the right scoring or forecast output before analysis begins.
+  - Write back assumptions, model limits, and next evidence needs.
+default_outputs:
+  - decision support brief
+  - scorecard
+  - forecast notes
+scorecard:
+  - evidence coverage
+  - model usefulness
+  - decision relevance
+  - recalibration readiness
+memory_writeback_path: .startup-os/artifacts/data-decision-science
+required_evidence:
+  - named metrics or decision targets
+  - source inventory
+required_artifacts:
+  - scorecard
+handoff_rules:
+  - to_department: founder-decision-room
+    when: The analysis materially changes a company or project decision.
+    deliverable: decision support brief
+  - to_department: engineering-agent-systems-studio
+    when: Instrumentation, pipelines, or evaluation tooling are required.
+    deliverable: measurement implementation packet
+source_tracks:
+  - metrics systems
+  - evaluation
+  - simulation
+  - forecasting

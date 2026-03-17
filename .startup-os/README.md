@@ -30,6 +30,7 @@ The system of record is the combination of:
 2. Use templates from `.startup-os/schemas/templates/` to create new records.
 3. Keep linked evidence in `artifacts/` and update run/session breadcrumbs.
 4. Refresh operator debrief and agent readiness index with `bin/jake sync-intel`.
+5. Run `bin/jake customer-studio seed|validate|report|push-susan|publish [local_drive_path]` to execute and publish Customer User Studio workflows to Susan backend data and local-drive mirrors.
 
 ## Role and readiness artifacts
 

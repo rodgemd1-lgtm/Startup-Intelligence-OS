@@ -139,13 +139,13 @@ companies:
   mike-job-studio:
     name: "Mike Job Studio"
     domain: "personal_operator_intelligence"
-    stage: "memory_bootstrap"
+    stage: "department_buildout"
     website: "https://startup-intelligence-os.local/mike-job-studio"
     founding_date: "2026"
     founders:
       - name: "Michael Rodgers"
-        background: "AI systems architect building a personal work-memory, writing, and operator studio inside Startup Intelligence OS"
-    product_description: "A personal studio inside Startup Intelligence OS for Mike's work corpus, writing-style recall, opportunity intelligence, and cross-company context retrieval."
+        background: "AI systems architect building a personal work-memory, training, opportunity, and operator department inside Startup Intelligence OS"
+    product_description: "A personal studio and sixth core department inside Startup Intelligence OS for work-memory retrieval, writing-style recall, strategist AI enablement, training production, opportunity intelligence, and cross-company context retrieval."
     tech_stack:
       - "Startup-Intelligence-OS backend"
       - "Supabase"
@@ -163,10 +163,13 @@ companies:
       - "Need a searchable work-memory layer grounded in real emails and artifacts"
       - "Need writing-style recall tied to successful past work"
       - "Need a single studio entry point that can bridge personal memory and linked company corpora"
+      - "Need a full training factory with AI foundations, Ellen enablement, and market intelligence training"
+      - "Need gigabytes of normalized training and behavioral-science data accessible to all routed personas and agents"
     constraints:
       - "Available email coverage is limited to the locally cached Outlook window unless broader mailbox export access is added"
       - "Personal and work materials require careful namespace separation"
       - "Some linked corpora still live as raw binaries and locator files rather than embedded text"
+      - "External live crawl jobs depend on the relevant API keys and ingestion credentials being available"
     budget_per_month_usd: 300
 
   apex-social-studio:

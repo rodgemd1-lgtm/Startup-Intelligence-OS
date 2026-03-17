@@ -1,0 +1,17 @@
+generated_at: '2026-03-12T20:49:29.049279+00:00'
+count: 2
+opportunities:
+- session_id: customer-session-seed-20260312201207
+  app_id: operator-console
+  issue_type: friction
+  summary: Operator needed an extra step to find debrief command
+  severity: medium
+  priority_score: 2
+  evidence: session-replay://seed
+- session_id: customer-session-seed-20260312201207
+  app_id: operator-console
+  issue_type: request
+  summary: Add one-click daily summary in console
+  severity: low
+  priority_score: 1
+  evidence: interview://seed

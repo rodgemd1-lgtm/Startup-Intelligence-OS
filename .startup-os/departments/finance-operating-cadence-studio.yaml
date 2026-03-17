@@ -1,0 +1,80 @@
+id: finance-operating-cadence-studio
+name: Finance & Operating Cadence Studio
+mission: Run the company through KPI trees, resource decisions, cadence artifacts, and variance response loops.
+owner_agent: ledger
+supporting_agents:
+  - pulse
+  - susan
+  - jake
+primary_mode: think
+decision_requirement: optional
+linked_capabilities:
+  - portfolio-management
+  - capability-management
+  - data-analytics
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - .startup-os/runs
+  - susan-team-architect/backend/data/foundry
+  - .startup-os/artifacts/finance-operating-cadence-studio-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/finance-operating-cadence
+canonical_artifact_types:
+  - KPI tree
+  - operating review
+  - variance brief
+  - resource call
+current_maturity: 5.0
+target_maturity: 8.0
+routing_keywords:
+  - finance
+  - budget
+  - kpi
+  - cadence
+  - operating review
+  - variance
+  - resourcing
+  - forecast
+intake_schema:
+  - name: operating_question
+    label: Operating question
+    required: true
+    help_text: The KPI, budget, or cadence problem that needs a response.
+  - name: review_horizon
+    label: Review horizon
+    required: false
+    help_text: The weekly, monthly, quarterly, or project horizon in scope.
+  - name: existing_metrics
+    label: Existing metrics
+    required: false
+    help_text: The current metrics, budget assumptions, or review artifacts available.
+diagnosis_protocol:
+  - Define the KPI tree and operating horizon.
+  - Identify the resource, budget, or variance question.
+  - Produce a cadence artifact that supports fast operator review.
+  - Write back review outcomes and resource implications.
+default_outputs:
+  - operating review
+  - KPI tree
+  - variance action brief
+scorecard:
+  - metric clarity
+  - cadence reliability
+  - variance response speed
+  - resource alignment
+memory_writeback_path: .startup-os/artifacts/finance-operating-cadence
+required_evidence:
+  - KPI or budget context
+  - review horizon
+required_artifacts:
+  - operating review
+handoff_rules:
+  - to_department: data-decision-science-studio
+    when: Metrics or forecasts need deeper analysis or simulation.
+    deliverable: measurement request
+  - to_department: founder-decision-room
+    when: Resource calls or variance responses become strategic decisions.
+    deliverable: operating decision packet
+source_tracks:
+  - operating cadence
+  - KPI systems
+  - resource allocation

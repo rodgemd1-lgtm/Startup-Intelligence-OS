@@ -1,36 +1,58 @@
 """File-backed persistence for Decision OS domain objects.
 
-Each object type is stored as individual YAML files in the .startup-os/ tree.
-The store handles CRUD, schema validation via Pydantic, and cross-references.
+Each object type is stored as individual YAML files in the .startup-os/ tree
+or in app-local runtime data. The store handles CRUD, schema validation via
+Pydantic, and lightweight workspace accessors.
 """
 from __future__ import annotations
 
-import json
 import os
 from pathlib import Path
-from typing import TypeVar, Type
+from typing import Type, TypeVar
 
 import yaml
 from pydantic import BaseModel
 
 from .models import (
-    Decision, Capability, Project, Company, Run, Session, Artifact, Evidence,
+    ActionPacket,
+    Artifact,
+    Capability,
+    Company,
+    Decision,
+    DepartmentPack,
+    Evidence,
+    GraphLink,
+    Run,
+    Session,
+    SignalEvent,
+    Project,
     _now,
 )
 
 T = TypeVar("T", bound=BaseModel)
 
-_ROOT = Path(os.environ.get("DECISION_OS_ROOT", Path(__file__).resolve().parents[2]))
-_STARTUP_OS = _ROOT / ".startup-os"
-_DATA = _ROOT / "apps" / "decision_os" / "data"
+
+def root_dir() -> Path:
+    return Path(os.environ.get("DECISION_OS_ROOT", Path(__file__).resolve().parents[2]))
 
 
-def _ensure_dir(p: Path) -> Path:
-    p.mkdir(parents=True, exist_ok=True)
-    return p
+def startup_os_dir() -> Path:
+    return root_dir() / ".startup-os"
 
 
-# --- Generic file-backed repository ---
+def data_dir() -> Path:
+    return root_dir() / "apps" / "decision_os" / "data"
+
+
+_ROOT = root_dir()
+_STARTUP_OS = startup_os_dir()
+_DATA = data_dir()
+
+
+def _ensure_dir(path: Path) -> Path:
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
 
 class Repository:
     """Generic YAML-file-backed repository for a Pydantic model."""
@@ -60,6 +82,8 @@ class Repository:
         if not path.exists():
             return None
         raw = yaml.safe_load(path.read_text())
+        if raw is None:
+            return None
         return self._model.model_validate(raw)
 
     def delete(self, obj_id: str) -> bool:
@@ -70,12 +94,12 @@ class Repository:
         return False
 
     def list_all(self) -> list[T]:
-        results = []
-        for p in sorted(self._dir.glob(f"*{self._suffix}")):
-            if p.name.startswith("."):
+        results: list[T] = []
+        for path in sorted(self._dir.glob(f"*{self._suffix}")):
+            if path.name.startswith("."):
                 continue
             try:
-                raw = yaml.safe_load(p.read_text())
+                raw = yaml.safe_load(path.read_text())
                 if raw:
                     results.append(self._model.model_validate(raw))
             except Exception:
@@ -83,15 +107,18 @@ class Repository:
         return results
 
     def count(self) -> int:
-        return len([p for p in self._dir.glob(f"*{self._suffix}")
-                     if not p.name.startswith(".")])
+        return len(
+            [
+                path
+                for path in self._dir.glob(f"*{self._suffix}")
+                if not path.name.startswith(".")
+            ]
+        )
 
-
-# --- Specialized stores ---
 
 class DecisionStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Decision, _STARTUP_OS / "decisions")
+        super().__init__(Decision, startup_os_dir() / "decisions")
 
     def _path(self, obj_id: str) -> Path:
         return self._dir / f"{obj_id}.yaml"
@@ -99,49 +126,74 @@ class DecisionStore(Repository):
 
 class CapabilityStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Capability, _STARTUP_OS / "capabilities")
+        super().__init__(Capability, startup_os_dir() / "capabilities")
 
 
 class ProjectStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Project, _STARTUP_OS / "projects")
+        super().__init__(Project, startup_os_dir() / "projects")
 
 
 class CompanyStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Company, _STARTUP_OS / "companies")
+        super().__init__(Company, startup_os_dir() / "companies")
+
+
+class DepartmentStore(Repository):
+    def __init__(self) -> None:
+        super().__init__(DepartmentPack, startup_os_dir() / "departments")
+
+
+class SignalStore(Repository):
+    def __init__(self) -> None:
+        super().__init__(SignalEvent, startup_os_dir() / "signals")
+
+
+class ActionPacketStore(Repository):
+    def __init__(self) -> None:
+        super().__init__(ActionPacket, startup_os_dir() / "action-packets")
+
+
+class GraphLinkStore(Repository):
+    def __init__(self) -> None:
+        super().__init__(GraphLink, startup_os_dir() / "graph-links")
 
 
 class RunStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Run, _DATA / "runs")
+        super().__init__(Run, data_dir() / "runs")
 
 
 class SessionStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Session, _DATA / "sessions")
+        super().__init__(Session, data_dir() / "sessions")
 
 
 class ArtifactStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Artifact, _DATA / "artifacts")
+        super().__init__(Artifact, data_dir() / "artifacts")
 
 
 class EvidenceStore(Repository):
     def __init__(self) -> None:
-        super().__init__(Evidence, _DATA / "evidence")
+        super().__init__(Evidence, data_dir() / "evidence")
 
-
-# --- Convenience singleton ---
 
 class Store:
     """Unified access to all object repositories."""
 
     def __init__(self) -> None:
+        self.root = root_dir()
+        self.startup_os = startup_os_dir()
+        self.data = data_dir()
         self.decisions = DecisionStore()
         self.capabilities = CapabilityStore()
         self.projects = ProjectStore()
         self.companies = CompanyStore()
+        self.departments = DepartmentStore()
+        self.signals = SignalStore()
+        self.action_packets = ActionPacketStore()
+        self.graph_links = GraphLinkStore()
         self.runs = RunStore()
         self.sessions = SessionStore()
         self.artifacts = ArtifactStore()
@@ -153,6 +205,10 @@ class Store:
             "capabilities": self.capabilities.count(),
             "projects": self.projects.count(),
             "companies": self.companies.count(),
+            "departments": self.departments.count(),
+            "signals": self.signals.count(),
+            "action_packets": self.action_packets.count(),
+            "graph_links": self.graph_links.count(),
             "runs": self.runs.count(),
             "sessions": self.sessions.count(),
             "artifacts": self.artifacts.count(),
@@ -160,22 +216,38 @@ class Store:
         }
 
     def context(self) -> dict:
-        workspace_path = _STARTUP_OS / "workspace.yaml"
+        workspace_path = self.startup_os / "workspace.yaml"
         if workspace_path.exists():
             return yaml.safe_load(workspace_path.read_text()) or {}
         return {}
 
+    def load_yaml_collection(self, directory: Path, recursive: bool = False) -> list[dict]:
+        pattern = "**/*.yaml" if recursive else "*.yaml"
+        results: list[dict] = []
+        for path in sorted(directory.glob(pattern)):
+            if path.name.startswith(".") or path.name == "README.md":
+                continue
+            try:
+                raw = yaml.safe_load(path.read_text())
+            except Exception:
+                continue
+            if not raw:
+                continue
+            if isinstance(raw, dict):
+                record = dict(raw)
+                record.setdefault("_path", str(path.relative_to(self.root)))
+                record.setdefault("_stem", path.stem)
+                results.append(record)
+        return results
+
     def get_capability_levels(self, capability_id: str) -> dict | None:
-        """Read capability YAML and return levels structure."""
-        path = _STARTUP_OS / "capabilities" / f"{capability_id}.yaml"
+        path = self.startup_os / "capabilities" / f"{capability_id}.yaml"
         if not path.exists():
             return None
-        data = yaml.safe_load(path.read_text())
-        return data
+        return yaml.safe_load(path.read_text())
 
     def toggle_capability_item(self, capability_id: str, level: int, index: int) -> dict | None:
-        """Toggle a checklist item in a capability level."""
-        path = _STARTUP_OS / "capabilities" / f"{capability_id}.yaml"
+        path = self.startup_os / "capabilities" / f"{capability_id}.yaml"
         if not path.exists():
             return None
         data = yaml.safe_load(path.read_text())
@@ -184,16 +256,15 @@ class Store:
         if not level_data or index < 0 or index >= len(level_data.get("items", [])):
             return None
         level_data["items"][index]["done"] = not level_data["items"][index]["done"]
-        # Auto-compute checklist maturity: highest level where all items are done
+
         computed_maturity = 0
-        for lvl in sorted(levels.keys()):
-            items = levels[lvl].get("items", [])
+        for current_level in sorted(levels.keys()):
+            items = levels[current_level].get("items", [])
             if items and all(item.get("done") for item in items):
-                computed_maturity = lvl
+                computed_maturity = current_level
             else:
                 break
-        # Only advance maturity_current when checklist maturity exceeds it
-        # (preserves fractional human-assessed values until checklist proves higher)
+
         current = data.get("maturity_current", 0)
         if computed_maturity > current:
             data["maturity_current"] = computed_maturity

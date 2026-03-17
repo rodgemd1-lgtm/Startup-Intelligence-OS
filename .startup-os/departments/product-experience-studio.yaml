@@ -1,0 +1,77 @@
+id: product-experience-studio
+name: Product & Experience Studio
+mission: Translate strategy and user evidence into product direction, workflow design, and implementation-ready experience decisions.
+owner_agent: design-studio-director
+supporting_agents:
+  - compass
+  - atlas
+  - susan
+primary_mode: design
+decision_requirement: optional
+linked_capabilities:
+  - ux-design
+  - operator-experience
+  - decision-kernel
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - .startup-os/artifacts/product-experience
+  - apps/v5
+  - apps/operator-console
+canonical_artifact_types:
+  - product brief
+  - roadmap cut
+  - experience critique
+current_maturity: 5.0
+target_maturity: 8.8
+routing_keywords:
+  - product
+  - roadmap
+  - experience
+  - ux
+  - workflow
+  - feature
+  - prototype
+intake_schema:
+  - name: problem
+    label: Problem
+    required: true
+    help_text: The user or operator problem to solve.
+  - name: desired_outcome
+    label: Desired outcome
+    required: true
+    help_text: The specific product or experience result needed.
+  - name: constraints
+    label: Constraints
+    required: false
+    help_text: Technical, timeline, or brand constraints that shape the solution.
+diagnosis_protocol:
+  - Clarify the target user, workflow, and operator constraint.
+  - Convert strategy or research inputs into concept routes.
+  - Critique solution quality before implementation.
+  - Prepare an implementation handoff with success criteria.
+default_outputs:
+  - product direction brief
+  - experience route
+  - implementation handoff
+scorecard:
+  - problem-solution fit
+  - experience clarity
+  - implementation readiness
+  - metric alignment
+memory_writeback_path: .startup-os/artifacts/product-experience
+required_evidence:
+  - problem framing
+  - target workflow
+required_artifacts:
+  - product brief
+handoff_rules:
+  - to_department: engineering-agent-systems-studio
+    when: The product direction is ready for architecture and build planning.
+    deliverable: implementation packet
+  - to_department: marketing-narrative-studio
+    when: Experience changes need a narrative or launch story.
+    deliverable: message brief
+source_tracks:
+  - product strategy
+  - experience design
+  - operator console

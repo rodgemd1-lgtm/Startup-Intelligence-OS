@@ -1,0 +1,73 @@
+id: reframe-startup-intelligence-os-as-a-decision-and-build-os
+title: Reframe Startup Intelligence OS as a department-grade Decision-and-Build OS with Job Studio as a sixth core department
+status: proposed
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Reorganize Startup Intelligence OS around department-grade studios of excellence, a six-lens Susan maturity model, an agentic operator dashboard, and a fully built Job Studio as a sixth core department instead of continuing to expand a flat agent roster.
+why_now: The system now serves as application project, startup backend, developer environment, and capability foundry at the same time. Breadth is compounding faster than structure, which is creating duplicate surfaces, unclear ownership, and a passive dashboard.
+constraints:
+  - Preserve runtime behavior under susan-team-architect/backend/control_plane, mcp_server, and susan_core.
+  - Keep Jake as the root front door and Susan as the capability foundry.
+  - Prefer additive restructuring over destructive deletion.
+  - Department wrappers must map to explicit artifacts, capabilities, and operating cadences.
+options:
+  - id: option-a
+    name: Continue agent expansion
+    summary: Keep adding agents and studios as needed, with only light cleanup and routing tweaks.
+    impact: medium
+    effort: low
+    risk: high
+    confidence: medium
+    time_to_signal: fast
+  - id: option-b
+    name: Department-grade Decision-and-Build OS
+    summary: Establish department wrappers, canonical process packs, six-lens maturity scoring, and an event-driven operator dashboard that routes work across the OS.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+  - id: option-c
+    name: Split into separate products now
+    summary: Break the repo into standalone products for startup OS, build OS, and studio foundry before operational structure is mature.
+    impact: medium
+    effort: very_high
+    risk: very_high
+    confidence: low
+    time_to_signal: slow
+recommendation: option-b
+assumptions:
+  - The six Susan foundry lenses are the right control model for future-back planning.
+  - Department wrappers reduce duplication better than adding more single-purpose agents.
+  - The operator dashboard should become an orchestration surface, not only a reporting surface.
+  - Consumer, marketing, product, engineering, growth, trust, operator, and Job Studio work can be standardized into reusable studio packs.
+  - Mike Job Studio should become a sixth core department because training, memory, opportunity support, and AI strategist enablement are now strategic operating surfaces, not only tenant-specific helpers.
+  - The maturity process should include a visible current-state view so department health is legible at a glance.
+reversal_criteria:
+  - If department wrappers slow execution or create heavy process without improving routing clarity, collapse back to a smaller set of cross-functional tracks.
+  - If the operator dashboard cannot drive reliable next-best actions from explicit state, keep it as a read-only control plane until the event model matures.
+next_actions:
+  - Publish the full assessment, studio maturity map, and 10x future-back plan into .startup-os/artifacts.
+  - Add capability records for department studios of excellence and the agentic operator console.
+  - Add Job Studio as a sixth core department with a dedicated training factory and AI strategist enablement arc.
+  - Standardize a canonical package for each department: intake, diagnosis, playbooks, templates, metrics, memory, and escalation.
+  - Build a duplicate-surface inventory and designate one canonical entrypoint per department.
+  - Upgrade the dashboard into an event-driven state graph over workspace, company, project, decision, capability, artifact, run, and experiment objects.
+artifacts:
+  - .startup-os/artifacts/startup-intelligence-os-full-assessment-2026-03-12.md
+  - .startup-os/artifacts/startup-intelligence-os-studio-maturity-map-2026-03-12.md
+  - .startup-os/artifacts/startup-intelligence-os-10x-future-back-plan-2026-03-12.md
+  - .startup-os/artifacts/startup-intelligence-os-duplicate-surface-inventory-2026-03-12.md
+  - .startup-os/departments/founder-decision-room.yaml
+  - .startup-os/departments/consumer-user-studio.yaml
+  - .startup-os/departments/product-experience-studio.yaml
+  - .startup-os/departments/marketing-narrative-studio.yaml
+  - .startup-os/departments/engineering-agent-systems-studio.yaml
+  - .startup-os/departments/job-studio.yaml
+  - .startup-os/companies/mike-job-studio.yaml
+  - .startup-os/capabilities/job-memory-intelligence.yaml
+  - .startup-os/capabilities/job-studio-training-factory.yaml
+  - .startup-os/artifacts/job-studio-training-factory-roadmap-2026-03-12.md
+  - apps/decision_os/operator.py
+  - apps/decision_os/api.py
+  - apps/v5/src/components/AskRouterPanel.tsx

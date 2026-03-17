@@ -1,0 +1,25 @@
+{
+  "run_id": "enterprise_rental_probe_2026_03_12",
+  "environment": "workspace sandbox",
+  "method": "direct_https_probe",
+  "results": [
+    {
+      "url": "https://www.trustpilot.com/review/www.enterprise.com",
+      "checked_at": "2026-03-12T19:48:57.443965+00:00",
+      "ok": false,
+      "error": "HTTPSConnectionPool(host='www.trustpilot.com', port=443): Max retries exceeded with url: /review/www.enterprise.com (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+    },
+    {
+      "url": "https://www.consumeraffairs.com/travel/enterprise.html",
+      "checked_at": "2026-03-12T19:48:57.455349+00:00",
+      "ok": false,
+      "error": "HTTPSConnectionPool(host='www.consumeraffairs.com', port=443): Max retries exceeded with url: /travel/enterprise.html (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+    },
+    {
+      "url": "https://www.sitejabber.com/reviews/enterprise.com",
+      "checked_at": "2026-03-12T19:48:57.461273+00:00",
+      "ok": false,
+      "error": "HTTPSConnectionPool(host='www.sitejabber.com', port=443): Max retries exceeded with url: /reviews/enterprise.com (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+    }
+  ]
+}

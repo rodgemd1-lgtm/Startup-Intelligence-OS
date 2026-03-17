@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: data decision science studio'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-4b358a509473'': Department ''Data
+    & Decision Science Studio'' has coverage score 0.0. Required evidence: named metrics
+    or decision targets, source inventory.'
+  generated_by: research_daemon
+  gap_id: gap-4b358a509473
+  generated_at: '2026-03-17T02:36:03.637434+00:00'
+sources:
+- tool: exa
+  query: data decision science studio best practices official documentation
+  num_results: 8
+- tool: exa
+  query: data decision science studio framework methodology guide
+  num_results: 8
+- tool: exa
+  query: data decision science studio startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Department 'Data Decision Science Studio' research
+  num_results: 8
+- tool: exa
+  query: data decision science studio official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com data decision science studio README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

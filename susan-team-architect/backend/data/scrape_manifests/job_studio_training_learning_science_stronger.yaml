@@ -1,0 +1,23 @@
+manifest:
+  name: "Job Studio Training Learning Science Stronger"
+  company: mike-job-studio
+  data_type: training_research
+  priority: critical
+  description: "Stronger adult-learning, retrieval-practice, assessment, and transfer-design sources for Job Studio training."
+
+sources:
+  - tool: firecrawl
+    url: https://www.cmu.edu/teaching/designteach/designlearning/objectives.html
+  - tool: firecrawl
+    url: https://www.cmu.edu/teaching/assessment/basics/alignment.html
+  - tool: firecrawl
+    url: https://www.cmu.edu/teaching/assessment/basics/formative-summative.html
+  - tool: firecrawl
+    url: https://cft.vanderbilt.edu/guides-sub-pages/understanding-by-design/
+  - tool: firecrawl
+    url: https://www.learningscientists.org/
+  - tool: exa
+    query: "retrieval practice adult learning transfer training evaluation learning science official guide"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/artifacts/job-studio-training-operator-packet-2026-03-12.md

@@ -1,0 +1,55 @@
+id: department-studios-of-excellence
+name: Department Studios of Excellence
+maturity_current: 1.7
+maturity_target: 4.2
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - department wrappers
+  - universal process packs
+  - canonical resource libraries
+  - duplicate-surface reduction
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Core studio agents and execution tracks exist in susan-team-architect/backend/data/foundry/company_foundry.yaml"
+        done: true
+      - text: "Founder Intelligence OS company context defines foundry, domain factory, cognitive studios, trust, operator console, and memory tracks"
+        done: true
+      - text: "Assessment artifact defines department-grade studio topology and duplicate clusters (.startup-os/artifacts/startup-intelligence-os-full-assessment-2026-03-12.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Each startup department has a single callable studio entrypoint with explicit purpose, owner, and handoff rules"
+        done: false
+      - text: "Each department ships with a universal process pack: intake, diagnosis, options, execution, measurement, memory"
+        done: false
+      - text: "Canonical resource libraries exist for research, templates, anti-patterns, and SOPs by department"
+        done: false
+      - text: "Duplicate agent and capability surfaces are mapped to one canonical department wrapper"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Department studios coordinate through explicit handoff protocols across product, marketing, engineering, trust, and operations"
+        done: false
+      - text: "Each department has metrics, stage gates, and weekly cadences wired into Jake and Susan surfaces"
+        done: false
+      - text: "Company-specific variants inherit from a shared department blueprint instead of forking from scratch"
+        done: false
+      - text: "Consumer User Studio, Marketing Studio, Product Studio, and Engineering Studio all produce reusable playbooks and asset cascades"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Department studios operate as reusable excellence systems across multiple startups and applications"
+        done: false
+      - text: "Cross-department orchestration recommends the next best studio sequence automatically from state and evidence"
+        done: false
+      - text: "Universal process packs improve from outcomes, postmortems, and quality scoring rather than manual edits only"
+        done: false
+      - text: "The startup OS can stand up a new company with department-grade studios, ownership, and baseline resources in one pass"
+        done: false

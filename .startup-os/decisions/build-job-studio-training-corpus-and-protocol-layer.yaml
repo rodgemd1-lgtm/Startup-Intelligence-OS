@@ -1,0 +1,46 @@
+id: build-job-studio-training-corpus-and-protocol-layer
+title: Build the Job Studio Training Factory corpus and protocol layer
+status: proposed
+company_id: mike-job-studio
+project_id: decision-capability-os
+decision_statement: Build a local-first, large-scale Job Studio Training Factory corpus program with extraction, manifests, locators, agent access rules, and writeback paths.
+why_now: The training factory now depends on gigabytes of real corpus material, explicit access protocols, and reusable examples. Without that layer, the department stays presentation-rich but evidence-thin.
+constraints:
+  - Start with local corpora and local repo harvests before relying on external live crawls.
+  - Keep personal memory and company delivery memory namespace-separated.
+  - External live crawl jobs depend on the relevant API keys being present.
+options:
+  - id: option-a
+    name: Manual document lookup only
+    summary: Leave the source material on disk and rely on manual file inspection case by case.
+    impact: low
+    effort: low
+    risk: very_high
+    confidence: low
+    time_to_signal: fast
+  - id: option-b
+    name: Local-first extraction plus live-refresh manifests
+    summary: Normalize local corpora now, add ingest and locator paths, and wire official manifests for live refresh when keys are available.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+recommendation: option-b
+assumptions:
+  - The Oracle desktop mirror is the fastest high-value corpus to operationalize.
+  - Local adjacent repos are valid and useful training inputs.
+  - Agents need explicit data-access protocols and locators to use the corpus consistently.
+reversal_criteria:
+  - If the extracted corpus proves too noisy to use, narrow the source tiers and emphasize named example libraries first.
+next_actions:
+  - Build the training corpus extraction script and run it.
+  - Publish the training factory locator and protocol docs.
+  - Add live-refresh scrape manifests for official docs and known sources.
+  - Add workspace-local skills for harvesting, evaluation, and training production.
+artifacts:
+  - .startup-os/artifacts/job-studio-training-factory-data-program-2026-03-12.md
+  - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_TRAINING_FACTORY_LOCATOR.md
+  - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_TRAINING_FACTORY_PROTOCOL.md
+  - susan-team-architect/backend/scripts/build_job_studio_training_factory_corpus.py
+  - susan-team-architect/backend/scripts/ingest_job_studio_training_factory.py

@@ -1,0 +1,56 @@
+id: job-memory-intelligence
+name: Job Memory Intelligence
+maturity_current: 2.3
+maturity_target: 4.4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - full-mailbox-coverage
+  - authored-writing-playbooks
+  - deliverable-memory-beyond-email
+  - linked-corpus-bridging
+  - namespace-governance
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Mike Job Studio exists as a Susan company with dedicated routing and core agents"
+        done: true
+      - text: "Email corpus, authored subset, and work subset are attached and queryable through Mike Job Studio locator files"
+        done: true
+      - text: "Oracle Health linked corpus is mirrored into Mike Job Studio for cross-context retrieval"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Job Studio is mirrored into root .startup-os as a first-class company and capability, not only a Susan backend tenant"
+        done: true
+      - text: "Authored writing patterns are distilled into reusable voice and work-product playbooks"
+        done: false
+      - text: "Work-memory retrieval prefers grounded source maps and date-scoped evidence instead of broad fuzzy recall"
+        done: false
+      - text: "Company-specific corpora can be bridged into Job Studio with explicit locator and namespace rules"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Job Studio retrieves across email, deliverables, notes, and linked company corpora through one routing surface"
+        done: false
+      - text: "Resume, opportunity, interview, and work-history packets are generated from grounded source evidence"
+        done: false
+      - text: "Job-specific asks route through the correct shared departments while preserving Mike Job Studio memory context"
+        done: true
+      - text: "Cross-company bridges produce briefing packs that separate personal memory from client or employer delivery memory"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Job Studio acts as a high-trust personal operator memory system with governed retrieval and writeback"
+        done: false
+      - text: "Writing intelligence learns from successful authored work products, not only inbound correspondence"
+        done: false
+      - text: "Opportunity intelligence tracks themes, relationships, and career signals across companies and time"
+        done: false
+      - text: "Job Studio can produce role-ready decision, interview, and positioning packets in one pass"
+        done: false

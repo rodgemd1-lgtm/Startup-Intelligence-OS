@@ -1,0 +1,47 @@
+id: publish-customer-user-studio-to-repo-github-local-drive
+title: Publish Customer User Studio outputs across repo, Susan backend, and local-drive mirror
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Add a unified publish workflow to generate report artifacts, sync into Susan backend data path, and mirror artifacts to a specified local-drive directory.
+why_now: Operators requested explicit push behavior across repository workspace, Susan Intelligence OS local backend folder, and local-drive destinations.
+constraints:
+  - Preserve Susan runtime behavior and only add files under backend data/scripts surfaces.
+  - Keep terminal-first workflow through bin/jake.
+options:
+  - id: option-a
+    name: Separate manual commands
+    summary: Run report + push-susan + local copy manually each time.
+    impact: medium
+    effort: low
+    risk: medium
+    confidence: high
+    time_to_signal: fast
+  - id: option-b
+    name: Unified publish command
+    summary: Add `bin/jake customer-studio publish [local_drive_path]` to execute end-to-end publish and emit manifest.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: fast
+recommendation: option-b
+assumptions:
+  - Local-drive path is operator-supplied and writable.
+  - GitHub push remains dependent on configured git remote and credentials.
+risks:
+  - name: publish path misconfiguration
+    mitigation: emit publish manifest with resolved target paths for verification.
+  - name: stale remote publication
+    mitigation: require explicit git push command and capture output in operator runbook.
+next_actions:
+  - Add optional scheduled publish mode.
+  - Add CI check for publish manifest generation.
+linked_capabilities:
+  - customer-user-studio
+linked_projects:
+  - decision-capability-os
+artifacts:
+  - bin/jake
+  - apps/decision_os/customer_user_studio.py
+  - .startup-os/artifacts/customer-user-studio/publish

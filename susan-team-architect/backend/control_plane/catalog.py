@@ -1132,14 +1132,19 @@ class ControlPlaneCatalog:
 
         claude_text = self.claude_md_path.read_text(encoding="utf-8")
         claimed_agents = extract_numeric_claim(claude_text, r"Full Agent Roster \(([\d,]+) agents")
-        if claimed_agents and claimed_agents != registered_count:
+        if claimed_agents is None or claimed_agents != registered_count:
+            detail = (
+                "CLAUDE.md no longer publishes a machine-readable agent count."
+                if claimed_agents is None
+                else f"CLAUDE.md claims {claimed_agents} agents, but the runtime registry has {registered_count}."
+            )
             issues.append(
                 make_issue(
                     issue_id="claude-agent-count-stale",
                     severity="high",
                     area="documentation",
                     title="CLAUDE.md agent count is stale",
-                    detail=f"CLAUDE.md claims {claimed_agents} agents, but the runtime registry has {registered_count}.",
+                    detail=detail,
                     recommendation="Update CLAUDE.md or align the runtime registry with the documented roster.",
                     file_path=str(self.claude_md_path),
                 )

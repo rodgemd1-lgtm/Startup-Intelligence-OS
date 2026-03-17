@@ -1,0 +1,48 @@
+id: operationalize-zero-to-ten-maturity-system
+title: Operationalize a zero-to-ten maturity system for all departments, studios, tools, and operating layers
+status: proposed
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Move Startup Intelligence OS to one explicit 0-10 maturity system that defines what full maturity looks like for departments, data systems, protocols, tools, and operator surfaces.
+why_now: Department and capability growth is outpacing shared standards. Without a single maturity language, prioritization, roadmaping, and operator visibility stay inconsistent.
+constraints:
+  - Preserve the existing Susan six-lens model as the governing lens set.
+  - Keep the maturity system legible in file-backed artifacts and operator surfaces.
+  - Make current-state visuals part of the maturity process, not an optional afterthought.
+options:
+  - id: option-a
+    name: Keep mixed maturity scales
+    summary: Leave departments, capabilities, and assessments on different implicit scales and reconcile manually.
+    impact: low
+    effort: low
+    risk: high
+    confidence: low
+    time_to_signal: fast
+  - id: option-b
+    name: One explicit 0-10 system
+    summary: Standardize all major operating surfaces on a visible 0-10 maturity model with explicit 10-state definitions.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+recommendation: option-b
+assumptions:
+  - A shared maturity language improves sequencing and decision quality.
+  - Departments, tools, protocols, and data systems all need the same maturity frame, not only capabilities.
+  - The system will be more useful if "10" is concrete and operator-visible.
+reversal_criteria:
+  - If the 0-10 model creates noise without improving roadmap decisions, collapse back to a smaller set of maturity checkpoints.
+next_actions:
+  - Publish the zero-to-ten maturity system artifact.
+  - Align department records to the 0-10 scale.
+  - Add the missing department packs to the registry.
+  - Reflect the maturity visual in operator-facing artifacts.
+artifacts:
+  - .startup-os/artifacts/startup-intelligence-os-zero-to-ten-maturity-system-2026-03-12.md
+  - .startup-os/artifacts/startup-intelligence-os-studio-maturity-map-2026-03-12.md
+  - .startup-os/departments/data-decision-science-studio.yaml
+  - .startup-os/departments/revenue-growth-studio.yaml
+  - .startup-os/departments/finance-operating-cadence-studio.yaml
+  - .startup-os/departments/talent-org-design-studio.yaml
+  - .startup-os/departments/trust-governance-studio.yaml

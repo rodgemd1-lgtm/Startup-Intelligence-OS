@@ -318,6 +318,28 @@ def _route_candidates(task: str, company_id: str, agent_registry: dict[str, Any]
         add("freya", 5, "Relational coaching requests need behavioral science depth.")
         add("flow", 5, "Relational coaching requests need sports psychology depth.")
 
+    if company_id == "transformfit" and _contains_any(
+        task_lower,
+        [
+            "fitness influencer",
+            "monte carlo",
+            "simulation",
+            "predictive coach",
+            "predictive coaching",
+            "coach cue",
+            "coach cues",
+            "dropout window",
+            "dropout windows",
+            "plateau",
+            "plateaus",
+            "first miss",
+            "first misses",
+        ],
+    ):
+        add("training-research-studio", 5, "Research-heavy TransformFit requests should bring in the training evidence bench.")
+        add("algorithm-lab", 5, "Simulation and dropout-window tasks need the algorithm bench.")
+        add("coaching-architecture-studio", 4, "Predictive cue design belongs in the coaching systems bench.")
+
     for agent_id, keywords in ROUTE_KEYWORDS.items():
         hits = _keyword_hits(task_lower, keywords)
         if hits:
@@ -373,6 +395,19 @@ def _route_data_types(task: str, ranked_agents: list[dict[str, Any]], evidence_h
             seen.add(data_type)
 
     return recommended[:8]
+
+
+def _select_recommended_agents(ranked: list[dict[str, Any]], limit: int = 6) -> list[str]:
+    if not ranked:
+        return []
+
+    selected = ranked[:limit]
+    threshold = selected[-1]["score"]
+    for candidate in ranked[limit:]:
+        if candidate["score"] != threshold:
+            break
+        selected.append(candidate)
+    return [item["agent_id"] for item in selected]
 
 
 def search_company_knowledge(
@@ -489,8 +524,10 @@ def route_company_task(company_id: str, task: str, top_k: int = 6) -> dict[str, 
     ranked = _route_candidates(task, company_id, agent_registry)
     suggested_mode = suggest_mode(task)
     mode_options = mode_options_for_task(task)
-    recommended_agents = [item["agent_id"] for item in ranked[:6]]
-    recommended_data_types = _route_data_types(task, ranked[:6], evidence_hits)
+    top_ranked = ranked[:6]
+    recommended_agents = _select_recommended_agents(ranked, limit=6)
+    recommended_ranked = [item for item in ranked if item["agent_id"] in set(recommended_agents)]
+    recommended_data_types = _route_data_types(task, recommended_ranked or top_ranked, evidence_hits)
     need_visual_assets = "visual_asset" in recommended_data_types or _contains_any(
         task.lower(),
         DATA_TYPE_KEYWORDS["visual_asset"],

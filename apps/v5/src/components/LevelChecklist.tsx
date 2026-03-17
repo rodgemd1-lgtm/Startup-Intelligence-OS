@@ -33,7 +33,11 @@ export function LevelChecklist({ capabilityId, levels, currentMaturity, onToggle
   }
 
   return (
-    <div className="level-stack">
+    <div
+      className="level-stack"
+      data-capability-id={capabilityId}
+      data-current-maturity={currentMaturity}
+    >
       {[1, 2, 3, 4].map((levelNum) => {
         const level = levels[levelNum];
         if (!level) return null;

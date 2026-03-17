@@ -1,0 +1,50 @@
+id: connect-customer-user-studio-to-susan-intelligence-os
+title: Connect Customer User Studio artifacts to Susan Intelligence OS backend data surface
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Establish a repeatable sync pathway that pushes Customer User Studio artifacts from `.startup-os` into `susan-team-architect/backend/data/startup_os/customer_user_studio`.
+why_now: Customer User Studio must be accessible to Susan Intelligence OS runtime workflows, not only stored in root workspace artifacts.
+constraints:
+  - Preserve Susan runtime behavior under guarded backend runtime directories.
+  - Keep the integration additive and file-backed.
+  - Maintain Jake as primary operator surface.
+options:
+  - id: option-a
+    name: Keep artifacts only in .startup-os
+    summary: No backend sync; Susan backend remains disconnected from Customer User Studio artifact stream.
+    impact: medium
+    effort: low
+    risk: high
+    confidence: medium
+    time_to_signal: fast
+  - id: option-b
+    name: Add Jake + backend script sync bridge
+    summary: Add `bin/jake customer-studio push-susan` plus backend sync script and publish synced artifacts under backend data path.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: fast
+recommendation: option-b
+assumptions:
+  - Susan workflows can consume file-backed YAML artifacts from backend data path.
+  - Sync cadence can be operator-triggered initially and automated later.
+risks:
+  - name: stale backend mirror
+    mitigation: run sync after seed/report updates and capture timestamped sync-index.
+  - name: schema drift between root and backend copies
+    mitigation: keep canonical schemas in .startup-os and validate before pushing.
+next_actions:
+  - Add scheduled sync mode for nightly refresh.
+  - Wire backend ingest job to consume synced artifacts.
+  - Expand source set to include Brave/Exa/Jina/Firecrawl/Apify manifests.
+linked_capabilities:
+  - customer-user-studio
+linked_projects:
+  - decision-capability-os
+artifacts:
+  - bin/jake
+  - apps/decision_os/customer_user_studio.py
+  - susan-team-architect/backend/scripts/sync_customer_user_studio_from_startup_os.py
+  - susan-team-architect/backend/data/startup_os/customer_user_studio/sync-index.yaml

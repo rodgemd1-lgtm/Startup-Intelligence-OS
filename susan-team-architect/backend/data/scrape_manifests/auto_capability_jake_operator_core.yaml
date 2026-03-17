@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: capability jake operator core'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-6fc64a3f74e8'': Capability ''Jake
+    Operator Core'' has coverage score 0.0. No matching RAG data or scrape manifests
+    found.'
+  generated_by: research_daemon
+  gap_id: gap-6fc64a3f74e8
+  generated_at: '2026-03-17T01:36:30.166464+00:00'
+sources:
+- tool: exa
+  query: capability jake operator core best practices official documentation
+  num_results: 8
+- tool: exa
+  query: capability jake operator core framework methodology guide
+  num_results: 8
+- tool: exa
+  query: capability jake operator core startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Jake Operator Core' coverage research
+  num_results: 8
+- tool: exa
+  query: capability jake operator core official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com capability jake operator core README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

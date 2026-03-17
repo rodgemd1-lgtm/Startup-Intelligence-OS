@@ -1,0 +1,47 @@
+id: enable-direct-iphone-automation-for-workout-app-recon
+title: Enable direct iPhone automation for workout app reconnaissance
+status: proposed
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Use a real-device XCTest harness to automate the installed workout app on the iPhone itself instead of driving the macOS iPhone Mirroring window.
+why_now: Mirroring-based exploration moves the Mac cursor and blocks normal desktop work. Direct device automation preserves the user's mouse workflow while giving us a path to repeatable, scriptable app reconnaissance.
+constraints:
+  - The target app source code is not available.
+  - The target app is a third-party installed iPhone app identified as `com.sbs.train`.
+  - Real-device automation requires Apple signing and provisioning for the probe runner.
+  - The existing Susan runtime and root workspace must remain unaffected.
+options:
+  - id: option-a
+    name: Keep using the mirrored macOS window
+    summary: Continue coordinate-driving the iPhone Mirroring app from the Mac.
+    impact: medium
+    effort: low
+    risk: high
+    confidence: high
+    time_to_signal: fast
+  - id: option-b
+    name: Build a direct XCTest probe
+    summary: Create a minimal signed host app and UI test runner that activates the installed app by bundle identifier on the phone itself.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+recommendation: option-b
+assumptions:
+  - The bundle identifier `com.sbs.train` is the correct target app.
+  - The connected phone remains trusted, development-enabled, and reachable from Xcode.
+  - The Apple Development identity on this Mac belongs to team `3343A3GQAT`.
+  - Once Xcode account access is restored, provisioning can be created without changing the probe code.
+reversal_criteria:
+  - If Xcode account access cannot be restored or provisioning cannot be created, fall back to hybrid analysis using background device tooling plus user-driven walkthroughs.
+next_actions:
+  - Sign into Xcode Accounts for team `3343A3GQAT`, or restore existing provisioning profiles.
+  - Rerun `./apps/ios-device-probe/run_probe.sh`.
+  - Extend the probe beyond tab navigation into screen-level exploration and screenshot harvesting.
+  - Combine direct UI automation with `rvictl` network capture for backend inference.
+artifacts:
+  - apps/ios-device-probe/project.yml
+  - apps/ios-device-probe/run_probe.sh
+  - apps/ios-device-probe/README.md
+  - .startup-os/artifacts/iphone-workouts-direct-automation-setup-2026-03-12.md

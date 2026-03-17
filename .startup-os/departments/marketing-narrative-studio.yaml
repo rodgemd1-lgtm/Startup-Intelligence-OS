@@ -1,0 +1,77 @@
+id: marketing-narrative-studio
+name: Marketing & Narrative Studio
+mission: Convert product and company direction into positioning, proof, asset cascades, and launch experiments.
+owner_agent: marketing-studio-director
+supporting_agents:
+  - susan
+  - research-director
+  - pulse
+primary_mode: fast
+decision_requirement: optional
+linked_capabilities:
+  - content-marketing
+  - innovation-strategy
+  - customer-user-studio
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - .startup-os/artifacts/marketing-narrative
+  - susan-team-architect/backend/data/domains
+canonical_artifact_types:
+  - message-map
+  - campaign-brief
+  - proof-spine
+current_maturity: 4.3
+target_maturity: 8.6
+routing_keywords:
+  - launch
+  - marketing
+  - message
+  - narrative
+  - positioning
+  - campaign
+  - brand
+intake_schema:
+  - name: offer
+    label: Offer
+    required: true
+    help_text: The product, capability, or initiative to position.
+  - name: audience
+    label: Audience
+    required: true
+    help_text: The audience segment or buying context.
+  - name: proof
+    label: Proof
+    required: false
+    help_text: Evidence, differentiators, and proof points available today.
+diagnosis_protocol:
+  - Clarify the offer, audience, and launch objective.
+  - Build a message map tied to concrete proof.
+  - Determine required product and founder inputs before campaign execution.
+  - Produce an experimentable asset cascade.
+default_outputs:
+  - message map
+  - proof spine
+  - launch experiment
+scorecard:
+  - positioning clarity
+  - proof density
+  - asset reuse
+  - launch signal quality
+memory_writeback_path: .startup-os/artifacts/marketing-narrative
+required_evidence:
+  - offer definition
+  - audience insight
+required_artifacts:
+  - message map
+  - campaign brief
+handoff_rules:
+  - to_department: product-experience-studio
+    when: Positioning requires product refinement or UX clarification.
+    deliverable: product feedback packet
+  - to_department: founder-decision-room
+    when: Messaging changes create a strategic wedge or go-to-market decision.
+    deliverable: go-to-market decision packet
+source_tracks:
+  - positioning
+  - launch systems
+  - growth narrative

@@ -1,0 +1,95 @@
+id: ev-7686de84392c
+source_url: /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.json
+source_type: json
+title: Department Gap Closure Wave Summary
+content: "{\n  \"started_at\": \"2026-03-13T03:52:35.089813+00:00\",\n  \"finished_at\"\
+  : \"2026-03-13T04:28:04.204812+00:00\",\n  \"manifest_count\": 16,\n  \"resume\"\
+  : true,\n  \"total_chunks\": 9718,\n  \"total_errors\": 0,\n  \"results\": [\n \
+  \   {\n      \"manifest_file\": \"startup_os_founder_decision_room_foundations.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Founder Decision Room Foundations\",\n     \
+  \ \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"market_research\"\
+  ,\n      \"total_chunks\": 688,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 4,\n      \"completed\": 4,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_consumer_user_studio_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Consumer User Studio Officials\",\n      \"\
+  company\": \"founder-intelligence-os\",\n      \"data_type\": \"ux_research\",\n\
+  \      \"total_chunks\": 846,\n      \"errors\": 0,\n      \"sources_total\": 4,\n\
+  \      \"completed\": 4,\n      \"skipped\": 0,\n      \"error_messages\": []\n\
+  \    },\n    {\n      \"manifest_file\": \"startup_os_product_experience_studio_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Product and Experience Studio Officials\",\n\
+  \      \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"ux_research\"\
+  ,\n      \"total_chunks\": 781,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 6,\n      \"completed\": 6,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_marketing_narrative_studio_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Marketing and Narrative Studio Officials\",\n\
+  \      \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"market_research\"\
+  ,\n      \"total_chunks\": 541,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 5,\n      \"completed\": 5,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_engineering_agent_systems_studio_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Engineering and Agent Systems Studio Officials\"\
+  ,\n      \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"technical_docs\"\
+  ,\n      \"total_chunks\": 1152,\n      \"errors\": 0,\n      \"sources_total\"\
+  : 5,\n      \"completed\": 5,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_talent_org_design_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Talent and Org Design Officials\",\n      \"\
+  company\": \"founder-intelligence-os\",\n      \"data_type\": \"operational_protocols\"\
+  ,\n      \"total_chunks\": 263,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 5,\n      \"completed\": 5,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_finance_operating_cadence_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Finance and Operating Cadence Officials\",\n\
+  \      \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"finance\"\
+  ,\n      \"total_chunks\": 486,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 5,\n      \"completed\": 5,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_revenue_growth_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Revenue and Growth Officials\",\n      \"company\"\
+  : \"founder-intelligence-os\",\n      \"data_type\": \"market_research\",\n    \
+  \  \"total_chunks\": 382,\n      \"errors\": 0,\n      \"sources_total\": 7,\n \
+  \     \"completed\": 7,\n      \"skipped\": 0,\n      \"error_messages\": []\n \
+  \   },\n    {\n      \"manifest_file\": \"startup_os_trust_governance_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Trust and Governance Officials\",\n      \"\
+  company\": \"founder-intelligence-os\",\n      \"data_type\": \"legal_compliance\"\
+  ,\n      \"total_chunks\": 463,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 6,\n      \"completed\": 6,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_data_decision_science_officials.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Data and Decision Science Officials\",\n   \
+  \   \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"technical_docs\"\
+  ,\n      \"total_chunks\": 1389,\n      \"errors\": 0,\n      \"sources_total\"\
+  : 6,\n      \"completed\": 6,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"job_studio_training_ai_foundations.yaml\"\
+  ,\n      \"manifest\": \"Job Studio Training AI Foundations\",\n      \"company\"\
+  : \"mike-job-studio\",\n      \"data_type\": \"training_research\",\n      \"total_chunks\"\
+  : 200,\n      \"errors\": 0,\n      \"sources_total\": 9,\n      \"completed\":\
+  \ 5,\n      \"skipped\": 4,\n      \"error_messages\": []\n    },\n    {\n     \
+  \ \"manifest_file\": \"job_studio_training_behavioral_science.yaml\",\n      \"\
+  manifest\": \"Job Studio Training Behavioral Science\",\n      \"company\": \"mike-job-studio\"\
+  ,\n      \"data_type\": \"training_research\",\n      \"total_chunks\": 1031,\n\
+  \      \"errors\": 0,\n      \"sources_total\": 6,\n      \"completed\": 5,\n  \
+  \    \"skipped\": 1,\n      \"error_messages\": []\n    },\n    {\n      \"manifest_file\"\
+  : \"job_studio_training_ellen_enablement.yaml\",\n      \"manifest\": \"Job Studio\
+  \ Training Ellen Enablement\",\n      \"company\": \"mike-job-studio\",\n      \"\
+  data_type\": \"operational_protocols\",\n      \"total_chunks\": 132,\n      \"\
+  errors\": 0,\n      \"sources_total\": 6,\n      \"completed\": 5,\n      \"skipped\"\
+  : 1,\n      \"error_messages\": []\n    },\n    {\n      \"manifest_file\": \"job_studio_training_github_harvest.yaml\"\
+  ,\n      \"manifest\": \"Job Studio Training GitHub Harvest\",\n      \"company\"\
+  : \"mike-job-studio\",\n      \"data_type\": \"training_research\",\n      \"total_chunks\"\
+  : 239,\n      \"errors\": 0,\n      \"sources_total\": 8,\n      \"completed\":\
+  \ 6,\n      \"skipped\": 2,\n      \"error_messages\": []\n    },\n    {\n     \
+  \ \"manifest_file\": \"job_studio_training_mcp_stack.yaml\",\n      \"manifest\"\
+  : \"Job Studio Training MCP Stack\",\n      \"company\": \"mike-job-studio\",\n\
+  \      \"data_type\": \"operational_protocols\",\n      \"total_chunks\": 1103,\n\
+  \      \"errors\": 0,\n      \"sources_total\": 5,\n      \"completed\": 4,\n  \
+  \    \"skipped\": 1,\n      \"error_messages\": []\n    },\n    {\n      \"manifest_file\"\
+  : \"startup_os_training_evaluation_officials.yaml\",\n      \"manifest\": \"Startup\
+  \ OS Training Evaluation Officials\",\n      \"company\": \"mike-job-studio\",\n\
+  \      \"data_type\": \"studio_evals\",\n      \"total_chunks\": 22,\n      \"errors\"\
+  : 0,\n      \"sources_total\": 6,\n      \"completed\": 6,\n      \"skipped\": 0,\n\
+  \      \"error_messages\": []\n    }\n  ]\n}"
+topic_tags:
+- department_gap_closure
+- coverage
+domain: simulated_maturity
+confidence: 0.9
+recency_score: 0.5
+fetched_at: '2026-03-13T05:06:24Z'
+normalized: true
+dedup_hash: ''

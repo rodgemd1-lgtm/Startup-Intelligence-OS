@@ -1,0 +1,109 @@
+id: job-studio
+name: Job Studio
+mission: Operate as a high-trust personal execution, training, and opportunity department that turns Mike's work history, company intelligence, and AI workflows into reusable outputs and training systems.
+owner_agent: jake
+supporting_agents:
+  - susan
+  - ellen
+  - knowledge-engineer
+  - ai-evaluation-specialist
+  - marketing-studio-director
+  - research-director
+primary_mode: foundry
+decision_requirement: optional
+linked_capabilities:
+  - job-memory-intelligence
+  - job-studio-training-factory
+  - intelligence-research
+  - operator-experience
+canonical_resource_paths:
+  - .startup-os/companies/mike-job-studio.yaml
+  - .startup-os/artifacts/job-studio-training-factory-roadmap-2026-03-12.md
+  - .startup-os/artifacts/job-studio-agent-access-protocol-2026-03-12.md
+  - .startup-os/artifacts/job-studio
+  - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/JOB_STUDIO_AGENT_ACCESS_PROTOCOL.md
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/workshop
+  - /Users/mikerodgers/AI-Enablement-Oracle-Chat/gen-chat-deploy
+  - susan-team-architect/backend/data/studio_assets/companies/mike-job-studio
+  - susan-team-architect/backend/data/studio_assets/companies/oracle-health-ai-enablement
+canonical_artifact_types:
+  - training-operator-packet
+  - facilitation-guide
+  - session-deck
+  - learner-handout
+  - activity-script
+  - maturity-scorecard
+  - opportunity-brief
+current_maturity: 5.0
+target_maturity: 8.8
+routing_keywords:
+  - job studio
+  - training
+  - enablement
+  - strategist
+  - ai training
+  - ellen
+  - gen chat
+  - oracle health
+  - competitive intelligence
+  - marketing intelligence
+  - interview
+  - resume
+intake_schema:
+  - name: primary_outcome
+    label: Primary outcome
+    required: true
+    help_text: The concrete outcome Job Studio needs to produce, train, or improve.
+  - name: learner_group
+    label: Learner or audience
+    required: false
+    help_text: The strategist, training cohort, or stakeholder group this work is for.
+  - name: session_horizon
+    label: Session horizon
+    required: false
+    help_text: The number of sessions, time window, or delivery cadence required.
+  - name: domain_context
+    label: Domain context
+    required: false
+    help_text: The company, corpus, or workflow domain, such as Oracle Health or market intelligence.
+diagnosis_protocol:
+  - Determine whether the ask is training, memory retrieval, opportunity support, or cross-company execution.
+  - Separate AI foundations, workflow application, and deliverable assembly before creating assets.
+  - Attach the right corpora, examples, and source verification expectations to the run.
+  - Decide whether the primary output is a training packet, work packet, or decision packet.
+default_outputs:
+  - training operator packet
+  - session map
+  - facilitation guide
+  - context brief
+scorecard:
+  - training transfer
+  - evidence grounding
+  - asset reuse
+  - conversational quality
+  - operator confidence
+memory_writeback_path: .startup-os/artifacts/job-studio
+required_evidence:
+  - target learner or operator context
+  - named examples or source corpus
+required_artifacts:
+  - training operator packet
+handoff_rules:
+  - to_department: founder-decision-room
+    when: The request changes priority, operating model, or company direction.
+    deliverable: decision packet
+  - to_department: marketing-narrative-studio
+    when: Training outputs need message maps, decks, or narrative assets.
+    deliverable: asset cascade brief
+  - to_department: consumer-user-studio
+    when: Training design depends on learner behavior, sentiment, or adoption evidence.
+    deliverable: learner insight brief
+  - to_department: engineering-agent-systems-studio
+    when: The request requires corpus conversion, retrieval, automation, or evaluation tooling.
+    deliverable: training systems packet
+source_tracks:
+  - work memory
+  - ai strategist enablement
+  - ellen enablement
+  - market and competitive intelligence
+  - training factory

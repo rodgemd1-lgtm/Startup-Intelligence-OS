@@ -1,0 +1,44 @@
+manifest:
+  name: "Enterprise Rental Customer Reviews Training Corpus"
+  company: shared
+  data_type: market_research
+  priority: high
+  description: "Public customer reviews, complaint themes, and service/training signals for Enterprise Rent-A-Car."
+
+sources:
+  - tool: exa
+    query: "Enterprise Rent-A-Car customer reviews service quality themes"
+    num_results: 10
+
+  - tool: exa
+    query: "Enterprise Rent-A-Car customer complaint patterns pickup dropoff billing"
+    num_results: 10
+
+  - tool: exa
+    query: "Enterprise Rent-A-Car Yelp reviews recurring issues"
+    num_results: 8
+
+  - tool: exa
+    query: "Enterprise Rent-A-Car Google reviews branch customer service"
+    num_results: 8
+
+  - tool: exa
+    query: "Enterprise Rent-A-Car Trustpilot Better Business Bureau complaints"
+    num_results: 8
+
+  - tool: exa
+    query: "car rental customer service training best practices frontline staff"
+    num_results: 8
+
+  - tool: exa
+    query: "car rental NPS customer satisfaction drivers wait time vehicle cleanliness"
+    num_results: 8
+
+  - tool: firecrawl
+    url: "https://www.trustpilot.com/review/www.enterprise.com"
+
+  - tool: firecrawl
+    url: "https://www.consumeraffairs.com/travel/enterprise.html"
+
+  - tool: firecrawl
+    url: "https://www.sitejabber.com/reviews/enterprise.com"

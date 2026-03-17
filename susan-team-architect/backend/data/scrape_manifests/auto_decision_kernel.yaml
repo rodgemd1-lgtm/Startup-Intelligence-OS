@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: decision kernel'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-0c1eebe35152'': Capability ''Decision
+    Kernel Phase A'' has coverage score 0.0. No matching RAG data or scrape manifests
+    found.'
+  generated_by: research_daemon
+  gap_id: gap-0c1eebe35152
+  generated_at: '2026-03-17T02:36:03.638970+00:00'
+sources:
+- tool: exa
+  query: decision kernel best practices official documentation
+  num_results: 8
+- tool: exa
+  query: decision kernel framework methodology guide
+  num_results: 8
+- tool: exa
+  query: decision kernel startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Decision Kernel Phase coverage research
+  num_results: 8
+- tool: exa
+  query: decision kernel official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com decision kernel README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

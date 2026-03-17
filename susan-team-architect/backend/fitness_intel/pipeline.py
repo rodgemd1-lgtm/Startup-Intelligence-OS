@@ -5,6 +5,8 @@ from pathlib import Path
 import json
 from typing import Optional, Union
 
+from susan_core.config import config
+
 from .chunking import chunk_markdown
 from .markdown_parser import build_app_record, infer_category_from_path, parse_fuzzy_date, parse_markdown_profile
 from .schemas import DocumentChunk, DomainPackManifest, EvidenceGrade, VerificationStatus
@@ -17,9 +19,21 @@ class CorpusBuilder:
     @staticmethod
     def _resolve_repo_root(repo_root: Path) -> Path:
         """Support both the legacy repo layout and merged domain-pack layout."""
-        editorial_root = repo_root / "editorial"
-        if editorial_root.is_dir():
-            return editorial_root
+        candidates = [
+            repo_root,
+            repo_root / "editorial",
+            repo_root / "data" / "domains" / "fitness_app_intelligence" / "editorial",
+            repo_root / "susan-team-architect" / "backend" / "data" / "domains" / "fitness_app_intelligence" / "editorial",
+            config.fitness_domain_dir / "editorial",
+        ]
+
+        for candidate in candidates:
+            if (candidate / "apps").is_dir():
+                return candidate
+            editorial_root = candidate / "editorial"
+            if (editorial_root / "apps").is_dir():
+                return editorial_root
+
         return repo_root
 
     def markdown_files(self) -> list[Path]:

@@ -1,0 +1,62 @@
+id: run-6aa1242e68ac
+trigger: simulated-maturity:finance-operating-simulated-review
+started_at: '2026-03-13T13:59:02Z'
+completed_at: '2026-03-13T13:59:03Z'
+status: completed
+company: founder-intelligence-os
+project: job-studio-maturity-and-training-factory
+decision: ''
+capability: ''
+mode: simulation
+events:
+- step: load_benchmark_evidence
+  timestamp: '2026-03-13T13:59:02Z'
+  data:
+    benchmark_chunks: 319
+  evidence_ids:
+  - ev-acd1ad252bcc
+  - ev-7686de84392c
+  - ev-b55005ae6884
+  - ev-ba8e41232bb5
+  confidence: 0.95
+  uncertainty: 0.050000000000000044
+- step: load_eval_evidence
+  timestamp: '2026-03-13T13:59:02Z'
+  data:
+    eval_chunks: 382
+    training_chunks: 216
+  evidence_ids:
+  - ev-acd1ad252bcc
+  - ev-7686de84392c
+  - ev-b55005ae6884
+  - ev-ba8e41232bb5
+  confidence: 0.95
+  uncertainty: 0.050000000000000044
+- step: run_monte_carlo
+  timestamp: '2026-03-13T13:59:03Z'
+  data:
+    type: finance_operating
+    monthly_revenue_mean: 504.22
+    revenue_p5: 4293.09
+    revenue_p95: 7463.65
+    assumed_monthly_burn: 180000
+    estimated_runway_months: 13.4
+  evidence_ids:
+  - ev-7686de84392c
+  - ev-acd1ad252bcc
+  confidence: 0.82
+  uncertainty: 0.18000000000000005
+artifacts_produced:
+- art-2625bea9995c
+notes: ''
+output:
+  recommendation: Use Finance & Operating Cadence Simulated Review as a benchmark-backed
+    simulated maturity review packet.
+  counter_recommendation: Do not treat synthetic proof as live 10/10 proof.
+  why_now: The stronger benchmark and eval corpora are now available for grounded
+    scenario grading.
+  failure_modes:
+  - Benchmark corpus may still be too generic for some domains.
+  - Monte Carlo scenarios remain proxies, not live operating proof.
+  next_experiment: Promote this scenario into a repeated eval and compare synthetic
+    scores to live outcomes.

@@ -1,0 +1,18 @@
+version: 1
+artifact_id: avis-enterprise-denver-github-publish-bundle-2026-03-12
+workspace: startup-intelligence-os
+company: founder-intelligence-os
+project: decision-capability-os
+decision: phase-a-runtime-foundation
+bundle_path: deliverables/avis-vs-enterprise-denver-airport
+contents:
+  - deliverables/avis-vs-enterprise-denver-airport/denver-airport-rental-avis-vs-enterprise-analysis-2026-03-12.md
+  - deliverables/avis-vs-enterprise-denver-airport/team-assembly-james-denver-airport-rental.yaml
+  - deliverables/avis-vs-enterprise-denver-airport/enterprise-rental-researcher-connection.yaml
+  - deliverables/avis-vs-enterprise-denver-airport/enterprise_multitool_20260312T210138Z/results.json
+  - deliverables/avis-vs-enterprise-denver-airport/enterprise_multitool_20260312T210138Z/summary.json
+  - deliverables/avis-vs-enterprise-denver-airport/enterprise_multitool_20260312T210138Z/summary.md
+publish_status:
+  git_remote_configured: false
+  pushed_to_github: false
+  blocker: no git remote configured in local repository

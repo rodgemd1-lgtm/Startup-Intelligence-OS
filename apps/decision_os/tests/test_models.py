@@ -5,7 +5,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from decision_os.models import (
     Decision, Capability, Project, Company, Run, Session, Artifact, Evidence,
-    ScoredOption, DebateEntry, OutputContract,
+    ScoredOption, DebateEntry, OutputContract, DepartmentPack, SignalEvent,
+    ActionPacket, GraphLink, DecisionRequirement, SignalSeverity,
     DecisionStatus, CapabilityMaturity, ProjectStatus, CompanyStage, RunStatus,
 )
 
@@ -93,6 +94,33 @@ def test_session():
 def test_artifact():
     a = Artifact(name="test artifact")
     assert a.id.startswith("art-")
+
+
+def test_department_pack_defaults():
+    pack = DepartmentPack(
+        name="Founder Decision Room",
+        owner_agent="jake",
+        decision_requirement=DecisionRequirement.required,
+    )
+    assert pack.id.startswith("dept-")
+    assert pack.decision_requirement == DecisionRequirement.required
+
+
+def test_action_packet_defaults():
+    packet = ActionPacket(request_text="Help me build a project")
+    assert packet.id.startswith("ap-")
+    assert packet.status == "proposed"
+
+
+def test_signal_event_defaults():
+    signal = SignalEvent(signal_type="test", title="Test signal")
+    assert signal.id.startswith("sig-")
+    assert signal.severity == SignalSeverity.warning
+
+
+def test_graph_link_has_deterministic_id():
+    link = GraphLink(source_id="a", target_id="b", relation="depends_on")
+    assert link.id.startswith("link-")
 
 
 if __name__ == "__main__":

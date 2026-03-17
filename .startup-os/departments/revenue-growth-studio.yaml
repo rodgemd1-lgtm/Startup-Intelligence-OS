@@ -1,0 +1,81 @@
+id: revenue-growth-studio
+name: Revenue & Growth Studio
+mission: Convert company direction and market proof into pipeline, offers, channel systems, and repeatable revenue growth.
+owner_agent: steve
+supporting_agents:
+  - aria
+  - beacon
+  - bridge
+  - vault
+  - susan
+primary_mode: fast
+decision_requirement: optional
+linked_capabilities:
+  - content-marketing
+  - innovation-strategy
+  - portfolio-management
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - susan-team-architect/backend/data/domains
+  - .startup-os/artifacts/revenue-growth-studio-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/revenue-growth
+canonical_artifact_types:
+  - revenue plan
+  - offer map
+  - funnel brief
+  - experiment queue
+current_maturity: 5.0
+target_maturity: 8.0
+routing_keywords:
+  - revenue
+  - pipeline
+  - funnel
+  - growth
+  - conversion
+  - acquisition
+  - expansion
+  - pricing
+intake_schema:
+  - name: revenue_goal
+    label: Revenue goal
+    required: true
+    help_text: The revenue, pipeline, or growth objective that needs a system.
+  - name: audience_or_icp
+    label: ICP or audience
+    required: true
+    help_text: The buyer, account type, or growth segment in scope.
+  - name: offer_context
+    label: Offer context
+    required: false
+    help_text: The offer, motion, or pricing context tied to the goal.
+diagnosis_protocol:
+  - Define the offer, buyer, and conversion target.
+  - Identify proof gaps and channel dependencies.
+  - Build an experimentable funnel and expansion path.
+  - Tie growth actions back to operator cadence and evidence.
+default_outputs:
+  - growth plan
+  - offer map
+  - funnel brief
+scorecard:
+  - icp clarity
+  - proof quality
+  - funnel readiness
+  - growth signal quality
+memory_writeback_path: .startup-os/artifacts/revenue-growth
+required_evidence:
+  - offer definition
+  - buyer or channel context
+required_artifacts:
+  - growth brief
+handoff_rules:
+  - to_department: marketing-narrative-studio
+    when: Revenue work needs message maps, proof spines, or campaign assets.
+    deliverable: go-to-market brief
+  - to_department: founder-decision-room
+    when: Growth choices create a wedge, pricing, or operating-model decision.
+    deliverable: revenue decision packet
+source_tracks:
+  - growth systems
+  - revenue operations
+  - pricing and offers

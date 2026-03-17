@@ -1,0 +1,854 @@
+generated_at: '2026-03-17T02:36:01.701351+00:00'
+total_tips: 148
+tips_by_type:
+  strategy: 83
+  recovery: 41
+  optimization: 24
+tips:
+- id: tip-43c567d510f9
+  tip_type: strategy
+  content: At step 'debate_started' in mode 'debate', a decision point was reached.
+    decision_id=dec-87215ce29d09; existing_debate_entries=5; option_count=3 Confidence
+    at this point was 0.80.
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.77
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - debate
+  - debate_started
+- id: tip-59ef1a8a6c11
+  tip_type: strategy
+  content: At step 'debate_completed' in mode 'debate', a decision point was reached.
+    entry_count=5 Confidence at this point was 0.70.
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.83
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - debate
+  - debate_completed
+- id: tip-1fd8b3b3ee9b
+  tip_type: strategy
+  content: 'Run ''run-2022616e9ee5'' (debate mode, company ''founder-intelligence-os'')
+    produced recommendation: Proceed with ''Alternative approach: scoped experiment
+    for Adopt event-driven architecture for data pipeline'' (score: 0.722). Rather
+    than a full commitment, run a time-boxed experiment. Our current bat...'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - debate
+  - output
+- id: tip-afece666e7b4
+  tip_type: recovery
+  content: 'Known failure modes for ''debate'' run ''run-2022616e9ee5'': Operational
+    complexity increase; Potential data loss during migration; Red team: This could
+    fail because the top option (Alternative approach: scoped experiment for Adopt '
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - failure_modes
+- id: tip-4fbad10a73ba
+  tip_type: strategy
+  content: 'Successful debate run for ''founder-intelligence-os'': action sequence
+    was debate_started -> debate_completed. This sequence completed without errors.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.75
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - debate
+  - sequence_analysis
+- id: tip-4cfc2a1c3db7
+  tip_type: strategy
+  content: 'Successful debate run produced both a primary recommendation and counter-recommendation,
+    indicating balanced analysis. Recommendation length: 325 chars, counter length:
+    282 chars.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - debate
+  - output_quality
+- id: tip-4d9c5c86df09
+  tip_type: recovery
+  content: 'Step ''debate_completed'' in run ''run-2022616e9ee5'' had high uncertainty
+    (0.30). Consider: (1) providing more evidence inputs, (2) breaking the step into
+    smaller sub-tasks, (3) using a different tool or approach.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - debate_completed
+- id: tip-f0ddfc84ee51
+  tip_type: recovery
+  content: Confidence dropped from 1.00 to 0.80 at step 'debate_started' in run 'run-2022616e9ee5'.
+    This may indicate the step lacked sufficient context or evidence to proceed confidently.
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.55
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - debate_started
+- id: tip-68470031c911
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-2022616e9ee5'' (debate): Operational
+    complexity increase. Future runs should include a mitigation strategy or early-exit
+    check for this scenario.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - failure_mode_documentation
+- id: tip-58ecd7f9afcb
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-2022616e9ee5'' (debate): Potential
+    data loss during migration. Future runs should include a mitigation strategy or
+    early-exit check for this scenario.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - failure_mode_documentation
+- id: tip-ce3952dfcd60
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-2022616e9ee5'' (debate): Red team:
+    This could fail because the top option (Alternative approach: scoped experiment
+    for Adopt event-driven architecture for data pipeline) assumes conditions that
+    may not hold: Our current batch. Future runs should include a mitigation strategy
+    or early-exit check for this scenario.'
+  source_run_id: run-2022616e9ee5
+  source_agent: debate
+  task_domain: debate
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - debate
+  - failure_mode_documentation
+- id: tip-e045889f8166
+  tip_type: strategy
+  content: At step 'run_monte_carlo' in mode 'simulation', a decision point was reached.
+    type=data_decision_science; revenue_mean=3641.67; revenue_p5=1924.19; revenue_p95=5397.54;
+    forecast_stability=0.046; active_users_mean=64.18 Confidence at this point was
+    0.82.
+  source_run_id: run-3847791cf0c4
+  source_agent: simulated-maturity
+  task_domain: simulation
+  confidence: 0.878
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - run_monte_carlo
+- id: tip-9d25ac911507
+  tip_type: strategy
+  content: 'Run ''run-3847791cf0c4'' (simulation mode, company ''founder-intelligence-os'')
+    produced recommendation: Use Data & Decision Science Simulated Review as a benchmark-backed
+    simulated maturity review packet.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output
+- id: tip-5445d3241c7d
+  tip_type: recovery
+  content: 'Known failure modes for ''simulation'' run ''run-3847791cf0c4'': Benchmark
+    corpus may still be too generic for some domains.; Monte Carlo scenarios remain
+    proxies, not live operating proof.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_modes
+- id: tip-523ca1467e32
+  tip_type: strategy
+  content: 'Successful simulation run for ''founder-intelligence-os'': action sequence
+    was load_benchmark_evidence -> load_eval_evidence -> run_monte_carlo. This sequence
+    completed without errors.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.75
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - sequence_analysis
+- id: tip-2a17e7e0d9fd
+  tip_type: strategy
+  content: 'Step ''load_benchmark_evidence'' in simulation mode had high confidence
+    (0.95) and used 4 evidence sources. Data: benchmark_chunks=319'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_benchmark_evidence
+- id: tip-d4fde1a551f9
+  tip_type: strategy
+  content: 'Step ''load_eval_evidence'' in simulation mode had high confidence (0.95)
+    and used 4 evidence sources. Data: eval_chunks=382; training_chunks=216'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_eval_evidence
+- id: tip-13300af341a1
+  tip_type: strategy
+  content: 'Run ''run-3847791cf0c4'' (simulation) used 4 unique evidence sources:
+    ev-acd1ad252bcc, ev-7686de84392c, ev-b55005ae6884, ev-ba8e41232bb5. Evidence-backed
+    runs in this domain tend to produce higher-confidence outputs.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - evidence_usage
+- id: tip-6708c22b260c
+  tip_type: strategy
+  content: 'Successful simulation run produced both a primary recommendation and counter-recommendation,
+    indicating balanced analysis. Recommendation length: 100 chars, counter length:
+    49 chars.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output_quality
+- id: tip-f61abf83912d
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-3847791cf0c4'' (simulation): Benchmark
+    corpus may still be too generic for some domains.. Future runs should include
+    a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-362b5df1e834
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-3847791cf0c4'' (simulation): Monte
+    Carlo scenarios remain proxies, not live operating proof.. Future runs should
+    include a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-e564bf91b08b
+  tip_type: optimization
+  content: 'Step ''load_eval_evidence'' consumed 100% of total run time in ''run-3847791cf0c4''
+    (simulation). Consider: caching inputs, reducing context window, or splitting
+    into parallel sub-steps.'
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - load_eval_evidence
+- id: tip-a5b49031e911
+  tip_type: optimization
+  content: Steps 'load_benchmark_evidence' and 'load_eval_evidence' in run 'run-3847791cf0c4'
+    both loaded 4 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc, ev-b55005ae6884,
+    ev-ba8e41232bb5). Consider passing evidence forward to avoid redundant loads.
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - load_eval_evidence
+- id: tip-3879f57533df
+  tip_type: optimization
+  content: Steps 'load_eval_evidence' and 'run_monte_carlo' in run 'run-3847791cf0c4'
+    both loaded 2 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc). Consider
+    passing evidence forward to avoid redundant loads.
+  source_run_id: run-3847791cf0c4
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - run_monte_carlo
+- id: tip-7ab289e96f75
+  tip_type: strategy
+  content: At step 'run_monte_carlo' in mode 'simulation', a decision point was reached.
+    type=revenue_growth; baseline_revenue_mean=3084.68; enhanced_revenue_mean=5936.03;
+    revenue_delta_pct=92.44; conversion_mean_pct=0.82; retention_day30_pct=6.62 Confidence
+    at this point was 0.82.
+  source_run_id: run-40cd944f7c51
+  source_agent: simulated-maturity
+  task_domain: simulation
+  confidence: 0.878
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - run_monte_carlo
+- id: tip-484fec5191f7
+  tip_type: strategy
+  content: 'Run ''run-40cd944f7c51'' (simulation mode, company ''founder-intelligence-os'')
+    produced recommendation: Use Revenue & Growth Simulated Review as a benchmark-backed
+    simulated maturity review packet.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output
+- id: tip-09d36f351412
+  tip_type: recovery
+  content: 'Known failure modes for ''simulation'' run ''run-40cd944f7c51'': Benchmark
+    corpus may still be too generic for some domains.; Monte Carlo scenarios remain
+    proxies, not live operating proof.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_modes
+- id: tip-9f4b362c129f
+  tip_type: strategy
+  content: 'Successful simulation run for ''founder-intelligence-os'': action sequence
+    was load_benchmark_evidence -> load_eval_evidence -> run_monte_carlo. This sequence
+    completed without errors.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.75
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - sequence_analysis
+- id: tip-c16458a60fda
+  tip_type: strategy
+  content: 'Step ''load_benchmark_evidence'' in simulation mode had high confidence
+    (0.95) and used 4 evidence sources. Data: benchmark_chunks=319'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_benchmark_evidence
+- id: tip-7c0d31a92455
+  tip_type: strategy
+  content: 'Step ''load_eval_evidence'' in simulation mode had high confidence (0.95)
+    and used 4 evidence sources. Data: eval_chunks=382; training_chunks=216'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_eval_evidence
+- id: tip-99d75289459d
+  tip_type: strategy
+  content: 'Run ''run-40cd944f7c51'' (simulation) used 4 unique evidence sources:
+    ev-acd1ad252bcc, ev-7686de84392c, ev-b55005ae6884, ev-ba8e41232bb5. Evidence-backed
+    runs in this domain tend to produce higher-confidence outputs.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - evidence_usage
+- id: tip-5a171c95d466
+  tip_type: strategy
+  content: 'Successful simulation run produced both a primary recommendation and counter-recommendation,
+    indicating balanced analysis. Recommendation length: 93 chars, counter length:
+    49 chars.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output_quality
+- id: tip-057da6e0d914
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-40cd944f7c51'' (simulation): Benchmark
+    corpus may still be too generic for some domains.. Future runs should include
+    a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-2f521b75f151
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-40cd944f7c51'' (simulation): Monte
+    Carlo scenarios remain proxies, not live operating proof.. Future runs should
+    include a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-4c91e473cdae
+  tip_type: optimization
+  content: 'Step ''load_eval_evidence'' consumed 100% of total run time in ''run-40cd944f7c51''
+    (simulation). Consider: caching inputs, reducing context window, or splitting
+    into parallel sub-steps.'
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - load_eval_evidence
+- id: tip-4c991ffcf03d
+  tip_type: optimization
+  content: Steps 'load_benchmark_evidence' and 'load_eval_evidence' in run 'run-40cd944f7c51'
+    both loaded 4 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc, ev-b55005ae6884,
+    ev-ba8e41232bb5). Consider passing evidence forward to avoid redundant loads.
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - load_eval_evidence
+- id: tip-dc7a43f807a6
+  tip_type: optimization
+  content: Steps 'load_eval_evidence' and 'run_monte_carlo' in run 'run-40cd944f7c51'
+    both loaded 2 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc). Consider
+    passing evidence forward to avoid redundant loads.
+  source_run_id: run-40cd944f7c51
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - run_monte_carlo
+- id: tip-7ea1a98caf8c
+  tip_type: strategy
+  content: At step 'run_monte_carlo' in mode 'simulation', a decision point was reached.
+    type=founder_decision; option_a_revenue_mean=1862.68; option_b_revenue_mean=2395.45;
+    winning_option=option_b_personalization Confidence at this point was 0.82.
+  source_run_id: run-4e6711b05da9
+  source_agent: simulated-maturity
+  task_domain: simulation
+  confidence: 0.878
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - run_monte_carlo
+- id: tip-f476bc59f27b
+  tip_type: strategy
+  content: 'Run ''run-4e6711b05da9'' (simulation mode, company ''founder-intelligence-os'')
+    produced recommendation: Use Founder Decision Room Simulated Review as a benchmark-backed
+    simulated maturity review packet.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output
+- id: tip-44065ff46c26
+  tip_type: recovery
+  content: 'Known failure modes for ''simulation'' run ''run-4e6711b05da9'': Benchmark
+    corpus may still be too generic for some domains.; Monte Carlo scenarios remain
+    proxies, not live operating proof.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_modes
+- id: tip-e5af5462acd7
+  tip_type: strategy
+  content: 'Successful simulation run for ''founder-intelligence-os'': action sequence
+    was load_benchmark_evidence -> load_eval_evidence -> run_monte_carlo. This sequence
+    completed without errors.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.75
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - sequence_analysis
+- id: tip-1c75a24fd2fc
+  tip_type: strategy
+  content: 'Step ''load_benchmark_evidence'' in simulation mode had high confidence
+    (0.95) and used 4 evidence sources. Data: benchmark_chunks=319'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_benchmark_evidence
+- id: tip-5e0e7c767048
+  tip_type: strategy
+  content: 'Step ''load_eval_evidence'' in simulation mode had high confidence (0.95)
+    and used 4 evidence sources. Data: eval_chunks=382; training_chunks=216'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.95
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - load_eval_evidence
+- id: tip-6fbe8447004c
+  tip_type: strategy
+  content: 'Run ''run-4e6711b05da9'' (simulation) used 4 unique evidence sources:
+    ev-acd1ad252bcc, ev-7686de84392c, ev-b55005ae6884, ev-ba8e41232bb5. Evidence-backed
+    runs in this domain tend to produce higher-confidence outputs.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - evidence_usage
+- id: tip-24b213435285
+  tip_type: strategy
+  content: 'Successful simulation run produced both a primary recommendation and counter-recommendation,
+    indicating balanced analysis. Recommendation length: 98 chars, counter length:
+    49 chars.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.65
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - output_quality
+- id: tip-56b4d3795b59
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-4e6711b05da9'' (simulation): Benchmark
+    corpus may still be too generic for some domains.. Future runs should include
+    a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-85a91fbaea2c
+  tip_type: recovery
+  content: 'Documented failure mode from run ''run-4e6711b05da9'' (simulation): Monte
+    Carlo scenarios remain proxies, not live operating proof.. Future runs should
+    include a mitigation strategy or early-exit check for this scenario.'
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.6
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - recovery
+  - simulation
+  - failure_mode_documentation
+- id: tip-7e1a11b3992f
+  tip_type: optimization
+  content: Steps 'load_benchmark_evidence' and 'load_eval_evidence' in run 'run-4e6711b05da9'
+    both loaded 4 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc, ev-b55005ae6884,
+    ev-ba8e41232bb5). Consider passing evidence forward to avoid redundant loads.
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - load_eval_evidence
+- id: tip-0c7b519d269f
+  tip_type: optimization
+  content: Steps 'load_eval_evidence' and 'run_monte_carlo' in run 'run-4e6711b05da9'
+    both loaded 2 identical evidence IDs (ev-7686de84392c, ev-acd1ad252bcc). Consider
+    passing evidence forward to avoid redundant loads.
+  source_run_id: run-4e6711b05da9
+  source_agent: simulation
+  task_domain: simulation
+  confidence: 0.7
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - optimization
+  - simulation
+  - run_monte_carlo
+- id: tip-ec7dbc5bfed6
+  tip_type: strategy
+  content: At step 'run_monte_carlo' in mode 'simulation', a decision point was reached.
+    type=revenue_growth; baseline_revenue_mean=3084.68; enhanced_revenue_mean=5936.03;
+    revenue_delta_pct=92.44; conversion_mean_pct=0.82; retention_day30_pct=6.62 Confidence
+    at this point was 0.82.
+  source_run_id: run-5ab9e9719e9c
+  source_agent: simulated-maturity
+  task_domain: simulation
+  confidence: 0.878
+  created_at: '2026-03-17T02:36:01.700082+00:00'
+  access_count: 0
+  last_accessed: null
+  embedding: null
+  tags:
+  - strategy
+  - simulation
+  - run_monte_carlo

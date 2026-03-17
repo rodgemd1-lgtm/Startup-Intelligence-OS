@@ -1,0 +1,15 @@
+id: tip-9da19d8fe5e5
+tip_type: optimization
+content: 'Optimization opportunity in decision: run used 6 steps and 225 tokens. Most
+  expensive step: ''options_scored'' (75 tokens). Consider caching or pre-computing
+  this step.'
+source_run_id: run-dcde3ced2c93
+source_agent: decision
+task_domain: decision
+confidence: 0.5
+created_at: '2026-03-09T07:30:38Z'
+access_count: 0
+tags:
+- auto-extracted
+- optimization
+- options_scored

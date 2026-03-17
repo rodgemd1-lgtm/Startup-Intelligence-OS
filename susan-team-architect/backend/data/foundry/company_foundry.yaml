@@ -196,18 +196,48 @@ companies:
       - Stand up the founder operator console with KPI trees, operating cadences, and decision logs.
       - Add trust and governance baselines so new company builds inherit privacy, security, and accessibility rules.
   mike-job-studio:
-    description: Mike Job Studio is Mike's personal execution and memory studio inside Startup Intelligence OS, built to retrieve work history, writing style, and linked company corpora.
+    description: Mike Job Studio is Mike's personal execution, training, and memory department inside Startup Intelligence OS, built to retrieve work history, train strategists on AI, enable Ellen workflows, and bridge linked company corpora.
     default_mode: foundry
     protocols:
       - Treat the local Outlook-derived corpus as recall support, not a complete historical record.
       - Prefer authored and work-related subsets before broad email retrieval when drafting or pattern-matching.
       - Use locator files to jump into company-specific raw corpora such as Oracle Health rather than pretending those binaries are fully embedded.
       - Separate personal operator memory from company delivery memory when synthesizing recommendations.
+      - Route strategist AI training through Track C foundations before Ellen workflow enablement.
+      - Attach named examples, evaluation rubrics, and transcript review criteria to every training packet.
+      - Make Job Studio the namespace owner for training factory locators, protocols, and writeback.
     expert_councils:
       - founder-ops-council
       - product-experience-council
       - social-distribution-council
     execution_tracks:
+      - id: training_factory
+        name: Job Studio Training Factory
+        description: Build training operator packets, decks, guides, handouts, activities, and evaluation systems for strategist enablement.
+        agents: [susan, research-director, marketing-studio-director, ai-evaluation-specialist, knowledge-engineer]
+        data_types: [studio_memory, training_research, operational_protocols, market_research]
+        outputs: [training operator packet, facilitation guide, learner handout, session deck, evaluation rubric]
+        notes:
+          - Treat the Oracle Health corpus and local repo harvests as the seed training library.
+          - Every training run should produce named examples and writeback artifacts.
+      - id: ai_strategist_enablement
+        name: AI Strategist Enablement
+        description: Train strategists on what AI is, how to use it responsibly, and how to move from general chat into system-led workflows.
+        agents: [susan, research-director, ai-evaluation-specialist, pulse]
+        data_types: [training_research, studio_memory, operational_protocols, behavioral_economics]
+        outputs: [AI foundations curriculum, facilitator packet, learner practice set, transcript critique]
+        notes:
+          - This is Track C and should cover Sessions 1-3.
+          - Focus on mental models, prompting, confidence calibration, and workflow discipline.
+      - id: ellen_enablement
+        name: Ellen and Gen Chat Enablement
+        description: Transition strategists into Ellen-led Oracle Health workflows with source discipline, slash-command literacy, and deliverable assembly habits.
+        agents: [susan, marketing-studio-director, research-director, ai-evaluation-specialist, atlas]
+        data_types: [studio_memory, market_research, operational_protocols, content_strategy]
+        outputs: [Ellen enablement packet, workflow map, prompt cards, capstone evaluation]
+        notes:
+          - This is Track B and should cover Sessions 4-8.
+          - Use marketing and competitive intelligence as the main applied scenario set.
       - id: work_memory
         name: Work Memory and Retrieval
         description: Turn Mike's cached Outlook corpus and linked documents into usable retrieval context for recall, synthesis, and follow-up.
@@ -234,6 +264,8 @@ companies:
         notes:
           - Use locator files to open raw corpora directly when markdown coverage is incomplete.
     next_actions:
+      - Build the Job Studio Training Factory corpus and locator layer from Oracle, repo, and behavioral-science sources.
+      - Stand up the eight-session strategist enablement arc with Track C and Track B operator packets.
       - Expand from the local Outlook cache to a full mailbox export if full-year coverage is needed.
       - Convert the highest-value authored emails into reusable writing-pattern playbooks.
       - Link the Oracle Health corpus and other mounted datasets into Mike Job Studio through maintained locator files.

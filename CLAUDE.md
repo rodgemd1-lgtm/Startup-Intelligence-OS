@@ -224,3 +224,99 @@ For major work, prefer producing or updating:
 - run/session registry entries
 
 If runtime behavior changes, update the related artifact files too.
+
+## WISC Context Engineering
+
+This project uses **WISC** (Workspace-Informed Structured Context) — a three-tier system that gives Claude the right context at the right time.
+
+### Tier 1 — This File (Always Loaded)
+`CLAUDE.md` is loaded every session. Keep it under 500 lines. Mission, routing, quick start.
+
+### Tier 2 — Rules (Loaded by Path)
+`.claude/rules/` contains on-demand rules loaded when you work on matching files:
+
+| Rule | Triggers On |
+|------|------------|
+| `startup-os-kernel.md` | `.startup-os/**` |
+| `susan-runtime.md` | `susan-team-architect/**` |
+| `decision-os-api.md` | `apps/decision_os/**` |
+| `v5-frontend.md` | `apps/v5/**` |
+| `operator-console.md` | `apps/operator-console/**` |
+| `bin-scripts.md` | `bin/**` |
+| `agent-skill-definitions.md` | `.claude/agents/**`, `.claude/skills/**`, `.claude/commands/**` |
+| `tests.md` | `**/tests/**`, `**/test_*` |
+
+### Tier 3 — Docs (Loaded on Demand)
+`.claude/docs/` contains deep reference material. Read when you need architecture, API, or schema details:
+
+- `architecture-deep-dive.md` — full system topology, data flow, protection zones
+- `susan-runtime-guide.md` — control plane, MCP, RAG, CLI reference
+- `workspace-contract-guide.md` — YAML schemas, ID generation, maturity model
+- `decision-os-guide.md` — API endpoints, Pydantic models, store pattern
+- `wisc-methodology.md` — plan format, handoff format, commit conventions
+
+### WISC Commands
+- `/plan-feature <description>` — research and generate a plan in `.claude/plans/`
+- `/execute [plan-name]` — step-by-step execution with validation
+- `/handoff` — write `HANDOFF.md` for session continuity
+- `/commit` — conventional commit with auto-detected type/scope
+
+### Session Continuity
+- Read `HANDOFF.md` at session start if it exists
+- Write `HANDOFF.md` at session end for complex work
+- Plans live in `.claude/plans/` — check for in-progress plans
+
+### Plan-First Development
+For non-trivial work:
+1. Research the codebase (use sub-agents for broad searches)
+2. Generate a plan with `/plan-feature`
+3. Get user approval
+4. Execute with `/execute`
+5. Write handoff with `/handoff`
+
+### Commit Conventions
+`type(scope): description` — conventional commits.
+- Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `style`, `perf`
+- Scopes: `startup-os`, `decision-os`, `susan`, `v5`, `console`, `bin`, `agents`
+
+### Project Optimization
+Run `/optimize-startup` in any project to bootstrap WISC + best-practice agents + auto-research.
+
+## V10.0 Seven-Layer Intelligence Stack
+
+### Layer Architecture
+```
+L7: Collective Intelligence   → collective/
+L6: Self-Improvement          → self_improvement/
+L5: Autonomous Research        → research_daemon/
+L4: Multi-Agent Orchestration  → .claude/agents/orchestrator.md
+L3: Graph-Native Memory        → memory/
+L2: Full Lifecycle Hooks       → bin/hooks/
+L1: Zero-Touch Session Setup   → bin/hooks/session-start.sh
+```
+
+All Python modules live under `susan-team-architect/backend/`.
+
+### V10 Commands
+| Command | Layer | Purpose |
+|---------|-------|---------|
+| `/v10-status` | All | Dashboard of all 7 layers |
+| `/learn` | L6 | TIMG extract + consolidate + routing feedback |
+| `/research-daemon` | L5 | Detect gaps + harvest + digest |
+| `/predict` | L7 | Capability maturity forecasts |
+| `/evolve` | L7 | System evolution proposals |
+
+### V10 CLI Reference
+```bash
+cd susan-team-architect/backend && source .venv/bin/activate
+python -m memory extract|consolidate|query|stats|graph
+python -m research_daemon --command detect-gaps|check-updates|harvest|digest|cycle
+python -m self_improvement --command timg|routing|telemetry|debate|dashboard
+python -m collective --command research-plan|agent-factory|transfer|predict|evolve|full
+```
+
+### Hooks (auto-wired via .claude/settings.json)
+- **SessionStart**: context injection, HANDOFF.md check, stale data alert
+- **PostToolUse** (Write/Edit): Python syntax check, console.log detection
+- **PreToolUse** (Agent): Model routing advisory (Haiku/Sonnet/Opus)
+- **Stop**: In-progress plan reminder

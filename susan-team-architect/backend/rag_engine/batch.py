@@ -4,6 +4,23 @@ from pathlib import Path
 from typing import Any
 import yaml
 
+from rag_engine.ingestion.exa_search import ExaSearchIngestor
+from rag_engine.ingestion.jina_reader import JinaReaderIngestor
+from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
+from rag_engine.ingestion.web import WebIngestor
+
+
+def parse_manifest(manifest_path: Path) -> dict[str, Any]:
+    """Load and validate a scrape manifest YAML file."""
+    path = Path(manifest_path)
+    if not path.exists():
+        raise FileNotFoundError(path)
+    with path.open(encoding="utf-8") as handle:
+        data = yaml.safe_load(handle) or {}
+    data.setdefault("manifest", {})
+    data.setdefault("sources", [])
+    return data
+
 
 def execute_manifest(
     manifest_path: Path,
@@ -38,8 +55,7 @@ def execute_manifest(
     Returns:
         Summary dict with counts, errors, and per-source results.
     """
-    with open(manifest_path) as f:
-        data = yaml.safe_load(f)
+    data = parse_manifest(manifest_path)
 
     meta = data.get("manifest", {})
     sources = data.get("sources", [])
@@ -58,15 +74,11 @@ def execute_manifest(
         return {
             "manifest": meta.get("name", manifest_path.name),
             "dry_run": True,
-            "source_count": len(sources),
+            "total_chunks": 0,
+            "sources_processed": 0,
+            "sources_total": len(sources),
             "sources": results,
         }
-
-    # Lazy-import ingestors to avoid pulling in all deps at module level
-    from rag_engine.ingestion.web import WebIngestor
-    from rag_engine.ingestion.exa_search import ExaSearchIngestor
-    from rag_engine.ingestion.jina_reader import JinaReaderIngestor
-    from rag_engine.ingestion.playwright_scraper import PlaywrightIngestor
 
     web = WebIngestor()
     exa = ExaSearchIngestor()
@@ -88,7 +100,10 @@ def execute_manifest(
             continue
 
         try:
-            if tool == "firecrawl":
+            if tool == "firecrawl" and src.get("mode") == "crawl":
+                max_pages = src.get("max_pages", 50)
+                count = web.crawl(source=url, company_id=company_id, data_type=data_type, max_pages=max_pages)
+            elif tool == "firecrawl":
                 count = web.ingest(source=url, company_id=company_id, data_type=data_type)
             elif tool == "firecrawl-crawl":
                 max_pages = src.get("max_pages", 50)
@@ -119,11 +134,12 @@ def execute_manifest(
         "manifest": meta.get("name", manifest_path.name),
         "dry_run": False,
         "total_chunks": total_chunks,
-        "source_count": len(sources),
+        "sources_processed": sum(1 for r in results if r["status"] in {"ok", "error"}),
+        "sources_total": len(sources),
         "completed": sum(1 for r in results if r["status"] == "ok"),
         "skipped": sum(1 for r in results if r["status"] == "skipped"),
-        "errored": len(errors),
-        "errors": errors,
+        "errors": len(errors),
+        "error_messages": errors,
         "sources": results,
     }
 

@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: capability susan foundry core'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-815f26c2ac1d'': Capability ''Susan
+    Foundry Core'' has coverage score 0.0. No matching RAG data or scrape manifests
+    found.'
+  generated_by: research_daemon
+  gap_id: gap-815f26c2ac1d
+  generated_at: '2026-03-17T02:36:03.633784+00:00'
+sources:
+- tool: exa
+  query: capability susan foundry core best practices official documentation
+  num_results: 8
+- tool: exa
+  query: capability susan foundry core framework methodology guide
+  num_results: 8
+- tool: exa
+  query: capability susan foundry core startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Susan Foundry Core' coverage research
+  num_results: 8
+- tool: exa
+  query: capability susan foundry core official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com capability susan foundry core README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

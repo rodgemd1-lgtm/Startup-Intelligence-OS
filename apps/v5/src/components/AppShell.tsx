@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
@@ -22,7 +22,10 @@ export function useAppState() {
 export function useAppRefresh() {
   const ctx = useContext(AppStateContext);
   if (!ctx) throw new Error("useAppRefresh must be used within AppShell");
-  return { refreshCapabilities: ctx.refreshCapabilities };
+  return {
+    refreshCapabilities: ctx.refreshCapabilities,
+    refreshOperator: ctx.refreshOperator,
+  };
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -51,7 +54,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           apiLive={state.apiLive}
           agentCount={state.agents.length}
           decisionCount={state.status.decisions ?? state.decisions.length}
-          totalGaps={state.capabilities.reduce((s, c) => s + c.gaps.length, 0)}
+          totalGaps={
+            state.capabilitySummary?.length
+              ? state.capabilitySummary.reduce((sum, capability) => sum + capability.gaps.length, 0)
+              : state.capabilities.reduce((sum, capability) => sum + capability.gaps.length, 0)
+          }
         />
         <div className="main">
           <Topbar context={state.context} />
@@ -63,7 +70,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             {children}
           </div>
         </div>
-        <RightRail debrief={state.debrief} context={state.context} />
+        <RightRail
+          debrief={state.debrief}
+          context={state.context}
+          departments={state.departments}
+          signals={state.signals}
+          actionPackets={state.actionPackets}
+          graph={state.graph}
+        />
         <BottomNav currentPath={pathname} />
       </div>
     </AppStateContext.Provider>

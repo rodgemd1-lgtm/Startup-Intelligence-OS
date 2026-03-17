@@ -1,0 +1,10 @@
+id: customer-user-studio-backend-sync
+synced_at: '2026-03-12T20:50:00.000234+00:00'
+source_root: .startup-os/artifacts/customer-user-studio
+target_root: susan-team-architect/backend/data/startup_os/customer_user_studio
+files_synced:
+- susan-team-architect/backend/data/startup_os/customer_user_studio/personas/customer-persona-founder-operator-20260312201207.yaml
+- susan-team-architect/backend/data/startup_os/customer_user_studio/scenarios/customer-scenario-onboarding-health-check-20260312201207.yaml
+- susan-team-architect/backend/data/startup_os/customer_user_studio/sessions/customer-session-seed-20260312201207.yaml
+- susan-team-architect/backend/data/startup_os/customer_user_studio/reports/ranked-opportunities.yaml
+count: 4

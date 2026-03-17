@@ -1,0 +1,49 @@
+id: simulated-maturity-harness
+name: Simulated Maturity Harness
+maturity_current: 6.6
+maturity_target: 9.4
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Jake
+gaps:
+  - dashboard-surface-for-simulated-scores
+  - recurring-harness-scheduling
+  - per-department-live-proof-thresholds
+  - operator-console-simulated-vs-operational-view
+levels:
+  1:
+    name: Defined
+    items:
+      - text: "A file-backed harness exists for benchmark-backed simulated maturity reviews."
+        done: true
+      - text: "Founder, Revenue, Finance, Data Science, and Job Studio scenario packs are explicitly defined."
+        done: true
+      - text: "Synthetic review framework and stronger dataset summaries are attached as evidence inputs."
+        done: true
+  2:
+    name: Operating
+    items:
+      - text: "The harness writes run records, artifacts, and evidence records into Decision OS storage."
+        done: true
+      - text: "Monte Carlo variants are included for strategic, revenue, finance, and data-science scenarios."
+        done: true
+      - text: "A CLI runner exists so Jake can execute the full harness on demand."
+        done: true
+  3:
+    name: Verified
+    items:
+      - text: "Automated tests cover harness creation of evidence, runs, and summary artifacts."
+        done: true
+      - text: "A live harness run has produced review packets and a summary artifact in the workspace."
+        done: true
+      - text: "Simulated maturity is clearly separated from live 10/10 operational maturity."
+        done: true
+  4:
+    name: Compounding
+    items:
+      - text: "Simulated scores are visible in the dashboard and operator console."
+        done: false
+      - text: "Recurring harness runs show movement over time and trigger follow-up actions."
+        done: false
+      - text: "Department live-proof thresholds are paired with simulated thresholds in the same score model."
+        done: false

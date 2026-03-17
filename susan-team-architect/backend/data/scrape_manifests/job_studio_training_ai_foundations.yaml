@@ -1,0 +1,30 @@
+manifest:
+  name: "Job Studio Training AI Foundations"
+  company: mike-job-studio
+  data_type: training_research
+  priority: critical
+  description: "Official AI documentation and workflow references for Track C strategist AI foundations"
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://platform.openai.com/docs/overview
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://docs.anthropic.com/en/docs/welcome
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://openai.github.io/openai-agents-python/
+    max_pages: 25
+  - tool: jina
+    url: https://platform.openai.com/docs/overview
+  - tool: jina
+    url: https://docs.anthropic.com/en/docs/welcome
+  - tool: exa
+    query: "AI foundations prompting evaluation agents retrieval enterprise enablement official documentation"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/README.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/docs/SYSTEM_ARCHITECTURE.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/docs/KNOWLEDGE_BASE_LOAD_PROTOCOL.md

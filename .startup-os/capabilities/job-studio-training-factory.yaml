@@ -1,0 +1,58 @@
+id: job-studio-training-factory
+name: Job Studio Training Factory
+maturity_current: 2.4
+maturity_target: 8.9
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Jake
+gaps:
+  - ai-foundations-curriculum
+  - ellen-transition-curriculum
+  - facilitator-asset-production
+  - evaluation-panel-and-rubrics
+  - corpus-conversion-and-tagging
+  - codex-skill-packaging
+  - current-state-visualization
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Mike Job Studio exists as a first-class workspace object with memory and opportunity execution tracks"
+        done: true
+      - text: "Oracle Health source corpora and the AI Enablement repo are attached as named sources for Job Studio work"
+        done: true
+      - text: "A sixth core department definition exists for Job Studio with explicit mission, routing, and handoff rules"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Track C defines the first three strategist AI foundation sessions with learning objectives and required assets"
+        done: true
+      - text: "Track B defines the Ellen in Gen Chat transition across sessions four through eight"
+        done: true
+      - text: "Marketing intelligence and competitive intelligence examples are attached as the main applied scenario set"
+        done: true
+      - text: "A visible current-state maturity scorecard exists for Job Studio and its training factory"
+        done: true
+  3:
+    name: Scaling
+    items:
+      - text: "Every session has a deck, facilitator guide, learner handout, activity script, and evaluation rubric"
+        done: false
+      - text: "Job Studio can convert Oracle binary files into named examples and reusable training references"
+        done: false
+      - text: "Training runs produce writeback, learner feedback, and conversational quality evidence"
+        done: false
+      - text: "Codex skills exist for the training factory, Ellen enablement, evaluation, and corpus operations"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Job Studio operates as a repeatable training department for AI enablement, strategic workflows, and deliverable production"
+        done: false
+      - text: "The operator console shows Job Studio maturity, training readiness, and next-best actions visually"
+        done: false
+      - text: "Training content improves through evaluation data, failure-pattern libraries, and skill reuse"
+        done: false
+      - text: "The same training factory can be reused across companies, cohorts, and AI workflow stacks"
+        done: false

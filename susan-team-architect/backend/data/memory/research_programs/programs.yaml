@@ -1,0 +1,1906 @@
+generated_at: '2026-03-17T01:41:11Z'
+program_count: 21
+programs:
+- id: rp-9de399c2956e
+  name: 'Research: Customer User Studio (2.0 -> 5.0)'
+  objective: Close the maturity gap for Customer User Studio from 2.0 to 5.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - customer-user-studio
+  knowledge_gaps:
+  - metrics and KPIs for measuring Customer User Studio effectiveness
+  - measurement frameworks and dashboards for Customer User Studio
+  - scaling strategies for Customer User Studio across teams
+  - integration patterns connecting Customer User Studio to adjacent capabilities
+  - optimization techniques for advanced Customer User Studio operations
+  - industry benchmarks and comparative analysis for Customer User Studio
+  - automation opportunities within Customer User Studio workflows
+  - advanced tooling and infrastructure for Customer User Studio
+  - industry-leading practices and innovation research in Customer User Studio
+  - emerging trends and frontier approaches for Customer User Studio
+  - cross-industry transfer patterns applicable to Customer User Studio
+  - thought leadership and original contribution opportunities in Customer User Studio
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Customer User Studio
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Customer User Studio
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Customer
+    User Studio?
+  - What evidence exists that measurement frameworks and dashboards for Customer User
+    Studio improves outcomes?
+  - What is the current state of scaling strategies for Customer User Studio across
+    teams?
+  - What evidence exists that scaling strategies for Customer User Studio across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Customer User Studio
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Customer User Studio
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Customer User
+    Studio operations?
+  - What evidence exists that optimization techniques for advanced Customer User Studio
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Customer User Studio?
+  - What evidence exists that industry benchmarks and comparative analysis for Customer
+    User Studio improves outcomes?
+  - What is the current state of automation opportunities within Customer User Studio
+    workflows?
+  - What evidence exists that automation opportunities within Customer User Studio
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Customer
+    User Studio?
+  - What evidence exists that advanced tooling and infrastructure for Customer User
+    Studio improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Customer User Studio?
+  - What evidence exists that industry-leading practices and innovation research in
+    Customer User Studio improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Customer
+    User Studio?
+  - What evidence exists that emerging trends and frontier approaches for Customer
+    User Studio improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Customer
+    User Studio?
+  - What evidence exists that cross-industry transfer patterns applicable to Customer
+    User Studio improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Customer User Studio?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Customer User Studio improves outcomes?
+  - What do industry leaders consider best practice for Customer User Studio?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Customer User Studio'
+  - 'practitioner: locate metrics dashboards and reporting templates for Customer
+    User Studio'
+  - 'benchmarks: collect industry benchmark data for Customer User Studio'
+  - 'academic: search for optimization and performance research on Customer User Studio'
+  - 'benchmarks: gather competitive benchmarking data for Customer User Studio'
+  - 'practitioner: find advanced operational playbooks for Customer User Studio'
+  - 'tooling: evaluate automation and tooling ecosystem for Customer User Studio'
+  - 'academic: search for frontier research and innovation in Customer User Studio'
+  - 'practitioner: identify industry leaders and their published approaches for Customer
+    User Studio'
+  - 'conferences: review recent conference proceedings for Customer User Studio innovations'
+  - 'patents: scan recent patent filings related to Customer User Studio'
+  acceptance_criteria:
+  - Minimum 9 distinct sources per research question
+  - Coverage of all maturity bands from 2.0 to 5.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 5
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-1fd802b77c86
+  name: 'Research: Decision Kernel (1.0 -> 4.0)'
+  objective: Close the maturity gap for Decision Kernel from 1.0 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - decision-kernel
+  knowledge_gaps:
+  - documented processes and playbooks for Decision Kernel
+  - real-world examples and case studies for Decision Kernel
+  - common pitfalls and anti-patterns in early Decision Kernel adoption
+  - starter toolkits and templates for Decision Kernel
+  - metrics and KPIs for measuring Decision Kernel effectiveness
+  - measurement frameworks and dashboards for Decision Kernel
+  - scaling strategies for Decision Kernel across teams
+  - integration patterns connecting Decision Kernel to adjacent capabilities
+  - optimization techniques for advanced Decision Kernel operations
+  - industry benchmarks and comparative analysis for Decision Kernel
+  - automation opportunities within Decision Kernel workflows
+  - advanced tooling and infrastructure for Decision Kernel
+  research_questions:
+  - What is the current state of documented processes and playbooks for Decision Kernel?
+  - What evidence exists that documented processes and playbooks for Decision Kernel
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Decision
+    Kernel?
+  - What evidence exists that real-world examples and case studies for Decision Kernel
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Decision
+    Kernel adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Decision
+    Kernel adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Decision Kernel?
+  - What evidence exists that starter toolkits and templates for Decision Kernel improves
+    outcomes?
+  - What is the current state of metrics and KPIs for measuring Decision Kernel effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Decision Kernel effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Decision
+    Kernel?
+  - What evidence exists that measurement frameworks and dashboards for Decision Kernel
+    improves outcomes?
+  - What is the current state of scaling strategies for Decision Kernel across teams?
+  - What evidence exists that scaling strategies for Decision Kernel across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Decision Kernel to
+    adjacent capabilities?
+  - What evidence exists that integration patterns connecting Decision Kernel to adjacent
+    capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Decision Kernel
+    operations?
+  - What evidence exists that optimization techniques for advanced Decision Kernel
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Decision Kernel?
+  - What evidence exists that industry benchmarks and comparative analysis for Decision
+    Kernel improves outcomes?
+  - What is the current state of automation opportunities within Decision Kernel workflows?
+  - What evidence exists that automation opportunities within Decision Kernel workflows
+    improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Decision
+    Kernel?
+  - What evidence exists that advanced tooling and infrastructure for Decision Kernel
+    improves outcomes?
+  - What do industry leaders consider best practice for Decision Kernel?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Decision Kernel'
+  - 'official_docs: collect framework documentation and quickstart guides for Decision
+    Kernel'
+  - 'case_studies: search for published case studies of Decision Kernel adoption'
+  - 'academic: find measurement and evaluation papers for Decision Kernel'
+  - 'practitioner: locate metrics dashboards and reporting templates for Decision
+    Kernel'
+  - 'benchmarks: collect industry benchmark data for Decision Kernel'
+  - 'academic: search for optimization and performance research on Decision Kernel'
+  - 'benchmarks: gather competitive benchmarking data for Decision Kernel'
+  - 'practitioner: find advanced operational playbooks for Decision Kernel'
+  - 'tooling: evaluate automation and tooling ecosystem for Decision Kernel'
+  acceptance_criteria:
+  - Minimum 9 distinct sources per research question
+  - Coverage of all maturity bands from 1.0 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 5
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-ec1f5b44d981
+  name: 'Research: Workspace Contract (1.0 -> 4.0)'
+  objective: Close the maturity gap for Workspace Contract from 1.0 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - workspace-contract
+  knowledge_gaps:
+  - documented processes and playbooks for Workspace Contract
+  - real-world examples and case studies for Workspace Contract
+  - common pitfalls and anti-patterns in early Workspace Contract adoption
+  - starter toolkits and templates for Workspace Contract
+  - metrics and KPIs for measuring Workspace Contract effectiveness
+  - measurement frameworks and dashboards for Workspace Contract
+  - scaling strategies for Workspace Contract across teams
+  - integration patterns connecting Workspace Contract to adjacent capabilities
+  - optimization techniques for advanced Workspace Contract operations
+  - industry benchmarks and comparative analysis for Workspace Contract
+  - automation opportunities within Workspace Contract workflows
+  - advanced tooling and infrastructure for Workspace Contract
+  research_questions:
+  - What is the current state of documented processes and playbooks for Workspace
+    Contract?
+  - What evidence exists that documented processes and playbooks for Workspace Contract
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Workspace
+    Contract?
+  - What evidence exists that real-world examples and case studies for Workspace Contract
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Workspace
+    Contract adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Workspace
+    Contract adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Workspace Contract?
+  - What evidence exists that starter toolkits and templates for Workspace Contract
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Workspace Contract
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Workspace Contract effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Workspace
+    Contract?
+  - What evidence exists that measurement frameworks and dashboards for Workspace
+    Contract improves outcomes?
+  - What is the current state of scaling strategies for Workspace Contract across
+    teams?
+  - What evidence exists that scaling strategies for Workspace Contract across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Workspace Contract
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Workspace Contract to
+    adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Workspace Contract
+    operations?
+  - What evidence exists that optimization techniques for advanced Workspace Contract
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Workspace Contract?
+  - What evidence exists that industry benchmarks and comparative analysis for Workspace
+    Contract improves outcomes?
+  - What is the current state of automation opportunities within Workspace Contract
+    workflows?
+  - What evidence exists that automation opportunities within Workspace Contract workflows
+    improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Workspace
+    Contract?
+  - What evidence exists that advanced tooling and infrastructure for Workspace Contract
+    improves outcomes?
+  - What do industry leaders consider best practice for Workspace Contract?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Workspace Contract'
+  - 'official_docs: collect framework documentation and quickstart guides for Workspace
+    Contract'
+  - 'case_studies: search for published case studies of Workspace Contract adoption'
+  - 'academic: find measurement and evaluation papers for Workspace Contract'
+  - 'practitioner: locate metrics dashboards and reporting templates for Workspace
+    Contract'
+  - 'benchmarks: collect industry benchmark data for Workspace Contract'
+  - 'academic: search for optimization and performance research on Workspace Contract'
+  - 'benchmarks: gather competitive benchmarking data for Workspace Contract'
+  - 'practitioner: find advanced operational playbooks for Workspace Contract'
+  - 'tooling: evaluate automation and tooling ecosystem for Workspace Contract'
+  acceptance_criteria:
+  - Minimum 9 distinct sources per research question
+  - Coverage of all maturity bands from 1.0 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 5
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-353fc601f549
+  name: 'Research: Job Studio Training Factory (2.4 -> 8.9)'
+  objective: Close the maturity gap for Job Studio Training Factory from 2.4 to 8.9
+    by acquiring targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - job-studio-training-factory
+  knowledge_gaps:
+  - metrics and KPIs for measuring Job Studio Training Factory effectiveness
+  - measurement frameworks and dashboards for Job Studio Training Factory
+  - scaling strategies for Job Studio Training Factory across teams
+  - integration patterns connecting Job Studio Training Factory to adjacent capabilities
+  - optimization techniques for advanced Job Studio Training Factory operations
+  - industry benchmarks and comparative analysis for Job Studio Training Factory
+  - automation opportunities within Job Studio Training Factory workflows
+  - advanced tooling and infrastructure for Job Studio Training Factory
+  - industry-leading practices and innovation research in Job Studio Training Factory
+  - emerging trends and frontier approaches for Job Studio Training Factory
+  - cross-industry transfer patterns applicable to Job Studio Training Factory
+  - thought leadership and original contribution opportunities in Job Studio Training
+    Factory
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Job Studio Training
+    Factory effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Job Studio Training Factory
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Job Studio
+    Training Factory?
+  - What evidence exists that measurement frameworks and dashboards for Job Studio
+    Training Factory improves outcomes?
+  - What is the current state of scaling strategies for Job Studio Training Factory
+    across teams?
+  - What evidence exists that scaling strategies for Job Studio Training Factory across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Job Studio Training
+    Factory to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Job Studio Training
+    Factory to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Job Studio Training
+    Factory operations?
+  - What evidence exists that optimization techniques for advanced Job Studio Training
+    Factory operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Job Studio Training Factory?
+  - What evidence exists that industry benchmarks and comparative analysis for Job
+    Studio Training Factory improves outcomes?
+  - What is the current state of automation opportunities within Job Studio Training
+    Factory workflows?
+  - What evidence exists that automation opportunities within Job Studio Training
+    Factory workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Job Studio
+    Training Factory?
+  - What evidence exists that advanced tooling and infrastructure for Job Studio Training
+    Factory improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Job Studio Training Factory?
+  - What evidence exists that industry-leading practices and innovation research in
+    Job Studio Training Factory improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Job Studio
+    Training Factory?
+  - What evidence exists that emerging trends and frontier approaches for Job Studio
+    Training Factory improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Job
+    Studio Training Factory?
+  - What evidence exists that cross-industry transfer patterns applicable to Job Studio
+    Training Factory improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Job Studio Training Factory?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Job Studio Training Factory improves outcomes?
+  - What do industry leaders consider best practice for Job Studio Training Factory?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Job Studio Training Factory'
+  - 'practitioner: locate metrics dashboards and reporting templates for Job Studio
+    Training Factory'
+  - 'benchmarks: collect industry benchmark data for Job Studio Training Factory'
+  - 'academic: search for optimization and performance research on Job Studio Training
+    Factory'
+  - 'benchmarks: gather competitive benchmarking data for Job Studio Training Factory'
+  - 'practitioner: find advanced operational playbooks for Job Studio Training Factory'
+  - 'tooling: evaluate automation and tooling ecosystem for Job Studio Training Factory'
+  - 'academic: search for frontier research and innovation in Job Studio Training
+    Factory'
+  - 'practitioner: identify industry leaders and their published approaches for Job
+    Studio Training Factory'
+  - 'conferences: review recent conference proceedings for Job Studio Training Factory
+    innovations'
+  - 'patents: scan recent patent filings related to Job Studio Training Factory'
+  acceptance_criteria:
+  - Minimum 19 distinct sources per research question
+  - Coverage of all maturity bands from 2.4 to 8.9
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 10
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-cca8e24593fe
+  name: 'Research: All-Department Maturity Gap Closure (3.1 -> 8.7)'
+  objective: Close the maturity gap for All-Department Maturity Gap Closure from 3.1
+    to 8.7 by acquiring targeted knowledge across 8 identified knowledge needs.
+  target_capabilities:
+  - all-department-maturity-gap-closure
+  knowledge_gaps:
+  - optimization techniques for advanced All-Department Maturity Gap Closure operations
+  - industry benchmarks and comparative analysis for All-Department Maturity Gap Closure
+  - automation opportunities within All-Department Maturity Gap Closure workflows
+  - advanced tooling and infrastructure for All-Department Maturity Gap Closure
+  - industry-leading practices and innovation research in All-Department Maturity
+    Gap Closure
+  - emerging trends and frontier approaches for All-Department Maturity Gap Closure
+  - cross-industry transfer patterns applicable to All-Department Maturity Gap Closure
+  - thought leadership and original contribution opportunities in All-Department Maturity
+    Gap Closure
+  research_questions:
+  - What is the current state of optimization techniques for advanced All-Department
+    Maturity Gap Closure operations?
+  - What evidence exists that optimization techniques for advanced All-Department
+    Maturity Gap Closure operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    All-Department Maturity Gap Closure?
+  - What evidence exists that industry benchmarks and comparative analysis for All-Department
+    Maturity Gap Closure improves outcomes?
+  - What is the current state of automation opportunities within All-Department Maturity
+    Gap Closure workflows?
+  - What evidence exists that automation opportunities within All-Department Maturity
+    Gap Closure workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for All-Department
+    Maturity Gap Closure?
+  - What evidence exists that advanced tooling and infrastructure for All-Department
+    Maturity Gap Closure improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in All-Department Maturity Gap Closure?
+  - What evidence exists that industry-leading practices and innovation research in
+    All-Department Maturity Gap Closure improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for All-Department
+    Maturity Gap Closure?
+  - What evidence exists that emerging trends and frontier approaches for All-Department
+    Maturity Gap Closure improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to All-Department
+    Maturity Gap Closure?
+  - What evidence exists that cross-industry transfer patterns applicable to All-Department
+    Maturity Gap Closure improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in All-Department Maturity Gap Closure?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in All-Department Maturity Gap Closure improves outcomes?
+  - What do industry leaders consider best practice for All-Department Maturity Gap
+    Closure?
+  search_strategies:
+  - 'academic: search for optimization and performance research on All-Department
+    Maturity Gap Closure'
+  - 'benchmarks: gather competitive benchmarking data for All-Department Maturity
+    Gap Closure'
+  - 'practitioner: find advanced operational playbooks for All-Department Maturity
+    Gap Closure'
+  - 'tooling: evaluate automation and tooling ecosystem for All-Department Maturity
+    Gap Closure'
+  - 'academic: search for frontier research and innovation in All-Department Maturity
+    Gap Closure'
+  - 'practitioner: identify industry leaders and their published approaches for All-Department
+    Maturity Gap Closure'
+  - 'conferences: review recent conference proceedings for All-Department Maturity
+    Gap Closure innovations'
+  - 'patents: scan recent patent filings related to All-Department Maturity Gap Closure'
+  acceptance_criteria:
+  - Minimum 16 distinct sources per research question
+  - Coverage of all maturity bands from 3.1 to 8.7
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 9
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-fdc465e77f80
+  name: 'Research: Department Ten-State Verification (4.1 -> 9.2)'
+  objective: Close the maturity gap for Department Ten-State Verification from 4.1
+    to 9.2 by acquiring targeted knowledge across 4 identified knowledge needs.
+  target_capabilities:
+  - department-ten-state-verification
+  knowledge_gaps:
+  - industry-leading practices and innovation research in Department Ten-State Verification
+  - emerging trends and frontier approaches for Department Ten-State Verification
+  - cross-industry transfer patterns applicable to Department Ten-State Verification
+  - thought leadership and original contribution opportunities in Department Ten-State
+    Verification
+  research_questions:
+  - What is the current state of industry-leading practices and innovation research
+    in Department Ten-State Verification?
+  - What evidence exists that industry-leading practices and innovation research in
+    Department Ten-State Verification improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Department
+    Ten-State Verification?
+  - What evidence exists that emerging trends and frontier approaches for Department
+    Ten-State Verification improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Department
+    Ten-State Verification?
+  - What evidence exists that cross-industry transfer patterns applicable to Department
+    Ten-State Verification improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Department Ten-State Verification?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Department Ten-State Verification improves outcomes?
+  - What do industry leaders consider best practice for Department Ten-State Verification?
+  search_strategies:
+  - 'academic: search for frontier research and innovation in Department Ten-State
+    Verification'
+  - 'practitioner: identify industry leaders and their published approaches for Department
+    Ten-State Verification'
+  - 'conferences: review recent conference proceedings for Department Ten-State Verification
+    innovations'
+  - 'patents: scan recent patent filings related to Department Ten-State Verification'
+  acceptance_criteria:
+  - Minimum 15 distinct sources per research question
+  - Coverage of all maturity bands from 4.1 to 9.2
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 8
+  priority: critical
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-23b9a6d109eb
+  name: 'Research: Department Studios of Excellence (1.7 -> 4.2)'
+  objective: Close the maturity gap for Department Studios of Excellence from 1.7
+    to 4.2 by acquiring targeted knowledge across 16 identified knowledge needs.
+  target_capabilities:
+  - department-studios-of-excellence
+  knowledge_gaps:
+  - documented processes and playbooks for Department Studios of Excellence
+  - real-world examples and case studies for Department Studios of Excellence
+  - common pitfalls and anti-patterns in early Department Studios of Excellence adoption
+  - starter toolkits and templates for Department Studios of Excellence
+  - metrics and KPIs for measuring Department Studios of Excellence effectiveness
+  - measurement frameworks and dashboards for Department Studios of Excellence
+  - scaling strategies for Department Studios of Excellence across teams
+  - integration patterns connecting Department Studios of Excellence to adjacent capabilities
+  - optimization techniques for advanced Department Studios of Excellence operations
+  - industry benchmarks and comparative analysis for Department Studios of Excellence
+  - automation opportunities within Department Studios of Excellence workflows
+  - advanced tooling and infrastructure for Department Studios of Excellence
+  - industry-leading practices and innovation research in Department Studios of Excellence
+  - emerging trends and frontier approaches for Department Studios of Excellence
+  - cross-industry transfer patterns applicable to Department Studios of Excellence
+  - thought leadership and original contribution opportunities in Department Studios
+    of Excellence
+  research_questions:
+  - What is the current state of documented processes and playbooks for Department
+    Studios of Excellence?
+  - What evidence exists that documented processes and playbooks for Department Studios
+    of Excellence improves outcomes?
+  - What is the current state of real-world examples and case studies for Department
+    Studios of Excellence?
+  - What evidence exists that real-world examples and case studies for Department
+    Studios of Excellence improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Department
+    Studios of Excellence adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Department
+    Studios of Excellence adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Department Studios
+    of Excellence?
+  - What evidence exists that starter toolkits and templates for Department Studios
+    of Excellence improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Department Studios
+    of Excellence effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Department Studios of
+    Excellence effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Department
+    Studios of Excellence?
+  - What evidence exists that measurement frameworks and dashboards for Department
+    Studios of Excellence improves outcomes?
+  - What is the current state of scaling strategies for Department Studios of Excellence
+    across teams?
+  - What evidence exists that scaling strategies for Department Studios of Excellence
+    across teams improves outcomes?
+  - What is the current state of integration patterns connecting Department Studios
+    of Excellence to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Department Studios of
+    Excellence to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Department Studios
+    of Excellence operations?
+  - What evidence exists that optimization techniques for advanced Department Studios
+    of Excellence operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Department Studios of Excellence?
+  - What evidence exists that industry benchmarks and comparative analysis for Department
+    Studios of Excellence improves outcomes?
+  - What is the current state of automation opportunities within Department Studios
+    of Excellence workflows?
+  - What evidence exists that automation opportunities within Department Studios of
+    Excellence workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Department
+    Studios of Excellence?
+  - What evidence exists that advanced tooling and infrastructure for Department Studios
+    of Excellence improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Department Studios of Excellence?
+  - What evidence exists that industry-leading practices and innovation research in
+    Department Studios of Excellence improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Department
+    Studios of Excellence?
+  - What evidence exists that emerging trends and frontier approaches for Department
+    Studios of Excellence improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Department
+    Studios of Excellence?
+  - What evidence exists that cross-industry transfer patterns applicable to Department
+    Studios of Excellence improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Department Studios of Excellence?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Department Studios of Excellence improves outcomes?
+  - What do industry leaders consider best practice for Department Studios of Excellence?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Department
+    Studios of Excellence'
+  - 'official_docs: collect framework documentation and quickstart guides for Department
+    Studios of Excellence'
+  - 'case_studies: search for published case studies of Department Studios of Excellence
+    adoption'
+  - 'academic: find measurement and evaluation papers for Department Studios of Excellence'
+  - 'practitioner: locate metrics dashboards and reporting templates for Department
+    Studios of Excellence'
+  - 'benchmarks: collect industry benchmark data for Department Studios of Excellence'
+  - 'academic: search for optimization and performance research on Department Studios
+    of Excellence'
+  - 'benchmarks: gather competitive benchmarking data for Department Studios of Excellence'
+  - 'practitioner: find advanced operational playbooks for Department Studios of Excellence'
+  - 'tooling: evaluate automation and tooling ecosystem for Department Studios of
+    Excellence'
+  - 'academic: search for frontier research and innovation in Department Studios of
+    Excellence'
+  - 'practitioner: identify industry leaders and their published approaches for Department
+    Studios of Excellence'
+  - 'conferences: review recent conference proceedings for Department Studios of Excellence
+    innovations'
+  - 'patents: scan recent patent filings related to Department Studios of Excellence'
+  acceptance_criteria:
+  - Minimum 7 distinct sources per research question
+  - Coverage of all maturity bands from 1.7 to 4.2
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-1b24c8312e56
+  name: 'Research: Agentic Operator Console (1.9 -> 4.3)'
+  objective: Close the maturity gap for Agentic Operator Console from 1.9 to 4.3 by
+    acquiring targeted knowledge across 16 identified knowledge needs.
+  target_capabilities:
+  - agentic-operator-console
+  knowledge_gaps:
+  - documented processes and playbooks for Agentic Operator Console
+  - real-world examples and case studies for Agentic Operator Console
+  - common pitfalls and anti-patterns in early Agentic Operator Console adoption
+  - starter toolkits and templates for Agentic Operator Console
+  - metrics and KPIs for measuring Agentic Operator Console effectiveness
+  - measurement frameworks and dashboards for Agentic Operator Console
+  - scaling strategies for Agentic Operator Console across teams
+  - integration patterns connecting Agentic Operator Console to adjacent capabilities
+  - optimization techniques for advanced Agentic Operator Console operations
+  - industry benchmarks and comparative analysis for Agentic Operator Console
+  - automation opportunities within Agentic Operator Console workflows
+  - advanced tooling and infrastructure for Agentic Operator Console
+  - industry-leading practices and innovation research in Agentic Operator Console
+  - emerging trends and frontier approaches for Agentic Operator Console
+  - cross-industry transfer patterns applicable to Agentic Operator Console
+  - thought leadership and original contribution opportunities in Agentic Operator
+    Console
+  research_questions:
+  - What is the current state of documented processes and playbooks for Agentic Operator
+    Console?
+  - What evidence exists that documented processes and playbooks for Agentic Operator
+    Console improves outcomes?
+  - What is the current state of real-world examples and case studies for Agentic
+    Operator Console?
+  - What evidence exists that real-world examples and case studies for Agentic Operator
+    Console improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Agentic
+    Operator Console adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Agentic Operator
+    Console adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Agentic Operator
+    Console?
+  - What evidence exists that starter toolkits and templates for Agentic Operator
+    Console improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Agentic Operator Console
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Agentic Operator Console
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Agentic
+    Operator Console?
+  - What evidence exists that measurement frameworks and dashboards for Agentic Operator
+    Console improves outcomes?
+  - What is the current state of scaling strategies for Agentic Operator Console across
+    teams?
+  - What evidence exists that scaling strategies for Agentic Operator Console across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Agentic Operator
+    Console to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Agentic Operator Console
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Agentic Operator
+    Console operations?
+  - What evidence exists that optimization techniques for advanced Agentic Operator
+    Console operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Agentic Operator Console?
+  - What evidence exists that industry benchmarks and comparative analysis for Agentic
+    Operator Console improves outcomes?
+  - What is the current state of automation opportunities within Agentic Operator
+    Console workflows?
+  - What evidence exists that automation opportunities within Agentic Operator Console
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Agentic Operator
+    Console?
+  - What evidence exists that advanced tooling and infrastructure for Agentic Operator
+    Console improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Agentic Operator Console?
+  - What evidence exists that industry-leading practices and innovation research in
+    Agentic Operator Console improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Agentic
+    Operator Console?
+  - What evidence exists that emerging trends and frontier approaches for Agentic
+    Operator Console improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Agentic
+    Operator Console?
+  - What evidence exists that cross-industry transfer patterns applicable to Agentic
+    Operator Console improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Agentic Operator Console?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Agentic Operator Console improves outcomes?
+  - What do industry leaders consider best practice for Agentic Operator Console?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Agentic Operator
+    Console'
+  - 'official_docs: collect framework documentation and quickstart guides for Agentic
+    Operator Console'
+  - 'case_studies: search for published case studies of Agentic Operator Console adoption'
+  - 'academic: find measurement and evaluation papers for Agentic Operator Console'
+  - 'practitioner: locate metrics dashboards and reporting templates for Agentic Operator
+    Console'
+  - 'benchmarks: collect industry benchmark data for Agentic Operator Console'
+  - 'academic: search for optimization and performance research on Agentic Operator
+    Console'
+  - 'benchmarks: gather competitive benchmarking data for Agentic Operator Console'
+  - 'practitioner: find advanced operational playbooks for Agentic Operator Console'
+  - 'tooling: evaluate automation and tooling ecosystem for Agentic Operator Console'
+  - 'academic: search for frontier research and innovation in Agentic Operator Console'
+  - 'practitioner: identify industry leaders and their published approaches for Agentic
+    Operator Console'
+  - 'conferences: review recent conference proceedings for Agentic Operator Console
+    innovations'
+  - 'patents: scan recent patent filings related to Agentic Operator Console'
+  acceptance_criteria:
+  - Minimum 7 distinct sources per research question
+  - Coverage of all maturity bands from 1.9 to 4.3
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-29288660d2e0
+  name: 'Research: Agent Orchestration (2.0 -> 4.5)'
+  objective: Close the maturity gap for Agent Orchestration from 2.0 to 4.5 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - agent-orchestration
+  knowledge_gaps:
+  - metrics and KPIs for measuring Agent Orchestration effectiveness
+  - measurement frameworks and dashboards for Agent Orchestration
+  - scaling strategies for Agent Orchestration across teams
+  - integration patterns connecting Agent Orchestration to adjacent capabilities
+  - optimization techniques for advanced Agent Orchestration operations
+  - industry benchmarks and comparative analysis for Agent Orchestration
+  - automation opportunities within Agent Orchestration workflows
+  - advanced tooling and infrastructure for Agent Orchestration
+  - industry-leading practices and innovation research in Agent Orchestration
+  - emerging trends and frontier approaches for Agent Orchestration
+  - cross-industry transfer patterns applicable to Agent Orchestration
+  - thought leadership and original contribution opportunities in Agent Orchestration
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Agent Orchestration
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Agent Orchestration effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Agent Orchestration?
+  - What evidence exists that measurement frameworks and dashboards for Agent Orchestration
+    improves outcomes?
+  - What is the current state of scaling strategies for Agent Orchestration across
+    teams?
+  - What evidence exists that scaling strategies for Agent Orchestration across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Agent Orchestration
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Agent Orchestration
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Agent Orchestration
+    operations?
+  - What evidence exists that optimization techniques for advanced Agent Orchestration
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Agent Orchestration?
+  - What evidence exists that industry benchmarks and comparative analysis for Agent
+    Orchestration improves outcomes?
+  - What is the current state of automation opportunities within Agent Orchestration
+    workflows?
+  - What evidence exists that automation opportunities within Agent Orchestration
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Agent Orchestration?
+  - What evidence exists that advanced tooling and infrastructure for Agent Orchestration
+    improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Agent Orchestration?
+  - What evidence exists that industry-leading practices and innovation research in
+    Agent Orchestration improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Agent
+    Orchestration?
+  - What evidence exists that emerging trends and frontier approaches for Agent Orchestration
+    improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Agent
+    Orchestration?
+  - What evidence exists that cross-industry transfer patterns applicable to Agent
+    Orchestration improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Agent Orchestration?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Agent Orchestration improves outcomes?
+  - What do industry leaders consider best practice for Agent Orchestration?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Agent Orchestration'
+  - 'practitioner: locate metrics dashboards and reporting templates for Agent Orchestration'
+  - 'benchmarks: collect industry benchmark data for Agent Orchestration'
+  - 'academic: search for optimization and performance research on Agent Orchestration'
+  - 'benchmarks: gather competitive benchmarking data for Agent Orchestration'
+  - 'practitioner: find advanced operational playbooks for Agent Orchestration'
+  - 'tooling: evaluate automation and tooling ecosystem for Agent Orchestration'
+  - 'academic: search for frontier research and innovation in Agent Orchestration'
+  - 'practitioner: identify industry leaders and their published approaches for Agent
+    Orchestration'
+  - 'conferences: review recent conference proceedings for Agent Orchestration innovations'
+  - 'patents: scan recent patent filings related to Agent Orchestration'
+  acceptance_criteria:
+  - Minimum 7 distinct sources per research question
+  - Coverage of all maturity bands from 2.0 to 4.5
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-20e9aeac96c1
+  name: 'Research: Operator Experience (1.5 -> 4.0)'
+  objective: Close the maturity gap for Operator Experience from 1.5 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - operator-experience
+  knowledge_gaps:
+  - documented processes and playbooks for Operator Experience
+  - real-world examples and case studies for Operator Experience
+  - common pitfalls and anti-patterns in early Operator Experience adoption
+  - starter toolkits and templates for Operator Experience
+  - metrics and KPIs for measuring Operator Experience effectiveness
+  - measurement frameworks and dashboards for Operator Experience
+  - scaling strategies for Operator Experience across teams
+  - integration patterns connecting Operator Experience to adjacent capabilities
+  - optimization techniques for advanced Operator Experience operations
+  - industry benchmarks and comparative analysis for Operator Experience
+  - automation opportunities within Operator Experience workflows
+  - advanced tooling and infrastructure for Operator Experience
+  research_questions:
+  - What is the current state of documented processes and playbooks for Operator Experience?
+  - What evidence exists that documented processes and playbooks for Operator Experience
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Operator
+    Experience?
+  - What evidence exists that real-world examples and case studies for Operator Experience
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Operator
+    Experience adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Operator
+    Experience adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Operator Experience?
+  - What evidence exists that starter toolkits and templates for Operator Experience
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Operator Experience
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Operator Experience effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Operator
+    Experience?
+  - What evidence exists that measurement frameworks and dashboards for Operator Experience
+    improves outcomes?
+  - What is the current state of scaling strategies for Operator Experience across
+    teams?
+  - What evidence exists that scaling strategies for Operator Experience across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Operator Experience
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Operator Experience
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Operator Experience
+    operations?
+  - What evidence exists that optimization techniques for advanced Operator Experience
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Operator Experience?
+  - What evidence exists that industry benchmarks and comparative analysis for Operator
+    Experience improves outcomes?
+  - What is the current state of automation opportunities within Operator Experience
+    workflows?
+  - What evidence exists that automation opportunities within Operator Experience
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Operator
+    Experience?
+  - What evidence exists that advanced tooling and infrastructure for Operator Experience
+    improves outcomes?
+  - What do industry leaders consider best practice for Operator Experience?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Operator Experience'
+  - 'official_docs: collect framework documentation and quickstart guides for Operator
+    Experience'
+  - 'case_studies: search for published case studies of Operator Experience adoption'
+  - 'academic: find measurement and evaluation papers for Operator Experience'
+  - 'practitioner: locate metrics dashboards and reporting templates for Operator
+    Experience'
+  - 'benchmarks: collect industry benchmark data for Operator Experience'
+  - 'academic: search for optimization and performance research on Operator Experience'
+  - 'benchmarks: gather competitive benchmarking data for Operator Experience'
+  - 'practitioner: find advanced operational playbooks for Operator Experience'
+  - 'tooling: evaluate automation and tooling ecosystem for Operator Experience'
+  acceptance_criteria:
+  - Minimum 7 distinct sources per research question
+  - Coverage of all maturity bands from 1.5 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-cf461c5da329
+  name: 'Research: Content & Marketing (1.8 -> 4.0)'
+  objective: Close the maturity gap for Content & Marketing from 1.8 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - content-and-marketing
+  knowledge_gaps:
+  - documented processes and playbooks for Content & Marketing
+  - real-world examples and case studies for Content & Marketing
+  - common pitfalls and anti-patterns in early Content & Marketing adoption
+  - starter toolkits and templates for Content & Marketing
+  - metrics and KPIs for measuring Content & Marketing effectiveness
+  - measurement frameworks and dashboards for Content & Marketing
+  - scaling strategies for Content & Marketing across teams
+  - integration patterns connecting Content & Marketing to adjacent capabilities
+  - optimization techniques for advanced Content & Marketing operations
+  - industry benchmarks and comparative analysis for Content & Marketing
+  - automation opportunities within Content & Marketing workflows
+  - advanced tooling and infrastructure for Content & Marketing
+  research_questions:
+  - What is the current state of documented processes and playbooks for Content &
+    Marketing?
+  - What evidence exists that documented processes and playbooks for Content & Marketing
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Content
+    & Marketing?
+  - What evidence exists that real-world examples and case studies for Content & Marketing
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Content
+    & Marketing adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Content &
+    Marketing adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Content & Marketing?
+  - What evidence exists that starter toolkits and templates for Content & Marketing
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Content & Marketing
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Content & Marketing effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Content
+    & Marketing?
+  - What evidence exists that measurement frameworks and dashboards for Content &
+    Marketing improves outcomes?
+  - What is the current state of scaling strategies for Content & Marketing across
+    teams?
+  - What evidence exists that scaling strategies for Content & Marketing across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Content & Marketing
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Content & Marketing
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Content & Marketing
+    operations?
+  - What evidence exists that optimization techniques for advanced Content & Marketing
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Content & Marketing?
+  - What evidence exists that industry benchmarks and comparative analysis for Content
+    & Marketing improves outcomes?
+  - What is the current state of automation opportunities within Content & Marketing
+    workflows?
+  - What evidence exists that automation opportunities within Content & Marketing
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Content &
+    Marketing?
+  - What evidence exists that advanced tooling and infrastructure for Content & Marketing
+    improves outcomes?
+  - What do industry leaders consider best practice for Content & Marketing?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Content & Marketing'
+  - 'official_docs: collect framework documentation and quickstart guides for Content
+    & Marketing'
+  - 'case_studies: search for published case studies of Content & Marketing adoption'
+  - 'academic: find measurement and evaluation papers for Content & Marketing'
+  - 'practitioner: locate metrics dashboards and reporting templates for Content &
+    Marketing'
+  - 'benchmarks: collect industry benchmark data for Content & Marketing'
+  - 'academic: search for optimization and performance research on Content & Marketing'
+  - 'benchmarks: gather competitive benchmarking data for Content & Marketing'
+  - 'practitioner: find advanced operational playbooks for Content & Marketing'
+  - 'tooling: evaluate automation and tooling ecosystem for Content & Marketing'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 1.8 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-5e0fb525fa49
+  name: 'Research: Innovation & Strategy (1.8 -> 4.0)'
+  objective: Close the maturity gap for Innovation & Strategy from 1.8 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - innovation-and-strategy
+  knowledge_gaps:
+  - documented processes and playbooks for Innovation & Strategy
+  - real-world examples and case studies for Innovation & Strategy
+  - common pitfalls and anti-patterns in early Innovation & Strategy adoption
+  - starter toolkits and templates for Innovation & Strategy
+  - metrics and KPIs for measuring Innovation & Strategy effectiveness
+  - measurement frameworks and dashboards for Innovation & Strategy
+  - scaling strategies for Innovation & Strategy across teams
+  - integration patterns connecting Innovation & Strategy to adjacent capabilities
+  - optimization techniques for advanced Innovation & Strategy operations
+  - industry benchmarks and comparative analysis for Innovation & Strategy
+  - automation opportunities within Innovation & Strategy workflows
+  - advanced tooling and infrastructure for Innovation & Strategy
+  research_questions:
+  - What is the current state of documented processes and playbooks for Innovation
+    & Strategy?
+  - What evidence exists that documented processes and playbooks for Innovation &
+    Strategy improves outcomes?
+  - What is the current state of real-world examples and case studies for Innovation
+    & Strategy?
+  - What evidence exists that real-world examples and case studies for Innovation
+    & Strategy improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Innovation
+    & Strategy adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Innovation
+    & Strategy adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Innovation & Strategy?
+  - What evidence exists that starter toolkits and templates for Innovation & Strategy
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Innovation & Strategy
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Innovation & Strategy
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Innovation
+    & Strategy?
+  - What evidence exists that measurement frameworks and dashboards for Innovation
+    & Strategy improves outcomes?
+  - What is the current state of scaling strategies for Innovation & Strategy across
+    teams?
+  - What evidence exists that scaling strategies for Innovation & Strategy across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Innovation & Strategy
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Innovation & Strategy
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Innovation &
+    Strategy operations?
+  - What evidence exists that optimization techniques for advanced Innovation & Strategy
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Innovation & Strategy?
+  - What evidence exists that industry benchmarks and comparative analysis for Innovation
+    & Strategy improves outcomes?
+  - What is the current state of automation opportunities within Innovation & Strategy
+    workflows?
+  - What evidence exists that automation opportunities within Innovation & Strategy
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Innovation
+    & Strategy?
+  - What evidence exists that advanced tooling and infrastructure for Innovation &
+    Strategy improves outcomes?
+  - What do industry leaders consider best practice for Innovation & Strategy?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Innovation
+    & Strategy'
+  - 'official_docs: collect framework documentation and quickstart guides for Innovation
+    & Strategy'
+  - 'case_studies: search for published case studies of Innovation & Strategy adoption'
+  - 'academic: find measurement and evaluation papers for Innovation & Strategy'
+  - 'practitioner: locate metrics dashboards and reporting templates for Innovation
+    & Strategy'
+  - 'benchmarks: collect industry benchmark data for Innovation & Strategy'
+  - 'academic: search for optimization and performance research on Innovation & Strategy'
+  - 'benchmarks: gather competitive benchmarking data for Innovation & Strategy'
+  - 'practitioner: find advanced operational playbooks for Innovation & Strategy'
+  - 'tooling: evaluate automation and tooling ecosystem for Innovation & Strategy'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 1.8 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-7179251be85e
+  name: 'Research: Portfolio Management (1.8 -> 4.0)'
+  objective: Close the maturity gap for Portfolio Management from 1.8 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - portfolio-management
+  knowledge_gaps:
+  - documented processes and playbooks for Portfolio Management
+  - real-world examples and case studies for Portfolio Management
+  - common pitfalls and anti-patterns in early Portfolio Management adoption
+  - starter toolkits and templates for Portfolio Management
+  - metrics and KPIs for measuring Portfolio Management effectiveness
+  - measurement frameworks and dashboards for Portfolio Management
+  - scaling strategies for Portfolio Management across teams
+  - integration patterns connecting Portfolio Management to adjacent capabilities
+  - optimization techniques for advanced Portfolio Management operations
+  - industry benchmarks and comparative analysis for Portfolio Management
+  - automation opportunities within Portfolio Management workflows
+  - advanced tooling and infrastructure for Portfolio Management
+  research_questions:
+  - What is the current state of documented processes and playbooks for Portfolio
+    Management?
+  - What evidence exists that documented processes and playbooks for Portfolio Management
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Portfolio
+    Management?
+  - What evidence exists that real-world examples and case studies for Portfolio Management
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Portfolio
+    Management adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Portfolio
+    Management adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Portfolio Management?
+  - What evidence exists that starter toolkits and templates for Portfolio Management
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Portfolio Management
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Portfolio Management
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Portfolio
+    Management?
+  - What evidence exists that measurement frameworks and dashboards for Portfolio
+    Management improves outcomes?
+  - What is the current state of scaling strategies for Portfolio Management across
+    teams?
+  - What evidence exists that scaling strategies for Portfolio Management across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Portfolio Management
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Portfolio Management
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Portfolio Management
+    operations?
+  - What evidence exists that optimization techniques for advanced Portfolio Management
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Portfolio Management?
+  - What evidence exists that industry benchmarks and comparative analysis for Portfolio
+    Management improves outcomes?
+  - What is the current state of automation opportunities within Portfolio Management
+    workflows?
+  - What evidence exists that automation opportunities within Portfolio Management
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Portfolio
+    Management?
+  - What evidence exists that advanced tooling and infrastructure for Portfolio Management
+    improves outcomes?
+  - What do industry leaders consider best practice for Portfolio Management?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Portfolio Management'
+  - 'official_docs: collect framework documentation and quickstart guides for Portfolio
+    Management'
+  - 'case_studies: search for published case studies of Portfolio Management adoption'
+  - 'academic: find measurement and evaluation papers for Portfolio Management'
+  - 'practitioner: locate metrics dashboards and reporting templates for Portfolio
+    Management'
+  - 'benchmarks: collect industry benchmark data for Portfolio Management'
+  - 'academic: search for optimization and performance research on Portfolio Management'
+  - 'benchmarks: gather competitive benchmarking data for Portfolio Management'
+  - 'practitioner: find advanced operational playbooks for Portfolio Management'
+  - 'tooling: evaluate automation and tooling ecosystem for Portfolio Management'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 1.8 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-ee8e50e4b23f
+  name: 'Research: Studio Operations (1.8 -> 4.0)'
+  objective: Close the maturity gap for Studio Operations from 1.8 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - studio-operations
+  knowledge_gaps:
+  - documented processes and playbooks for Studio Operations
+  - real-world examples and case studies for Studio Operations
+  - common pitfalls and anti-patterns in early Studio Operations adoption
+  - starter toolkits and templates for Studio Operations
+  - metrics and KPIs for measuring Studio Operations effectiveness
+  - measurement frameworks and dashboards for Studio Operations
+  - scaling strategies for Studio Operations across teams
+  - integration patterns connecting Studio Operations to adjacent capabilities
+  - optimization techniques for advanced Studio Operations operations
+  - industry benchmarks and comparative analysis for Studio Operations
+  - automation opportunities within Studio Operations workflows
+  - advanced tooling and infrastructure for Studio Operations
+  research_questions:
+  - What is the current state of documented processes and playbooks for Studio Operations?
+  - What evidence exists that documented processes and playbooks for Studio Operations
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Studio Operations?
+  - What evidence exists that real-world examples and case studies for Studio Operations
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Studio
+    Operations adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Studio Operations
+    adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Studio Operations?
+  - What evidence exists that starter toolkits and templates for Studio Operations
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Studio Operations
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Studio Operations effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Studio
+    Operations?
+  - What evidence exists that measurement frameworks and dashboards for Studio Operations
+    improves outcomes?
+  - What is the current state of scaling strategies for Studio Operations across teams?
+  - What evidence exists that scaling strategies for Studio Operations across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Studio Operations
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Studio Operations to
+    adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Studio Operations
+    operations?
+  - What evidence exists that optimization techniques for advanced Studio Operations
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Studio Operations?
+  - What evidence exists that industry benchmarks and comparative analysis for Studio
+    Operations improves outcomes?
+  - What is the current state of automation opportunities within Studio Operations
+    workflows?
+  - What evidence exists that automation opportunities within Studio Operations workflows
+    improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Studio Operations?
+  - What evidence exists that advanced tooling and infrastructure for Studio Operations
+    improves outcomes?
+  - What do industry leaders consider best practice for Studio Operations?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Studio Operations'
+  - 'official_docs: collect framework documentation and quickstart guides for Studio
+    Operations'
+  - 'case_studies: search for published case studies of Studio Operations adoption'
+  - 'academic: find measurement and evaluation papers for Studio Operations'
+  - 'practitioner: locate metrics dashboards and reporting templates for Studio Operations'
+  - 'benchmarks: collect industry benchmark data for Studio Operations'
+  - 'academic: search for optimization and performance research on Studio Operations'
+  - 'benchmarks: gather competitive benchmarking data for Studio Operations'
+  - 'practitioner: find advanced operational playbooks for Studio Operations'
+  - 'tooling: evaluate automation and tooling ecosystem for Studio Operations'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 1.8 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-217cf21fee4f
+  name: 'Research: Job Memory Intelligence (2.3 -> 4.4)'
+  objective: Close the maturity gap for Job Memory Intelligence from 2.3 to 4.4 by
+    acquiring targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - job-memory-intelligence
+  knowledge_gaps:
+  - metrics and KPIs for measuring Job Memory Intelligence effectiveness
+  - measurement frameworks and dashboards for Job Memory Intelligence
+  - scaling strategies for Job Memory Intelligence across teams
+  - integration patterns connecting Job Memory Intelligence to adjacent capabilities
+  - optimization techniques for advanced Job Memory Intelligence operations
+  - industry benchmarks and comparative analysis for Job Memory Intelligence
+  - automation opportunities within Job Memory Intelligence workflows
+  - advanced tooling and infrastructure for Job Memory Intelligence
+  - industry-leading practices and innovation research in Job Memory Intelligence
+  - emerging trends and frontier approaches for Job Memory Intelligence
+  - cross-industry transfer patterns applicable to Job Memory Intelligence
+  - thought leadership and original contribution opportunities in Job Memory Intelligence
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Job Memory Intelligence
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Job Memory Intelligence
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Job Memory
+    Intelligence?
+  - What evidence exists that measurement frameworks and dashboards for Job Memory
+    Intelligence improves outcomes?
+  - What is the current state of scaling strategies for Job Memory Intelligence across
+    teams?
+  - What evidence exists that scaling strategies for Job Memory Intelligence across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Job Memory Intelligence
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Job Memory Intelligence
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Job Memory Intelligence
+    operations?
+  - What evidence exists that optimization techniques for advanced Job Memory Intelligence
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Job Memory Intelligence?
+  - What evidence exists that industry benchmarks and comparative analysis for Job
+    Memory Intelligence improves outcomes?
+  - What is the current state of automation opportunities within Job Memory Intelligence
+    workflows?
+  - What evidence exists that automation opportunities within Job Memory Intelligence
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Job Memory
+    Intelligence?
+  - What evidence exists that advanced tooling and infrastructure for Job Memory Intelligence
+    improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Job Memory Intelligence?
+  - What evidence exists that industry-leading practices and innovation research in
+    Job Memory Intelligence improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Job Memory
+    Intelligence?
+  - What evidence exists that emerging trends and frontier approaches for Job Memory
+    Intelligence improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Job
+    Memory Intelligence?
+  - What evidence exists that cross-industry transfer patterns applicable to Job Memory
+    Intelligence improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Job Memory Intelligence?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Job Memory Intelligence improves outcomes?
+  - What do industry leaders consider best practice for Job Memory Intelligence?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Job Memory Intelligence'
+  - 'practitioner: locate metrics dashboards and reporting templates for Job Memory
+    Intelligence'
+  - 'benchmarks: collect industry benchmark data for Job Memory Intelligence'
+  - 'academic: search for optimization and performance research on Job Memory Intelligence'
+  - 'benchmarks: gather competitive benchmarking data for Job Memory Intelligence'
+  - 'practitioner: find advanced operational playbooks for Job Memory Intelligence'
+  - 'tooling: evaluate automation and tooling ecosystem for Job Memory Intelligence'
+  - 'academic: search for frontier research and innovation in Job Memory Intelligence'
+  - 'practitioner: identify industry leaders and their published approaches for Job
+    Memory Intelligence'
+  - 'conferences: review recent conference proceedings for Job Memory Intelligence
+    innovations'
+  - 'patents: scan recent patent filings related to Job Memory Intelligence'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 2.3 to 4.4
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 4
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-07c16184ad6c
+  name: 'Research: Capability Management (2.0 -> 4.0)'
+  objective: Close the maturity gap for Capability Management from 2.0 to 4.0 by acquiring
+    targeted knowledge across 8 identified knowledge needs.
+  target_capabilities:
+  - capability-management
+  knowledge_gaps:
+  - metrics and KPIs for measuring Capability Management effectiveness
+  - measurement frameworks and dashboards for Capability Management
+  - scaling strategies for Capability Management across teams
+  - integration patterns connecting Capability Management to adjacent capabilities
+  - optimization techniques for advanced Capability Management operations
+  - industry benchmarks and comparative analysis for Capability Management
+  - automation opportunities within Capability Management workflows
+  - advanced tooling and infrastructure for Capability Management
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Capability Management
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Capability Management
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Capability
+    Management?
+  - What evidence exists that measurement frameworks and dashboards for Capability
+    Management improves outcomes?
+  - What is the current state of scaling strategies for Capability Management across
+    teams?
+  - What evidence exists that scaling strategies for Capability Management across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Capability Management
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Capability Management
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Capability Management
+    operations?
+  - What evidence exists that optimization techniques for advanced Capability Management
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Capability Management?
+  - What evidence exists that industry benchmarks and comparative analysis for Capability
+    Management improves outcomes?
+  - What is the current state of automation opportunities within Capability Management
+    workflows?
+  - What evidence exists that automation opportunities within Capability Management
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Capability
+    Management?
+  - What evidence exists that advanced tooling and infrastructure for Capability Management
+    improves outcomes?
+  - What do industry leaders consider best practice for Capability Management?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Capability Management'
+  - 'practitioner: locate metrics dashboards and reporting templates for Capability
+    Management'
+  - 'benchmarks: collect industry benchmark data for Capability Management'
+  - 'academic: search for optimization and performance research on Capability Management'
+  - 'benchmarks: gather competitive benchmarking data for Capability Management'
+  - 'practitioner: find advanced operational playbooks for Capability Management'
+  - 'tooling: evaluate automation and tooling ecosystem for Capability Management'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 2.0 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 3
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-5c917899db3b
+  name: 'Research: Decision Kernel Phase A (1.0 -> 3.0)'
+  objective: Close the maturity gap for Decision Kernel Phase A from 1.0 to 3.0 by
+    acquiring targeted knowledge across 8 identified knowledge needs.
+  target_capabilities:
+  - decision-kernel-phase-a
+  knowledge_gaps:
+  - documented processes and playbooks for Decision Kernel Phase A
+  - real-world examples and case studies for Decision Kernel Phase A
+  - common pitfalls and anti-patterns in early Decision Kernel Phase A adoption
+  - starter toolkits and templates for Decision Kernel Phase A
+  - metrics and KPIs for measuring Decision Kernel Phase A effectiveness
+  - measurement frameworks and dashboards for Decision Kernel Phase A
+  - scaling strategies for Decision Kernel Phase A across teams
+  - integration patterns connecting Decision Kernel Phase A to adjacent capabilities
+  research_questions:
+  - What is the current state of documented processes and playbooks for Decision Kernel
+    Phase A?
+  - What evidence exists that documented processes and playbooks for Decision Kernel
+    Phase A improves outcomes?
+  - What is the current state of real-world examples and case studies for Decision
+    Kernel Phase A?
+  - What evidence exists that real-world examples and case studies for Decision Kernel
+    Phase A improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Decision
+    Kernel Phase A adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Decision
+    Kernel Phase A adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Decision Kernel
+    Phase A?
+  - What evidence exists that starter toolkits and templates for Decision Kernel Phase
+    A improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Decision Kernel Phase
+    A effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Decision Kernel Phase
+    A effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Decision
+    Kernel Phase A?
+  - What evidence exists that measurement frameworks and dashboards for Decision Kernel
+    Phase A improves outcomes?
+  - What is the current state of scaling strategies for Decision Kernel Phase A across
+    teams?
+  - What evidence exists that scaling strategies for Decision Kernel Phase A across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Decision Kernel Phase
+    A to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Decision Kernel Phase
+    A to adjacent capabilities improves outcomes?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Decision Kernel
+    Phase A'
+  - 'official_docs: collect framework documentation and quickstart guides for Decision
+    Kernel Phase A'
+  - 'case_studies: search for published case studies of Decision Kernel Phase A adoption'
+  - 'academic: find measurement and evaluation papers for Decision Kernel Phase A'
+  - 'practitioner: locate metrics dashboards and reporting templates for Decision
+    Kernel Phase A'
+  - 'benchmarks: collect industry benchmark data for Decision Kernel Phase A'
+  acceptance_criteria:
+  - Minimum 6 distinct sources per research question
+  - Coverage of all maturity bands from 1.0 to 3.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  estimated_duration_weeks: 3
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-396d82747e23
+  name: 'Research: Data & Analytics (1.2 -> 4.0)'
+  objective: Close the maturity gap for Data & Analytics from 1.2 to 4.0 by acquiring
+    targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - data-and-analytics
+  knowledge_gaps:
+  - documented processes and playbooks for Data & Analytics
+  - real-world examples and case studies for Data & Analytics
+  - common pitfalls and anti-patterns in early Data & Analytics adoption
+  - starter toolkits and templates for Data & Analytics
+  - metrics and KPIs for measuring Data & Analytics effectiveness
+  - measurement frameworks and dashboards for Data & Analytics
+  - scaling strategies for Data & Analytics across teams
+  - integration patterns connecting Data & Analytics to adjacent capabilities
+  - optimization techniques for advanced Data & Analytics operations
+  - industry benchmarks and comparative analysis for Data & Analytics
+  - automation opportunities within Data & Analytics workflows
+  - advanced tooling and infrastructure for Data & Analytics
+  research_questions:
+  - What is the current state of documented processes and playbooks for Data & Analytics?
+  - What evidence exists that documented processes and playbooks for Data & Analytics
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Data & Analytics?
+  - What evidence exists that real-world examples and case studies for Data & Analytics
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Data &
+    Analytics adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Data & Analytics
+    adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Data & Analytics?
+  - What evidence exists that starter toolkits and templates for Data & Analytics
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Data & Analytics effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Data & Analytics effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Data &
+    Analytics?
+  - What evidence exists that measurement frameworks and dashboards for Data & Analytics
+    improves outcomes?
+  - What is the current state of scaling strategies for Data & Analytics across teams?
+  - What evidence exists that scaling strategies for Data & Analytics across teams
+    improves outcomes?
+  - What is the current state of integration patterns connecting Data & Analytics
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Data & Analytics to
+    adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Data & Analytics
+    operations?
+  - What evidence exists that optimization techniques for advanced Data & Analytics
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Data & Analytics?
+  - What evidence exists that industry benchmarks and comparative analysis for Data
+    & Analytics improves outcomes?
+  - What is the current state of automation opportunities within Data & Analytics
+    workflows?
+  - What evidence exists that automation opportunities within Data & Analytics workflows
+    improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Data & Analytics?
+  - What evidence exists that advanced tooling and infrastructure for Data & Analytics
+    improves outcomes?
+  - What do industry leaders consider best practice for Data & Analytics?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Data & Analytics'
+  - 'official_docs: collect framework documentation and quickstart guides for Data
+    & Analytics'
+  - 'case_studies: search for published case studies of Data & Analytics adoption'
+  - 'academic: find measurement and evaluation papers for Data & Analytics'
+  - 'practitioner: locate metrics dashboards and reporting templates for Data & Analytics'
+  - 'benchmarks: collect industry benchmark data for Data & Analytics'
+  - 'academic: search for optimization and performance research on Data & Analytics'
+  - 'benchmarks: gather competitive benchmarking data for Data & Analytics'
+  - 'practitioner: find advanced operational playbooks for Data & Analytics'
+  - 'tooling: evaluate automation and tooling ecosystem for Data & Analytics'
+  acceptance_criteria:
+  - Minimum 8 distinct sources per research question
+  - Coverage of all maturity bands from 1.2 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 5
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-e5a110ffe0e6
+  name: 'Research: Platform Infrastructure (1.3 -> 4.0)'
+  objective: Close the maturity gap for Platform Infrastructure from 1.3 to 4.0 by
+    acquiring targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - platform-infrastructure
+  knowledge_gaps:
+  - documented processes and playbooks for Platform Infrastructure
+  - real-world examples and case studies for Platform Infrastructure
+  - common pitfalls and anti-patterns in early Platform Infrastructure adoption
+  - starter toolkits and templates for Platform Infrastructure
+  - metrics and KPIs for measuring Platform Infrastructure effectiveness
+  - measurement frameworks and dashboards for Platform Infrastructure
+  - scaling strategies for Platform Infrastructure across teams
+  - integration patterns connecting Platform Infrastructure to adjacent capabilities
+  - optimization techniques for advanced Platform Infrastructure operations
+  - industry benchmarks and comparative analysis for Platform Infrastructure
+  - automation opportunities within Platform Infrastructure workflows
+  - advanced tooling and infrastructure for Platform Infrastructure
+  research_questions:
+  - What is the current state of documented processes and playbooks for Platform Infrastructure?
+  - What evidence exists that documented processes and playbooks for Platform Infrastructure
+    improves outcomes?
+  - What is the current state of real-world examples and case studies for Platform
+    Infrastructure?
+  - What evidence exists that real-world examples and case studies for Platform Infrastructure
+    improves outcomes?
+  - What is the current state of common pitfalls and anti-patterns in early Platform
+    Infrastructure adoption?
+  - What evidence exists that common pitfalls and anti-patterns in early Platform
+    Infrastructure adoption improves outcomes?
+  - What is the current state of starter toolkits and templates for Platform Infrastructure?
+  - What evidence exists that starter toolkits and templates for Platform Infrastructure
+    improves outcomes?
+  - What is the current state of metrics and KPIs for measuring Platform Infrastructure
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Platform Infrastructure
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Platform
+    Infrastructure?
+  - What evidence exists that measurement frameworks and dashboards for Platform Infrastructure
+    improves outcomes?
+  - What is the current state of scaling strategies for Platform Infrastructure across
+    teams?
+  - What evidence exists that scaling strategies for Platform Infrastructure across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Platform Infrastructure
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Platform Infrastructure
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Platform Infrastructure
+    operations?
+  - What evidence exists that optimization techniques for advanced Platform Infrastructure
+    operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Platform Infrastructure?
+  - What evidence exists that industry benchmarks and comparative analysis for Platform
+    Infrastructure improves outcomes?
+  - What is the current state of automation opportunities within Platform Infrastructure
+    workflows?
+  - What evidence exists that automation opportunities within Platform Infrastructure
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Platform
+    Infrastructure?
+  - What evidence exists that advanced tooling and infrastructure for Platform Infrastructure
+    improves outcomes?
+  - What do industry leaders consider best practice for Platform Infrastructure?
+  search_strategies:
+  - 'practitioner: find blog posts, conference talks, and tutorials on Platform Infrastructure'
+  - 'official_docs: collect framework documentation and quickstart guides for Platform
+    Infrastructure'
+  - 'case_studies: search for published case studies of Platform Infrastructure adoption'
+  - 'academic: find measurement and evaluation papers for Platform Infrastructure'
+  - 'practitioner: locate metrics dashboards and reporting templates for Platform
+    Infrastructure'
+  - 'benchmarks: collect industry benchmark data for Platform Infrastructure'
+  - 'academic: search for optimization and performance research on Platform Infrastructure'
+  - 'benchmarks: gather competitive benchmarking data for Platform Infrastructure'
+  - 'practitioner: find advanced operational playbooks for Platform Infrastructure'
+  - 'tooling: evaluate automation and tooling ecosystem for Platform Infrastructure'
+  acceptance_criteria:
+  - Minimum 8 distinct sources per research question
+  - Coverage of all maturity bands from 1.3 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 5
+  priority: high
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-2fe5925e8f05
+  name: 'Research: Intelligence & Research (2.8 -> 4.5)'
+  objective: Close the maturity gap for Intelligence & Research from 2.8 to 4.5 by
+    acquiring targeted knowledge across 12 identified knowledge needs.
+  target_capabilities:
+  - intelligence-and-research
+  knowledge_gaps:
+  - metrics and KPIs for measuring Intelligence & Research effectiveness
+  - measurement frameworks and dashboards for Intelligence & Research
+  - scaling strategies for Intelligence & Research across teams
+  - integration patterns connecting Intelligence & Research to adjacent capabilities
+  - optimization techniques for advanced Intelligence & Research operations
+  - industry benchmarks and comparative analysis for Intelligence & Research
+  - automation opportunities within Intelligence & Research workflows
+  - advanced tooling and infrastructure for Intelligence & Research
+  - industry-leading practices and innovation research in Intelligence & Research
+  - emerging trends and frontier approaches for Intelligence & Research
+  - cross-industry transfer patterns applicable to Intelligence & Research
+  - thought leadership and original contribution opportunities in Intelligence & Research
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring Intelligence & Research
+    effectiveness?
+  - What evidence exists that metrics and KPIs for measuring Intelligence & Research
+    effectiveness improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for Intelligence
+    & Research?
+  - What evidence exists that measurement frameworks and dashboards for Intelligence
+    & Research improves outcomes?
+  - What is the current state of scaling strategies for Intelligence & Research across
+    teams?
+  - What evidence exists that scaling strategies for Intelligence & Research across
+    teams improves outcomes?
+  - What is the current state of integration patterns connecting Intelligence & Research
+    to adjacent capabilities?
+  - What evidence exists that integration patterns connecting Intelligence & Research
+    to adjacent capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced Intelligence
+    & Research operations?
+  - What evidence exists that optimization techniques for advanced Intelligence &
+    Research operations improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    Intelligence & Research?
+  - What evidence exists that industry benchmarks and comparative analysis for Intelligence
+    & Research improves outcomes?
+  - What is the current state of automation opportunities within Intelligence & Research
+    workflows?
+  - What evidence exists that automation opportunities within Intelligence & Research
+    workflows improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for Intelligence
+    & Research?
+  - What evidence exists that advanced tooling and infrastructure for Intelligence
+    & Research improves outcomes?
+  - What is the current state of industry-leading practices and innovation research
+    in Intelligence & Research?
+  - What evidence exists that industry-leading practices and innovation research in
+    Intelligence & Research improves outcomes?
+  - What is the current state of emerging trends and frontier approaches for Intelligence
+    & Research?
+  - What evidence exists that emerging trends and frontier approaches for Intelligence
+    & Research improves outcomes?
+  - What is the current state of cross-industry transfer patterns applicable to Intelligence
+    & Research?
+  - What evidence exists that cross-industry transfer patterns applicable to Intelligence
+    & Research improves outcomes?
+  - What is the current state of thought leadership and original contribution opportunities
+    in Intelligence & Research?
+  - What evidence exists that thought leadership and original contribution opportunities
+    in Intelligence & Research improves outcomes?
+  - What do industry leaders consider best practice for Intelligence & Research?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for Intelligence & Research'
+  - 'practitioner: locate metrics dashboards and reporting templates for Intelligence
+    & Research'
+  - 'benchmarks: collect industry benchmark data for Intelligence & Research'
+  - 'academic: search for optimization and performance research on Intelligence &
+    Research'
+  - 'benchmarks: gather competitive benchmarking data for Intelligence & Research'
+  - 'practitioner: find advanced operational playbooks for Intelligence & Research'
+  - 'tooling: evaluate automation and tooling ecosystem for Intelligence & Research'
+  - 'academic: search for frontier research and innovation in Intelligence & Research'
+  - 'practitioner: identify industry leaders and their published approaches for Intelligence
+    & Research'
+  - 'conferences: review recent conference proceedings for Intelligence & Research
+    innovations'
+  - 'patents: scan recent patent filings related to Intelligence & Research'
+  acceptance_criteria:
+  - Minimum 5 distinct sources per research question
+  - Coverage of all maturity bands from 2.8 to 4.5
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 3
+  priority: medium
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null
+- id: rp-af308ada4d4a
+  name: 'Research: UX & Design (2.2 -> 4.0)'
+  objective: Close the maturity gap for UX & Design from 2.2 to 4.0 by acquiring targeted
+    knowledge across 8 identified knowledge needs.
+  target_capabilities:
+  - ux-and-design
+  knowledge_gaps:
+  - metrics and KPIs for measuring UX & Design effectiveness
+  - measurement frameworks and dashboards for UX & Design
+  - scaling strategies for UX & Design across teams
+  - integration patterns connecting UX & Design to adjacent capabilities
+  - optimization techniques for advanced UX & Design operations
+  - industry benchmarks and comparative analysis for UX & Design
+  - automation opportunities within UX & Design workflows
+  - advanced tooling and infrastructure for UX & Design
+  research_questions:
+  - What is the current state of metrics and KPIs for measuring UX & Design effectiveness?
+  - What evidence exists that metrics and KPIs for measuring UX & Design effectiveness
+    improves outcomes?
+  - What is the current state of measurement frameworks and dashboards for UX & Design?
+  - What evidence exists that measurement frameworks and dashboards for UX & Design
+    improves outcomes?
+  - What is the current state of scaling strategies for UX & Design across teams?
+  - What evidence exists that scaling strategies for UX & Design across teams improves
+    outcomes?
+  - What is the current state of integration patterns connecting UX & Design to adjacent
+    capabilities?
+  - What evidence exists that integration patterns connecting UX & Design to adjacent
+    capabilities improves outcomes?
+  - What is the current state of optimization techniques for advanced UX & Design
+    operations?
+  - What evidence exists that optimization techniques for advanced UX & Design operations
+    improves outcomes?
+  - What is the current state of industry benchmarks and comparative analysis for
+    UX & Design?
+  - What evidence exists that industry benchmarks and comparative analysis for UX
+    & Design improves outcomes?
+  - What is the current state of automation opportunities within UX & Design workflows?
+  - What evidence exists that automation opportunities within UX & Design workflows
+    improves outcomes?
+  - What is the current state of advanced tooling and infrastructure for UX & Design?
+  - What evidence exists that advanced tooling and infrastructure for UX & Design
+    improves outcomes?
+  - What do industry leaders consider best practice for UX & Design?
+  search_strategies:
+  - 'academic: find measurement and evaluation papers for UX & Design'
+  - 'practitioner: locate metrics dashboards and reporting templates for UX & Design'
+  - 'benchmarks: collect industry benchmark data for UX & Design'
+  - 'academic: search for optimization and performance research on UX & Design'
+  - 'benchmarks: gather competitive benchmarking data for UX & Design'
+  - 'practitioner: find advanced operational playbooks for UX & Design'
+  - 'tooling: evaluate automation and tooling ecosystem for UX & Design'
+  acceptance_criteria:
+  - Minimum 5 distinct sources per research question
+  - Coverage of all maturity bands from 2.2 to 4.0
+  - At least one academic/official source per band
+  - At least one practitioner source per band
+  - Findings validated against at least two independent sources
+  - At least one benchmark dataset or comparative study
+  estimated_duration_weeks: 3
+  priority: medium
+  status: proposed
+  created_at: '2026-03-17T01:41:11Z'
+  completed_at: null
+  findings_summary: null

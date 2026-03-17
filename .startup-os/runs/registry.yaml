@@ -8,3 +8,30 @@ runs:
     notes:
       - Preserve existing Susan backend.
       - Add root Jake front door and workspace contract.
+  - id: customer-user-studio-seed-pack-20260312
+    status: completed
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    decision_id: operationalize-customer-user-studio-execution-surface
+    runtime: jake-cli
+    notes:
+      - Seeded starter persona, scenario, and session evidence artifacts.
+      - Generated ranked opportunities report for roadmap intake.
+  - id: customer-user-studio-backend-sync-20260312
+    status: completed
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    decision_id: connect-customer-user-studio-to-susan-intelligence-os
+    runtime: jake-cli
+    notes:
+      - Synced customer-user-studio artifacts into susan backend data/startup_os path.
+      - Wrote sync-index.yaml for Susan runtime visibility and traceability.
+  - id: customer-user-studio-publish-20260312
+    status: completed
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    decision_id: publish-customer-user-studio-to-repo-github-local-drive
+    runtime: jake-cli
+    notes:
+      - Published report and backend sync index via customer-studio publish command.
+      - Mirrored customer-user-studio artifacts to /workspace/local-drive-mirror/customer-user-studio.

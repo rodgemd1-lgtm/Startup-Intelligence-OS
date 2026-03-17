@@ -3,6 +3,7 @@ import { useAppState } from "@/components/AppShell";
 import { MetricCard } from "@/components/MetricCard";
 import { SessionBanner } from "@/components/SessionBanner";
 import { MaturityBar } from "@/components/MaturityBar";
+import { AskRouterPanel } from "@/components/AskRouterPanel";
 import { useSession } from "@/hooks/useSession";
 import { useBarAnimation } from "@/hooks/useBarAnimation";
 import { maturityLabel, delay } from "@/lib/utils";
@@ -73,6 +74,12 @@ export default function HomePage() {
   const totalItems = capabilities.reduce((s, c) => s + c.total_items, 0);
   const doneItems = capabilities.reduce((s, c) => s + c.done_items, 0);
   const aggProgress = totalItems > 0 ? Math.round((doneItems / totalItems) * 100) : 0;
+  const latestPacket = state.actionPackets[0] ?? null;
+  const nextMoves =
+    [
+      ...state.actionPackets.slice(0, 2).map((packet) => packet.request_text),
+      ...state.signals.slice(0, 2).map((signal) => signal.next_action || signal.title),
+    ].slice(0, 3);
 
   useBarAnimation();
 
@@ -99,12 +106,17 @@ export default function HomePage() {
           delay={120}
         />
         <MetricCard
-          label="Agents"
-          value={state.agents.length}
+          label="Departments live"
+          value={state.departments.length || 6}
           color="warning"
           delay={180}
         />
       </div>
+
+      <AskRouterPanel
+        departments={state.departments}
+        latestActionPacket={latestPacket}
+      />
 
       {/* Session context + streak */}
       <div
@@ -156,12 +168,16 @@ export default function HomePage() {
           <br />
           <strong style={{ color: "var(--text)" }}>Best next moves:</strong>
           <br />
-          1. Review the 5-year strategic vision (Innovation Studio)
-          <br />
-          2. Address Wave 1 gaps &mdash; platform infrastructure, closed-loop
-          learning, agent collaboration
-          <br />
-          3. Wire the decision engine to Claude for real AI-powered debate
+          {(nextMoves.length > 0 ? nextMoves : [
+            "Route the first Wave 1 ask through the operator console",
+            "Address Wave 1 department and capability drift",
+            "Strengthen evidence coverage for live decisions",
+          ]).map((move, index) => (
+            <span key={move}>
+              {index + 1}. {move}
+              <br />
+            </span>
+          ))}
         </div>
       </div>
 

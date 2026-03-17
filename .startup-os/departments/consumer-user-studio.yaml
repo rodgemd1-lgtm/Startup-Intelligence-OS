@@ -1,0 +1,77 @@
+id: consumer-user-studio
+name: Consumer User Studio
+mission: Turn user uncertainty into evidence, opportunity ranking, and experiment design for startup and product decisions.
+owner_agent: susan
+supporting_agents:
+  - research-director
+  - research-ops
+  - pulse
+primary_mode: foundry
+decision_requirement: optional
+linked_capabilities:
+  - customer-user-studio
+  - intelligence-research
+  - data-analytics
+canonical_resource_paths:
+  - .startup-os/artifacts/customer-user-studio
+  - .startup-os/artifacts/consumer-user-studio
+  - susan-team-architect/backend/data/domains
+canonical_artifact_types:
+  - research-plan
+  - evidence-synthesis
+  - opportunity-ranking
+current_maturity: 5.0
+target_maturity: 8.6
+routing_keywords:
+  - user
+  - customer
+  - consumer
+  - persona
+  - interview
+  - research
+  - discovery
+intake_schema:
+  - name: audience
+    label: Audience
+    required: true
+    help_text: The user, customer, or segment to investigate.
+  - name: question
+    label: Key question
+    required: true
+    help_text: The uncertainty that needs evidence.
+  - name: decision_link
+    label: Linked decision
+    required: false
+    help_text: The decision or roadmap thread this evidence should inform.
+diagnosis_protocol:
+  - Define target user, market, or workflow segment.
+  - Decide whether the ask is research, evidence synthesis, or experiment design.
+  - Pull existing studio artifacts before creating new research objects.
+  - Rank opportunities and evidence gaps by impact and confidence.
+default_outputs:
+  - research brief
+  - evidence synthesis
+  - ranked opportunities
+scorecard:
+  - evidence quality
+  - user signal strength
+  - opportunity clarity
+  - experiment readiness
+memory_writeback_path: .startup-os/artifacts/customer-user-studio
+required_evidence:
+  - user problem statement
+  - existing evidence or market context
+required_artifacts:
+  - evidence synthesis
+  - experiment brief
+handoff_rules:
+  - to_department: founder-decision-room
+    when: Research changes a strategic bet or priority call.
+    deliverable: decision input packet
+  - to_department: product-experience-studio
+    when: User evidence needs conversion into roadmap or workflow changes.
+    deliverable: opportunity handoff
+source_tracks:
+  - customer intelligence
+  - research operations
+  - roadmap evidence

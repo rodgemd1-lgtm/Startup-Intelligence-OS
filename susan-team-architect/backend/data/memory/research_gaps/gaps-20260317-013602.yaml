@@ -1,0 +1,1088 @@
+generated_at: '2026-03-17T01:36:02.410117+00:00'
+total_gaps: 77
+gaps:
+- id: gap-33f5fcafa6ce
+  domain: agent-orchestration
+  description: 'Capability ''Agent Orchestration'' has coverage score 0.0. Declared
+    gaps: semantic routing, agent memory, multi-agent reasoning.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.9
+  suggested_queries:
+  - agent orchestration best practices official documentation
+  - agent orchestration framework methodology guide
+  - agent orchestration startup implementation playbook
+  - Capability 'Agent Orchestration' coverage score research
+  discovered_at: '2026-03-17T01:36:00.738198+00:00'
+  status: open
+- id: gap-a319e82cee02
+  domain: agent-readiness-index
+  description: Capability 'agent-readiness-index' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.7
+  suggested_queries:
+  - agent readiness index best practices official documentation
+  - agent readiness index framework methodology guide
+  - agent readiness index startup implementation playbook
+  - Capability 'agent-readiness-index' coverage score matching research
+  discovered_at: '2026-03-17T01:36:00.767686+00:00'
+  status: open
+- id: gap-bd91ac819683
+  domain: agentic-operator-console
+  description: 'Capability ''Agentic Operator Console'' has coverage score 0.0. Declared
+    gaps: state graph, event-driven routing, next-best-action engine, cross-run memory.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.86
+  suggested_queries:
+  - agentic operator console best practices official documentation
+  - agentic operator console framework methodology guide
+  - agentic operator console startup implementation playbook
+  - Capability 'Agentic Operator Console' coverage research
+  discovered_at: '2026-03-17T01:36:00.788945+00:00'
+  status: open
+- id: gap-4a8dbdf521b8
+  domain: all-department-maturity-gap-closure
+  description: 'Capability ''All-Department Maturity Gap Closure'' has coverage score
+    0.0. Declared gaps: low-maturity-department-evidence, training-evaluation-corpus,
+    official-doc-refresh, cross-department-scorecards, role-packet-and-cadence-templates.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 1.0
+  suggested_queries:
+  - all department maturity gap closure best practices official documentation
+  - all department maturity gap closure framework methodology guide
+  - all department maturity gap closure startup implementation playbook
+  - Capability 'All-Department Maturity Closure' coverage research
+  discovered_at: '2026-03-17T01:36:00.808888+00:00'
+  status: open
+- id: gap-6fc64a3f74e8
+  domain: capability-jake-operator-core
+  description: Capability 'Jake Operator Core' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.7
+  suggested_queries:
+  - capability jake operator core best practices official documentation
+  - capability jake operator core framework methodology guide
+  - capability jake operator core startup implementation playbook
+  - Capability 'Jake Operator Core' coverage research
+  discovered_at: '2026-03-17T01:36:01.054901+00:00'
+  status: open
+- id: gap-d56412e91d47
+  domain: capability-management
+  description: 'Capability ''Capability Management'' has coverage score 0.0. Declared
+    gaps: automated discovery, outcome-based scoring.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - capability management best practices official documentation
+  - capability management framework methodology guide
+  - capability management startup implementation playbook
+  - Capability 'Capability Management' coverage score research
+  discovered_at: '2026-03-17T01:36:00.828776+00:00'
+  status: open
+- id: gap-815f26c2ac1d
+  domain: capability-susan-foundry-core
+  description: Capability 'Susan Foundry Core' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.7
+  suggested_queries:
+  - capability susan foundry core best practices official documentation
+  - capability susan foundry core framework methodology guide
+  - capability susan foundry core startup implementation playbook
+  - Capability 'Susan Foundry Core' coverage research
+  discovered_at: '2026-03-17T01:36:01.238596+00:00'
+  status: open
+- id: gap-e2680d50b999
+  domain: content-marketing
+  description: 'Capability ''Content & Marketing'' has coverage score 0.0. Declared
+    gaps: publishing pipeline, asset cascade, proof spines.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - content marketing best practices official documentation
+  - content marketing framework methodology guide
+  - content marketing startup implementation playbook
+  - Capability 'Content Marketing' coverage score research
+  discovered_at: '2026-03-17T01:36:00.849682+00:00'
+  status: open
+- id: gap-9b049c748096
+  domain: data-analytics
+  description: 'Capability ''Data & Analytics'' has coverage score 0.0. Declared gaps:
+    outcome tracking, feedback loops, A/B testing.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - data analytics best practices official documentation
+  - data analytics framework methodology guide
+  - data analytics startup implementation playbook
+  - Capability 'Data Analytics' coverage score research
+  discovered_at: '2026-03-17T01:36:00.887470+00:00'
+  status: open
+- id: gap-4b358a509473
+  domain: data-decision-science-studio
+  description: 'Department ''Data & Decision Science Studio'' has coverage score 0.0.
+    Required evidence: named metrics or decision targets, source inventory.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - data decision science studio best practices official documentation
+  - data decision science studio framework methodology guide
+  - data decision science studio startup implementation playbook
+  - Department 'Data Decision Science Studio' research
+  discovered_at: '2026-03-17T01:36:01.327784+00:00'
+  status: open
+- id: gap-0c1eebe35152
+  domain: decision-kernel
+  description: Capability 'Decision Kernel Phase A' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.7
+  suggested_queries:
+  - decision kernel best practices official documentation
+  - decision kernel framework methodology guide
+  - decision kernel startup implementation playbook
+  - Capability 'Decision Kernel Phase coverage research
+  discovered_at: '2026-03-17T01:36:00.905786+00:00'
+  status: open
+- id: gap-3ed25f3f55de
+  domain: department-studios-of-excellence
+  description: 'Capability ''Department Studios of Excellence'' has coverage score
+    0.0. Declared gaps: department wrappers, universal process packs, canonical resource
+    libraries, duplicate-surface reduction.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8400000000000001
+  suggested_queries:
+  - department studios of excellence best practices official documentation
+  - department studios of excellence framework methodology guide
+  - department studios of excellence startup implementation playbook
+  - Capability 'Department Studios Excellence' coverage research
+  discovered_at: '2026-03-17T01:36:00.926909+00:00'
+  status: open
+- id: gap-82b5d851ff49
+  domain: department-ten-state-verification
+  description: 'Capability ''Department Ten-State Verification'' has coverage score
+    0.0. Declared gaps: machine-readable-verification-contract, all-department-source-stack-completeness,
+    operator-visible-maturity-dashboard, proof-path-linkage-for-each-department, recurring-score-refresh.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 1.0
+  suggested_queries:
+  - department ten state verification best practices official documentation
+  - department ten state verification framework methodology guide
+  - department ten state verification startup implementation playbook
+  - Capability 'Department Ten-State Verification' coverage research
+  discovered_at: '2026-03-17T01:36:00.946340+00:00'
+  status: open
+- id: gap-dc74d9f86830
+  domain: film-image-studio
+  description: Capability 'Film & Image Studio' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 1.0
+  suggested_queries:
+  - film image studio best practices official documentation
+  - film image studio framework methodology guide
+  - film image studio startup implementation playbook
+  - Capability 'Film Image Studio' coverage research
+  discovered_at: '2026-03-17T01:36:00.968442+00:00'
+  status: open
+- id: gap-9210cb98ff13
+  domain: finance-operating-cadence-studio
+  description: 'Department ''Finance & Operating Cadence Studio'' has coverage score
+    0.0. Required evidence: KPI or budget context, review horizon.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - finance operating cadence studio best practices official documentation
+  - finance operating cadence studio framework methodology guide
+  - finance operating cadence studio startup implementation playbook
+  - Department 'Finance Operating Cadence Studio' research
+  discovered_at: '2026-03-17T01:36:01.373081+00:00'
+  status: open
+- id: gap-6e22c451761d
+  domain: gen-chat-os-system
+  description: Capability 'Gen Chat OS' has coverage score 0.0. No matching RAG data
+    or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.7
+  suggested_queries:
+  - gen chat os system best practices official documentation
+  - gen chat os system framework methodology guide
+  - gen chat os system startup implementation playbook
+  - Capability coverage score matching scrape research
+  discovered_at: '2026-03-17T01:36:00.993072+00:00'
+  status: open
+- id: gap-258a960405c8
+  domain: innovation-strategy
+  description: 'Capability ''Innovation & Strategy'' has coverage score 0.0. Declared
+    gaps: future-back planning, scenario branching, assumption register.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - innovation strategy best practices official documentation
+  - innovation strategy framework methodology guide
+  - innovation strategy startup implementation playbook
+  - Capability 'Innovation Strategy' coverage score research
+  discovered_at: '2026-03-17T01:36:01.016525+00:00'
+  status: open
+- id: gap-6c93669f50bf
+  domain: intelligence-research
+  description: 'Capability ''Intelligence & Research'' has coverage score 0.0. Declared
+    gaps: triangulation, contradiction detection, coverage mapping.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.9
+  suggested_queries:
+  - intelligence research best practices official documentation
+  - intelligence research framework methodology guide
+  - intelligence research startup implementation playbook
+  - Capability 'Intelligence Research' coverage score research
+  discovered_at: '2026-03-17T01:36:01.035590+00:00'
+  status: open
+- id: gap-18216f26f3d7
+  domain: job-memory-intelligence
+  description: 'Capability ''Job Memory Intelligence'' has coverage score 0.0. Declared
+    gaps: full-mailbox-coverage, authored-writing-playbooks, deliverable-memory-beyond-email,
+    linked-corpus-bridging, namespace-governance.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8800000000000001
+  suggested_queries:
+  - job memory intelligence best practices official documentation
+  - job memory intelligence framework methodology guide
+  - job memory intelligence startup implementation playbook
+  - Capability Memory Intelligence' coverage score research
+  discovered_at: '2026-03-17T01:36:01.074681+00:00'
+  status: open
+- id: gap-de6e2705ac89
+  domain: operator-experience
+  description: 'Capability ''Operator Experience'' has coverage score 0.0. Declared
+    gaps: real-time dashboard, proactive suggestions.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - operator experience best practices official documentation
+  - operator experience framework methodology guide
+  - operator experience startup implementation playbook
+  - Capability 'Operator Experience' coverage score research
+  discovered_at: '2026-03-17T01:36:01.134169+00:00'
+  status: open
+- id: gap-d973b3997bb6
+  domain: platform-infrastructure
+  description: 'Capability ''Platform Infrastructure'' has coverage score 0.0. Declared
+    gaps: auth, CI/CD, monitoring, WebSockets.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - platform infrastructure best practices official documentation
+  - platform infrastructure framework methodology guide
+  - platform infrastructure startup implementation playbook
+  - Capability 'Platform Infrastructure' coverage score research
+  discovered_at: '2026-03-17T01:36:01.155477+00:00'
+  status: open
+- id: gap-0a3676f613cb
+  domain: portfolio-management
+  description: 'Capability ''Portfolio Management'' has coverage score 0.0. Declared
+    gaps: multi-company orchestration, cross-pollination.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - portfolio management best practices official documentation
+  - portfolio management framework methodology guide
+  - portfolio management startup implementation playbook
+  - Capability 'Portfolio Management' coverage score research
+  discovered_at: '2026-03-17T01:36:01.175728+00:00'
+  status: open
+- id: gap-35afd4e376be
+  domain: revenue-growth-studio
+  description: 'Department ''Revenue & Growth Studio'' has coverage score 0.0. Required
+    evidence: offer definition, buyer or channel context.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - revenue growth studio best practices official documentation
+  - revenue growth studio framework methodology guide
+  - revenue growth studio startup implementation playbook
+  - Department 'Revenue Growth Studio' coverage research
+  discovered_at: '2026-03-17T01:36:01.495874+00:00'
+  status: open
+- id: gap-27fd4af05333
+  domain: simulated-maturity-harness
+  description: 'Capability ''Simulated Maturity Harness'' has coverage score 0.0.
+    Declared gaps: dashboard-surface-for-simulated-scores, recurring-harness-scheduling,
+    per-department-live-proof-thresholds, operator-console-simulated-vs-operational-view.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 1.0
+  suggested_queries:
+  - simulated maturity harness best practices official documentation
+  - simulated maturity harness framework methodology guide
+  - simulated maturity harness startup implementation playbook
+  - Capability 'Simulated Maturity Harness' coverage research
+  discovered_at: '2026-03-17T01:36:01.197541+00:00'
+  status: open
+- id: gap-972ab9235241
+  domain: studio-operations
+  description: 'Capability ''Studio Operations'' has coverage score 0.0. Declared
+    gaps: studio writeback, case libraries, experiment tracking.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - studio operations best practices official documentation
+  - studio operations framework methodology guide
+  - studio operations startup implementation playbook
+  - Capability 'Studio Operations' coverage score research
+  discovered_at: '2026-03-17T01:36:01.218755+00:00'
+  status: open
+- id: gap-a3c1445f67bd
+  domain: talent-org-design-studio
+  description: 'Department ''Talent & Org Design Studio'' has coverage score 0.0.
+    Required evidence: capability or team gap, role or org context.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - talent org design studio best practices official documentation
+  - talent org design studio framework methodology guide
+  - talent org design studio startup implementation playbook
+  - Department 'Talent Design Studio' coverage research
+  discovered_at: '2026-03-17T01:36:01.515487+00:00'
+  status: open
+- id: gap-ad1d08db0027
+  domain: trust-governance-studio
+  description: 'Department ''Trust & Governance Studio'' has coverage score 0.0. Required
+    evidence: target surface description, release or usage context.'
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - trust governance studio best practices official documentation
+  - trust governance studio framework methodology guide
+  - trust governance studio startup implementation playbook
+  - Department 'Trust Governance Studio' coverage research
+  discovered_at: '2026-03-17T01:36:01.535768+00:00'
+  status: open
+- id: gap-5094c843c186
+  domain: workspace-contract
+  description: Capability 'Workspace Contract' has coverage score 0.0. No matching
+    RAG data or scrape manifests found.
+  severity: critical
+  current_coverage: 0.0
+  target_coverage: 0.8
+  suggested_queries:
+  - workspace contract best practices official documentation
+  - workspace contract framework methodology guide
+  - workspace contract startup implementation playbook
+  - Capability 'Workspace Contract' coverage score research
+  discovered_at: '2026-03-17T01:36:01.283631+00:00'
+  status: open
+- id: gap-60ddf8b67f86
+  domain: ai-audio-tools
+  description: Scrape manifest 'AI Audio Generation Tools' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ai audio tools best practices official documentation
+  - ai audio tools framework methodology guide
+  - ai audio tools startup implementation playbook
+  - Scrape manifest Audio Generation Tools' research
+  discovered_at: '2026-03-17T01:36:01.556655+00:00'
+  status: open
+- id: gap-ae5b31c7b275
+  domain: ai-fitness-tech
+  description: Scrape manifest 'AI in Fitness Technology' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ai fitness tech best practices official documentation
+  - ai fitness tech framework methodology guide
+  - ai fitness tech startup implementation playbook
+  - Scrape manifest Fitness Technology' exists research
+  discovered_at: '2026-03-17T01:36:01.576190+00:00'
+  status: open
+- id: gap-be670f5b42c6
+  domain: ai-image-tools
+  description: Scrape manifest 'AI Image Generation Tools' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ai image tools best practices official documentation
+  - ai image tools framework methodology guide
+  - ai image tools startup implementation playbook
+  - Scrape manifest Image Generation Tools' research
+  discovered_at: '2026-03-17T01:36:01.595578+00:00'
+  status: open
+- id: gap-518b780eb907
+  domain: ai-video-tools
+  description: Scrape manifest 'AI Video Generation Tools' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ai video tools best practices official documentation
+  - ai video tools framework methodology guide
+  - ai video tools startup implementation playbook
+  - Scrape manifest Video Generation Tools' research
+  discovered_at: '2026-03-17T01:36:01.616654+00:00'
+  status: open
+- id: gap-6091fa30ab97
+  domain: behavioral-economics
+  description: Scrape manifest 'Behavioral Economics and Retention' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - behavioral economics best practices official documentation
+  - behavioral economics framework methodology guide
+  - behavioral economics startup implementation playbook
+  - Scrape manifest 'Behavioral Economics Retention' research
+  discovered_at: '2026-03-17T01:36:01.635401+00:00'
+  status: open
+- id: gap-184d330e90e5
+  domain: cinematography
+  description: Scrape manifest 'Cinematography & Visual Language' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - cinematography best practices official documentation
+  - cinematography framework methodology guide
+  - cinematography startup implementation playbook
+  - Scrape manifest 'Cinematography Visual Language' research
+  discovered_at: '2026-03-17T01:36:01.656085+00:00'
+  status: open
+- id: gap-66f03cfb5558
+  domain: competitive-intel
+  description: Scrape manifest 'Competitive Intelligence' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - competitive intel best practices official documentation
+  - competitive intel framework methodology guide
+  - competitive intel startup implementation playbook
+  - Scrape manifest 'Competitive Intelligence' exists research
+  discovered_at: '2026-03-17T01:36:01.674190+00:00'
+  status: open
+- id: gap-33bba1b822de
+  domain: consumer-user-studio
+  description: 'Department ''Consumer User Studio'' has coverage score 0.5. Required
+    evidence: user problem statement, existing evidence or market context.'
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - consumer user studio best practices official documentation
+  - consumer user studio framework methodology guide
+  - consumer user studio startup implementation playbook
+  - Department 'Consumer Studio' coverage score research
+  discovered_at: '2026-03-17T01:36:01.304895+00:00'
+  status: open
+- id: gap-fe142cf42069
+  domain: emotional-design
+  description: Scrape manifest 'Emotional Design, Motion Narrative & Feeling Data'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - emotional design best practices official documentation
+  - emotional design framework methodology guide
+  - emotional design startup implementation playbook
+  - Scrape manifest 'Emotional Design, Motion research
+  discovered_at: '2026-03-17T01:36:01.693719+00:00'
+  status: open
+- id: gap-7f73f36892e2
+  domain: engineering-agent-systems-studio
+  description: 'Department ''Engineering & Agent Systems Studio'' has coverage score
+    0.5. Required evidence: current system behavior, target behavior.'
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - engineering agent systems studio best practices official documentation
+  - engineering agent systems studio framework methodology guide
+  - engineering agent systems studio startup implementation playbook
+  - Department 'Engineering Agent Systems Studio' research
+  discovered_at: '2026-03-17T01:36:01.349870+00:00'
+  status: open
+- id: gap-c606d5044b3a
+  domain: enterprise-rental-customer-reviews-training
+  description: Scrape manifest 'Enterprise Rental Customer Reviews Training Corpus'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - enterprise rental customer reviews training best practices official documentation
+  - enterprise rental customer reviews training framework methodology guide
+  - enterprise rental customer reviews training startup implementation playbook
+  - Scrape manifest 'Enterprise Rental Customer research
+  discovered_at: '2026-03-17T01:36:01.711975+00:00'
+  status: open
+- id: gap-3756a3e8d250
+  domain: exercise-science
+  description: Scrape manifest 'Exercise Science Core' exists but data coverage is
+    0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - exercise science best practices official documentation
+  - exercise science framework methodology guide
+  - exercise science startup implementation playbook
+  - Scrape manifest 'Exercise Science Core' research
+  discovered_at: '2026-03-17T01:36:01.731815+00:00'
+  status: open
+- id: gap-fd4c68f54767
+  domain: film-legal
+  description: Scrape manifest 'Film & AI Legal Compliance' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - film legal best practices official documentation
+  - film legal framework methodology guide
+  - film legal startup implementation playbook
+  - Scrape manifest 'Film Legal Compliance' research
+  discovered_at: '2026-03-17T01:36:01.750536+00:00'
+  status: open
+- id: gap-d5f1697a9927
+  domain: film-production
+  description: Scrape manifest 'Film Production Core' exists but data coverage is
+    0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - film production best practices official documentation
+  - film production framework methodology guide
+  - film production startup implementation playbook
+  - Scrape manifest 'Film Production Core' research
+  discovered_at: '2026-03-17T01:36:01.770295+00:00'
+  status: open
+- id: gap-b6cb4e907753
+  domain: film-university
+  description: Scrape manifest 'Film University Curricula' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - film university best practices official documentation
+  - film university framework methodology guide
+  - film university startup implementation playbook
+  - Scrape manifest 'Film University Curricula' research
+  discovered_at: '2026-03-17T01:36:01.789872+00:00'
+  status: open
+- id: gap-a1a7aa141aae
+  domain: founder-decision-room
+  description: 'Department ''Founder Decision Room'' has coverage score 0.5. Required
+    evidence: decision context, current company state.'
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - founder decision room best practices official documentation
+  - founder decision room framework methodology guide
+  - founder decision room startup implementation playbook
+  - Department 'Founder Decision Room' coverage research
+  discovered_at: '2026-03-17T01:36:01.393831+00:00'
+  status: open
+- id: gap-784f1cb0d456
+  domain: instagram-production
+  description: Scrape manifest 'Instagram & Social Media Production' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - instagram production best practices official documentation
+  - instagram production framework methodology guide
+  - instagram production startup implementation playbook
+  - Scrape manifest 'Instagram Social Media research
+  discovered_at: '2026-03-17T01:36:01.817600+00:00'
+  status: open
+- id: gap-abbb378d17f0
+  domain: job-studio-training-ai-foundations
+  description: Scrape manifest 'Job Studio Training AI Foundations' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training ai foundations best practices official documentation
+  - job studio training ai foundations framework methodology guide
+  - job studio training ai foundations startup implementation playbook
+  - Scrape manifest Studio Training Foundations' research
+  discovered_at: '2026-03-17T01:36:01.837088+00:00'
+  status: open
+- id: gap-267371998dd5
+  domain: job-studio-training-behavioral-science
+  description: Scrape manifest 'Job Studio Training Behavioral Science' exists but
+    data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training behavioral science best practices official documentation
+  - job studio training behavioral science framework methodology guide
+  - job studio training behavioral science startup implementation playbook
+  - Scrape manifest Studio Training Behavioral research
+  discovered_at: '2026-03-17T01:36:01.859333+00:00'
+  status: open
+- id: gap-6f8318f74ca8
+  domain: job-studio-training-ellen-enablement
+  description: Scrape manifest 'Job Studio Training Ellen Enablement' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training ellen enablement best practices official documentation
+  - job studio training ellen enablement framework methodology guide
+  - job studio training ellen enablement startup implementation playbook
+  - Scrape manifest Studio Training Ellen research
+  discovered_at: '2026-03-17T01:36:01.877167+00:00'
+  status: open
+- id: gap-e527815d91c8
+  domain: job-studio-training-github-harvest
+  description: Scrape manifest 'Job Studio Training GitHub Harvest' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training github harvest best practices official documentation
+  - job studio training github harvest framework methodology guide
+  - job studio training github harvest startup implementation playbook
+  - Scrape manifest Studio Training GitHub research
+  discovered_at: '2026-03-17T01:36:01.897809+00:00'
+  status: open
+- id: gap-a8f2f43c37f3
+  domain: job-studio-training-learning-science-stronger
+  description: Scrape manifest 'Job Studio Training Learning Science Stronger' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training learning science stronger best practices official documentation
+  - job studio training learning science stronger framework methodology guide
+  - job studio training learning science stronger startup implementation playbook
+  - Scrape manifest Studio Training Learning research
+  discovered_at: '2026-03-17T01:36:01.916836+00:00'
+  status: open
+- id: gap-cda6c57c49d1
+  domain: job-studio-training-mcp-stack
+  description: Scrape manifest 'Job Studio Training MCP Stack' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio training mcp stack best practices official documentation
+  - job studio training mcp stack framework methodology guide
+  - job studio training mcp stack startup implementation playbook
+  - Scrape manifest Studio Training Stack' research
+  discovered_at: '2026-03-17T01:36:01.938352+00:00'
+  status: open
+- id: gap-7db5ae94b823
+  domain: marketing-narrative-studio
+  description: 'Department ''Marketing & Narrative Studio'' has coverage score 0.5.
+    Required evidence: offer definition, audience insight.'
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - marketing narrative studio best practices official documentation
+  - marketing narrative studio framework methodology guide
+  - marketing narrative studio startup implementation playbook
+  - Department 'Marketing Narrative Studio' coverage research
+  discovered_at: '2026-03-17T01:36:01.453699+00:00'
+  status: open
+- id: gap-8b1fe8105988
+  domain: photography
+  description: Scrape manifest 'Photography Craft & Workflow' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - photography best practices official documentation
+  - photography framework methodology guide
+  - photography startup implementation playbook
+  - Scrape manifest 'Photography Craft Workflow' research
+  discovered_at: '2026-03-17T01:36:01.979114+00:00'
+  status: open
+- id: gap-cf5a1dbcb9b4
+  domain: post-production
+  description: Scrape manifest 'Post-Production Pipeline' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - post production best practices official documentation
+  - post production framework methodology guide
+  - post production startup implementation playbook
+  - Scrape manifest 'Post-Production Pipeline' exists research
+  discovered_at: '2026-03-17T01:36:02.003119+00:00'
+  status: open
+- id: gap-54ed935b4c23
+  domain: product-experience-studio
+  description: 'Department ''Product & Experience Studio'' has coverage score 0.5.
+    Required evidence: problem framing, target workflow.'
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - product experience studio best practices official documentation
+  - product experience studio framework methodology guide
+  - product experience studio startup implementation playbook
+  - Department 'Product Experience Studio' coverage research
+  discovered_at: '2026-03-17T01:36:01.474969+00:00'
+  status: open
+- id: gap-45e356cd6c44
+  domain: screenwriting
+  description: Scrape manifest 'Screenwriting Craft' exists but data coverage is 0.5.
+    Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - screenwriting best practices official documentation
+  - screenwriting framework methodology guide
+  - screenwriting startup implementation playbook
+  - Scrape manifest 'Screenwriting Craft' exists research
+  discovered_at: '2026-03-17T01:36:02.022993+00:00'
+  status: open
+- id: gap-c81b9dde3764
+  domain: sleep-recovery
+  description: Scrape manifest 'Sleep and Recovery' exists but data coverage is 0.5.
+    Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - sleep recovery best practices official documentation
+  - sleep recovery framework methodology guide
+  - sleep recovery startup implementation playbook
+  - Scrape manifest 'Sleep Recovery' exists research
+  discovered_at: '2026-03-17T01:36:02.044028+00:00'
+  status: open
+- id: gap-5a4bac813599
+  domain: sports-psychology
+  description: Scrape manifest 'Sports Psychology and Motivation' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - sports psychology best practices official documentation
+  - sports psychology framework methodology guide
+  - sports psychology startup implementation playbook
+  - Scrape manifest 'Sports Psychology Motivation' research
+  discovered_at: '2026-03-17T01:36:02.066774+00:00'
+  status: open
+- id: gap-b848831fd8f8
+  domain: startup-os-consumer-user-studio-officials
+  description: Scrape manifest 'Startup OS Consumer User Studio Officials' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os consumer user studio officials best practices official documentation
+  - startup os consumer user studio officials framework methodology guide
+  - startup os consumer user studio officials startup implementation playbook
+  - Scrape manifest 'Startup Consumer Studio research
+  discovered_at: '2026-03-17T01:36:02.086540+00:00'
+  status: open
+- id: gap-500f528f0492
+  domain: startup-os-data-decision-science-officials
+  description: Scrape manifest 'Startup OS Data and Decision Science Officials' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os data decision science officials best practices official documentation
+  - startup os data decision science officials framework methodology guide
+  - startup os data decision science officials startup implementation playbook
+  - Scrape manifest 'Startup Decision Science research
+  discovered_at: '2026-03-17T01:36:02.106317+00:00'
+  status: open
+- id: gap-f005f32fadd5
+  domain: startup-os-engineering-agent-systems-studio-officials
+  description: Scrape manifest 'Startup OS Engineering and Agent Systems Studio Officials'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os engineering agent systems studio officials best practices official
+    documentation
+  - startup os engineering agent systems studio officials framework methodology guide
+  - startup os engineering agent systems studio officials startup implementation playbook
+  - Scrape manifest 'Startup Engineering Agent research
+  discovered_at: '2026-03-17T01:36:02.128718+00:00'
+  status: open
+- id: gap-39be56981037
+  domain: startup-os-eval-and-synthetic-review-foundations
+  description: Scrape manifest 'Startup OS Eval and Synthetic Review Foundations'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os eval and synthetic review foundations best practices official documentation
+  - startup os eval and synthetic review foundations framework methodology guide
+  - startup os eval and synthetic review foundations startup implementation playbook
+  - Scrape manifest 'Startup Synthetic Review research
+  discovered_at: '2026-03-17T01:36:02.160730+00:00'
+  status: open
+- id: gap-ee79012bb56a
+  domain: startup-os-finance-operating-cadence-officials
+  description: Scrape manifest 'Startup OS Finance and Operating Cadence Officials'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os finance operating cadence officials best practices official documentation
+  - startup os finance operating cadence officials framework methodology guide
+  - startup os finance operating cadence officials startup implementation playbook
+  - Scrape manifest 'Startup Finance Operating research
+  discovered_at: '2026-03-17T01:36:02.182993+00:00'
+  status: open
+- id: gap-72d175ebbbe4
+  domain: startup-os-founder-decision-room-foundations
+  description: Scrape manifest 'Startup OS Founder Decision Room Foundations' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os founder decision room foundations best practices official documentation
+  - startup os founder decision room foundations framework methodology guide
+  - startup os founder decision room foundations startup implementation playbook
+  - Scrape manifest 'Startup Founder Decision research
+  discovered_at: '2026-03-17T01:36:02.206082+00:00'
+  status: open
+- id: gap-71eb2ad84106
+  domain: startup-os-marketing-narrative-studio-officials
+  description: Scrape manifest 'Startup OS Marketing and Narrative Studio Officials'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os marketing narrative studio officials best practices official documentation
+  - startup os marketing narrative studio officials framework methodology guide
+  - startup os marketing narrative studio officials startup implementation playbook
+  - Scrape manifest 'Startup Marketing Narrative research
+  discovered_at: '2026-03-17T01:36:02.233135+00:00'
+  status: open
+- id: gap-a1d91e28615c
+  domain: startup-os-product-experience-studio-officials
+  description: Scrape manifest 'Startup OS Product and Experience Studio Officials'
+    exists but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os product experience studio officials best practices official documentation
+  - startup os product experience studio officials framework methodology guide
+  - startup os product experience studio officials startup implementation playbook
+  - Scrape manifest 'Startup Product Experience research
+  discovered_at: '2026-03-17T01:36:02.256361+00:00'
+  status: open
+- id: gap-0f9b92b71996
+  domain: startup-os-revenue-growth-officials
+  description: Scrape manifest 'Startup OS Revenue and Growth Officials' exists but
+    data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os revenue growth officials best practices official documentation
+  - startup os revenue growth officials framework methodology guide
+  - startup os revenue growth officials startup implementation playbook
+  - Scrape manifest 'Startup Revenue Growth research
+  discovered_at: '2026-03-17T01:36:02.279060+00:00'
+  status: open
+- id: gap-8488e10606de
+  domain: startup-os-stronger-benchmark-case-library
+  description: Scrape manifest 'Startup OS Stronger Benchmark Case Library' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os stronger benchmark case library best practices official documentation
+  - startup os stronger benchmark case library framework methodology guide
+  - startup os stronger benchmark case library startup implementation playbook
+  - Scrape manifest 'Startup Stronger Benchmark research
+  discovered_at: '2026-03-17T01:36:02.303906+00:00'
+  status: open
+- id: gap-ea204fbcbc52
+  domain: startup-os-talent-org-design-officials
+  description: Scrape manifest 'Startup OS Talent and Org Design Officials' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os talent org design officials best practices official documentation
+  - startup os talent org design officials framework methodology guide
+  - startup os talent org design officials startup implementation playbook
+  - Scrape manifest 'Startup Talent Design research
+  discovered_at: '2026-03-17T01:36:02.325786+00:00'
+  status: open
+- id: gap-490c7bf60a0a
+  domain: startup-os-training-evaluation-officials
+  description: Scrape manifest 'Startup OS Training Evaluation Officials' exists but
+    data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os training evaluation officials best practices official documentation
+  - startup os training evaluation officials framework methodology guide
+  - startup os training evaluation officials startup implementation playbook
+  - Scrape manifest 'Startup Training Evaluation research
+  discovered_at: '2026-03-17T01:36:02.346197+00:00'
+  status: open
+- id: gap-687dc8d01b7c
+  domain: startup-os-trust-governance-officials
+  description: Scrape manifest 'Startup OS Trust and Governance Officials' exists
+    but data coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - startup os trust governance officials best practices official documentation
+  - startup os trust governance officials framework methodology guide
+  - startup os trust governance officials startup implementation playbook
+  - Scrape manifest 'Startup Trust Governance research
+  discovered_at: '2026-03-17T01:36:02.366832+00:00'
+  status: open
+- id: gap-8b5aebb5c1d2
+  domain: ux-patterns
+  description: Scrape manifest 'UX Patterns for Fitness Apps' exists but data coverage
+    is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ux patterns best practices official documentation
+  - ux patterns framework methodology guide
+  - ux patterns startup implementation playbook
+  - Scrape manifest Patterns Fitness Apps' research
+  discovered_at: '2026-03-17T01:36:02.386418+00:00'
+  status: open
+- id: gap-1c9bbb2be51c
+  domain: ux-research
+  description: Scrape manifest 'UX/UI Research & Design Patterns' exists but data
+    coverage is 0.5. Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.5
+  target_coverage: 0.8
+  suggested_queries:
+  - ux research best practices official documentation
+  - ux research framework methodology guide
+  - ux research startup implementation playbook
+  - Scrape manifest 'UX/UI Research Design research
+  discovered_at: '2026-03-17T01:36:02.405815+00:00'
+  status: open
+- id: gap-9763189eaa16
+  domain: job-studio
+  description: 'Department ''Job Studio'' has coverage score 0.6. Required evidence:
+    target learner or operator context, named examples or source corpus.'
+  severity: medium
+  current_coverage: 0.6
+  target_coverage: 0.8
+  suggested_queries:
+  - job studio best practices official documentation
+  - job studio framework methodology guide
+  - job studio startup implementation playbook
+  - Department Studio' coverage score Required research
+  discovered_at: '2026-03-17T01:36:01.432170+00:00'
+  status: open
+- id: gap-dfb1bf65564d
+  domain: job-studio-training-factory
+  description: 'Capability ''Job Studio Training Factory'' has coverage score 0.6.
+    Declared gaps: ai-foundations-curriculum, ellen-transition-curriculum, facilitator-asset-production,
+    evaluation-panel-and-rubrics, corpus-conversion-and-tagging.'
+  severity: medium
+  current_coverage: 0.6
+  target_coverage: 1.0
+  suggested_queries:
+  - job studio training factory best practices official documentation
+  - job studio training factory framework methodology guide
+  - job studio training factory startup implementation playbook
+  - Capability Studio Training Factory' coverage research
+  discovered_at: '2026-03-17T01:36:01.112471+00:00'
+  status: open
+- id: gap-269cceaa997f
+  domain: nutrition
+  description: Scrape manifest 'Nutrition Science' exists but data coverage is 0.6.
+    Sources may not have been fully ingested.
+  severity: medium
+  current_coverage: 0.6
+  target_coverage: 0.8
+  suggested_queries:
+  - nutrition best practices official documentation
+  - nutrition framework methodology guide
+  - nutrition startup implementation playbook
+  - Scrape manifest 'Nutrition Science' exists research
+  discovered_at: '2026-03-17T01:36:01.960479+00:00'
+  status: open
+- id: gap-d2326892f753
+  domain: ux-design
+  description: 'Capability ''UX & Design'' has coverage score 0.6. Declared gaps:
+    design system, Figma integration, visual artifacts.'
+  severity: medium
+  current_coverage: 0.6
+  target_coverage: 0.8
+  suggested_queries:
+  - ux design best practices official documentation
+  - ux design framework methodology guide
+  - ux design startup implementation playbook
+  - Capability Design' coverage score Declared research
+  discovered_at: '2026-03-17T01:36:01.264302+00:00'
+  status: open

@@ -19,3 +19,11 @@ susan-team-architect/backend/data/studio_assets/companies/oracle-health-ai-enabl
 susan-team-architect/backend/data/studio_assets/generated/mike-job-studio/email_corpus/
 susan-team-architect/backend/artifacts/mike_job_studio_email_corpus/
 susan-team-architect/backend/artifacts/mike_job_studio_oracle_health_storage/
+
+# Generated Job Studio training factory corpora and extraction artifacts
+susan-team-architect/backend/data/studio_assets/generated/job_studio_training_factory/
+susan-team-architect/backend/artifacts/job_studio_training_factory_corpus/
+
+# Generated Xcode project for the iOS device probe
+apps/ios-device-probe/IOSDeviceProbe.xcodeproj/
+.DS_Store

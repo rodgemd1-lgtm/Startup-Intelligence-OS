@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-03-13T04:39:42.624205+00:00",
+  "finished_at": "2026-03-13T04:43:22.859865+00:00",
+  "manifest_count": 3,
+  "resume": true,
+  "total_chunks": 917,
+  "total_errors": 0,
+  "results": [
+    {
+      "manifest_file": "startup_os_stronger_benchmark_case_library.yaml",
+      "manifest": "Startup OS Stronger Benchmark Case Library",
+      "company": "founder-intelligence-os",
+      "data_type": "studio_case_library",
+      "total_chunks": 319,
+      "errors": 0,
+      "sources_total": 7,
+      "completed": 7,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_eval_and_synthetic_review_foundations.yaml",
+      "manifest": "Startup OS Eval and Synthetic Review Foundations",
+      "company": "founder-intelligence-os",
+      "data_type": "studio_evals",
+      "total_chunks": 382,
+      "errors": 0,
+      "sources_total": 8,
+      "completed": 8,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_learning_science_stronger.yaml",
+      "manifest": "Job Studio Training Learning Science Stronger",
+      "company": "mike-job-studio",
+      "data_type": "training_research",
+      "total_chunks": 216,
+      "errors": 0,
+      "sources_total": 7,
+      "completed": 7,
+      "skipped": 0,
+      "error_messages": []
+    }
+  ]
+}

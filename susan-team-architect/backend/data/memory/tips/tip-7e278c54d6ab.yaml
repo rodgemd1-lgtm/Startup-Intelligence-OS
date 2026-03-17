@@ -1,0 +1,16 @@
+id: tip-7e278c54d6ab
+tip_type: strategy
+content: 'Successful simulated-maturity run used steps: load_benchmark_evidence ->
+  load_eval_evidence. Task: Use Job Studio Training Simulated Review as a benchmark-backed
+  simulated maturity review packet.'
+source_run_id: run-f08a86c05ebe
+source_agent: simulated-maturity
+task_domain: simulation
+confidence: 0.95
+created_at: '2026-03-13T13:59:04Z'
+access_count: 0
+tags:
+- auto-extracted
+- strategy
+- load_benchmark_evidence
+- load_eval_evidence

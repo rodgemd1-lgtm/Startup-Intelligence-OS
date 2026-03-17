@@ -1,0 +1,41 @@
+manifest:
+  name: 'Auto-harvest: agentic operator console'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-bd91ac819683'': Capability ''Agentic
+    Operator Console'' has coverage score 0.0. Declared gaps: state graph, event-driven
+    routing, next-best-action engine, cross-run memory.'
+  generated_by: research_daemon
+  gap_id: gap-bd91ac819683
+  generated_at: '2026-03-17T01:36:02.433644+00:00'
+sources:
+- tool: firecrawl-crawl
+  url: https://docs.anthropic.com/en/docs/agents
+  max_pages: 20
+- tool: jina
+  url: https://docs.anthropic.com/en/docs/agents
+- tool: exa
+  query: agentic operator console best practices official documentation
+  num_results: 8
+- tool: exa
+  query: agentic operator console framework methodology guide
+  num_results: 8
+- tool: exa
+  query: agentic operator console startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Agentic Operator Console' coverage research
+  num_results: 8
+- tool: exa
+  query: agentic operator console official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com agentic operator console README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

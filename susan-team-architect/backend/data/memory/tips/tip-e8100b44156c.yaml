@@ -1,0 +1,16 @@
+id: tip-e8100b44156c
+tip_type: strategy
+content: 'Successful debate run used steps: debate_started -> debate_completed. Task:
+  Proceed with ''Alternative approach: scoped experiment for Adopt event-driven architecture
+  for data pipeline'' (score: 0.722). Rather than a full commit'
+source_run_id: run-2022616e9ee5
+source_agent: debate
+task_domain: decision
+confidence: 0.75
+created_at: '2026-03-09T07:30:38Z'
+access_count: 0
+tags:
+- auto-extracted
+- strategy
+- debate_started
+- debate_completed

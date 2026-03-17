@@ -1,0 +1,26 @@
+version: 1
+artifact_id: enterprise-rental-researcher-connection-2026-03-12
+workspace: startup-intelligence-os
+company: founder-intelligence-os
+project: decision-capability-os
+decision: phase-a-runtime-foundation
+objective: Connect Susan Researcher agent workflows to Startup Intelligence OS enterprise rental scraping runs.
+connections:
+  repo: Startup-Intelligence-OS
+  susan_context_file: .susan/project-context.yaml
+  susan_agent: researcher-web
+  dataset_root: susan-team-architect/backend/data/domains/enterprise_rental_intelligence/datasets/customer_review_training_seed
+latest_run:
+  run_id: enterprise_multitool_20260312T204814Z
+  folder: susan-team-architect/backend/data/domains/enterprise_rental_intelligence/datasets/customer_review_training_seed/runs/enterprise_multitool_20260312T204814Z
+  team_env_files_loaded: []
+  provider_status:
+    exa: skipped_missing_key
+    firecrawl: skipped_missing_key
+    brave: skipped_missing_key
+    apify: skipped_missing_key
+    jina_jing: error_403
+next_actions:
+  - Add Susan team API keys to one of: susan-team-architect/backend/.env, .env, .startup-os/.env
+  - Re-run scripts/run_enterprise_rental_multitool_scrape.py
+  - Route follow-up sourcing task to researcher-web for contradiction/gap scan once provider data is non-empty

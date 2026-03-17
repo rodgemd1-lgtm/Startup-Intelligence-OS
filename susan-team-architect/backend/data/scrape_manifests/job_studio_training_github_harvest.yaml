@@ -1,0 +1,26 @@
+manifest:
+  name: "Job Studio Training GitHub Harvest"
+  company: mike-job-studio
+  data_type: training_research
+  priority: critical
+  description: "Direct GitHub documentation and repository surfaces for Job Studio training factory, Ellen enablement, and reusable agent skill patterns"
+
+sources:
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/README.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/gen-chat-deploy/oracle-gen-chat-prompt-library.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/docs/KNOWLEDGE_BASE_LOAD_PROTOCOL.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-vendor-intelligence/blob/main/README.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/founder-intelligence-os/blob/main/README.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/ux-design-scraper/blob/main/README.md
+  - tool: firecrawl-crawl
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement
+    max_pages: 80
+  - tool: firecrawl-crawl
+    url: https://github.com/rodgemd1-lgtm/oracle-health-vendor-intelligence
+    max_pages: 80

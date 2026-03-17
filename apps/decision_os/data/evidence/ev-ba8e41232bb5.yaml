@@ -1,0 +1,62 @@
+id: ev-ba8e41232bb5
+source_url: /Users/mikerodgers/Startup-Intelligence-OS/.startup-os/artifacts/job-studio-training-operator-packet-2026-03-12.md
+source_type: markdown
+title: Job Studio Training Operator Packet
+content: "# Job Studio Training Operator Packet\n\n**Date:** 2026-03-12  \n**Department:**\
+  \ Job Studio  \n**Audience:** Oracle Health strategist enablement\n\n## Objective\n\
+  Run an eight-session training program that starts with strategist AI foundations,\
+  \ then transitions into Ellen in Gen Chat for Oracle Health workflows, with marketing\
+  \ and competitive intelligence as the main applied scenario set.\n\n## Team\n\n\
+  | Role | Owner | Responsibility |\n|---|---|---|\n| Training director | Jake | sequence\
+  \ work, set outputs, maintain operating packet |\n| Foundry lead | Susan | capability\
+  \ design, maturity scoring, system structure |\n| Learner-facing lead | Ellen |\
+  \ demos, workflow guidance, applied Gen Chat instruction |\n| Behavioral learning\
+  \ lead | Echo + Susan behavioral economics layer | motivation, confidence, adoption,\
+  \ transfer design |\n| Instructional architect | Job Studio Training Factory | objectives,\
+  \ session structure, asset bundle |\n| Knowledge engineer | Knowledge Engineer |\
+  \ corpus build, locator map, named examples |\n| Evaluation lead | AI Evaluation\
+  \ Specialist | transcript review, session scoring, failure-pattern library |\n|\
+  \ Narrative lead | Marketing Studio Director | deck quality, narrative flow, handout\
+  \ quality |\n| Research lead | Research Director | examples, source packets, evidence\
+  \ discipline |\n\n## Program Structure\n\n### Track C: Strategist AI Foundations\n\
+  \n| Session | Focus | Required outputs |\n|---|---|---|\n| 1 | What AI is, what\
+  \ it is good at, what it gets wrong | deck, handout, prompt anatomy worksheet, bad-vs-good\
+  \ examples |\n| 2 | Workflow discipline, prompting, evidence, confidence calibration\
+  \ | deck, practice prompt set, rubric, facilitator guide |\n| 3 | When to move from\
+  \ general AI to Ellen-led workflows | transition deck, decision tree handout, orchestration\
+  \ examples, role map |\n\n### Track B: Ellen in Gen Chat\n\n| Session | Focus |\
+  \ Required outputs |\n|---|---|---|\n| 4 | Ellen orientation and system navigation\
+  \ | system map, prompt cards, demo script, cheat sheet |\n| 5 | Marketing intelligence\
+  \ and competitive intelligence with Ellen | workflow deck, competitor brief template,\
+  \ source checklist, worked examples |\n| 6 | Source verification, anti-hallucination,\
+  \ confidence scoring | quality gate deck, verification handout, red-team transcript\
+  \ set, audit rubric |\n| 7 | Deliverable assembly in Gen Chat | deliverable assembly\
+  \ deck, template pack, trainer notes, handout |\n| 8 | Capstone end-to-end strategist\
+  \ simulation | capstone packet, scoring sheet, panel review form, reflection sheet\
+  \ |\n\n## Asset Rule\nEvery session must ship with:\n- deck\n- facilitator guide\n\
+  - learner handout\n- live or async activity\n- named examples\n- scoring rubric\n\
+  \n## Required Source Bundles\n- `studio_memory`\n- `training_research`\n- `linked_company_context`\n\
+  - `market_research`\n- `operational_protocols`\n- `evaluation_corpus`\n\n## Named\
+  \ Source Roots\n- `/Users/mikerodgers/Desktop/OH Marketing and Competitive Intelligence`\n\
+  - `/Users/mikerodgers/AI-Enablement-Oracle-Chat`\n- `/Users/mikerodgers/oracle-health-vendor-intelligence`\n\
+  - `/Users/mikerodgers/founder-intelligence-os`\n- `/Users/mikerodgers/ux-design-scraper`\n\
+  - `susan-team-architect/backend/data/be_module`\n- `susan-team-architect/backend/data/domains/transformfit_training_intelligence/editorial`\n\
+  \n## Quality Gates\n1. Source grounding: the session uses named examples and evidence.\n\
+  2. Behavioral transfer: the learner can apply the workflow, not only describe it.\n\
+  3. Workflow clarity: the path from question to deliverable is explicit.\n4. Confidence\
+  \ calibration: the learner knows when AI output is weak or incomplete.\n5. Reuse\
+  \ quality: assets improve the future factory rather than staying one-off.\n\n##\
+  \ Immediate Execution Checklist\n- Finalize Track C facilitator packets first.\n\
+  - Convert Ellen workshop and prompt-library materials into Session 4-8 operator\
+  \ assets.\n- Keep the Oracle extraction run live until the normalized corpus is\
+  \ materially larger than the current seed set.\n- Route every material training\
+  \ ask through Job Studio with explicit context bundles attached.\n"
+topic_tags:
+- job_studio
+- training
+domain: simulated_maturity
+confidence: 0.9
+recency_score: 0.5
+fetched_at: '2026-03-13T05:06:24Z'
+normalized: true
+dedup_hash: ''

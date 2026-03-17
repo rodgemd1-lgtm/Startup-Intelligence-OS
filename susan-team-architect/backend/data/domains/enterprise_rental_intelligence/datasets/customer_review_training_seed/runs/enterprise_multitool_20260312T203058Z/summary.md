@@ -1,0 +1,12 @@
+# Enterprise multi-tool scrape run
+
+- run_id: `enterprise_multitool_20260312T203058Z`
+- generated_at: `2026-03-12T20:30:59.256642+00:00`
+- team env files loaded: `none`
+
+## Provider status
+- **exa**: attempted=3 ok=0 skipped=3 errored=0
+- **brave**: attempted=3 ok=0 skipped=3 errored=0
+- **firecrawl**: attempted=3 ok=0 skipped=3 errored=0
+- **jina**: attempted=3 ok=0 skipped=0 errored=3
+- **apify**: attempted=3 ok=0 skipped=3 errored=0

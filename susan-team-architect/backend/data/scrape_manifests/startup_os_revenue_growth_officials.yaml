@@ -1,0 +1,28 @@
+manifest:
+  name: "Startup OS Revenue and Growth Officials"
+  company: founder-intelligence-os
+  data_type: market_research
+  priority: high
+  description: "Direct official and handbook sources for pricing, go-to-market, revenue operations, and pipeline maturity."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://blog.hubspot.com/marketing/go-to-market-strategy
+    max_pages: 12
+  - tool: firecrawl-crawl
+    url: https://blog.hubspot.com/sales/sales-pipeline-stages
+    max_pages: 12
+  - tool: firecrawl-crawl
+    url: https://stripe.com/resources/more/pricing-strategy-101
+    max_pages: 12
+  - tool: firecrawl-crawl
+    url: https://www.salesforce.com/resources/articles/revenue-operations/
+    max_pages: 12
+  - tool: firecrawl-crawl
+    url: https://www.paddle.com/resources/pricing-strategy
+    max_pages: 12
+  - tool: exa
+    query: "pricing strategy revenue operations pipeline review demand generation growth loops startup operating system"
+    num_results: 8
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/departments/revenue-growth-studio.yaml

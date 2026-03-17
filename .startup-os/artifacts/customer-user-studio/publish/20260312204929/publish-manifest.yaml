@@ -1,0 +1,14 @@
+id: customer-user-studio-publish
+published_at: '2026-03-12T20:49:29.063473+00:00'
+git_commit: f0ea6599937e0ba2aaa8ea3837a062392df3e24c
+source_root: .startup-os/artifacts/customer-user-studio
+backend_sync:
+  target_root: susan-team-architect/backend/data/startup_os/customer_user_studio
+  index: susan-team-architect/backend/data/startup_os/customer_user_studio/sync-index.yaml
+  count: 4
+  files:
+  - susan-team-architect/backend/data/startup_os/customer_user_studio/personas/customer-persona-founder-operator-20260312201207.yaml
+  - susan-team-architect/backend/data/startup_os/customer_user_studio/scenarios/customer-scenario-onboarding-health-check-20260312201207.yaml
+  - susan-team-architect/backend/data/startup_os/customer_user_studio/sessions/customer-session-seed-20260312201207.yaml
+  - susan-team-architect/backend/data/startup_os/customer_user_studio/reports/ranked-opportunities.yaml
+local_drive_path: /workspace/local-drive-mirror/customer-user-studio

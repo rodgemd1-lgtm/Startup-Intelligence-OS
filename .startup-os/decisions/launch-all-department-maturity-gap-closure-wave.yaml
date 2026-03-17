@@ -1,0 +1,56 @@
+id: launch-all-department-maturity-gap-closure-wave
+title: Launch an all-department maturity gap closure scrape wave across the lowest-scoring departments and training systems
+status: in_progress
+company_id: founder-intelligence-os
+project_id: job-studio-maturity-and-training-factory
+decision_statement: Start a direct-URL, multi-manifest scrape wave to close evidence gaps for low-maturity departments, training evaluation, and official operating references across Startup Intelligence OS.
+why_now: The local and Oracle corpora are now materially extracted, but multiple departments remain low-maturity because their evidence layers are still thin or uneven. The next leverage point is targeted public-doc crawling, not more generalized collection.
+constraints:
+  - Use direct URLs and known repositories; do not rely on search-generated manifests for this wave.
+  - Preserve the Susan runtime and route new data through existing ingest surfaces.
+  - Keep training-specific harvests in mike-job-studio and shared department intelligence in founder-intelligence-os.
+  - Prefer official documentation, handbooks, standards bodies, and stable public sources.
+options:
+  - id: option-a
+    name: Wait for later manual research
+    summary: Keep the current maturity map and fill gaps ad hoc when a department needs support.
+    impact: low
+    effort: low
+    risk: high
+    confidence: low
+    time_to_signal: slow
+  - id: option-b
+    name: Targeted all-department gap closure wave
+    summary: Run a defined set of manifests for the weakest departments, Job Studio training evaluation, and official operating references, then use the new evidence to lift maturity and protocols.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: fast
+recommendation: option-b
+assumptions:
+  - The most important maturity gaps are in talent/org design, finance cadence, revenue/growth, trust/governance, data/decision science, and training evaluation.
+  - Direct crawls over official docs and handbooks are strong enough to improve evidence quality without a search layer.
+  - The current job-studio training corpus can absorb and benefit from added evaluation, AI foundations, and protocol references immediately.
+reversal_criteria:
+  - If the crawl wave produces low-signal data or weak chunk quality, reduce scope to higher-signal sources and raise the threshold for new manifests.
+  - If the added corpus creates retrieval noise without improving routed outputs, tighten data types and named source bundles before expanding further.
+next_actions:
+  - Let the full resumable wave finish and roll the new counts into the latest summary.
+  - Refresh the maturity dashboard after the full batch, not only targeted reruns.
+  - Keep converting weak departments into reusable operating packs and scorecards.
+  - Turn the new evidence into scorecards, role packets, cadence templates, and training assets.
+artifacts:
+  - .startup-os/artifacts/startup-intelligence-os-department-gap-closure-wave-2026-03-12.md
+  - .startup-os/artifacts/founder-decision-room-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/marketing-narrative-studio-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/data-decision-science-studio-operating-pack-2026-03-12.md
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_revenue_growth_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_finance_operating_cadence_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_talent_org_design_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_trust_governance_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_data_decision_science_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_training_evaluation_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/startup_os_product_experience_studio_officials.yaml
+  - susan-team-architect/backend/data/scrape_manifests/job_studio_training_ai_foundations.yaml
+  - susan-team-architect/backend/scripts/run_department_gap_closure_wave.py

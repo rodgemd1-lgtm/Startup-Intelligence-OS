@@ -1,0 +1,51 @@
+id: department-ten-state-verification
+name: Department Ten-State Verification
+maturity_current: 4.1
+maturity_target: 9.2
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Jake
+gaps:
+  - machine-readable-verification-contract
+  - all-department-source-stack-completeness
+  - operator-visible-maturity-dashboard
+  - proof-path-linkage-for-each-department
+  - recurring-score-refresh
+levels:
+  1:
+    name: Defined
+    items:
+      - text: "Every core section and department has a named 10/10 definition in a file-backed matrix."
+        done: true
+      - text: "Current proof paths, data-source requirements, and capability requirements are visible."
+        done: true
+      - text: "A visual dashboard renders directly from the verification matrix."
+        done: true
+  2:
+    name: Operating
+    items:
+      - text: "Expanded source-stack manifests exist for all departments, not only the weakest ones."
+        done: true
+      - text: "The department gap-closure runner includes the newly added core manifests."
+        done: true
+      - text: "Section and department dashboard outputs can be regenerated on demand."
+        done: true
+  3:
+    name: Verified
+    items:
+      - text: "Department data-source and capability scores are refreshed after crawl waves complete."
+        done: false
+      - text: "Proof paths include live run summaries, not only definitions and manifests."
+        done: false
+      - text: "Dashboard state is mirrored into the operator console."
+        done: false
+  4:
+    name: Compounding
+    items:
+      - text: "Maturity movement triggers next-best-action signals automatically."
+        done: false
+      - text: "Departments inherit recurring source refresh and evaluation updates without manual setup."
+        done: false
+      - text: "The verification system becomes the shared score surface for roadmap decisions."
+        done: false
+

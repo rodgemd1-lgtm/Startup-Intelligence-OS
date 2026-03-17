@@ -1,0 +1,24 @@
+manifest:
+  name: "Job Studio Training Behavioral Science"
+  company: mike-job-studio
+  data_type: training_research
+  priority: critical
+  description: "Behavioral science and learning design references for training transfer, motivation, and confidence"
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://www.behavioraleconomics.com/resources/mini-encyclopedia-of-be/
+    max_pages: 80
+  - tool: firecrawl-crawl
+    url: https://www.foggbehaviormodel.org/
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://www.cdc.gov/healthliteracy/
+    max_pages: 40
+  - tool: firecrawl-crawl
+    url: https://www.nngroup.com/articles/
+    max_pages: 60
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/susan-team-architect/skills/behavioral-economics/SKILL.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/susan-team-architect/agents/training-research-studio.md

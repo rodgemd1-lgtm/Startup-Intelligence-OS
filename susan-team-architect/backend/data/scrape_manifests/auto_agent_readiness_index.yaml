@@ -1,0 +1,40 @@
+manifest:
+  name: 'Auto-harvest: agent readiness index'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-a319e82cee02'': Capability ''agent-readiness-index''
+    has coverage score 0.0. No matching RAG data or scrape manifests found.'
+  generated_by: research_daemon
+  gap_id: gap-a319e82cee02
+  generated_at: '2026-03-17T01:36:02.432343+00:00'
+sources:
+- tool: firecrawl-crawl
+  url: https://docs.anthropic.com/en/docs/agents
+  max_pages: 20
+- tool: jina
+  url: https://docs.anthropic.com/en/docs/agents
+- tool: exa
+  query: agent readiness index best practices official documentation
+  num_results: 8
+- tool: exa
+  query: agent readiness index framework methodology guide
+  num_results: 8
+- tool: exa
+  query: agent readiness index startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'agent-readiness-index' coverage score matching research
+  num_results: 8
+- tool: exa
+  query: agent readiness index official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com agent readiness index README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

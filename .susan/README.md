@@ -26,6 +26,7 @@ These commands default to `founder-intelligence-os` inside this repo. You can st
 - `susan`
 - `research-director`
 - `research-ops`
+- `researcher-web`
 - `compass`
 - `atlas`
 - `steve`
@@ -33,3 +34,7 @@ These commands default to `founder-intelligence-os` inside this repo. You can st
 - `marketing-studio-director`
 - `shield`
 - `pulse`
+
+## Full-team mode
+- The full Susan agent team is now connected via `.susan/project-context.yaml` (`core_agents`).
+- Use `researcher-web` + `research-director` + `research-ops` for evidence collection and contradiction scans.

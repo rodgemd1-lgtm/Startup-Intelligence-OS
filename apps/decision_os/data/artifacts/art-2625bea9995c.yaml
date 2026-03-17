@@ -1,0 +1,11 @@
+id: art-2625bea9995c
+name: Finance & Operating Cadence Simulated Review
+type: simulated_maturity_review
+run_id: run-6aa1242e68ac
+source_refs:
+- /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/stronger_dataset_benchmark_wave/latest_summary.json
+- /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/department_gap_closure_wave/latest_summary.json
+- /Users/mikerodgers/Startup-Intelligence-OS/.startup-os/artifacts/research/synthetic-run-review-framework-2026-03-12.md
+confidence: 0.95
+path: .startup-os/artifacts/simulated-maturity/finance-operating-simulated-review.md
+created_at: '2026-03-13T13:59:03Z'

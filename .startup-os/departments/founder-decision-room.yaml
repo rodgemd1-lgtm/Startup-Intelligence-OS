@@ -1,0 +1,80 @@
+id: founder-decision-room
+name: Founder Decision Room
+mission: Frame strategic choices, compare options, convert ambiguity into explicit decisions, and link execution back to company goals.
+owner_agent: jake
+supporting_agents:
+  - susan
+  - compass
+  - atlas
+primary_mode: think
+decision_requirement: required
+linked_capabilities:
+  - decision-kernel
+  - innovation-strategy
+  - operator-experience
+canonical_resource_paths:
+  - .startup-os/decisions
+  - .startup-os/projects
+  - .startup-os/artifacts
+  - .startup-os/artifacts/founder-decision-room
+canonical_artifact_types:
+  - decision-record
+  - strategy-brief
+  - option-comparison
+current_maturity: 5.6
+target_maturity: 9.0
+routing_keywords:
+  - strategy
+  - decision
+  - priority
+  - future-back
+  - project
+  - company
+  - roadmap
+intake_schema:
+  - name: objective
+    label: Objective
+    required: true
+    help_text: The strategic outcome or commitment that needs to be decided.
+  - name: stakes
+    label: Stakes
+    required: true
+    help_text: The cost of delay, wrong choice, or under-investment.
+  - name: current_state
+    label: Current state
+    required: false
+    help_text: The current company, product, or project context.
+diagnosis_protocol:
+  - Clarify the governing objective and time horizon.
+  - Surface assumptions, risks, and competing options.
+  - Determine whether a new decision record is required.
+  - Sequence dependent departments if execution spans multiple functions.
+default_outputs:
+  - decision record
+  - priority stack
+  - execution sequence
+scorecard:
+  - decision clarity
+  - option quality
+  - reversal readiness
+  - execution alignment
+memory_writeback_path: .startup-os/artifacts/decision-room
+required_evidence:
+  - decision context
+  - current company state
+required_artifacts:
+  - decision record
+handoff_rules:
+  - to_department: consumer-user-studio
+    when: User signal is weak or assumptions need customer evidence.
+    deliverable: research brief
+  - to_department: product-experience-studio
+    when: Strategy must translate into roadmap, workflow, or product direction.
+    deliverable: product direction brief
+  - to_department: engineering-agent-systems-studio
+    when: The decision requires architecture or implementation planning.
+    deliverable: implementation packet
+source_tracks:
+  - startup strategy
+  - decision kernel
+  - operator governance

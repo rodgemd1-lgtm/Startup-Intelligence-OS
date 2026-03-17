@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: all department maturity gap closure'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-4a8dbdf521b8'': Capability ''All-Department
+    Maturity Gap Closure'' has coverage score 0.0. Declared gaps: low-maturity-department-evidence,
+    training-evaluation-corpus, official-doc-refresh, cross-department-scorecards,'
+  generated_by: research_daemon
+  gap_id: gap-4a8dbdf521b8
+  generated_at: '2026-03-17T01:36:30.164912+00:00'
+sources:
+- tool: exa
+  query: all department maturity gap closure best practices official documentation
+  num_results: 8
+- tool: exa
+  query: all department maturity gap closure framework methodology guide
+  num_results: 8
+- tool: exa
+  query: all department maturity gap closure startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'All-Department Maturity Closure' coverage research
+  num_results: 8
+- tool: exa
+  query: all department maturity gap closure official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com all department maturity gap closure README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

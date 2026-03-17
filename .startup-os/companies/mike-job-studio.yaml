@@ -1,0 +1,273 @@
+id: mike-job-studio
+name: Mike Job Studio
+type: company
+repo_root: /Users/mikerodgers/Startup-Intelligence-OS
+primary_runtime: susan-team-architect/backend
+primary_domain_pack: mike_job_studio
+stage: department_bootstrap
+summary: Core Job Studio department and company context inside Startup Intelligence OS for work-history retrieval, AI strategist enablement, training operations, opportunity intelligence, and cross-company context bridging.
+website: https://startup-intelligence-os.local/mike-job-studio
+susan_company_id: mike-job-studio
+data_locator: susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/MIKE_JOB_STUDIO_DATA_LOCATOR.md
+linked_projects:
+  - decision-capability-os
+  - job-studio-maturity-and-training-factory
+linked_capabilities:
+  - job-memory-intelligence
+  - job-studio-training-factory
+  - intelligence-research
+  - agentic-operator-console
+  - department-studios-of-excellence
+linked_decisions:
+  - reframe-startup-intelligence-os-as-a-decision-and-build-os
+  - operationalize-zero-to-ten-maturity-system
+  - build-job-studio-training-corpus-and-protocol-layer
+linked_departments:
+  - job-studio
+execution_tracks:
+  - id: training_factory
+    name: Job Studio Training Factory
+    description: Build and run repeatable training packets, facilitation guides, handouts, examples, and evaluation loops for Mike Job Studio.
+    ask_keywords:
+      - training
+      - facilitation
+      - handout
+      - slides
+      - workshop
+      - training packet
+      - activity
+    default_departments:
+      - job-studio
+      - marketing-narrative-studio
+      - consumer-user-studio
+    required_evidence:
+      - target audience
+      - training objective
+      - source corpus
+    required_artifacts:
+      - training operator packet
+      - facilitation guide
+    source_types:
+      - linked_oracle_health_corpus
+      - mike_job_studio_email_work
+    decision_requirement: optional
+    default_mode: foundry
+  - id: ai_strategist_enablement
+    name: AI Strategist Enablement
+    description: Train strategists on what AI is, how to use it well, and when to transition into structured Ellen-led workflows.
+    ask_keywords:
+      - ai training
+      - ai foundations
+      - strategist enablement
+      - prompt training
+      - how to use ai
+      - train strategist
+    default_departments:
+      - job-studio
+      - founder-decision-room
+      - consumer-user-studio
+    required_evidence:
+      - learner profile
+      - workflow examples
+      - evaluation criteria
+    required_artifacts:
+      - session map
+      - learner handout
+      - evaluation rubric
+    source_types:
+      - linked_oracle_health_corpus
+      - mike_job_studio_email_work
+    decision_requirement: optional
+    default_mode: foundry
+  - id: ellen_enablement
+    name: Ellen and Gen Chat Enablement
+    description: Transition strategists from general AI usage into Ellen in Gen Chat for Oracle Health strategic workflows and deliverable production.
+    ask_keywords:
+      - ellen
+      - gen chat
+      - oracle gen chat
+      - slash commands
+      - oracle health training
+    default_departments:
+      - job-studio
+      - marketing-narrative-studio
+      - engineering-agent-systems-studio
+    required_evidence:
+      - target workflow
+      - oracle health context
+      - prompt library
+    required_artifacts:
+      - enablement packet
+      - workflow map
+      - demo script
+    source_types:
+      - linked_oracle_health_corpus
+      - mike_job_studio_email_work
+    decision_requirement: optional
+    default_mode: foundry
+  - id: work_memory
+    name: Work Memory and Retrieval
+    description: Retrieve grounded work-history context, thread recaps, and source maps from the attached Job Studio corpus.
+    ask_keywords:
+      - work history
+      - thread recap
+      - source map
+      - what did i do
+      - retrieve my work
+    default_departments:
+      - job-studio
+      - founder-decision-room
+      - consumer-user-studio
+    required_evidence:
+      - date or time window
+      - relevant work stream or company
+    required_artifacts:
+      - retrieval brief
+      - source map
+    source_types:
+      - mike_job_studio_email_work
+      - mike_job_studio_email
+    decision_requirement: none
+    default_mode: foundry
+  - id: writing_intelligence
+    name: Writing Style and Work Product Intelligence
+    description: Recover tone, persuasion patterns, and reusable structures from Mike-authored material.
+    ask_keywords:
+      - writing style
+      - my voice
+      - rewrite this
+      - authored emails
+      - tone
+      - voice guide
+    default_departments:
+      - job-studio
+      - marketing-narrative-studio
+      - founder-decision-room
+    required_evidence:
+      - authored writing samples
+      - target audience or recipient
+    required_artifacts:
+      - voice guide
+      - rewrite options
+    source_types:
+      - mike_job_studio_email_authored
+      - mike_job_studio_email_work
+    decision_requirement: none
+    default_mode: fast
+  - id: resume_packets
+    name: Resume and Positioning Packets
+    description: Build resume, cover letter, LinkedIn, and role-positioning packets from grounded Job Studio evidence.
+    ask_keywords:
+      - resume
+      - cv
+      - cover letter
+      - linkedin
+      - bio
+      - personal brand
+    default_departments:
+      - job-studio
+      - marketing-narrative-studio
+      - founder-decision-room
+    required_evidence:
+      - target role or job description
+      - relevant work history
+      - authored writing samples
+    required_artifacts:
+      - resume packet
+      - positioning brief
+    source_types:
+      - mike_job_studio_email_authored
+      - mike_job_studio_email_work
+    decision_requirement: none
+    default_mode: fast
+  - id: interview_prep
+    name: Interview and Recruiter Prep
+    description: Prepare interview, recruiter, and hiring-manager packets by combining personal memory with target-company research.
+    ask_keywords:
+      - interview
+      - recruiter
+      - hiring manager
+      - panel
+      - screen
+      - interview prep
+      - job description
+    default_departments:
+      - job-studio
+      - consumer-user-studio
+      - founder-decision-room
+      - marketing-narrative-studio
+    required_evidence:
+      - target role or job description
+      - target company
+      - relevant work history
+    required_artifacts:
+      - interview packet
+      - answer bank
+      - company brief
+    source_types:
+      - mike_job_studio_email_work
+      - mike_job_studio_email_authored
+      - linked_oracle_health_corpus
+    decision_requirement: optional
+    default_mode: foundry
+  - id: opportunity_briefs
+    name: Opportunity Briefs and Application Strategy
+    description: Evaluate roles, companies, and application paths using Job Studio memory and explicit strategy framing.
+    ask_keywords:
+      - opportunity brief
+      - role analysis
+      - application strategy
+      - target role
+      - employer
+      - application plan
+    default_departments:
+      - job-studio
+      - founder-decision-room
+      - consumer-user-studio
+    required_evidence:
+      - role description
+      - target company
+      - relevant work history
+    required_artifacts:
+      - opportunity brief
+      - application strategy
+    source_types:
+      - mike_job_studio_email_work
+      - linked_oracle_health_corpus
+    decision_requirement: optional
+    default_mode: think
+  - id: linked_company_context
+    name: Linked Company Context
+    description: Bridge Job Studio memory with company-specific corpora such as Oracle Health when the ask depends on both.
+    ask_keywords:
+      - oracle health
+      - linked corpus
+      - company context
+      - bridge memory
+      - briefing pack
+      - corpus locator
+    default_departments:
+      - job-studio
+      - consumer-user-studio
+      - founder-decision-room
+      - engineering-agent-systems-studio
+    required_evidence:
+      - linked company or corpus
+      - target task or question
+    required_artifacts:
+      - context bridge memo
+      - corpus locator map
+    source_types:
+      - linked_oracle_health_corpus
+      - mike_job_studio_email_work
+    decision_requirement: optional
+    default_mode: foundry
+data_assets:
+  - type: mike_job_studio_email
+    path: susan-team-architect/backend/data/studio_assets/generated/mike-job-studio/email_corpus
+  - type: mike_job_studio_email_work
+    path: susan-team-architect/backend/data/studio_assets/generated/mike-job-studio/email_corpus/work_messages
+  - type: mike_job_studio_email_authored
+    path: susan-team-architect/backend/data/studio_assets/generated/mike-job-studio/email_corpus/authored_messages
+  - type: linked_oracle_health_corpus
+    path: susan-team-architect/backend/data/studio_assets/companies/mike-job-studio/MIKE_JOB_STUDIO_DATA_LOCATOR.md

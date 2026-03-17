@@ -26,3 +26,318 @@ artifacts:
     project_id: decision-capability-os
     created: 2026-03-09
     assessor: susan
+  - id: customer-user-studio-research-packet
+    type: research-packet
+    path: .startup-os/artifacts/customer-user-studio-research-packet.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-roadmap-intelligence-spec
+    type: spec
+    path: .startup-os/artifacts/customer-user-studio-roadmap-intelligence-spec.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-beta-cohort-playbook
+    type: playbook
+    path: .startup-os/artifacts/customer-user-studio-beta-cohort-playbook.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-world-class-blueprint
+    type: blueprint
+    path: .startup-os/artifacts/customer-user-studio-world-class-blueprint.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-seed-opportunity-report
+    type: report
+    path: .startup-os/artifacts/customer-user-studio/reports/ranked-opportunities.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-susan-backend-sync-index
+    type: integration
+    path: susan-team-architect/backend/data/startup_os/customer_user_studio/sync-index.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: customer-user-studio-publish-manifest
+    type: publish-manifest
+    path: .startup-os/artifacts/customer-user-studio/publish/20260312204929/publish-manifest.yaml
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-full-assessment-2026-03-12
+    type: assessment
+    path: .startup-os/artifacts/startup-intelligence-os-full-assessment-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-studio-maturity-map-2026-03-12
+    type: maturity-map
+    path: .startup-os/artifacts/startup-intelligence-os-studio-maturity-map-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-10x-future-back-plan-2026-03-12
+    type: strategy-plan
+    path: .startup-os/artifacts/startup-intelligence-os-10x-future-back-plan-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-duplicate-surface-inventory-2026-03-12
+    type: inventory
+    path: .startup-os/artifacts/startup-intelligence-os-duplicate-surface-inventory-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-training-factory-roadmap-2026-03-12
+    type: roadmap
+    path: .startup-os/artifacts/job-studio-training-factory-roadmap-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: iphone-workouts-direct-automation-setup-2026-03-12
+    type: implementation-note
+    path: .startup-os/artifacts/iphone-workouts-direct-automation-setup-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-zero-to-ten-maturity-system-2026-03-12
+    type: maturity-system
+    path: .startup-os/artifacts/startup-intelligence-os-zero-to-ten-maturity-system-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-training-factory-data-program-2026-03-12
+    type: data-program
+    path: .startup-os/artifacts/job-studio-training-factory-data-program-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: decision-capability-os
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-full-maturity-roadmap-2026-03-12
+    type: roadmap
+    path: .startup-os/artifacts/startup-intelligence-os-full-maturity-roadmap-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-agent-access-protocol-2026-03-12
+    type: protocol
+    path: .startup-os/artifacts/job-studio-agent-access-protocol-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: mcp-market-direct-analysis-2026-03-12
+    type: market-analysis
+    path: .startup-os/artifacts/mcp-market-direct-analysis-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-training-operator-packet-2026-03-12
+    type: operator-packet
+    path: .startup-os/artifacts/job-studio-training-operator-packet-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: provider-access-stack-2026-03-12
+    type: infrastructure-note
+    path: .startup-os/artifacts/provider-access-stack-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-pipeline-monitor-2026-03-12
+    type: monitor-log
+    path: .startup-os/artifacts/job-studio-pipeline-monitor-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: startup-intelligence-os-department-gap-closure-wave-2026-03-12
+    type: capability-gap-map
+    path: .startup-os/artifacts/startup-intelligence-os-department-gap-closure-wave-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: department-gap-closure-wave-monitor-2026-03-12
+    type: monitor-log
+    path: .startup-os/artifacts/department-gap-closure-wave-monitor-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: oracle-health-my-job-studio-training-hub-2026-03-12
+    type: implementation-note
+    path: .startup-os/artifacts/oracle-health-my-job-studio-training-hub-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: job-studio-session-01-powerpoint-2026-03-12
+    type: implementation-note
+    path: .startup-os/artifacts/job-studio-session-01-powerpoint-2026-03-12.md
+    company_id: mike-job-studio
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: department-maturity-dashboard-2026-03-12
+    type: dashboard
+    path: .startup-os/artifacts/department-maturity-dashboard-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: department-ten-state-benchmark-packet-2026-03-12
+    type: research-packet
+    path: .startup-os/artifacts/research/department-ten-state-benchmark-packet-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: revenue-growth-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/revenue-growth-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: finance-operating-cadence-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/finance-operating-cadence-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: talent-org-design-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/talent-org-design-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: trust-governance-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/trust-governance-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: core-sections-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/core-sections-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: founder-decision-room-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/founder-decision-room-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: marketing-narrative-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/marketing-narrative-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: data-decision-science-studio-operating-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/data-decision-science-studio-operating-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: company-genome-operator-visibility-pack-2026-03-12
+    type: operating-pack
+    path: .startup-os/artifacts/company-genome-operator-visibility-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: operator-console-live-metrics-2026-03-12
+    type: dashboard
+    path: .startup-os/artifacts/operator-console-live-metrics-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: persona-agent-evaluation-pack-2026-03-12
+    type: evaluation-pack
+    path: .startup-os/artifacts/persona-agent-evaluation-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: protocols-processes-evaluation-pack-2026-03-12
+    type: evaluation-pack
+    path: .startup-os/artifacts/protocols-processes-evaluation-pack-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: maturity-proof-ladder-2026-03-12
+    type: research-packet
+    path: .startup-os/artifacts/research/maturity-proof-ladder-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: stronger-dataset-and-benchmark-enrichment-2026-03-12
+    type: research-packet
+    path: .startup-os/artifacts/research/stronger-dataset-and-benchmark-enrichment-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: synthetic-run-review-framework-2026-03-12
+    type: framework
+    path: .startup-os/artifacts/research/synthetic-run-review-framework-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: stronger-dataset-benchmark-wave-summary-2026-03-12
+    type: summary
+    path: .startup-os/artifacts/research/stronger-dataset-benchmark-wave-summary-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: simulated-maturity-harness-2026-03-12
+    type: implementation-note
+    path: .startup-os/artifacts/simulated-maturity-harness-2026-03-12.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake
+  - id: simulated-maturity-harness-summary-2026-03-12
+    type: summary
+    path: .startup-os/artifacts/simulated-maturity/simulated-maturity-harness-summary.md
+    company_id: founder-intelligence-os
+    project_id: job-studio-maturity-and-training-factory
+    created: 2026-03-12
+    assessor: jake

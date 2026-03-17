@@ -1,0 +1,25 @@
+manifest:
+  name: "Startup OS Training Evaluation Officials"
+  company: mike-job-studio
+  data_type: studio_evals
+  priority: critical
+  description: "Direct evaluation, instructional-design, and AI output review references for Job Studio training and assessment loops."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://www.kirkpatrickpartners.com/the-kirkpatrick-model/
+    max_pages: 15
+  - tool: firecrawl-crawl
+    url: https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/
+    max_pages: 10
+  - tool: firecrawl-crawl
+    url: https://www.cmu.edu/teaching/assessment/basics/formative-summative.html
+    max_pages: 10
+  - tool: firecrawl-crawl
+    url: https://platform.openai.com/docs/guides/evals
+    max_pages: 20
+  - tool: firecrawl-crawl
+    url: https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+    max_pages: 10
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/artifacts/job-studio-training-operator-packet-2026-03-12.md

@@ -1,0 +1,81 @@
+id: trust-governance-studio
+name: Trust & Governance Studio
+mission: Protect product, research, and launch quality through privacy, security, accessibility, claims discipline, and release gates.
+owner_agent: shield
+supporting_agents:
+  - sentinel
+  - lens
+  - forge
+  - susan
+primary_mode: deep
+decision_requirement: optional
+linked_capabilities:
+  - platform-infrastructure
+  - operator-experience
+  - studio-operations
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - susan-team-architect/backend/control_plane
+  - susan-team-architect/backend/data
+  - .startup-os/artifacts/trust-governance-studio-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/trust-governance
+canonical_artifact_types:
+  - risk review
+  - release gate
+  - audit notes
+  - remediation plan
+current_maturity: 4.1
+target_maturity: 8.4
+routing_keywords:
+  - trust
+  - governance
+  - accessibility
+  - security
+  - privacy
+  - compliance
+  - audit
+  - release gate
+intake_schema:
+  - name: target_surface
+    label: Target surface
+    required: true
+    help_text: The workflow, product, data program, or launch surface that needs review.
+  - name: risk_context
+    label: Risk context
+    required: false
+    help_text: The specific trust, security, or governance concerns in scope.
+  - name: release_window
+    label: Release window
+    required: false
+    help_text: The decision or launch horizon for the review.
+diagnosis_protocol:
+  - Identify the trust surface and relevant release gate.
+  - Review privacy, security, accessibility, and claims implications.
+  - Produce explicit approvals, blockers, and remediation steps.
+  - Write back audit outcomes and reusable safeguards.
+default_outputs:
+  - release gate review
+  - remediation brief
+  - audit notes
+scorecard:
+  - release safety
+  - accessibility coverage
+  - policy clarity
+  - remediation speed
+memory_writeback_path: .startup-os/artifacts/trust-governance
+required_evidence:
+  - target surface description
+  - release or usage context
+required_artifacts:
+  - release gate review
+handoff_rules:
+  - to_department: engineering-agent-systems-studio
+    when: Trust findings require code, architecture, or infra changes.
+    deliverable: remediation implementation packet
+  - to_department: founder-decision-room
+    when: Governance constraints materially affect strategy, timing, or scope.
+    deliverable: risk decision brief
+source_tracks:
+  - trust review
+  - release gates
+  - governance

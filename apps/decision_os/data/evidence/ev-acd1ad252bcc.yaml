@@ -1,0 +1,33 @@
+id: ev-acd1ad252bcc
+source_url: /Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/artifacts/stronger_dataset_benchmark_wave/latest_summary.json
+source_type: json
+title: Stronger Dataset Benchmark Wave Summary
+content: "{\n  \"started_at\": \"2026-03-13T04:39:42.624205+00:00\",\n  \"finished_at\"\
+  : \"2026-03-13T04:43:22.859865+00:00\",\n  \"manifest_count\": 3,\n  \"resume\"\
+  : true,\n  \"total_chunks\": 917,\n  \"total_errors\": 0,\n  \"results\": [\n  \
+  \  {\n      \"manifest_file\": \"startup_os_stronger_benchmark_case_library.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Stronger Benchmark Case Library\",\n      \"\
+  company\": \"founder-intelligence-os\",\n      \"data_type\": \"studio_case_library\"\
+  ,\n      \"total_chunks\": 319,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 7,\n      \"completed\": 7,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"startup_os_eval_and_synthetic_review_foundations.yaml\"\
+  ,\n      \"manifest\": \"Startup OS Eval and Synthetic Review Foundations\",\n \
+  \     \"company\": \"founder-intelligence-os\",\n      \"data_type\": \"studio_evals\"\
+  ,\n      \"total_chunks\": 382,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 8,\n      \"completed\": 8,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    },\n    {\n      \"manifest_file\": \"job_studio_training_learning_science_stronger.yaml\"\
+  ,\n      \"manifest\": \"Job Studio Training Learning Science Stronger\",\n    \
+  \  \"company\": \"mike-job-studio\",\n      \"data_type\": \"training_research\"\
+  ,\n      \"total_chunks\": 216,\n      \"errors\": 0,\n      \"sources_total\":\
+  \ 7,\n      \"completed\": 7,\n      \"skipped\": 0,\n      \"error_messages\":\
+  \ []\n    }\n  ]\n}"
+topic_tags:
+- benchmark
+- studio_evals
+- synthetic_review
+domain: simulated_maturity
+confidence: 0.9
+recency_score: 0.5
+fetched_at: '2026-03-13T05:06:24Z'
+normalized: true
+dedup_hash: ''

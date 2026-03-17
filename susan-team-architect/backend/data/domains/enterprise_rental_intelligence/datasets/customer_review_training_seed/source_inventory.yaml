@@ -1,0 +1,60 @@
+version: 1
+dataset: enterprise_rental_customer_review_training_seed
+company: shared
+created_on: 2026-03-12
+purpose: customer review + service training intelligence
+
+sources:
+  review_platforms:
+    - name: Trustpilot enterprise.com reviews
+      url: https://www.trustpilot.com/review/www.enterprise.com
+      collection_method: firecrawl
+      priority: p0
+      expected_signal:
+        - overall rating trend
+        - recurring complaint themes
+        - branch-level service complaints
+    - name: ConsumerAffairs enterprise page
+      url: https://www.consumeraffairs.com/travel/enterprise.html
+      collection_method: firecrawl
+      priority: p0
+      expected_signal:
+        - complaint narratives
+        - support escalation patterns
+    - name: Sitejabber enterprise reviews
+      url: https://www.sitejabber.com/reviews/enterprise.com
+      collection_method: firecrawl
+      priority: p1
+      expected_signal:
+        - sentiment outliers
+        - issue frequency markers
+
+  search_queries:
+    - query: Enterprise Rent-A-Car customer reviews service quality themes
+      tool: exa
+      num_results: 10
+      priority: p0
+    - query: Enterprise Rent-A-Car customer complaint patterns pickup dropoff billing
+      tool: exa
+      num_results: 10
+      priority: p0
+    - query: Enterprise Rent-A-Car Yelp reviews recurring issues
+      tool: exa
+      num_results: 8
+      priority: p1
+    - query: Enterprise Rent-A-Car Google reviews branch customer service
+      tool: exa
+      num_results: 8
+      priority: p1
+    - query: Enterprise Rent-A-Car Trustpilot Better Business Bureau complaints
+      tool: exa
+      num_results: 8
+      priority: p1
+    - query: car rental customer service training best practices frontline staff
+      tool: exa
+      num_results: 8
+      priority: p0
+    - query: car rental NPS customer satisfaction drivers wait time vehicle cleanliness
+      tool: exa
+      num_results: 8
+      priority: p0

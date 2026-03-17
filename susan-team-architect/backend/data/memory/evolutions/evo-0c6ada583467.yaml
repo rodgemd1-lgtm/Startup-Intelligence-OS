@@ -1,0 +1,21 @@
+id: evo-0c6ada583467
+evolution_type: new_department
+description: Domain 'maturity' has 10 runs but no dedicated department. Consider creating
+  a department or expanding an existing one to cover this domain.
+rationale: A new domain 'maturity' has emerged with 10 runs and no department ownership.
+  Creating a department ensures tasks are routed correctly and knowledge accumulates
+  systematically.
+evidence:
+- 10 runs in 'maturity' domain
+- No department covers 'maturity' keywords
+status: proposed
+impact_assessment: '**What changes:** A new department is created with routing keywords
+  and agent assignments.
+
+  **What breaks:** Tasks previously scattered across departments will be re-routed.
+
+  **What improves:** Clear ownership for the emerging domain. Better knowledge accumulation.
+
+  **Reversibility:** Reversible with routing adjustment. Move tasks back to original
+  departments.'
+created_at: '2026-03-17T01:41:13Z'

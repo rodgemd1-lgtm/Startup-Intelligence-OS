@@ -1,0 +1,79 @@
+id: talent-org-design-studio
+name: Talent & Org Design Studio
+mission: Design team structure, role scorecards, hiring loops, onboarding systems, and capability coverage for the company.
+owner_agent: susan
+supporting_agents:
+  - jake
+  - research-director
+  - marketing-studio-director
+primary_mode: foundry
+decision_requirement: optional
+linked_capabilities:
+  - agent-readiness-index
+  - studio-operations
+  - department-studios-of-excellence
+canonical_resource_paths:
+  - .startup-os/artifacts
+  - susan-team-architect/backend/data/foundry
+  - .startup-os/artifacts/talent-org-design-studio-operating-pack-2026-03-12.md
+  - .startup-os/artifacts/talent-org-design
+canonical_artifact_types:
+  - org blueprint
+  - role scorecard
+  - hiring loop
+  - onboarding plan
+current_maturity: 5.0
+target_maturity: 7.8
+routing_keywords:
+  - hiring
+  - org
+  - team
+  - role
+  - recruiting
+  - onboarding
+  - capability coverage
+  - operating team
+intake_schema:
+  - name: org_goal
+    label: Org goal
+    required: true
+    help_text: The team, role, or capability objective that needs to be designed.
+  - name: current_team
+    label: Current team
+    required: false
+    help_text: Existing team structure and capability constraints.
+  - name: timeline
+    label: Timeline
+    required: false
+    help_text: Hiring or org-design horizon.
+diagnosis_protocol:
+  - Map the capability gap before naming roles.
+  - Define the operating model and handoff structure.
+  - Convert the org need into scorecards, loops, and onboarding plans.
+  - Write back role learnings and org-design deltas.
+default_outputs:
+  - org blueprint
+  - role scorecard
+  - hiring loop
+scorecard:
+  - role clarity
+  - capability coverage
+  - onboarding readiness
+  - org leverage
+memory_writeback_path: .startup-os/artifacts/talent-org-design
+required_evidence:
+  - capability or team gap
+  - role or org context
+required_artifacts:
+  - org blueprint
+handoff_rules:
+  - to_department: founder-decision-room
+    when: Team structure changes require a strategic commitment or sequencing call.
+    deliverable: org decision packet
+  - to_department: finance-operating-cadence-studio
+    when: Hiring or team design requires explicit budget and resource planning.
+    deliverable: hiring resource brief
+source_tracks:
+  - org design
+  - hiring systems
+  - onboarding

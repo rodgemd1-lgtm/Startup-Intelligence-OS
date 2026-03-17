@@ -1,0 +1,26 @@
+id: customer-persona-founder-operator-20260312201207
+name: Founder Operator
+segment: founder-operator
+applications:
+- operator-console
+goals:
+- validate release readiness
+- prioritize roadmap based on customer friction
+constraints:
+- limited time
+- prefers clear next actions
+preferences:
+  likes:
+  - fast onboarding
+  - clear state visibility
+  dislikes:
+  - ambiguous errors
+  - hidden controls
+  future_wants:
+  - explainable recommendations
+  - release risk dashboard
+behavioral_profile:
+  proficiency: intermediate
+  risk_tolerance: medium
+  patience_budget_minutes: 12
+evidence_links: []

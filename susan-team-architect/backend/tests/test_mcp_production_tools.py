@@ -66,7 +66,7 @@ def _isolate_mcp_server(monkeypatch):
 
     # Provide FastMCP on the stub
     fake_fastmcp = _FakeFastMCP
-    sys.modules["mcp.server.fastmcp"].FastMCP = fake_fastmcp  # type: ignore[attr-defined]
+    monkeypatch.setattr(sys.modules["mcp.server.fastmcp"], "FastMCP", fake_fastmcp, raising=False)
 
     # Stub control_plane.protocols with dummy functions
     cp = sys.modules["control_plane.protocols"]
@@ -81,14 +81,14 @@ def _isolate_mcp_server(monkeypatch):
         "search_company_knowledge",
         "sync_project_protocols",
     ]:
-        setattr(cp, name, lambda *a, **kw: None)
+        monkeypatch.setattr(cp, name, lambda *a, **kw: None, raising=False)
 
     # Stub rag_engine
-    sys.modules["rag_engine.retriever"].Retriever = type("Retriever", (), {})  # type: ignore[attr-defined]
-    sys.modules["rag_engine.ingestion.web"].WebIngestor = type("WebIngestor", (), {})  # type: ignore[attr-defined]
+    monkeypatch.setattr(sys.modules["rag_engine.retriever"], "Retriever", type("Retriever", (), {}), raising=False)
+    monkeypatch.setattr(sys.modules["rag_engine.ingestion.web"], "WebIngestor", type("WebIngestor", (), {}), raising=False)
 
     # Stub yaml
-    sys.modules["yaml"].safe_load = lambda f: {}  # type: ignore[attr-defined]
+    monkeypatch.setattr(sys.modules["yaml"], "safe_load", lambda f: {}, raising=False)
 
     yield
 

@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-03-13T01:52:34.925353+00:00",
+  "finished_at": "2026-03-13T02:24:15.631564+00:00",
+  "manifest_count": 11,
+  "resume": true,
+  "total_chunks": 7340,
+  "total_errors": 0,
+  "results": [
+    {
+      "manifest_file": "startup_os_talent_org_design_officials.yaml",
+      "manifest": "Startup OS Talent and Org Design Officials",
+      "company": "founder-intelligence-os",
+      "data_type": "operational_protocols",
+      "total_chunks": 261,
+      "errors": 0,
+      "sources_total": 5,
+      "completed": 5,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_finance_operating_cadence_officials.yaml",
+      "manifest": "Startup OS Finance and Operating Cadence Officials",
+      "company": "founder-intelligence-os",
+      "data_type": "finance",
+      "total_chunks": 486,
+      "errors": 0,
+      "sources_total": 5,
+      "completed": 5,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_revenue_growth_officials.yaml",
+      "manifest": "Startup OS Revenue and Growth Officials",
+      "company": "founder-intelligence-os",
+      "data_type": "market_research",
+      "total_chunks": 34,
+      "errors": 0,
+      "sources_total": 5,
+      "completed": 5,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_trust_governance_officials.yaml",
+      "manifest": "Startup OS Trust and Governance Officials",
+      "company": "founder-intelligence-os",
+      "data_type": "legal_compliance",
+      "total_chunks": 463,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 6,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_data_decision_science_officials.yaml",
+      "manifest": "Startup OS Data and Decision Science Officials",
+      "company": "founder-intelligence-os",
+      "data_type": "technical_docs",
+      "total_chunks": 1458,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 6,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_ai_foundations.yaml",
+      "manifest": "Job Studio Training AI Foundations",
+      "company": "mike-job-studio",
+      "data_type": "training_research",
+      "total_chunks": 804,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 6,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_behavioral_science.yaml",
+      "manifest": "Job Studio Training Behavioral Science",
+      "company": "mike-job-studio",
+      "data_type": "training_research",
+      "total_chunks": 1405,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 6,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_ellen_enablement.yaml",
+      "manifest": "Job Studio Training Ellen Enablement",
+      "company": "mike-job-studio",
+      "data_type": "operational_protocols",
+      "total_chunks": 132,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 5,
+      "skipped": 1,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_github_harvest.yaml",
+      "manifest": "Job Studio Training GitHub Harvest",
+      "company": "mike-job-studio",
+      "data_type": "training_research",
+      "total_chunks": 239,
+      "errors": 0,
+      "sources_total": 8,
+      "completed": 6,
+      "skipped": 2,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "job_studio_training_mcp_stack.yaml",
+      "manifest": "Job Studio Training MCP Stack",
+      "company": "mike-job-studio",
+      "data_type": "operational_protocols",
+      "total_chunks": 2036,
+      "errors": 0,
+      "sources_total": 5,
+      "completed": 5,
+      "skipped": 0,
+      "error_messages": []
+    },
+    {
+      "manifest_file": "startup_os_training_evaluation_officials.yaml",
+      "manifest": "Startup OS Training Evaluation Officials",
+      "company": "mike-job-studio",
+      "data_type": "studio_evals",
+      "total_chunks": 22,
+      "errors": 0,
+      "sources_total": 6,
+      "completed": 6,
+      "skipped": 0,
+      "error_messages": []
+    }
+  ]
+}

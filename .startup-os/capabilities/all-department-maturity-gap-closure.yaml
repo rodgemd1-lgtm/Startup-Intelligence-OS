@@ -1,0 +1,51 @@
+id: all-department-maturity-gap-closure
+name: All-Department Maturity Gap Closure
+maturity_current: 3.1
+maturity_target: 8.7
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Jake
+gaps:
+  - low-maturity-department-evidence
+  - training-evaluation-corpus
+  - official-doc-refresh
+  - cross-department-scorecards
+  - role-packet-and-cadence-templates
+  - trust-gate-operationalization
+levels:
+  1:
+    name: Visible
+    items:
+      - text: "Every core department exists as a file-backed wrapper with mission, owner, outputs, and current maturity."
+        done: true
+      - text: "The zero-to-ten maturity system defines what best-in-the-world means for every department and operating layer."
+        done: true
+      - text: "The current-state roadmap highlights the weakest layers and departments explicitly."
+        done: true
+  2:
+    name: Directed
+    items:
+      - text: "The lowest-scoring departments are mapped to direct-URL scrape manifests and target source stacks."
+        done: true
+      - text: "Job Studio training evaluation, AI foundations, Ellen enablement, and MCP stack refresh paths are wired into the same program."
+        done: true
+      - text: "A repeatable runner exists to execute the department gap closure wave and write captured summaries."
+        done: true
+  3:
+    name: Operating
+    items:
+      - text: "The gap closure wave has been executed and summary artifacts exist for both shared OS and Job Studio corpora."
+        done: false
+      - text: "Knowledge chunk coverage materially increases for the weakest departments and training systems."
+        done: false
+      - text: "Maturity deltas are updated with evidence-backed score movements after the crawl wave completes."
+        done: false
+  4:
+    name: Compounding
+    items:
+      - text: "New evidence is converted into role scorecards, KPI trees, growth playbooks, trust gates, and evaluation rubrics."
+        done: false
+      - text: "Department scorecards and console signals reflect evidence freshness and readiness automatically."
+        done: false
+      - text: "Gap closure becomes a recurring measured program rather than a one-time cleanup pass."
+        done: false

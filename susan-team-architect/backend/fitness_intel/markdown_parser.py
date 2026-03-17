@@ -6,6 +6,8 @@ from pathlib import Path
 import re
 from typing import Optional
 
+from susan_core.config import config
+
 from .schemas import (
     AppRecord,
     ClaimRecord,
@@ -76,21 +78,18 @@ def parse_markdown_table(table_text: str) -> list[dict[str, str]]:
 
 
 def parse_markdown_profile(path: Path) -> ParsedMarkdownProfile:
-    raw = path.read_text(encoding="utf-8")
+    resolved_path = _resolve_markdown_path(path)
+    raw = resolved_path.read_text(encoding="utf-8")
     title_match = re.search(r"^#\s+(.*)$", raw, re.MULTILINE)
-    title = title_match.group(1).strip() if title_match else path.stem
+    title = title_match.group(1).strip() if title_match else resolved_path.stem
 
     metadata: dict[str, str] = {}
     for line in raw.splitlines():
         stripped = line.strip()
-        if stripped.startswith("> **") and ":**" in stripped:
-            cleaned = stripped.removeprefix("> ").strip("*")
-            key, value = cleaned.split(":**", 1)
-            metadata[key.strip("* ")] = value.strip()
-        elif stripped.startswith("**") and ":**" in stripped:
-            cleaned = stripped.strip("*")
-            key, value = cleaned.split(":**", 1)
-            metadata[key.strip("* ")] = value.strip()
+        match = re.match(r"^>?\s*\*\*(.+?)\*\*\s*:?\s*(.+)$", stripped)
+        if match:
+            key, value = match.groups()
+            metadata[key.strip().rstrip(":")] = value.strip()
         if stripped.startswith("## "):
             break
 
@@ -109,13 +108,35 @@ def parse_markdown_profile(path: Path) -> ParsedMarkdownProfile:
             tables[heading] = table_rows
 
     return ParsedMarkdownProfile(
-        path=path,
+        path=resolved_path,
         title=title,
         metadata=metadata,
         sections=sections,
         tables=tables,
         raw_text=raw,
     )
+
+
+def _resolve_markdown_path(path: Path) -> Path:
+    if path.exists():
+        return path
+
+    editorial_root = config.fitness_domain_dir / "editorial"
+    candidates = [
+        config.base_dir / path,
+        editorial_root / path,
+        editorial_root / "apps" / path.name,
+    ]
+
+    if "apps" in path.parts:
+        apps_index = path.parts.index("apps")
+        candidates.append(editorial_root.joinpath(*path.parts[apps_index:]))
+
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    raise FileNotFoundError(path)
 
 
 def build_editorial_source(profile: ParsedMarkdownProfile) -> SourceRecord:

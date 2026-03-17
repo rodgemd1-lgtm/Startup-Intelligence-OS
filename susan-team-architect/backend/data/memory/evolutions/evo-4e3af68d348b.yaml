@@ -1,0 +1,19 @@
+id: evo-4e3af68d348b
+evolution_type: new_capability
+description: Department 'Talent & Org Design Studio' links to capability 'agent-readiness-index'
+  which has no capability record. Create a capability record to enable maturity tracking.
+rationale: Capability 'agent-readiness-index' is referenced by a department but has
+  no tracking record. Creating the record enables maturity monitoring and gap analysis.
+evidence:
+- Department 'talent-org-design-studio' references 'agent-readiness-index'
+- No file found in .startup-os/capabilities/ for 'agent-readiness-index'
+status: proposed
+impact_assessment: '**What changes:** A new capability record is created with maturity
+  tracking.
+
+  **What breaks:** Nothing breaks. New record is additive.
+
+  **What improves:** Gap analysis and predictions now cover the new capability.
+
+  **Reversibility:** Fully reversible. Remove the capability YAML file.'
+created_at: '2026-03-17T01:41:13Z'

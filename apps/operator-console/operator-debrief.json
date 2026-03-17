@@ -1,9 +1,10 @@
 {
   "debrief": [
     "Runtime source of truth: susan-team-architect/backend",
-    "Susan agent roster synced: 60 agents indexed",
-    "Decision OS objects \u2014 decisions: 2, capabilities: 6, projects: 1, runs: 2",
+    "Susan agent roster synced: 81 agents indexed",
+    "Decision OS objects \u2014 decisions: 18, capabilities: 27, projects: 2, runs: 1",
     "Evidence store: 0 items indexed",
+    "Artifact store: 89 items indexed",
     "Jake roles active: Expert System Architect + Cognitive Orchestrator",
     "Susan roles active: Capability Foundry Lead + Cognitive Team Architect"
   ],

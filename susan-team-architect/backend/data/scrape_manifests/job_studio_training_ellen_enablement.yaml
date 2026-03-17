@@ -1,0 +1,21 @@
+manifest:
+  name: "Job Studio Training Ellen Enablement"
+  company: mike-job-studio
+  data_type: operational_protocols
+  priority: critical
+  description: "Ellen, Gen Chat, Oracle Health workflow, and training asset refresh for Sessions 4-8"
+
+sources:
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/README.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/standards/PERSONA_ROSTER.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/gen-chat-deploy/oracle-gen-chat-prompt-library.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/gen-chat-deploy/lego-piece-summary.md
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/oracle-health-ai-enablement/blob/main/workshop/WORKSHOP_ARC.md
+  - tool: firecrawl-crawl
+    url: https://mcpmarket.com/
+    max_pages: 40

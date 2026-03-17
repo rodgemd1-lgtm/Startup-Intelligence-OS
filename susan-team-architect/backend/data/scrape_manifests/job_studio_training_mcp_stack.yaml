@@ -1,0 +1,23 @@
+manifest:
+  name: "Job Studio Training MCP Stack"
+  company: mike-job-studio
+  data_type: operational_protocols
+  priority: high
+  description: "Official documentation and ecosystem references for MCP-enabled research, browser, filesystem, and memory tooling"
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://mcpmarket.com/
+    max_pages: 60
+  - tool: firecrawl-crawl
+    url: https://playwright.dev/docs/intro
+    max_pages: 50
+  - tool: firecrawl-crawl
+    url: https://docs.github.com/en
+    max_pages: 40
+  - tool: firecrawl-crawl
+    url: https://developers.notion.com/
+    max_pages: 40
+  - tool: firecrawl-crawl
+    url: https://vercel.com/docs
+    max_pages: 40

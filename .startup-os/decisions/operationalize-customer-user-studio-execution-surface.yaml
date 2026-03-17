@@ -1,0 +1,50 @@
+id: operationalize-customer-user-studio-execution-surface
+title: Add executable Jake workflows for Customer User Studio seeding, validation, and reporting
+status: approved
+company_id: founder-intelligence-os
+project_id: decision-capability-os
+decision_statement: Implement a terminal-first execution surface for Customer User Studio via `bin/jake customer-studio` commands that seed artifacts, validate contracts, and generate ranked opportunities.
+why_now: Prior iterations were documentation-heavy; we need runnable workflows that produce evidence artifacts and roadmap inputs immediately.
+constraints:
+  - Preserve Susan runtime behavior under susan-team-architect/backend.
+  - Keep workflows additive and file-backed in .startup-os.
+  - Maintain Jake as the default root front door.
+options:
+  - id: option-a
+    name: Keep documentation-only studio
+    summary: Continue with capability/docs and no executable customer-studio command surface.
+    impact: low
+    effort: low
+    risk: high
+    confidence: medium
+    time_to_signal: fast
+  - id: option-b
+    name: Add Jake customer-studio execution surface
+    summary: Add seed/validate/report commands and starter artifacts to make customer studio runnable now.
+    impact: high
+    effort: medium
+    risk: low
+    confidence: high
+    time_to_signal: fast
+recommendation: option-b
+assumptions:
+  - Lightweight file-backed operations are sufficient for phase-1 execution.
+  - Teams will iterate scenario and persona packs after seeded starter artifacts exist.
+risks:
+  - name: Low fidelity scoring in early report generation
+    mitigation: Evolve scoring weights in roadmap spec as more session evidence accumulates.
+  - name: Artifact sprawl
+    mitigation: Keep outputs in a dedicated customer-user-studio artifact subtree with validation checks.
+next_actions:
+  - Expand seeded journeys to top 25 real customer workflows.
+  - Integrate report output into weekly decision-room packet.
+  - Add CI check for customer-studio validate command.
+linked_capabilities:
+  - customer-user-studio
+linked_projects:
+  - decision-capability-os
+artifacts:
+  - bin/jake
+  - apps/decision_os/customer_user_studio.py
+  - apps/decision_os/tests/test_customer_user_studio.py
+  - .startup-os/artifacts/customer-user-studio/reports/ranked-opportunities.yaml

@@ -10,6 +10,9 @@ from susan_core.config import config
 class WebIngestor(BaseIngestor):
     """Ingest web pages into the knowledge base via Firecrawl."""
 
+    def __init__(self, retriever=None):
+        super().__init__(retriever=retriever)
+
     def ingest(
         self,
         source: str,
@@ -73,20 +76,27 @@ class WebIngestor(BaseIngestor):
         total = 0
 
         try:
-            result = app.crawl_url(source, params={"limit": max_pages})
-            pages = result.data if hasattr(result, "data") else []
+            try:
+                result = app.crawl(source, limit=max_pages, scrape_options={"formats": ["markdown"]})
+            except AttributeError:
+                result = app.crawl_url(source, params={"limit": max_pages})
+            pages = self._extract_pages(result)
         except Exception as e:
             print(f"  Warning: Firecrawl crawl failed for {source}: {e}")
             return 0
 
         for page in pages:
-            markdown = getattr(page, "markdown", "") or ""
+            markdown = self._page_value(page, "markdown") or ""
             if not markdown.strip():
                 continue
 
-            metadata = getattr(page, "metadata", None)
-            title = getattr(metadata, "title", "") if metadata else ""
-            page_url = getattr(metadata, "sourceURL", source) if metadata else source
+            metadata = self._page_value(page, "metadata") or {}
+            title = self._metadata_value(metadata, "title")
+            page_url = (
+                self._metadata_value(metadata, "sourceURL")
+                or self._metadata_value(metadata, "url")
+                or source
+            )
 
             text_chunks = chunk_markdown(markdown, max_tokens=500)
             chunks = self._make_chunks(
@@ -108,3 +118,18 @@ class WebIngestor(BaseIngestor):
         if path.is_file():
             return [line.strip() for line in path.read_text().splitlines() if line.strip()]
         return [source]
+
+    def _extract_pages(self, result) -> list:
+        if isinstance(result, dict):
+            return result.get("data") or []
+        return getattr(result, "data", None) or []
+
+    def _page_value(self, page, field: str):
+        if isinstance(page, dict):
+            return page.get(field, "")
+        return getattr(page, field, "")
+
+    def _metadata_value(self, metadata, field: str) -> str:
+        if isinstance(metadata, dict):
+            return metadata.get(field, "") or ""
+        return getattr(metadata, field, "") or ""

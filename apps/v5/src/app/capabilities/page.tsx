@@ -42,7 +42,6 @@ export default function CapabilitiesPage() {
         owner_agent: "",
       }));
 
-  const totalGaps = capabilities.reduce((s, c) => s + c.gaps.length, 0);
   const avgMaturity = capabilities.length > 0
     ? +(capabilities.reduce((s, c) => s + c.maturity, 0) / capabilities.length).toFixed(1)
     : 0;

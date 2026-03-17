@@ -1,0 +1,55 @@
+id: agentic-operator-console
+name: Agentic Operator Console
+maturity_current: 1.9
+maturity_target: 4.3
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Atlas
+gaps:
+  - state graph
+  - event-driven routing
+  - next-best-action engine
+  - cross-run memory
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Operator UI surfaces exist in apps/operator-console and apps/v5 with live API hooks"
+        done: true
+      - text: "Workspace context is explicit through .startup-os/workspace.yaml and bin/os-context"
+        done: true
+      - text: "Assessment artifact defines the dashboard upgrade as an agentic neural network over OS objects (.startup-os/artifacts/startup-intelligence-os-10x-future-back-plan-2026-03-12.md)"
+        done: true
+  2:
+    name: Emerging
+    items:
+      - text: "Dashboard reads from a canonical state graph of workspace, company, project, decision, capability, artifact, run, and experiment objects"
+        done: false
+      - text: "Dashboard emits next-best actions, not just passive metrics, with clear agent and studio routing"
+        done: false
+      - text: "System events trigger routing, escalation, and writeback flows when evidence is stale, tests fail, or stage gates block progress"
+        done: false
+      - text: "Operator can move from dashboard signal to executable workflow without leaving the console"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Department studios subscribe to events and update dashboard state automatically after runs"
+        done: false
+      - text: "Decision, capability, and experiment objects share one graph-backed execution timeline"
+        done: false
+      - text: "Dashboard learns preferred operating sequences and predicts what action will unblock the system fastest"
+        done: false
+      - text: "Console provides multi-company and multi-project views with explicit scoping and conflict alerts"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Console behaves like an agentic operating cortex: sensing, routing, executing, evaluating, and writing back"
+        done: false
+      - text: "State changes are explainable, reversible, and linked to evidence, assumptions, and outcomes"
+        done: false
+      - text: "The operator dashboard compounds from memory and quality scores, not static widgets"
+        done: false
+      - text: "The system proactively assembles the right department team for any new startup, app, or project objective"
+        done: false

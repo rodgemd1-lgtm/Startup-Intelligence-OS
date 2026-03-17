@@ -153,24 +153,38 @@ PY
 print_status() {
 python3 - <<'PY'
 from pathlib import Path
+import yaml
 
-def count_files(path, suffixes=None):
+def load_workspace():
+    ws_path = Path('.startup-os/workspace.yaml')
+    if not ws_path.exists():
+        return {}
+    return yaml.safe_load(ws_path.read_text()) or {}
+
+def count_files(path, suffixes=None, recursive=False):
     p = Path(path)
     if not p.exists():
         return 0
-    items = [x for x in p.iterdir() if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
+    iterator = p.rglob('*') if recursive else p.iterdir()
+    items = [x for x in iterator if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
     if suffixes:
         items = [x for x in items if x.suffix in suffixes]
     return len(items)
+
+ws = load_workspace()
+paths = ws.get('paths', {})
+runs_path = paths.get('runs', '.startup-os/runs')
+artifacts_path = paths.get('artifacts', '.startup-os/artifacts')
+evidence_path = paths.get('evidence', '.startup-os/evidence')
 
 print('jake: Decision OS status')
 print(f"  decisions:    {count_files('.startup-os/decisions', {'.yaml', '.md'})}")
 print(f"  capabilities: {count_files('.startup-os/capabilities', {'.yaml'})}")
 print(f"  projects:     {count_files('.startup-os/projects', {'.yaml'})}")
 print(f"  companies:    {count_files('.startup-os/companies', {'.yaml'})}")
-print(f"  runs:         {count_files('apps/decision_os/data/runs', {'.yaml'})}")
-print(f"  evidence:     {count_files('apps/decision_os/data/evidence', {'.yaml'})}")
-print(f"  artifacts:    {count_files('apps/decision_os/data/artifacts', {'.yaml'})}")
+print(f"  runs:         {count_files(runs_path, {'.yaml'})}")
+print(f"  evidence:     {count_files(evidence_path, {'.yaml'})}")
+print(f"  artifacts:    {count_files(artifacts_path, {'.yaml', '.md'}, recursive=True)}")
 PY
 }
 
@@ -181,6 +195,8 @@ from pathlib import Path
 import yaml, json, datetime
 
 root = Path('.')
+workspace = yaml.safe_load((root / '.startup-os/workspace.yaml').read_text()) or {}
+paths = workspace.get('paths', {})
 
 # Regenerate agent readiness index
 agents = []
@@ -203,11 +219,12 @@ idx = {
     yaml.safe_dump(idx, sort_keys=False))
 
 # Count objects
-def count_files(path, suffixes=None):
+def count_files(path, suffixes=None, recursive=False):
     p = Path(path)
     if not p.exists():
         return 0
-    items = [x for x in p.iterdir() if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
+    iterator = p.rglob('*') if recursive else p.iterdir()
+    items = [x for x in iterator if x.is_file() and not x.name.startswith('.') and x.name != 'README.md']
     if suffixes:
         items = [x for x in items if x.suffix in suffixes]
     return len(items)
@@ -215,8 +232,9 @@ def count_files(path, suffixes=None):
 cap_count = count_files('.startup-os/capabilities', {'.yaml'})
 proj_count = count_files('.startup-os/projects', {'.yaml'})
 dec_count = count_files('.startup-os/decisions', {'.yaml', '.md'})
-run_count = count_files('apps/decision_os/data/runs', {'.yaml'})
-ev_count = count_files('apps/decision_os/data/evidence', {'.yaml'})
+run_count = count_files(paths.get('runs', '.startup-os/runs'), {'.yaml'})
+ev_count = count_files(paths.get('evidence', '.startup-os/evidence'), {'.yaml'})
+artifact_count = count_files(paths.get('artifacts', '.startup-os/artifacts'), {'.yaml', '.md'}, recursive=True)
 
 # Generate operator debrief
 payload = {
@@ -225,6 +243,7 @@ payload = {
         f'Susan agent roster synced: {len(agents)} agents indexed',
         f'Decision OS objects — decisions: {dec_count}, capabilities: {cap_count}, projects: {proj_count}, runs: {run_count}',
         f'Evidence store: {ev_count} items indexed',
+        f'Artifact store: {artifact_count} items indexed',
         'Jake roles active: Expert System Architect + Cognitive Orchestrator',
         'Susan roles active: Capability Foundry Lead + Cognitive Team Architect',
     ],
@@ -357,6 +376,65 @@ else:
     print(f'jake: decision not found: {sys.argv[1]}', file=sys.stderr)
     sys.exit(1)
 PY
+}
+
+
+# ── customer-studio ───────────────────────────────────────────────────────────
+customer_studio() {
+    local subcmd="${1:-help}"
+    shift 2>/dev/null || true
+python3 - "$subcmd" "$@" <<'PY2'
+import sys, os
+from pathlib import Path
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.customer_user_studio import CustomerUserStudio
+
+subcmd = sys.argv[1]
+args = sys.argv[2:]
+studio = CustomerUserStudio(Path.cwd())
+
+if subcmd == 'seed':
+    created = studio.seed()
+    print('jake: customer studio seed created')
+    for k, v in created.items():
+        print(f'  {k}: {v}')
+elif subcmd == 'validate':
+    results = studio.validate_all()
+    if not results:
+        print('jake: customer studio validate ok (no files found)')
+    bad = [r for r in results if not r.valid]
+    for r in results:
+        status = 'PASS' if r.valid else 'FAIL'
+        print(f'  [{status}] {r.path}')
+        for e in r.errors:
+            print(f'    - {e}')
+    if bad:
+        print(f'jake: customer studio validate failed: {len(bad)} invalid files', file=sys.stderr)
+        sys.exit(1)
+    print(f'jake: customer studio validate ok ({len(results)} files)')
+elif subcmd == 'report':
+    out = studio.generate_ranked_opportunities()
+    print('jake: customer studio report generated')
+    print(f'  path: {out.relative_to(Path.cwd())}')
+elif subcmd == 'push-susan':
+    result = studio.push_to_susan_backend()
+    print('jake: customer studio pushed to susan intelligence backend')
+    print(f"  target_root: {result['target_root']}")
+    print(f"  index: {result['index']}")
+    print(f"  files: {result['count']}")
+elif subcmd == 'publish':
+    local_drive = Path(args[0]).expanduser() if args else None
+    result = studio.publish_bundle(local_drive_root=local_drive)
+    print('jake: customer studio publish complete')
+    print(f"  publish_root: {result['publish_root']}")
+    print(f"  manifest: {result['manifest']}")
+    print(f"  backend_index: {result['backend_index']}")
+    if result['local_drive_path']:
+        print(f"  local_drive: {result['local_drive_path']}")
+else:
+    print('Usage: bin/jake customer-studio <seed|validate|report|push-susan|publish [local_drive_path]>', file=sys.stderr)
+    sys.exit(2)
+PY2
 }
 
 # ── ingest-intel ──────────────────────────────────────────────────────────────
@@ -505,6 +583,9 @@ case "$cmd" in
     ingest-intel)
         ingest_intel
         ;;
+    customer-studio)
+        customer_studio "$@"
+        ;;
     debrief)
         print_debrief "$@"
         ;;
@@ -523,6 +604,7 @@ case "$cmd" in
         echo "  run-decision <id>  Execute decision pipeline"
         echo "  debate <id>        Run debate cycle on existing decision"
         echo "  ingest-intel       Ingest intelligence from configured sources"
+        echo "  customer-studio    Customer User Studio ops: seed|validate|report|push-susan|publish"
         echo "  debrief [operator] Show operator debrief (mike|susan)"
         echo "  smoke              Run end-to-end smoke test"
         exit 2

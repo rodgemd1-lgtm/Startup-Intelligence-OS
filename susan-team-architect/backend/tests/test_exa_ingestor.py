@@ -24,7 +24,28 @@ class TestExaSearchIngestor:
             count = ingestor.ingest(source="progressive overload protocols",
                                      company_id="transformfit", data_type="exercise_science", num_results=5)
         mock_exa.search_and_contents.assert_called_once()
+        kwargs = mock_exa.search_and_contents.call_args.kwargs
+        assert kwargs["type"] == "auto"
+        assert "use_autoprompt" not in kwargs
         assert count == 5
+
+    def test_ingest_maps_legacy_keyword_search_type(self, mock_retriever):
+        from rag_engine.ingestion.exa_search import ExaSearchIngestor
+        mock_exa = MagicMock()
+        mock_exa.search_and_contents.return_value.results = [
+            MagicMock(url="https://example.com/article", title="Test Article",
+                      text="This is the full article content about progressive overload.")
+        ]
+        with patch("rag_engine.ingestion.exa_search.Exa", return_value=mock_exa):
+            ingestor = ExaSearchIngestor(retriever=mock_retriever)
+            ingestor.ingest(
+                source="progressive overload protocols",
+                company_id="transformfit",
+                data_type="exercise_science",
+                search_type="keyword",
+            )
+        kwargs = mock_exa.search_and_contents.call_args.kwargs
+        assert kwargs["type"] == "fast"
 
     def test_ingest_chunks_multiple_results(self, mock_retriever):
         from rag_engine.ingestion.exa_search import ExaSearchIngestor

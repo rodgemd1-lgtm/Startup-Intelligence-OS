@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'DeviceProbeUITests' in project 'IOSDeviceProbe'
+➜ Explicit dependency on target 'DeviceProbe' in project 'IOSDeviceProbe'
+Target 'DeviceProbe' in project 'IOSDeviceProbe' (no dependencies)

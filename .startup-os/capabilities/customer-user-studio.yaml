@@ -1,0 +1,71 @@
+id: customer-user-studio
+name: Customer User Studio
+maturity_current: 2.0
+maturity_target: 5.0
+wave: 1
+owner_human: Mike Rodgers
+owner_agent: Susan
+gaps:
+  - cross-app-experience-graph
+  - adaptive-agent-runtime
+  - scenario-coverage-planning
+  - synthetic-beta-alignment-intelligence
+  - predictive-roadmap-ranking
+  - release-gate-governance
+  - autonomous-portfolio-optimization
+levels:
+  1:
+    name: Nascent
+    items:
+      - text: "Capability charter and KPI framework defined"
+        done: true
+      - text: "Canonical persona/scenario/session schemas established"
+        done: true
+      - text: "Decision record approved for Customer User Studio core build"
+        done: true
+      - text: "First 10 deterministic high-value journeys identified"
+        done: false
+  2:
+    name: Emerging
+    items:
+      - text: "Nightly synthetic customer regression runs across priority apps"
+        done: false
+      - text: "Session evidence includes outcomes, frictions, errors, and preferences"
+        done: false
+      - text: "Roadmap intelligence mapping produces ranked candidates with confidence"
+        done: false
+      - text: "Weekly decision-room packet generated from agent findings"
+        done: false
+  3:
+    name: Scaling
+    items:
+      - text: "Adaptive agent branching responds to context and in-run failure patterns"
+        done: false
+      - text: "Scenario coverage planner maps blind spots by persona/module/journey"
+        done: false
+      - text: "Synthetic-vs-beta alignment score tracked per scenario family"
+        done: false
+      - text: "Critical finding triage SLA and ownership model enforced"
+        done: false
+  4:
+    name: Optimizing
+    items:
+      - text: "Predictive impact model estimates KPI movement for roadmap candidates"
+        done: false
+      - text: "Release go/no-go customer quality gate enforced with waiver logging"
+        done: false
+      - text: "Longitudinal preference memory tracks sentiment shifts across releases"
+        done: false
+      - text: "Root-cause clustering links recurring frictions to platform components"
+        done: false
+  5:
+    name: Leading
+    items:
+      - text: "Population simulation runs segment-level and market-condition stress tests"
+        done: false
+      - text: "Autonomous scenario generation continuously explores unknown unknowns"
+        done: false
+      - text: "Portfolio optimization engine recommends cross-app roadmap tradeoffs"
+        done: false
+      - text: "Closed-loop impact tracking validates shipped recommendations vs outcomes"
+        done: false

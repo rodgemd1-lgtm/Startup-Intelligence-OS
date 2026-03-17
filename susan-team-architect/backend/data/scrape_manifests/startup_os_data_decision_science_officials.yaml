@@ -1,0 +1,25 @@
+manifest:
+  name: "Startup OS Data and Decision Science Officials"
+  company: founder-intelligence-os
+  data_type: technical_docs
+  priority: high
+  description: "Official analytics, experimentation, instrumentation, and evaluation documentation for scorecards and decision science."
+
+sources:
+  - tool: firecrawl-crawl
+    url: https://amplitude.com/docs
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://docs.statsig.com/
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://opentelemetry.io/docs/
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://posthog.com/docs
+    max_pages: 30
+  - tool: firecrawl-crawl
+    url: https://developers.google.com/analytics/devguides/collection/ga4
+    max_pages: 20
+  - tool: jina
+    url: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/blob/main/.startup-os/departments/data-decision-science-studio.yaml
