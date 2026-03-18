@@ -25,10 +25,13 @@ BRIEF_NAME=$(basename "$FILE_PATH" .md)
 WORKFLOW=""
 case "$BRIEF_NAME" in
   aria-brief-*)     WORKFLOW="aria-daily-brief" ;;
-  oracle-brief-*)   WORKFLOW="oracle-health-morning-brief" ;;
+  oracle-brief-*)   WORKFLOW="oracle-brief-executive" ;;
   ledger-report-*)  WORKFLOW="ledger-funnel-report" ;;
   scout-signals-*)  WORKFLOW="scout-competitive-signals" ;;
   freshness-*)      WORKFLOW="knowledge-freshness-audit" ;;
+  herald-response-*) WORKFLOW="herald-competitive-response" ;;
+  patterns-*)       WORKFLOW="cross-domain-patterns" ;;
+  graduation-review-*) exit 0 ;;  # Meta-output, don't track itself
   *)                exit 0 ;;  # Unknown brief type, skip
 esac
 

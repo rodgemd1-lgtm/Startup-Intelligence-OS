@@ -71,6 +71,16 @@ workflows:
     #   human_agrees: null  # null = unrated, true/false
     #   notes: ""
 
+  oracle-brief-executive:
+    name: "ORACLE-BRIEF Executive Brief"
+    agent: oracle-brief
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: null  # not yet scheduled — will pair with existing morning brief cron
+    type: brief
+    threshold: 80
+    observations: []
+
   knowledge-freshness-audit:
     name: "Knowledge Freshness Audit"
     agent: null  # skill, not agent
