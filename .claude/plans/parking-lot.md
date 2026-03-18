@@ -29,6 +29,20 @@
 - **Next step**: Complete Telegram pairing, then build bridge in V3
 - **Reference**: See `~/.claude/projects/.../memory/reference_openclaw_telegram.md`
 
+### Birch — Real-Time Signal Scoring & Autonomous Execution Engine (V4 Feature)
+- **What**: Scoring + routing layer that ingests real-time web signals, scores them (Relevance/Actionability/Urgency 0-100), and auto-routes to existing agents
+- **Data source**: Firehose.com — SSE streaming API for real-time web monitoring (free beta, no credit card). Delivers ML-classified content with article metadata, Lucene query syntax filtering.
+- **Architecture**: NOT a monolithic agent. Birch is the scoring brain that orchestrates existing agents:
+  - Firehose SSE stream → Birch scoring (0-100)
+  - Tier 1 (80+): Route to HERALD for drafting → SENTINEL-HEALTH gate → staging queue
+  - Tier 2 (50-79): Append to daily digest
+  - Tier 3 (<50): Log discard count (anti-fragility compliant), discard content
+- **Why V4**: Requires autonomous chain execution (SCOUT → scoring → HERALD → gate → publish). That's V4a territory.
+- **Integration**: Firehose SSE → could wrap as MCP tool or Python consumer feeding into Susan RAG pipeline
+- **Status**: Parked — V4a prerequisite. Park until autonomous research chains are proven.
+- **Next step**: Sign up for Firehose beta, test SSE stream, define scoring rubric against real signals
+- **Reference**: https://firehose.com/ — Mike found this, Jake validated the architecture
+
 ---
 
 *Reviewed during planning sessions (Strategist Mind). Ideas that survive 2+ reviews get promoted to plans.*
