@@ -8,11 +8,11 @@
 - **Status**: Parked — separate session recommended
 - **Next step**: Open Alex Recruiting repo, check HANDOFF.md, resume Phase 5 polish
 
-### James LS (NEW — needs scoping)
-- **What**: "James LS" — Mike mentioned needing help building this out
-- **Context**: Unknown project. Jake needs to ask Mike what this is before any work.
-- **Status**: Parked — needs definition
-- **Next step**: Ask Mike for context on what James LS is
+### James OS — Fleet Management Dashboard
+- **What**: Fleet management operating system with dashboard, built for James
+- **Context**: Mike is building this out as a separate project
+- **Status**: Parked — separate session recommended
+- **Next step**: Scope requirements, tech stack, data sources. Likely needs own repo + WISC setup.
 
 ### Oracle Health Website
 - **What**: Mike wants to build out a website for Oracle Health AI Enablement

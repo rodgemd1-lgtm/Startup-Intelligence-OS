@@ -47,6 +47,10 @@
       {
         "matcher": "Agent",
         "command": "bash bin/hooks/decision-audit.sh"
+      },
+      {
+        "matcher": "Agent",
+        "command": "bash bin/hooks/contradiction-detector.sh"
       }
     ],
     "Stop": [
