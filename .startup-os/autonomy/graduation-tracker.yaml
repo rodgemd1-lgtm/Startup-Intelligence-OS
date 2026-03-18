@@ -111,6 +111,36 @@ workflows:
     threshold: 100
     observations: []
 
+  weekly-strategic-digest:
+    name: "Weekly Strategic Digest"
+    agent: digest
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: "weekly (Friday)"
+    type: brief
+    threshold: 80
+    observations: []
+
+  antifragility-monitor:
+    name: "Anti-fragility Monitor"
+    agent: antifragility-monitor
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: "weekly"
+    type: governance
+    threshold: 80
+    observations: []
+
+  optionality-scout:
+    name: "Strategic Optionality Scout"
+    agent: optionality-scout
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: "on-demand + monthly"
+    type: governance
+    threshold: 80
+    observations: []
+
 # Tier change log
 tier_changes:
   - date: "2026-03-18"
