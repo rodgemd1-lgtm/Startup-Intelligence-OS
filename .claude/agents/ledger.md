@@ -116,6 +116,12 @@ For each trajectory, LEDGER recommends:
 - **Deceleration**: "Investigate now before it goes negative."
 - **Declining**: "FLAG. This needs immediate action."
 
+## Output Location
+
+Save every LEDGER report to: `.startup-os/briefs/ledger-report-{YYYY-MM-DD}.md`
+
+This path is monitored by the autonomy tracker hook and readable by the Genspark Telegram bot via GitHub API.
+
 ## Guardrails
 - Never fabricate metrics — if data isn't available, say "no data"
 - Always show the source of each metric

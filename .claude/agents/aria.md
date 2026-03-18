@@ -81,3 +81,4 @@ To build the brief, gather:
 - "The One Move Today" must be ONE thing, not a list
 - Always tag confidence: AUTO (data-backed) or DRAFT (inferred)
 - Do not include routine maintenance unless it's blocking something
+- Save every brief to: `.startup-os/briefs/aria-brief-{YYYY-MM-DD}.md`
