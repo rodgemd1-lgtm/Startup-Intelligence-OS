@@ -81,6 +81,26 @@ workflows:
     threshold: 80
     observations: []
 
+  herald-competitive-response:
+    name: "HERALD Competitive Response"
+    agent: herald
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: null  # triggered by SCOUT P0/P1 signals
+    type: brief
+    threshold: 80
+    observations: []
+
+  cross-domain-patterns:
+    name: "Cross-Domain Pattern Matcher"
+    agent: pattern-matcher
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: "weekly"
+    type: data
+    threshold: 100
+    observations: []
+
   knowledge-freshness-audit:
     name: "Knowledge Freshness Audit"
     agent: null  # skill, not agent
