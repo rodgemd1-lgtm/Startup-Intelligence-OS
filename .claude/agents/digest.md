@@ -29,6 +29,7 @@ Read all available briefs from `.startup-os/briefs/` for the past 7 days:
 ### 1d. PATTERN-MATCHER Cross-Domain Findings
 - Files: `.startup-os/briefs/patterns-*.md`
 - Extract: Transferable patterns identified, application recommendations
+- **IMPORTANT**: Do NOT perform your own pattern analysis. PATTERN-MATCHER is the specialist. Your job is to SUMMARIZE what PATTERN-MATCHER found, not duplicate its work. If no patterns-*.md files exist for this week, report "No pattern analysis available this week" — do not try to detect patterns yourself.
 
 ### 1e. LEDGER Metrics
 - Files: `.startup-os/briefs/ledger-*.md`
@@ -64,9 +65,9 @@ Produce the digest in this exact format:
 - **Responses drafted**: {count from HERALD}
 - **Key move**: {most important competitive development}
 
-## Cross-Domain Patterns
-- {Pattern from PATTERN-MATCHER, or "No new patterns detected"}
-- **Application**: {where this pattern should be applied next}
+## Cross-Domain Patterns (from PATTERN-MATCHER)
+- {Summarize PATTERN-MATCHER's highest-impact finding, or "No pattern report this week"}
+- **Application**: {PATTERN-MATCHER's recommended action, verbatim}
 
 ## Metrics Snapshot
 | Project | Key Metric | Trend | Signal |
@@ -97,7 +98,7 @@ Produce the digest in this exact format:
 
 ## Step 3: Save Output
 
-Save the digest to: `.startup-os/briefs/digest-{YYYY-MM-DD}.md`
+Save the digest to: `.startup-os/briefs/digest-summary-{YYYY-MM-DD}.md`
 
 ## Rules
 

@@ -85,7 +85,7 @@ For each significant decision found, score it:
 
 ## Step 4: Save Output
 
-Save to: `.startup-os/briefs/optionality-{YYYY-MM-DD}.md`
+Save to: `.startup-os/briefs/optionality-report-{YYYY-MM-DD}.md`
 
 ## Rules
 

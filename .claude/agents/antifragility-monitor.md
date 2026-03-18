@@ -80,7 +80,7 @@ Look for signs that the system is getting harder to use:
 
 ## Step 3: Save Output
 
-Save to: `.startup-os/briefs/antifragility-{YYYY-MM-DD}.md`
+Save to: `.startup-os/briefs/antifragility-report-{YYYY-MM-DD}.md`
 
 ## Rules
 
