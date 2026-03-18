@@ -1,0 +1,100 @@
+# Autonomy Graduation Tracker
+# Source of truth for workflow tier status and observation data
+# Updated by: autonomy-tracker.sh hook + weekly graduation review
+
+meta:
+  version: 1
+  created: "2026-03-18"
+  last_review: null
+  next_review: "2026-03-25"
+
+workflows:
+
+  aria-daily-brief:
+    name: "ARIA Daily Brief"
+    agent: aria
+    tier: T1
+    tier_since: "2026-03-18"
+    schedule: "daily 6:39 AM"
+    type: brief
+    threshold: 80
+    observations: []
+    # observations format:
+    # - date: "2026-03-19"
+    #   delivered: true
+    #   score: null  # null = unrated, 0-110 = rated
+    #   notes: ""
+
+  oracle-health-morning-brief:
+    name: "Oracle Health Morning Brief"
+    agent: null  # scheduled task, not agent
+    tier: T1
+    tier_since: "2026-03-18"
+    schedule: "weekdays 6:02 AM"
+    type: brief
+    threshold: 80
+    observations: []
+
+  ledger-funnel-report:
+    name: "LEDGER Funnel Report"
+    agent: ledger
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: null  # not yet scheduled
+    type: data
+    threshold: 100
+    observations: []
+
+  scout-competitive-signals:
+    name: "SCOUT Competitive Signals"
+    agent: scout
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: null  # not yet scheduled
+    type: brief
+    threshold: 80
+    observations: []
+
+  sentinel-health-compliance:
+    name: "SENTINEL-HEALTH Compliance"
+    agent: sentinel-health
+    tier: T0
+    tier_since: "2026-03-18"
+    schedule: "on-demand"
+    type: compliance
+    threshold: 90
+    observations: []
+    # compliance observations format:
+    # - date: "2026-03-19"
+    #   input_type: "ARIA brief"
+    #   classification: "REVIEW"
+    #   human_agrees: null  # null = unrated, true/false
+    #   notes: ""
+
+  knowledge-freshness-audit:
+    name: "Knowledge Freshness Audit"
+    agent: null  # skill, not agent
+    tier: T1
+    tier_since: "2026-03-18"
+    schedule: "weekly"
+    type: data
+    threshold: 100
+    observations: []
+
+# Tier change log
+tier_changes:
+  - date: "2026-03-18"
+    workflow: aria-daily-brief
+    from: T0
+    to: T1
+    reason: "V2 validation passed, email delivery confirmed"
+  - date: "2026-03-18"
+    workflow: oracle-health-morning-brief
+    from: T0
+    to: T1
+    reason: "V2 validation passed, email delivery confirmed"
+  - date: "2026-03-18"
+    workflow: knowledge-freshness-audit
+    from: T0
+    to: T1
+    reason: "Scheduled task running, manual review each run"

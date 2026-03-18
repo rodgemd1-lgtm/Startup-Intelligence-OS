@@ -51,6 +51,10 @@
       {
         "matcher": "Agent",
         "command": "bash bin/hooks/contradiction-detector.sh"
+      },
+      {
+        "matcher": "Write",
+        "command": "bash bin/hooks/autonomy-tracker.sh"
       }
     ],
     "Stop": [
