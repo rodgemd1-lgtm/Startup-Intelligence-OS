@@ -17,6 +17,10 @@
       {
         "matcher": "Agent",
         "command": "bash bin/hooks/model-router.sh"
+      },
+      {
+        "matcher": "Edit|Write",
+        "command": "bash bin/hooks/research-first-gate.sh"
       }
     ],
     "PreCompact": [
@@ -39,6 +43,10 @@
       {
         "matcher": "Agent",
         "command": "bash bin/hooks/confidence-tier.sh"
+      },
+      {
+        "matcher": "Agent",
+        "command": "bash bin/hooks/decision-audit.sh"
       }
     ],
     "Stop": [
