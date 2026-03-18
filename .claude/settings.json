@@ -35,6 +35,10 @@
       {
         "matcher": "Write|Edit",
         "command": "bash bin/hooks/quality-gate.sh"
+      },
+      {
+        "matcher": "Agent",
+        "command": "bash bin/hooks/confidence-tier.sh"
       }
     ],
     "Stop": [
