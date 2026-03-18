@@ -14,7 +14,7 @@ class TrustTracker:
         self._profiles: dict[str, TrustProfile] = {}
         self._profiles_path = self._data_dir / "trust_profiles.json"
 
-    def record_outcome(self, chain_name: str, success: bool, blocked: bool = False) -> None:
+    def record_outcome(self, chain_name: str, success: bool, blocked: bool = False, rejected: bool = False) -> None:
         if chain_name not in self._profiles:
             self._profiles[chain_name] = TrustProfile(chain_name=chain_name)
         profile = self._profiles[chain_name]
@@ -23,6 +23,8 @@ class TrustTracker:
             profile.successful_runs += 1
         if blocked:
             profile.blocked_runs += 1
+        if rejected:
+            profile.rejected_runs += 1
         from datetime import datetime, timezone
         profile.last_run_at = datetime.now(timezone.utc).isoformat()
 

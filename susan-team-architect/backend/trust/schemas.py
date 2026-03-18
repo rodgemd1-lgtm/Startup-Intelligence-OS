@@ -4,7 +4,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
 
 
 def _now_iso() -> str:
@@ -22,12 +22,14 @@ class TrustProfile(BaseModel):
     last_promotion_at: str = ""
     last_demotion_at: str = ""
 
+    @computed_field
     @property
     def accuracy(self) -> float:
         if self.total_runs == 0:
             return 0.0
         return (self.successful_runs / self.total_runs) * 100
 
+    @computed_field
     @property
     def escalation_rate(self) -> float:
         if self.total_runs == 0:

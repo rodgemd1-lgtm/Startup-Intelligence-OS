@@ -62,8 +62,9 @@ class BirchScorer:
         competitor_hits = sum(1 for c in rubric.competitors if c.lower() in text)
         if not rubric.keywords and not rubric.competitors:
             return 0
-        # Any keyword or competitor hit is a strong signal
-        # Base 20 per keyword hit, 30 per competitor hit, capped at 100
+        # Any keyword or competitor hit is a strong signal.
+        # Note: if a term appears in both keywords and competitors (e.g. "epic" for Oracle Health),
+        # it scores both weights (20 + 30). This is intentional — overlap signals high relevance.
         score = keyword_hits * 20 + competitor_hits * 30
         return max(0, min(100, score))
 

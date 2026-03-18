@@ -43,12 +43,13 @@ class ChainEngine:
 
             try:
                 result = self._executor(step.agent, input_data)
-            except Exception:
+            except Exception as exc:
                 run.status = "failed"
                 run.step_results.append(StepResult(
                     agent=step.agent,
                     output_key=step.output_key,
                     status="failed",
+                    error=f"{type(exc).__name__}: {exc}",
                     duration_ms=int((time.monotonic() - start) * 1000),
                 ))
                 break

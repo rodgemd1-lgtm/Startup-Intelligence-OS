@@ -48,7 +48,7 @@ class ChainStep(BaseModel):
     input_key: Optional[str] = Field(default=None, description="Key to read from context bus")
     output_key: str = Field(..., description="Key to write result to context bus")
     gate: bool = Field(default=False, description="If True, step can halt the chain")
-    timeout_seconds: int = Field(default=300, description="Max seconds for this step")
+    timeout_seconds: int = Field(default=300, description="Max seconds for this step")  # enforced in V4b
 
 
 class ChainDef(BaseModel):
@@ -73,6 +73,7 @@ class StepResult(BaseModel):
     output_key: str
     status: Literal["completed", "failed", "blocked", "skipped"] = "completed"
     gate_result: Optional[GateResult] = None
+    error: Optional[str] = None
     duration_ms: int = 0
     timestamp: str = Field(default_factory=_now_iso)
 

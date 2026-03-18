@@ -79,7 +79,7 @@ def test_chain_run_auto_id():
 
     run1 = ChainRun(chain_name="test", status="running", steps_completed=0, steps_total=2)
     run2 = ChainRun(chain_name="test", status="running", steps_completed=0, steps_total=2)
-    # IDs should differ (timestamp-based)
+    # IDs should differ (uuid4-based)
     assert run1.id != run2.id
 
 

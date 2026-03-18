@@ -3,12 +3,14 @@ from pathlib import Path
 
 import pytest
 
+BACKEND_DIR = str(Path(__file__).resolve().parent.parent)
 
-def test_enforcer_manual_chain():
+
+def test_enforcer_manual_chain(tmp_path: Path):
     from trust.enforcer import TrustEnforcer
     from trust.tracker import TrustTracker
 
-    tracker = TrustTracker(data_dir=Path("/tmp/trust-test-enforcer"))
+    tracker = TrustTracker(data_dir=tmp_path)
     enforcer = TrustEnforcer(tracker=tracker)
     disposition = enforcer.check("daily-cycle")
     assert disposition == "STAGE"  # MANUAL = always stage
@@ -62,7 +64,7 @@ def test_dashboard_cli_runs(tmp_path: Path):
         [sys.executable, "-m", "trust", "--command", "dashboard"],
         capture_output=True,
         text=True,
-        cwd="/Users/mikerodgers/Startup-Intelligence-OS/.claude/worktrees/heuristic-wright/susan-team-architect/backend",
+        cwd=BACKEND_DIR,
     )
     assert result.returncode == 0
     assert "Trust Dashboard" in result.stdout

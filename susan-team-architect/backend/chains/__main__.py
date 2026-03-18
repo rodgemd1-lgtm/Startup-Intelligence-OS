@@ -101,6 +101,8 @@ def main() -> None:
         for log_file in log_files[:3]:
             print(f"\n  {log_file.name}")
             for line in log_file.read_text().strip().split("\n")[-5:]:
+                if not line:
+                    continue
                 record = json.loads(line)
                 print(f"    {record['id']} | {record['chain_name']} | {record['status']}")
 

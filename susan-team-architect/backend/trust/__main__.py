@@ -8,6 +8,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -40,9 +41,11 @@ def main() -> None:
     repo_root = _find_repo_root()
     trust_dir = repo_root / ".startup-os" / "runs" / "trust"
     briefs_dir = repo_root / ".startup-os" / "briefs"
+    graduation_log = trust_dir / "graduation_events.jsonl"
 
     from trust.tracker import TrustTracker
     from trust.dashboard import generate_cli_table, generate_markdown
+    from trust.schemas import GraduationEvent
 
     tracker = TrustTracker(data_dir=trust_dir)
     tracker.load()
@@ -66,6 +69,7 @@ def main() -> None:
         from trust import config
         cap = config.blast_radius_cap(args.chain)
         profile = tracker.get_profile(args.chain)
+        from_level = profile.level
         if profile.level == "MANUAL":
             if cap and cap == "SUPERVISED":
                 profile.level = "SUPERVISED"
@@ -83,6 +87,10 @@ def main() -> None:
                 print(f"Promoted {args.chain}: SUPERVISED -> AUTONOMOUS")
         else:
             print(f"{args.chain} is already AUTONOMOUS")
+        if profile.level != from_level:
+            event = GraduationEvent(chain_name=args.chain, from_level=from_level, to_level=profile.level, reason="manual promote")
+            with open(graduation_log, "a", encoding="utf-8") as fh:
+                fh.write(event.model_dump_json() + "\n")
         tracker.save()
 
     elif args.command == "demote":
@@ -90,6 +98,7 @@ def main() -> None:
             print("Error: --chain required", file=sys.stderr)
             sys.exit(1)
         profile = tracker.get_profile(args.chain)
+        from_level = profile.level
         if profile.level == "AUTONOMOUS":
             profile.level = "SUPERVISED"
             print(f"Demoted {args.chain}: AUTONOMOUS -> SUPERVISED")
@@ -98,6 +107,10 @@ def main() -> None:
             print(f"Demoted {args.chain}: SUPERVISED -> MANUAL")
         else:
             print(f"{args.chain} is already MANUAL")
+        if profile.level != from_level:
+            event = GraduationEvent(chain_name=args.chain, from_level=from_level, to_level=profile.level, reason="manual demote")
+            with open(graduation_log, "a", encoding="utf-8") as fh:
+                fh.write(event.model_dump_json() + "\n")
         tracker.save()
 
 
