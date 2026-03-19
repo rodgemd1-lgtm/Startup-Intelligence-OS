@@ -43,6 +43,14 @@
 - **Next step**: Sign up for Firehose beta, test SSE stream, define scoring rubric against real signals
 - **Reference**: https://firehose.com/ — Mike found this, Jake validated the architecture
 
+### OpenClaw API List — Unified API Registry for Agent Ecosystem (V7/V8 Feature)
+- **What**: Kevjade's openclaw-api-list — a curated registry of APIs organized for AI agent consumption. Could serve as the universal API connector layer for Jake/Susan agents.
+- **Source**: https://github.com/Kevjade/openclaw-api-list/
+- **Potential use**: Give agents a catalog of available APIs they can self-select from based on task needs. Instead of hardcoding MCP integrations, agents discover and connect to APIs dynamically.
+- **Why V7/V8**: Requires autonomous agent capability selection (V4), proven trust/governance (V5-V6), and dynamic tool discovery. This is late-stage autonomous cognition territory.
+- **Status**: Parked — Mike's idea, noted for future roadmap review.
+- **Next step**: Review the repo structure, assess API coverage, evaluate if it complements or replaces MCP-based tool discovery.
+
 ---
 
 *Reviewed during planning sessions (Strategist Mind). Ideas that survive 2+ reviews get promoted to plans.*
