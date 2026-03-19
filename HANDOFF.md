@@ -1,47 +1,69 @@
 # Session Handoff
 
-**Date**: 2026-03-18
-**Project**: Startup Intelligence OS
-**Branch**: main
-**Session Goal**: Execute V4a implementation plan — build chains, birch, trust modules
-**Status**: COMPLETE
+**Date**: 2026-03-19
+**Project**: Startup Intelligence OS — OpenClaw Intelligence Platform
+**Session Goal**: Design + plan the full OpenClaw Intelligence Platform buildout
+**Status**: COMPLETE — Design doc + Phase 1 implementation plan ready for approval
 **Context Health**: GREEN
-**Debt Score**: 0 (all new, all tested, all clean)
+**Debt Score**: 0 (planning only, no code changes yet)
 
 ## Completed
-- [x] Task 1: Chains schemas (8 tests) — `chains/schemas.py`
-- [x] Task 2: Chains context bus (6 tests) — `chains/context.py`
-- [x] Task 3: Chains engine + registry (6 tests) — `chains/engine.py`, `chains/registry.py`
-- [x] Task 4: Chains CLI + chain definitions (2 tests) — `chains/__main__.py`, `chains/chains/`
-- [x] Task 5: Birch schemas + scorer (5 tests) — `birch/schemas.py`, `birch/rubric.py`, `birch/scorer.py`
-- [x] Task 6: Birch writer + CLI (3 tests) — `birch/writer.py`, `birch/__main__.py`
-- [x] Task 7: Trust schemas + tracker + config (5 tests) — `trust/schemas.py`, `trust/config.py`, `trust/tracker.py`
-- [x] Task 8: Trust dashboard + enforcer + CLI (5 tests) — `trust/enforcer.py`, `trust/dashboard.py`, `trust/__main__.py`
-- [x] Task 9: Integration test + directory structure (1 test) — `test_v4a_integration.py`
-- [x] Task 10: pyproject.toml update + full validation (41/41 tests pass)
-- [x] V4a code merged to main
-- [x] Worktrees and branches cleaned up
+- [x] Full OpenClaw capability assessment — 49 skills installed, no memory/routing/orchestration
+- [x] GitHub research — 13,729 ClawHub skills, best-in-class configs, model routing patterns
+- [x] Hardware assessment — M4 Pro 24GB, perfect for Ollama local models
+- [x] Strategos 6-lens future-back assessment (background agent)
+- [x] TechNickAI reference config analysis (background agent)
+- [x] Model routing research — STRUCTURAL routing (per-agent), not dynamic
+- [x] **Design document** — `docs/plans/2026-03-19-openclaw-intelligence-platform-design.md`
+- [x] **Phase 1 implementation plan** — `docs/plans/2026-03-19-openclaw-phase1-implementation.md`
+- [x] Memory updated with project decisions and architecture
+- [x] 3 YouTube videos queued for analysis (agents running)
 
-## Next Steps
-1. **Plan V4b** — wire real agent dispatch into chains engine, Firehose SSE listener for birch, trust graduation automation
-2. **Plan V4c** — full autonomous loop: birch scores signal -> triggers chain -> trust enforces disposition -> publishes or stages
-3. Consider writing V4b plan while V4a patterns are fresh
+## In Progress
+- [ ] YouTube video analysis — 3 agents analyzing OpenClaw expert content
+  - Video 1: https://www.youtube.com/watch?v=IbtLtQ1vLto
+  - Video 2: https://www.youtube.com/watch?v=CxErCGVo-oo
+  - Video 3: https://www.youtube.com/watch?v=rv6p9R_lNxc
+  - Next step: Incorporate findings into design doc when agents complete
+
+## Not Started
+- [ ] Phase 1 execution — blocked by: Mike's approval of design + plan
+- [ ] V4b implementation plan — blocked by: Phase 1 completion
+- [ ] Phase 3 intelligence layer plan — blocked by: Phase 1 + V4b
 
 ## Decisions Made
-
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| Used `Union[...]` instead of `|` for TriggerType | Python 3.9 compat on this machine | Yes |
-| Birch scorer uses per-hit scoring formula instead of ratio-based | Plan's formula produced scores too low to pass its own assertions | Yes |
-| aiohttp added to pyproject.toml now | V4b Firehose SSE consumer will need it | Yes |
+| Bridge Architecture (Option C → D) | OpenClaw handles interface/routing, Susan stays as intelligence engine | Yes |
+| Structural model routing (per-agent) | OpenClaw doesn't support dynamic complexity routing natively | Yes |
+| Ollama for local tier ($0/mo) | M4 Pro 24GB handles llama3.2:8b easily | Yes |
+| Groq for economy tier (~$20/mo) | Built-in OpenClaw provider, fast inference | Yes |
+| Sonnet as primary (~$75/mo) | Best balance of quality and cost | Yes |
+| Opus for manual-only deep work (~$15/mo) | Too expensive for auto-routing | Yes |
+| FastAPI bridge for Susan RAG | Subprocess call to Susan's venv avoids import conflicts | Yes |
+| Oracle Health compliance hard-coded | Email bodies NEVER cross to cloud LLMs | No |
 
 ## Context for Next Session
-- Key insight: V4a is complete and merged. Chains, Birch, and Trust modules all work independently with 41/41 tests passing.
-- Files to read first: `.claude/plans/2026-03-18-v4a-implementation-plan.md`
-- Tests to run: `cd susan-team-architect/backend && python3 -m pytest tests/test_v4a_integration.py -v`
-- Risk: V4b wiring will connect these independent modules — integration complexity increases
+
+### Key Files to Read First
+1. `docs/plans/2026-03-19-openclaw-intelligence-platform-design.md` — Full design (approve/revise)
+2. `docs/plans/2026-03-19-openclaw-phase1-implementation.md` — 9-task execution plan (approve/execute)
+
+### What Mike Needs to Do Before Phase 1 Execution
+1. **Review design doc** — approve or request changes
+2. **Get a Groq API key** — free at https://console.groq.com (needed for economy tier)
+3. **Decide on YouTube content pipeline** — agents are analyzing 3 videos, more may be coming
+
+### What Jake Recommends
+Start Phase 1 execution in the next session. It's 9 tasks, mostly setup + skill creation. Estimated 1-2 hours. The killer deliverable is Task 3 (Susan RAG bridge) + Task 4 (susan-rag-query skill) — once those work, Mike can ask business questions on Telegram and get sourced answers.
+
+### Three Parallel Workstreams (Separate Sessions)
+1. **Session A: Phase 1 Foundation** — Ollama + routing + RAG skill + memory (THIS IS NEXT)
+2. **Session B: V4b Engine Wiring** — chains agent dispatch, Firehose SSE, trust graduation
+3. **Session C: Intelligence Layer** — competitive alerts, proactive monitoring, meeting prep
 
 ## Build Health
-- Tests passing: 41/41
+- Files modified this session: 3 (design doc, implementation plan, memory)
+- Tests passing: N/A (planning session, no code changes)
 - Context health at close: GREEN
-- Debt score: 0
+- Background agents: YouTube analysis still running, findings will be incorporated next session
