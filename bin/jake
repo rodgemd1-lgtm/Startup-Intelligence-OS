@@ -486,6 +486,114 @@ print()
 PY
 }
 
+# ── claw <subcommand> ─────────────────────────────────────────────────────────
+claw_control() {
+    local subcmd="${1:-status}"
+    shift 2>/dev/null || true
+python3 - "$subcmd" "$@" <<'PY'
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
+from decision_os.claw_control import ClawControlPlane
+
+control = ClawControlPlane()
+subcmd = sys.argv[1]
+args = sys.argv[2:]
+
+def usage(exit_code: int = 2) -> None:
+    print("Usage: bin/jake claw <onboard|status|sync|logs|eject|remote-brief|remote-command>", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("Subcommands:", file=sys.stderr)
+    print("  onboard [profile] [--force]   Seed control-plane profiles and registry", file=sys.stderr)
+    print("  status [--json]               Show connector registry", file=sys.stderr)
+    print("  sync [service ...]            Probe connectors and refresh bridge briefs", file=sys.stderr)
+    print("  logs [limit]                  Show recent control-plane events", file=sys.stderr)
+    print("  eject <service> [reason]      Disable a connector cleanly", file=sys.stderr)
+    print("  remote-brief [--json]         Show the remote alert/intel feed for Mike Claw", file=sys.stderr)
+    print("  remote-command <cmd> [args]   Run an allowlisted remote command", file=sys.stderr)
+    sys.exit(exit_code)
+
+if subcmd == "onboard":
+    profile = "default"
+    force = False
+    for arg in args:
+        if arg == "--force":
+            force = True
+        elif not arg.startswith("--"):
+            profile = arg
+    result = control.onboard(profile_id=profile, force=force)
+    print("jake: claw onboard complete")
+    print(f"  profile: {result['profile']}")
+    print(f"  registry: {result['registry']}")
+    print(f"  logs: {result['logs']}")
+    print(f"  services: {result['service_count']}")
+    if result["profiles_written"]:
+        print("  profiles:")
+        for path in result["profiles_written"]:
+            print(f"    - {path}")
+elif subcmd == "status":
+    if "--json" in args:
+        print(json.dumps(control.registry_payload(), indent=2))
+    else:
+        print(control.format_status_table())
+elif subcmd == "sync":
+    targets = [arg for arg in args if not arg.startswith("--")]
+    result = control.sync(targets or None)
+    print("jake: claw sync complete")
+    if result["changes"]:
+        print("  connector changes:")
+        for change in result["changes"]:
+            print(
+                f"    - {change['service']}: mode {change['mode']}, state {change['state']}"
+            )
+    else:
+        print("  connector changes: none")
+    if result["generated_briefs"]:
+        print("  generated briefs:")
+        for brief in result["generated_briefs"]:
+            print(f"    - {brief}")
+elif subcmd == "logs":
+    limit = 20
+    if args:
+        try:
+            limit = int(args[0])
+        except ValueError:
+            usage()
+    print(control.format_logs(limit=limit))
+elif subcmd == "remote-brief":
+    if "--json" in args:
+        print(json.dumps(control.remote_brief(), indent=2))
+    else:
+        print(control.format_remote_brief())
+elif subcmd == "remote-command":
+    json_mode = "--json" in args
+    command_args = [arg for arg in args if arg != "--json"]
+    if not command_args:
+        usage()
+    result = control.remote_command(command_args[0], command_args[1:])
+    if json_mode or not result["ok"]:
+        print(json.dumps(result, indent=2))
+        if not result["ok"]:
+            sys.exit(2)
+    else:
+        print(json.dumps(result["result"], indent=2))
+elif subcmd == "eject":
+    if not args:
+        usage()
+    service = args[0]
+    reason = " ".join(args[1:]).strip() or "manual eject"
+    record = control.eject(service, reason=reason)
+    print("jake: claw connector ejected")
+    print(f"  service: {record.name}")
+    print(f"  state: {record.state.value}")
+    print(f"  reason: {record.last_error}")
+else:
+    usage()
+PY
+}
+
 # ── smoke ─────────────────────────────────────────────────────────────────────
 run_smoke() {
     echo "jake: running smoke test..."
@@ -571,6 +679,9 @@ case "$cmd" in
     sync-intel)
         sync_intel
         ;;
+    claw)
+        claw_control "$@"
+        ;;
     new)
         create_new "$@"
         ;;
@@ -599,6 +710,7 @@ case "$cmd" in
         echo "  check|validate     Validate OS contract and critical assets"
         echo "  status             Print Decision OS object counts"
         echo "  sync-intel         Regenerate agent readiness index and operator debrief"
+        echo "  claw              Claw hybrid control plane: onboard|status|sync|logs|eject|remote-brief|remote-command"
         echo "  context            Print active OS context (delegates to bin/os-context)"
         echo "  new <type>         Create a new decision|capability|project|run"
         echo "  run-decision <id>  Execute decision pipeline"

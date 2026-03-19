@@ -90,6 +90,7 @@ When the ask requires implementation:
 - Run `bin/jake` after structural or contract changes.
 - Run `bin/jake status` to check Decision OS object counts.
 - Run `bin/jake sync-intel` to refresh agent readiness and operator debrief.
+- Run `bin/jake claw status` to inspect the hybrid connector registry and last verification state.
 - Use `bin/os-context` to print the active OS contract and layout summary.
 
 ## Skills to use

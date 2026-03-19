@@ -146,6 +146,13 @@ bin/jake check
 bin/jake status
 ```
 
+### Inspect the Jake/Claw control plane
+```bash
+bin/jake claw onboard
+bin/jake claw status
+bin/jake claw sync
+```
+
 ### Sync agent readiness and operator debrief
 ```bash
 bin/jake sync-intel

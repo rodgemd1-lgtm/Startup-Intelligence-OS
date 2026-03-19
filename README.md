@@ -21,6 +21,10 @@ bin/jake status
 
 # Sync agent readiness and operator debrief
 bin/jake sync-intel
+
+# Onboard and inspect the Jake/Claw control plane
+bin/jake claw onboard
+bin/jake claw status
 ```
 
 ## Operating layout
@@ -53,6 +57,11 @@ bin/jake sync-intel
 | `bin/jake status` | Print Decision OS object counts |
 | `bin/jake sync-intel` | Regenerate agent readiness index and operator debrief |
 | `bin/jake context` | Print active OS context (delegates to `bin/os-context`) |
+| `bin/jake claw onboard` | Seed the Jake/Claw registry and onboarding profiles |
+| `bin/jake claw status` | Show connector state, auth source, and last verification |
+| `bin/jake claw sync` | Probe bridge/native connectors and refresh work briefs |
+| `bin/jake claw logs` | Show recent control-plane events |
+| `bin/jake claw eject <service>` | Disable a connector cleanly with a logged reason |
 
 ## Susan runtime quick run
 

@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 import yaml
 
+from .claw_control import ClawControlPlane
 from .models import (
     Decision,
     DecisionStatus,
@@ -106,6 +107,11 @@ class SignalCreateRequest(BaseModel):
     related_ids: dict[str, Any] = Field(default_factory=dict)
     recommended_departments: list[str] = Field(default_factory=list)
     next_action: str = ""
+
+
+class ClawRemoteCommandRequest(BaseModel):
+    command: str
+    args: list[str] = Field(default_factory=list)
 
 
 DEBATE_STUBS: dict[str, dict] = {
@@ -473,6 +479,26 @@ def create_signal(req: SignalCreateRequest) -> dict:
 @app.get("/api/action-packets")
 def get_action_packets() -> list[dict]:
     return [packet.model_dump(mode="json") for packet in list_action_packets(store)]
+
+
+@app.get("/api/claw/remote-brief")
+def get_claw_remote_brief(
+    operator: str = Query(default="mike"),
+    signal_limit: int = Query(default=5, ge=0, le=20),
+    packet_limit: int = Query(default=5, ge=0, le=20),
+) -> dict:
+    control = ClawControlPlane()
+    return control.remote_brief(
+        operator=operator,
+        signal_limit=signal_limit,
+        packet_limit=packet_limit,
+    )
+
+
+@app.post("/api/claw/remote-command")
+def post_claw_remote_command(req: ClawRemoteCommandRequest) -> dict:
+    control = ClawControlPlane()
+    return control.remote_command(req.command, req.args)
 
 
 def main() -> None:

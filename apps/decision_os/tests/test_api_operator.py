@@ -263,6 +263,43 @@ def test_signals_and_graph_endpoints_reflect_operator_state(api_client):
     assert graph["summary"]["link_count"] > 0
 
 
+def test_claw_remote_brief_endpoint_returns_alerts_and_commands(api_client):
+    client, _root = api_client
+
+    response = client.get("/api/claw/remote-brief?operator=mike&signal_limit=2&packet_limit=2")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["operator"] == "mike"
+    assert "alerts" in payload
+    assert "allowed_remote_commands" in payload
+    command_names = {item["command"] for item in payload["allowed_remote_commands"]}
+    assert {"brief", "status", "sync", "context"}.issubset(command_names)
+
+
+def test_claw_remote_command_endpoint_runs_allowlisted_commands(api_client):
+    client, _root = api_client
+
+    context_response = client.post(
+        "/api/claw/remote-command",
+        json={"command": "context", "args": []},
+    )
+    unknown_response = client.post(
+        "/api/claw/remote-command",
+        json={"command": "launch-missiles", "args": []},
+    )
+
+    assert context_response.status_code == 200
+    context_payload = context_response.json()
+    assert context_payload["ok"] is True
+    assert context_payload["result"]["front_door"] == "jake"
+
+    assert unknown_response.status_code == 200
+    unknown_payload = unknown_response.json()
+    assert unknown_payload["ok"] is False
+    assert unknown_payload["error"] == "Unsupported remote command."
+
+
 @pytest.mark.parametrize(
     ("request_text", "expected_track", "expected_supporting", "expected_decision_requirement"),
     [
