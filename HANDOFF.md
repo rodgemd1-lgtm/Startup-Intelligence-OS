@@ -1,51 +1,47 @@
 # Session Handoff
 
-**Date**: 2026-03-18 ~3:30 PM
+**Date**: 2026-03-18
 **Project**: Startup Intelligence OS
-**Session Goal**: Design V4 Semi-Autonomous phase + validate V3 agents
-**Status**: COMPLETE (design + plan) — implementation next session
-**Context Health**: YELLOW (design-heavy session, good stopping point)
-**Debt Score**: 0 (no code written yet, only plans)
+**Branch**: main
+**Session Goal**: Execute V4a implementation plan — build chains, birch, trust modules
+**Status**: COMPLETE
+**Context Health**: GREEN
+**Debt Score**: 0 (all new, all tested, all clean)
 
 ## Completed
-- [x] V3 agent validation — SCOUT, ORACLE-BRIEF, HERALD all ran clean
-  - Files created: `.startup-os/briefs/scout-signals-2026-03-18.md`, `oracle-brief-2026-03-18.md`, `herald-response-2026-03-18.md`
-- [x] V4 design — 5 sections approved (architecture, chains, birch, trust, phasing)
-  - File: `.claude/plans/2026-03-18-v4-semi-autonomous-design.md`
-- [x] V4a implementation plan — 10 tasks, ~41 tests, 10 commits
-  - File: `.claude/plans/2026-03-18-v4a-implementation-plan.md`
-- [x] Parking lot updated — OpenClaw API List added for V7/V8
-- [x] V1-V5 roadmap updated — V4 marked as DESIGNED
-- [x] Prompt injection detected and blocked (2x same payload)
+- [x] Task 1: Chains schemas (8 tests) — `chains/schemas.py`
+- [x] Task 2: Chains context bus (6 tests) — `chains/context.py`
+- [x] Task 3: Chains engine + registry (6 tests) — `chains/engine.py`, `chains/registry.py`
+- [x] Task 4: Chains CLI + chain definitions (2 tests) — `chains/__main__.py`, `chains/chains/`
+- [x] Task 5: Birch schemas + scorer (5 tests) — `birch/schemas.py`, `birch/rubric.py`, `birch/scorer.py`
+- [x] Task 6: Birch writer + CLI (3 tests) — `birch/writer.py`, `birch/__main__.py`
+- [x] Task 7: Trust schemas + tracker + config (5 tests) — `trust/schemas.py`, `trust/config.py`, `trust/tracker.py`
+- [x] Task 8: Trust dashboard + enforcer + CLI (5 tests) — `trust/enforcer.py`, `trust/dashboard.py`, `trust/__main__.py`
+- [x] Task 9: Integration test + directory structure (1 test) — `test_v4a_integration.py`
+- [x] Task 10: pyproject.toml update + full validation (41/41 tests pass)
+- [x] V4a code merged to main
+- [x] Worktrees and branches cleaned up
 
-## In Progress
-- [ ] V4a implementation — 10 tasks, 0 completed
-  - Next step: Execute plan using subagent-driven development
-  - Plan file: `.claude/plans/2026-03-18-v4a-implementation-plan.md`
-
-## Not Started
-- [ ] V4b — Wiring (signal→chain triggers, chain→trust enforcer, ARIA integration)
-- [ ] V4c — Autonomy (graduation logic, scheduled listeners, kill switch)
-- [ ] Firehose SSE consumer (Mike has account, ready to build in V4a Task 6 placeholder)
+## Next Steps
+1. **Plan V4b** — wire real agent dispatch into chains engine, Firehose SSE listener for birch, trust graduation automation
+2. **Plan V4c** — full autonomous loop: birch scores signal -> triggers chain -> trust enforces disposition -> publishes or stages
+3. Consider writing V4b plan while V4a patterns are fresh
 
 ## Decisions Made
 
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| chains/ as dedicated module (Option B) | Clean separation from existing orchestrator | Yes |
-| Birch standalone scorer (Option 2) | Loose coupling via signal files; parallel development | Yes |
-| Build Birch in parallel with chains (not deferred) | Mike already has Firehose access | Yes |
-| Moderate autonomy (blast radius caps) | AUTO for internal, HUMAN REVIEW for external-facing | Yes |
-| CLI + markdown dashboard (A+B) | Terminal-first; markdown feeds ARIA brief | Yes |
+| Used `Union[...]` instead of `|` for TriggerType | Python 3.9 compat on this machine | Yes |
+| Birch scorer uses per-hit scoring formula instead of ratio-based | Plan's formula produced scores too low to pass its own assertions | Yes |
+| aiohttp added to pyproject.toml now | V4b Firehose SSE consumer will need it | Yes |
 
 ## Context for Next Session
-- Key insight: V3 agents work independently but ran in parallel without data passing — V4 chains engine solves this with sequential execution + context bus
+- Key insight: V4a is complete and merged. Chains, Birch, and Trust modules all work independently with 41/41 tests passing.
 - Files to read first: `.claude/plans/2026-03-18-v4a-implementation-plan.md`
-- Tests to run first: None yet — first task creates tests
-- Risk: pyproject.toml needs `aiohttp` added (Task 10) — existing deps should be sufficient for Tasks 1-9
+- Tests to run: `cd susan-team-architect/backend && python3 -m pytest tests/test_v4a_integration.py -v`
+- Risk: V4b wiring will connect these independent modules — integration complexity increases
 
 ## Build Health
-- Files modified this session: 5 (parking-lot.md, roadmap, design doc, plan, HANDOFF.md)
-- Briefs generated: 3 (scout, oracle-brief, herald)
-- Tests passing: N/A (no implementation code yet)
-- Context health at close: YELLOW
+- Tests passing: 41/41
+- Context health at close: GREEN
+- Debt score: 0
