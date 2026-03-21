@@ -20,6 +20,18 @@
 - Highest leverage: Agent Orchestration (making 60 agents collaborate)
 - Studios have excellent specs but no writeback, no case libraries, no experiment tracking
 
+## Hermes 10X Assessment (2026-03-21)
+- [project_hermes_10x_assessment.md](project_hermes_10x_assessment.md) — 15-domain capability assessment, 1.8/5.0 current, 4.0/5.0 target
+- Artifact: `.startup-os/artifacts/hermes-10x-capability-assessment-2026-03-21.md`
+- Critical path: Phase 4A (Spine) -> 4B (Notifications) -> 5A (Bot Unification)
+- 15 Susan agents assigned, 10 sessions to Mani parity (85/100)
+
+## Hermes Evaluation Panel (2026-03-21)
+- [project_hermes_evaluation_panel.md](project_hermes_evaluation_panel.md) — 9-person standing review board, Brain/Hands/Feet framework
+- Artifact: `.startup-os/artifacts/hermes-evaluation-panel-2026-03-21.md`
+- Baseline HHS: 1.7/10 (Grade F), target 9.0/10 after Phase 8-9
+- Panelists: Knowledge Engineer, Conversation Designer, AI Eval, Forge, Atlas, Shield, Pulse, Steve, Mira
+
 ## File Locations for Assessment
 - Assessment artifact: `.startup-os/artifacts/25x-capability-assessment.md`
 - Artifacts index: `.startup-os/artifacts/index.yaml`

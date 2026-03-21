@@ -71,6 +71,17 @@
           }
         ],
         "description": "Track token usage and estimated costs per session to ~/.claude/metrics/costs.jsonl"
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash bin/hooks/brain-sync.sh",
+            "async": true,
+            "timeout": 30
+          }
+        ],
+        "description": "Sync Claude Code memory files to Jake's shared Brain (Supabase) on session end"
       }
     ]
   }
