@@ -1,0 +1,27 @@
+id: transformfit-agent-memory-and-kb
+name: TransformFit Agent Memory and Embedded KB
+owner: Knowledge Engineer
+maturity: seed
+outcome_metric: Agents can discover SOPs, architectural decisions, and product context in-file and in the shared memory layer.
+dependencies:
+  - workspace-contract
+  - job-memory-intelligence
+  - platform-infrastructure
+interfaces:
+  - markdown knowledge base
+  - code comment references
+  - Supabase
+  - Susan RAG
+current_state: Susan contains TransformFit intelligence, but embedded KB references and execution-repo memory conventions are not yet standardized.
+target_state: SOP markdown, decision records, runbooks, and code comments are consistently linked so agents can self-serve correct procedures while editing or shipping.
+maturity_delta: 4
+gap: Knowledge is available, but not yet packaged into the embedded-KB pattern the user requested.
+owner_detail: Knowledge Engineer owns taxonomy; Nova owns memory injection; Shield owns compliance guardrails.
+sequence:
+  - define KB article schema
+  - map code comment reference convention
+  - implement retrieval and summarization pipeline
+success_criteria:
+  - KB article IDs standardized
+  - code comment references documented
+  - memory schema and RLS rules approved

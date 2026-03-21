@@ -1,0 +1,26 @@
+id: transformfit-growth-engine
+name: TransformFit Growth Engine
+owner: Steve
+maturity: seed
+outcome_metric: First revenue-ready funnel, checkout, onboarding, and retention loop live with measurable CAC-to-payback learning.
+dependencies:
+  - content-marketing
+  - data-analytics
+  - operator-experience
+interfaces:
+  - transformfit.app
+  - Supabase
+  - CRM and lifecycle messaging
+current_state: Brand, site, and product narrative exist in fragments across the repo and Susan corpus.
+target_state: Paid-ready acquisition, conversion, and lifecycle system wired to the finished product.
+maturity_delta: 4
+gap: Monetization, lifecycle CRM, and evidence-based growth sequencing are not yet unified into a single studio plan.
+owner_detail: Steve for positioning and GTM, Pulse for analytics, Jake for sequencing.
+sequence:
+  - Define monetization model
+  - Instrument funnel and attribution
+  - Launch landing, waitlist, sales assets, and paid experiments
+success_criteria:
+  - offer stack approved
+  - funnel events instrumented
+  - launch assets ready for public traffic

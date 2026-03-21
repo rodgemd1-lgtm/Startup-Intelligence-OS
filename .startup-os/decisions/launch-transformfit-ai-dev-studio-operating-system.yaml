@@ -1,0 +1,62 @@
+id: launch-transformfit-ai-dev-studio-operating-system
+title: Launch TransformFit AI Dev Studio as a Jake-led multi-agent operating system for product delivery and monetization
+status: proposed
+company_id: transformfit
+project_id: transformfit-ai-dev-studio
+decision_statement: Use Startup Intelligence OS as the planning and intelligence control plane to design a 13-plus-agent AI dev studio for TransformFit, then execute implementation work inside the user’s Adapt-Evolve-Progress repo once that repo is connected.
+why_now: The user wants a complete build plan through next week covering agents, departments, monetization, KB design, process evolution, and full-stack execution around TransformFit. The work spans product, engineering, AI, research, marketing, and operations, so an explicit operating model is required before shipping accelerates.
+constraints:
+  - Preserve the active Susan runtime under susan-team-architect/backend.
+  - Keep Jake as the conductor and Susan as the capability foundry.
+  - Treat Adapt-Evolve-Progress as the intended execution repo, but do not fabricate repo-specific implementation details without repo access.
+  - Prefer additive artifacts, explicit schemas, and evidence-gated phases.
+  - Architecture must support Supabase, an embedded markdown KB, message passing, and a process-evolution agent.
+options:
+  - id: option-a
+    name: Single generalist builder
+    summary: Use one broad agent/persona to direct design, code, marketing, and ops.
+    impact: medium
+    effort: low
+    risk: very_high
+    confidence: low
+    time_to_signal: fast
+  - id: option-b
+    name: Jake-led specialist studio
+    summary: Use Jake for orchestration, Susan for specialist routing, and a 13-plus-agent team with department ownership, SOP memory, and evidence gates.
+    impact: very_high
+    effort: medium
+    risk: medium
+    confidence: high
+    time_to_signal: medium
+  - id: option-c
+    name: Immediate code-first sprint in target repo
+    summary: Start coding in the target repo immediately before architecture, GTM, and capability sequencing are documented.
+    impact: medium
+    effort: medium
+    risk: high
+    confidence: low
+    time_to_signal: fast
+recommendation: option-b
+assumptions:
+  - The user wants a company-grade operating system, not only app tickets.
+  - TransformFit remains the primary monetization brand.
+  - Jake/Hermes will be the reporting and coordination layer across planning and execution.
+  - Supabase is acceptable as the first production backend for auth, data, storage, and vectors.
+  - The target execution repo can be connected later without rewriting the planning artifacts.
+reversal_criteria:
+  - If the target repo already contains a conflicting architecture that would make this plan dangerously duplicative, re-scope after repo audit.
+  - If timeline or solo-founder bandwidth makes a 13-plus-agent rollout too heavy, collapse to a core 7-agent nucleus while preserving interfaces.
+  - If TransformFit monetization priorities change, keep the studio architecture but replace the initial GTM workstream.
+next_actions:
+  - Create company, project, capability, research, and master-plan artifacts in Startup Intelligence OS.
+  - Validate the plan with bin/jake, bin/jake status, bin/jake sync-intel, and bin/jake claw status.
+  - Connect the Adapt-Evolve-Progress repo and run a repo audit before implementation begins.
+  - Turn the first five phases into executable tickets and run packets.
+artifacts:
+  - .startup-os/companies/transformfit.yaml
+  - .startup-os/projects/transformfit-ai-dev-studio.yaml
+  - .startup-os/capabilities/transformfit-ai-dev-studio-orchestration.yaml
+  - .startup-os/capabilities/transformfit-growth-engine.yaml
+  - .startup-os/capabilities/transformfit-agent-memory-and-kb.yaml
+  - .startup-os/artifacts/research/transformfit-ai-dev-studio-benchmark-packet-2026-03-21.md
+  - .startup-os/artifacts/transformfit-ai-dev-studio-master-plan-2026-03-21.md

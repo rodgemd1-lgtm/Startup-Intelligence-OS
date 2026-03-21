@@ -1,0 +1,19 @@
+id: transformfit
+name: TransformFit
+type: company
+repo_root: /workspace/Adapt-Evolve-Progress
+primary_runtime: hermes-and-jake-stack
+primary_domain_pack: transformfit_training_intelligence
+stage: venture_design_and_mvp_completion
+summary: AI-powered adaptive fitness company using TransformFit as the go-to-market brand and an AI Dev Studio as the internal operating system for product, growth, research, and delivery.
+linked_projects:
+  - transformfit-ai-dev-studio
+linked_capabilities:
+  - transformfit-ai-dev-studio-orchestration
+  - transformfit-growth-engine
+  - transformfit-agent-memory-and-kb
+linked_decisions:
+  - launch-transformfit-ai-dev-studio-operating-system
+notes:
+  - Primary execution repo named by user as Adapt, Evolve, Progress; path not yet mounted in this workspace.
+  - Startup Intelligence OS remains the planning and intelligence control plane.

@@ -1,0 +1,20 @@
+id: transformfit-ai-dev-studio
+name: TransformFit AI Dev Studio
+type: project
+company_id: transformfit
+status: planned
+objective: Design and launch a production-ready AI dev studio that can finish the TransformFit app, run the company, and support monetization using Jake as conductor and Susan as capability foundry.
+owner: Jake
+linked_decisions:
+  - launch-transformfit-ai-dev-studio-operating-system
+linked_capabilities:
+  - transformfit-ai-dev-studio-orchestration
+  - transformfit-growth-engine
+  - transformfit-agent-memory-and-kb
+deliverables:
+  - 20-phase build plan
+  - agent and department architecture
+  - technical target architecture
+  - monetization and GTM plan
+  - question bank and discovery backlog
+  - research benchmark packet

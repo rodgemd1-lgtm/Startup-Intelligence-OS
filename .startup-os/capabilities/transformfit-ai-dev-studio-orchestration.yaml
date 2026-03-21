@@ -1,0 +1,28 @@
+id: transformfit-ai-dev-studio-orchestration
+name: TransformFit AI Dev Studio Orchestration
+owner: Jake
+maturity: seed
+outcome_metric: Weekly shippable increments produced across product, growth, and operations with clear agent ownership and evidence trails.
+dependencies:
+  - agent-orchestration
+  - platform-infrastructure
+  - intelligence-research
+interfaces:
+  - Adapt-Evolve-Progress app repo
+  - susan-team-architect/backend
+  - apps/operator-console
+current_state: Planning artifacts exist in Startup Intelligence OS, but the execution repo and deployment surfaces have not yet been connected in this workspace.
+target_state: A multi-agent studio with message passing, KB-linked SOPs, evidence-gated delivery, and automated reporting through Jake and Hermes.
+maturity_delta: 4
+gap: No shared operating model yet connects TransformFit product delivery, monetization, agent architecture, and the target app repo.
+owner_detail: Jake as operating conductor; Susan as foundry and specialist routing layer.
+sequence:
+  - Establish decision and project records
+  - Finalize architecture and scope gates
+  - Connect execution repo and deployment environments
+  - Stand up agents, KB, telemetry, and shipping cadence
+success_criteria:
+  - 13+ specialized agents mapped to departments and workflows
+  - 20 implementation phases sequenced through next week
+  - clear repo, schema, infra, and monetization plan approved
+  - execution can start in Adapt-Evolve-Progress without breaking Susan runtime
