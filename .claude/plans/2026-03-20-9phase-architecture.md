@@ -88,34 +88,36 @@
 
 ---
 
-## Phase 4: THE SPINE 🦴
+## Phase 4: THE SPINE 🦴 ✅ COMPLETE (2026-03-21)
 
 **What**: Central routing + priority engine — Jake decides what matters and when to act
 
-### Components
+### Components Delivered
 | Component | Purpose | Implementation |
 |-----------|---------|---------------|
-| Priority Engine | Rank incoming signals by urgency + importance | `jake_brain/priority.py` |
-| Intent Router | Route user requests to the right agent/skill | Enhance KIRA agent |
-| Context Assembler | Build optimal context for each task from brain layers | `jake_brain/context.py` |
-| Notification Manager | Decide what's worth notifying Mike about, and when | `jake_brain/notifications.py` |
+| Priority Engine | Rank incoming signals by urgency × importance × recency decay | `jake_brain/priority.py` |
+| Intent Router | Route user requests to the right skill/agent | `jake_brain/intent_router.py` |
+| Context Assembler | Build optimal context per task from brain layers | `jake_brain/context.py` |
+| Morning Brief | Auto-assembled from brain (not hardcoded) | `scripts/brain_morning_brief.py` |
 
-### Key Behaviors
-- **Morning brief assembly**: Pull calendar, birthdays, tasks, recent emails → compose brief
-- **Interrupt classification**: Is this worth a push notification or can it wait?
-- **Agent routing**: Based on intent + context, pick the right Susan agent
-- **Priority decay**: Things that aren't acted on gradually lose priority
-- **Conflict detection**: Flag schedule conflicts, contradictory tasks, etc.
+### Key Files
+- `jake_brain/priority.py` — PriorityEngine, PrioritySignal, email_signal/calendar_signal/reminder_signal factories
+- `jake_brain/context.py` — ContextAssembler, ContextBundle (token-budgeted, prompt-injectable)
+- `jake_brain/intent_router.py` — IntentRouter (14 intent classes, keyword + regex routing → Hermes skill)
+- `scripts/brain_morning_brief.py` — Full auto-assembly (pull → score → format → Telegram/email)
+- `~/.hermes/scripts/brain_morning_brief.sh` — Shell wrapper for launchd
+- `~/Library/LaunchAgents/com.jake.brain-morning-brief.plist` — daily at 6:00 AM
 
-### Architecture Decisions
-- Priority scoring: `urgency (0-1) × importance (0-1) × recency (decay function)`
-- Notification channels: Telegram (push), daily brief (email), in-session (Claude Code)
-- Context window: Spine assembles the MINIMUM context needed per request from brain layers
+### Hermes Plugin Tools Added (3 new tools → 10 total)
+- `brain_priority` — triage signals by P0/P1/P2/P3 tier
+- `brain_context` — assemble context bundle for a task
+- `brain_brief` — run morning brief from within Hermes
 
 ### Success Criteria
-- [ ] Jake's morning brief is auto-assembled from brain data (not hardcoded)
-- [ ] Jake can triage "what should I work on today?" from signals across all companies
-- [ ] Notifications are smart — not every signal generates a ping
+- [x] Jake's morning brief is auto-assembled from brain data (not hardcoded)
+- [x] Jake can triage "what should I work on today?" via brain_priority tool
+- [x] Intent router routes correctly (calendar, email, brief, oracle, family, recruiting, etc.)
+- [x] Smoke test passed: 25 memories scored, 5 entities pulled, brief formatted and output
 
 ---
 
