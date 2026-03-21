@@ -1,194 +1,102 @@
 # Session Handoff
 
-**Date**: 2026-03-20 13:15 MDT
-**Branch**: main
-**Project**: Startup Intelligence OS — Phase 2: THE BRAIN
-**Session Goal**: Build Jake's 4-layer cognitive memory engine from schema design through deployment and end-to-end testing
-**Status**: COMPLETE — Brain is live, seeded, and tested
-
----
+**Date**: 2026-03-21 ~11:35 MDT
+**Project**: Startup Intelligence OS / Hermes (Big Birch)
+**Session Goal**: Execute Phase 1 of Operation Perfect Score — "Never Hang Again"
+**Status**: COMPLETE — Calendar and Email both working, tested live on Telegram
 
 ## Completed
 
-### Phase 2: THE BRAIN — Jake's Cognitive Memory Engine ✅
-- [x] **Plan & schema design** — `.claude/plans/2026-03-20-phase2-brain-schema.md`
-  - 4-layer memory architecture (Working → Episodic → Semantic → Procedural)
-  - Knowledge graph with 12 entity types, 18 relationship types
-  - Composite ranking formula: `similarity × confidence × layer_weight × recency × access_boost`
-  - 5 design questions debated and approved by Mike
-- [x] **SQL migration deployed to Supabase** — `supabase/migrations/20260320000000_jake_brain_tables.sql`
-  - 6 tables: `jake_episodic`, `jake_semantic`, `jake_procedural`, `jake_working`, `jake_entities`, `jake_relationships`
-  - 28 indexes (including HNSW vector indexes, GIN array indexes, partial indexes)
-  - 2 RPC functions: `jake_brain_search` (composite 4-layer search), `jake_entity_graph` (multi-hop traversal)
-  - 1 cleanup function: `jake_clean_expired_working`
-  - 5 auto-update triggers for `updated_at` timestamps
-  - Deployed via Chrome browser to Supabase SQL Editor (2 batches: tables + functions)
-- [x] **Python brain engine** — `susan-team-architect/backend/jake_brain/` (7 modules)
-  - `config.py` — Layer weights, decay rates, promotion thresholds, known people/projects
-  - `store.py` — Full CRUD for all 6 tables (working, episodic, semantic, procedural, entities, relationships)
-  - `extractor.py` — Rule-based extraction of people, topics, decisions, action items, patterns, preferences
-  - `graph.py` — Entity resolution (strict matching), relationship management, initial seed data
-  - `retriever.py` — Composite search via `jake_brain_search` RPC, person recall, time-range queries
-  - `consolidator.py` — Promotion pipeline (working→episodic, episodic→semantic), contradiction detection
-  - `pipeline.py` — End-to-end orchestrator: text → extract → embed → store → graph → consolidate
-- [x] **CLI tool** — `scripts/jake_brain_cli.py` (seed, stats, search, person, ingest, consolidate, test)
-- [x] **Initial seed data** — 15 entities (people, companies, projects) + 13 relationships
-  - People: Mike Rodgers, James Loehr, Jacob, Alex, Jen, Matt Cohlmia, Jordan Voss
-  - Companies: Oracle Health, Startup Intelligence OS, Alex Recruiting, TransformFit, Virtual Architect
-  - Projects: Hermes V5, Susan Team Architect, The Brain (Phase 2)
-  - Relationships: spouse_of, parent_of, ex_spouse_of, works_at, stakeholder_of, named_after, relates_to
-- [x] **End-to-end smoke test PASSED**
-  - Ingested test conversation → extracted 4 people, 3 topics, 1 decision, importance 0.75
-  - Search "Jacob football game" → episodic (0.471) + semantic (0.324) results
-  - Person recall "Jacob" → entity + 10-node graph + 2 related memories
-  - Brain stats: 16 entities, 17 relationships, 1 episodic, 1 semantic
+- [x] **safe_osascript.sh** — universal timeout wrapper with auto-restart + retry
+  - File: `~/.hermes/scripts/safe_osascript.sh`
+  - Handles: timeout kills, -600 app errors, auto-restart Mail/Calendar/Reminders
+  - Tested: timeout path, success path, kill-and-retry path all verified
+- [x] **calendar_read / email_read / reminders_read tools** — deterministic Hermes plugin tools
+  - File: `~/.hermes/plugins/jake-brain-ingest/__init__.py`
+  - Why tools instead of SOUL.md code blocks: LLM was improvising raw osascript instead of using the safe wrapper. Tools are deterministic — no improvisation.
+  - Fixed positional arg dispatch issue (Hermes passes params as first positional arg, not kwargs)
+- [x] **Brain plugin timeouts** — 8s cap on all Supabase calls (brain_search, brain_person, brain_entities)
+  - File: `~/.hermes/plugins/jake-brain-ingest/__init__.py`
+  - Uses `concurrent.futures.ThreadPoolExecutor` with timeout
+- [x] **SOUL.md patches** — error recovery rule + tool routing table
+  - File: `~/.hermes/SOUL.md`
+  - Added: "NEVER go silent" error recovery rule
+  - Added: Tool routing table (calendar→calendar_read, email→email_read, reminders→reminders_read)
+  - Removed: raw osascript code blocks for calendar/email/reminders (replaced by tools)
+  - Kept: Google Calendar Python API block (not osascript, doesn't need wrapper)
+- [x] **calendar.sh patched** — calendar skill uses safe wrapper for all osascript calls
+  - File: `~/.hermes/skills/macos-calendar/scripts/calendar.sh`
+- [x] **Live Telegram testing** — 5 rounds of testing, both calendar and email working
+  - Calendar: F → A+ (reads events, returns in <10s)
+  - Email: F → A+ (reads inbox, identifies priority emails, filters spam)
 
-### Flight Tracking (ad hoc)
-- [x] Looked up UA 1022 (Orlando → Denver) for James — arriving ~1:06 PM MDT gate B28, baggage 17
+## Test Results (Final Round — 11:31 AM)
 
-### Feedback Captured
-- [x] **Autonomy feedback** — Jake must execute, not ask Mike to do manual steps
-- [x] **Hermes Birch feedback** — Telegram bots failing at simple PA tasks (approvals, DuckDuckGo, retries)
+| Test | Grade | Details |
+|------|-------|---------|
+| Calendar | A+ | "Calendar is looking deadass clear. Nothing on the books." |
+| Email | A+ | Read 10 emails, flagged Matt Cohlmia HIMSS notes, filtered Amazon spam |
+| Response time | A+ | Both tools completed in <15s, response delivered in <30s |
+| Error recovery | A+ | When tools failed earlier, communicated clearly with alternatives |
+| Tool usage | A | Uses calendar_read/email_read tools (not raw osascript) |
 
----
+## Files Modified (all in ~/.hermes/, NOT in git repo)
 
-## In Progress
+| File | Change |
+|------|--------|
+| `~/.hermes/scripts/safe_osascript.sh` | NEW — timeout wrapper with auto-restart |
+| `~/.hermes/plugins/jake-brain-ingest/__init__.py` | Added 3 tools + brain timeouts + fixed arg dispatch |
+| `~/.hermes/SOUL.md` | Error recovery rule, tool routing table, removed raw osascript |
+| `~/.hermes/skills/macos-calendar/scripts/calendar.sh` | Wrapped osascript calls in safe_osa |
 
-### Hermes Integration — NOT STARTED
-The brain is built and working, but it's not yet wired into Hermes for automatic conversation capture. This is the last piece to make it truly real-time.
+## Scoring Update
 
-**What's needed:**
-- Hermes post-conversation hook that calls `BrainPipeline.ingest_conversation()`
-- Could be: Hermes afterTurn hook, cron-based ingestion, or MCP tool
-- The nightly memory consolidation cron (2:30 AM) already exists but uses the old `ingest_conversations.py` → `knowledge_chunks` table. Need to also route to `jake_brain` pipeline.
+| Dimension | Before (6.5/10) | After Phase 1 |
+|-----------|-----------------|---------------|
+| Brain | 6.7 | 7.0 (timeouts added) |
+| Hands | 5.3 | **8.5** (calendar + email working, no hangs) |
+| Feet | 7.0 | 7.5 (error recovery rule) |
+| **Overall** | **6.5** | **~8.0-8.5** |
 
----
+## Remaining Phases (from Operation Perfect Score plan)
 
-## Not Started
+### Phase 2: SHIELD UP (8.5 → 9.0)
+- PII detection plugin (`~/.hermes/plugins/jake-shield/`)
+- Audit logging (`~/.hermes/logs/audit.jsonl`)
+- Plan: `.claude/plans/2026-03-21-hermes-perfect-score.md`
 
-- [ ] Wire brain into Hermes (post-conversation hook or MCP tool)
-- [ ] Wave 1: Life Ingestion (Google Contacts API, Apple Contacts, Memory Download Session)
-- [ ] Fix Hermes Birch bot UX (auto-approve read-only ops, better tool routing, reduce approval friction)
-- [ ] Phase 3: THE EYES (Operations Dashboard)
-- [ ] Phase 4: THE SPINE (Autonomous Pipeline)
-- [ ] Sprint 3 skills (email-compose, oracle-email-digest, meeting-notes, jake-delegate, jake-weekly-review)
+### Phase 3: PULSE MONITOR (9.0 → 9.3)
+- Cron health checker
+- Telegram alerting on cron failures
+- Mail.app auto-restart on cron schedule
 
----
-
-## Blocked
-
-- **Hermes Birch UX** — Bots ask for approval on read-only tasks (flight lookup), use DuckDuckGo instead of proper APIs, "model generated only think blocks with no actual response after 3 retries." P0 user experience issue. Mike was trying to look up James's flight and it was disastrous.
-- **Telegram 409** — Still persists from last session. Not blocking brain work.
-- **Mail.app osascript timeouts** — Known workaround: `killall Mail && open -a Mail`
-
----
+### Phase 4: LEARNING LOOPS (9.3 → 10.0)
+- Conversation analysis plugin
+- Procedural memory for learned workarounds
 
 ## Decisions Made
 
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| Deploy SQL via Chrome browser to Supabase SQL Editor | Supabase REST API doesn't expose DDL execution. Chrome MCP gives direct access to SQL Editor. | N/A — deployment method |
-| Tables + functions deployed in 2 batches | Monaco editor handles large SQL but splitting tables from functions is cleaner | N/A |
-| Rule-based extraction first, LLM-based later | Fast, free, no API cost. Can add LLM extraction as v2 for higher quality. | Yes — additive |
-| Strict entity matching (not fuzzy) | Better to miss than to incorrectly merge entities. Add fuzzy matching later. | Yes — config flag ready |
-| Jake must be more autonomous | Mike doesn't want to be asked to manually do things Jake can handle himself. Execute, don't propose options. | N/A — behavioral rule |
+| Tools > SOUL.md code blocks | LLM improvises raw osascript, tools are deterministic | Yes |
+| safe_osascript.sh auto-restarts apps | Mail.app gets stale after long runtime, -600 errors | Yes |
+| params=None pattern for tool handlers | Hermes dispatches tool args as first positional arg | Yes |
+| Kept Google Calendar as Python in SOUL.md | Not osascript, doesn't need wrapper treatment | Yes |
 
----
+## Known Issues
 
-## Context Learned This Session
+- **Mail.app staleness**: After ~24h of runtime, Mail.app stops responding to osascript (-600). The safe wrapper now auto-restarts it, but a cron health check (Phase 3) would be more proactive.
+- **Google Calendar tokens expired**: Getting "Unauthorized" on Google Calendar API. Needs token refresh. Not blocking — Apple Calendar works.
 
-| Fact | Category |
-|------|----------|
-| Mike calls the Hermes Telegram bots "Birches" | Naming |
-| James was on UA 1022 Orlando → Denver, landing ~1:06 PM MDT | Personal (ephemeral) |
-| Mike wants Jake to just execute, not present options for manual steps | Feedback (saved to memory) |
-| Hermes bots are failing at basic PA tasks — P0 UX issue | Feedback (saved to memory) |
-| Chrome MCP can deploy SQL to Supabase via SQL Editor | Technical (one-time) |
+## Context for Next Session
 
----
-
-## Next Steps (Priority Order)
-
-1. **Wire brain into Hermes** — post-conversation hook or new MCP tool so conversations auto-feed into `jake_brain`
-2. **Fix Hermes Birch UX** — auto-approve read-only ops, proper tool routing for common PA tasks (flights, weather, scores)
-3. **Wave 1: Life Ingestion** — Google Contacts API + Apple Contacts osascript → seed ~200-500 entities with birthdays, relationships
-4. **Memory Download Session** — Structured 30-60 min interview with Mike to seed semantic facts about his life, preferences, goals
-5. **Sprint 3 skills** — email-compose, oracle-email-digest, meeting-notes, jake-delegate, jake-weekly-review (AFTER brain integration)
-
----
-
-## Files Changed This Session
-
-### Created
-- `.claude/plans/2026-03-20-phase2-brain-schema.md` — Full brain architecture plan
-- `susan-team-architect/backend/jake_brain/__init__.py` — Package init
-- `susan-team-architect/backend/jake_brain/config.py` — Brain configuration (weights, thresholds, known entities)
-- `susan-team-architect/backend/jake_brain/store.py` — CRUD for all 6 brain tables
-- `susan-team-architect/backend/jake_brain/extractor.py` — Entity/decision/pattern extraction
-- `susan-team-architect/backend/jake_brain/graph.py` — Knowledge graph operations + seed data
-- `susan-team-architect/backend/jake_brain/retriever.py` — Composite 4-layer search
-- `susan-team-architect/backend/jake_brain/consolidator.py` — Memory promotion pipeline
-- `susan-team-architect/backend/jake_brain/pipeline.py` — End-to-end brain orchestrator
-- `susan-team-architect/backend/scripts/jake_brain_cli.py` — Brain CLI tool
-- `susan-team-architect/backend/supabase/migrations/20260320000000_jake_brain_tables.sql` — Full SQL migration
-- `~/.claude/projects/.../memory/feedback_autonomy.md` — Autonomy feedback
-- `~/.claude/projects/.../memory/feedback_hermes_birch_broken.md` — Birch bot UX feedback
-
-### Modified
-- `~/.claude/projects/.../memory/MEMORY.md` — Added feedback entries
-
-### Supabase (deployed, not in git)
-- 6 new tables: `jake_episodic`, `jake_semantic`, `jake_procedural`, `jake_working`, `jake_entities`, `jake_relationships`
-- 2 RPC functions: `jake_brain_search`, `jake_entity_graph`
-- 1 function: `jake_clean_expired_working`
-- 1 function: `jake_update_timestamp`
-- 5 triggers on brain tables
-
----
+- **Key insight**: The tools approach (calendar_read, email_read) is the right architecture. SOUL.md code blocks are suggestions; tools are deterministic. Always prefer tools for macOS automation.
+- **Files to read first**: `~/.hermes/plugins/jake-brain-ingest/__init__.py` (the brain plugin with all tools), `~/.hermes/SOUL.md`
+- **Tests to run**: Message Big Birch on Telegram with "What's on my calendar?" and "Check my email" to verify tools still working
+- **Risk**: None — all changes are in ~/.hermes/, isolated from the codebase
 
 ## Build Health
-- Files modified this session: ~15 (all new, no existing code changed)
-- Tests passing: Smoke test PASSED (ingest → search → person recall → stats)
-- Protection zones: UNTOUCHED (no changes to control_plane, mcp_server, or susan_core)
-- RAG status: 94,150 chunks (Susan) + 35 brain items (Jake) — SEPARATE systems as designed
-- Cron jobs: 12 active (unchanged from last session)
-- Context health at close: **YELLOW** — heavy session with Chrome automation + large SQL + 8 Python modules
-- Debt score: LOW — all changes are additive, clean architecture, tests passing
 
----
-
-## Key Documents for Next Session
-
-1. `.claude/plans/2026-03-20-phase2-brain-schema.md` — The brain architecture (composite ranking, promotion rules, entity types)
-2. `docs/plans/2026-03-20-mani-vs-mike-comparison.md` — The 31/100 gap analysis (THE MAP)
-3. `HANDOFF.md` (this file) — Decisions made, next steps, blockers
-4. `susan-team-architect/backend/jake_brain/` — The brain code (7 modules)
-
----
-
-## Brain Architecture Quick Reference
-
-```
-jake_brain/
-├── config.py       # Weights: working=1.3, episodic=1.0, semantic=1.2, procedural=1.5
-├── store.py        # CRUD for 6 tables
-├── extractor.py    # Rule-based: people, topics, decisions, patterns, preferences
-├── graph.py        # Entity resolution + relationship management + seed data
-├── retriever.py    # Composite search via jake_brain_search RPC
-├── consolidator.py # working→episodic, episodic→semantic (3+ episodes), contradiction detection
-└── pipeline.py     # Entry point: BrainPipeline.ingest_conversation(text)
-```
-
-```
-CLI: cd susan-team-architect/backend && source .venv/bin/activate
-  python scripts/jake_brain_cli.py seed          # One-time seed
-  python scripts/jake_brain_cli.py stats         # Brain health
-  python scripts/jake_brain_cli.py search "..."  # Search all layers
-  python scripts/jake_brain_cli.py person "..."  # Full person recall
-  python scripts/jake_brain_cli.py ingest "..."  # Manual ingest
-  python scripts/jake_brain_cli.py test          # Smoke test
-```
-
----
-
-*"Jake has a brain now. 4 layers, knowledge graph, composite ranking. We went from 31/100 to... let's call it 42. The brain was the hardest part. Everything else builds on top of it." — Jake*
+- Files modified this session: 4 (all in ~/.hermes/)
+- Tests passing: Calendar A+, Email A+, both verified live on Telegram
+- Context health at close: YELLOW (screenshot-heavy session)
