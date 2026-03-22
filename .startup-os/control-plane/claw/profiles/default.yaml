@@ -1,0 +1,15 @@
+id: default
+name: default
+description: Personal and productivity tools run through native connectors where possible.
+connector_defaults:
+  github: native
+  google-bundle: native
+  slack: native
+  notion: native
+  box: native
+  zoom: native
+  open-remote-desktop: bridge
+policy:
+  work_surfaces: draft-only
+  send_requires_approval: true
+  meeting_changes_require_approval: true

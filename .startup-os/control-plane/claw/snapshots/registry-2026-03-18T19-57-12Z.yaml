@@ -1,0 +1,127 @@
+version: 1
+active_profile: default
+updated_at: '2026-03-18T19:55:53Z'
+services:
+  telegram:
+    name: telegram
+    mode: native
+    state: connected
+    auth_source: genspark-telegram-bot
+    scope:
+    - read
+    - draft
+    - notify
+    - remote-command
+    last_verified_at: '2026-03-18T18:04:19Z'
+    last_error: ''
+  github:
+    name: github
+    mode: native
+    state: connected
+    auth_source: genspark-github-pat
+    scope:
+    - read-repos
+    - clone
+    - analyze
+    - draft-patches
+    last_verified_at: '2026-03-18T19:55:52Z'
+    last_error: ''
+  google-bundle:
+    name: google-bundle
+    mode: native
+    state: pending
+    auth_source: genspark-google-oauth
+    scope:
+    - gmail-read
+    - calendar-read
+    - drive-read
+    - draft
+    last_verified_at: ''
+    last_error: ''
+  slack:
+    name: slack
+    mode: bridge
+    state: connected
+    auth_source: local-slack-session
+    scope:
+    - read
+    - draft
+    - notify
+    last_verified_at: '2026-03-18T19:55:52Z'
+    last_error: ''
+  notion:
+    name: notion
+    mode: native
+    state: pending
+    auth_source: genspark-notion-oauth
+    scope:
+    - read
+    - write-notes
+    - draft
+    last_verified_at: ''
+    last_error: ''
+  box:
+    name: box
+    mode: native
+    state: pending
+    auth_source: genspark-box-oauth
+    scope:
+    - read
+    - search
+    - sync
+    last_verified_at: ''
+    last_error: ''
+  zoom:
+    name: zoom
+    mode: native
+    state: pending
+    auth_source: genspark-zoom-oauth
+    scope:
+    - read-meetings
+    - prep
+    - draft
+    last_verified_at: ''
+    last_error: ''
+  open-remote-desktop:
+    name: open-remote-desktop
+    mode: bridge
+    state: pending
+    auth_source: genspark-vnc-surface
+    scope:
+    - remote-access
+    - session-control
+    last_verified_at: ''
+    last_error: ''
+  apple-work-mail:
+    name: apple-work-mail
+    mode: bridge
+    state: connected
+    auth_source: macos-internet-accounts-exchange
+    scope:
+    - read
+    - search
+    - summarize
+    - draft
+    last_verified_at: '2026-03-18T19:55:53Z'
+    last_error: ''
+  apple-work-calendar:
+    name: apple-work-calendar
+    mode: bridge
+    state: connected
+    auth_source: macos-internet-accounts-exchange
+    scope:
+    - read
+    - summarize
+    - draft
+    last_verified_at: '2026-03-18T19:55:53Z'
+    last_error: ''
+  microsoft-365-direct:
+    name: microsoft-365-direct
+    mode: blocked
+    state: failed
+    auth_source: oracle-tenant-policy
+    scope:
+    - mail-read
+    - calendar-read
+    last_verified_at: '2026-03-18T19:55:53Z'
+    last_error: Oracle blocks third-party Microsoft 365 consent.

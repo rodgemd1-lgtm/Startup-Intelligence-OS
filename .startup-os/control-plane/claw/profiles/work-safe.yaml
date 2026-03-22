@@ -1,0 +1,12 @@
+id: work-safe
+name: work-safe
+description: Bridge-first work profile for Oracle mail/calendar and desktop-only surfaces.
+connector_defaults:
+  apple-work-mail: bridge
+  apple-work-calendar: bridge
+  microsoft-365-direct: blocked
+policy:
+  work_surfaces: draft-only
+  allow_external_forwarding: false
+  send_requires_approval: true
+  meeting_changes_require_approval: true
