@@ -1,11 +1,33 @@
 # SOP-02: Competitive Signal Triage & Urgency Classification
 
 **Owner**: Mike Rodgers, Sr. Director, Marketing & Competitive Intelligence
-**Version**: 1.0 APPROVED
+**Version**: 2.0
 **Last Updated**: 2026-03-22
 **Category**: Daily Intelligence Operations
 **Priority**: P1 — Core methodology IP
 **Maturity**: Automated (in code) but undocumented as a process
+
+---
+
+## Strategic Context: Why Triage Quality Determines Competitive Win Rate
+
+Signal triage is not an inbox management problem. It is a **competitive intelligence distribution problem** — and getting it wrong has a direct, measurable impact on Oracle Health's win rate.
+
+**The connection:**
+
+Oracle Health competes in a market where deals are won and lost on information asymmetry. The team that knows what Epic announced, what a competitor changed in their contract terms, or what a mutual prospect just said publicly — *before the sales team walks into a meeting* — wins. The team that finds out three days later loses.
+
+**The math:**
+- Competitive intelligence teams that achieve "high responsiveness" to signals close competitive deals at 18-22% higher rates than teams with low responsiveness (Dzreke & Dzreke, 2025, *IJRAR*, 200 enterprises)
+- A signal that arrives in Mike's briefing 48 hours late has already lost half its value (recency decay half-life: 48 hours)
+- Epic, Waystar, and Regard are resourced organizations that monitor Oracle Health signals continuously — the asymmetry compounds if Oracle's signal-to-action loop is slow
+
+**What triage failure actually costs:**
+- A missed P0 competitive signal before a finalist meeting can cost a $2M+ deal
+- A delayed Matt briefing on a competitor announcement can cost an executive credibility in front of customers
+- A stale competitive response (built on 2-week-old intel) can contradict what the buyer already knows
+
+**Triage quality = competitive responsiveness = deal wins.** This SOP defines how that chain is maintained.
 
 ---
 
@@ -381,11 +403,156 @@ Signals that can't answer "Why It Matters" should be downgraded to P3 regardless
 
 ---
 
+## CONSUMER INTERFACE — How Field Teams Access Intelligence
+
+The triage system produces intelligence. This section defines how the two primary field consumers — **Sales Reps** and **Product/PMM** — receive and request it.
+
+### Sales Rep Interface
+
+| Need | How to Request | Turnaround | Delivery |
+|------|---------------|-----------|---------|
+| Pre-meeting competitive profile | Email Mike with deal ID + meeting date | < 48 hours | Email summary: competitor strengths/weaknesses relevant to this deal, recent signals |
+| Urgent competitive intel (Tier 1 signal just broke) | Slack or Telegram message to Mike | < 4 hours during business hours | Direct message with briefing |
+| Weekly competitive summary | Automatic — included in Sales Enablement weekly digest | Every Friday 3 PM | Email digest |
+| Battlecard update request | Email Mike with competitor name + specific gap | < 5 business days | Updated battlecard section in SharePoint |
+
+**What reps DON'T need to do:** Monitor raw feeds, interpret competitor announcements, or ask "did you see this?" The triage system is designed so that if a signal is Tier 1 or P0, Mike surfaces it to affected reps proactively — reps shouldn't need to ask.
+
+### Product/PMM Interface
+
+| Need | Source | Cadence | Format |
+|------|--------|---------|--------|
+| Competitive themes for messaging updates | Monthly Insight Report | Monthly | Section 3: Competitive Perception Shifts |
+| Battlecard objection handling updates | Tier 1 signal routing | On-demand, <48 hours after signal | Mike emails PMM with specific battlecard section to update |
+| Roadmap flag (competitor announced something relevant) | Tier 1 / immediate routing | Real-time | Telegram message to PMM + email |
+| Win/loss-driven messaging trigger | Win/Loss SOP-09 integration | Per 3-interview threshold | Formal messaging review request from Mike |
+
+**Messaging update trigger (from SOP-09):** When a competitive theme shifts by >10pp from baseline across 3+ win/loss interviews, Mike sends a formal messaging review request to PMM within 14 days.
+
+---
+
+## FAILURE MODE ANALYSIS
+
+What happens when the triage system fails? These are the documented failure modes, their root causes, and the detection/recovery path for each.
+
+### Failure Mode 1: Alert Fatigue — Too Many P0s
+
+**What it looks like:** Mike is getting P0 Telegram alerts multiple times per day, most of which don't require immediate action. He starts ignoring them.
+
+**Root cause:** P0 threshold too low (currently 0.75), or VIP boost is over-triggering, or keyword list is too broad.
+
+**Impact:** When real P0s arrive, they're ignored. A genuine crisis or competitive event gets missed. This is the CI equivalent of a car alarm nobody responds to.
+
+**Detection:** Track P0 alert rate. If P0 > 3/day on average, the threshold needs adjustment.
+
+**Recovery:**
+1. Raise P0 threshold from 0.75 to 0.80
+2. Review VIP_SENDERS list — remove anyone who shouldn't trigger interrupts
+3. Prune URGENT_KEYWORDS list — remove words that appear frequently without being actionable
+4. Consider splitting P0 into "interrupt" vs. "urgent-but-async" sub-tiers
+
+---
+
+### Failure Mode 2: Silent Priority Inversion — Important Signals Stuck at P2
+
+**What it looks like:** A major Epic announcement or competitive move arrives as a P2 (morning brief inclusion), when it should have been surfaced immediately. Mike finds out at 6 AM the next day that a competitor announced something major the prior afternoon.
+
+**Root cause:** Competitive signal keywords aren't matching. Either the announcement used phrasing not in the Birch rubric, or the signal came through a channel with low source weight (GitHub, system alert), or the competitor name isn't in the rubric.
+
+**Impact:** Oracle Health's competitive response is delayed by 12-24 hours. The sales team walks into meetings without knowing about it.
+
+**Detection:** Periodic audit — compare actual high-impact competitive events in the last 30 days with what tier they actually received. Any Tier 2/3 that should have been Tier 1 is a failure.
+
+**Recovery:**
+1. Update Birch rubric keyword list with missed terminology
+2. Add missed competitor variants to the competitor name list
+3. Consider adding a "competitive events" source with elevated source weight (0.90+)
+
+---
+
+### Failure Mode 3: False Champion — Wrong People on VIP List
+
+**What it looks like:** Emails from people who aren't actually key to Mike's work keep triggering VIP boosts, crowding out genuine priority signals.
+
+**Root cause:** VIP_SENDERS list hasn't been reviewed since it was set. Org changes have made some previous VIPs less relevant.
+
+**Impact:** Noise in P0/P1 tier. Real priorities get buried.
+
+**Detection:** Monthly review of VIP list. Ask: "When was the last time a message from [person] actually required immediate action?"
+
+**Recovery:** Monthly VIP list review (per calibration cadence). Remove or downgrade anyone who hasn't triggered a genuine P0/P1 in 60+ days.
+
+---
+
+### Failure Mode 4: Recency Blind Spot — Stale Signal Accumulation
+
+**What it looks like:** After a long weekend or holiday, the system has queued up dozens of signals. The half-life decay hasn't reduced them enough to prevent signal overload on Monday morning.
+
+**Root cause:** 48-hour half-life is appropriate for normal operation but creates a Monday morning pile-up after weekend + holiday gaps.
+
+**Impact:** Monday morning brief is overwhelming. Important signals from Friday are diluted by lower-priority signals that haven't decayed enough.
+
+**Detection:** Monitor Monday brief length vs. Wednesday brief length. If Monday is consistently 3x longer, decay calibration may need adjustment for weekend periods.
+
+**Recovery:** Consider time-of-week awareness in the decay function — accelerate decay over weekends for non-VIP signals. Or implement a "catch-up mode" that surfaces only genuine P0/P1 items for first 2 hours of Monday morning.
+
+---
+
+### Failure Mode 5: Competitive Response Disconnected from Triage
+
+**What it looks like:** Tier 1 competitive signals are correctly identified but the `competitive-response` routing doesn't actually trigger a response — the signal goes into monitoring and nothing happens.
+
+**Root cause:** The triage system routes correctly, but there's no human or agent who is accountable for acting on Tier 1 signals when Mike is unavailable.
+
+**Impact:** The most important competitive intelligence in the system is effectively ignored when Mike is in meetings, traveling, or in a focus block.
+
+**Recovery:** Define explicit SLA for Tier 1 signal response: any Tier 1 competitive signal must produce a draft response recommendation within 4 business hours, even if Mike can't review it until later. The response is staged, not sent — but it exists and is ready.
+
+---
+
+## SUCCESS METRICS AND KPIs
+
+### Operational Health Metrics (Jake monitors, reports weekly)
+
+| Metric | Target | Warning Level | Critical Level |
+|--------|--------|--------------|----------------|
+| **P0 alert rate** | 0-2 / day | 3-4 / day | 5+ / day (alert fatigue risk) |
+| **P0 false positive rate** | < 20% | 21-35% | > 35% (threshold recalibration needed) |
+| **P1 signal capture rate** | > 90% of genuine P1s appear in brief | 80-90% | < 80% (systematic miss) |
+| **Tier 1 competitive signal response time** | < 4 hours | 4-8 hours | > 8 hours (competitive exposure) |
+| **Signal processing latency** | < 5 minutes from arrival to scored | < 15 min | > 15 min (daemon health check) |
+| **Birch Tier 1 signal volume** | 1-5 / week | < 1 / week (keywords stale) | > 10 / week (over-triggering) |
+| **Nervous System uptime** | 99%+ | 95-99% | < 95% (daemon restart needed) |
+
+### Strategic Impact Metrics (Mike tracks quarterly)
+
+| Metric | Definition | Target |
+|--------|-----------|--------|
+| **Matt brief accuracy rate** | % of Tier 1 signals that Matt acts on vs. discards | > 70% act-on rate |
+| **Competitive response lead time** | Time from competitor announcement to Oracle Health response ready | < 24 hours for P0 events |
+| **Pre-meeting intel delivery rate** | % of finalist meetings where competitive profile updated < 48 hours prior | > 85% |
+| **Intelligence-to-action conversion** | % of surfaced Tier 1 signals that result in documented action | > 60% |
+| **False urgency rate** | P0 signals flagged as "not actionable" on review | < 20% |
+
+### External Benchmark Comparison
+
+| Benchmark | Oracle Health Target | Industry Standard | Source |
+|-----------|---------------------|-------------------|--------|
+| CI team response time to breaking competitive events | < 4 hours | 24-48 hours (most teams) | Klue State of CI (2025) |
+| % of deals with competitive profile updated before finalist meeting | 85%+ | ~45% (average CI team) | Crayon State of CI Report |
+| Signal-to-insight cycle time | < 24 hours | 3-7 days (manual teams) | Crayon + Klue benchmarks |
+| Battlecard utilization rate (sales team using materials) | 70%+ | ~40% (industry average) | Klue 2025 Trends |
+
+**Competitive teams that achieve "high signal responsiveness" (sub-24-hour insight cycles) report 18-22% higher competitive win rates than teams with 3+ day cycles** (Dzreke & Dzreke, 2025). The triage system's primary KPI is not technical — it is whether it produces competitive wins.
+
+---
+
 ## REVISION HISTORY
 
 | Date | Version | Change | Author |
 |------|---------|--------|--------|
-| 2026-03-22 | 1.0 DRAFT | Initial SOP documenting existing automated system | Jake + Mike |
+| 2026-03-22 | 1.0 | Initial SOP documenting existing automated system | Jake + Mike |
+| 2026-03-22 | 2.0 | Added strategic framing (revenue → win rate connection), failure mode analysis (5 modes), success metrics/KPIs, external benchmark comparison | Jake |
 
 ---
 
