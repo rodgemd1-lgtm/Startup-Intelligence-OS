@@ -1,113 +1,128 @@
 # Session Handoff
 
-**Date**: 2026-03-22 (Saturday night session #2, ~2.5 hours)
-**Branch**: main
-**Session Goal**: Document M&CI SOPs (Priority 1-3), then expand SOP-09 into predictive win/loss system
-**Status**: PARTIAL — 2 SOPs approved, SOP-09 v2.0 written, v3.0 research 5/8 complete
-
----
+**Date**: 2026-03-22
+**Project**: Startup Intelligence OS — Iron Jarvis (Alexa Skill)
+**Session Goal**: Debug and fix "problem with the requested skill's response" error on Iron Jarvis Alexa skill
+**Status**: PARTIAL — bug identified and fixed in editor, Lambda deployment not triggered
 
 ## Completed
+- [x] Identified the bug: Line 770 of `lambda_function.py` had 4 `sb.add_request_handler()` calls on ONE line separated by literal `\n` text (not real newlines) — Python syntax error
+- [x] CloudWatch logs confirmed: `Runtime.UserCodeSyntaxError: Syntax error in module 'lambda_function': unexpected character after line continuation`
+- [x] Fixed the code in Alexa Developer Console editor — split line 770 into 4 proper separate lines
+- [x] Saved fix to editor (persists across page reloads — confirmed committed to CodeCommit)
+- [x] Also added `# deploy-fix-v2` marker to line 1 to track which version is deployed
+- [x] Rebuilt interaction model via "Build skill" button — succeeded (version 4, 3/22/2026 @ 12:42 AM)
 
-### SOP-11: Trade Show & Conference Intelligence — APPROVED (1/28)
-- [x] Synthesized from 11 sources (Mike's HIMSS method + Matt's framework + SCIP + Gartner + Forrester + Calof)
-- [x] Dynamic team roles per conference (not hardcoded) — Mike's direction
-- [x] Stored in Brain (UUID: 9c9ea75b), goal updated
-- [x] File: `docs/sops/SOP-11-trade-show-intelligence.md`
+## Blocked
+- [ ] **Lambda deployment not triggering** — the Code tab "Save" commits to CodeCommit but the CodePipeline that deploys to Lambda has NOT fired. "Last Deployed" still shows Mar 21, 11:55 PM. Lambda is still running the broken version 4 code.
 
-### SOP-02: Signal Triage & Urgency Classification — APPROVED (2/28)
-- [x] Documented 3-layer signal processing (Priority Engine + Birch Scorer + Nervous System)
-- [x] **Code updated**: Added Seema, Bharat, Elizabeth to VIP lists (priority.py + email_alert.py)
-- [x] **Code updated**: Added phone (0.95) + text (0.90) source types
-- [x] Stored in Brain (UUID: be5ab8c1), goal updated
-- [x] File: `docs/sops/SOP-02-signal-triage-urgency-classification.md`
+## Root Cause Analysis
+1. **Original bug**: When the skill was built on 3/21, line 770 was written with literal `\n` instead of real newlines. Python interprets `\n` after a function call as a line continuation character `\` followed by `n` — syntax error on import.
+2. **Deployment issue**: The Alexa-hosted skill uses CodeCommit → CodePipeline → Lambda. "Save" on Code tab commits to CodeCommit. "Build skill" on Build tab only rebuilds the interaction model. The Lambda deploy pipeline appears to be stuck or requires a different trigger.
 
-### SOP-09 v2.0: Win/Loss Analysis — Written, awaiting v3.0
-- [x] Behavioral science rebuild from 4 MCP scrapes (80+ sources, zero training data)
-- [x] 44-point price gap, laddering methodology, 5 actual-driver taxonomy, 32 citations
-- [x] File: `docs/sops/SOP-09-win-loss-analysis.md`
+## Fix Already Applied (in editor, not yet deployed)
+```python
+# BEFORE (broken — all on one line with literal \n):
+sb.add_request_handler(RememberIntentHandler())\nsb.add_request_handler(RecallIntentHandler())\nsb.add_request_handler(EasterEggIntentHandler())\nsb.add_request_handler(HelpIntentHandler())
 
-### Research Saved (5 of 8 complete)
-All in `docs/research/sop-09-predictive-winloss/`:
-- [x] `01-oracle-health-deal-data.md` — 57 customers lost, 22+ named deals, full pattern analysis
-- [x] `02-consulting-winloss-methods.md` — Klue, Clozd, Anova, Primary Intelligence, Crayon
-- [x] `03-behavioral-science-buying.md` — Kahneman, status quo bias, champion risk, JTBD, Moore
-- [x] `04-program-design-guides.md` — Interview templates, taxonomies, reporting, ROI calculators
-- [x] `05-academic-papers.md` — Webster & Wind, Challenger Sale, healthcare procurement
+# AFTER (fixed — 4 separate lines):
+sb.add_request_handler(RememberIntentHandler())
+sb.add_request_handler(RecallIntentHandler())
+sb.add_request_handler(EasterEggIntentHandler())
+sb.add_request_handler(HelpIntentHandler())
+```
 
----
+## Next Session: Deploy the Fix
+Three options, in order of preference:
 
-## In Progress
+### Option 1: Download + Re-import (simplest)
+1. Go to Code tab → click "Download Skill" button
+2. Unzip locally, verify `lambda_function.py` has the fix (lines 770-773 should be 4 separate `sb.add_request_handler` calls)
+3. If fix is NOT in the downloaded zip, apply it locally
+4. Click "Import Code" → upload the fixed zip
+5. This should force a fresh deploy
+6. Test in simulator: "open iron jarvis"
 
-### 3 Research Agents Were Still Running at Session Close
+### Option 2: ASK CLI (most control)
+1. `npm install -g ask-cli`
+2. `ask configure` (link to Amazon developer account)
+3. `ask smapi get-skill-package --skill-id amzn1.ask.skill.7366f2b5-f2d4-430a-bfcf-6fe17642ce00`
+4. Fix the code locally
+5. `ask deploy` — deploys both model and Lambda
+6. Test
 
-| # | Topic | File | Status |
-|---|-------|------|--------|
-| 06 | Monte Carlo simulation for deal prediction | `06-monte-carlo-deal-prediction.md` | **COMPLETE** (340KB) |
-| 07 | Predictive win/loss algorithms (academic) | `07-predictive-algorithms-academic.md` | **COMPLETE** (403KB) |
-| 08 | Predictive sales enablement platforms | `08-predictive-sales-enablement.md` | **COMPLETE** (398KB) |
+### Option 3: Delete + Recreate (nuclear)
+1. Delete the Jarvis skill from console
+2. Create new Alexa-hosted Python skill
+3. Paste the fixed 779-line `lambda_function.py`
+4. Copy interaction model JSON from old skill (it's already built, might be recoverable)
+5. Build + deploy fresh
 
-**ALL 8 RESEARCH FILES COMPLETE AND SAVED** — 3.36 MB total in `docs/research/sop-09-predictive-winloss/`
-
-### SOP-09 v3.0: Predictive Win/Loss System
-Mike wants to expand SOP-09 into a **predictive deal intelligence system**:
-1. Historical Cerner/Oracle Health deal pattern analysis (data in file 01)
-2. Monte Carlo simulation for deal outcome prediction
-3. Deal scoring card (pre-deal questionnaire → probability → recommendations)
-4. Real-time sales enablement recommendations based on predictions
-
-This is the big synthesis task for next session.
-
----
+## Key References
+- **Skill ID**: `amzn1.ask.skill.7366f2b5-f2d4-430a-bfcf-6fe17642ce00`
+- **Alexa Console**: `developer.amazon.com/alexa/console/ask`
+- **CloudWatch Logs**: `/aws/lambda/7366f2b5-f2d4-430a-bfcf-6fe17642ce00` in us-east-1
+- **Lambda ARN**: `arn:aws:lambda:us-east-1:227593615582:...`
+- **Local research DB**: `artifacts/alexa-jarvis/jarvis_responses.py` (232 MCU responses, not yet merged)
+- **Lambda code is ONLY in the Alexa Developer Console** (cloud-hosted, not in local repo)
 
 ## Decisions Made
-
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| Dynamic team roles per conference (SOP-11) | Mike: lanes derived from conference analysis, not hardcoded | Yes |
-| Added Seema/Bharat/Elizabeth to VIPs + phone/text sources (SOP-02) | Mike approved directly | Yes |
-| "So What" framework = Matt's | Mike confirmed | No |
-| Behavioral science foundation for SOP-09 | 44-point price gap proves traditional methods fail | No |
-| Expand SOP-09 to predictive system | Mike's request: Monte Carlo + deal scoring + sales enablement | No |
-| SOPs stored as pattern_type='rule' in Brain | DB constraint doesn't allow 'sop' — tagged in metadata | Yes |
+| Fix via editor JS API | Fastest way to edit in the console | Yes |
+| "Build skill" to trigger deploy | Thought it would trigger full pipeline — only rebuilt model | N/A |
+| Recommend Download+Import approach | Most reliable way to force a fresh Lambda deployment | Yes |
 
----
-
-## Next Steps
-
-1. **Check/recover research agent outputs 06-08** from /tmp
-2. **Synthesize all 8 research files into SOP-09 v3.0** — predictive win/loss with:
-   - Oracle Health deal pattern analysis (why we win/lose by segment, competitor, size)
-   - Monte Carlo simulation methodology (input variables, distributions, validation)
-   - Deal scoring card (questionnaire at each sales stage → probability → actions)
-   - Predictive question protocol for real-time sales enablement
-3. **Present SOP-09 v3.0 to Mike for approval**
-4. **Continue SOP documentation** — Priority 4: SOP-13 Market Sizing R-01
-5. **Consider**: DB migration to add 'sop' to jake_procedural pattern_type constraint
-
----
-
-## Files Changed
-
-### New Files (13)
-- `docs/sops/SOP-11-trade-show-intelligence.md`
-- `docs/sops/SOP-02-signal-triage-urgency-classification.md`
-- `docs/sops/SOP-09-win-loss-analysis.md`
-- `docs/research/sop-09-predictive-winloss/01-oracle-health-deal-data.md`
-- `docs/research/sop-09-predictive-winloss/02-consulting-winloss-methods.md`
-- `docs/research/sop-09-predictive-winloss/03-behavioral-science-buying.md`
-- `docs/research/sop-09-predictive-winloss/04-program-design-guides.md`
-- `docs/research/sop-09-predictive-winloss/05-academic-papers.md`
-- `docs/research/sop-09-predictive-winloss/06-monte-carlo-deal-prediction.md` (PARTIAL)
-- `docs/research/sop-09-predictive-winloss/07-predictive-algorithms-academic.md` (PARTIAL)
-- `docs/research/sop-09-predictive-winloss/08-predictive-sales-enablement.md` (PARTIAL)
-
-### Modified Files (2)
-- `susan-team-architect/backend/jake_brain/priority.py` — VIPs + source types
-- `susan-team-architect/backend/jake_brain/nervous/email_alert.py` — VIP senders
+## Context for Next Session
+- **Key insight**: The fix IS in the editor. The problem is purely a deployment issue. Don't re-diagnose the bug.
+- **First action**: Try Option 1 (Download → verify fix → Import) to force deploy
+- **Test command**: "open iron jarvis" in simulator or on Echo device
+- **Risk**: If Download doesn't include the fix, the CodeCommit commit may have been lost — apply fix manually to downloaded code before re-importing
 
 ## Build Health
-- Files: 15 total (13 new + 2 modified)
-- Tests: Not run (documentation session, only VIP list code changes)
+- Files modified this session: 0 local files (all work was in Alexa Developer Console)
+- Tests passing: N/A (can't test until Lambda deploys)
+- Context health at close: **ORANGE** — heavy context burn on deployment debugging
+
+---
+
+# Session Handoff — M&CI SOP Documentation (Session #4)
+
+**Date**: 2026-03-22 (Saturday late night)
+**Session Goal**: Commit prior SOP work, write SOP-13 Market Sizing, start SOP-08 research
+**Status**: COMPLETE — SOP-13 shipped, SOP-08 research partially complete
+
+## SOPs Shipped This Session: 4
+- SOP-02: Signal Triage — commit `90caca6`
+- SOP-09: Win/Loss Analysis — commit `90caca6`
+- SOP-11: Trade Show Intelligence — commit `90caca6`
+- **SOP-13: Market Sizing (R-01)** — commit `06955e8`
+
+## SOP-13 Research Corpus (1.93 MB, 150+ sources)
+All in `docs/research/sop-13-market-sizing/`:
+- `01-enterprise-best-practices.md` — McKinsey/BCG/Bain, Strategex $33B case
+- `02-healthcare-specific-methods.md` — KLAS, Gartner, CMS NHEA, VBC waste
+- `03-academic-papers.md` — HBS, Stanford Biodesign, Bass R²=0.91, Wharton conjoint
+- `04-training-data-payer-rcm-provider.md` — 34.1M MA, KLAS share, HFMA benchmarks
+- `05-training-data-lifesci-erp-interop-data.md` — 7 domains, TEFCA, eClinical, GenAI
+- `06-government-data-sources.md` — 40+ verified URLs, hard anchor table
+
+## SOP-08 Battlecard Research (Next Up)
+- Agent 2 DONE: `docs/research/sop-08-battlecards/02-templates-metrics-meddpicc.md` (committed)
+- Agent 1 MAY BE in `/tmp`: check `/private/tmp/claude-501/.../tasks/a1631c1d7d1ea8d52.output`
+- If not found, re-dispatch research agent for battlecard best practices + AI platforms + healthcare CI
+
+## Next Session Priority Order
+1. Finish SOP-08 research → synthesize → draft (Battlecard Creation & Maintenance)
+2. SOP-14: Executive Offsite Strategy Prep
+3. SOP-18: 8-Person Expert Panel Review
+
+## Key Decisions
+- Monte Carlo for SOP-09 = Phase 2 unlock (after ~50 interviews)
+- Build Doctrine hookify rule created (warn mode): `.claude/hookify.build-doctrine-enforcement.local.md`
+- 3 new methods added to R-01: Installed Base Analysis, Bass Diffusion, VBC Waste Sizing
+
+## Build Health
+- Commits: 2 (`90caca6`, `06955e8`)
+- Total research corpus: 5.29 MB across 14 files
 - Context at close: **ORANGE**
-- Next session: Fresh context for SOP-09 v3.0 synthesis — heaviest deliverable of the project
