@@ -1,6 +1,6 @@
 # Research Harvest Digest
 
-Generated: 2026-03-17 02:36 UTC
+Generated: 2026-03-22 14:00 UTC
 Total items: 150
 
 ## Summary
@@ -12,73 +12,73 @@ Total items: 150
 
 ## Unknown Sources (150)
 
-- [LOW] **Exa search result 1: capability susan foundry core best practices official docum**
+- [LOW] **Exa search result 1: department studios of excellence best practices official do**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: capability susan foundry core best practices official docum**
+- [LOW] **Exa search result 2: department studios of excellence best practices official do**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: capability susan foundry core best practices official docum**
+- [LOW] **Exa search result 3: department studios of excellence best practices official do**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: capability susan foundry core best practices official docum**
+- [LOW] **Exa search result 4: department studios of excellence best practices official do**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: capability susan foundry core best practices official docum**
+- [LOW] **Exa search result 5: department studios of excellence best practices official do**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: capability susan foundry core framework methodology guide**
+- [LOW] **Exa search result 1: department studios of excellence framework methodology guid**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: capability susan foundry core framework methodology guide**
+- [LOW] **Exa search result 2: department studios of excellence framework methodology guid**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: capability susan foundry core framework methodology guide**
+- [LOW] **Exa search result 3: department studios of excellence framework methodology guid**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: capability susan foundry core framework methodology guide**
+- [LOW] **Exa search result 4: department studios of excellence framework methodology guid**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: capability susan foundry core framework methodology guide**
+- [LOW] **Exa search result 5: department studios of excellence framework methodology guid**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: capability susan foundry core startup implementation playbo**
+- [LOW] **Exa search result 1: department studios of excellence startup implementation pla**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: capability susan foundry core startup implementation playbo**
+- [LOW] **Exa search result 2: department studios of excellence startup implementation pla**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: capability susan foundry core startup implementation playbo**
+- [LOW] **Exa search result 3: department studios of excellence startup implementation pla**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: capability susan foundry core startup implementation playbo**
+- [LOW] **Exa search result 4: department studios of excellence startup implementation pla**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: capability susan foundry core startup implementation playbo**
+- [LOW] **Exa search result 5: department studios of excellence startup implementation pla**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: Capability 'Susan Foundry Core' coverage research**
+- [LOW] **Exa search result 1: Capability 'Department Studios Excellence' coverage researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: Capability 'Susan Foundry Core' coverage research**
+- [LOW] **Exa search result 2: Capability 'Department Studios Excellence' coverage researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: Capability 'Susan Foundry Core' coverage research**
+- [LOW] **Exa search result 3: Capability 'Department Studios Excellence' coverage researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: Capability 'Susan Foundry Core' coverage research**
+- [LOW] **Exa search result 4: Capability 'Department Studios Excellence' coverage researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: Capability 'Susan Foundry Core' coverage research**
+- [LOW] **Exa search result 5: Capability 'Department Studios Excellence' coverage researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
 ## Gaps Addressed
 
-- `gap-0c1eebe35152`: 30 results (avg quality: 0.51)
-- `gap-4b358a509473`: 30 results (avg quality: 0.51)
-- `gap-815f26c2ac1d`: 30 results (avg quality: 0.51)
-- `gap-9b049c748096`: 30 results (avg quality: 0.51)
-- `gap-e2680d50b999`: 30 results (avg quality: 0.51)
+- `gap-3ed25f3f55de`: 30 results (avg quality: 0.51)
+- `gap-6e22c451761d`: 30 results (avg quality: 0.51)
+- `gap-82b5d851ff49`: 30 results (avg quality: 0.51)
+- `gap-9210cb98ff13`: 30 results (avg quality: 0.51)
+- `gap-dc74d9f86830`: 30 results (avg quality: 0.51)
 
 ---
 *Generated by Research Daemon auto-harvester.*

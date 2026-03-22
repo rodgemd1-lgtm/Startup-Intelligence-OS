@@ -1,30 +1,15 @@
 daemon_status:
-  last_run: '2026-03-17T02:36:01.986800+00:00'
-  next_run: '2026-03-18T02:36:03.675629+00:00'
-  gaps_detected: 83
+  last_run: '2026-03-22T14:00:05.789604+00:00'
+  next_run: '2026-03-23T14:00:07.345159+00:00'
+  gaps_detected: 88
   gaps_filled: 0
   items_harvested: 150
   programs_active: 5
   health: healthy
 summary:
-  last_gaps_count: 83
+  last_gaps_count: 88
   last_results_count: 150
   top_gaps:
-  - id: gap-815f26c2ac1d
-    domain: capability-susan-foundry-core
-    severity: critical
-  - id: gap-e2680d50b999
-    domain: content-marketing
-    severity: critical
-  - id: gap-9b049c748096
-    domain: data-analytics
-    severity: critical
-  - id: gap-4b358a509473
-    domain: data-decision-science-studio
-    severity: critical
-  - id: gap-0c1eebe35152
-    domain: decision-kernel
-    severity: critical
   - id: gap-3ed25f3f55de
     domain: department-studios-of-excellence
     severity: critical
@@ -40,44 +25,59 @@ summary:
   - id: gap-6e22c451761d
     domain: gen-chat-os-system
     severity: critical
+  - id: gap-258a960405c8
+    domain: innovation-strategy
+    severity: critical
+  - id: gap-6c93669f50bf
+    domain: intelligence-research
+    severity: critical
+  - id: gap-18216f26f3d7
+    domain: job-memory-intelligence
+    severity: critical
+  - id: gap-de6e2705ac89
+    domain: operator-experience
+    severity: critical
+  - id: gap-d973b3997bb6
+    domain: platform-infrastructure
+    severity: critical
   top_results:
-  - id: harvest-8426bae0ea6c
-    title: 'Exa search result 1: capability susan foundry core best practices official
-      docum'
+  - id: harvest-ec53744cfc5a
+    title: 'Exa search result 1: department studios of excellence best practices official
+      do'
     quality: 0.51
-  - id: harvest-6dd39f0a5094
-    title: 'Exa search result 2: capability susan foundry core best practices official
-      docum'
+  - id: harvest-26964871f04f
+    title: 'Exa search result 2: department studios of excellence best practices official
+      do'
     quality: 0.51
-  - id: harvest-1b53fccad3ef
-    title: 'Exa search result 3: capability susan foundry core best practices official
-      docum'
+  - id: harvest-67b8d8d524a1
+    title: 'Exa search result 3: department studios of excellence best practices official
+      do'
     quality: 0.51
-  - id: harvest-8521bb60ad13
-    title: 'Exa search result 4: capability susan foundry core best practices official
-      docum'
+  - id: harvest-3750361e94f9
+    title: 'Exa search result 4: department studios of excellence best practices official
+      do'
     quality: 0.51
-  - id: harvest-1d201faeb861
-    title: 'Exa search result 5: capability susan foundry core best practices official
-      docum'
+  - id: harvest-d9220e845970
+    title: 'Exa search result 5: department studios of excellence best practices official
+      do'
     quality: 0.51
-  - id: harvest-927d2ae14eaf
-    title: 'Exa search result 1: capability susan foundry core framework methodology
-      guide'
+  - id: harvest-ac25b70c0b45
+    title: 'Exa search result 1: department studios of excellence framework methodology
+      guid'
     quality: 0.51
-  - id: harvest-8d4214cccea1
-    title: 'Exa search result 2: capability susan foundry core framework methodology
-      guide'
+  - id: harvest-761c196fb9f0
+    title: 'Exa search result 2: department studios of excellence framework methodology
+      guid'
     quality: 0.51
-  - id: harvest-3e3e79e52c0f
-    title: 'Exa search result 3: capability susan foundry core framework methodology
-      guide'
+  - id: harvest-170969782991
+    title: 'Exa search result 3: department studios of excellence framework methodology
+      guid'
     quality: 0.51
-  - id: harvest-0831856ed690
-    title: 'Exa search result 4: capability susan foundry core framework methodology
-      guide'
+  - id: harvest-4385c99b754a
+    title: 'Exa search result 4: department studios of excellence framework methodology
+      guid'
     quality: 0.51
-  - id: harvest-1e5a6c3f2f7c
-    title: 'Exa search result 5: capability susan foundry core framework methodology
-      guide'
+  - id: harvest-e13dd2a0abd7
+    title: 'Exa search result 5: department studios of excellence framework methodology
+      guid'
     quality: 0.51
