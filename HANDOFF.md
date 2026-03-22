@@ -1,102 +1,113 @@
 # Session Handoff
 
-**Date**: 2026-03-21 ~11:35 MDT
-**Project**: Startup Intelligence OS / Hermes (Big Birch)
-**Session Goal**: Execute Phase 1 of Operation Perfect Score — "Never Hang Again"
-**Status**: COMPLETE — Calendar and Email both working, tested live on Telegram
+**Date**: 2026-03-22 (Saturday night session #2, ~2.5 hours)
+**Branch**: main
+**Session Goal**: Document M&CI SOPs (Priority 1-3), then expand SOP-09 into predictive win/loss system
+**Status**: PARTIAL — 2 SOPs approved, SOP-09 v2.0 written, v3.0 research 5/8 complete
+
+---
 
 ## Completed
 
-- [x] **safe_osascript.sh** — universal timeout wrapper with auto-restart + retry
-  - File: `~/.hermes/scripts/safe_osascript.sh`
-  - Handles: timeout kills, -600 app errors, auto-restart Mail/Calendar/Reminders
-  - Tested: timeout path, success path, kill-and-retry path all verified
-- [x] **calendar_read / email_read / reminders_read tools** — deterministic Hermes plugin tools
-  - File: `~/.hermes/plugins/jake-brain-ingest/__init__.py`
-  - Why tools instead of SOUL.md code blocks: LLM was improvising raw osascript instead of using the safe wrapper. Tools are deterministic — no improvisation.
-  - Fixed positional arg dispatch issue (Hermes passes params as first positional arg, not kwargs)
-- [x] **Brain plugin timeouts** — 8s cap on all Supabase calls (brain_search, brain_person, brain_entities)
-  - File: `~/.hermes/plugins/jake-brain-ingest/__init__.py`
-  - Uses `concurrent.futures.ThreadPoolExecutor` with timeout
-- [x] **SOUL.md patches** — error recovery rule + tool routing table
-  - File: `~/.hermes/SOUL.md`
-  - Added: "NEVER go silent" error recovery rule
-  - Added: Tool routing table (calendar→calendar_read, email→email_read, reminders→reminders_read)
-  - Removed: raw osascript code blocks for calendar/email/reminders (replaced by tools)
-  - Kept: Google Calendar Python API block (not osascript, doesn't need wrapper)
-- [x] **calendar.sh patched** — calendar skill uses safe wrapper for all osascript calls
-  - File: `~/.hermes/skills/macos-calendar/scripts/calendar.sh`
-- [x] **Live Telegram testing** — 5 rounds of testing, both calendar and email working
-  - Calendar: F → A+ (reads events, returns in <10s)
-  - Email: F → A+ (reads inbox, identifies priority emails, filters spam)
+### SOP-11: Trade Show & Conference Intelligence — APPROVED (1/28)
+- [x] Synthesized from 11 sources (Mike's HIMSS method + Matt's framework + SCIP + Gartner + Forrester + Calof)
+- [x] Dynamic team roles per conference (not hardcoded) — Mike's direction
+- [x] Stored in Brain (UUID: 9c9ea75b), goal updated
+- [x] File: `docs/sops/SOP-11-trade-show-intelligence.md`
 
-## Test Results (Final Round — 11:31 AM)
+### SOP-02: Signal Triage & Urgency Classification — APPROVED (2/28)
+- [x] Documented 3-layer signal processing (Priority Engine + Birch Scorer + Nervous System)
+- [x] **Code updated**: Added Seema, Bharat, Elizabeth to VIP lists (priority.py + email_alert.py)
+- [x] **Code updated**: Added phone (0.95) + text (0.90) source types
+- [x] Stored in Brain (UUID: be5ab8c1), goal updated
+- [x] File: `docs/sops/SOP-02-signal-triage-urgency-classification.md`
 
-| Test | Grade | Details |
-|------|-------|---------|
-| Calendar | A+ | "Calendar is looking deadass clear. Nothing on the books." |
-| Email | A+ | Read 10 emails, flagged Matt Cohlmia HIMSS notes, filtered Amazon spam |
-| Response time | A+ | Both tools completed in <15s, response delivered in <30s |
-| Error recovery | A+ | When tools failed earlier, communicated clearly with alternatives |
-| Tool usage | A | Uses calendar_read/email_read tools (not raw osascript) |
+### SOP-09 v2.0: Win/Loss Analysis — Written, awaiting v3.0
+- [x] Behavioral science rebuild from 4 MCP scrapes (80+ sources, zero training data)
+- [x] 44-point price gap, laddering methodology, 5 actual-driver taxonomy, 32 citations
+- [x] File: `docs/sops/SOP-09-win-loss-analysis.md`
 
-## Files Modified (all in ~/.hermes/, NOT in git repo)
+### Research Saved (5 of 8 complete)
+All in `docs/research/sop-09-predictive-winloss/`:
+- [x] `01-oracle-health-deal-data.md` — 57 customers lost, 22+ named deals, full pattern analysis
+- [x] `02-consulting-winloss-methods.md` — Klue, Clozd, Anova, Primary Intelligence, Crayon
+- [x] `03-behavioral-science-buying.md` — Kahneman, status quo bias, champion risk, JTBD, Moore
+- [x] `04-program-design-guides.md` — Interview templates, taxonomies, reporting, ROI calculators
+- [x] `05-academic-papers.md` — Webster & Wind, Challenger Sale, healthcare procurement
 
-| File | Change |
-|------|--------|
-| `~/.hermes/scripts/safe_osascript.sh` | NEW — timeout wrapper with auto-restart |
-| `~/.hermes/plugins/jake-brain-ingest/__init__.py` | Added 3 tools + brain timeouts + fixed arg dispatch |
-| `~/.hermes/SOUL.md` | Error recovery rule, tool routing table, removed raw osascript |
-| `~/.hermes/skills/macos-calendar/scripts/calendar.sh` | Wrapped osascript calls in safe_osa |
+---
 
-## Scoring Update
+## In Progress
 
-| Dimension | Before (6.5/10) | After Phase 1 |
-|-----------|-----------------|---------------|
-| Brain | 6.7 | 7.0 (timeouts added) |
-| Hands | 5.3 | **8.5** (calendar + email working, no hangs) |
-| Feet | 7.0 | 7.5 (error recovery rule) |
-| **Overall** | **6.5** | **~8.0-8.5** |
+### 3 Research Agents Were Still Running at Session Close
 
-## Remaining Phases (from Operation Perfect Score plan)
+| # | Topic | File | Status |
+|---|-------|------|--------|
+| 06 | Monte Carlo simulation for deal prediction | `06-monte-carlo-deal-prediction.md` | **COMPLETE** (340KB) |
+| 07 | Predictive win/loss algorithms (academic) | `07-predictive-algorithms-academic.md` | **COMPLETE** (403KB) |
+| 08 | Predictive sales enablement platforms | `08-predictive-sales-enablement.md` | **COMPLETE** (398KB) |
 
-### Phase 2: SHIELD UP (8.5 → 9.0)
-- PII detection plugin (`~/.hermes/plugins/jake-shield/`)
-- Audit logging (`~/.hermes/logs/audit.jsonl`)
-- Plan: `.claude/plans/2026-03-21-hermes-perfect-score.md`
+**ALL 8 RESEARCH FILES COMPLETE AND SAVED** — 3.36 MB total in `docs/research/sop-09-predictive-winloss/`
 
-### Phase 3: PULSE MONITOR (9.0 → 9.3)
-- Cron health checker
-- Telegram alerting on cron failures
-- Mail.app auto-restart on cron schedule
+### SOP-09 v3.0: Predictive Win/Loss System
+Mike wants to expand SOP-09 into a **predictive deal intelligence system**:
+1. Historical Cerner/Oracle Health deal pattern analysis (data in file 01)
+2. Monte Carlo simulation for deal outcome prediction
+3. Deal scoring card (pre-deal questionnaire → probability → recommendations)
+4. Real-time sales enablement recommendations based on predictions
 
-### Phase 4: LEARNING LOOPS (9.3 → 10.0)
-- Conversation analysis plugin
-- Procedural memory for learned workarounds
+This is the big synthesis task for next session.
+
+---
 
 ## Decisions Made
 
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| Tools > SOUL.md code blocks | LLM improvises raw osascript, tools are deterministic | Yes |
-| safe_osascript.sh auto-restarts apps | Mail.app gets stale after long runtime, -600 errors | Yes |
-| params=None pattern for tool handlers | Hermes dispatches tool args as first positional arg | Yes |
-| Kept Google Calendar as Python in SOUL.md | Not osascript, doesn't need wrapper treatment | Yes |
+| Dynamic team roles per conference (SOP-11) | Mike: lanes derived from conference analysis, not hardcoded | Yes |
+| Added Seema/Bharat/Elizabeth to VIPs + phone/text sources (SOP-02) | Mike approved directly | Yes |
+| "So What" framework = Matt's | Mike confirmed | No |
+| Behavioral science foundation for SOP-09 | 44-point price gap proves traditional methods fail | No |
+| Expand SOP-09 to predictive system | Mike's request: Monte Carlo + deal scoring + sales enablement | No |
+| SOPs stored as pattern_type='rule' in Brain | DB constraint doesn't allow 'sop' — tagged in metadata | Yes |
 
-## Known Issues
+---
 
-- **Mail.app staleness**: After ~24h of runtime, Mail.app stops responding to osascript (-600). The safe wrapper now auto-restarts it, but a cron health check (Phase 3) would be more proactive.
-- **Google Calendar tokens expired**: Getting "Unauthorized" on Google Calendar API. Needs token refresh. Not blocking — Apple Calendar works.
+## Next Steps
 
-## Context for Next Session
+1. **Check/recover research agent outputs 06-08** from /tmp
+2. **Synthesize all 8 research files into SOP-09 v3.0** — predictive win/loss with:
+   - Oracle Health deal pattern analysis (why we win/lose by segment, competitor, size)
+   - Monte Carlo simulation methodology (input variables, distributions, validation)
+   - Deal scoring card (questionnaire at each sales stage → probability → actions)
+   - Predictive question protocol for real-time sales enablement
+3. **Present SOP-09 v3.0 to Mike for approval**
+4. **Continue SOP documentation** — Priority 4: SOP-13 Market Sizing R-01
+5. **Consider**: DB migration to add 'sop' to jake_procedural pattern_type constraint
 
-- **Key insight**: The tools approach (calendar_read, email_read) is the right architecture. SOUL.md code blocks are suggestions; tools are deterministic. Always prefer tools for macOS automation.
-- **Files to read first**: `~/.hermes/plugins/jake-brain-ingest/__init__.py` (the brain plugin with all tools), `~/.hermes/SOUL.md`
-- **Tests to run**: Message Big Birch on Telegram with "What's on my calendar?" and "Check my email" to verify tools still working
-- **Risk**: None — all changes are in ~/.hermes/, isolated from the codebase
+---
+
+## Files Changed
+
+### New Files (13)
+- `docs/sops/SOP-11-trade-show-intelligence.md`
+- `docs/sops/SOP-02-signal-triage-urgency-classification.md`
+- `docs/sops/SOP-09-win-loss-analysis.md`
+- `docs/research/sop-09-predictive-winloss/01-oracle-health-deal-data.md`
+- `docs/research/sop-09-predictive-winloss/02-consulting-winloss-methods.md`
+- `docs/research/sop-09-predictive-winloss/03-behavioral-science-buying.md`
+- `docs/research/sop-09-predictive-winloss/04-program-design-guides.md`
+- `docs/research/sop-09-predictive-winloss/05-academic-papers.md`
+- `docs/research/sop-09-predictive-winloss/06-monte-carlo-deal-prediction.md` (PARTIAL)
+- `docs/research/sop-09-predictive-winloss/07-predictive-algorithms-academic.md` (PARTIAL)
+- `docs/research/sop-09-predictive-winloss/08-predictive-sales-enablement.md` (PARTIAL)
+
+### Modified Files (2)
+- `susan-team-architect/backend/jake_brain/priority.py` — VIPs + source types
+- `susan-team-architect/backend/jake_brain/nervous/email_alert.py` — VIP senders
 
 ## Build Health
-
-- Files modified this session: 4 (all in ~/.hermes/)
-- Tests passing: Calendar A+, Email A+, both verified live on Telegram
-- Context health at close: YELLOW (screenshot-heavy session)
+- Files: 15 total (13 new + 2 modified)
+- Tests: Not run (documentation session, only VIP list code changes)
+- Context at close: **ORANGE**
+- Next session: Fresh context for SOP-09 v3.0 synthesis — heaviest deliverable of the project
