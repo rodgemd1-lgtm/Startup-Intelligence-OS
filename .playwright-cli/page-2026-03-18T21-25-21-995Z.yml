@@ -1,0 +1,18 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic "Hide/Show the control bar" [ref=e20] [cursor=pointer]
+    - generic [ref=e3]:
+      - heading "Genspark Claw" [level=1] [ref=e4]:
+        - text: Genspark
+        - text: Claw
+      - button "Extra keys" [ref=e21] [cursor=pointer]
+      - button "Clipboard" [ref=e22] [cursor=pointer]
+      - button "Fullscreen" [ref=e5] [cursor=pointer]
+      - button "Settings" [ref=e6] [cursor=pointer]
+      - generic:
+        - option "None"
+        - option "Local Scaling" [selected]
+        - option "Remote Resizing"
+      - button "Disconnect" [ref=e23] [cursor=pointer]
+  - generic [ref=e24] [cursor=pointer]: Connected (encrypted) to rodgemd1-f06c8559-1084-vm:99
+  - textbox [ref=e11]: ___________________________________________________________________________________________________
