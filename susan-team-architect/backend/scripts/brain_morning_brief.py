@@ -191,11 +191,61 @@ def format_brief(
         else:
             other.append(mem)
 
-    # Determine "the one thing"
+    # Determine "the one thing" — enforce today-first priority.
+    # Priority order:
+    #   1. Overdue reminders (past due_date)
+    #   2. Today's events/meetings
+    #   3. This week's items
+    #   4. Fall back to highest composite_score memory
     one_thing = "No clear single priority identified."
-    if memories:
-        top = memories[0]
-        one_thing = top.get("content", "")[:200]
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    today_end = now.replace(hour=23, minute=59, second=59, microsecond=0)
+    week_end = now.replace(hour=23, minute=59, second=59, microsecond=0)
+    def _get_event_time(mem: dict):
+        """Extract event time from memory metadata."""
+        meta = mem.get("metadata", {}) or {}
+        for key in ("event_time", "start_time", "due_date", "date"):
+            val = meta.get(key)
+            if val:
+                try:
+                    dt = datetime.fromisoformat(str(val).replace("Z", "+00:00"))
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=now.tzinfo or timezone.utc)
+                    return dt
+                except Exception:
+                    pass
+        return None
+
+    # Build candidate lists by time tier
+    overdue: list[dict] = []
+    today_items: list[dict] = []
+    this_week: list[dict] = []
+
+    for mem in memories:
+        event_time = _get_event_time(mem)
+        if event_time is None:
+            continue
+        if event_time < today_start:
+            overdue.append(mem)
+        elif today_start <= event_time <= today_end:
+            today_items.append(mem)
+        elif event_time <= today_start + timedelta(days=7):
+            this_week.append(mem)
+
+    # Pick "the one thing"
+    if overdue:
+        # Most recently overdue (closest to today)
+        overdue.sort(key=lambda m: abs((today_start - (_get_event_time(m) or today_start)).total_seconds()))
+        one_thing = overdue[0].get("content", "")[:200]
+    elif today_items:
+        # Highest priority today item (already sorted by composite score in memories list)
+        today_items.sort(key=lambda m: memories.index(m))
+        one_thing = today_items[0].get("content", "")[:200]
+    elif this_week:
+        this_week.sort(key=lambda m: memories.index(m))
+        one_thing = this_week[0].get("content", "")[:200]
+    elif memories:
+        one_thing = memories[0].get("content", "")[:200]
 
     # Telegram version (short, markdown)
     lines_tg = [

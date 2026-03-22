@@ -58,6 +58,19 @@ class BrainRetriever:
                 except Exception:
                     pass  # non-critical
 
+        # Corrections always win — pin them to the top regardless of composite_score
+        # This ensures Mike's explicit corrections override any conflicting memories
+        # "rule" category = corrections (permanently override other memories)
+        corrections = [
+            m for m in memories
+            if m.get("category") == "rule"
+            and m.get("metadata", {}).get("source") == "mike_explicit"
+        ]
+        non_corrections = [m for m in memories if m not in corrections]
+        if corrections:
+            # Pin corrections first, then the rest by original ranking
+            memories = corrections + non_corrections
+
         return memories
 
     def recall(
