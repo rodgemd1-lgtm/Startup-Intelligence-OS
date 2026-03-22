@@ -1,10 +1,17 @@
-"""Meeting Prep Scanner — detect meetings starting in ~15 min and send prep briefs.
+"""Meeting Prep Scanner — detect meetings starting in ~15 min and launch full autonomous prep.
 
 Sources:
   - Google Calendar (OAuth API via brain_calendar_ingest patterns)
   - Apple Calendar (osascript, non-Exchange accounts)
 
 Alert window: 13–17 min before meeting start (fires when daemon runs in that range)
+
+Flow:
+  1. Detect meeting in alert window
+  2. Emit NervousEvent (for dedup + Telegram "prep starting" message)
+  3. Launch MeetingOrchestrator in background thread
+  4. Orchestrator runs 4 research phases via Claude Code MCP tools
+  5. Saves docs/meeting-prep/{date}-{slug}/BRIEF.md + sends detailed Telegram
 """
 from __future__ import annotations
 
@@ -147,30 +154,44 @@ def _minutes_until(start_str: str) -> float | None:
         return None
 
 
-def _format_prep_brief(event: dict[str, Any], minutes_left: float) -> str:
-    """Format a meeting prep brief message."""
+def _format_prep_starting_message(event: dict[str, Any], minutes_left: float) -> str:
+    """Format an immediate 'prep starting' Telegram message while orchestrator runs."""
     summary = event.get("summary", "Meeting")
     location = event.get("location", "")
     hangout = event.get("hangout", "")
     attendees = event.get("attendees", [])
-    description = event.get("description", "")
 
-    lines = [f"📅 *{summary}* starts in ~{int(minutes_left)} minutes"]
+    lines = [f"📅 *{summary}* in ~{int(minutes_left)} min"]
+    lines.append("🔍 _Running full prep: attendee intel, topic research, strategic analysis..._")
 
-    if location:
-        lines.append(f"📍 {location}")
     if hangout:
-        lines.append(f"🔗 [Join meeting]({hangout})")
+        lines.append(f"🔗 [Join]({hangout})")
+    elif location:
+        lines.append(f"📍 {location}")
     if attendees:
-        att_str = ", ".join(attendees[:5])
-        if len(attendees) > 5:
-            att_str += f" +{len(attendees)-5} more"
+        att_str = ", ".join(attendees[:4])
+        if len(attendees) > 4:
+            att_str += f" +{len(attendees)-4} more"
         lines.append(f"👥 {att_str}")
-    if description:
-        lines.append(f"\n_{description[:150].strip()}_")
 
-    lines.append("\n_Jake has assembled your context — ask me to brief you._")
+    lines.append("\n_Full prep brief incoming in ~3 min._")
     return "\n".join(lines)
+
+
+def _launch_orchestrator(event: dict[str, Any], minutes_left: float) -> None:
+    """Launch the MeetingOrchestrator in a background thread."""
+    try:
+        import sys
+        backend_dir = str(Path(__file__).resolve().parent.parent.parent)
+        if backend_dir not in sys.path:
+            sys.path.insert(0, backend_dir)
+
+        from jake_brain.meeting_orchestrator import MeetingOrchestrator
+        orch = MeetingOrchestrator()
+        thread = orch.orchestrate_background(event, minutes_left)
+        logger.info("Meeting orchestrator launched in thread: %s", thread.name)
+    except Exception as exc:
+        logger.error("Failed to launch meeting orchestrator: %s", exc)
 
 
 class MeetingPrepScanner:
@@ -201,14 +222,15 @@ class MeetingPrepScanner:
             event_id = f"meeting_prep:{cal_event.get('id') or cal_event.get('summary')}:b{bucket}"
 
             summary = cal_event.get("summary", "Meeting")
-            brief_text = _format_prep_brief(cal_event, minutes_left)
+            # Immediate "prep starting" message — full brief arrives from orchestrator in ~3 min
+            starting_text = _format_prep_starting_message(cal_event, minutes_left)
 
-            event = NervousEvent(
+            nervous_event = NervousEvent(
                 event_id=event_id,
                 event_type=EventType.MEETING_PREP,
                 title=f"Meeting prep: {summary}",
-                body=brief_text,
-                urgency=0.80,  # Meeting preps are always high priority
+                body=starting_text,
+                urgency=0.85,  # Meeting preps are always high priority
                 source=cal_event.get("source", "calendar"),
                 metadata={
                     "summary": summary,
@@ -218,9 +240,11 @@ class MeetingPrepScanner:
                 },
             )
 
-            if self.bus.emit(event):
-                new_events.append(event)
-                logger.info("Meeting prep event: %s in ~%.0f min", summary, minutes_left)
+            if self.bus.emit(nervous_event):
+                new_events.append(nervous_event)
+                logger.info("Meeting prep triggered: %s in ~%.0f min", summary, minutes_left)
+                # Launch full autonomous prep in background (sends its own detailed Telegram when done)
+                _launch_orchestrator(cal_event, minutes_left)
 
         self.bus.update_calendar_check()
         return new_events
