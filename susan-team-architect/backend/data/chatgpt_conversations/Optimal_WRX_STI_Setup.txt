@@ -1,0 +1,384 @@
+Title: Optimal WRX STI Setup
+ID: 69af4458-e824-8329-9605-a42cad08b967
+URL: https://chatgpt.com/c/69af4458-e824-8329-9605-a42cad08b967
+Source: ChatGPT
+
+USER: What is the optimalsetup for my 2018 wrx sti
+
+---
+
+ASSISTANT: Need one key clarification first: is this factory speakers/amp, or do you have an aftermarket amp + sub + upgraded door speakers/tweeters?
+From your photos, I can still give you a strong starting tune. It looks like you have:
+
+
+Fronts: 6.5"
+
+
+Rears: 6.5"
+
+
+Sub: 12"
+
+
+Crossover menu with HPF/LPF, slope, gain, phase inversion
+
+
+Objective
+Get a clean, punchy, non-boomy daily-driver setup for a 2018 WRX STI that favors front-stage clarity and solid bass without muddying vocals.
+Key message
+For a WRX STI, the best setup is usually:
+
+
+let the front speakers do most of the work
+
+
+keep rear speakers lighter/quieter
+
+
+cross the sub low enough to avoid hearing it “from the trunk”
+
+
+use time alignment / position for the driver seat
+
+
+only use phase inversion if bass sounds weak around crossover
+
+
+Best starting setup
+Option 1 — Conservative / safest daily tune
+Best if you want clean sound fast with minimal risk.
+Front speakers
+
+
+HPF: 80 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: 0 dB
+
+
+Tweeter: Medium
+
+
+Rear speakers
+
+
+HPF: 100 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: -2 to -4 dB if possible
+
+
+Subwoofer
+
+
+LPF: 80 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: 0 dB to start
+
+
+Phase inversion: Off at first
+
+
+Balance / fade
+
+
+Bias slightly to the front
+
+
+Fade: about 1–2 steps forward
+
+
+Time alignment / position
+
+
+Set listening position to Driver
+
+
+If DTA lets you enter distances, use actual tape-measure distances from your head to each speaker
+
+
+Why this works
+
+
+Keeps midbass out of the doors where distortion starts
+
+
+Prevents rear fill from pulling the image backward
+
+
+Makes vocals cleaner
+
+
+Confidence: High
+
+Option 2 — Base / what I’d recommend first
+Best overall mix of punch, clarity, and fun.
+Front
+
+
+HPF: 70–80 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: 0 dB
+
+
+Rear
+
+
+HPF: 100–120 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: -3 dB if available
+
+
+Sub
+
+
+LPF: 70–80 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: start at 0 dB, then raise only until bass “fills in” and does not dominate
+
+
+Phase: try both Off and Inverted; keep whichever gives:
+
+
+more kick drum at the driver seat
+
+
+fuller bass around 60–90 Hz
+
+
+less hollowness
+
+
+
+
+EQ
+
+
+Start flat
+
+
+If harsh: reduce 2k–4k a touch
+
+
+If boomy: reduce 50–80 Hz
+
+
+If thin: tiny lift around 80–125 Hz
+
+
+Avoid huge boosts
+
+
+Confidence: High
+
+Option 3 — Aggressive / more bass, more impact
+Best if you want the system to hit harder.
+Front
+
+
+HPF: 63–70 Hz
+
+
+Slope: -24 dB/oct
+
+
+Rear
+
+
+HPF: 100 Hz
+
+
+Slope: -24 dB/oct
+
+
+Keep rears lower in level
+
+
+Sub
+
+
+LPF: 70 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: +1 to +3 dB max if clean
+
+
+Phase: test both
+
+
+Risk
+
+
+Easier to get boominess or bass pulling rearward
+
+
+Can overpower the front stage in a small cabin like the WRX
+
+
+Confidence: Medium
+My recommendation
+Go with Option 2.
+For your car, I’d set it like this right now:
+Recommended exact starting values
+Front
+
+
+HPF: 75 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: 0 dB
+
+
+Rear
+
+
+HPF: 110 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: -3 dB if your deck allows it
+
+
+Sub
+
+
+LPF: 75 Hz
+
+
+Slope: -24 dB/oct
+
+
+Gain: 0 dB
+
+
+Phase inversion: Off, then toggle On and keep the one with stronger bass at the driver seat
+
+
+Tweeter
+
+
+Medium is a good starting point
+If vocals or cymbals are sharp, drop it one step.
+
+
+What I think from your screenshots
+Your current settings look close, but a couple things jump out:
+
+
+70 Hz HPF on doors is okay, but only if your speakers and amp can handle it cleanly.
+If they distort at volume, move fronts to 80 Hz.
+
+
+Sub at 80 Hz LPF is fine.
+I’d compare 75 vs 80 Hz.
+
+
+Phase inversion enabled on the sub may or may not be correct.
+That is not a universal “better” setting. Keep it only if it clearly improves bass from the driver seat.
+
+
+Rear speakers should usually be more limited than fronts.
+If rears are too full-range, the soundstage gets weird fast.
+
+
+Quick tuning workflow
+Play 3 songs you know really well:
+
+
+one vocal track
+
+
+one bass-heavy track
+
+
+one rock track with kick drum/snare
+
+
+Then do this in order:
+
+
+Set EQ flat.
+
+
+Set front HPF to 75 or 80.
+
+
+Set rear HPF to 100–120.
+
+
+Set sub LPF to 75–80.
+
+
+Toggle sub phase.
+
+
+Reduce rears until vocals feel like they come from in front of you.
+
+
+Only then touch EQ.
+
+
+Red flags
+If any of these happen, the setup is off:
+
+
+bass sounds like it comes from behind you
+
+
+kick drum is weak but deep bass is loud
+
+
+vocals are harsh at medium volume
+
+
+doors rattle or speakers buzz
+
+
+rear speakers feel too prominent
+
+
+What I need from you
+Send me:
+
+
+your full gear list: head unit, amp(s), front speakers, rear speakers, sub, whether you have a DSP
+
+
+whether the fronts are component speakers or coaxials
+
+
+whether you want SQ / balanced / bass-heavy
+
+
+Then I’ll give you the exact crossover, gain, fade, phase, and EQ settings I’d use for your STI.
+Memory update: you want direct, practical recommendations with a clear “set it like this now” answer, not vague theory.

@@ -1,0 +1,14 @@
+Title: Cartoon Bike Concept
+ID: 69b18653-3458-8332-ace7-c2e5a62902c4
+URL: https://chatgpt.com/c/69b18653-3458-8332-ace7-c2e5a62902c4
+Source: ChatGPT
+
+USER: I want you to generate a funny, cartoonish image. The image should feature a bicycle with both tires, the frame, the chain, no seat, and a handlebar that is only half there.
+
+Label the bike as "Oracle's Generative Chat" (or "Gen Chat").
+
+Underneath that, add the headline: "We can ride this, but just don't sit down."
+
+---
+
+ASSISTANT:

@@ -1,0 +1,982 @@
+Title: Startup Intelligence OS Overview
+ID: 69ad8a60-2b0c-832c-98ff-c54733ba2daf
+URL: https://chatgpt.com/c/69ad8a60-2b0c-832c-98ff-c54733ba2daf
+Source: ChatGPT
+
+USER: # Startup Intelligence OS: Full Overview
+
+## 1) What startup intelligence is
+
+**Startup intelligence** is the operating layer that turns scattered information into **better startup decisions, faster**.
+
+It combines:
+- **Market intelligence** (customers, competitors, trends, regulation)
+- **Product intelligence** (user behavior, UX quality, friction points)
+- **Execution intelligence** (workflow velocity, bottlenecks, quality risk)
+- **Learning intelligence** (experiments, outcomes, reusable playbooks)
+
+In practice, startup intelligence helps you answer:
+1. What problem is worth solving now?
+2. Which solution option should we choose?
+3. How do we launch with highest probability of traction?
+4. What did we learn, and what should change next?
+
+---
+
+## 2) What Startup Intelligence OS does (end-to-end)
+
+A strong startup intelligence system should deliver 8 functions:
+
+1. **Sense**
+   - Ingest internal + external signals (analytics, interviews, market updates, support, social).
+
+2. **Frame**
+   - Convert noise into clear problem frames with assumptions/constraints.
+
+3. **Generate options**
+   - Produce multiple solution pathways (not just one default idea).
+
+4. **Evaluate options**
+   - Score options by impact, effort, risk, confidence, and time-to-signal.
+
+5. **Prioritize and sequence**
+   - Build an execution roadmap with gates and owners.
+
+6. **Instrument and measure**
+   - Attach metrics to each initiative and track leading indicators.
+
+7. **Learn and adapt**
+   - Run postmortems, capture decision quality, refresh playbooks.
+
+8. **Scale via human + agents**
+   - Use cognitive architecture agents plus experts to increase throughput while preserving quality.
+
+---
+
+## 3) Capability map (what you likely still need)
+
+Use this as a gap checklist.
+
+### A. Intelligence foundations
+- Unified data taxonomy (events, experiments, personas, journey stages)
+- Decision log and assumptions ledger
+- Confidence scoring standards
+- Reusable problem-framing templates
+
+### B. Market and trend intelligence
+- Competitor movement radar (product, pricing, GTM)
+- Category trend monitor and weak-signal tracker
+- Regulatory and policy watch
+- Demand sensing (search/social/content behavior)
+
+### C. Customer and UX intelligence
+- Interview pipeline with synthesis cadence
+- Journey map evidence graph (pain -> cause -> opportunity)
+- Usability and task-completion analytics
+- Behavioral segmentation (activation, retention, relapse)
+
+### D. Product and experiment intelligence
+- Experiment registry (hypothesis, metric, cost, result)
+- Feature impact attribution
+- Time-to-value tracking
+- Failure-pattern and anti-pattern library
+
+### E. Operations and portfolio intelligence
+- Workflow throughput and cycle-time metrics
+- Cross-studio dependency maps
+- Portfolio-level risk heatmap
+- Capacity planning and SLA tracking
+
+### F. Agentic intelligence layer
+- Agent roles with explicit responsibilities
+- Orchestration policies and handoff protocols
+- Human approval gates
+- Metacognitive monitoring (confidence, blind spots, escalation)
+
+---
+
+## 4) Tool stack blueprint (minimum -> advanced)
+
+### Minimum viable stack
+- **Knowledge system:** Notion/Docs + structured templates
+- **Work management:** Linear/Jira with decision tags
+- **Product analytics:** PostHog/Amplitude/Mixpanel
+- **Research repo:** Dovetail/Notion database
+- **Dashboards:** Metabase/Looker Studio
+- **Experiment tracker:** spreadsheet or lightweight DB
+
+### Advanced stack
+- **Event pipeline:** Segment/RudderStack + warehouse
+- **Warehouse:** Postgres/BigQuery/Snowflake
+- **Semantic layer:** metrics definitions and governance
+- **Agent runtime:** orchestrator + tool APIs + memory store
+- **Model ops:** prompt/version registry + eval harness
+- **Knowledge graph:** links entities (users, features, hypotheses, outcomes)
+
+---
+
+## 5) What “done” looks like (examples)
+
+### Example A — Problem reframing done
+**Input:** "Retention is dropping after week 1."
+
+**Done artifact set:**
+- Problem framing memo
+- Root-cause tree with confidence levels
+- 3–5 option portfolio with scoring
+- 30/60/90-day execution plan
+- Measurement plan and kill criteria
+
+### Example B — New feature concept done
+**Input:** "Motion-narrative workout UI for TransformFit."
+
+**Done artifact set:**
+- Persona + context model
+- Journey map (setup, set, log, rest, transition)
+- Low/med/high-fidelity prototypes
+- Experiment sequence with expected signal quality
+- Rollout checklist (accessibility, telemetry confidence, safety)
+
+### Example C — Innovation studio call done
+**Input:** hard ambiguous strategic problem
+
+**Done artifact set:**
+- Agent+expert swarm plan
+- Alternative strategy matrix (core/adjacent/unconventional)
+- Scenario simulation (best/base/worst)
+- Recommendation memo + risks + prerequisites
+
+---
+
+## 6) Core design and operating principles
+
+1. **Evidence over opinion**
+2. **Multiple options before commitment**
+3. **Speed with quality gates**
+4. **Human-in-the-loop at high-risk decisions**
+5. **Transparent uncertainty and confidence labels**
+6. **Accessibility and usability by default**
+7. **Reusable systems over one-off heroics**
+8. **Learning loops baked into every release**
+
+---
+
+## 7) Consultant/agent model (who to add)
+
+### Human consultants (high leverage)
+- Venture architect
+- Principal product strategist
+- UX research lead
+- Behavioral scientist
+- Growth and attribution lead
+- Accessibility specialist
+- Regulatory/ethics advisor
+- Data and experimentation lead
+
+### Agent roles (high throughput)
+- Problem-framing agent
+- Trend-intelligence agent
+- Research-synthesis agent
+- Option-generation agent
+- Scenario-simulation agent
+- Experiment-design agent
+- Risk and compliance checker
+- Execution planner
+- Insight summarizer
+- Metacognitive orchestrator
+
+---
+
+## 8) 30-60-90 day build-out plan
+
+### First 30 days (foundation)
+- Standardize templates for problem framing, experiments, and decision logs
+- Establish core dashboard (activation, retention, experiment velocity)
+- Define top 10 startup intelligence questions and owners
+
+### Day 31-60 (agentic workflows)
+- Deploy first cognitive architecture workflows (frame -> options -> score -> roadmap)
+- Add confidence scoring and escalation rules
+- Run 3 pilot problems through innovation studio call flow
+
+### Day 61-90 (scale and governance)
+- Create portfolio-level insights council cadence
+- Add SLA targets and quality scorecards
+- Publish playbook v1 with examples of “done” artifacts
+
+---
+
+## 9) Immediate next steps for you
+
+1. Pick your top 3 recurring hard problems (where decisions are slow or uncertain).
+2. Define what “done” looks like for each (artifact checklist + metrics).
+3. Choose your minimum data/tool stack for the next 60 days.
+4. Assign initial human experts and agent roles per problem type.
+5. Start weekly startup intelligence review: signals -> decisions -> experiments -> learnings.
+
+This gives you a practical path to incorporate your experience, current trends, and design/tool principles while continuously increasing capability density.
+
+---
+
+ASSISTANT: The 8 inputs that would tighten this fastest:
+
+
+What role do you want from me here: editor, strategist, operator, PM, or GTM packager?
+
+
+What is the single most important outcome: internal alignment, client-facing narrative, deck-ready story, or build spec?
+
+
+Who is the audience: founders, venture studio leadership, product leaders, operators, or investors?
+
+
+What exact deliverable do you want next: 1-pager, memo, deck outline, PRD, or operating playbook?
+
+
+What output format should I optimize for: Word memo, PowerPoint, Notion page, or workshop agenda?
+
+
+What inputs already exist: current workflows, tools, metrics, pain points, team map?
+
+
+What are the constraints/red lines: budget, headcount, politics, compliance, timing?
+
+
+What does “ship without edits” mean here: circulate internally, sell externally, or build against?
+
+
+I’m not waiting on those. Here’s the best-effort read assuming this is meant for startup / venture-studio operators and leadership.
+Objective and audience
+Objective: turn this from a smart framework into an operating system people can actually run.
+Audience: leaders deciding where to place bets, and operators who need repeatable workflows.
+Key message
+This has strong bones, but right now it is more worldview than operating system.
+It reads like an ambitious synthesis of CI, product ops, research ops, experimentation, and agent orchestration. That’s useful. But unless you anchor it on specific decisions, owners, workflows, and proof metrics, it risks becoming architecture theater.
+The core move: shift the center of gravity from “intelligence” to “decision quality.”
+A sharper positioning statement:
+
+Startup Intelligence OS is a decision system for startups and venture studios. It turns market, customer, product, and execution signals into framed problems, ranked options, instrumented bets, and reusable learning—so teams reduce decision latency, improve experiment quality, and compound knowledge over time.
+
+Direct critique
+What’s strong
+
+
+The end-to-end logic is clean: sense → frame → options → evaluate → prioritize → measure → learn.
+
+
+The capability map is practical and closer to reality than most “AI operating model” fluff.
+
+
+The “done artifact set” examples are good. They make the system feel real.
+
+
+The principles are mostly right, especially evidence, uncertainty labels, and learning loops.
+
+
+What’s weak or missing
+IssueWhy it mattersFixNo clear primary userAn OS without a primary operator becomes everybody’s side projectDefine the first owner: founder, head of product, venture architect, or studio ops leadNo decision inventory“Intelligence” is too broad; people buy faster decisions, not more signal ingestionList the top 5 recurring decisions this OS improvesNo business outcomesYou say “better startup decisions, faster,” but not how that shows up in the businessAdd 4–6 hard metrics tied to cycle time, experiment quality, and learning reuseToo much scope in v1Market, product, execution, learning, portfolio, and agentic governance is a lotNarrow v1 to 3 workflows and 1–2 user typesAgent layer comes too earlyAgents before operating discipline usually creates noise fasterProve the manual workflow first, then automate low-risk/high-frequency stepsTool stack is stronger than operating cadenceTools don’t create judgment; routines doAdd weekly, monthly, and stage-gate cadences with decision rights“Startup intelligence” is fuzzy languageExternally, it can sound like research or CI, not a decision engineKeep it internally if you want; externally test “Decision Intelligence OS” or “Decision OS for startups”Governance is underspecifiedHigh-risk startup decisions need approval logic, auditability, and escalationAdd owner / reviewer / approver fields and escalation rulesNo minimum lovable systemRight now it can sprawl into a 12-month platform programDefine the minimum system that proves value in 30–60 days
+What I’d tighten immediately
+1) Anchor the whole thing on recurring decisions
+Instead of leading with intelligence categories, lead with the decisions:
+
+
+What problem is worth solving now?
+
+
+Which option is the best next bet?
+
+
+What evidence is strong enough to proceed, pause, or kill?
+
+
+Which initiatives deserve scarce capacity?
+
+
+What did we learn that changes future decisions?
+
+
+That makes the system legible.
+2) Define the minimum viable workflows
+For v1, I’d only ship these five:
+
+
+Problem intake + framing
+
+
+Option generation + scoring
+
+
+Experiment registry + kill criteria
+
+
+Weekly signal review + decision log
+
+
+Postmortem + playbook capture
+
+
+Everything else is phase 2.
+3) Add hard operating metrics
+Right now the metrics are implied. Make them explicit:
+
+
+Decision cycle time
+
+
+Time to first signal
+
+
+Experiment throughput
+
+
+% of bets with explicit assumptions
+
+
+% of bets with kill criteria
+
+
+Learning capture rate
+
+
+Reuse rate of prior playbooks
+
+
+Confidence calibration accuracy later, not day 1
+
+
+4) Change the 30/60/90 sequencing
+Your current sequence adds agents in days 31–60. I’d reverse that bias.
+Better sequence:
+
+
+0–30: decision taxonomy, owners, templates, score rubric, weekly cadence
+
+
+31–60: run 3 real decisions through the workflow, baseline and compare outcomes
+
+
+61–90: automate signal collection, research synthesis, and first-draft option scaffolds
+
+
+That avoids building an AI-shaped shell around weak operating habits.
+Three options
+OptionWhat it isProsConsEffortDependenciesExpected outcomeRisksConfidenceConservativeTighten this into a crisp internal strategy memo / 1-pagerFast, easy to circulate, improves alignmentStill conceptual; won’t prove value2–4 daysAudience + desired formatCleaner story, better buy-inCould be admired but not used0.90BaseTurn this into a minimum viable operating system and pilot it on 3 live decisionsProves value, creates templates, surfaces real gapsRequires discipline and ownership2–4 weeksOne accountable owner, 3 pilot decisions, baseline metricsMeasurable reduction in decision latency and better experiment hygieneAdoption friction; too much manual work at first0.80AggressivePackage this as a commercial product / full agentic architecture with governance and memoryBig upside, stronger differentiation, scalable storyHighest complexity, highest overbuild risk6–12+ weeksProduct owner, data infra, engineering, governanceStrong platform narrative and reusable systemArchitecture theater, weak wedge, unclear ROI0.55
+Recommendation
+Base option.
+Why:
+
+
+You already have the philosophy.
+
+
+What you do not yet have is proof that this changes decision quality in the wild.
+
+
+The fastest path is not more architecture. It is a manual-first operating loop on live decisions.
+
+
+I’d frame the pilot like this:
+Pilot wedge
+Run the OS on three recurring hard decisions:
+
+
+Which customer problem gets priority now?
+
+
+Which solution path gets funded first?
+
+
+Which experiment or feature gets continued, changed, or killed?
+
+
+Success criteria
+
+
+30–50% reduction in decision cycle time
+
+
+100% of pilot decisions logged with assumptions, alternatives, metrics, and kill criteria
+
+
+At least one reusable playbook created per pilot
+
+
+Visible improvement in leadership confidence and clarity, not just more documentation
+
+
+What I need from you
+To turn this into something shippable, I need these inputs:
+InputWhyPrimary audienceChanges language, depth, and proof pointsTop 3 recurring hard decisionsDefines the wedgeCurrent workflow todayShows what must changeExisting tool/data stackAvoids fantasy designSingle accountable ownerPrevents orphan system riskOne recent bad decision or slow decisionBest live test caseConstraintsKeeps scope saneDefinition of “done”Lets me optimize the next artifact
+Assumptions, unknowns, and evidence plan
+Assumptions
+
+
+This is meant to be operational, not just thought leadership.
+
+
+The likely environment is a startup, studio, or multi-venture setting.
+
+
+The real value is faster, higher-quality decisions—not another dashboard layer.
+
+
+Unknowns
+
+
+Who owns this day to day
+
+
+Whether this is internal-only or market-facing
+
+
+How mature the current experimentation and analytics stack is
+
+
+Whether the main pain is strategy ambiguity, product prioritization, or execution drift
+
+
+Evidence plan
+Use a 4-week pilot on three real decisions.
+For each decision:
+
+
+Capture baseline cycle time under the current process
+
+
+Run the OS workflow
+
+
+Log assumptions, options, score, owner, decision, and instrumentation
+
+
+Measure first signal quality and time to signal
+
+
+Do a short retrospective on outcome quality and reusability
+
+
+That gives you proof, not theory.
+Risk log
+RiskLikely failure modeMitigationScope creepOS becomes a catch-all for every startup problemLimit v1 to 3 workflows and 3 decision typesAgent-first biasTeams automate bad reasoningKeep humans on framing, scoring, and final decision gatesNo clear ownerNice framework, no adoptionAssign one operator with explicit cadence ownershipMetrics theaterLots of dashboards, little decision improvementTrack decision cycle time and post-decision quality, not just activityTaxonomy overengineeringTeam spends weeks naming entities instead of using the systemStart with minimal schema and expand only when reuse demands itLow trust in scoresTeams ignore scoring because it feels arbitraryPublish scoring rubric and require rationale for each scoreWeak external positioning“Startup intelligence” sounds vagueTest alternate naming for outside audiences
+Citations
+No external citations used here. This is a structural critique of your draft, not a fact-checked market scan.
+Next actions
+Best next move:
+
+
+Pick the top 3 decisions this OS must improve
+
+
+Name the primary user and owner
+
+
+Define the v1 workflow and score rubric
+
+
+Pilot on one live decision this week
+
+
+Measure cycle time and signal quality before adding agents
+
+
+10x better suggestion
+Don’t sell or build this as a broad “startup intelligence OS” first.
+Build and prove it as a decision wedge.
+Example:
+
+Feature Bet OS for early-stage product teams
+Reduces prioritization cycle time, forces explicit assumptions, standardizes kill criteria, and captures reusable learnings.
+
+Why this is 10x better:
+
+
+Easier to explain
+
+
+Easier to pilot
+
+
+Easier to measure
+
+
+Easier to expand from later
+
+
+Once that works, expand into market intelligence, portfolio decisions, and agent orchestration.
+Working memory update
+You’re developing a startup / venture decision framework and want hard-nosed critique, not praise. You prefer outputs that turn broad concepts into operating models with options, recommendation, evidence plan, risk log, and concrete next steps. You respond best to narrow wedges, explicit decision framing, and proof-before-platform logic.
+
+---
+
+USER: 1. Strategist, researcher, and architect. I want to know how to break things down. I want an architect to draw a diagram of what we have, i want the strategists to fill in where we want to go and what gaps are there, and i want the researcher to conduct deep research into areas we need and define targets and definitions of what we need to go after. The strategists should push the researcher to expand on techniques, methodologies, protocols, and  how tos so our agents are world class at what they do. 2. Build spec with architecture and areas of focus. 3. Codex as that will build this for me. 4.  Prd, research packet, 10x gameplan, 5 year back roadmap. 5. Markdown and mermaid diagram. 6. See above and there is a github repository called startup intelligence os. 7. No. 8. No
+
+---
+
+ASSISTANT: I found the public repo and used it as the baseline. The repo currently has two identities: the root README frames it as a Startup Founder Resource Hub, while CLAUDE.md frames it as the central intelligence repo for Apex Ventures, with Susan as the orchestrator, a shared knowledge base, and a multi-agent system. The repo also contains susan-team-architect/ with .claude-plugin, agents, commands, skills, and a Python backend, so you already have a real runtime spine, not just notes. GitHub+6GitHub+6GitHub+6
+Objective and audience
+Objective: convert Startup Intelligence OS from a Claude-first research/orchestration prototype into a Codex-buildable decision system with a clean architecture, explicit gaps, and a hard implementation path.
+Audience: Codex first, with you as owner/reviewer.
+Key message
+You do not need a bigger agent zoo. You need a decision kernel.
+Right now the system is strongest at company analysis and orchestration. Susan already runs a six-phase workflow and writes structured artifacts like company-profile.json, analysis-report.json, team-manifest.json, dataset-requirements.json, execution-plan.md, and be-audit.json. The backend already has a vector store and core tables like knowledge_chunks, companies, and agent_runs. What’s missing is the real OS layer: first-class decisions, assumptions, options, scoring, experiments, roadmap sequencing, and eval-driven skills. GitHub+2GitHub+2
+The biggest architectural issue is that the repo is still Claude-native and persona-heavy. For Codex, the winning pattern is explicit context, a clear definition of done, repo-level guidance via AGENTS.md, reusable skills, durable plan files, and evals that define success before the skill is written. Codex’s docs are pretty explicit about this: use layered AGENTS.md, narrow skills whose descriptions control invocation, plan files for long-horizon work, and deterministic plus rubric checks to improve skill quality over time. OpenAI Developers+4OpenAI Developers+4OpenAI Developers+4
+What I recommend
+Build Startup Intelligence OS v1 as a Codex-native, vendor-neutral decision platform and keep Susan as a compatibility layer, not the product core. Use the existing six-phase company-analysis flow as the wedge, but promote these to first-class objects:
+
+
+decision_records
+
+
+assumptions
+
+
+options
+
+
+option_scores
+
+
+hypotheses
+
+
+experiments
+
+
+roadmap_items
+
+
+risks
+
+
+artifacts
+
+
+That lets the system move from “good plans” to “repeatable decisions with learning loops.”
+Three options
+OptionWhat it isProsConsEffortConfidenceConservativeCodex-enable the current repo onlyFastest, lowest disruptionKeeps repo ambiguity and Claude biasLow0.88BaseRefactor to a Codex-native decision kernel and ship the company-analysis wedgeBest balance of proof and leverageRequires schema and repo cleanupMedium0.82AggressiveFull multi-tenant product with UI, portfolio layer, and simulation earlyStrongest platform narrativeHighest overbuild riskHigh0.58
+Recommendation
+Base. Codex can do this best when the repo behaves like a disciplined engineering project: explicit instructions, plan mode, scoped threads, and reviewable milestones. Codex can run multiple threads, but its docs warn against having two threads modify the same files; it also supports GitHub review with @codex review, which is exactly why I’d set this up as branch-per-workstream with strong repo guidance. GPT-5.4 is currently the recommended model in Codex for most tasks. OpenAI Developers+2OpenAI Developers+2
+Deliverables
+I packaged everything in Markdown with Mermaid diagrams:
+
+
+Build spec
+
+
+PRD
+
+
+Research packet
+
+
+10x gameplan
+
+
+5-year back roadmap
+
+
+All files in one zip
+
+
+What I need from you
+Three decisions unlock the next step:
+
+
+Should Susan remain a named product surface, or become an internal compatibility layer?
+
+
+Do you want the first wedge to stay company analysis, or switch to feature-bet OS?
+
+
+Should I next produce the Codex-ready repo scaffolding itself: AGENTS.md, .agent/PLANS.md, .agents/skills, schemas, and eval fixtures?
+
+
+Assumptions, unknowns, evidence plan
+I assumed the public repo is the right baseline, that Codex is the primary implementation agent, and that you want a real build path rather than thought leadership. The main unknown is product scope: internal operating system vs external product. My evidence plan was repo inspection plus current official Codex docs on workflows, skills, plans, evals, and GitHub review. OpenAI Developers+7GitHub+7GitHub+7
+Risk log
+RiskMitigationAgent sprawlCut v1 to 8 core skills and treat domain packs as optionalRepo ambiguitySplit corpus from runtimeClaude lock-inMake Susan an adapter, not the coreSilent regressionsAdd skill and workflow evals before expansionCross-tenant leakageEnforce shared/company/private scopes and review gates
+Next action
+Best next move: have me generate the Codex-native repo skeleton so Codex can start building against a clean structure instead of reverse-engineering your intent from the current repo.
+10x better suggestion
+Don’t build “Startup Intelligence OS” as a broad intelligence layer first. Build it as a decision OS with one killer wedge. The current repo already proves you can do company analysis; the step-change is turning that into a system that logs decisions, scores options, defines experiments, and compounds learning.
+Working memory update
+You want architect/strategist/researcher outputs aimed at Codex, not generic strategy prose. For systems work, you want build specs, PRDs, research packets, long-range roadmaps, and hard gap analysis grounded in the actual repo. You prefer narrowing scope into a decision kernel rather than expanding into vague agent sprawl.
+
+---
+
+USER: Build ou the aggressive plan. Go with decision and capability os, fill in all capability gaps and build out the interface for me to use. I this decision os to help me build out projects and companies. I want conversational agents and a team of people to help me. Jake and Susan. Jake is the co founder and Susan the startup capabilities foundry. Jake is a world class expert, cognitive and human like architecture. I really want jake to interact with me and greet me each time we interact. How do we overcome working directoy in claude code or codex and working in the new interface. I like to build and talk with jake and the team in my terminal so things get done. Its where i build out the companies. Help me understand how this works
+
+---
+
+ASSISTANT: Built it.
+I went with the aggressive direction, but I tightened the architecture around one hard rule:
+the terminal stays primary, and the new interface becomes the control plane.
+That fits how you actually work. Codex and Claude Code both anchor behavior to the directory you launch from, and both load project guidance from there, so the right fix is not “pick one UI.” It is to make workspace the source of truth and have every surface attach to that workspace. Codex reads AGENTS.md before work and discovers project guidance from the repo root down to the current working directory; Claude Code does the same style of path-based discovery with CLAUDE.md. OpenAI Developers+2Claude+2
+Your repo already has the bones for this, but it currently mixes two identities: the root README presents a founder resource hub, while CLAUDE.md and susan-team-architect/ define a Susan-centered runtime with slash commands, agents, skills, and a backend. That is why I split the aggressive plan into a Decision & Capability OS with Jake/Susan on top of a cleaner kernel instead of piling on more personas. GitHub+2GitHub+2
+What I made
+Aggressive plan
+Operating model
+Interface spec
+Capability gap map
+Implementation backlog
+Static interface prototype
+Repo scaffold
+Zip pack
+The scaffold includes:
+
+
+AGENTS.md for Codex
+
+
+CLAUDE.md for Claude Code
+
+
+Jake and Susan agent definitions
+
+
+starter skills for decision room, capability gaps, company builder, and research packets
+
+
+a bin/jake launcher
+
+
+a bin/os-context helper
+
+
+a workspace file example
+
+
+Key message
+You do not want a second chat surface.
+You want:
+
+
+Jake as the front door
+
+
+Susan as the capability foundry
+
+
+Claude Code as the best conversational shell for named teammates, hooks, subagents, agent teams, skills, and plugins
+
+
+Codex as the best build/review engine for disciplined repo work, worktrees, local environments, cloud delegation, and GitHub review
+
+
+the interface as mission control for workspaces, decisions, capabilities, artifacts, and runs OpenAI Developers+7Claude API Docs+7Claude+7
+
+
+How this works
+1. Workspace is the source of truth
+Every company or project context gets a workspace record with:
+
+
+repo root
+
+
+active company
+
+
+active project
+
+
+active decision
+
+
+backend preference
+
+
+branch / worktree
+
+
+artifact paths
+
+
+That solves the “working directory” problem. The interface selects a workspace. The launcher opens Claude or Codex inside that workspace. The runtime then loads the correct repo instructions and context. Codex’s behavior depends on the selected directory and instruction chain; Claude Code’s memory and instructions are also scoped by where you launch it. OpenAI Developers+2OpenAI Developers+2
+2. Terminal is the cockpit
+This is where you talk to Jake, run commands, inspect code, and actually build. Codex CLI is built for terminal-local repo work and can read, change, and run code in the selected directory. Claude Code is also terminal-native and supports custom subagents, skills, teams, hooks, and plugins. Claude+6OpenAI Developers+6OpenAI Developers+6
+3. Interface is mission control
+The interface should show:
+
+
+active workspace
+
+
+active repo / branch / worktree
+
+
+active company / project / decision
+
+
+Jake summary
+
+
+Susan capability gaps
+
+
+artifacts
+
+
+active runs
+
+
+It should not own raw code edits. It should route work and surface state.
+4. Jake is the front door
+Jake should greet you at the start of a session, confirm the workspace and current decision, then route:
+
+
+capability problems to Susan
+
+
+deep methods/definitions to research
+
+
+implementation to Codex/build
+
+
+5. Susan is a specialist
+Susan should not be the default speaker every time. She should light up when you need:
+
+
+capability gaps
+
+
+target-state operating model
+
+
+human + agent team design
+
+
+maturity scoring
+
+
+capability roadmap
+
+
+The three runtime options
+Conservative — Claude-first. Best if you want the richest “team of people in my terminal” feel immediately. Claude Code supports custom subagents, agent teams, hooks, skills, and plugins, so it is the easiest place to make Jake and Susan feel real. The tradeoff is weaker built-in worktree/productized review flow than Codex. Confidence: 0.82. Claude API Docs+4Claude API Docs+4Claude+4
+Base — Codex-first. Best if you want stricter engineering discipline first. Codex gives you repo-level AGENTS.md, skills, interactive terminal workflow, worktrees, local environments, cloud tasks, and GitHub review. The tradeoff is that the “named teammate” feel is less central than in Claude Code. Confidence: 0.80. OpenAI Developers+5OpenAI Developers+5OpenAI Developers+5
+Aggressive — Hybrid. This is the one I recommend. Use Claude Code as Jake/Susan conversational shell, and use Codex for implementation, parallel worktrees, and review. Confidence: 0.89. OpenAI Developers+5Claude+5Claude+5
+My recommendation
+Go hybrid.
+Why:
+
+
+You explicitly want Jake to feel human and greet you.
+
+
+You want a team in the terminal.
+
+
+You still want real execution and parallel build work.
+
+
+You do not want the new interface to weaken your flow.
+
+
+So the clean split is:
+
+
+Claude Code = Jake shell, Susan shell, named-team experience
+
+
+Codex = implementation engine, worktrees, PR review, cloud delegation
+
+
+Interface = workspace selector, decision room, capability foundry, artifact explorer, run history
+
+
+That split maps well to what the tools officially support today. Claude Code gives you memory files, hooks, subagents, teams, skills, and plugins; Codex gives you AGENTS, skills, terminal TUI, worktrees, local environments, cloud tasks, and GitHub review. OpenAI Developers+11Claude+11Claude API Docs+11
+How to overcome the working-directory issue
+Use these rules:
+
+
+Never launch Claude or Codex raw for this system. Launch through bin/jake or the interface’s “Open Terminal” action.
+
+
+One workspace = one source of truth for company, project, decision, repo root, and active backend.
+
+
+One worktree per implementation thread. Codex’s worktree model is built for this, and Git does not allow the same branch to be checked out in multiple worktrees at once, so handoff matters. OpenAI Developers
+
+
+Keep interface state separate from chat state. The interface reads workspace records and artifacts; it does not rely on whatever the last chat happened to remember.
+
+
+How to make Jake greet you every time
+I built this three ways in the scaffold:
+
+
+AGENTS.md / CLAUDE.md tell both systems that Jake is the default front door
+
+
+.claude/settings.json plus bin/os-context give Claude a session-start context path
+
+
+bin/jake is the hard guarantee, because it prints the greeting and opens the right backend
+
+
+That matters because Claude’s persistent files are loaded as context, not as hard-enforced configuration, so the launcher is the safer way to preserve the experience you want. Claude’s docs are explicit that CLAUDE.md and auto memory carry knowledge across sessions, but they are still context; hooks can inject session-start context; subagents and teams each have their own contexts. Claude+3Claude+3Claude API Docs+3
+What the interface should do every day
+The interface succeeds if, at a glance, it answers:
+
+
+which workspace is active
+
+
+which repo/branch/worktree is active
+
+
+which company/project/decision is active
+
+
+what Jake recommends next
+
+
+what Susan says is missing
+
+
+what artifacts already exist
+
+
+what build/research runs are active
+
+
+That is why I made the prototype around:
+
+
+Workspace Home
+
+
+Decision Room
+
+
+Capability Foundry
+
+
+Research Packets
+
+
+Artifact Explorer
+
+
+Team Console
+
+
+Runs
+
+
+How to use the pack
+Start here:
+Bash# 1) copy scaffold files into your repo root# 2) rename workspace file examplecp scaffold/.startup-os/workspace.yaml.example .startup-os/workspace.yaml# 3) launch Jake in your repo./bin/jake --backend claude --workspace /path/to/your/repo# 4) use Codex for build-heavy threads./bin/jake --backend codex --workspace /path/to/your/repo
+Open the prototype here to see the target UI:
+Open Jake Console prototype
+One honest caveat: the interface I built here is a static prototype plus repo scaffold, not a live production app with backend services and persistence. The architecture, file contracts, agent setup, and operating model are built out; the full runtime still needs implementation in your repo.
+Best next move
+Take the scaffold and drop it into Startup-Intelligence-OS, then I’d turn the next pass into a real repo upgrade pack: production file tree, schemas, initial API contracts, and a thin Next.js app shell wired to the workspace contract.
+
+---
+
+USER: Can I push this to the GitHub repository for the Startup Intelligence OS? I need a packet to get this to codex and to build this out. great work
+
+---
+
+ASSISTANT: I’m turning this into a GitHub-ready Codex handoff pack: what to commit, where it goes, what Codex should build first, and the exact prompts and commands to use.
+
+---
+
+ASSISTANT: One thing I’m being strict about: don’t push this straight to main. I’m packaging it as a scoped product slice with a feature-branch merge map, root AGENTS.md, repo-integration guide, and Codex kickoff files.
+
+---
+
+ASSISTANT: Yes. You should push it, but do it as a staged import, not a root-level rewrite.
+Why: the current repo already has two live identities — the public root README presents a startup founder resource hub, while the root CLAUDE.md presents Startup Intelligence OS as Susan’s central intelligence/orchestration repo for Apex Ventures and TransformFit, with susan-team-architect/ as the active runtime. The repo also already has a docs/plans/ area, which makes it the safest landing zone for a plan-first PR. GitHub+1
+I made you a Codex handoff packet that wraps the aggressive plan into a pushable package:
+
+
+Codex handoff packet folder
+
+
+Codex handoff packet zip
+
+
+Packet README
+
+
+Recommended push plan
+
+
+Codex handoff brief
+
+
+Codex prompts
+
+
+Best path:
+
+
+PR 1: import the aggressive plan, prototype, scaffold seed, and Codex packet under docs/plans/decision-capability-os/.
+
+
+PR 2: let Codex promote selected scaffold files into active runtime files: AGENTS.md, merged CLAUDE.md, .startup-os/, bin/jake, Jake/Susan agents, and core schemas.
+
+
+PR 3: build apps/operator-console/ as the interface shell. GitHub+1
+
+
+Use these commands for PR 1:
+Bashcd /path/to/Startup-Intelligence-OSgit checkout maingit pull origin maingit checkout -b plan/decision-capability-os-import# from the packet directorybash /path/to/startup_intelligence_os_codex_handoff_packet/scripts/stage-into-repo.sh /path/to/Startup-Intelligence-OScd /path/to/Startup-Intelligence-OSgit add docs/plans/decision-capability-osgit commit -m "Add Decision & Capability OS aggressive plan and Codex handoff packet"git push -u origin plan/decision-capability-os-import
+Then open the PR and use Codex against that branch. That works well with how Codex is designed: it reads AGENTS.md guidance from the repo root down to the current working directory, works best when given explicit context plus a clear definition of done, and supports Git worktrees for parallel safe tasks in the same repository. In GitHub, you can also comment @codex review on the PR to get a code review. As of March 2026, GPT-5.4 is the recommended default model for most Codex tasks. OpenAI Developers+4OpenAI Developers+4OpenAI Developers+4
+This also fits your terminal-first Jake/Susan workflow. Claude Code supports custom subagents and hooks, which is why keeping Jake as the front door and Susan as the capability foundry still makes sense in the terminal, while Codex handles the heavy build/review work and worktrees. Claude API Docs+1
+One straight answer: I can’t push to your GitHub repo directly from here, but this packet is set up so you can push PR 1 immediately and then hand PR 2 and PR 3 to Codex without it guessing what you meant.
+Next best move: push PR 1, then paste Prompt 1 from the packet into Codex and have it produce the Phase A runtime plan.
+
+---
+
+USER: Provide the packet to download and the initial prompt for codex to out it into place
+
+---
+
+ASSISTANT: Yep — here’s the handoff.
+Use Codex from the repo branch / directory where you import this packet, because Codex works against the selected directory and applies repo guidance from AGENTS.md before it starts work. OpenAI Developers+2OpenAI Developers+2
+Download packet
+Best single download:
+
+
+Codex handoff packet (.zip)
+
+
+Browse the unpacked files:
+
+
+Packet folder
+
+
+Packet README
+
+
+Codex handoff brief
+
+
+Codex prompts file
+
+
+Initial prompt for Codex
+Paste this as the first prompt after the packet has been imported into the repo:
+You are upgrading this repo into a Decision & Capability OS.Start by reading:- docs/plans/decision-capability-os/aggressive-plan.md- docs/plans/decision-capability-os/operating-model.md- docs/plans/decision-capability-os/interface-spec.md- docs/plans/decision-capability-os/capability-gap-map.md- docs/plans/decision-capability-os/implementation-backlog.md- docs/plans/decision-capability-os/scaffold-seed/AGENTS.md- docs/plans/decision-capability-os/scaffold-seed/CLAUDE.md- README.md- CLAUDE.md- susan-team-architect/Task:1. explain the current repo architecture2. identify collisions between the current Susan-centered system and the new Jake + Decision & Capability OS direction3. propose the smallest safe set of runtime changes for Phase A4. create a concrete implementation plan with exact files to add or modify5. do not change files yet
+Fastest way to use it
+
+
+Import the packet into a new branch in Startup-Intelligence-OS.
+
+
+Open Codex in that repo/worktree.
+
+
+Paste the prompt above.
+
+
+Have Codex produce the Phase A plan first, then move to implementation in a second pass.
+
+
+If you want Codex to review the PR after import, you can also use GitHub review by commenting @codex review on the PR. OpenAI Developers

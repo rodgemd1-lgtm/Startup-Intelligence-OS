@@ -1,0 +1,537 @@
+Title: Football Wingspan Photo Prompt
+ID: 69b5ecd9-fbdc-8332-97f5-506f82c3d753
+URL: https://chatgpt.com/c/69b5ecd9-fbdc-8332-97f5-506f82c3d753
+Source: ChatGPT
+
+USER: Jacob is a football player who has a wingspan of 80 inches, which is huge. I want to take his photo—he has red hair and is wearing a Pewaukee black jersey with the number 79.
+
+I will upload all his images into nano banana pro using higgsfields.ai program and I want you to create a prompt where he will look very similar to the Michael Jordan wingspan photo but with a football instead of a basketball.
+
+I want to generate a prompt so I can have nano banana pro
+
+---
+
+ASSISTANT: Got it. You want a generation prompt that recreates the composition and feel of that iconic wingspan poster, but with Jacob as the subject: red hair, Pewaukee black football jersey, number 79, and a football instead of a basketball.
+Objective
+Create a highly similar wide-arm “wingspan” portrait for Jacob that feels like a premium sports poster, while clearly making it a football image, not basketball.
+Key message
+The hardest part here is not the jersey or ball. It is getting the pose, camera framing, arm length emphasis, symmetry, and poster-like studio treatment right. So the prompt should over-specify composition and under-specify unnecessary style flourishes.
+What I need from you
+Upload:
+
+
+3–8 good reference images of Jacob
+
+
+at least 1 image showing his face clearly
+
+
+at least 1 image showing his hair color clearly
+
+
+at least 1 image of the Pewaukee black jersey #79
+
+
+ideally 1 full-body or upper-body image with shoulders visible
+
+
+Three options
+1) Conservative
+Use a prompt that stays close to a clean sports portrait and avoids overfitting to the Michael Jordan print.
+Pros: safer, more realistic, more likely to render well
+Cons: may feel less iconic
+Confidence: High
+2) Base
+Strongly push the famous wide-arm composition and poster layout, but still describe it as an original football portrait.
+Pros: best balance of similarity and originality
+Cons: may need 2–5 reruns for exact arm symmetry
+Confidence: High
+3) Aggressive
+Push for near one-to-one composition, grayscale fine-art sports poster, panoramic crop, long horizontal arms, centered torso, minimal background, signature-space at bottom.
+Pros: most dramatic and closest to the reference vibe
+Cons: highest risk of weird arms, distorted ball, off-model face
+Confidence: Medium
+Recommendation
+Go with the base version first. It gives you the best shot at a usable image fast. Then do one aggressive variation after you confirm likeness is good.
+
+Recommended prompt for Nano Banana Pro
+Base prompt
+Prompt:
+Create a dramatic ultra-wide sports portrait of a high school football player modeled from the reference photos of Jacob. He has red hair, an athletic football build, and is wearing a black Pewaukee football jersey with the number 79. He is standing front-facing in the exact center of the frame, shoulders squared to camera, with both arms stretched fully outward in a perfectly straight horizontal line to emphasize his massive 80-inch wingspan.
+In his left hand, he is holding a football extended outward at arm’s length. His right arm is fully extended straight to the side with fingers aligned and strong. The pose should feel bold, iconic, symmetrical, and intimidating, like a legendary sports poster. His expression is calm, serious, focused, and confident.
+Use a very wide panoramic composition, with Jacob’s body centered and his arms nearly spanning the full width of the image. Frame him from about mid-torso up, with the arms dominating the composition. Make the image feel like a fine-art black-and-white studio sports print, with subtle film grain, soft smoky studio atmosphere, gentle vignetting, and high-contrast lighting that sculpts the arms, shoulders, and face. Keep the background minimal, soft, and atmospheric so all attention stays on Jacob and the wingspan.
+Important details:
+
+
+Red hair must remain visible even in the monochrome treatment
+
+
+Black Pewaukee jersey
+
+
+Number 79 clearly visible
+
+
+Football, not basketball
+
+
+realistic anatomy
+
+
+very long, powerful arms
+
+
+premium poster aesthetic
+
+
+centered, symmetrical, iconic composition
+
+
+no helmet
+
+
+no extra players
+
+
+no crowd
+
+
+no action scene
+
+
+no modern graphic clutter
+
+
+The final image should feel like a museum-quality sports poster: minimal, timeless, powerful, clean, and unforgettable.
+
+Aggressive version
+Prompt:
+Generate a premium panoramic black-and-white sports poster featuring Jacob, a red-haired football player, wearing a black Pewaukee jersey #79, posed in an iconic full wingspan portrait. He stands centered, facing directly forward, chest square to camera, with both arms stretched straight out horizontally from shoulder level, creating a nearly edge-to-edge wingspan across the frame. His left hand holds a football at the far end of his reach. His right arm extends rigidly to the opposite side.
+The composition should be extremely symmetrical, dramatic, and instantly recognizable as a legendary “wingspan” style portrait, but adapted for football. Jacob’s torso and face are centered, the arms dominate the width, and the scene is cropped in a long horizontal poster format. Render with high-contrast monochrome, subtle grain, soft haze, premium studio lighting, sculpted musculature, and a timeless editorial sports-photography look. He should look serious, composed, physically dominant, and larger than life.
+Preserve identity from the reference images:
+
+
+Jacob’s facial structure
+
+
+red hair
+
+
+football-player build
+
+
+Pewaukee black jersey
+
+
+number 79
+
+
+Keep the image clean and minimal:
+
+
+plain atmospheric studio background
+
+
+no helmet
+
+
+no pads sticking out awkwardly
+
+
+no extra props other than the football
+
+
+no text
+
+
+no watermark
+
+
+no signature
+
+
+no distorted hands
+
+
+no bent arms
+
+
+no extra fingers
+
+
+no asymmetry
+
+
+The final image should feel like an iconic collectible sports print, elegant, intimidating, and poster-worthy.
+
+Negative prompt
+Use this in the negative field if Higgsfield/Nano Banana supports it:
+Negative prompt:
+cartoon, illustration, painting, low detail, low resolution, blurry face, bad anatomy, short arms, bent arms, asymmetrical pose, extra fingers, mutated hands, warped football, duplicate limbs, off-center body, helmet, crowd, stadium background, action pose, smiling, casual expression, text, watermark, signature, poster border, color splashes, messy jersey, wrong number, wrong team, basketball, crop cutting off face, crop cutting off torso, unrealistic proportions, feminine features, childlike face
+
+Settings guidance
+For Higgsfield / Nano Banana Pro, I’d test like this:
+Conservative
+
+
+likeness/reference strength: medium-high
+
+
+stylization: low
+
+
+prompt adherence: high
+
+
+Base
+
+
+likeness/reference strength: high
+
+
+stylization: medium
+
+
+prompt adherence: high
+
+
+Aggressive
+
+
+likeness/reference strength: high
+
+
+stylization: medium-high
+
+
+prompt adherence: very high
+
+
+Best workflow
+
+
+First generate in color to lock face, jersey, and hair.
+
+
+Once likeness is right, rerun with black-and-white fine-art poster language.
+
+
+If arms look weird, add:
+“realistic human anatomy, both arms perfectly straight and level, natural shoulders, correct hand structure”
+
+
+
+Backup prompt for likeness-first pass
+Use this before the final poster version:
+Likeness-first prompt:
+Create a realistic studio portrait of Jacob from the reference photos. He has red hair and wears a black Pewaukee football jersey with number 79. He is standing directly facing the camera with a serious expression and both arms fully stretched straight out to each side to show off his huge 80-inch wingspan. He holds a football in his left hand. Keep anatomy realistic, face highly accurate to the references, jersey details accurate, and lighting dramatic but natural. Minimal studio background. Very sharp, photorealistic, athletic, strong, symmetrical.
+
+Assumptions
+
+
+You want poster-quality realism, not painterly or stylized
+
+
+You want close compositional homage, not an exact replica with branding/text
+
+
+Jacob’s likeness will come primarily from the uploaded references
+
+
+Risks and mitigations
+RiskWhat goes wrongFixArms look warpedcommon in wide-span posesadd “realistic anatomy, perfectly straight arms, symmetrical shoulders”Face loses likenessmodel prioritizes composition over identityrun likeness-first pass, then poster passJersey details wrongnumber/team driftexplicitly repeat “black Pewaukee jersey, number 79” twiceFootball looks oddhand-ball geometry breaksadd “regulation American football, held naturally in left hand”Hair color gets lost in monochromered hair not obviousfirst create in color, then convert style to monochrome
+10x better suggestion
+Do this as a two-pass workflow instead of one prompt:
+
+
+Pass 1: photoreal likeness lock
+
+
+Pass 2: same image direction but convert to panoramic fine-art black-and-white poster style
+
+
+That usually gets you a much better final than trying to do likeness + dramatic poster styling in one shot.
+Working memory update: you prefer practical, production-ready prompts with direct recommendations, phased workflows, and explicit risk controls so you can move fast in external tools like Higgsfield and Nano Banana Pro.
+
+---
+
+USER: 
+
+---
+
+ASSISTANT: Perfect. These references are enough to tighten this up a lot.
+Restated objective
+Build a Nano Banana Pro / Higgsfield prompt that makes Jacob look like the Michael Jordan wingspan poster, but as a football player: red curly hair, broad build, Pewaukee black jersey #79, and a football replacing the basketball.
+Key message
+The image will work or fail on five things:
+
+
+Face likeness
+
+
+Hair
+
+
+Jersey accuracy
+
+
+Straight-arm wingspan pose
+
+
+Wide panoramic poster composition
+
+
+So the prompt should force those hard.
+Best source cues from your uploads
+Use these to guide the model:
+
+
+Face / hair / expression: the casual shirt photo
+
+
+Build / shoulders / arm thickness: the “Pirates Football Jacob Rodgers #79” graphic
+
+
+Jersey accuracy: the in-game front and back jersey photos
+
+
+Hair color/texture: the sideline side-profile red-hair shot
+
+
+
+Recommended prompt for Nano Banana Pro
+Main production prompt
+Paste this as your primary prompt:
+Prompt:
+Create a premium, dramatic ultra-wide panoramic sports portrait inspired by an iconic wingspan poster composition. The subject is Jacob, a high school football lineman with a large athletic build, broad shoulders, thick powerful arms, fair skin, and short curly red hair with a faded cut on the sides. His face should closely match the uploaded reference images.
+He is wearing a black Pewaukee Pirates football jersey, number 79, with red numbers outlined in white, in a clean authentic game-uniform style. He is posed front-facing and perfectly centered, chest square to camera, with both arms stretched fully straight out horizontally at shoulder height, creating an extreme wingspan across nearly the full width of the image. His posture is strong, controlled, symmetrical, and intimidating.
+In his left hand, extended fully outward, he is holding a regulation American football. His right arm is extended straight outward in the opposite direction, hand open and natural. The entire composition should emphasize his massive 80-inch wingspan and make his arms feel unusually long, powerful, and dominant without breaking realistic human anatomy.
+His facial expression is serious, calm, focused, confident, not smiling. No helmet. No crowd. No action scene. No extra players.
+Style the image like a
+
+---
+
+USER: go with the 10X
+
+---
+
+ASSISTANT: Good call. The 10x version is a multi-pass prompt stack, not a single prompt.
+Objective
+Get a final image that is:
+
+
+very close to the Michael Jordan wingspan composition
+
+
+clearly Jacob
+
+
+clearly football
+
+
+usable as a premium poster without weird arms, bad hands, or off-model face
+
+
+Key message
+Do not try to get likeness, anatomy, jersey accuracy, and poster styling all in one generation. That is where these models fall apart.
+Use this 3-pass workflow.
+
+Option set
+1) Conservative
+Two passes: likeness first, poster second.
+Pros: safest
+Cons: less dramatic
+Confidence: High
+2) Base
+Three passes: likeness, pose, then final poster finish.
+Pros: best balance
+Cons: takes longer
+Confidence: High
+3) Aggressive
+Three passes plus one cleanup/regeneration pass focused only on hands/arms/crop.
+Pros: highest ceiling
+Cons: most work
+Confidence: Medium-high
+Recommendation
+Use the aggressive 10x workflow below. This is the best path to something actually frame-worthy.
+
+10x Workflow for Nano Banana Pro / Higgsfield
+Pass 1 — Identity lock
+Goal: make the model learn Jacob’s face, hair, build, and vibe before asking for the big pose.
+Prompt 1: Identity lock
+Paste this first:
+Create a photorealistic studio portrait of Jacob based on the uploaded reference photos. He is a high school football player with a large athletic lineman build, broad shoulders, thick arms, fair skin, and short curly red hair with faded sides. His face should closely match the reference images: youthful masculine face, strong jaw, slightly full cheeks, light skin with natural texture, and realistic red eyebrows and hair. Wardrobe: black Pewaukee Pirates football jersey, number 79, with red numbers outlined in white. No helmet. No extra people. Pose: standing upright, facing camera, neutral stance, upper body framed from waist or mid-torso up. Expression is calm, serious, confident, not smiling. Lighting: premium sports-media studio lighting, realistic skin texture, sharp facial detail, cinematic but natural. The goal is maximum facial likeness and body accuracy to the uploaded Jacob references.
+Negative prompt 1
+cartoon, illustration, painting, old man, beard, long hair, blond hair, brown hair, smiling broadly, distorted face, asymmetrical eyes, soft baby face, skinny build, bodybuilder exaggeration, extra people, helmet, bad jersey, wrong number, wrong team, low detail, blur
+What to keep from Pass 1
+Use the best output where:
+
+
+face looks like Jacob
+
+
+hair color is right
+
+
+shoulders/build feel right
+
+
+If the face is off, do not move on.
+
+Pass 2 — Pose lock
+Goal: get the wingspan pose right before the final black-and-white poster treatment.
+Prompt 2: Pose lock
+Use the best likeness result as an additional reference if the tool allows it.
+Create a photorealistic sports portrait of Jacob, matching the uploaded reference photos and prior likeness image. He is a large high school football lineman with short curly red hair, fair skin, broad shoulders, and thick powerful arms. He is wearing a black Pewaukee Pirates football jersey, number 79, with red numbers outlined in white.Pose him in a dramatic wingspan composition: Jacob stands perfectly centered, facing directly toward camera, chest square to lens, with both arms extended fully straight out to the sides at shoulder height in a perfectly horizontal line. The arms should appear very long and powerful, emphasizing his massive 80-inch wingspan, but still anatomically realistic.In his left hand, fully extended outward, he holds a regulation American football naturally and firmly. His right arm extends fully to the opposite side with a natural open hand. Frame the image in a very wide panoramic composition, mid-torso crop, so his body is centered and both arms nearly reach the edges of the frame. Expression is serious, focused, calm, dominant. No helmet. No other players. No stadium crowd. Minimal background.
+Negative prompt 2
+bent arms, short arms, extra fingers, warped hands, duplicate limbs, asymmetrical shoulders, twisted torso, action pose, running pose, helmet, crowd, stadium action, smiling, body turned sideways, football deformed, basketball, cut off hands, crop cutting off arms
+What to keep from Pass 2
+Pick the image where:
+
+
+arms are straight
+
+
+hands are usable
+
+
+football looks normal
+
+
+torso is centered
+
+
+shoulders are level
+
+
+If anatomy is weird, rerun with this extra line added:
+realistic human anatomy, perfectly level shoulders, both arms completely straight and aligned horizontally, correct hand structure, natural football grip
+
+Pass 3 — Poster finish
+Goal: convert the good pose result into the final iconic print.
+Prompt 3: Final poster render
+Use your best Pass 2 image as the structural reference if supported.
+Create a premium collectible sports poster based on the uploaded Jacob references and the approved wingspan pose reference. The subject is Jacob, a high school football player with short curly red hair, fair skin, a large athletic lineman build, broad shoulders, and thick powerful arms. He is wearing a black Pewaukee Pirates football jersey, number 79, with red numbers outlined in white. Composition: ultra-wide panoramic poster. Jacob is perfectly centered and front-facing, chest square to camera, with both arms fully stretched horizontally across the frame in a legendary wingspan pose. In his left hand, extended at full reach, he holds a regulation American football. His right arm extends straight outward in the opposite direction. The pose is symmetrical, controlled, and intimidating, emphasizing his huge 80-inch wingspan.Style: museum-quality fine-art sports photography, inspired by an iconic minimalist wingspan poster aesthetic. Render in dramatic black-and-white or desaturated monochrome with subtle preservation of hair tone and jersey contrast if possible. Add soft atmospheric haze, delicate film grain, premium studio contrast, slightly smoky background, and elegant editorial lighting that sculpts the face, shoulders, arms, and jersey. Keep the background minimal and timeless. No text. No logo. No border. No watermark. No signature. The result should feel collectible, iconic, clean, minimal, and powerful.
+Negative prompt 3
+text, typography, logo overlay, watermark, signature, poster border, crowd, stadium lights, busy background, cartoon, over-sharpened skin, distorted face, extra fingers, warped football, bent elbows, asymmetry, bad crop, cut off arms, wrong number, wrong jersey, basketball
+
+Optional Pass 4 — Cleanup pass
+If the final image is close but not clean, do a repair pass.
+Cleanup prompt
+Refine this image while preserving the exact composition, subject identity, and pose. Improve facial likeness to Jacob, maintain curly red hair, correct jersey accuracy to black Pewaukee Pirates jersey number 79, fix hand anatomy, fix arm symmetry, keep the football realistic, and preserve the premium black-and-white fine-art sports poster look. Do not change the framing or subject position.
+
+Best settings strategy
+Conservative
+
+
+reference strength: high
+
+
+stylization: low
+
+
+creativity: low-medium
+
+
+prompt adherence: high
+
+
+Base
+
+
+reference strength: high
+
+
+stylization: medium
+
+
+creativity: low-medium
+
+
+prompt adherence: very high
+
+
+Aggressive 10x
+
+
+reference strength: very high
+
+
+stylization: medium
+
+
+creativity: low
+
+
+prompt adherence: very high
+
+
+The key is low creativity during Pass 2. That is what protects the pose.
+
+Reference ranking
+Use your references like this:
+Best for likeness
+
+
+casual indoor shirt photo
+
+
+side-profile red-hair jersey photo
+
+
+Best for build and football body
+
+
+Jacob Rodgers #79 poster graphic
+
+
+in-game front running photo
+
+
+Best for jersey accuracy
+
+
+front game photo showing “Pewaukee”
+
+
+back jersey photo showing 79
+
+
+sleeve photo showing 79 placement
+
+
+Least useful
+
+
+any image where the helmet obscures too much of the face
+
+
+
+Paste-ready master prompt
+If you want one combined “director’s brief” to keep in your notes, use this:
+Subject is Jacob, a high school football lineman with a large athletic build, broad shoulders, thick arms, fair skin, and short curly red hair with faded sides. He must closely match the uploaded reference photos in face, body, hair color, and overall look. He wears a black Pewaukee Pirates football jersey, number 79, with red numbers outlined in white. Target image is a premium ultra-wide panoramic sports poster with Jacob centered and facing directly toward camera, both arms stretched fully straight outward at shoulder height in a perfectly horizontal wingspan pose. His left hand holds a regulation American football at full extension. His right arm is extended straight outward with a natural open hand. The image should emphasize his huge 80-inch wingspan and feel iconic, symmetrical, intimidating, and clean.Style should be photorealistic fine-art sports photography with a minimalist studio background, dramatic editorial lighting, subtle haze, mild grain, and premium collectible-poster quality. Final treatment should feel black-and-white or desaturated monochrome, timeless and powerful. No helmet, no crowd, no action scene, no extra players, no text, no logo overlay, no watermark, no signature, no bad anatomy, no warped football, no extra fingers, no bent arms.
+
+Hardest failure modes and fixes
+FailureCauseFixFace not Jacob enoughpose/styling overwhelms likenessspend longer on Pass 1Arms look fakemodel struggles with span symmetryreduce creativity, add anatomy constraintsFootball becomes weirdhand-object geometry issueisolate “natural football grip” languageJersey wrongmodel generalizes football uniformrepeat “black Pewaukee Pirates jersey #79”Too busy / too modernmodel adds sports poster clutterexplicitly say no text, no logos, no crowd
+
+Exact short version for fast testing
+If you want a tighter test prompt first:
+Photorealistic ultra-wide sports portrait of Jacob, a red-haired high school football lineman with broad shoulders and a large athletic build, wearing a black Pewaukee Pirates jersey number 79. He stands perfectly centered, facing camera, both arms fully extended straight out horizontally to show his huge 80-inch wingspan. In his left hand he holds a regulation American football. Serious expression, no helmet, minimal studio background, premium dramatic sports lighting, realistic anatomy, symmetrical pose, panoramic collectible
+
+---
+
+USER: agressive all in one prompt
+
+---
+
+ASSISTANT: Here’s the aggressive all-in-one prompt. This is the best single-shot version to paste into Nano Banana Pro / Higgsfield.
+Aggressive all-in-one prompt
+Create a premium, photorealistic, ultra-wide panoramic sports poster featuring Jacob, a high school football lineman, closely matching the uploaded reference photos. He has a large athletic lineman build, broad shoulders, thick powerful arms, fair skin, a youthful masculine face, strong jaw, slightly full cheeks, and short curly red hair with faded sides. His facial likeness must stay very close to the reference images.Jacob is wearing an authentic black Pewaukee Pirates football jersey, number 79, with bold red numbers outlined in white. The uniform should look real, clean, and game-accurate. No helmet.Pose Jacob in an iconic wingspan composition inspired by a legendary minimalist sports poster: he is standing perfectly centered, facing directly toward the camera, chest square to lens, with both arms stretched fully straight out to the sides at shoulder height in a perfectly horizontal line. His wingspan should feel massive and visually dominant, emphasizing his 80-inch reach, but still remain fully realistic and anatomically correct.In his left hand, extended fully to the far edge of the frame, he is holding a regulation American football naturally and firmly. His right arm is extended fully straight in the opposite direction with a natural hand position. His shoulders are level, elbows locked naturally, wrists correct, and hands realistic. The composition should feel symmetrical, intimidating, calm, controlled, and iconic.Frame the image from about mid-torso up in an extremely wide panoramic crop, so Jacob’s torso and head are centered and his arms nearly span the entire width of the image. Keep the football clearly visible at one end of the frame. Make his body feel powerful, grounded, and larger than life.Expression: serious, calm, focused, confident, stoic, not smiling.Style: museum-quality fine-art sports photography, collectible poster aesthetic, dramatic editorial studio lighting, subtle atmospheric haze, soft smoky background, elegant high contrast, refined film grain, timeless minimalism. Render in dramatic black-and-white or desaturated monochrome while preserving enough tonal separation for the red hair, jersey contrast, and facial structure to remain distinct and realistic. The image should feel like an iconic collectible print—clean, minimal, premium, intimidating, and unforgettable.Background: simple, minimal, atmospheric studio backdrop only. No crowd, no stadium, no field action, no extra players, no graphic clutter.Critical priorities:1. Jacob’s face must strongly match the uploaded references2. Curly red hair must be accurate3. Black Pewaukee Pirates jersey number 79 must be accurate4. Arms must be fully straight, symmetrical, and anatomically realistic5. Football must look natural and correctly shaped6. The final image must feel like a legendary sports poster adapted for footballNo text, no typography, no border, no signature, no watermark, no logo overlay.
+Negative prompt
+cartoon, illustration, painting, anime, CGI look, fake skin, low detail, blurry face, distorted face, wrong person, old face, child face, long hair, blond hair, brown hair, bad anatomy, short arms, bent arms, extra fingers, missing fingers, duplicate limbs, warped hands, twisted shoulders, uneven arms, asymmetrical pose, body turned sideways, action pose, running pose, smiling, helmet, crowd, stadium, field scene, extra players, basketball, deformed football, wrong jersey, wrong team, wrong number, text, poster border, watermark, signature, logo overlay, busy background, crop cutting off hands, crop cutting off football, crop cutting off face
+One-line add-on if anatomy keeps failing
+Append this to the main prompt:
+Use realistic human anatomy with perfectly level shoulders, both arms completely straight and aligned horizontally, correct hand structure, natural football grip, and no limb distortion.
+Recommendation
+Run this first in color to lock face, hair, and jersey. Then rerun the exact same prompt with the black-and-white language kept in. That usually beats forcing monochrome on the first try.
+Working memory update: you prefer a single aggressive production-ready prompt when speed matters, but still want it engineered around the real failure points: likeness, anatomy, jersey accuracy, and poster composition.

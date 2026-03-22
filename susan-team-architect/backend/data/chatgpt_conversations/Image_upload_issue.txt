@@ -1,0 +1,10 @@
+Title: Image upload issue
+ID: 69b30668-1ad8-8327-96e5-d9a6f049cc1a
+URL: https://chatgpt.com/c/69b30668-1ad8-8327-96e5-d9a6f049cc1a
+Source: ChatGPT
+
+USER: Replace dan (upload image 1) with me (upload images 2-4/”). Gogo Mike
+
+---
+
+ASSISTANT: We’re so sorry, but the image we created may violate our guardrails around nudity, sexuality, or erotic content. If you think we got it wrong, please retry or edit your prompt.

@@ -1,0 +1,20 @@
+Title: Beard Dye Recommendations
+ID: 69a46fe3-e7b0-8332-b01a-0f72d5badcf5
+URL: https://chatgpt.com/c/69a46fe3-e7b0-8332-b01a-0f72d5badcf5
+Source: ChatGPT
+
+USER: I use Just For Men Mustache & Beard (Black). I need a replacement that is very similar in color and available on Amazon. Please provide me with a link and the name of the product.
+
+---
+
+ASSISTANT: Here are Amazon-available options in a very similar “black” range to Just For Men Mustache & Beard (Black):
+Closest match (same end result + same product category)
+Just For Men Mustache & Beard — Jet Black (M-60) Amazon
+https://www.amazon.com/Mustache-Included-Application-Coconut-Healthy/dp/B002ED3IP0
+Solid “replacement” alternative (black, easy touch-up)
+Blackbeard for Men Beard Color — Black (temporary, brush-on) Amazon
+https://www.amazon.com/Blackbeard-Instant-Beard-Color-Hypoallergenic/dp/B0093W56YQ
+If you want a gentler formula (still black)
+Herb For Men Mustache & Beard Dye — Nature Black Amazon
+https://www.amazon.com/Herb-Mustache-Ingredients-Irritations-Sensitive/dp/B0D2224FZ6
+If you want it to look exactly like your current result, go with Just For Men M-60 Jet Black. If you tell me whether you prefer permanent-ish (weeks) vs one-day touch-up, I’ll narrow it to the single best pick.

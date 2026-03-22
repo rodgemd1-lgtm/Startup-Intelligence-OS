@@ -1,0 +1,26 @@
+Title: Fitness App UI Design
+ID: 69ad8a60-2b0c-832c-98ff-c54733ba2daf
+URL: https://chatgpt.com/c/69ad8a60-2b0c-832c-98ff-c54733ba2daf
+Source: ChatGPT
+
+USER: Is there new research and ui designs which are defining how fitness apps are being built. I want a motion narrative text message workout dialogue design where a coach is apart of your workout but you are still able to see the weights and reps you are lifting as you go
+
+---
+
+USER: Conduct deep research
+
+---
+
+USER: With organic layout and animations using cognitive architecture coaching ai agents
+
+---
+
+USER: Is self aware architecture next after cognitive. Add that to the research
+
+---
+
+USER: I want similar research done on all the typical fitness apps screens and how the dialogue first cognitive architecture ai agent coach could be built out for overall workflows using motion narratives, moments of truth, interaction design principles, and behavioral science loss aversion mixed with motivational interviewing that
+
+---
+
+USER: Continue

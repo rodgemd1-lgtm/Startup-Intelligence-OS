@@ -1,0 +1,168 @@
+Title: Strategy and Market Intelligence
+ID: 69b0d355-7e24-8332-beb4-cdd2a4c0c116
+URL: https://chatgpt.com/c/69b0d355-7e24-8332-beb4-cdd2a4c0c116
+Source: ChatGPT
+
+USER: I want to conduct research on all the functions, roles, processes, and capabilities a strategy and market and competitive intelligence department should have
+
+---
+
+ASSISTANT: Here are the 8 questions that will let me tune this from a solid cross-industry benchmark into something you can actually use:
+
+
+What role do you want me to play here: benchmark researcher, org designer, operating-model architect, or hiring-plan builder?
+
+
+What is the single most important outcome: benchmark best practice, design a target state, assess your current team, or define a hiring/roadmap plan?
+
+
+Who is the audience: you, the CSO, CEO, business-unit leaders, HR, or the board?
+
+
+What exact deliverable do you need first: memo, capability map, org chart, role architecture, maturity model, RACI, or hiring scorecards?
+
+
+What format should the output land in: chat brief, slide outline, spreadsheet, or long-form report?
+
+
+What inputs already exist: current org chart, charter, job descriptions, recurring deliverables, tooling list, budget, stakeholder map?
+
+
+What are the constraints or red lines: industry, geography, regulated environment, no reorg, budget cap, hiring freeze, political boundaries?
+
+
+What does “ship without edits” mean for this work: executive-ready narrative, detailed design spec, or practical working draft?
+
+
+Objective and audience
+Working assumption: you want a research-backed reference model for what a modern Strategy + Market + Competitive Intelligence department should include, aimed at an executive audience deciding charter, scope, roles, and operating model.
+Key message
+A good strategy / market / competitive intelligence department is not a report factory, an annual-planning admin team, or a sales battlecard shop. It is a closed-loop decision system: frame the right strategic questions, continuously sense markets/customers/competitors, turn signals into choices, translate choices into initiatives and budgets, and keep testing assumptions after the decision is made. APQC treats market/customer intelligence, competitor analysis, opportunity prioritization, pricing, and channel strategy as formal business processes; McKinsey’s recent strategy research says the biggest performance gap is in mobilization, not just strategy design; and HBS’ Office of Strategy Management work makes the same point by positioning a small central team as the integrator of budgeting, operational planning, and performance management. Red Solutions Hub+2McKinsey & Company+2
+A second non-obvious point: market intelligence is not the same thing as market research. Market intelligence is continuous external sensing; market research is often a one-off answer to a defined question. Modern departments need both. Mintel draws that distinction directly, McKinsey emphasizes real-time customer understanding and demand visibility, and ESOMAR’s 2025 buyer research shows almost half of research projects are now done internally, with external providers increasingly acting as partners rather than simple vendors. Mintel+2McKinsey & Company+2
+Research-backed answer
+1) What the department should own
+Below is the reference model I’d use.
+AreaWhat it should ownTypical outputsStrategic agenda / key intelligence needsDefine the priority questions leadership needs answeredAnnual strategic question set, CEO/board research agenda, intelligence prioritiesMarket intelligenceContinuous sensing of market size, growth, segments, shifts, adjacenciesMarket maps, TAM/SAM/SOM, trend decks, market attractiveness viewsCustomer / demand intelligenceUnderstand needs, behavior, demand, willingness to pay, segment economicsSegmentation, VOC synthesis, demand forecasts, pricing input, JTBD viewsCompetitive intelligenceTrack competitor moves, positioning, capabilities, performance, likely next movesCompetitor profiles, earnings readouts, launch trackers, win/loss themes, war-game outputsEcosystem / tech / regulatory intelligenceWatch substitutes, partners, channels, technology shifts, policy changesEcosystem maps, tech/risk watchlists, regulatory alerts, scenario triggersForesight / scenario planningExplore uncertainty and define strategic signpostsScenarios, signpost dashboards, contingency playbooksPortfolio / growth / investment supportHelp leadership compare options and allocate resourcesGrowth theses, build/buy/partner views, investment cases, portfolio recommendationsStrategy formulation / refreshTurn insight into explicit choicesEnterprise strategy, BU strategy, strategic narrative, choice architectureStrategy translation / mobilizationConvert choices into initiatives, owners, milestones, and budgetsInitiative portfolio, OKRs, roadmap, budget linkage, owner mapExecution / performance / adaptationRun the strategy review system and track assumptionsStrategy scorecards, quarterly reviews, assumption logs, corrective actionsBenchmarking / best-practice transferCompare against peers and analogsBenchmark packs, gap analyses, outside-in performance viewsIntelligence operations / governanceMake the function repeatable, searchable, ethical, and scalableResearch repository, taxonomy, vendor management, QA standards, AI workflow controls
+This structure is a synthesis of APQC’s process taxonomy, McKinsey’s strategy design–mobilization–execution model, Mintel’s distinction between continuous market intelligence and one-off research, and HBS’ strategy-management-office model. Harvard Business School Library+3Red Solutions Hub+3McKinsey & Company+3
+2) Roles the department should have
+Role design should separate question framing, analysis, orchestration, and influence. Smaller teams combine roles; larger teams specialize.
+RoleCore mandateEssential or scale roleHead of Strategy & IntelligenceOwn charter, priorities, executive relationships, decision calendarEssentialEnterprise / BU Strategy LeadStructure strategic choices, portfolio questions, growth optionsEssentialMarket Intelligence LeadOwn market sizing, segmentation, trend tracking, demand contextEssentialCompetitive Intelligence LeadOwn competitor monitoring, profiles, war-gaming, early warningEssentialCustomer / Insights LeadOwn primary research, VOC, customer segmentation, need statesEssential in customer-heavy sectorsForesight / Scenario LeadRun scenarios, disruption sensing, signpostsScaleStrategy Execution / OSM LeadLink strategy to initiatives, reviews, scorecards, budgetsEssentialStrategic Finance / Portfolio AnalystSupport investment cases, resource allocation, value modelingEssential in larger orgsData / Analytics / Automation LeadBuild dashboards, signal automation, AI-assisted workflows, source integrationEssential in scaled teamsKnowledge / Research Ops ManagerMaintain repository, taxonomy, sourcing standards, vendor opsEssentialEmbedded Business Partner(s)Translate enterprise work into BU action; pull BU needs back to centerScaleSenior Analysts / ResearchersDo the heavy lifting across secondary, primary, quant, and synthesisEssential
+Why this mix: MRS’ client-side role profiles show that modern internal insight functions typically span heads of insight, insight managers, researchers, data leadership, UX/CX, and data science roles. HBS/Kaplan-Norton argue for a small central cadre that acts as chief of staff and integrator rather than a bloated bureaucracy. ESOMAR’s 2025 work also implies stronger in-house capability plus stronger vendor/orchestration skill. ESOMAR Shop+3Market Research Society+3Market Research Society+3
+3) Core processes the department should run
+There are really two process systems: the intelligence cycle and the strategy cadence.
+A. Intelligence cycle
+StepWhat good looks like1. Prioritize key intelligence needsQuestions tied to real decisions, not “interesting topics”2. Frame hypotheses and decision criteriaClear assumptions, options, and what would change the decision3. Collect and sourceMixed methods: public sources, internal data, experts, customers, partners4. Validate and curateProvenance, confidence levels, legal/ethical review, reusable storage5. Analyze and modelTrend analysis, competitor analysis, scenarios, benchmark, forecasting6. Synthesize and recommendExplicit implications, options, trade-offs, recommended action7. Activate in decision forumsDecision memos, exec briefings, initiative handoff8. Track outcomes and learn backDid the insight change a decision, and was it right?
+B. Strategy cadence
+CadenceWhat should happenAnnualFull strategic refresh, scenarios, portfolio choices, budget linkageQuarterlyMarket review, competitor review, initiative progress, resource shiftsMonthlySignal dashboard, KPI review, assumption review, early-warning escalationEvent-drivenShock-cell response for launches, M&A, regulation, technology discontinuities
+McKinsey’s recent work is especially useful here: design, mobilization, and execution all matter, but the biggest gap between winners and stragglers is mobilization—turning choices into owners, initiatives, resources, and embedded plans. BCG adds that good strategic planning works across multiple time horizons and protects execution with shared dashboards. McKinsey & Company+1
+4) Capabilities the department needs
+These are the capabilities I’d treat as non-negotiable:
+CapabilityWhat “good” looks likeStrategic question framingCan turn vague executive concerns into answerable decision questionsContinuous external sensingTracks market, customer, competitor, tech, and regulatory signals continuouslySecondary research / OSINTStrong sourcing discipline and signal extraction from public informationPrimary researchCan design and manage expert interviews, customer work, and bespoke studiesQuant analytics / forecastingCan size markets, estimate demand, benchmark performance, and model scenariosStructured strategic analysisUses repeatable methods for competition, portfolio, scenarios, and trade-offsBenchmarkingCompares against peers and analogs using relevant measuresFinancial / portfolio modelingLinks insight to capital allocation and value creationExecutive synthesis / storytellingProduces decision memos, not just decks full of factsFacilitation / influenceCan shape decisions without formally owning every leverKnowledge managementSources, assumptions, outputs, and lessons are searchable and reusableData / tooling / AIUses automation to monitor signals, but keeps human review and provenanceGovernance / ethicsLegal collection, privacy, transparency, and escalation are explicit
+Bain’s operating-model work maps well here: leadership/culture, management systems, structure/accountabilities, talent, business processes, and technology/data all have to support the function. On governance, ICC/ESOMAR’s 2025 code calls for integrity, transparency, accountability, and human oversight, while SCIP positions its ethics code as a core standard for competitive and market intelligence work. Bain+2ICC - International Chamber of Commerce+2
+5) What the department should not own
+This matters because strategy/intelligence teams get ruined by scope creep.
+Keep out of scopeWhyGeneric BI/reporting factoryThat belongs with analytics / finance / ops unless it is decision-critical strategy workFull PMO for every corporate projectThe team should own strategic initiative governance, not every status meetingMarketing ops / campaign executionIntelligence should inform positioning, not run campaign mechanicsProduct management ownershipThe team informs product bets; product still owns roadmap and deliveryCorp dev transaction executionSupport deal theses and outside-in diligence; corp dev owns processSales enablement content factoryBattlecards are downstream outputs, not the function’s main reason to exist
+Direct feedback: a lot of teams claim to be “strategic” but spend most of their time producing trackers, decks, and battlecards. That is not a strategy/intelligence department. That is an underpowered support team.
+What I need from you
+To make this company-specific, send:
+
+
+current org chart and reporting lines
+
+
+current charter / mission for strategy, market insights, CI, pricing, corp dev, and PMO
+
+
+list of recurring deliverables and meetings
+
+
+current team titles, FTE, open reqs, and budget
+
+
+top 10 decisions the function is expected to influence
+
+
+biggest current pain points: slow decisions, duplicated work, weak adoption, no foresight, poor exec trust, etc.
+
+
+Three options
+OptionScopeProsConsEffortDependenciesExpected outcomeRisksConfidenceConservative: Lean Strategy + CI Office4–6 FTE central coreFast to set up; cheap; useful for CEO/CSO visibilityWeak customer depth; limited execution influence; more agency dependenceLowStrong sponsor; clean charter; vendor budgetBetter situational awareness and competitor visibilityBecomes a report shop0.80Base: Integrated Strategy + MI/CI CoE8–12 FTE central with 1–2 embedded liaisonsBest balance of depth, agility, and influenceRequires tighter governance and clearer interfaces with finance/marketing/productMediumSponsor, data access, shared review cadence, role clarityBetter planning, sharper prioritization, fewer surprises, stronger follow-throughCan get over-centralized0.85Aggressive: Enterprise Strategy & Intelligence Nerve Center15–25+ FTE plus automation stackHighest speed and coverage; stronger foresight, portfolio support, and signal monitoringHighest cost; biggest change load; duplication riskHighExecutive backing, tech stack, high-caliber hiring, data integrationStrong enterprise sensing and faster resource reallocationBureaucracy, political resistance, unclear ownership0.65
+Recommendation
+I’d recommend the base option for most complex companies. It matches what the research points toward: not just insight generation, but also translation into plans, reviews, and budgets; not just annual planning, but multiple horizons and ongoing monitoring; and not just internal research capability, but a stronger orchestration layer across internal teams and external partners. It is large enough to matter and small enough to stay sharp. ESOMAR Shop+3McKinsey & Company+3BCG Global+3
+Assumptions, unknowns, and evidence plan
+Assumption / unknownWhy it mattersEvidence planEnterprise vs BU scope is unclearChanges org shape and embed modelReview current decision rights and recurring forumsIndustry velocity is unknownDrives how much foresight / shock monitoring is neededMap competitor cadence, regulatory volatility, innovation paceCustomer vs competitor emphasis is unclearChanges team mix between VOC/research and CIReview key decisions from last 12 monthsCurrent overlap with finance, product, marketing, corp dev is unknownBiggest source of political frictionBuild service catalog and RACI from current deliverablesTooling and data maturity are unclearDetermines whether automation is realistic nowAudit sources, dashboards, repository, and vendor stackExecutive sponsorship depth is unclearDetermines whether the team influences decisions or just informs themInterview CEO/CSO/CFO/GM stakeholders
+Risk log
+RiskImpactMitigationScope creepTeam becomes everyone’s spare research deskCharter + service catalog + intake criteriaWeak sponsorshipGreat insight, no decision impactMonthly exec review and named sponsorDuplication with other functionsPolitical resistance and wasted spendExplicit RACI across strategy, finance, marketing, product, corp devNo link to budgets / resourcesStrategy stays theoreticalTie initiative reviews to finance and planning cadencesPoor source quality / provenanceTrust collapsesCitation standards, confidence levels, repository disciplineEthics / legal breachesReputational and compliance riskFormal policy aligned to SCIP and ICC/ESOMAR standardsAI misuseHallucinated insight or opaque recommendationsHuman review, source traceability, restricted use casesOver-centralizationBUs ignore the functionEmbedded partners or BU-facing liaisons
+Source pack
+These are the anchor sources behind the model:
+
+
+APQC process framework and benchmarking — strategy, market/customer intelligence, competitor analysis, opportunity prioritization, and benchmarking as formal enterprise processes. apqc.org+3apqc.org+3Red Solutions Hub+3
+
+
+McKinsey strategy research — design, mobilization, execution; biggest gap is mobilization. McKinsey & Company
+
+
+BCG strategic planning best practices — multiple horizons, broader engagement, execution dashboards. BCG Global
+
+
+Bain operating model — leadership/culture, management systems, structure/accountabilities, talent, processes, technology/data. Bain+1
+
+
+HBS / Kaplan-Norton on the Office of Strategy Management — small central chief-of-staff style integrator linking strategy to budgeting, planning, and performance. Harvard Business School Library+1
+
+
+Mintel + McKinsey on market/customer intelligence — continuous market intelligence vs one-off research; real-time customer and demand insight. Mintel+1
+
+
+ESOMAR 2025 buyer research — nearly half of projects internal; externals increasingly partner-to-partner; changing role of internal insights teams. ESOMAR Shop+2ESOMAR Shop+2
+
+
+MRS role profiles — head of insight, insight manager, researchers, data and UX/CX roles inside modern insight functions. Market Research Society+1
+
+
+Ethics standards — ICC/ESOMAR 2025 code and SCIP ethics guidance. ICC - International Chamber of Commerce+1
+
+
+Next actions
+
+
+Answer the 8 questions at the top.
+
+
+Pick one of the three options.
+
+
+Send whatever exists today: org chart, charter, roles, deliverables, cadence, tooling.
+
+
+I’ll turn this into a company-specific target operating model with a tighter org design, role architecture, capability gaps, and 90-day plan.
+
+
+10x better suggestion
+The smarter move is not just to describe the department. It is to build a diagnostic + target-state pack:
+
+
+current-state maturity scorecard
+
+
+target capability map
+
+
+org chart and job architecture
+
+
+service catalog and RACI
+
+
+quarterly cadence / review calendar
+
+
+12-month implementation roadmap
+
+
+KPI set for decision impact, time-to-insight, reuse, and forecast quality.
+
+
+Working memory update
+You prefer outputs that start with calibration questions but still deliver a usable first pass without waiting. You also want cross-industry research turned into a practical operating model, not a vague best-practice summary.

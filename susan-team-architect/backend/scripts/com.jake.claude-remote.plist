@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jake.claude-remote</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/.venv/bin/python3</string>
+        <string>/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend/scripts/claude_remote_bot.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/mikerodgers/Startup-Intelligence-OS/susan-team-architect/backend</string>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/mikerodgers/Library/Logs/claude-remote-bot.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/mikerodgers/Library/Logs/claude-remote-bot.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/mikerodgers/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>

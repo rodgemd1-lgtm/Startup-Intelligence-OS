@@ -1,0 +1,27 @@
+Title: Calendar Link Extraction
+ID: 69a67ac5-ae50-832b-8f84-129aea6a71f2
+URL: https://chatgpt.com/c/69a67ac5-ae50-832b-8f84-129aea6a71f2
+Source: ChatGPT
+
+USER: Pull out the calender link
+
+---
+
+ASSISTANT: Here’s the calendar address pulled from the image:
+family12911245417942015058@group.calendar.google.com
+If you’re trying to subscribe to it in Google Calendar:
+
+
+Go to Google Calendar
+
+
+Click the “+” next to “Other calendars”
+
+
+Choose “Subscribe to calendar”
+
+
+Paste that full email address
+
+
+If you’re trying to verify whether it’s legit or figure out what it is, tell me the context and I’ll help you sanity-check it.

@@ -1,0 +1,36 @@
+Title: Thank You Text Options
+ID: 69b99f8b-d7d0-8333-b328-0139c34033f4
+URL: https://chatgpt.com/c/69b99f8b-d7d0-8333-b328-0139c34033f4
+Source: ChatGPT
+
+USER: https://alex-recruiting.vercel.app/recruit.  Um, I just talked to Joel Norris, knew us, um, Jacob, uh, I'll give you his recruiting site, um, that we built for him so he can have a reference, but I need to a quick text back just saying thank you to Joel and Dan, looking forward to meeting you, don't know if you have time this week, but I'm available, um, Thursday and Friday to meet up if you want to grab coffee.
+
+---
+
+ASSISTANT: Got it. Best send is the middle option.
+Base
+“Thanks, Joel — really appreciate the intro. Dan, great to meet you. I’m looking forward to connecting. Not sure what your schedule looks like this week, but I’m available Thursday or Friday if you’d like to grab coffee and chat.”
+More polished / slightly warmer
+“Thanks, Joel — really appreciate the introduction. Dan, great to meet you. Looking forward to connecting. If you have any time this week, I’m available Thursday or Friday and would be glad to grab a coffee and chat.”
+Most casual
+“Thanks, Joel, really appreciate the intro. Dan, great to meet you — looking forward to connecting. If you have time this week, I’m free Thursday or Friday and happy to grab coffee.”
+Recommendation
+Use the first one. It sounds warm, normal, and low-pressure.
+Working memory update: you tend to want short, natural-sounding texts that are warm, direct, and ready to send with minimal editing.
+
+---
+
+USER: add a reference to Jacob's recruiting website with the intend it gives Dan ideas of what we have done so far
+
+---
+
+ASSISTANT: Here are three ready-to-send versions.
+Conservative
+“Thanks, Joel — really appreciate the introduction. Dan, great to meet you. Looking forward to connecting. I also wanted to share Jacob’s recruiting site as a quick reference so you can see some of what we’ve built so far and hopefully get a sense for a few ideas we’ve already been working on: https://alex-recruiting.vercel.app/recruit. If you have any time this week, I’m available Thursday or Friday and would be glad to grab coffee and chat.”
+Base
+“Thanks, Joel — really appreciate the intro. Dan, great to meet you. Looking forward to connecting. I wanted to share Jacob’s recruiting site as well so you can get a quick feel for some of the work we’ve already done and maybe spark a few ideas for where we can go from here: https://alex-recruiting.vercel.app/recruit. Not sure what your schedule looks like this week, but I’m available Thursday or Friday if you’d like to grab coffee and chat.”
+Aggressive
+“Thanks, Joel — really appreciate the intro. Dan, great to meet you. Excited to connect. I’m sharing Jacob’s recruiting site below so you can see what we’ve already built and get a sense of the direction we’ve started taking on recruiting: https://alex-recruiting.vercel.app/recruit. If you’re free this week, I’m available Thursday or Friday and would love to grab coffee and talk through ideas.”
+Recommendation
+Use the base version. It lands the point without sounding pushy.
+Working memory update: for outreach texts, you prefer warm, concise language with a practical purpose, plus subtle positioning of prior work to create credibility without overselling.

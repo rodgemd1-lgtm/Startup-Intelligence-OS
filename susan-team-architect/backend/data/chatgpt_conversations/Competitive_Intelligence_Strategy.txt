@@ -1,0 +1,444 @@
+Title: Competitive Intelligence Strategy
+ID: 69b05a21-6778-8325-b288-be9c9d5e14e1
+URL: https://chatgpt.com/c/69b05a21-6778-8325-b288-be9c9d5e14e1
+Source: ChatGPT
+
+USER: I'm at HIMSS 2026, working as a strategist for Oracle Health. I'm going around to all my competitors and want to learn about their pricing and packaging, their approach to AI agents, and their go-to-market strategy.
+
+Since I can't ask these questions directly and expect a straight answer, I'm looking for unique ways to frame my inquiries to get the information I need without them realizing it. Please come up with a list of questions that individuals can focus on today.
+
+---
+
+ASSISTANT: Objective
+You need field-ready questions for today that help Oracle Health gather real competitive signal on pricing/packaging, AI agents, and go-to-market.
+Key message
+I can’t help you trick people or hide your intent to get proprietary info. Competitive intelligence ethics guidance explicitly warns against using false or misleading identity to gather information. SCIP+1
+The better move is to ask smart, operational, benchmarking-style questions that make people volunteer the truth because they sound like peer-level market questions, not a procurement interrogation.
+
+Three options
+OptionWhat it looks likeProsConsEffortExpected outcomeRiskConfidenceConservativePublic materials + demos + session notes onlyClean, low-risk, scalableMisses nuance behind pricing and GTMLowGood directional readLowHighBasePublic materials + booth conversations using the question bank belowBest balance of signal and speedStill some vendor spinMediumStrong read on packaging, AI positioning, and sales motionLowHighAggressive but cleanBase + triangulate with customers, partners, implementation staff, and session Q&AHighest signal without crossing linesMore coordination requiredHighBest real-world picture of what lands vs what’s theaterMediumMedium-High
+Recommendation
+Go with the aggressive-but-clean approach. Split your team by lane, ask these questions, and force every answer into three buckets: what’s sold now, what’s piloted now, what’s still roadmap. That is usually where the truth leaks out.
+
+Best framing lines to use
+These are clean and effective:
+
+
+“I’m mapping how the market is actually operationalizing this, not just demoing it.”
+
+
+“I care less about the vision and more about what buyers are signing for today.”
+
+
+“Where does this usually start in year one versus what expands later?”
+
+
+“What part of this is production-grade today versus committed roadmap?”
+
+
+“When deals stall, what usually causes it?”
+
+
+“What are customers actually willing to pay for first?”
+
+
+These work because they shift the rep out of polished pitch mode and into implementation reality.
+
+Team split for today
+1) Pricing & Packaging lead
+Goal: figure out how they land, expand, bundle, discount, and hide price.
+Ask:
+
+
+“How does this usually get packaged in the first contract?”
+
+
+“What is typically included out of the box versus added later?”
+
+
+“What’s the smallest commercial entry point you’re seeing customers buy?”
+
+
+“Is this usually sold as platform, module, transaction, seat, encounter, or enterprise license?”
+
+
+“Where do services show up in the deal versus software?”
+
+
+“What do buyers most often push back on in pricing?”
+
+
+“What do customers usually cut from scope to hit first-year budget?”
+
+
+“What does a typical pilot convert into if it goes well?”
+
+
+“What’s the most common expansion path after the first win?”
+
+
+“Do customers buy this from operating budget, innovation budget, or transformation budget?”
+
+
+What this reveals
+
+
+Land price proxy
+
+
+Packaging unit economics
+
+
+Attach rates for services
+
+
+Real first-year commercial motion
+
+
+
+2) AI agents lead
+Goal: separate AI theater from actual agentic product.
+Ask:
+
+
+“When you say agent, what actions can it take autonomously today?”
+
+
+“What human approvals are still required?”
+
+
+“What are the first 2–3 workflows where customers are putting this into production?”
+
+
+“What’s live today versus in preview?”
+
+
+“Is this mainly summarization/copilot, orchestration, or closed-loop action?”
+
+
+“What systems does the agent need direct access to in order to be useful?”
+
+
+“How are customers handling governance, auditability, and rollback?”
+
+
+“How are you measuring success in live deployments?”
+
+
+“Where are customers seeing resistance from compliance, clinical, or IT teams?”
+
+
+“Which use case closes fastest, and which one demos well but doesn’t convert?”
+
+
+What this reveals
+
+
+Whether they have true agentic execution
+
+
+Production maturity
+
+
+Integration burden
+
+
+Where adoption is real vs slideware
+
+
+
+3) Go-to-market lead
+Goal: understand buyer, motion, proof, and where they’re winning.
+Ask:
+
+
+“Who is usually the economic buyer for this?”
+
+
+“Who has to say yes operationally for deals to move?”
+
+
+“What’s the first use case that gets budget unlocked?”
+
+
+“Are deals more often driven top-down by executives or bottom-up by operators?”
+
+
+“What buyer problem is getting the fastest traction right now?”
+
+
+“Where are you seeing the shortest sales cycles?”
+
+
+“What types of accounts are moving first—enterprise systems, regionals, ambulatory, public sector?”
+
+
+“What changed in your pitch over the last 12 months?”
+
+
+“What competitive alternatives come up most often in live deals?”
+
+
+“When you lose, what’s usually the reason?”
+
+
+What this reveals
+
+
+ICP and wedge
+
+
+Sales motion maturity
+
+
+Where they think they’re differentiated
+
+
+Their actual loss patterns
+
+
+
+4) Proof-point lead
+Goal: pressure-test whether the story is real.
+Ask:
+
+
+“How many live customers are using this in production today?”
+
+
+“What was the fastest go-live you’ve seen, and what made it possible?”
+
+
+“What has to be true for a customer to get value in the first 90 days?”
+
+
+“What metrics are customers actually using to judge success?”
+
+
+“What implementation work is underestimated most often?”
+
+
+“Where does data quality or workflow change become the bottleneck?”
+
+
+“What customer profile gets the best results?”
+
+
+“What kind of internal champion is most important?”
+
+
+“What deployment model are customers preferring?”
+
+
+“What’s the most common reason an initial project stalls after signature?”
+
+
+What this reveals
+
+
+Delivery burden
+
+
+Real proof versus reference inflation
+
+
+Adoption friction
+
+
+Whether the vendor can scale beyond pilots
+
+
+
+5) Ecosystem / partner lead
+Goal: learn how they enter accounts and scale influence.
+Ask:
+
+
+“Which channel or partner relationships matter most in getting these deals opened?”
+
+
+“What implementation partners are strongest for you?”
+
+
+“Where do cloud/platform partners play a role?”
+
+
+“What kinds of co-sell motions are actually producing pipeline?”
+
+
+“What categories of partners tend to block or slow adoption?”
+
+
+“How much of the value story depends on partner integration versus native capability?”
+
+
+“Are customers buying this as part of a broader transformation program?”
+
+
+“Which adjacent products help this sell faster?”
+
+
+“What does your best partner-enabled deal look like?”
+
+
+“What capability gaps do partners usually have to fill?”
+
+
+What this reveals
+
+
+Ecosystem dependence
+
+
+Channel leverage
+
+
+Hidden product gaps
+
+
+Account-entry strategy
+
+
+
+Questions that get unusually honest answers
+These are the best ones:
+
+
+“What are customers actually buying first?”
+
+
+“What part is real today versus roadmap?”
+
+
+“What usually gets cut to fit budget?”
+
+
+“When this loses, why?”
+
+
+“Which use case demos great but doesn’t convert?”
+
+
+“What has to be true internally for a customer to expand?”
+
+
+“What implementation pain do prospects underestimate?”
+
+
+“Who inside the customer organization becomes the blocker?”
+
+
+Those questions force people out of brochure mode.
+
+What each person should capture after every booth
+Use one note template:
+FieldWhat to captureVendorNameOfferingWhat they say it isBuyerWho signs / who championsLand motionPilot, module, enterprise, services-heavy, etc.PackagingPlatform, seat, encounter, transaction, bundleAI maturityCopilot / agent / orchestration / autonomous actionProofLive customers, named references, metricsGTM anglePrimary wedge and messageRisksWhat sounded weak, vague, or inflatedConfidenceHigh / Medium / Low
+
+Red flags to watch for
+
+
+They won’t distinguish GA vs preview vs roadmap
+
+
+“Agent” really means UI assistant
+
+
+Savings claims with no denominator, timeframe, or baseline
+
+
+Pricing described only as “flexible”
+
+
+No clear answer on who buys first
+
+
+Strong demo, weak answer on integration and approval workflow
+
+
+Repeated partner dependence for core functionality
+
+
+
+What not to do
+Do not:
+
+
+pretend to be a buyer if you’re not
+
+
+imply purchase intent just to get pricing
+
+
+hide your employer if directly asked
+
+
+ask for confidential customer info, contract terms, or non-public pipeline
+
+
+That creates unnecessary exposure and usually gets you worse data anyway.
+
+10x better suggestion
+Run this as a two-pass sweep:
+Pass 1: 7-minute booth hit
+
+
+one opener
+
+
+3 questions max
+
+
+collect artifacts
+
+
+assign initial score
+
+
+Pass 2: targeted follow-up
+
+
+go back only to top-priority competitors
+
+
+use the deeper question bank
+
+
+triangulate with partner booths, customer speakers, and session Q&A
+
+
+That will give you much cleaner intel than trying to “out-sneak” reps.
+
+Working memory update
+You’re at HIMSS 2026 doing live competitor intelligence for Oracle Health, with immediate focus on pricing/packaging, AI-agent reality, and GTM motion. You want field-ready, ethically clean questioning that surfaces truth fast and avoids fluff.
+
+---
+
+USER: Give me 2 or 3 questions to address all areas—just 2 questions for them to get it going. It doesn't have to be perfect; I'm just looking for 2 questions to throw in.
+
+---
+
+ASSISTANT: Use these two:
+
+
+“How are customers typically getting started with this today—what are they buying first, how is it packaged, and where do they usually expand next?”
+
+
+“On the AI side, what’s actually live in production today versus coming soon, and which buyer/use case is driving the fastest adoption?”
+
+
+Why these work:
+
+
+Q1 gets at pricing, packaging, land motion, and expansion.
+
+
+Q2 gets at real AI maturity, roadmap vs reality, buyer, and GTM traction.
+
+
+Backup third one if you want it:
+
+
+“When this wins or loses in a deal, what usually makes the difference?”
+
+
+Working memory update: For live event competitive intel, you prefer ultra-short, field-ready prompts that cover multiple dimensions at once and can be deployed quickly in booth conversations.

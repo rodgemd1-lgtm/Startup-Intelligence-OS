@@ -18,7 +18,7 @@ import hashlib
 import json
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -131,12 +131,40 @@ def _format_priority(p: int) -> str:
     return " [LOW]"
 
 
+def _is_stale(r: dict, stale_days: int = 14) -> bool:
+    """Return True if reminder has a due date older than stale_days ago."""
+    due = r.get("due_date")
+    if not due:
+        return False  # No due date → never stale (floating task)
+    try:
+        dt = datetime.fromisoformat(due.replace("Z", "+00:00"))
+        cutoff = datetime.now(timezone.utc) - timedelta(days=stale_days)
+        return dt < cutoff
+    except (ValueError, TypeError):
+        return False
+
+
+def _is_overdue(r: dict) -> bool:
+    """Return True if reminder was due in the past (but not stale enough to skip)."""
+    due = r.get("due_date")
+    if not due:
+        return False
+    try:
+        dt = datetime.fromisoformat(due.replace("Z", "+00:00"))
+        return dt < datetime.now(timezone.utc)
+    except (ValueError, TypeError):
+        return False
+
+
 def _format_reminder_content(r: dict) -> str:
     """Format a single reminder into readable content."""
     parts = [r["name"]]
     prio = _format_priority(r.get("priority", 0))
     if prio:
         parts[0] += prio
+
+    if _is_overdue(r):
+        parts[0] += " [OVERDUE]"
 
     if r.get("due_date"):
         try:
@@ -182,11 +210,21 @@ def _topics_from_list(list_name: str) -> list[str]:
     return list(set(topics))
 
 
-def ingest_reminders(dry_run: bool = False, include_completed: bool = False):
+def ingest_reminders(dry_run: bool = False, include_completed: bool = False, stale_skip_days: int = 14):
     print("Fetching reminders from Apple Reminders.app...")
     reminders = fetch_reminders()
 
-    incomplete = [r for r in reminders if not r.get("completed")]
+    all_incomplete = [r for r in reminders if not r.get("completed")]
+
+    # Filter out reminders with due dates older than stale_skip_days
+    # These are forgotten tasks that would pollute the brain with bad data
+    stale = [r for r in all_incomplete if _is_stale(r, stale_skip_days)]
+    incomplete = [r for r in all_incomplete if not _is_stale(r, stale_skip_days)]
+
+    if stale:
+        print(f"Skipping {len(stale)} stale reminders (due date > {stale_skip_days} days ago):")
+        for r in stale:
+            print(f"  [STALE] {r['name']} — due {r.get('due_date', 'unknown')}")
     completed = [r for r in reminders if r.get("completed")]
 
     print(f"Total reminders fetched: {len(reminders)}")
@@ -381,8 +419,11 @@ def main():
     parser = argparse.ArgumentParser(description="Ingest Apple Reminders into Jake's Brain")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing to brain")
     parser.add_argument("--include-completed", action="store_true", help="Also ingest completed reminders from last 30 days")
+    parser.add_argument("--stale-skip-days", type=int, default=14,
+                        help="Skip reminders with due dates older than N days (default: 14)")
     args = parser.parse_args()
-    ingest_reminders(dry_run=args.dry_run, include_completed=args.include_completed)
+    ingest_reminders(dry_run=args.dry_run, include_completed=args.include_completed,
+                     stale_skip_days=args.stale_skip_days)
 
 
 if __name__ == "__main__":

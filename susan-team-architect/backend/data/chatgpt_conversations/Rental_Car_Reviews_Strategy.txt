@@ -1,0 +1,233 @@
+Title: Rental Car Reviews Strategy
+ID: 69b312dd-6d3c-832e-9c67-2a6e7c2dd618
+URL: https://chatgpt.com/c/69b312dd-6d3c-832e-9c67-2a6e7c2dd618
+Source: ChatGPT
+
+USER: How do rental cars like enterprise get great reviews? Do they focus on getting more reviews or fixing bad reviews
+
+---
+
+ASSISTANT: Mostly both, but the flywheel usually starts with operational consistency first, then review volume second, then recovery on bad reviews.
+For rental car brands like Enterprise, great reviews usually come from a few boring things done well:
+What actually drives ratings
+
+
+Fast pickup and drop-off
+
+
+Car is clean and actually available
+
+
+Staff solves problems on the spot
+
+
+Billing is clear and there are no surprise fees
+
+
+Local branch manager cares about service, not just transactions
+
+
+A rental car company can’t “review-strategy” its way out of bad operations for long. If the wait is awful, the car class is wrong, or the bill feels sketchy, more review asks just scale the disappointment.
+Key message
+The best performers usually fix the experience first, then systematically ask happy customers for reviews, and actively recover unhappy ones before they post.
+Conservative / base / aggressive
+1) Conservative: focus on fixing bad reviews
+What it is: Triage complaints, resolve branch-level issues, respond to negative reviews fast.
+Pros
+
+
+Improves real root causes
+
+
+Prevents repeated damage
+
+
+Builds trust internally
+
+
+Cons
+
+
+Slow visible improvement in star rating
+
+
+Doesn’t generate much new positive volume
+
+
+Expected outcome
+
+
+Better reputation over time
+
+
+Lower complaint recurrence
+
+
+Small but real lift in ratings
+
+
+Best when
+
+
+Current experience is inconsistent
+
+
+Lots of 1–3 star reviews mention the same issues
+
+
+Confidence: High
+
+2) Base: fix root causes and increase review volume
+What it is: Improve service moments that matter most, then ask satisfied customers for reviews at the right moment.
+Pros
+
+
+Most balanced approach
+
+
+Ratings improve faster
+
+
+Better reflects true customer base, not just angry outliers
+
+
+Cons
+
+
+Requires branch discipline
+
+
+Needs simple measurement and follow-through
+
+
+Expected outcome
+
+
+Stronger average rating
+
+
+More representative review mix
+
+
+Better local branch performance
+
+
+Best when
+
+
+Experience is decent but underrepresented online
+
+
+You have many happy customers who never leave reviews
+
+
+Confidence: Very high
+
+3) Aggressive: engineer the whole reputation system
+What it is: Build branch-level service metrics, review requests, escalation workflows, manager incentives, and rapid service recovery.
+Pros
+
+
+Fastest improvement
+
+
+Creates a repeatable reputation engine
+
+
+Lets you identify weak branches quickly
+
+
+Cons
+
+
+Can get fake/manipulative if done badly
+
+
+More operational overhead
+
+
+Needs strong governance
+
+
+Expected outcome
+
+
+Higher review count
+
+
+Better ratings
+
+
+Better branch accountability
+
+
+Best when
+
+
+You run multi-location operations
+
+
+Reviews materially affect demand
+
+
+Confidence: High
+Recommendation
+Go with the base approach.
+Why:
+
+
+If you only chase more reviews, you amplify a broken experience.
+
+
+If you only fix bad reviews, you leave the public story dominated by a small set of complainers.
+
+
+The winning move is: remove the biggest service failures, then capture more of the quiet happy majority.
+
+
+What smart operators usually do
+They focus on:
+
+
+Eliminating review killers: long lines, wrong vehicle, dirty car, billing surprises
+
+
+Asking at the peak moment: right after a smooth drop-off or problem resolution
+
+
+Local accountability: branch managers own service scores
+
+
+Service recovery: catch unhappy customers before they become public detractors
+
+
+Volume with integrity: ask everyone or a broad set of customers, not just cherry-picked fans
+
+
+Simple rule
+
+
+If your average experience is weak: fix bad reviews first
+
+
+If your average experience is solid but review count is low: push review generation
+
+
+If you want great reviews at scale: do both, in that order
+
+
+Risk log
+
+
+Asking for more reviews too early can surface more negative reviews
+
+
+Responding to bad reviews without fixing ops does nothing
+
+
+Over-incentivizing staff can create awkward or manipulative asks
+
+
+10x better suggestion
+Treat reviews as an output metric, not the main strategy. The main strategy is reducing the top 5 moments that create regret. Then review volume becomes a multiplier.
+Working memory update: Mike prefers concise, structured, decision-oriented answers with direct recommendation, trade-offs, and a practical operating model rather than generic advice.
