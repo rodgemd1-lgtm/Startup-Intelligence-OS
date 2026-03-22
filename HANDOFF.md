@@ -1,8 +1,117 @@
 # Session Handoff
 
 **Date**: 2026-03-22
-**Project**: Startup Intelligence OS — Iron Jarvis (Alexa Skill)
-**Session Goal**: Debug and fix "problem with the requested skill's response" error on Iron Jarvis Alexa skill
+**Project**: Startup Intelligence OS — Jake V12
+**Session Goal**: Build autonomous work system + recipes + email-to-task + meeting prep
+**Status**: PARTIAL — meeting prep full vision documented below, needs next session
+
+---
+
+## ⚡ NEXT SESSION PRIORITY: Full Autonomous Meeting Prep
+
+Mike wants meeting prep to be **autonomous execution**, not just a notification.
+
+### The Full Vision (NOT YET BUILT)
+
+When Jake detects an upcoming meeting, Jake should:
+
+1. **Deep live research** via Susan MCP tools:
+   - `search_knowledge` — Susan RAG (94K chunks)
+   - `web_search_exa` — live Exa web search on attendees + topics
+   - `scrape_url` — attendee LinkedIn/company pages
+   - `scrape_search` — deep scrape search results
+   - NO Claude training data — live research only
+
+2. **Recipe-driven execution**:
+   - Check `~/.hermes/recipes/` for meeting-type recipe (e.g., `oracle-deal-review.yaml`)
+   - If YES → execute recipe automatically
+   - If NO → Jake CREATES recipe based on meeting context, then executes it
+
+3. **Susan agent team orchestration** (via `claude -p` subprocess):
+   - Spin up Claude Code session at Startup-Intelligence-OS
+   - Use `run_agent` MCP tool → Steve, Freya, Coach etc.
+   - Produce REAL deliverables — battlecard updates, dossiers, talking points, risk assessments
+
+4. **Output delivery**:
+   - Save `.md` deliverables to `docs/meeting-prep/YYYY-MM-DD-[slug]/`
+   - Store summaries in jake_episodic
+   - Send Telegram brief with links + key takeaways
+
+### New Files for Next Session
+
+```
+scripts/jake_meeting_prep_autonomous.py    # Full autonomous meeting prep
+jake_brain/meeting_orchestrator.py         # Research + agents + deliverables
+~/.hermes/recipes/oracle-deal-review.yaml  # Deal review recipe
+~/.hermes/recipes/partner-sync.yaml        # Partner sync recipe
+~/.hermes/recipes/matt-1on1.yaml           # Matt Cohlmia 1:1 recipe
+~/.hermes/recipes/weekly-standup.yaml      # Weekly standup recipe
+```
+
+### Integration
+
+Wire into `jake_brain/nervous/meeting_prep.py` — replace prep brief output with autonomous worker task creation. The `jake_meeting_prep_rich.py` (already built) becomes the fallback when full autonomous prep doesn't complete in time.
+
+---
+
+## Completed This Session
+
+- [x] `supabase/migrations/20260322_jake_tasks.sql` — jake_tasks + jake_task_runs
+- [x] `jake_brain/goals/tasks.py` — TaskStore with claim/complete/fail/retry
+- [x] `jake_brain/autonomous_worker.py` — 24/7 execution engine
+- [x] `scripts/jake_autonomous_worker.py` — full CLI (daemon/goal/status/tasks)
+- [x] `scripts/jake_autonomous_worker.sh` + `launchd/com.jake.autonomous-worker.plist`
+- [x] `~/.hermes/skills/goal-setting/SKILL.md` — Telegram goal interface
+- [x] `jake_brain/recipes.py` — YAML recipe engine (7 tool types)
+- [x] `scripts/jake_recipe_runner.py` — Recipe CLI
+- [x] `~/.hermes/recipes/` — 5 production recipes
+- [x] `~/.hermes/skills/jake-recipes/SKILL.md` — Hermes recipe interface
+- [x] `scripts/jake_email_task_extractor.py` — Oracle email → jake_tasks pipeline
+- [x] `scripts/jake_meeting_prep_rich.py` — Meeting prep with brain context (foundation)
+- [x] SOUL.md updated
+- [x] Committed: `feat(jake): V12 Phase 3 — autonomous work system, recipes, email-to-task, meeting prep`
+
+## Deployment Steps Mike Needs to Do
+
+### 1. Apply Supabase migration
+Run `supabase/migrations/20260322_jake_tasks.sql` in Supabase SQL editor.
+
+### 2. Install the autonomous worker daemon
+```bash
+cp launchd/com.jake.autonomous-worker.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.jake.autonomous-worker.plist
+launchctl start com.jake.autonomous-worker
+tail -f ~/.hermes/logs/autonomous_worker.log
+```
+
+### 3. Install PyYAML (for recipes)
+```bash
+cd ~/Startup-Intelligence-OS/susan-team-architect/backend
+source .venv/bin/activate && pip install pyyaml
+```
+
+### 4. Test
+```bash
+python scripts/jake_autonomous_worker.py status
+python scripts/jake_autonomous_worker.py goal "test goal" --priority P3
+python scripts/jake_recipe_runner.py list
+python scripts/jake_recipe_runner.py run oracle-battlecard-update --dry-run
+```
+
+## Context for Next Session
+
+- **Read first**: `scripts/jake_meeting_prep_rich.py`, `jake_brain/nervous/meeting_prep.py`
+- **First build**: `scripts/jake_meeting_prep_autonomous.py` with Susan MCP deep research
+- **Risk**: Recipe auto-creation is novel — test Claude Code subprocess carefully
+
+## Build Health
+
+- Files this session: 11 new, 1 modified
+- Context health at close: YELLOW (~48%)
+
+---
+
+## Previous Handoff (Iron Jarvis Alexa skill)
 **Status**: PARTIAL — bug identified and fixed in editor, Lambda deployment not triggered
 
 ## Completed
