@@ -1,0 +1,146 @@
+Confidential - Oracle Restricted \Including External Recipients 
+
+Hi Lisa & Mike,
+ 
+For our team’s KPIs, here’s what I’m thinking:
+ 
+Bharat’s team’s (implicit) goal: leverage customer, market, & competitive intelligence to drive better business & strategic decision making across Oracle Health
+ 
+Strategic Ops team role in that: Deliver and manage at scale the tools, resources, & processes we need to drive confident, informed decision making across the org.  
+ 
+Our tools for that include:
+Market & Competitive Intelligence (Mike):
+Ready Tools & Resources: AI-powered self-service offerings
+Menu of purchased 3P offerings: includes “white glove” support to help get the most out of them
+Services & advisory: human help when you need it.  Includes market sizing, competitive intel, market intel, 
+Roadmap & Commercialization Planning (Lisa): Provide the upstream product timeline input to help GTM, sales, marketing and other teams make good decisions around commercialization.  (NOTE: we haven’t talked about it this way, but consider this reframing from “we need a roadmap” to “commercialization efforts need better inputs to make better decisions”)
+Customer Engagement Requests (Lisa): Position strategy leaders as the key engagement touchpoint for our customers, to reduce demands on product bandwidth, enable strategists to directly hear customer feedback, and strengthen the customer partnership.
+Customer Product Feedback Requests (Lisa): Position strategy leaders as the early triage decision point for product requests, to reduce demands on product bandwidth, enable strategists to directly hear customer feedback, and strengthen the customer partnership.
+Decision Packaging & Governance (Matt): Standardize outputs for exec readiness and position for leadership alignment.  I think the Concept Approval process is functionally dead, replaced by a more informal process of bringing recommendations to Seema.  TBD how we continue to push on this function.
+ 
+ 
+Does that resonate?  Push back as you see fit.  Please think through these, and think about how you’d recommend structuring your KPIs within this context – bring your thoughts to the team meeting tomorrow.  In my dream world we’d have a “decision-o-meter” that gauged the quality of decision making at the org and we’d just be able to make that the KPI, but until they invent one, we’re gonna have to be creative.
+ 
+Old KPIs below.
+ 
+-Matt
+ 
+Customer Engagement - Sales & Strategy
+Ongoing intake, triage, and management of Customer Engagement Requests.  Track SME requests and work to take on increasing customer meeting load from product.   Specific KPI TBD - for now, track data and establish baseline, while trending toward reduced product workload.
+On track: Update 3/6 (LF) -  Latest summary sent to Bharat on 3/5. Requests continue to be received, reviewed, and triaged. Need time allocated and prioritized to take this to the next step, which is working with the corporate apps team to integrate into the existing demo request tool that Sales utilizes. 
+We have developed a tracker
+Offload XX customer meetings per qtr for the next 2 qtrs, YY customer meetings per qtr for the following 2 qtrs. We are just getting started and while we need to do metrics, not sure what target we can set. For now, we commit to reporting overall SME rrequests and what numbers we are engaged and hopefully there is an upward trend
+• Our team sits at the centre of all Life Sciences AIDP customer engagements.  • Directly engaged with AstraZeneca, AbbVie, Bayer, MHRA, Eli Lilly, Novo Nordisk, Servier, Pfizer, Merck and others across oncology, safety, multimodal data, automation and EHR-integrated workflows.  • Supported key RFPs and bid defences, including AbbVie and Bayer, presenting the LS AIDP proposition and related automation capabilities.
+• Continue to lead senior-level strategic engagements with key customers, using the AstraZeneca model as the benchmark for shaping enterprise conversations.  • Position the Life Sciences strategy in all major client dialogues and open up Big Bets opportunities for sales.  • Strengthen coordinated engagement with Jason’s and Nick’s organisations so that strategic discovery flows directly into opportunities.  Expand general AIDP product positioning into more focused use cases for laser focused customer conversations (such as Safety, Inform/C1, Research Services etc)
+Market & Competitive Intelligence
+Bi-annual refresh of competitive landscape for each major product segment (AI agents, Core EHR, RevCycle, Portal, VBC, etc.) Monthly reporting: 1 product area refresh each month.  Highlight market shifts, new strategic moves, and new entrants.  
+On track: Foundational CI profiles done for Portal, AI Agents, EHR, RevCycle, Life Sciences and more being planned.
+Matt - appreciate your help determining specific metrics here and what we report to Seema monthly.
+KPIs: Bi-annual refresh of competitive landscape for each product. Monthly reporting: 1 product area refresh each month.  highlight market shifts, new strategic moves, and new entrants.  
+• Completed the H1 competitor mapping exercise for LS AIDP.  • Established a continuous refresh process to maintain competitive intelligence across the evolving AIDP landscape.
+• Continue monitoring the market and competitor developments across the LS AIDP landscape.  • Track shifts in industry needs, AI adoption patterns and multimodal data strategy.  • Attend key conferences and events to bring back structured intelligence for product and GTM alignment.
+Partner with Pete's team in 3rd party partners evaluation & strategy
+# of partners evaluated (will report metrics by end of Oct), develop new marketplace strategy 
+
+Report # of third parties we are evaluating alone or with Michele's team.
+
+
+Customer Feedback & Intake Synthesis
+Ongoing ingestion, synthesis, and triage of customer feedback.   Monthly executive report-out of customer feedback.
+In progress: Update 3/6 (LF) - Project is stalled with only minor progress made since last week. • Lisa met with CSM ops leadership and PgM (Fabio, Joe, Kris Ray) on 3/4  to brainstorm solution for their org and how it can integrate with existing Day 2 Consulting list and monthly extract to the centralized list to be assigned to SME's for review and prioritization. Follow up in 2 weeks. • Lisa & Matt sent a proposal paper to Bharat on 2/5 for a process revamp.  • Lisa will present the updated process to the team once we have Bharat's blessing on the proposal. 
+Led by Lisa, in close partnership with Strategists.
+I think the steps are ingestion and share with STRATEGISTS, and it'll be up to them to synthesize/share with product as needed.  I suspect the monthly report will not be valuable to Seema after the first few (will be more of the same), so over time customer feedback  will be immediate rather than monthly and a big VoC readout might be quarterly (and be something we generate in partnership with sales and consulting), focusing on BIG themes that are evolving.
+• Produced the comprehensive “Voice to Value” insights pack, a 50-slide synthesis of customer feedback across the LS product suite.  • Consolidated themes, unmet needs and product expectations to guide prioritisation and GTM refinement.
+• Capture customer feedback systematically across all strategic meetings, workshops and collaboratives.  • Maintain and update the Voice to Value insights pack as the central repository of customer priorities, solution gaps and emerging expectations.  • Use this to inform GTM messaging, prioritisation and product focus areas.
+Strategy & Roadmap Alignment
+Create and maintain strategy document per each product area.  Refresh at least bi-annually, with offshoot documents as-needed to inform strategic decision making.
+On track: Strategy & CI documents being done together till CI team expands.
+
+Do we need a new template for these strategy documents?  Currently, we're doing a lot of short papers to answer specific questions, but if this is truly going to be the "reference" document, and updated quarterly, it will need to be long and comprehensive (include competitor deep dives, feature set prioritization, target markets, etc.).  Like an necyclopedia, going back to an updated verson of a reference document will not really tell you the story fo what's happening, so I'd imagine the responsibilities here are to 1. regularly update the document and 2. report out how the strategy is shifting (assuming it is) - We definitely need to have a written and up to date strategy that integrates Seema/Larry's vision, CI, customer input and contextualize to where product is today and where it should go. Every qaurter or likely six months and certainly for FY planning, we will be asked and we should keep up with it. Please propose how we work as a team but have a clarity of ownership. I will provide some thoughts and we can finalize at the offsite.
+• Provided continuous roadmap input throughout H1 in collaboration with Chris Boone’s organisation.  • Fed insights from customer meetings, collaboratives and emerging use cases directly into product prioritisation and longer-term roadmap planning.  • Ensured the partnership MOUs were mapped to the roadmap (specific to omics data warehouse with DNAnexus partnership)
+• Continue feeding all customer insight and use case evolution into the product roadmap process in partnership with Chris Boone’s organisation.  • Ensure that feedback from collaboratives, senior-level engagements and market changes flows consistently into product prioritisation throughout H2.
+Report quarterly roadmap transparency and accountability to joint product and business leaderships. Develop and send monthly exec roadmap dashboard and status report.
+In progress:  Update 3/6 (LF) - Roadmap Alignment Initiative workgroup has met daily the last two weeks to define MVP requirements for a centralized product core layer of data as the source of truth (SOT) + high level plan for subsequent phases. Findings from the audit of Nov exec roadmap vs customer-facing roadmap vs teams' internal local roadmaps vs GTM dashboard and shared with Bharat, Matt, and others 2 weeks ago, which was the trigger to launch the previously noted initiative and workgroup. Link to presentation can be found in column A, which is a nice view of the problem, leadership asks, proposed solution and timeline.
+Team - We need to rethink this. The raodmap is not just Lisa's responsibility but each leader need to track their area of responsibility and ensure that we are collavboratiing with our product collegues but more importantly keeping accoutability in a friendly way and providing transparency to Seema and business leaders who are expecting to sell and meet customer commits. I would appreicate each member outlining their metrics by which we can track your progress which I then roll up to send to Seema.
+Lisa's working on a recommended process for doing this.  Will need to balance partnership and accountability, and I think we may need to stop calling this just a roadmap.  It's a full strategic, operational, and accountability planning exercise.
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Confidential - Oracle Restricted \Including External Recipients 
+From: Matt Cohlmia  Sent: Friday, March 6, 2026 2:33 PM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lisa Ford <lisa.ford@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com>; Ian Broughton <ian.broughton@oracle.com>; Raj Modi <raj.modi@oracle.com>; Sarah Jamal <sarah.jamal@oracle.com>; Shruti Iyer <shruti.i.iyer@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com> Cc: Elizabeth Krulish <elizabeth.krulish@oracle.com> Subject: Annual Goals & KPIs
+ 
+Hi team,
+ 
+Bharat asked me to follow up on an ask from today’s team meeting.
+ 
+We’re expecting a business review with Seema around March 23, and we’ll need to prepare a consolidated view of the team’s work. To support that, we’ll be putting together two artifacts:
+KPI & Goal Review
+Please start thinking about the following for your area:
+What you achieved in 2025 compared to your goals
+What you’re planning for this year (key priorities / initiatives)
+How we should measure success (KPIs)
+Team SWOT
+A high-level self-assessment of our Strengths, Weaknesses, Opportunities, and Threats as a team.
+I’m still working out the best way to build this collaboratively. I’ll coordinate with Bharat and follow up early next week with a simple way for everyone to contribute.
+ 
+Bharat asked for a preliminary draft by mid next week. I’ll send a follow-up with the mechanism for collecting inputs (I want to think a bit about the best format), but I wanted to plant the seed now so everyone can start thinking about it.
+ 
+Also, a quick reminder to keep the ￼ team tracker updated — ideally in real time, but at least once a week. It’s an important resource for Bharat as he engages with Seema and manages expectations around our work.
+ 
+Thanks all — have a great weekend.
+ 
+-Matt
+ 
+ 
+ 
+-----Original Appointment----- From: Bharat Sutariya <bharat.sutariya@oracle.com>  Sent: Wednesday, October 8, 2025 6:24 AM To: Bharat Sutariya; Lu de Souza; Katherine Wentworth; Lisa Gulker; Lisa Ford; Matt Cohlmia; Mike Rodgers; Ian Broughton; Raj Modi; Sarah Jamal; Shruti Iyer; Reena Duseja; Tricia Yuill; Whitney Sherman Cc: Elizabeth Krulish Subject: Team Meeting (Weekly) When: Friday, March 6, 2026 11:00 AM-12:00 PM (UTC-06:00) Central Time (US & Canada). Where: https://oracle.zoom.us/j/97204414440?pwd=IVxJVuy3tRFAq6e33HB6oxqoTPXtlF.1&from=addon
+ 
+  
+  
+￼
+Hi there,
+Bharat Sutariya is inviting you to a scheduled Zoom meeting. 
+Join Zoom Meeting 
+One tap mobile: 
+US: +13126266799,,97204414440#,,,,*93038148# or +13017158592,,97204414440#,,,,*93038148# 
+Meeting URL: 
+https://oracle.zoom.us/j/97204414440?pwd=IVxJVuy3tRFAq6e33HB6oxqoTPXtlF.1&from=addon 
+Meeting ID: 
+972 0441 4440
+Passcode:
+93038148
+Join by Telephone 
+For higher quality, dial a number based on your current location. 
+Dial: 
++1 312 626 6799 US (Chicago) +1 301 715 8592 US (Washington DC) +1 646 558 8656 US (New York) +1 206 337 9723 US (Seattle) +1 213 338 8477 US (Los Angeles) +1 253 215 8782 US (Tacoma) +1 346 248 7799 US (Houston) +1 669 900 6833 US (San Jose) +1 720 928 9299 US (Denver)
+Meeting ID: 
+972 0441 4440
+Passcode: 
+93038148
+International numbers
+Join from an H.323/SIP room system 
+H.323: 
+144.195.19.161 (US West) 206.247.11.121 (US East) 115.114.131.7 (India Mumbai) 115.114.115.7 (India Hyderabad) 159.124.15.191 (Amsterdam Netherlands) 159.124.47.249 (Germany) 159.124.104.213 (Australia Sydney) 159.124.74.212 (Australia Melbourne) 170.114.180.219 (Singapore) 64.211.144.160 (Brazil) 159.124.132.243 (Mexico) 159.124.168.213 (Canada Toronto) 159.124.196.25 (Canada Vancouver) 170.114.194.163 (Japan Tokyo) 147.124.100.25 (Japan Osaka)
+Meeting ID: 
+972 0441 4440
+Passcode: 
+93038148
+SIP: 
+97204414440@zoomcrc.com 
+Passcode: 
+93038148
+ 

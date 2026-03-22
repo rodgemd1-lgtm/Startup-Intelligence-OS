@@ -1,0 +1,44 @@
+Confidential - Oracle Restricted \Including External Recipients 
+
++@Mike Rodgers
+ 
+
+Confidential - Oracle Restricted \Including External Recipients 
+From: Jon Rosen <jon.rosen@oracle.com>  Sent: Friday, March 20, 2026 9:39 AM To: Karen Newlon <karen.newlon@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Kristen Miles <kristen.miles@oracle.com>; Katie Ellertson <katie.ellertson@oracle.com>; Matt Cohlmia <matt.cohlmia@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com> Subject: Re: Urgent: Gartner MQ RFIs
+ 
+Confidential - Oracle Restricted \Including External Recipients
+ 
++@Pirkka Padmanabhan
+ 
+ 
+Confidential - Oracle Restricted \Including External Recipients
+From: Karen Newlon <karen.newlon@oracle.com> Date: Friday, March 20, 2026 at 12:35 PM To: Jon Rosen <jon.rosen@oracle.com>, Reena Duseja <reena.duseja@oracle.com>, Kristen Miles <kristen.miles@oracle.com>, Katie Ellertson <katie.ellertson@oracle.com>, Matt Cohlmia <matt.cohlmia@oracle.com> Subject: Urgent: Gartner MQ RFIs
+Confidential - Oracle Restricted \Including External Recipients
+ 
+￼RFI- Healthcare Cloud Platform.xlsx
+ 
+￼RFI EHR MQ.xlsx
+ 
+Hi guys,
+Thanks for attending the meeting today. 
+I’m sharing the welcome packets for the two Gartner Magic Quadrants currently underway:
+Healthcare Provider Industry Cloud Platforms 
+Enterprise EHR 
+These outline the full scope of each research cycle, including market definitions, evaluation criteria, timelines, and what Gartner will be assessing (e.g., completeness of vision and ability to execute).
+I’m also including links to the RFIs for both. The questionnaires are due very soon (end of March / early April), so we need to move quickly. As a reminder, Gartner locks the portal at the deadline with no extensions .
+EHR MQ: RFI due April 6
+Healthcare Cloud RFI: due April 15. 
+What I need from you: Please take some time to review the RFI questions and let me know:
+Which sections you or your teams are best positioned to support
+Help identifying who else might own these questions. 
+Thanks in advance for your help on this. I will set up some time to meet on Monday. 
+ Karen
+ 
+ 
+ 
+Karen Newlon | M: +1 216.704.8726
+Senior Manager, Analyst Relations Oracle Health
+￼
+ 
+ 
+Confidential - Oracle Restricted \Including External Recipients

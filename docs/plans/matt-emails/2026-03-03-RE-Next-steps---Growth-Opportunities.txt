@@ -1,0 +1,302 @@
+Hi all,
+ 
+We weren’t quite ready to send this to Seema by EOW.  New plan is to send tomorrow – this is the last chance to review and confirm.  ￼ Latest here.
+ 
+Please complete any remaining work and validate everything in the deck.  Bharat and I have added a few specific questions/comments (and may add more tomorrow).  In addition, please address the following general items:
+ 
+Section 1
+Customer growth and revenue growth should be cumulative.  Example: if we gain 5 customers in CY26 and add 20 more in CY27, the CY27 total should be 25.
+Revenue math should tie out.  Revenue/customer × cumulative customers should equal total revenue growth (on the right).
+All fields are now CY (not FY).  There was a prior typo/mix – please adjust your numbers if needed.
+Each product needs an estimated first productive-use date.  Please work with GTM to confirm.
+Please confirm the table numbers with both Sales Ops (Sanela’s team) and GTM (Pirkka’s team).
+Section 2
+We’re still missing a one-pager for AIDP for Providers.
+We’re still missing a one-pager for Content Store (unless it’s covered by the two API one-pagers—please confirm).
+The Pharmacy one-pager still needs updates.
+ 
+Please clean up everything ASAP tomorrow morning.  I have a few final polishing steps to complete once everything is finalized so I can package and send.
+ 
+Best,
+Matt
+ 
+ 
+ 
+ 
+ 
+
+Confidential- Oracle Internal 
+From: Matt Cohlmia  Sent: Friday, February 27, 2026 2:42 PM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; Lisa Ford <lisa.ford@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com>; Ian Broughton <ian.broughton@oracle.com>; Raj Modi <raj.modi@oracle.com>; Sarah Jamal <sarah.jamal@oracle.com>; Shruti Iyer <shruti.i.iyer@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com>; Cormac Steer <cormac.steer@oracle.com>; Bryan Muilenburg <bryan.muilenburg@oracle.com>; Alex Mugge <alex.mugge@oracle.com>; Andi Turner Darden <andi.turner.darden@oracle.com>; Chuck Whinney <chuck.whinney@oracle.com> Subject: RE: Next steps - Growth Opportunities
+ 
+Hi team,
+ 
+We’re at/nearing EOD so I wanted to reach out for a status check.  I’m about to board my (long) flight, and I’d like to do all the cleaning/scrubbing/assembly in the air.  Here’s hoping they have wifi.
+ 
+When you are done with a slide/task, please update the tracker or just send me an email.  ￼ Strategy Team Tracker.xlsx  
+ 
+If you are having trouble, need help, or have questions, please reach our ASAP to me and/or Bharat.   
+ 
+Thanks all, and have a great weekend.
+ 
+-Matt
+ 
+ 
+ 
+From: Matt Cohlmia  Sent: Friday, February 27, 2026 7:51 AM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; Lisa Ford <lisa.ford@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com>; Ian Broughton <ian.broughton@oracle.com>; Raj Modi <raj.modi@oracle.com>; Sarah Jamal <sarah.jamal@oracle.com>; Shruti Iyer <shruti.i.iyer@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com>; Cormac Steer <cormac.steer@oracle.com>; Bryan Muilenburg <bryan.muilenburg@oracle.com> Subject: RE: Next steps - Growth Opportunities
+ 
+Hi team – happy Friday!
+ 
+I’m going to spend most of today (and my plane back from Orlando) getting the deck finalized.  Can I get a status update on all the open tasks?  Team tracker here ￼ Strategy Team Tracker.xlsx  (if you don’t have access, just email me your update).  A couple notes:
+Screenshots of example Section 1 and 2 slides pasted after the to-do list, to make sure we’re super clear on what the ask is.
+For old section 2 pages, just make sure they’re updated with Seema’s feedback.  Some of these have been moved into section 1, but please update them anyway, as we’ll keep them in the deck (in an appendix)
+ 
+Raj & Team
+Near-Term Revenue Slides (Section 1)
+LA AIDP
+LS Suite w Agents
+Safety Bundle
+OLD Opportunity One-Pagers (Section 2 – update per feedback)
+Pharma Commercialization in the EHR
+Safety Analytics
+AIDP Trial Recruitment
+Oracle RWE Suite
+Oracle Research Services
+Reena
+Near-Term Revenue Slides (Section 1)
+Clinical Agents
+Ambulatory EHR
+Acute EHR
+OH Patient Portal
+PAS
+OLD Opportunity One-Pagers (Section 2 – update per feedback)
+Consumer Portal
+NEW Opportunity One-Pagers (Section 2)
+Content / Knowledge Store (with Bharat)
+Matt
+Near-Term Revenue Slides (Section 1)
+Global Ready EHR
+Reimbursement Agents
+Prior Authorization (Providers)
+AI Voice Patient Outreach 
+OLD Opportunity One-Pagers (Section 2 – update per feedback)
+Global-Ready EHR
+Reimbursement Agents
+Intermediary Disruption (Clearinghouses)
+NEW Opportunity One-Pagers (Section 2)
+EHR Agnostic RCM
+Katherine
+Near-Term Revenue Slides (Section 1)
+CDEX
+OLD Opportunity One-Pagers (Section 2 – update per feedback)
+Payer Prior Auth Intake
+AIDP Payer Modules
+Claims Intake Agent (w/ or w/o OHI)
+Bharat
+OLD Opportunity One-Pagers (Section 2 – update per feedback)
+Retail Pharmacy
+NEW Opportunity One-Pagers (Section 2)
+Content / Knowledge Store (with Reena)
+AIDP for Providers
+Pirkka / Michele
+NEW Opportunity One-Pagers (Section 2)
+EHR 3rd Party APIs
+Portal 3rd Party APIs (consumer apps)
+Greg
+Near-Term Revenue Slides (Section 1)
+Implementation Services
+Bryan
+NEW Opportunity One-Pagers (Section 2)
+Day 3 Services
+Lisa G
+NEW Opportunity One-Pagers (Section 2)
+Public Health
+Alex (Confirm)
+Near-Term Revenue Slides (Section 1)
+Interop / QHIN
+ 
+ 
+ 
+Section 1 Revenue Forecast: The purpose of these is to roughly forecast near-term revenue for a recently released or soon to be released product, already on roadmap.
+￼
+ 
+ 
+ 
+ 
+ 
+Section 2 One-Pager: The purpose of these is to propose new incremental investment to capture a significant revenue opportunity; something not on roadmap.
+￼
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+From: Matt Cohlmia <matt.cohlmia@oracle.com>  Sent: Thursday, February 26, 2026 8:32 AM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; Lisa Ford <lisa.ford@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com>; Ian Broughton <ian.broughton@oracle.com>; Raj Modi <raj.modi@oracle.com>; Sarah Jamal <sarah.jamal@oracle.com>; Shruti Iyer <shruti.i.iyer@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com>; Cormac Steer <cormac.steer@oracle.com> Subject: Re: Next steps - Growth Opportunities
+ 
+Quick follow-up:
+ 
+Even if numbers aren’t available, please try to clearly articulate a sound logic model.  What are the key factors that will dictate price?  What dynamics will impact customer growth?  How should an executive think about the potential here?  Seema highly values the expertise each of you bring to your respective areas.  She wants to see that thinking on the page.  Don’t hold back because you don’t have perfect data – your informed judgment is exactly what we need right now.
+ 
+From that, try to create, in partnership with GTM & sales ops, a rough model for revenue growth.  It can be made up numbers or placeholder for now, but more detail about the mechanics will be illuminating and instructive.
+ 
+Also, don’t worry about whether something is in or out of budget.  Cormac and team will reconcile on their side.  Just give us your best view of the opportunity.
+ 
+Thanks all.  I’m at a conference (with Bharat and Lisa G!) all day, but don’t hesitate to slack me if you need me.  My number is 316.640.3601, should you need it.
+ 
+-Matt
+ 
+ 
+ 
+ 
+ 
+
+From: Matt Cohlmia <matt.cohlmia@oracle.com> Sent: Thursday, February 26, 2026 12:37:29 AM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Bharat Sutariya <bharat.sutariya@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; Lisa Ford <lisa.ford@oracle.com>; Matt Cohlmia <matt.cohlmia@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com>; Ian Broughton <ian.broughton@oracle.com>; Raj Modi <raj.modi@oracle.com>; Sarah Jamal <sarah.jamal@oracle.com>; Shruti Iyer <shruti.i.iyer@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com>; Cormac Steer <cormac.steer@oracle.com> Subject: RE: Next steps - Growth Opportunities 
+ 
+Hi all,
+ 
+I’ve built out an filled out version of a revenue forecast slide on slide 8 of the deck, if it helps to have an example to look at (pasted below).  Template on slide 7.  ￼ 1 Growth Opportunities Dec 2025 Exploration v6 SV Comments.pptx
+ 
+One note: The example I used is more complicated than most, with 3 different ways of driving value/revenue and 2 different customer bases, so I explained that in the text.  Don’t feel you need to force it into that framing (1 revenue stream and 1 customer type is going to be the norm).  Just provide whatever context is useful & important to illustrate and justify the revenue projections.  
+ 
+Things to potentially include in the text:
+Pricing Rationale:
+How we expect to charge, if known (model: per customer, per transaction, subscription, etc.)
+Reference points we're using (e.g. “Underlying platform average per-customer revenue is $X”)
+Key value drivers that justify the price (e.g., “reduces denial rates by X%”, “displaces $Ym in third-party spend”)
+Customer Growth Rationale:
+Who is the customer?
+Size of addressable base or priority targets/segments (e.g. “35 targets per Sales”, “20-40 pharma customers per internal estimates”)
+Adoption assumptions and ramp logic (e.g. "pilots with 2-3 in Y1, convert to revenue in Y2, scale to 20 by Y5”, “X% market capture by CY28”)
+ 
+Don’t hesitate to reach out with any thoughts, questions, or feedback.
+ 
+-Matt
+ 
+￼
+ 
+ 
+ 
+ 
+From: Matt Cohlmia <matt.cohlmia@oracle.com>  Sent: Tuesday, February 24, 2026 2:24 PM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Bharat Sutariya <bharat.sutariya@oracle.com>; Katherine Wentworth <katherine.wentworth@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com>; Lu de Souza <lu.de.souza@oracle.com>; mcohlmia_org_ww <mcohlmia_org_ww@oracle.com>; ramodi_org_ww <ramodi_org_ww@oracle.com>; Reena Duseja <reena.duseja@oracle.com>; Tricia Yuill <tricia.yuill@oracle.com>; Whitney Sherman <whitney.sherman@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com>; Cormac Steer <cormac.steer@oracle.com> Subject: RE: Next steps - Growth Opportunities
+ 
+Hi team,
+ 
+Thanks for all the work so far on growth opp one-pagers.  Here’s the assignment list DUE by FRIDAY.
+Old one-pagers. Finalize your existing one-pagers based on Seema’s feedback. (should already be done). 
+Near-term revenue: Fill out the Planned New Product/Bundling revenue template (slide 7) with # of customers and projected revenue.  Contact Sanela and the relevant GTM partner to get data or make estimates.  Fill out the analysis template (slide 7) showing how you got there.  (assignments below)
+New one-pagers: Draft a new one-pagers in the same format as the old round. (assignments below)
+ 
+Handy cheat sheet:
+￼
+ 
+Please reach out ASAP if you have questions.  We need to get a solid deliverable to Seema by FRIDAY.
+ 
+Best,
+Matt
+ 
+ 
+ 
+ 
+ 
+ 
+From: Bharat Sutariya <bharat.sutariya@oracle.com>  Sent: Wednesday, February 18, 2026 7:37 PM To: bsutariy_org_ww <bsutariy_org_ww@oracle.com>; Pirkka Padmanabhan <pirkka.padmanabhan@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com>; Greg Zanowski <greg.zanowski@oracle.com>; Joshua Seedman <joshua.seedman@oracle.com> Subject: Next steps - Growth Opportunities
+ 
+Team,
+ 
+We met with Seema this morning and have clear direction on the next version of the ￼ Growth Opportunities Deck.  Matt has done the hard work today organizing everything and creating a plan so that it makes it easier for you all do your part efficiently.
+ 
+@Pirkka Padmanabhan & @Sanela Hodzic – very much appreciate your collaboration in advance. Please fee free to forward to the right members of your team.
+@Greg Zanowski & @Joshua Seedman – We need to integrate revenue projections for Day 1 related to implementation of all products currently on the roadmap (the list on left below) and well Day 3 services. I believe day 2 services are already included in the SaaS revenue. Appreciate you both looking into and start deriving some numbers for each product and ramp up in 26, 27, 28, etc. based on # of customers projected. We can connect Friday or Monday but it would be great to get your numbers latest by Tuesday EOD.
+ 
+WHATS CHANGING:
+For this next turn, we are distinguishing between what is committed roadmap versus what is an unfunded or unplanned incremental growth opportunity.  Most of what we have developed to date fits into the second category.  Seema wants us to add context around our current near-term revenue plan – what’s on the roadmap, when it launches, and what the revenue projections are.  To do this cleanly, we’re restructuring the deck into two sections:
+Section 1 (NEW): Planned New Product Revenue.  Covers upcoming new product releases, recently released products, and new solution bundles of existing products that have near term revenue upside.  We need to build out revenue projections (customers × pricing = revenue).  We’ll partner with GTM, Sales Ops (Sanela), and more to create this revenue view, plus explanations for how we built the estimates.  Some will be high-fidelity, others will be softer (and that’s OK). Not doing full one-pagers for these.
+Section 2: Growth Opportunities.  Growth One Pagers – new investments, new markets, and expanded positioning not yet accounted for in current projections.  This is the work we did previously, but we’ll add some new opps and recategorize some we’ve already written into Section 1.
+ 
+Important: We will NOT be creating new one-pagers for every Section 1 product.  Where one-pagers already exist for items that now fall into Section 1, we’ll keep them in a separate section for reference, but we’re not building new ones.
+ 
+Seema and I went through the full list of revenue plays and categorized them in the buckets below.  Section 1 plays on the left, Section 2 plays on the right.
+ 
+￼
+ 
+Seema identified 8 new growth opportunity one-pagers she wanted us to develop.  Assignments below:
+Content/Knowledge Store – Reena/Bharat
+AIDP for Providers - Bharat
+EHR 3rd Party APIs – Pete/Michele/Pirkka
+Portal 3rd Party APIs (consumer apps, CMS aligned network) – Pete/Michele/Pirkka
+EHR Agnostic RCM – Matt
+Day 3 Services – Josh Seedman
+Implementation Services – Greg Zanowski
+Public Health – Lisa G
+AI Voice Patient Outreach – Matt (might be in committed roadmap – please confirm)
+ 
+TASKS FOR THE WHOLE TEAM
+By this Friday:
+Finalize your existing one-pagers based on Seema’s feedback (see notes in the deck).
+Make sure each one-pager includes revenue potential by year, with # of customers and avg $/customer.  With this turn, we are more clearly separating planned roadmap revenue from potential revenue from new investment – please differentiate between those two in your one-pagers where applicable.
+Make sure each one-pager includes direction for product on what’s needed to capture the opportunity.
+By end of month (next Friday):
+Near-term revenue: Fill out the Planned New Product/Bundling revenue grid (slide 7) with # of customers and projected revenue.  We will request Sanela to help and get things started. Each assigned strategy owner can connect with Sanela next week to workout more specifics of sales projections  and pricing from GTM.  Fill out the analysis template (slide 7) showing how you got there.
+New one-pagers: See assignments above.
+ 
+ENGAGING OTHER TEAMS
+I’ve CC’d the GTM team – we’ve spoken with Pirkka and appreciate their partnership on this.  Strategy owners should work directly with your GTM counterpart on pricing and GA dates.  For Sales, Finance, and Customer Success inputs, Bharat and Matt will engage those teams centrally so we’re not sending multiple requests.  Please do not reach out to those teams independently on this – we will CC you on our outreach and get the content you need ASAP.
+ 
+ADDITIONAL FOLLOW-UPS
+We have a couple product-specific things to clear up, including positioning of some items between Section 1 and Section 2, and deeper direction on LS Research Services, Payer modules, Pharmacy, and Interop/OHIN.  I’ll be reaching out individually to the relevant owners on those.  No action needed from the broader team on these items right now.
+ 
+Let Matt or me know if you have questions.
+ 
+Bharat
+ 
+ 
+ 
+ 
+ 
+ 
+Confidential- Oracle Internal
+From: Matt Cohlmia  Sent: Wednesday, February 18, 2026 2:38 PM To: Bharat Sutariya <bharat.sutariya@oracle.com> Subject: RE: next steps - Growth Opportunities
+ 
+Below are my notes re: specific asks coming from the Seema conversation and a path forward.  I’m also working on an email we can send to the team, plus updates to the deck.  Will send those shortly.
+ 
+Specific tasks coming out of Seema call:
+Confirm positioning:
+Remove Fusion? Ask Lisa
+Remove Provider AIDP? Ask Travis True
+Where is PA for Payers? (on roadmap or growth)? Ask Katherine
+More significant unpacking needed
+LS Research Services.  Need to expand on this.  Chris Boone work with Raj & Pirkka.  Include RWE Suite concepts, Cancer impact & similar offerings that can be sold on a subscription basis.  Goal to double revenue.  Are there multiple RWE suites?
+AIDP Modules for Payer.  Are these committed new products, bundles, or growth opportunities?  Care gap communication, Analytic/BI, Coding Calc.    What do we need to show here?  Ask Katherine
+Pharmacy.  Meet with Dave P & the team that traveled to Indy/Morrison – get intel.  Determine market oppty with Publix/Albertsons/etc.  Bharat
+Interop/OHIN.  Confirm whether there’s incremental revenue here, based on current roadmap.  Out of scope for this document but need Alex M and Josh to develop a whitepaper about broader revenue opps.
+New One-Pagers to develop:
+Content/Knowledge Store – Reena 
+EHR 3P APIs – Pete/Michele/Pirkka
+Portal 3p APIs: consumer applications (CMS aligned network? Could be part of consumer portal) – Pete/Michele/Pirkka
+EHR Agnostic RCM – Matt 
+Day 3 – Josh Seedman
+Implementation Services – Greg Zanowski
+Public Health – Lisa G
+AI Voice pt engagement – Matt
+Other Programming Notes:
+Matt will be responsible for deck order/structure/etc. so just focus on your one-pagers and Matt can do the packaging.
+We will NOT be making new one-pagers for every Section 1 product.  If a one-pager has already been developed, we will keep it (put into a separate sction), but not make new ones.  NOTE: Seema specifically asked for a few one-pagers (e.g. clinical agents, LS AIDP, etc.) in her initial outreach.   
+For all Section 1 products (planned new product releases and new bundling of existing): we’ll work with consulting to project Day 1, Day 2, and Day 3 revenue (which are billed as services, SaaS, and services, respectively).  We will assume that the numbers in the opp one-pagers already include consulting revenue. 
+ 
+Tasks for the whole team:
+BY FRIDAY: Finalize existing one-pagers
+Update one-pagers based on Seema feedback
+Make sure you have revenue potential by year, including # of customers and avg $/customer.
+NOTE: with this turn, we are more clearly delineating between committed roadmap revenue and potential revenue from new opportunity investment.  Please differentiate between those two (as needed) in the one-pagers.
+Make sure you have direction for product re: what is needed to capture the opportunity.
+BY EOM (NEXT FRIDAY):
+Near-term Revenue. Fill out Planned New Product/Bundling revenue grid with # of customers and projected revenue.  Get sales projections from sales, pricing from GTM.  Fill out template explaining how we got those #s.  
+New Opp One-Pagers: Seema asked for 7 more.  See above.
+Any major overhauls identified (in the 4 areas above: LS Research Services, AIDP for Payer, Pharmacy, Interop/OHIN)
+ 
+A note on engaging other teams:
+CC the GTM team on the email we send  – we've spoken with Pirkka and appreciate their partnership on this.  Strategy owners should work directly with your GTM counterpart on pricing and GA dates for slides 6/7.
+For Sales, Finance, and Customer Success inputs, I will engage those teams centrally so we're not sending multiple requests.  Please do not reach out to those teams independently on this.  We will cc you on our outreach and get the content you need ASAP.
+ 
+Matt

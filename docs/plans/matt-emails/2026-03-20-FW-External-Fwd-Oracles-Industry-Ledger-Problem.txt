@@ -1,0 +1,102 @@
+Confidential - Oracle Restricted \Including External Recipients 
+
+ 
+ 
+
+Confidential - Oracle Restricted \Including External Recipients 
+From: Matt <m.cohlmia@gmail.com>  Sent: Thursday, March 19, 2026 2:00 PM To: Matt Cohlmia <matt.cohlmia@oracle.com> Subject: [External] : Fwd: Oracle's Industry Ledger Problem
+ 
+ 
+---------- Forwarded message --------- From: Health API Guy Daily Ping <healthapiguy+daily-ping@substack.com> Date: Thu, Mar 19, 2026 at 7:32 AM Subject: Oracle's Industry Ledger Problem To: <m.cohlmia@gmail.com>
+ 
+￼
+Larry Ellison pitches an ecosystem vision while the EHR business stays silent on specifics in the most recent quarterly earnings
+͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­͏     ­
+
+
+
+
+View in browser
+Oracle's Industry Ledger Problem
+The ecosystem pitch is compelling, but you can't build a network from footholds you're losing
+BRENDAN KEELER
+MAR 19
+
+∙
+
+PAID
+￼
+
+ 
+￼
+
+￼
+
+￼
+
+￼
+
+READ IN APP￼
+ 
+
+￼
+
+Because Oracle is a public company, we have the good fortune of hearing its quarterly earnings updates, a luxury we don’t have for most other health technology companies. On the flip side, Oracle Health (née Cerner) is now just a subsidiary buried in the greater Oracle portfolio of cloud infrastructure, database products, and enterprise systems of record. And so earnings calls become exercises in reading between the lines, parsing what Larry Ellison wants to talk about versus what analysts actually need to know about the EHR business.
+I was optimistic for true signal in this quarter’s update. This is the year when Oracle has stated its inpatient AI EHR would be ready. It’s also when we conceivably could see a pilot customer or even an outright win switching over from Epic, which would be monumental to break from popular narrative. We were promised growth in last quarter’s update, after all:
+Also in health care, our brand new AI-based ambulatory EHR is generally available and that it’s received US regulatory approval. We expect both our bookings and our revenue in Q3 to accelerate materially.
+However, the rumor mill has swirled quite a bit lately, with investors hypothesizing a potential sale to fund more data centers and an unexpected cut to product leadership adding uncertainty. 
+Rumors are rumors. We play the ball as it lies. The full transcript from last week’s 2026 Q3 call can be found here. In general, it was a truly great quarter for Oracle (the best in 15 years), but let’s review it for health takes.
+And a great example, I think, is in health care: our brand-new AI-powered EHR—electronic health record—system is live in the market and the results are quite clear. We are reducing administrative overhead, we are allowing clinicians to see more patients, we are improving access to care, and we are increasing provider satisfaction.
+“Live in the market” is doing a lot of heavy lifting without a spotter. How many beds? Which systems? What does “reducing administrative overhead” mean in quantifiable terms? We don’t know, because we aren’t told, and that’s been how these quarterlies have been for over a year.
+I’d prefer to see harder metrics, like they are providing for Fusion, their ERP:
+In the quarter, we had over 2,000 customers go live in Q3. When you think about our industry applications and our Fusion applications put together, over 2,000 went live, and, more importantly, we continue to see the median time to go-live decrease.
+The vagueness of “industry applications” leaves room for the imagination. Perhaps EHR is lumped into those categories?
+The customer narratives included suggest otherwise, however:
+A very small sample of go-lives in the quarter: Hearst expanded their ERP with EPM as well as HCM. JM Huber Company is now live across Fusion ERP and SCM. Emirates Health Services went live with HCM, which enabled a comprehensive HR, payroll, and talent suite to elevate their workforce management. Niagara Bottling went live on SCM, moving from on-premises ERP to Fusion. Seadrill is now live across ERP, HCM, SCM, and EPM.
+All in all, CEO Mike Cecilia names 17 customers and the specific Oracle applications they went live on, including Memorial Hermann Health System. None of those examples, though, includes a mention of the Oracle EHR, which is telling. 
+It’s a reminder that the narrative on the earnings calls really hasn’t changed much for several years. Looking back to Q2 2024, we heard then-CEO Safra Catz provide similar messaging and promises:
+I think -- yeah. So, let me just tell you, I think for the year -- for the full fiscal year, Cerner will be sort of negative 1 to 2 points, but that will be it. It’ll end this fiscal year. And from then on, it will be a growth story.
+So, it will no longer be a drag on the -- on Oracle growth. OK?
+All of this is a shame, because the market would benefit from more competition at the top level of EHRs, and the technology Oracle is building seems genuinely cool from a technologist's perspective. I also generally like Oracle’s overall strategy, which we’ve highlighted previously as:
+
+￼
+
+·        Find differentiated product benefits by threefold vertical integration at the application layer, the database layer, and the hosting layer.
+
+￼
+
+·        Out-monolith Epic at the enterprise level on a more modern stack while shipping faster using AI-powered application generation in a virtuous cycle
+However, there’s another strategic pillar that we haven’t talked as much about:
+·        Use systems of record as control points across entire industry ecosystems to automate end-to-end, not just individual departments or organizations.
+That pillar was strongly highlighted on this call in Larry Ellison’s closing riff:
+They are open to allow our customers and our partners to add to that portfolio of agents, and we build an entire ecosystem that automates health care, automates financial services, automates retail. That is what AI is allowing us to do: to expand our horizons for the scope of the suites of the SaaS software we are building to automate entire ecosystems. Let me talk about health care. In health care, Epic automates hospitals—acute care hospitals—and, in some cases, clinics, but primarily acute care hospitals. We automate acute care hospitals. We automate clinics. We automate laboratories. We automate the payers—the people who actually pay the bills. We automate the insurance companies.
+We automate the HCM system that trains their nurses, that schedules their radiologists to get the right radiologist when an MRI is given, that automates the hospital’s financials, that also automates the FDA and the regulators that approve the latest drugs, that deals with the pharmaceutical companies. That is the health care ecosystem. It is enormous. And thank God we have these coding tools now that allow us to build a comprehensive set of software—agent-based software—to automate an ecosystem like health care or financial services. That is what we are doing at Oracle Corporation. That is why we think we are a disruptor. That is why we think the SaaS apocalypse applies to others, but not to us.
+Calling out Epic by name as a vendor that only automates one slice of the healthcare ecosystem! Ironic when they are literally in court for alleged anticompetitive forays into adjacencies. Larry’s pitch is that they alone automate the entire healthcare ecosystem: hospitals, clinics, laboratories, payers, insurance companies, the HCM systems that train nurses and schedule radiologists, hospital financials, FDA and regulators, and pharmaceutical companies. The same logic applies to other industries like financial services and retail, all because Oracle has built (or more often purchased) systems of record throughout the economy.
+
+￼
+
+If the image feels familiar, well, it sure sounds a lot like the promise of Epic’s Health Grid products, only more ambitious as it is not just network products extending out from the EHR, but a spiderweb of cross-organizational workflows being spun all at once. So it’s not surprising to see Oracle launch its equivalents of Epic Payer Platform or Aura Medical Devices. The aspiration of a system of record is naturally to establish an Industry Ledger, in Tidemark terms, a network integrating and normalizing data across key stakeholder organizations that interact with one another. 
+
+￼
+
+In any case, I am generally here to stan for any company with network ambitions. However, there’s a real fundamental tension to Oracle’s audacious vision. The industry ledger concept requires strong, sticky footholds via the systems of record that give you the data, the relationships, and the trust to coordinate across an ecosystem. But Oracle's most important foothold in healthcare, the EHR installed base purchased from Cerner, has been contracting for years as health systems migrate to Epic. And is it just healthcare where these beachheads are eroding? Oracle CTMS (born from the acquisition of the then-dominant, 45% market share system of record Siebel in 2005) has become a distant third to Veeva and Medidata, while in construction, Oracle Primavera is locked in ugly legal battles due to the encroachments of the ascendant Procore.
+You can't build an industry ledger from footholds that are crumbling. Until Oracle can turn the corner and name a health system live on the new EHR, the ecosystem pitch is a strategy deck, not a business. Here’s to hoping we see something meaningful next quarter.
+Invite your friends and earn rewards
+If you enjoy Health API Guy, share it with your friends and earn rewards when they subscribe.
+Invite Friends
+ 
+￼LIKE
+
+￼COMMENT
+
+￼RESTACK
+
+ 
+© 2026 Brendan Keeler Portland, OR  Unsubscribe
+￼￼
+
+￼￼
+ 
+ 
+-- 
+Matt Cohlmia e-mail: m.cohlmia@gmail.com

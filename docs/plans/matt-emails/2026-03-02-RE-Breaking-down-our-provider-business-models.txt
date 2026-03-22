@@ -1,0 +1,168 @@
+Confidential - Oracle Restricted \Including External Recipients 
+
+Hi Bharat,
+ 
+We can pull some of the vendors they work with from Definitive HC.  It’s self-reported, and a little messy, so I wouldn’t be the farm on it, but it’s still directionally helpful.  
+ 
+@Mike Rodgers could you run a first pass at this on Definitive today?  Just a quick “top 3-5” list for each category would be great.  It looks like he’s asking for our installed base, so please filter for that.
+ 
+-Matt
+ 
+
+Confidential - Oracle Restricted \Including External Recipients 
+From: Bharat Sutariya <bharat.sutariya@oracle.com>  Sent: Sunday, March 1, 2026 7:54 PM To: Nino Bice <nino.bice@oracle.com>; David Waltman <david.waltman@oracle.com>; Tyler Polshak <tyler.polshak@oracle.com> Cc: Lance Olson <lance.olson@oracle.com>; Ashleigh George <ashleigh.george@oracle.com>; Graham Bury <graham.bury@oracle.com>; Sowmya Ballakur <sowmya.ballakur@oracle.com>; Christine Swisher <christine.swisher@oracle.com>; Olivia Tran <olivia.tran@oracle.com>; Peter Weinberg <peter.weinberg@oracle.com>; Austin Caldwell <austin.caldwell@oracle.com>; Matt Cohlmia <matt.cohlmia@oracle.com>; Erin Gregory <erin.gregory@oracle.com>; Sanela Hodzic <sanela.hodzic@oracle.com> Subject: Re: Breaking down our provider business models
+ 
+Confidential - Oracle Restricted \Including External Recipients
+ 
+Added Matt Cohlmia, Erin Gregory, Sanela and Austin.
+ 
+Nino,
+We likely need to understand better what you are trying to do with such vendor landscape and priority. The info exists in various pockets across work Erin’s team does, what Matt along with other strategist have done at times but putting together will take some effort by a few.
+ 
+Thanks
+Bharat
+ 
+Get Outlook for Mac 
+ 
+Confidential - Oracle Restricted \Including External Recipients
+From: Nino Bice <nino.bice@oracle.com> Date: Sunday, March 1, 2026 at 12:32 PM To: David Waltman <david.waltman@oracle.com>, Bharat Sutariya <bharat.sutariya@oracle.com>, Tyler Polshak <tyler.polshak@oracle.com> Cc: Lance Olson <lance.olson@oracle.com>, Ashleigh George <ashleigh.george@oracle.com>, Graham Bury <graham.bury@oracle.com>, Sowmya Ballakur <sowmya.ballakur@oracle.com>, Christine Swisher <christine.swisher@oracle.com>, Olivia Tran <olivia.tran@oracle.com>, Peter Weinberg <peter.weinberg@oracle.com> Subject: Re: Breaking down our provider business models
+Confidential - Oracle Restricted \Including External Recipients
+ 
+Also, does anyone have the B2B vendors they work with (or like top x that cover 80% case, etc)?
+ 
+Looking for vendors like (Pete, assuming from all the re-contracting work, we probably have this somewhere):
+ 
+1) Workforce & staffing
+Travel nurse and locums firms
+Credentialing, scheduling, workforce optimization
+Outsourced coding / call center / EVS support
+2) Med-surg supply chain (consumables + distribution)
+Distributors (med-surg, PPE, commodity devices)
+GPO-driven purchasing + price benchmarking
+Inventory management, logistics, sterile processing partners
+3) Devices, implants, OR supply & surgery platforms
+Ortho/cardiac/neuro device manufacturers
+Surgical robotics + OR integration
+Specialty distributors (implants)
+4) Drugs & pharmacy ecosystem
+Wholesalers / specialty distributors
+Infusion therapy supply + pharma services
+Medication access / benefit verification services
+5) Diagnostics & imaging
+Reference labs (testing, genetics)
+Imaging OEMs + PACS/VNA + teleradiology
+Diagnostic AI vendors (increasingly embedded)
+ 
+6) Core IT + infrastructure + cybersecurity
+Cloud/hosting, identity, endpoint security
+Clinical comms, device integration, monitoring
+EHR-adjacent modules and departmental systems
+7) Revenue cycle + payer connectivity
+Clearinghouses, claim editing, denial management
+Prior auth workflow + automation
+Patient billing, financing, call center services
+8) Interoperability + data platforms
+HIE connectivity, TEFCA/QHIN pathways
+Data normalization, analytics, quality reporting
+Research/RWD collaborations (where allowed)
+Oracle-specific note: Oracle Health is now a Designated TEFCA QHIN, positioning it as a single connection point for broader exchange through TEFCA. 
+9) Clinical trials / life sciences enablement
+CROs and site-enablement platforms
+Recruitment, eConsent, eSource/ePRO
+Real-world evidence collaborations (governed)
+10) Facilities + outsourced clinical/non-clinical services
+Construction/engineering, HVAC, security
+Food services, EVS, dialysis operators, imaging services management
+ 
+ 
+ 
+ 
+ 
+ 
+Confidential - Oracle Restricted \Including External Recipients
+From: Nino Bice <nino.bice@oracle.com> Date: Sunday, March 1, 2026 at 10:14 AM To: David Waltman <david.waltman@oracle.com>, Bharat Sutariya <bharat.sutariya@oracle.com>, Tyler Polshak <tyler.polshak@oracle.com> Cc: Lance Olson <lance.olson@oracle.com>, Ashleigh George <ashleigh.george@oracle.com>, Graham Bury <graham.bury@oracle.com>, Sowmya Ballakur <sowmya.ballakur@oracle.com>, Christine Swisher <christine.swisher@oracle.com>, Olivia Tran <olivia.tran@oracle.com> Subject: Breaking down our provider business models
+Hi Team!
+ 
+I am doing some planning for LS and HAIDP – need some hard data on our demand side (our providers). 
+ 
+Does anyone have our provider install base organized by business model?  If we don’t if someone could send me the superset list of Oracle health providers, I can do it quickly:
+ 
+ 
+#
+Business Model
+Ownership
+Primary Revenue Source
+ 
+ 
+Example
+1
+Nonprofit Community
+501(c)(3) nonprofit
+Fee-for-service (commercial + Medicare)
+ 
+ 
+Providence Health & Services
+2
+For-Profit Chain
+Public / PE-backed
+Fee-for-service + commercial leverage
+ 
+ 
+HCA Healthcare
+3
+Academic Medical Center
+Nonprofit + university
+High-acuity DRGs + research grants + GME
+ 
+ 
+Johns Hopkins Hospital
+4
+Safety-Net / Public
+County / State-owned
+Medicaid + DSH + tax support
+ 
+ 
+NYC Health + Hospitals
+5
+Critical Access Hospital
+Rural nonprofit/public
+Cost-based Medicare reimbursement
+ 
+ 
+Rural CAHs
+6
+Specialty Hospital
+For-profit / nonprofit
+Focused procedural DRGs
+ 
+ 
+Encompass Health
+7
+Integrated Delivery Network (IDN)
+Nonprofit or for-profit
+Facility + physician fees + value-based contracts
+ 
+ 
+Intermountain Health
+8
+Fully Capitated / Integrated Plan + Provider
+Nonprofit
+Capitation (PMPM)
+ 
+ 
+Kaiser Permanente
+9
+PE Roll-Up Model
+Private equity-backed
+Operational margin expansion
+ 
+ 
+Behavioral roll-ups
+10
+Value-Based / Risk-Bearing Hybrid
+Layered onto IDNs
+ACO/shared savings/bundles
+ 
+ 
+Large ACO systems
+ 

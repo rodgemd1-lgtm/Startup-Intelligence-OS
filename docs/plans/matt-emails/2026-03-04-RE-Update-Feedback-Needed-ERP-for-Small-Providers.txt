@@ -1,0 +1,170 @@
+Hi Bharat and Lisa,
+ 
+Do you have time in the next 1-2 days to review this document from Mike?  I have already provided feedback, but he’s waiting for your input before doing the final turn to make Seema-ready.
+ 
+If you don’t have time, let us know and Mike can make the vFinal without your input.  I have also advised Mike to work with GTM (I believe Chuck Whinney is the GTM ERP person?) to create a market segmentation to go with this, as fundamentally the recommendation is both about product evolution AND carving up the market between the products. 
+ 
+-Matt
+ 
+From: Mike Rodgers <mike.r.rodgers@oracle.com>  Sent: Monday, February 23, 2026 11:45 AM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Matt Cohlmia <matt.cohlmia@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com> Subject: Re: Update Feedback Needed: ERP for Small Providers
+ 
+Bharat and Lisa,
+ 
+Following up on this. I have Matt’s comments and have worked with Sales to answer those. Any additional comments before I take another turn, so we can get this to Seema.
+ 
+Please take a look and provide feedback. Here is the link to the document:
+ 
+￼￼ERP for Small Provider Opportunity Paper v02122026.docx
+ 
+ 
+Best,
+Mike
+ 
+ 
+ 
+Confidential- Oracle Internal
+From: Bharat Sutariya <bharat.sutariya@oracle.com> Date: Thursday, February 12, 2026 at 2:36 PM To: Mike Rodgers <mike.r.rodgers@oracle.com>, Matt Cohlmia <matt.cohlmia@oracle.com>, Lisa Gulker <lisa.gulker@oracle.com> Subject: RE: Update Feedback Needed: ERP for Small Providers
+Mike,
+Appreciate the work. I will take a look at this tonight or tomorrow.
+ 
+Bharat
+ 
+ 
+Confidential- Oracle Internal
+From: Mike Rodgers <mike.r.rodgers@oracle.com> Sent: Thursday, February 12, 2026 3:26 PM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Matt Cohlmia <matt.cohlmia@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com> Subject: Update Feedback Needed: ERP for Small Providers
+ 
+Bharat, Matt, and Lisa,
+ 
+I've worked with the sales team to review and update the ERP whitepaper. It now includes product comparisons, a recommendation, and three priority areas for Seema to focus on to accelerate our efforts to sell Oracle’s ERP solutions to small providers using Oracle EHR. 
+ 
+Please take a look and provide feedback. Here is the link to the document:
+ 
+￼ERP for Small Provider Opportunity Paper v02122026.docx
+ 
+Mike
+ 
+ 
+ 
+Confidential- Oracle Internal
+From: Bharat Sutariya <bharat.sutariya@oracle.com> Date: Tuesday, February 10, 2026 at 9:29 PM To: Mike Rodgers <mike.r.rodgers@oracle.com>, Matt Cohlmia <matt.cohlmia@oracle.com>, Lisa Gulker <lisa.gulker@oracle.com> Subject: RE: Feedback Needed: ERP for Small Providers
+Mike,
+The original feed back from Seema –
+Lots missing here.  I can’t tell what size NetSuite versus Multi Plan. I know fusion is for above 1500 employees.  Needs work on defining the feature gaps etc.  I think we should stop selling Multi Plan and focus on NetSuite but its not clear what is needed, etc.  We need a strategy here. 
+ 
+The original paper embedded in the attached email was 4 pages. It outlines much of what you are stating below. Thus, I agree with the macro approach.
+ 
+There was extensive conversation with various folks by email and some by Lisa. The objective was to address the highlighted above. It still remains the same objective.
+ 
+I am not sure below cleanly gets to it. It has some parts of it. In the original 4 paper page paper, we have started to touch on the gaps for each proposed solution and in this version we need to expand it and provide clarity what is needed for each market segment, why and where we are with current product – and what we need to overcome the gap. If we do that, what incremental (what it is today and what more we can sell) we can generate.
+ 
+I am uncertain if we ourselves have the expertise but I am hoping from extensive feedback provided by Austin, Matt P, Eric Geiss, Chris Gibson and many others by emails helps us.
+ 
+Thanks
+Bharat
+ 
+ 
+ 
+ 
+ 
+Confidential- Oracle Internal
+From: Mike Rodgers <mike.r.rodgers@oracle.com> Sent: Tuesday, February 10, 2026 8:30 PM To: Matt Cohlmia <matt.cohlmia@oracle.com>; Bharat Sutariya <bharat.sutariya@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com> Subject: Feedback Needed: ERP for Small Providers
+ 
+Bharat, Matt, and Lisa,
+ 
+The original ERP was 10 pages long and did not fully answer Seema's question. Before rewriting and shortening the paper, I wanted to give you a “Here’s what I am thinking” and get feedback. 
+ 
+Original Question: Should we pursue ERP sales in the small provider space, including ambulatory?
+Answer: Yes, but…
+I've dug through the data, looking at our deal sheets, and talking to Austin Kunz, Matt Patterson, and Kyle Milligan about what's actually happening in the field. Should we pursue this? Yes, but… not the way we're doing it now. Right now, we're trying to sell to everybody—Critical Access Hospitals, small clinics, medium hospitals, ambulatory groups, ASCs. We haven't made any hard choices about where to focus and what solution suite should focus on what. The ambulatory space has some momentum and guidelines on selling to 200+ provider ambulatory sites (Meharry Medical College), but we don't have a clear strategy for the rest of the small provider market.
+Where is the juice worth the squeeze:
+Small hospitals with supply chain needs (Fusion), multi-site ambulatory groups (NetSuite), and Critical Access Hospitals (if we solve implementation costs). We need three things: 1. Clear focus on where Fusion plays versus NetSuite, 2. Lower implementation costs (from $100K to $50K or a lot less), and 3. Confirm our segment approach.
+What we avoid: Single-site small clinics with no growth path, greenfield (non-Oracle Health EHR customers), and large hospitals (300+ beds), except as a defensive retention play.
+What's the lever Seema could help to pull: Accelerate the Patient Accounting APIs from FY27 to FY26 Q4. If we build a plug-and-play connector between our EHR and any ERP, we cut implementation costs, unlocking the full ~2,000 customer base
+ 
+Market Reality & Size of the Opportunity
+The Total Addressable Market (TAM) for small-provider ERP is approximately $3.7B. Our realistic Serviceable Addressable Market (SAM) is about $2.8B—providers Oracle can reach. We have ~2,000 Oracle Health EHR customers in the small provider space. Our 3-year Serviceable Obtainable Market (SOM) is $100M-$125M in bookings (2026-2029). That's roughly 3.5-4.5% —a healthy capture rate for enterprise software. The clock is ticking. Epic is thought to be building a native ERP by 2027.
+ 
+What Customers Need – How We Bring Focus to NetSuite vs Fusion
+Here is how I'm thinking about our ~2,000 Oracle Health EHR customers. They're not all the same—they fall into three distinct stages.
+Stage 1: "Just the Financials”: Imagine you're a Critical Access Hospital in rural Montana. You have 20 beds and maybe 50 employees. Medicare cost reports are killing you, and you're running financials in Excel or QuickBooks. You just need to survive and stay compliant. These folks need basics: a General Ledger that understands healthcare, AP automation, and a proper Chart of Accounts for Medicare reporting. That solves their problem.
+Product question: Fusion ($25K-$50K/year) or NetSuite? Austin's had success with Fusion; NetSuite might be faster (60 days vs 6 months). We should pilot both.
+Opportunity: ~500 CAH customers = $10M-$15M if we address implementation costs.
+Stage 2: "Add Procurement”: A multi-site ambulatory group like Meharry—100+ providers across 5-10 locations. Financials are sorted, but you're buying supplies across all sites with no visibility. They need basic procurement visibility.
+Product fit: NetSuite shines here for ambulatory (Meharry: $75K-$80K Year 1, 60 days, happy customer). For hospital-affiliated sites, Fusion makes sense in the long term.
+Opportunity: Large ambulatory groups + multi-site ASCs = $40M-$70M.
+Stage 3: "Full Supply Chain”: A 150-bed community hospital or 15-site ASC platform competing with larger health systems. When there's a recall on surgical instruments, you need to know which ORs have them. You need robust inventory management and tight GPO integration to achieve bulk pricing. NetSuite and Multiview can't do a healthcare-specific supply chain. Fusion's recall management, par inventory, and GPO integration are built in—that's our differentiator.
+Product fit: Full Fusion suite ($70K-$100K/year software, $300K-$400K Year 1 with implementation). Yes, implementation is a barrier we still have to solve
+Opportunity: Small hospitals + large ASC platforms = $50M-$70M.
+ 
+Again, please weigh in,
+Mike
+ 
+ 
+ 
+Confidential- Oracle Internal
+From: Matt Cohlmia <matt.cohlmia@oracle.com> Date: Wednesday, February 4, 2026 at 6:12 PM To: Bharat Sutariya <bharat.sutariya@oracle.com>, Lisa Gulker <lisa.gulker@oracle.com>, Mike Rodgers <mike.r.rodgers@oracle.com> Cc: Mike Rodgers <mike.r.rodgers@oracle.com> Subject: Re: ERP for Small Providers
+Just touched base with Bharat and @MikeI’d like you to own this. please take the old version and make sure it’s updated with feedback we got from SMEs via email. Can you turn that around quickly and note where we still have outstanding questions? 
+ 
+Confidential- Oracle Internal
+
+From: Matt Cohlmia Sent: Wednesday, February 4, 2026 10:12:40 AM To: Bharat Sutariya <bharat.sutariya@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com> Cc: Mike Rodgers <mike.r.rodgers@oracle.com> Subject: RE: ERP for Small Providers
+ 
+Hi Bharat,
+ 
+Mike pulled together a new draft on Oct 9th, based on the feedback we received.  (see attached and ￼ here)
+ 
+There are a lot of open questions still in it, though, so it seems a vF never made it to Seema. 
+ 
+How do you want us to proceed?  Is there a date/decision we should be working backwards from?  We can clean up Mike’s version and send soon, but I’d rather give time for our ERP experts to craft a recommendation.
+ 
+ 
+ 
+From: Bharat Sutariya <bharat.sutariya@oracle.com> Sent: Wednesday, February 4, 2026 9:20 AM To: Matt Cohlmia <matt.cohlmia@oracle.com>; Lisa Gulker <lisa.gulker@oracle.com> Cc: Mike Rodgers <mike.r.rodgers@oracle.com> Subject: FW: ERP for Small Providers
+ 
+Matt & Lisa,
+After Matt and I cleaned up the version started by Mike Rodgers and Lisa, and sent it to Seema, she came back with the following comments on Sept 15th. We then had a series of dozen or so email (some of which I have attached) but does not seem like we ever updated the paper.
+ 
+Can you please double check to confirm if this is true. If not, send me the latest version as I already sent the same version to Seema. If true, how best can we update the paper to account for Seema’s feedback below and her comments embedded in the paper?
+ 
+Thanks Bharat
+ 
+ 
+Confidential- Oracle Internal
+From: Seema Verma <s.verma@oracle.com> Sent: Monday, September 15, 2025 4:56 AM To: Matt Cohlmia <matt.cohlmia@oracle.com>; Chris Gibson <chris.gibson@oracle.com>; Dave Profozich <dave.profozich@oracle.com> Cc: Kristen Coletto <kristen.coletto@oracle.com>; Katelynn Hrywnak <katelynn.hrywnak@oracle.com>; Bharat Sutariya <bharat.sutariya@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com> Subject: Re: ERP for Small Providers
+ 
+Lots missing here.  I can’t tell what size NetSuite versus Multi Plan. I know fusion is for above 1500 employees.  Needs work on defining the feature gaps etc.  I think we should stop selling Multi Plan and focus on NetSuite but its not clear what is needed, etc.  We need a strategy here. 
+ 
+Chris might have more to share.  
+ 
+Get Outlook for iOS
+
+From: Matt Cohlmia <matt.cohlmia@oracle.com> Sent: Thursday, August 28, 2025 7:01:46 PM To: Seema Verma <s.verma@oracle.com> Cc: Kristen Coletto <kristen.coletto@oracle.com>; Katelynn Hrywnak <katelynn.hrywnak@oracle.com>; Bharat Sutariya <bharat.sutariya@oracle.com>; Mike Rodgers <mike.r.rodgers@oracle.com> Subject: ERP for Small Providers
+ 
+Seema,
+ 
+I’m sharing a short (4 pages) paper on our recommended ERP approach for small providers. To save you time, here are the key takeaways:
+ 
+NetSuite is already a proven fit for the ambulatory segment. We have ~500 small provider customers today, particularly in physician groups and ASCs, plus an active pipeline.
+Oracle’s ERP portfolio currently serves distinct segments:
+Fusion serves large hospitals (300+ beds, >1,500 employees)
+NetSuite serves physician groups and ASCs
+We currently re-sell a competitor called MultiView (OCI-hosted) for critical access hospitals and others where Fusion/NetSuite aren’t viable
+The growth opportunity is in small-to-mid community hospitals (150–300 beds, <1,500 employees). These hospitals are often underserved by lightweight ERPs (like MultiView) yet too cost-sensitive for Fusion as implemented today. We’d likely look to displace Multiview in certain segments. Workday is also competitive here.
+Two possible plays:
+NetSuite could “level up” with healthcare functionality and tighter EMR integrations, but this would require substantial new product development and blur our positioning (with NetSuite and Fusion potentially competing).
+Fusion could “scale down” via a standardized, lighter-weight implementation model (“Fusion Lite”), reducing configuration and cost while preserving functionality and brand strength. Based on early analysis, Fusion Lite appears the more credible path.
+Product enablers we recommend exploring: standardized EMR integrations, off-the-shelf configuration packages, bundled ERP + EHR offerings, and pricing guardrails (≤2.5% of NPR). These changes would expand reach, improve affordability, and strengthen our competitive position against Workday.
+ 
+We’ve aligned on this framing with colleagues from the Fusion side and from NetSuite sales, but further conversations with product leadership will be essential to validate the path forward. Given Summit demands, we’ve been careful not to over-engage product yet, but recommend doing so next.
+ 
+Thanks to Mike Rodgers for strong work pulling this together.
+ 
+-Matt
+ 
+--
+ ￼
+Matt Cohlmia | VP Strategic Operations
+Oracle Health & Life Sciences
+matt.cohlmia@oracle.com
+ 
+ 

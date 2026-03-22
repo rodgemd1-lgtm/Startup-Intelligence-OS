@@ -1,0 +1,47 @@
+Confidential - Oracle Restricted \Including External Recipients 
+
+Hi team, 
+ 
+Quick note to reset expectations given some significant changes to the onsite scope since yesterday.  Latest agenda here: ￼ Latest Agenda
+ 
+The short version: we've moved fully away from a product/roadmap/commercialization focus and are now firmly in strategy territory.  The new goal is to educate the room on customer segments, customer needs, the competitive landscape, and key market trends – then open up for honest discussion about where we're seeing or anticipating challenges.  We're also down to one day (Monday is cancelled – Tuesday only), so time will be tight.
+ 
+By my read, this group is responsible for four sessions:
+1. Customer Segments + Competitive & Market Intel Overview (Bharat & Matt) – This will be high-level and cut across all product areas.  Think of it as setting the table for everything that follows.  We’ll cover:
+Provider and Consumer market segments: basic overview
+Major broad competitors: the big EHRs, hyperscalers, and maybe a few entrants that are making noise (I’m thinking specifically of Palantir)
+Key themes: We’ll pull from the HIMSS competitive landscape
+2-4. Product Area Deep Dives – Clinical Solutions, Patient/Portal Solutions, and Revenue Management Solutions.  For each of these, I'd suggest the following structure:
+Customer needs by segment – what matters most, and where needs diverge
+Major trends in the space
+Market potential (we'll pull from the Growth Opportunities deck – with Finance support)
+Competitive landscape – what the list of big players (from session 1) and relevant competitors are doing
+Discussion – key open questions, challenges we anticipate, and Oracle's potential positioning
+ 
+I’ve started my scratch content here: ￼ OH March 26 Onsite Prep.pptx
+ 
+A few things to note, given the turnaround:
+I'm not going to force a rigid slide format.  We don't have time to normalize everything and I'd rather have good content in whatever shape it comes in.
+Keep it simple.  Don't get out over your skis on data or claims we can't stand behind in the room.
+Let's stay tightly synced so we're not duplicating work or leaving gaps.
+ 
+@Mike Rodgers I’ll ping you separately, but I’ll ask for your help pulling some of the baseline content.
+ 
+More to come, but wanted to get this in your hands now.  Reply or ping me directly with questions.  Feel free to forward part/all of this email as needed to get the right resources to help you.  
+ 
+-Matt
+ 
+ 
+ 
+ 
+ 
+ 
+--
+ ￼
+Matt Cohlmia | VP Strategic Operations
+Oracle Health & Life Sciences
+matt.cohlmia@oracle.com
+ 
+ 
+
+Confidential - Oracle Restricted \Including External Recipients 

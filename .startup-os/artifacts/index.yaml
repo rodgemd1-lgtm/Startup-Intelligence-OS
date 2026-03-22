@@ -26,6 +26,22 @@ artifacts:
     project_id: decision-capability-os
     created: 2026-03-09
     assessor: susan
+  - id: hermes-10x-capability-assessment
+    type: assessment
+    path: .startup-os/artifacts/hermes-10x-capability-assessment-2026-03-21.md
+    company_id: founder-intelligence-os
+    project_id: hermes-personal-ai
+    created: 2026-03-21
+    assessor: susan
+    description: 15-domain capability assessment of Hermes PA with 10X improvement plan spanning Phases 4A-9
+  - id: hermes-evaluation-panel
+    type: panel-definition
+    path: .startup-os/artifacts/hermes-evaluation-panel-2026-03-21.md
+    company_id: founder-intelligence-os
+    project_id: hermes-personal-ai
+    created: 2026-03-21
+    assessor: susan
+    description: 9-person standing evaluation panel (Brain/Hands/Feet) producing weekly Hermes Health Score
   - id: customer-user-studio-research-packet
     type: research-packet
     path: .startup-os/artifacts/customer-user-studio-research-packet.md
