@@ -1,0 +1,370 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "GreetingIntent",
+          "samples": [
+            "hello",
+            "hey jarvis",
+            "good morning",
+            "good evening",
+            "good afternoon",
+            "how are you",
+            "whats up",
+            "hey there",
+            "hi jarvis",
+            "jarvis you there",
+            "are you online",
+            "wake up jarvis",
+            "morning jarvis",
+            "hey buddy"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "person",
+              "type": "PERSON_TYPE"
+            }
+          ],
+          "name": "IdentityIntent",
+          "samples": [
+            "who am I",
+            "do you know who I am",
+            "identify me",
+            "who is {person}",
+            "tell me about {person}",
+            "what do you know about {person}",
+            "who is iron man",
+            "who is captain america",
+            "who is the captain"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "StatusReportIntent",
+          "samples": [
+            "status report",
+            "give me a status report",
+            "how are the systems",
+            "systems check",
+            "run diagnostics",
+            "whats the situation",
+            "sitrep",
+            "hows everything looking",
+            "are all systems go",
+            "run a systems check",
+            "whats the status"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SuitStatusIntent",
+          "samples": [
+            "hows the suit",
+            "suit status",
+            "power levels",
+            "check the armor",
+            "whats the suit at",
+            "armor status",
+            "hows the mark",
+            "flight systems ready"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SassIntent",
+          "samples": [
+            "say something funny",
+            "make me laugh",
+            "entertain me",
+            "tell me a joke",
+            "be sassy",
+            "roast me",
+            "what do you really think",
+            "give me your honest opinion",
+            "be honest with me"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "DadJokeIntent",
+          "samples": [
+            "tell captain a dad joke",
+            "dad joke",
+            "tell james a joke",
+            "mess with the captain",
+            "annoy captain america",
+            "joke for the captain",
+            "got any dad jokes",
+            "hit james with a dad joke",
+            "daily joke"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "MotivationIntent",
+          "samples": [
+            "motivate me",
+            "I need encouragement",
+            "inspire me",
+            "give me a pep talk",
+            "im feeling down",
+            "cheer me up",
+            "avengers assemble"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "GoodbyeIntent",
+          "samples": [
+            "goodbye",
+            "goodnight",
+            "good night jarvis",
+            "see you later",
+            "signing off",
+            "power down",
+            "shut it down",
+            "go to sleep",
+            "night jarvis",
+            "later jarvis",
+            "im done",
+            "that will be all"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "protocol",
+              "type": "PROTOCOL_TYPE"
+            }
+          ],
+          "name": "ProtocolIntent",
+          "samples": [
+            "activate {protocol}",
+            "initiate {protocol}",
+            "run {protocol}",
+            "execute {protocol}",
+            "engage {protocol}",
+            "start {protocol}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "ThreatAssessmentIntent",
+          "samples": [
+            "any threats",
+            "threat assessment",
+            "scan for threats",
+            "are we safe",
+            "perimeter check",
+            "security status",
+            "is the house secure",
+            "check the perimeter"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "WeatherIntent",
+          "samples": [
+            "whats the weather",
+            "weather report",
+            "do I need a jacket",
+            "is it going to rain",
+            "whats it like outside",
+            "conditions outside",
+            "temperature outside"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "TimeIntent",
+          "samples": [
+            "what time is it",
+            "whats the time",
+            "current time"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "ComplimentIntent",
+          "samples": [
+            "youre the best",
+            "I love you jarvis",
+            "thanks jarvis",
+            "good job",
+            "well done",
+            "youre awesome",
+            "nice work",
+            "thank you"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "fact",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "name": "RememberIntent",
+          "samples": [
+            "remember that {fact}",
+            "remember {fact}",
+            "store this {fact}",
+            "save this {fact}",
+            "note that {fact}",
+            "keep in mind {fact}",
+            "don't forget {fact}",
+            "log that {fact}",
+            "make a note {fact}",
+            "file this away {fact}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "name": "RecallIntent",
+          "samples": [
+            "what do you know about {query}",
+            "recall {query}",
+            "what did I tell you about {query}",
+            "do you remember {query}",
+            "tell me what you know about {query}",
+            "what do you remember about {query}",
+            "search your memory for {query}",
+            "brain search {query}",
+            "memory recall {query}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "EasterEggIntent",
+          "samples": [
+            "tell me a secret",
+            "easter egg",
+            "surprise me",
+            "do you have any secrets",
+            "tell me something I don't know",
+            "what are you hiding",
+            "any surprises"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "tony",
+                  "stark",
+                  "mike",
+                  "mr stark"
+                ],
+                "value": "iron man"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "cap",
+                  "captain",
+                  "steve",
+                  "james",
+                  "captain rogers"
+                ],
+                "value": "captain america"
+              }
+            }
+          ],
+          "name": "PERSON_TYPE"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "party protocol",
+                  "house party"
+                ],
+                "value": "house party protocol"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "clean slate"
+                ],
+                "value": "clean slate protocol"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "hulkbuster"
+                ],
+                "value": "veronica"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "morning brief",
+                  "daily briefing",
+                  "daily brief"
+                ],
+                "value": "morning briefing"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "security lockdown",
+                  "lock it down"
+                ],
+                "value": "lockdown"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "sleep mode",
+                  "night mode"
+                ],
+                "value": "bedtime"
+              }
+            }
+          ],
+          "name": "PROTOCOL_TYPE"
+        }
+      ],
+      "invocationName": "jarvis"
+    }
+  }
+}

@@ -27,3 +27,6 @@ susan-team-architect/backend/artifacts/job_studio_training_factory_corpus/
 # Generated Xcode project for the iOS device probe
 apps/ios-device-probe/IOSDeviceProbe.xcodeproj/
 .DS_Store
+
+# Browser automation session logs
+.playwright-mcp/
