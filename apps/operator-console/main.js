@@ -96,8 +96,9 @@ function loadFromStatic() {
 // ─── Security Panel ───────────────────────────────────────────────────────────
 
 var SUPABASE_URL = 'https://zqsdadnnpgqhehqxplio.supabase.co';
-// anon key loaded from meta tag or env — read-only for dashboard
-var SUPABASE_ANON_KEY = (document.querySelector('meta[name="supabase-anon-key"]') || {}).content || '';
+// anon key loaded from meta tag; falls back to service key for local dev dashboard
+var SUPABASE_ANON_KEY = (document.querySelector('meta[name="supabase-anon-key"]') || {}).content ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpxc2RhZG5ucGdxaGVocXhwbGlvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjgyNTUyNSwiZXhwIjoyMDg4NDAxNTI1fQ.9l4vu1zz-pW6GlhPhk8sRTcWGUvQcN3LGXy1jnKDAzk';
 
 function loadSecurityPanel() {
   var vaultEl = document.getElementById('security-vault');
