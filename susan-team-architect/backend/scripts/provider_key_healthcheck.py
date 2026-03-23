@@ -78,6 +78,16 @@ def check_firecrawl() -> dict[str, object]:
         response.raise_for_status()
         return {"provider": "firecrawl", "status": "ok"}
     except Exception as exc:
+        err_msg = str(exc).lower()
+        credit_keywords = ("402", "payment", "credit", "quota", "upgrade", "exceeded")
+        if any(kw in err_msg for kw in credit_keywords):
+            return {
+                "provider": "firecrawl",
+                "status": "out_of_credits",
+                "error": str(exc),
+                "fallback": "jina",
+                "note": "Jina reader fallback is active — scraping will continue via https://r.jina.ai/",
+            }
         return {"provider": "firecrawl", "status": "error", "error": str(exc)}
 
 

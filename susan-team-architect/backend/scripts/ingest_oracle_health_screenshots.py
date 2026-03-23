@@ -1,9 +1,14 @@
-"""Capture Oracle Health screenshots via Firecrawl, upload them to Supabase Storage, and index metadata."""
+"""Capture Oracle Health screenshots via Firecrawl, upload them to Supabase Storage, and index metadata.
+
+NOTE: Screenshots require Firecrawl. When Firecrawl credits are exhausted this script will print a warning
+and skip screenshot capture. It will still index markdown content via Jina reader as a fallback so
+the RAG knowledge base stays up to date even without visual assets.
+"""
 from __future__ import annotations
 
 from pathlib import Path
 from urllib.parse import urlparse
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 import hashlib
 import json
 import mimetypes
@@ -12,6 +17,22 @@ import sys
 import yaml
 from firecrawl import FirecrawlApp
 from supabase import create_client
+
+_FIRECRAWL_CREDIT_ERRORS = ("402", "payment", "credit", "quota", "upgrade", "exceeded")
+
+
+def _is_credit_error(exc: Exception) -> bool:
+    msg = str(exc).lower()
+    return any(kw in msg for kw in _FIRECRAWL_CREDIT_ERRORS)
+
+
+def _jina_markdown(url: str, jina_key: str = "") -> str:
+    """Fetch markdown from a URL via Jina reader fallback."""
+    req = Request(f"https://r.jina.ai/{url}", headers={"Accept": "text/markdown"})
+    if jina_key:
+        req.add_header("Authorization", f"Bearer {jina_key}")
+    with urlopen(req, timeout=45) as resp:
+        return resp.read().decode("utf-8", errors="replace")
 
 BACKEND_ROOT = Path(__file__).resolve().parents[1]
 if str(BACKEND_ROOT) not in sys.path:
@@ -102,29 +123,62 @@ def main() -> int:
     supabase = create_client(config.supabase_url, config.supabase_key)
     retriever = Retriever()
     ensure_bucket(supabase)
+    jina_key = getattr(config, "jina_api_key", "")
+    firecrawl_available = True  # flip to False on first credit error
 
     chunks: list[KnowledgeChunk] = []
     manifest: list[dict] = []
+    jina_text_only: list[dict] = []  # tracks targets scraped via Jina (no screenshot)
 
     for target in targets:
         url = target["url"]
-        result = firecrawl.scrape(url, formats=["markdown", "screenshot"], max_age=0)
-        screenshot_url = getattr(result, "screenshot", None)
-        markdown = getattr(result, "markdown", "") or ""
+        screenshot_url = None
+        markdown = ""
         page_title = ""
-        if getattr(result, "metadata", None):
-            page_title = getattr(result.metadata, "title", "") or ""
-        if not screenshot_url:
-            continue
 
-        raw = download_bytes(screenshot_url)
-        digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]
-        filename = f"{_safe_slug(target['name'])}-{digest}.png"
-        local_path = ARTIFACT_DIR / filename
-        local_path.write_bytes(raw)
-        storage_path = f"{COMPANY_ID}/{filename}"
-        content_type = mimetypes.guess_type(filename)[0] or "image/png"
-        public_url = upload_bytes(supabase, storage_path, raw, content_type)
+        if firecrawl_available:
+            try:
+                result = firecrawl.scrape(url, formats=["markdown", "screenshot"], max_age=0)
+                screenshot_url = getattr(result, "screenshot", None)
+                markdown = getattr(result, "markdown", "") or ""
+                if getattr(result, "metadata", None):
+                    page_title = getattr(result.metadata, "title", "") or ""
+            except Exception as exc:
+                if _is_credit_error(exc):
+                    print(f"  WARNING: Firecrawl credits exhausted — switching to Jina markdown-only fallback")
+                    firecrawl_available = False
+                else:
+                    print(f"  Firecrawl error for {url}: {exc} — trying Jina fallback")
+                    firecrawl_available = False
+
+        if not firecrawl_available or not screenshot_url:
+            # Fall back to Jina for markdown content; screenshots unavailable
+            try:
+                markdown = _jina_markdown(url, jina_key)
+                jina_text_only.append({"url": url, "name": target["name"]})
+            except Exception as je:
+                print(f"  Jina fallback also failed for {url}: {je}")
+                continue
+
+        if not screenshot_url and firecrawl_available:
+            # Firecrawl worked but returned no screenshot — skip visual asset, still index markdown
+            pass
+
+        if screenshot_url:
+            raw = download_bytes(screenshot_url)
+            digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]
+            filename = f"{_safe_slug(target['name'])}-{digest}.png"
+            local_path = ARTIFACT_DIR / filename
+            local_path.write_bytes(raw)
+            storage_path = f"{COMPANY_ID}/{filename}"
+            content_type = mimetypes.guess_type(filename)[0] or "image/png"
+            public_url = upload_bytes(supabase, storage_path, raw, content_type)
+        else:
+            # No screenshot available — index markdown only
+            public_url = ""
+            storage_path = ""
+            if not markdown:
+                continue
 
         chunks.append(
             build_asset_chunk(

@@ -124,16 +124,44 @@ def search_brave(query: str, topic: str, api_key: str, top_k: int) -> list[Searc
     return hits
 
 
+_FIRECRAWL_CREDIT_ERRORS = ("402", "payment", "credit", "quota", "upgrade", "exceeded")
+
+
+def _is_credit_error(exc: Exception) -> bool:
+    msg = str(exc).lower()
+    return any(kw in msg for kw in _FIRECRAWL_CREDIT_ERRORS)
+
+
+def scrape_jina(url: str) -> dict[str, Any]:
+    """Scrape a URL via Jina reader and return a firecrawl-compatible dict."""
+    jina_key = os.getenv("JINA_API_KEY", "")
+    headers = {"Accept": "text/markdown"}
+    if jina_key:
+        headers["Authorization"] = f"Bearer {jina_key}"
+    response = httpx.get(f"https://r.jina.ai/{url}", headers=headers, timeout=45.0, follow_redirects=True)
+    response.raise_for_status()
+    return {"markdown": response.text, "metadata": {"sourceURL": url}, "provider": "jina"}
+
+
 def scrape_firecrawl(url: str, api_key: str, formats: list[str]) -> dict[str, Any]:
     if Firecrawl is None:
-        raise RuntimeError("firecrawl-py is not installed in the active environment.")
-    client = Firecrawl(api_key=api_key)
-    result = client.scrape(
-        url,
-        formats=formats or ["markdown"],
-        maxAge=0,
-    )
-    return result if isinstance(result, dict) else result.model_dump()
+        # Firecrawl not installed — fall directly to Jina
+        print(f"  firecrawl-py not available for {url} — using Jina fallback")
+        return scrape_jina(url)
+    try:
+        client = Firecrawl(api_key=api_key)
+        result = client.scrape(
+            url,
+            formats=formats or ["markdown"],
+            maxAge=0,
+        )
+        return result if isinstance(result, dict) else result.model_dump()
+    except Exception as exc:
+        if _is_credit_error(exc):
+            print(f"  Firecrawl credits exhausted for {url} — falling back to Jina")
+        else:
+            print(f"  Firecrawl error for {url}: {exc} — falling back to Jina")
+        return scrape_jina(url)
 
 
 def write_json(path: Path, payload: Any) -> None:

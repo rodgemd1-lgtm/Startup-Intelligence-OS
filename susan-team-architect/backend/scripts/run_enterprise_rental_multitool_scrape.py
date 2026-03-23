@@ -121,6 +121,14 @@ def run_brave(query: str) -> dict:
         return {"provider": "brave", "query": query, "status": "error", "error": str(exc), "at": _now()}
 
 
+_FIRECRAWL_CREDIT_ERRORS = ("402", "payment", "credit", "quota", "upgrade", "exceeded")
+
+
+def _is_credit_error(exc: Exception) -> bool:
+    msg = str(exc).lower()
+    return any(kw in msg for kw in _FIRECRAWL_CREDIT_ERRORS)
+
+
 def run_firecrawl(url: str) -> dict:
     key = _first_env("FIRECRAWL_API_KEY")
     if not key:
@@ -137,7 +145,26 @@ def run_firecrawl(url: str) -> dict:
         md = ((data.get("data") or {}).get("markdown") or "")[:800]
         return {"provider": "firecrawl", "url": url, "status": "ok", "markdown_preview": md, "at": _now()}
     except Exception as exc:
+        if _is_credit_error(exc):
+            # Fall back to Jina reader
+            print(f"  Firecrawl credits exhausted for {url} — falling back to Jina")
+            return _run_jina_fallback(url)
         return {"provider": "firecrawl", "url": url, "status": "error", "error": str(exc), "at": _now()}
+
+
+def _run_jina_fallback(url: str) -> dict:
+    """Scrape a URL via Jina reader as a fallback for Firecrawl."""
+    jina_key = _first_env("JINA_API_KEY")
+    headers = {"Accept": "text/markdown"}
+    if jina_key:
+        headers["Authorization"] = f"Bearer {jina_key}"
+    try:
+        r = httpx.get(f"https://r.jina.ai/{url}", headers=headers, timeout=45.0, follow_redirects=True)
+        r.raise_for_status()
+        md = (r.text or "")[:800]
+        return {"provider": "jina-fallback", "url": url, "status": "ok", "markdown_preview": md, "at": _now()}
+    except Exception as exc:
+        return {"provider": "jina-fallback", "url": url, "status": "error", "error": str(exc), "at": _now()}
 
 
 def run_jina(url: str) -> dict:

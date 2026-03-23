@@ -338,7 +338,7 @@ def cmd_scrape(args: argparse.Namespace) -> int:
                 "created": "2026-03-09",
                 "priority": "medium",
             },
-            "sources": [{"tool": "firecrawl", "url": r.url} for r in response.results],
+            "sources": [{"tool": "jina", "url": r.url} for r in response.results],
         }
         output = args.output or f"data/scrape_manifests/{args.target.replace(' ', '_')[:40]}.yaml"
         _Path(output).parent.mkdir(parents=True, exist_ok=True)
@@ -429,7 +429,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s_url = scrape_sub.add_parser("url")
     s_url.add_argument("target", help="URL to scrape")
-    s_url.add_argument("--tool", choices=["firecrawl", "jina"], default="firecrawl")
+    s_url.add_argument("--tool", choices=["firecrawl", "jina"], default="jina")
     s_url.add_argument("--company", default=_default_company())
     s_url.add_argument("--type", default="market_research")
     s_url.add_argument("--agent", default=None)

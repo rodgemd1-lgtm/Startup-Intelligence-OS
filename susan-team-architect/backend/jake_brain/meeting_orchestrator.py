@@ -381,7 +381,7 @@ For each attendee with an email, research:
 
 CRITICAL: Use only live MCP research tools — DO NOT rely on your training data:
 - Use mcp__tavily__tavily_search or mcp__tavily__tavily_research for web searches
-- Use mcp__firecrawl__firecrawl_search for specific company pages
+- Use mcp__tavily__tavily_search for specific company pages (Firecrawl unavailable — use Tavily)
 - Search for each attendee's full name + company + recent news
 
 Format output as:
@@ -446,7 +446,7 @@ Stay factual. Use live search. Under 400 words total."""
 Focus areas: {competitor_focus}
 Topics: {", ".join(context.keywords[:5])}
 
-Using LIVE MCP research only (mcp__tavily__tavily_search, mcp__firecrawl__firecrawl_search):
+Using LIVE MCP research only (mcp__tavily__tavily_search, mcp__tavily__tavily_research):
 1. Latest moves by {competitor_focus} in the last 30 days
 2. Any announcements, partnerships, or product launches relevant to this meeting
 3. Pricing intelligence or positioning changes (if available publicly)
