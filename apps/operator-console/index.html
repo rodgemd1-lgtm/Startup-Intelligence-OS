@@ -69,6 +69,18 @@
       <h2>System Status</h2>
       <ul id="status"></ul>
 
+      <!-- Phase 4: Pipeline Runs Panel -->
+      <h2>Pipeline Runs <button id="pipeline-refresh" class="btn-tiny" title="Refresh">↻</button></h2>
+      <div id="pipeline-runs-panel">
+        <div class="pipeline-loading">Loading...</div>
+      </div>
+
+      <!-- Cron Health Panel -->
+      <h2>Cron Health</h2>
+      <div id="cron-health-panel">
+        <div class="pipeline-loading">Loading...</div>
+      </div>
+
       <div class="design-rule">
         <h2>Design Rule</h2>
         <p>The operator should never wonder what workspace, repo, branch, or decision is active.</p>
@@ -76,6 +88,7 @@
     </aside>
   </div>
 
+  <script src="./supabase-client.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>
