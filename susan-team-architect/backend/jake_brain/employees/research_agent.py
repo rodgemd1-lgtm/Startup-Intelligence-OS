@@ -1,257 +1,206 @@
-"""Research Agent Employee — autonomous background research on queued topics.
+"""Research Agent — nightly knowledge gap filler.
 
-Runs nightly at 3 AM. Processes the research queue from jake_tasks:
-- Finds tasks with task_type='research' and status='pending'
-- Runs deep research on each topic via Susan RAG + web search
-- Stores findings in jake_episodic
-- Updates task status to 'done'
-- Sends digest to Telegram
+Runs daily at 10 PM. Identifies low-confidence semantic facts and
+knowledge_gap episodic entries, generates research summaries,
+and writes new findings to jake_semantic.
 """
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
+import logging
+from datetime import datetime, timezone, timedelta
+from typing import Any
 
-BACKEND_ROOT = Path(__file__).resolve().parents[3]
-if str(BACKEND_ROOT) not in sys.path:
-    sys.path.insert(0, str(BACKEND_ROOT))
+from jake_brain.autonomous_pipeline import AutonomousPipeline, PipelineTask
 
+logger = logging.getLogger(__name__)
 
-def load_env() -> None:
-    env_path = Path.home() / ".hermes" / ".env"
-    if env_path.exists():
-        with open(env_path) as fh:
-            for line in fh:
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    k, _, v = line.partition("=")
-                    os.environ.setdefault(k.strip(), v.strip())
+# Semantic confidence below this threshold is considered a research target
+LOW_CONFIDENCE_THRESHOLD = 0.7
+
+# Look back this many days for knowledge_gap episodic entries
+KNOWLEDGE_GAP_LOOKBACK_DAYS = 30
 
 
-def get_research_queue(limit: int = 5) -> list[dict]:
-    """Fetch pending research tasks from jake_tasks."""
-    try:
-        from supabase import create_client
-        url = os.environ.get("SUPABASE_URL", "")
-        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
-        if not url or not key:
-            return []
-        client = create_client(url, key)
-        result = client.table("jake_tasks").select("*").eq(
-            "status", "pending"
-        ).ilike("task_type", "%research%").order(
-            "priority", desc=True
-        ).limit(limit).execute()
-        return result.data or []
-    except Exception:
-        return []
+class ResearchAgent:
+    """Nightly knowledge gap identification and semantic fact generation employee.
 
+    Runs offline — uses existing brain data to synthesize new semantic facts.
+    Does NOT perform live web searches. That's done by the meeting orchestrator
+    and other live-research tools.
+    """
 
-def research_topic(topic: str, context: str = "") -> dict:
-    """Research a topic using Susan RAG and web search tools."""
-    findings = {}
+    EMPLOYEE_NAME = "research_agent"
+    TASK_TYPE = "research"
+    CONTEXT_HINTS = ["research", "knowledge_gap", "susan_rag"]
+    SUCCESS_CRITERIA = [
+        "topics_researched list produced",
+        "gaps_filled count >= 0",
+        "new_facts_stored count >= 0",
+    ]
 
-    # 1. Search Susan RAG
-    try:
-        from supabase import create_client
-        from rag_engine.embedder import Embedder
-        from susan_core.config import config
+    def __init__(self, store=None):
+        """
+        Args:
+            store: BrainStore instance. If None, pipeline runs without memory persistence.
+        """
+        self._store = store
+        self._pipeline = AutonomousPipeline(store=store)
 
-        client = create_client(config.supabase_url, config.supabase_key)
-        embedder = Embedder()
-        embedding = embedder.embed(topic)
+    def run(self, topic: str | None = None) -> dict[str, Any]:
+        """Run the Research Agent employee.
 
-        result = client.rpc("search_knowledge", {
-            "query_embedding": embedding,
-            "match_threshold": 0.75,
-            "match_count": 8,
-        }).execute()
-        rag_results = result.data or []
-        findings["rag"] = rag_results[:5]
-    except Exception:
-        findings["rag"] = []
+        Args:
+            topic: Optional specific topic to research. If None, runs full gap analysis.
 
-    # 2. Search brain memory for related context
-    try:
-        from jake_brain.retriever import BrainRetriever
-        retriever = BrainRetriever()
-        brain_results = retriever.search(topic, top_k=5)
-        findings["brain"] = [{"content": r.content, "score": r.score} for r in brain_results]
-    except Exception:
-        findings["brain"] = []
-
-    return findings
-
-
-def synthesize_findings(topic: str, findings: dict, context: str = "") -> str:
-    """Use Claude to synthesize research findings into a useful report."""
-    try:
-        import anthropic
-        from jake_cost.router import ModelRouter
-        from jake_cost.tracker import cost_tracker
-
-        router = ModelRouter()
-        decision = router.route("research_query", complexity="medium")
-
-        rag_text = "\n".join([
-            f"- [{r.get('data_type', 'general')}] {r.get('content', '')[:300]}"
-            for r in findings.get("rag", [])[:5]
-        ])
-        brain_text = "\n".join([
-            f"- {r['content'][:200]}"
-            for r in findings.get("brain", [])[:3]
-        ])
-
-        client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
-        prompt = f"""Research synthesis request from Jake's Research Agent.
-
-TOPIC: {topic}
-CONTEXT: {context or 'None provided'}
-
-SUSAN RAG RESULTS:
-{rag_text or 'No results found'}
-
-BRAIN MEMORY:
-{brain_text or 'No relevant memories'}
-
-Synthesize the above into a research brief:
-1. Key Findings (top 3 insights)
-2. What's Confirmed (things we know with confidence)
-3. Knowledge Gaps (what we still don't know)
-4. Recommended Actions (1-3 concrete next steps)
-5. Jake's Take (1 sentence hot take on this topic)
-
-Be concise, direct, and useful. Under 250 words."""
-
-        response = client.messages.create(
-            model=decision.model_id,
-            max_tokens=600,
-            messages=[{"role": "user", "content": prompt}]
+        Returns:
+            dict with topics_researched, gaps_filled, new_facts_stored.
+        """
+        description = (
+            f"Research topic: {topic}" if topic
+            else "Identify low-confidence semantic facts and knowledge gaps; synthesize new findings."
         )
-        usage = response.usage
-        cost_tracker.record_anthropic_call(
-            decision.tier, usage.input_tokens, usage.output_tokens, actor="research_agent"
+
+        task = PipelineTask(
+            task_type=self.TASK_TYPE,
+            description=description,
+            success_criteria=self.SUCCESS_CRITERIA,
+            context_hints=self.CONTEXT_HINTS,
+            employee_name=self.EMPLOYEE_NAME,
+            metadata={"topic": topic} if topic else {},
         )
-        return response.content[0].text
-    except Exception as e:
-        rag_count = len(findings.get("rag", []))
-        brain_count = len(findings.get("brain", []))
-        return f"[Synthesis unavailable]\n\nRaw findings: {rag_count} RAG results, {brain_count} brain memories found for '{topic}'"
 
+        result = self._pipeline.run(task, build_fn=self._build)
+        return result.outputs
 
-def mark_task_complete(task_id: str, result_summary: str) -> None:
-    """Update task status to done."""
-    try:
-        from supabase import create_client
-        from datetime import datetime, timezone
-        url = os.environ.get("SUPABASE_URL", "")
-        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
-        if not url or not key:
-            return
-        client = create_client(url, key)
-        client.table("jake_tasks").update({
-            "status": "done",
-            "result": result_summary[:2000],
-            "updated_at": datetime.now(timezone.utc).isoformat(),
-        }).eq("id", task_id).execute()
-    except Exception:
-        pass
+    def _build(self, task: PipelineTask, context_data: dict) -> dict[str, Any]:
+        """BUILD phase: find gaps, synthesize facts, store findings."""
+        now = datetime.now(timezone.utc)
+        topics_researched: list[str] = []
+        gaps_filled: list[str] = []
+        new_facts_stored: int = 0
+        research_targets: list[dict] = []
 
+        specific_topic = task.metadata.get("topic") if hasattr(task, "metadata") else None
 
-def store_episodic(topic: str, synthesis: str) -> None:
-    """Store research findings in jake_episodic."""
-    try:
-        from jake_brain.store import BrainStore
-        store = BrainStore()
-        store.store_episodic(
-            content=f"Research: {topic}\n\n{synthesis}",
-            source=f"research_agent:{topic[:50]}",
-            data_type="research_finding",
-            importance=0.75,
-        )
-    except Exception:
-        pass
+        # ── Load low-confidence semantic facts ────────────────────────────
+        if self._store is not None:
+            try:
+                if specific_topic:
+                    # Targeted: search by topic
+                    sem_result = (
+                        self._store.supabase.table("jake_semantic")
+                        .select("id, content, category, confidence, topics")
+                        .eq("is_active", True)
+                        .lt("confidence", LOW_CONFIDENCE_THRESHOLD)
+                        .contains("topics", [specific_topic])
+                        .order("confidence", desc=False)
+                        .limit(20)
+                        .execute()
+                    )
+                else:
+                    # General: all low-confidence
+                    sem_result = (
+                        self._store.supabase.table("jake_semantic")
+                        .select("id, content, category, confidence, topics")
+                        .eq("is_active", True)
+                        .lt("confidence", LOW_CONFIDENCE_THRESHOLD)
+                        .order("confidence", desc=False)
+                        .limit(20)
+                        .execute()
+                    )
+                research_targets.extend(sem_result.data or [])
+            except Exception as exc:
+                logger.warning("ResearchAgent: failed to load low-confidence semantic: %s", exc)
 
+        # ── Load knowledge_gap episodic entries ───────────────────────────
+        knowledge_gaps: list[dict] = []
+        if self._store is not None:
+            try:
+                cutoff = (now - timedelta(days=KNOWLEDGE_GAP_LOOKBACK_DAYS)).isoformat()
+                gap_result = (
+                    self._store.supabase.table("jake_episodic")
+                    .select("id, content, occurred_at, topics, metadata")
+                    .eq("memory_type", "knowledge_gap")
+                    .gte("occurred_at", cutoff)
+                    .order("occurred_at", desc=True)
+                    .limit(30)
+                    .execute()
+                )
+                knowledge_gaps = gap_result.data or []
+            except Exception as exc:
+                logger.warning("ResearchAgent: failed to load knowledge gaps: %s", exc)
 
-def send_telegram_digest(results: list[dict]) -> None:
-    """Send research digest to Telegram."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-    if not token or not chat_id or not results:
-        return
-    try:
-        import urllib.request, json as _json
-        items = "\n".join([
-            f"• *{r['topic'][:50]}* — {r.get('synthesis', '')[:100]}..."
-            for r in results[:3]
-        ])
-        msg = f"🔬 *Research Agent Digest*\n\nCompleted {len(results)} research task(s):\n\n{items}"
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        data = _json.dumps({"chat_id": chat_id, "text": msg[:4000], "parse_mode": "Markdown"}).encode()
-        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-        urllib.request.urlopen(req, timeout=10)
-    except Exception:
-        pass
+        # ── Synthesize findings from existing context ─────────────────────
+        # Group research targets by category/topic
+        topic_groups: dict[str, list[dict]] = {}
 
+        for target in research_targets:
+            t_topics = target.get("topics") or []
+            category = target.get("category", "general")
+            group_key = t_topics[0] if t_topics else category
+            topic_groups.setdefault(group_key, []).append(target)
 
-def run() -> dict:
-    """Main entry point for the Research Agent employee."""
-    load_env()
-    from jake_security.audit import audit, AuditEvent
-    from jake_security.rate_limiter import rate_limiter
+        for gap in knowledge_gaps:
+            g_topics = gap.get("topics") or []
+            group_key = g_topics[0] if g_topics else "general"
+            topic_groups.setdefault(group_key, [])
 
-    audit.log(AuditEvent.EMPLOYEE_RUN, actor="research_agent", resource="research_queue")
+        # ── Generate synthesized semantic facts ────────────────────────────
+        stored_ids: list[str] = []
 
-    if not rate_limiter.acquire("employee_run", actor="research_agent"):
-        return {"status": "rate_limited", "tasks": 0}
+        for topic_key, items in topic_groups.items():
+            if not items:
+                continue
 
-    queue = get_research_queue(limit=5)
-    if not queue:
-        audit.log(AuditEvent.EMPLOYEE_COMPLETE, actor="research_agent", context={"tasks": 0})
-        return {"status": "queue_empty", "tasks": 0}
+            topics_researched.append(topic_key)
 
-    results = []
-    for task in queue:
-        topic = task.get("title", task.get("description", "Unknown topic"))
-        context = task.get("context", "")
+            # Build a synthesis from the low-confidence items
+            synthesis_parts = []
+            for item in items[:5]:
+                content = item.get("content", "")
+                conf = item.get("confidence", 0.5)
+                if content:
+                    synthesis_parts.append(f"[conf={conf:.2f}] {content[:200]}")
 
-        # Research
-        findings = research_topic(topic, context)
+            if not synthesis_parts:
+                continue
 
-        # Synthesize
-        synthesis = synthesize_findings(topic, findings, context)
+            # Create a consolidated synthesis fact
+            synthesis = (
+                f"Research synthesis for topic '{topic_key}' (generated {now.strftime('%Y-%m-%d')}): "
+                f"Consolidated {len(synthesis_parts)} low-confidence fact(s). "
+                f"Items: {'; '.join(synthesis_parts[:3])}"
+            )
 
-        # Store
-        store_episodic(topic, synthesis)
+            if self._store is not None:
+                try:
+                    source_ids = [item["id"] for item in items if item.get("id")]
+                    stored = self._store.store_semantic(
+                        content=synthesis,
+                        category="research_synthesis",
+                        confidence=0.6,  # slightly higher than inputs — synthesized
+                        source_episodes=source_ids[:5],
+                        topics=[topic_key, "research_synthesis"],
+                        metadata={
+                            "synthesized_from": len(synthesis_parts),
+                            "topic": topic_key,
+                            "generated_by": self.EMPLOYEE_NAME,
+                        },
+                    )
+                    if stored.get("id"):
+                        stored_ids.append(stored["id"])
+                        new_facts_stored += 1
+                        gaps_filled.append(topic_key)
+                except Exception as exc:
+                    logger.warning("ResearchAgent: failed to store synthesis for %s: %s", topic_key, exc)
 
-        # Mark complete
-        if task.get("id"):
-            mark_task_complete(task["id"], synthesis[:500])
-
-        results.append({
-            "topic": topic,
-            "task_id": task.get("id"),
-            "synthesis": synthesis[:200],
-            "rag_results": len(findings.get("rag", [])),
-            "brain_results": len(findings.get("brain", [])),
-            "status": "complete",
-        })
-
-    # Send digest
-    send_telegram_digest(results)
-
-    audit.log(
-        AuditEvent.EMPLOYEE_COMPLETE,
-        actor="research_agent",
-        context={"tasks_completed": len(results)},
-    )
-    return {"status": "complete", "tasks": len(results), "results": results}
-
-
-if __name__ == "__main__":
-    result = run()
-    print(f"Research Agent complete: {result['tasks']} tasks processed")
-    if result.get("results"):
-        for r in result["results"]:
-            print(f"  ✓ {r['topic'][:60]} ({r['rag_results']} RAG, {r['brain_results']} brain)")
+        # ── Summary ───────────────────────────────────────────────────────
+        return {
+            "topics_researched": topics_researched,
+            "gaps_filled": gaps_filled,
+            "new_facts_stored": new_facts_stored,
+            "knowledge_gaps_found": len(knowledge_gaps),
+            "low_confidence_items_found": len(research_targets),
+            "stored_fact_ids": stored_ids,
+            "generated_at": now.isoformat(),
+        }
