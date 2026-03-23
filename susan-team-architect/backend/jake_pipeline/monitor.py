@@ -25,7 +25,7 @@ class PipelineMonitor:
 
         # No deals in pipeline
         if summary["total_deals"] == 0:
-            return {"score": 0, "issues": ["No active deals in pipeline"], "summary": summary}
+            return {"score": 0, "grade": "N/A", "issues": ["No active deals in pipeline"], "summary": summary, "overdue_count": 0}
 
         # Overdue actions
         overdue_pct = len(overdue) / max(summary["total_deals"], 1) * 100
