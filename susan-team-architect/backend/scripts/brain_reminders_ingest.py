@@ -95,14 +95,10 @@ def fetch_reminders() -> list[dict]:
             ["osascript", "-l", "JavaScript", "-e", JXA_SCRIPT],
             capture_output=True,
             text=True,
-            timeout=90,
+            timeout=20,
         )
     except subprocess.TimeoutExpired:
-        print("ERROR: osascript timed out after 90s.")
-        print("Reminders.app may need a restart. Try:")
-        print("  killall Reminders")
-        print("  open -a Reminders")
-        print("Then re-run this script.")
+        print("ERROR: osascript timed out after 20s. Reminders.app may be syncing — skipping.")
         return []
 
     if result.returncode != 0:

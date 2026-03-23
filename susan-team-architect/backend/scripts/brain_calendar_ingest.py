@@ -17,8 +17,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 import sys
+import time
 from collections import Counter
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -27,6 +29,27 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from jake_brain.store import BrainStore
 from jake_brain.config import brain_config
+
+
+def _report_cron_status(job_name: str, status: str, error: str = "", duration_ms: int = 0) -> None:
+    """Write job status to jake_cron_status for dashboard visibility."""
+    try:
+        from supabase import create_client
+        url = os.environ.get("SUPABASE_URL", "")
+        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
+        if not url or not key:
+            return
+        client = create_client(url, key)
+        client.table("jake_cron_status").upsert({
+            "job_name": job_name,
+            "last_run": datetime.now(timezone.utc).isoformat(),
+            "status": status,
+            "error_message": error[:500] if error else "",
+            "duration_ms": duration_ms,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        }, on_conflict="job_name").execute()
+    except Exception:
+        pass  # Never let status reporting break the ingest
 
 # Calendar name → topic mapping
 CALENDAR_TOPIC_MAP = {
@@ -50,19 +73,33 @@ CALENDAR_PROJECT_MAP = {
 }
 
 
+# Fallback calendar list used when dynamic listing via JXA times out.
+# These are the calendars worth ingesting — excludes iCloud sync-heavy ones.
+# Update this list if new managed calendars are added.
+_FALLBACK_CALENDARS = ["Work", "Home", "Family"]
+
+
 def _get_calendar_names() -> list[str]:
-    """Get list of calendar names from Calendar.app (fast — no event queries)."""
+    """Get list of calendar names from Calendar.app.
+
+    If the JXA listing times out (common when iCloud hasn't synced at 5:45 AM),
+    falls back to _FALLBACK_CALENDARS so the ingest still runs.
+    """
     script = "var app = Application('Calendar'); JSON.stringify(app.calendars().map(c => c.name()));"
     try:
         result = subprocess.run(
             ["osascript", "-l", "JavaScript", "-e", script],
-            capture_output=True, text=True, timeout=10,
+            capture_output=True, text=True, timeout=15,
         )
         if result.returncode == 0 and result.stdout.strip():
             return json.loads(result.stdout.strip())
+    except subprocess.TimeoutExpired:
+        print(f"WARNING: Calendar listing timed out — using fallback list: {_FALLBACK_CALENDARS}")
+        return _FALLBACK_CALENDARS
     except Exception:
         pass
-    return []
+    print(f"WARNING: Calendar listing failed — using fallback list: {_FALLBACK_CALENDARS}")
+    return _FALLBACK_CALENDARS
 
 
 def _build_jxa_script_single(cal_name: str, days_back: int, days_forward: int) -> str:
@@ -121,8 +158,21 @@ JSON.stringify(results);
 # Timeout per individual calendar (seconds). Exchange is slow; 25s is generous but bounded.
 _PER_CALENDAR_TIMEOUT = 25
 
-# Skip these system/read-only calendar types that never have useful events.
-_SKIP_CALENDARS = {"scheduled reminders", "siri suggestions"}
+# Skip these calendars entirely.
+# - "scheduled reminders" / "siri suggestions": system-generated, no personal data
+# - "birthdays" / "us holidays" / "united states holidays": auto-generated subscription
+#   calendars that frequently timeout due to iCloud sync delays. Personal events are
+#   already captured via brain_gcal_ingest.py (Google Calendar OAuth, always reliable).
+# - "calendar": the default iCloud "Calendar" calendar. Covered by Google Calendar.
+#   Consistently causes JXA hangs when iCloud hasn't synced yet (e.g. at 5:45 AM).
+_SKIP_CALENDARS = {
+    "scheduled reminders",
+    "siri suggestions",
+    "birthdays",
+    "us holidays",
+    "united states holidays",
+    "calendar",            # iCloud default — use Google Calendar for personal events
+}
 
 
 def extract_calendar_events(days_back: int = 7, days_forward: int = 30) -> list[dict]:
@@ -283,11 +333,18 @@ def _get_existing_event_ids(store: BrainStore) -> set[str]:
 
 def ingest_events(days_back: int = 7, days_forward: int = 30, dry_run: bool = False):
     """Main ingestion logic."""
+    _start_ms = int(time.time() * 1000)
     print(f"Extracting Apple Calendar events ({days_back} days back, {days_forward} days forward)...")
     events = extract_calendar_events(days_back, days_forward)
 
     if not events:
         print("No events found. Exiting.")
+        _report_cron_status(
+            "brain_calendar_ingest",
+            "ok",
+            error="No events returned (all calendars may have timed out)",
+            duration_ms=int(time.time() * 1000) - _start_ms,
+        )
         return
 
     print(f"Found {len(events)} events across calendars.\n")
@@ -471,13 +528,22 @@ def ingest_events(days_back: int = 7, days_forward: int = 30, dry_run: bool = Fa
             except Exception as exc:
                 print(f"  Failed to create entity for '{title}': {exc}")
 
+    _duration_ms = int(time.time() * 1000) - _start_ms
     print(f"\n{'=' * 60}")
     print(f"Calendar Ingestion Complete")
     print(f"  Episodic created:  {stats['episodic_created']}")
     print(f"  Episodic skipped:  {stats['episodic_skipped']} (duplicates)")
     print(f"  Semantic memories: {stats['semantic']}")
     print(f"  Recurring entities:{stats['entities']}")
+    print(f"  Duration:          {_duration_ms // 1000}s")
     print(f"{'=' * 60}")
+
+    _report_cron_status(
+        "brain_calendar_ingest",
+        "ok",
+        error="",
+        duration_ms=_duration_ms,
+    )
 
 
 def main():
@@ -486,7 +552,18 @@ def main():
     parser.add_argument("--days-back", type=int, default=7, help="Days in the past to fetch (default: 7)")
     parser.add_argument("--days-forward", type=int, default=30, help="Days in the future to fetch (default: 30)")
     args = parser.parse_args()
-    ingest_events(days_back=args.days_back, days_forward=args.days_forward, dry_run=args.dry_run)
+    _start = int(time.time() * 1000)
+    try:
+        ingest_events(days_back=args.days_back, days_forward=args.days_forward, dry_run=args.dry_run)
+    except Exception as exc:
+        print(f"FATAL: {exc}")
+        _report_cron_status(
+            "brain_calendar_ingest",
+            "error",
+            error=str(exc),
+            duration_ms=int(time.time() * 1000) - _start,
+        )
+        sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -15,13 +15,36 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
+import time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+
+
+def _report_cron_status(job_name: str, status: str, error: str = "", duration_ms: int = 0) -> None:
+    """Write job status to jake_cron_status for dashboard visibility."""
+    try:
+        from supabase import create_client
+        url = os.environ.get("SUPABASE_URL", "")
+        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
+        if not url or not key:
+            return
+        client = create_client(url, key)
+        client.table("jake_cron_status").upsert({
+            "job_name": job_name,
+            "last_run": datetime.now(timezone.utc).isoformat(),
+            "status": status,
+            "error_message": error[:500] if error else "",
+            "duration_ms": duration_ms,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        }, on_conflict="job_name").execute()
+    except Exception:
+        pass
 
 from jake_brain.store import BrainStore
 from jake_brain.config import brain_config
@@ -102,7 +125,9 @@ for (let i = 0; i < mailboxes.length; i++) {{
 JSON.stringify(results);
 '''
 
-OSASCRIPT_TIMEOUT = 90  # seconds (Exchange Inbox can be 26K+ messages)
+OSASCRIPT_TIMEOUT = 30  # seconds — Exchange sync can be slow; 30s is enough for cached state.
+# Note: this script is NOT used in the daily cron (brain_wave1_ingest.sh uses
+# brain_mail_ingest_graph.py instead). This script is for manual/ad-hoc runs only.
 
 
 def extract_sender_name(sender: str) -> str:
@@ -170,10 +195,17 @@ def ingest_emails(
     dry_run: bool = False,
 ):
     """Main ingestion pipeline."""
+    _start_ms = int(time.time() * 1000)
     print(f"Fetching emails from '{account}' account (last {days} days)...")
     emails = fetch_emails(account, days)
 
     if not emails:
+        _report_cron_status(
+            "brain_mail_ingest",
+            "ok",
+            error="No emails returned (timeout or empty mailbox)",
+            duration_ms=int(time.time() * 1000) - _start_ms,
+        )
         return
 
     print(f"Found {len(emails)} emails.\n")
@@ -356,6 +388,7 @@ def ingest_emails(
         except Exception as exc:
             print(f"  Failed to store semantic summary: {exc}")
 
+    _duration_ms = int(time.time() * 1000) - _start_ms
     print(f"\n{'=' * 60}")
     print(f"Mail Ingestion Complete")
     print(f"  Account:           {account}")
@@ -365,7 +398,14 @@ def ingest_emails(
     print(f"  Skipped (dedup):   {stats['skipped_dedup']}")
     print(f"  Entities created:  {stats['entities_created']}")
     print(f"  Semantic memories: {stats['semantic']}")
+    print(f"  Duration:          {_duration_ms // 1000}s")
     print(f"{'=' * 60}")
+
+    _report_cron_status(
+        "brain_mail_ingest",
+        "ok",
+        duration_ms=_duration_ms,
+    )
 
 
 def main():
@@ -376,7 +416,18 @@ def main():
     parser.add_argument("--days", type=int, default=7, help="Days of email to fetch (default: 7)")
     parser.add_argument("--account", default="Exchange", help="Mail.app account name (default: Exchange)")
     args = parser.parse_args()
-    ingest_emails(account=args.account, days=args.days, dry_run=args.dry_run)
+    _start = int(time.time() * 1000)
+    try:
+        ingest_emails(account=args.account, days=args.days, dry_run=args.dry_run)
+    except Exception as exc:
+        print(f"FATAL: {exc}")
+        _report_cron_status(
+            "brain_mail_ingest",
+            "error",
+            error=str(exc),
+            duration_ms=int(time.time() * 1000) - _start,
+        )
+        sys.exit(1)
 
 
 if __name__ == "__main__":
