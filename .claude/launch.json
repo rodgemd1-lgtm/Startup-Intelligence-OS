@@ -20,6 +20,14 @@
       "runtimeArgs": ["tsx", "server/terminal.ts"],
       "port": 8421,
       "cwd": "apps/v5"
+    },
+    {
+      "name": "operator-console",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server"],
+      "port": 4173,
+      "autoPort": true,
+      "cwd": "apps/operator-console"
     }
   ]
 }
