@@ -69,6 +69,27 @@
       <h2>System Status</h2>
       <ul id="status"></ul>
 
+      <!-- Cost Tracking Panel -->
+      <div class="panel" id="cost-panel">
+        <h2>Cost Tracking</h2>
+        <div id="cost-daily" class="cost-metric">Daily: $0.00</div>
+        <div id="cost-monthly" class="cost-metric">Monthly: $0.00</div>
+        <table id="cost-by-model" class="cost-table">
+          <thead><tr><th>Model</th><th>Calls</th><th>Cost</th></tr></thead>
+          <tbody id="cost-table-body"></tbody>
+        </table>
+        <div id="cost-last-updated" class="panel-footer"></div>
+      </div>
+
+      <!-- Business Pipeline Panel -->
+      <div class="panel" id="pipeline-panel">
+        <h2>Business Pipeline</h2>
+        <div id="pipeline-total" class="pipeline-metric">Weighted: $0</div>
+        <div id="pipeline-stages"></div>
+        <div id="pipeline-stale" class="pipeline-stale">Deals Needing Action: 0</div>
+        <div id="pipeline-last-updated" class="panel-footer"></div>
+      </div>
+
       <div class="design-rule">
         <h2>Design Rule</h2>
         <p>The operator should never wonder what workspace, repo, branch, or decision is active.</p>
