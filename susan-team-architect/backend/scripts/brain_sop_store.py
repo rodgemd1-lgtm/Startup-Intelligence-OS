@@ -165,7 +165,7 @@ def main() -> None:
 
     result = store.store_procedural(
         content=full_content,
-        pattern_type="sop",
+        pattern_type="workflow",
         domain=args.project,
         confidence=args.confidence,
         approved=True,
@@ -175,7 +175,7 @@ def main() -> None:
     record_id = result.get("id", "unknown")
     print(f"Stored SOP in jake_procedural.")
     print(f"  UUID: {record_id}")
-    print(f"  pattern_type: sop")
+    print(f"  pattern_type: workflow (source_type=sop in metadata)")
     print(f"  domain: {args.project or '(none)'}")
     print(f"  approved: True")
     print("=" * 60)

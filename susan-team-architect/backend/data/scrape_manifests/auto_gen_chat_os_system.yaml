@@ -1,0 +1,35 @@
+manifest:
+  name: 'Auto-harvest: gen chat os system'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-6e22c451761d'': Capability ''Gen
+    Chat OS'' has coverage score 0.0. No matching RAG data or scrape manifests found.'
+  generated_by: research_daemon
+  gap_id: gap-6e22c451761d
+  generated_at: '2026-03-22T14:00:07.309633+00:00'
+sources:
+- tool: exa
+  query: gen chat os system best practices official documentation
+  num_results: 8
+- tool: exa
+  query: gen chat os system framework methodology guide
+  num_results: 8
+- tool: exa
+  query: gen chat os system startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability coverage score matching scrape research
+  num_results: 8
+- tool: exa
+  query: gen chat os system official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com gen chat os system README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

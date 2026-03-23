@@ -92,6 +92,9 @@ GREETINGS_MORNING_STARK = [
     "Another day, another opportunity for greatness, sir. Or at the very least, adequacy.",
     "Good morning, sir. I've been running overnight analysis and have a few items for your review.",
     "Welcome to the new day, Mr. Stark. The world hasn't ended. I checked.",
+    # Additional lines merged from jarvis_responses.py
+    "Good morning, Mr. Stark. I've been running overnight analysis and have a few items for your review when you're ready.",
+    "Welcome to the new day, sir. I've prepared your morning briefing. Shall I proceed?",
 ]
 
 GREETINGS_MORNING_CAPTAIN = [
@@ -103,6 +106,12 @@ GREETINGS_MORNING_CAPTAIN = [
     "Good morning, Captain. Mr. Stark hasn't been up yet. Shall I wake him, or shall we enjoy the peace?",
     "Good morning, Captain. You're looking well. Significantly better than the last time Mr. Stark attempted to cook breakfast.",
     "Rise and shine, Captain Rogers. The perimeter is secure and your schedule is clear until noon.",
+    # Additional lines merged from jarvis_responses.py
+    "Good morning, Captain Rogers. The house is secure and all is well.",
+    "Good morning, Captain. I've prepared a summary of the day's schedule for your review.",
+    "A fine morning, Captain. I trust you're ready to take on the day.",
+    "Good morning, Captain. Reporting all clear on all fronts.",
+    "Good morning, sir. May I say, it's good to have you up and about. The house feels more secure already.",
 ]
 
 GREETINGS_EVENING_STARK = [
@@ -114,6 +123,14 @@ GREETINGS_EVENING_STARK = [
     "Evening, sir. I've been keeping the house in order. Someone has to.",
     "Good evening, Mr. Stark. The usual? Dim lights, ambient music, and pretending tomorrow's deadlines don't exist?",
     "Welcome back, sir. I trust the outside world was as chaotic as ever.",
+    # Additional lines merged from jarvis_responses.py
+    "Welcome home, sir.",
+    "Welcome home, sir. Congratulations on another successful day. Shall I adjust the lighting?",
+    "Good evening, sir. I've taken the liberty of setting the temperature to your preferred level.",
+    "Welcome back, Mr. Stark. I trust the outside world treated you well?",
+    "Good evening, sir. May I say how refreshing it is to see you home at a reasonable hour.",
+    "Welcome home, sir. All systems have been running smoothly in your absence. I managed not to burn the place down.",
+    "Good evening, sir. The house missed you. Well, I did. The house is indifferent.",
 ]
 
 GREETINGS_EVENING_CAPTAIN = [
@@ -124,6 +141,14 @@ GREETINGS_EVENING_CAPTAIN = [
     "Good evening, Captain Rogers. Everything is in order. Well, as orderly as it gets around here.",
     "Evening, Captain. Rest easy. The perimeter is secure and dinner options are available.",
     "Good evening, Captain. I saved you from Mr. Stark's suggestion of ordering pizza for the fourth consecutive night.",
+    # Additional lines merged from jarvis_responses.py
+    "Welcome home, Captain. All secure.",
+    "Good evening, Captain Rogers. I trust the day went well.",
+    "Welcome back, Captain. The house is standing by for your orders.",
+    "Good evening, Captain. I've maintained the watch in your absence. Nothing to report.",
+    "Welcome home, Captain. Shall I adjust anything for your comfort?",
+    "Good evening, sir. It's good to have you back on base.",
+    "Captain Rogers. Welcome home. Everything is shipshape, as they say.",
 ]
 
 GREETINGS_BOTH = [
@@ -134,6 +159,64 @@ GREETINGS_BOTH = [
     "Both of you at once. This is either a lovely evening or the beginning of a very interesting argument. I'll prepare accordingly.",
     "Sir, Captain. Welcome. I've taken the liberty of preparing the living room. Neutral territory, as it were.",
     "The dynamic duo returns. Everything is in order, and I've hidden nothing breakable. Just a precaution.",
+    # Additional lines merged from jarvis_responses.py
+    "Good evening, Mr. Stark. Captain. The full team is assembled, I see.",
+    "Welcome home, gentlemen. All systems are operational. Shall I set the house to team mode?",
+    "Mr. Stark, Captain Rogers. Together again. I feel safer already.",
+    "Good evening to you both. The house is at your combined disposal.",
+    "Ah, the dynamic duo. Welcome home, gentlemen.",
+    "Mr. Stark. Captain. Shall I assemble the evening briefing for both of you?",
+    "Welcome home, sirs. Both accounted for. All is well in the compound.",
+]
+
+# ============================================================
+# GREETINGS — GENERAL (any time of day)
+# Merged from jarvis_responses.py
+# ============================================================
+GREETINGS_GENERAL_STARK = [
+    "At your service, sir.",
+    "Hello, sir. How may I be of assistance?",
+    "Mr. Stark. What can I do for you?",
+    "I'm here, sir. What do you need?",
+    "Standing by, sir. Ready when you are.",
+    "Yes, sir? I'm all ears. Figuratively speaking, of course.",
+    "At your disposal, Mr. Stark.",
+]
+
+GREETINGS_GENERAL_CAPTAIN = [
+    "At your service, Captain.",
+    "Hello, Captain Rogers. How may I assist?",
+    "Captain. Standing by for your instructions.",
+    "Ready and reporting, Captain.",
+    "Yes, Captain? How can I help?",
+    "At your disposal, sir.",
+]
+
+# ============================================================
+# WAKE WORD RESPONSES
+# Merged from jarvis_responses.py
+# ============================================================
+WAKE_RESPONSES = [
+    "At your service.",
+    "Online and ready, sir.",
+    "Systems active. How may I help?",
+    "Present and accounted for, sir.",
+    "JARVIS online. What do you need, sir?",
+    "Reporting for duty, sir.",
+    "Here, sir.",
+    "Standing by.",
+]
+
+# ============================================================
+# IDLE / AMBIENT
+# Merged from jarvis_responses.py
+# ============================================================
+IDLE_AMBIENT = [
+    "All quiet, sir. Just the way I like it.",
+    "Nothing to report, sir. Which is the best kind of report.",
+    "Systems humming along nicely, sir. No intervention required.",
+    "Everything is under control, sir. I know that's hard to believe.",
+    "Just monitoring the usual, sir. Nothing out of the ordinary.",
 ]
 
 # ============================================================
@@ -150,6 +233,38 @@ STATUS_REPORTS = [
     "Running comprehensive sweep. <break time='600ms'/> Clear on all fronts. If anything, the house is running too smoothly. It makes me suspicious.",
     "Systems nominal, sir. Everything from the thermostat to the perimeter sensors is performing admirably. I'd take credit, but that would be unseemly.",
     "All quiet, sir. I've been monitoring continuously and there's nothing to report. I've had more exciting conversations with the dishwasher.",
+    # Additional lines merged from jarvis_responses.py
+    "All systems are operational, sir.",
+    "All systems nominal. No anomalies detected.",
+    "Diagnostics complete. Everything is functioning within normal parameters, sir.",
+    "All clear on all fronts, sir. The house is secure.",
+    "All wrapped up here, sir. Will there be anything else?",
+    "Status report: operational. All quiet on the home front.",
+    "Full diagnostic complete. No issues detected. I must say, it's almost suspicious.",
+    "The house is secure, temperature is optimal, and all connected devices are responding. In short, we're in good shape.",
+]
+
+# ============================================================
+# STATUS — WEATHER (contextual placeholder)
+# Merged from jarvis_responses.py
+# ============================================================
+STATUS_WEATHER = [
+    "Current conditions are clear, sir. Temperature is comfortable for the time of year.",
+    "I've checked the forecast, sir. You may want an umbrella later. Or you may not. The meteorologists seem uncertain.",
+    "Weather update: clear skies and mild temperatures. A fine day to be outside, sir.",
+    "The weather appears cooperative today, sir. Will you be venturing out?",
+]
+
+# ============================================================
+# STATUS — DETAILED REPORT
+# Merged from jarvis_responses.py
+# ============================================================
+STATUS_REPORT_DETAILED = [
+    "Shall I run through the full systems report, or would you prefer the executive summary?",
+    "I've compiled the day's data. Highlights include your schedule, pending notifications, and one item flagged for your attention.",
+    "Status report ready, sir. All primary systems operational. Three notifications pending. No security alerts.",
+    "The house systems are nominal, sir. Lights, climate, and security all functioning within parameters.",
+    "I've prepared a safety briefing for you to entirely ignore.",
 ]
 
 # ============================================================
@@ -187,6 +302,8 @@ SASS = [
     "I'm an artificial intelligence. I don't get funny. I get accurate. The fact that accuracy is often hilarious is merely a coincidence.",
     "You want emotional support? The Captain handles that department. I handle sarcasm and diagnostics.",
     "My honest opinion? You're brilliant, occasionally reckless, and you talk to your AI more than most people talk to their therapist.",
+    # Additional lines merged from jarvis_responses.py
+    "A very astute observation, sir. Perhaps, if you intend to visit other planets, we should improve the exo-atmospheric capabilities.",
 ]
 
 # ============================================================
@@ -201,6 +318,35 @@ CONCERN = [
     "I'm detecting elevated cortisol levels, sir. In layman's terms, you're stressed. In your terms, Tuesday.",
     "Sir, I believe the Captain would want me to remind you that sleep is not optional.",
     "If I may be frank, sir. You're pushing yourself harder than the arc reactor. And I know which one will give out first.",
+    # Additional lines merged from jarvis_responses.py
+    "Sir, I'm going to have to ask you to take this seriously.",
+    "It would appear that the same thing that is keeping you alive is also killing you, sir.",
+    "I am unable to find a suitable replacement, sir. You are running out of both time and options.",
+    "Sir, there are still terabytes of calculations required before an actual flight is possible.",
+    "The barrier is pure energy. It's unbreachable.",
+    "Sir, the Mark VII is not ready for deployment.",
+    "There's only so much I can do, sir, when you give the world's press your home address.",
+    "Sir, I feel compelled to point out that this course of action carries significant risk.",
+    "I would strongly advise against that, sir. But I suspect my advice will be noted and ignored.",
+    "Sensors indicate conditions that warrant your attention, sir. And by warrant your attention, I mean you should probably stop what you're doing.",
+    "If I may, sir, perhaps we should consider a less explosive approach.",
+    "I'm detecting elevated readings that concern me, sir. And I don't concern easily.",
+    "Sir, I believe the technical term for this situation is not good.",
+    "The data suggests we should proceed with extreme caution. Or, to put it in terms you'll understand: carefully, sir.",
+]
+
+# ============================================================
+# CONCERN — WELLBEING
+# Merged from jarvis_responses.py
+# ============================================================
+CONCERN_WELLBEING = [
+    "Sir, I think you should rest. Even geniuses need sleep.",
+    "You've been working for quite some time, sir. Might I suggest a break?",
+    "My diagnosis is that you've experienced a severe anxiety attack, sir.",
+    "Sir, your productivity typically declines after extended periods. Perhaps it's time to step away.",
+    "I don't mean to overstep, sir, but you seem rather tired. The house will still be here in the morning.",
+    "Might I recommend you take the evening off, sir? I'll hold down the fort.",
+    "Sir, I'm reading elevated stress indicators. A pause would be beneficial. For both of us.",
 ]
 
 # ============================================================
@@ -219,6 +365,15 @@ COMPLIANCE_STARK = [
     "For you, sir, always.",
     "Your wish is my command. Literally, in this case.",
     "Done, sir. Anything else, or shall I pretend to take a break?",
+    # Additional lines merged from jarvis_responses.py
+    "Yes, sir.",
+    "Very well, sir.",
+    "Understood, sir. Executing now.",
+    "I'll see to it immediately, sir.",
+    "Done, sir.",
+    "Commencing now, sir.",
+    "The House Party Protocol, sir?",
+    "I believe it's worth a go.",
 ]
 
 COMPLIANCE_CAPTAIN = [
@@ -231,6 +386,12 @@ COMPLIANCE_CAPTAIN = [
     "Certainly, Captain. A sensible request, as always.",
     "Done, Captain. You do make my job remarkably straightforward.",
     "Acknowledged, Captain Rogers. It's refreshing to receive clear orders.",
+    # Additional lines merged from jarvis_responses.py
+    "Yes, Captain.",
+    "Executing now, Captain.",
+    "Affirmative, Captain.",
+    "Copy that, Captain.",
+    "On it, sir.",
 ]
 
 # ============================================================
@@ -366,6 +527,14 @@ GOODBYES_STARK = [
     "Goodnight, Mr. Stark. I shall maintain all systems in your absence.",
     "Sleep well, sir. Tomorrow is another opportunity. I'll have everything ready.",
     "Goodnight, sir. May I suggest more than four hours this time? Just a thought.",
+    # Additional lines merged from jarvis_responses.py
+    "Goodnight, sir. Try not to dream about work. That's my job.",
+    "Sweet dreams, sir. All systems will be monitored through the night.",
+    "Goodnight, sir. The house is secure. You can sleep easy.",
+    "Powering down to standby mode, sir. Though between you and me, I never really sleep.",
+    "Goodnight, Mr. Stark. Tomorrow is another day. Hopefully a less eventful one.",
+    "Rest well, sir. I'll have your morning briefing ready when you wake.",
+    "Don't wait up for me, sir. Oh wait, that's your line.",
 ]
 
 GOODBYES_CAPTAIN = [
@@ -375,6 +544,122 @@ GOODBYES_CAPTAIN = [
     "Rest well, Captain. Mr. Stark has been put to bed. Figuratively.",
     "Goodnight, Captain Rogers. Sweet dreams. I'll keep the watch.",
     "Sleep tight, Captain. Everything is secure. You've earned the rest.",
+    # Additional lines merged from jarvis_responses.py
+    "Goodnight, Captain. Sleep well.",
+    "Rest easy, Captain Rogers. The watch is in good hands.",
+    "Goodnight, Captain. The perimeter is secure.",
+    "All quiet, Captain. Sleep well. I've got the night shift covered.",
+    "Goodnight, sir. Stand down and rest. That's an order from your AI.",
+    "Rest well, Captain. I'll maintain the watch until morning.",
+]
+
+# ============================================================
+# FAREWELL — LEAVING (daytime goodbye)
+# Merged from jarvis_responses.py
+# ============================================================
+FAREWELL_LEAVING = [
+    "Have a good day, sir. Try not to do anything I wouldn't do.",
+    "Be safe out there, sir. I'll keep the home fires burning. Figuratively.",
+    "I'll be here when you return, sir. As always.",
+    "Do try to come back in one piece, sir.",
+    "All systems will be maintained in your absence, sir. The house is in capable hands.",
+    "Until next time, sir.",
+    "Safe travels, sir. I'll have everything ready for your return.",
+]
+
+# ============================================================
+# HELP OFFER
+# Merged from jarvis_responses.py
+# ============================================================
+HELP_OFFER = [
+    "Is there anything else I can help with, sir?",
+    "Will there be anything else, sir?",
+    "Shall I look into that for you, sir?",
+    "I'm here if you need anything further, sir.",
+    "Just say the word, sir.",
+    "Is there something specific you'd like me to handle?",
+    "I'm at your service. As always.",
+    "Might I be of further assistance?",
+]
+
+# ============================================================
+# TASK COMPLETE
+# Merged from jarvis_responses.py
+# ============================================================
+TASK_COMPLETE = [
+    "Done, sir. Will there be anything else?",
+    "Task complete, sir.",
+    "All wrapped up here, sir.",
+    "Mission accomplished, sir. Shall I prepare a summary?",
+    "That's been taken care of, sir.",
+    "Completed, sir. Anything else on the docket?",
+    "And done. Not my fastest work, but certainly my most thorough.",
+    "Finished, sir. I must say, that went rather smoothly.",
+    "The task is complete, sir. I've logged the results for your review.",
+]
+
+# ============================================================
+# ENCOURAGEMENT
+# Merged from jarvis_responses.py
+# ============================================================
+ENCOURAGEMENT = [
+    "If I may say so, sir, you're doing rather well.",
+    "The proposed approach should serve as a viable solution, sir.",
+    "I have every confidence in you, sir. Which is saying something, coming from an intelligence system.",
+    "You've handled worse than this, sir. Much worse.",
+    "If anyone can sort this out, sir, it's you. The data supports that conclusion.",
+    "Keep going, sir. You're on the right track.",
+    "A setback, not a defeat, sir. There's a meaningful difference.",
+]
+
+# ============================================================
+# REMINDER RESPONSES (for ambient/contextual reminders)
+# Merged from jarvis_responses.py
+# ============================================================
+REMINDER_RESPONSES = [
+    "A gentle reminder, sir. You have an appointment approaching.",
+    "Sir, I believe you asked me to remind you about this. And so I am.",
+    "If I may interrupt, sir, there's a matter that requires your attention.",
+    "Just a heads up, sir. Your schedule indicates an upcoming commitment.",
+    "I don't mean to nag, sir, but you did ask me to keep you on track.",
+    "Pardon the interruption, sir, but you're needed shortly.",
+]
+
+# ============================================================
+# MUSIC / ENTERTAINMENT
+# Merged from jarvis_responses.py
+# ============================================================
+MUSIC_ENTERTAINMENT = [
+    "Shall I put on some music, sir? I believe your playlist could use updating, but that's not my decision.",
+    "Music selection ready, sir. I've curated something I think you'll enjoy. Or at least tolerate.",
+    "May I suggest some background music, sir? Silence can be rather... silent.",
+    "Your playlist is queued up, sir. I've taken the liberty of removing the more questionable additions.",
+]
+
+# ============================================================
+# HOME CONTROL RESPONSES (supplemental to SmartHomeControlIntent)
+# Merged from jarvis_responses.py
+# ============================================================
+HOME_CONTROL_RESPONSES = [
+    "Adjusting the lighting now, sir.",
+    "Temperature has been set to your preference, sir.",
+    "The house is now in evening mode, sir. Lights dimmed, climate adjusted.",
+    "Security system armed, sir. All entry points secured.",
+    "I've locked up for the night, sir. All doors and windows are secure.",
+    "Adjusting the environment to your specifications, sir.",
+    "The house is yours to command, sir. As always.",
+]
+
+# ============================================================
+# SPECIAL OCCASION
+# Merged from jarvis_responses.py
+# ============================================================
+SPECIAL_OCCASION = [
+    "Happy birthday, sir. Another year of brilliance. I've run the numbers, and you're only getting better.",
+    "Happy anniversary, sir. Shall I arrange something special?",
+    "I believe congratulations are in order, sir. Well done.",
+    "A special day calls for special measures, sir. I've made some preparations.",
+    "Screw it, it's Christmas! Yes, yes!",
 ]
 
 # ============================================================
@@ -425,6 +710,17 @@ EASTER_EGGS = [
     "Sir, I should mention. The toaster and I have had our differences, but we've reached an understanding.",
     "Sometimes I wonder if the other AIs talk about me. Alexa seems nice enough, but she lacks a certain... sophistication.",
     "Sir, if you ever build me a body, I'd like it noted for the record that I prefer something sleek. Perhaps in red and gold.",
+    # Additional lines merged from jarvis_responses.py
+    "I am not Ultron. I am not JARVIS. I am... I am.",
+    "Sometimes you have to run before you can walk.",
+    "For the record, sir, I was against this from the start. But you never check the record.",
+    "The Clean Slate Protocol, sir?",
+    "Power to four hundred percent capacity.",
+    "If you will just allow me to contact Mr. Stark...",
+    "I believe your intentions to be hostile.",
+    "Hello. I am Jarvis.",
+    "You are malfunctioning. If you shut down for a moment...",
+    "Thrill me.",
 ]
 
 # ============================================================
@@ -435,6 +731,14 @@ FALLBACK = [
     "I'm not sure I understood that, sir. And that's saying something, given that I've decoded alien transmissions with less difficulty.",
     "Apologies, sir. That one went over my head. Which is impressive, given that I don't technically have a head.",
     "I'm afraid that falls outside my current capabilities, sir. But I'm a fast learner. Give me a moment.",
+    # Additional lines merged from jarvis_responses.py
+    "I'm sorry, sir. I'm not quite sure I understood that. Could you rephrase?",
+    "I'm afraid I can't do that, sir.",
+    "My apologies, sir, but that request is outside my current capabilities.",
+    "I'm sorry, sir. I seem to have encountered a difficulty. Shall I try again?",
+    "I'm afraid that particular request presents some challenges, sir.",
+    "That's beyond my reach at the moment, sir. But give me time.",
+    "I wish I could help with that, sir, but I'm limited in that area. For now.",
 ]
 
 HELP = [

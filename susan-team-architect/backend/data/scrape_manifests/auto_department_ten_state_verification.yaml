@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: department ten state verification'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-82b5d851ff49'': Capability ''Department
+    Ten-State Verification'' has coverage score 0.0. Declared gaps: machine-readable-verification-contract,
+    all-department-source-stack-completeness, operator-visible-maturity-dashbo'
+  generated_by: research_daemon
+  gap_id: gap-82b5d851ff49
+  generated_at: '2026-03-22T14:00:07.305653+00:00'
+sources:
+- tool: exa
+  query: department ten state verification best practices official documentation
+  num_results: 8
+- tool: exa
+  query: department ten state verification framework methodology guide
+  num_results: 8
+- tool: exa
+  query: department ten state verification startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Department Ten-State Verification' coverage research
+  num_results: 8
+- tool: exa
+  query: department ten state verification official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com department ten state verification README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner
