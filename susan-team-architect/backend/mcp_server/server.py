@@ -430,7 +430,7 @@ def sync_protocols() -> str:
 @mcp.tool()
 def scrape_url(
     url: str,
-    tool: str = "jina",
+    tool: str = "firecrawl",
     data_type: str = "market_research",
     company_id: str = "transformfit",
 ) -> str:
@@ -438,7 +438,7 @@ def scrape_url(
 
     Args:
         url: The URL to scrape
-        tool: Scraping tool to use -- "jina" (default, direct) or "firecrawl" (requires credits)
+        tool: Scraping tool to use -- "firecrawl" (default) or "jina" (fallback, no credits needed)
         data_type: Knowledge category (exercise_science, ux_research, etc.)
         company_id: Company namespace
     """
