@@ -190,7 +190,7 @@ function loadPipelinePanel() {
     return;
   }
 
-  fetch(SUPABASE_URL + '/rest/v1/jake_deals?select=id,stage,value,updated_at&order=updated_at.desc', {
+  fetch(SUPABASE_URL + '/rest/v1/jake_deals?select=id,company,stage,value_usd,next_action,updated_at&order=updated_at.desc', {
     headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
   }).then(function(r) {
     if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -205,23 +205,26 @@ function loadPipelinePanel() {
       return;
     }
 
-    var total = deals.reduce(function(sum, d) { return sum + parseFloat(d.value || 0); }, 0);
+    var total = deals.reduce(function(sum, d) { return sum + parseFloat(d.value_usd || 0); }, 0);
     countEl.textContent = deals.length;
     valueEl.textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
 
     var latest = deals[0].updated_at;
     lastEl.textContent = latest ? latest.slice(0, 10) : '—';
 
-    // Stages breakdown
+    // Deal rows: name, stage, value, status (next_action)
     if (stagesEl) {
-      var byStage = {};
-      deals.forEach(function(d) { byStage[d.stage] = (byStage[d.stage] || 0) + 1; });
-      stagesEl.innerHTML = Object.entries(byStage).map(function(kv) {
-        return '<div class="cost-row"><span>' + kv[0] + '</span><span>' + kv[1] + ' deal' + (kv[1] !== 1 ? 's' : '') + '</span></div>';
+      stagesEl.innerHTML = deals.map(function(d) {
+        var stageClass = d.stage === 'closed_won' ? 'status-ok' : d.stage === 'closed_lost' ? 'status-err' : 'status-warn';
+        return '<div class="cost-row">' +
+          '<span style="font-weight:600">' + (d.company || '—') + '</span>' +
+          '<span class="' + stageClass + '">' + (d.stage || '—') + '</span>' +
+          '<span>$' + parseFloat(d.value_usd || 0).toLocaleString(undefined, {maximumFractionDigits: 0}) + '</span>' +
+          '<span style="color:#999;font-size:0.85em">' + (d.next_action || '—') + '</span>' +
+          '</div>';
       }).join('');
     }
   }).catch(function(err) {
-    // Table may not exist yet
     countEl.textContent = '0';
     valueEl.textContent = '$0';
     lastEl.textContent = '—';
