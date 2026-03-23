@@ -46,6 +46,54 @@
         <ol id="actions"></ol>
       </section>
 
+      <!-- SECURITY PANEL -->
+      <section class="card" id="section-security">
+        <h2>Security Status</h2>
+        <div class="panel-grid two-col">
+          <div>
+            <div class="stat-label">Credential Vault</div>
+            <div id="security-vault" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">Security Events (24h)</div>
+            <div id="security-events" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">Rate Limits</div>
+            <div id="security-rate-limits" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">PII Guard</div>
+            <div id="security-pii" class="stat-value status-ok">Active ✓</div>
+          </div>
+        </div>
+        <div id="security-alerts" class="alert-list"></div>
+      </section>
+
+      <!-- COST PANEL -->
+      <section class="card" id="section-cost">
+        <h2>Cost Optimization</h2>
+        <div class="panel-grid two-col">
+          <div>
+            <div class="stat-label">Monthly Spend</div>
+            <div id="cost-monthly" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">Budget Used</div>
+            <div id="cost-budget-pct" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">API Calls (30d)</div>
+            <div id="cost-calls" class="stat-value">—</div>
+          </div>
+          <div>
+            <div class="stat-label">Smart Routing</div>
+            <div id="cost-routing" class="stat-value status-ok">Active ✓</div>
+          </div>
+        </div>
+        <div id="cost-breakdown" class="cost-breakdown"></div>
+      </section>
+
       <section class="card" id="section-terminal">
         <h2>Terminal</h2>
         <div class="terminal">

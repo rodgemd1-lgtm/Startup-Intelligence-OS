@@ -171,6 +171,43 @@ header h1 {
   font-style: italic;
 }
 
+/* Security + Cost Panels */
+.panel-grid.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.stat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5a6a9a;
+  margin-bottom: 3px;
+}
+.stat-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c8d0e8;
+}
+.stat-value.status-ok { color: #4ade80; }
+.stat-value.status-warn { color: #facc15; }
+.stat-value.status-error { color: #f87171; }
+.alert-list, .cost-breakdown {
+  font-size: 0.75rem;
+  color: #8898c0;
+  margin-top: 8px;
+}
+.alert-item {
+  padding: 3px 0;
+  border-bottom: 1px solid #1a2040;
+}
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .console {
