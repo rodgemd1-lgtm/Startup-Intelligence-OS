@@ -1,16 +1,18 @@
 """Consolidation pipeline — promotes memories between layers.
 
 Working → Episodic (session end or high importance)
-Episodic → Semantic (3+ references to same fact)
+Episodic → Semantic (3+ references to same fact within 14 days)
 Patterns → Procedural (detected across 3+ episodes, requires approval)
 """
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from collections import Counter
 
 from jake_brain.store import BrainStore
 from jake_brain.config import brain_config
+
+AUTO_PROMOTE_WINDOW_DAYS = 14  # Look for clusters within this window
 
 
 class Consolidator:
@@ -50,7 +52,7 @@ class Consolidator:
     def promote_episodic_to_semantic(self, batch_size: int = 100) -> dict:
         """Scan episodic memories and promote recurring facts to semantic.
 
-        A fact is promoted when it appears in 3+ different episodes.
+        A fact is promoted when 3+ episodes with similar content exist within 14 days.
         Uses content similarity to group related episodes.
         """
         stats = {"promoted": 0, "reinforced": 0, "scanned": 0}
@@ -62,7 +64,7 @@ class Consolidator:
             return stats
 
         # Group by similarity — find clusters of related episodes
-        # Simple approach: check each against existing semantic facts
+        # Check each against existing semantic facts
         for episode in unpromoted:
             # Check if this episode's content matches an existing semantic fact
             similar_facts = self.store.find_similar_semantic(
@@ -76,11 +78,96 @@ class Consolidator:
                 self.store.reinforce_semantic(best_match["id"], episode["id"])
                 stats["reinforced"] += 1
             else:
-                # Check if enough episodes share this theme to warrant promotion
-                # For now, track in metadata — future: cluster analysis
-                pass
+                # Check if enough recent episodes share this theme to warrant promotion
+                promoted = self._auto_promote_if_threshold_met(episode, unpromoted)
+                if promoted:
+                    stats["promoted"] += 1
 
         return stats
+
+    def _auto_promote_if_threshold_met(
+        self, anchor: dict, candidates: list[dict]
+    ) -> bool:
+        """Promote anchor episodic to semantic if 3+ similar episodes exist within 14 days.
+
+        Returns True if promotion occurred.
+        """
+        threshold = brain_config.promotion_episode_threshold  # default 3
+        window_cutoff = datetime.now(timezone.utc) - timedelta(days=AUTO_PROMOTE_WINDOW_DAYS)
+
+        # Find candidates within the time window
+        anchor_text = anchor["content"].lower()
+        anchor_words = set(anchor_text.split())
+        cluster_ids = [anchor["id"]]
+
+        for candidate in candidates:
+            if candidate["id"] == anchor["id"]:
+                continue
+            # Check time window
+            occurred = candidate.get("occurred_at", "")
+            if occurred:
+                try:
+                    occurred_dt = datetime.fromisoformat(occurred.replace("Z", "+00:00"))
+                    if occurred_dt < window_cutoff:
+                        continue
+                except (ValueError, AttributeError):
+                    continue
+
+            # Check text overlap (simple proxy for semantic similarity without embedding call)
+            cand_words = set(candidate["content"].lower().split())
+            overlap = len(anchor_words & cand_words) / max(len(anchor_words), len(cand_words), 1)
+            if overlap >= 0.3:  # 30% word overlap = related theme
+                cluster_ids.append(candidate["id"])
+
+        if len(cluster_ids) < threshold:
+            return False
+
+        # Synthesize a semantic fact from the cluster
+        # Use the anchor content as the base (first representative episode)
+        category = self._infer_category(anchor["content"])
+        people = anchor.get("people") or []
+
+        semantic = self.store.store_semantic(
+            content=anchor["content"],
+            category=category,
+            confidence=0.6,  # start at 60%, grows with reinforcement
+            source_episodes=cluster_ids[:threshold],
+            project=anchor.get("project"),
+            topics=anchor.get("topics") or [],
+            metadata={
+                "auto_promoted": True,
+                "promoted_at": datetime.now(timezone.utc).isoformat(),
+                "cluster_size": len(cluster_ids),
+                "window_days": AUTO_PROMOTE_WINDOW_DAYS,
+            },
+        )
+
+        if semantic.get("id"):
+            # Mark the anchor episode as promoted
+            self.store.supabase.table("jake_episodic").update({
+                "promoted_to_semantic": True,
+                "metadata": {
+                    **(anchor.get("metadata") or {}),
+                    "promoted_to_semantic_id": semantic["id"],
+                },
+            }).eq("id", anchor["id"]).execute()
+            print(f"  → Auto-promoted episodic to semantic: {anchor['content'][:60]}... (cluster={len(cluster_ids)})")
+            return True
+
+        return False
+
+    def _infer_category(self, content: str) -> str:
+        """Infer semantic category from content keywords."""
+        content_lower = content.lower()
+        if any(w in content_lower for w in ["jacob", "alex", "james", "jen", "family", "kids"]):
+            return "relationship"
+        if any(w in content_lower for w in ["oracle", "health", "cohlmia", "myhelp"]):
+            return "work"
+        if any(w in content_lower for w in ["project", "build", "deploy", "code", "feature"]):
+            return "project"
+        if any(w in content_lower for w in ["prefer", "like", "hate", "want", "always", "never"]):
+            return "preference"
+        return "fact"
 
     def detect_contradictions(self) -> list[dict]:
         """Scan semantic facts for contradictions.
