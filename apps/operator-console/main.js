@@ -173,6 +173,64 @@ function loadCostPanel() {
   }).catch(function() { monthlyEl.textContent = '—'; });
 }
 
+// ─── Business Pipeline Panel ──────────────────────────────────────────────────
+
+function loadPipelinePanel() {
+  var countEl = document.getElementById('pipeline-count');
+  var valueEl = document.getElementById('pipeline-value');
+  var lastEl = document.getElementById('pipeline-last');
+  var statusEl = document.getElementById('pipeline-status');
+  var stagesEl = document.getElementById('pipeline-stages');
+  if (!countEl) return;
+
+  if (!SUPABASE_ANON_KEY) {
+    countEl.textContent = 'No key';
+    valueEl.textContent = '—';
+    lastEl.textContent = '—';
+    return;
+  }
+
+  fetch(SUPABASE_URL + '/rest/v1/jake_deals?select=id,stage,value,updated_at&order=updated_at.desc', {
+    headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+  }).then(function(r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(function(deals) {
+    if (!deals || deals.length === 0) {
+      countEl.textContent = '0';
+      valueEl.textContent = '$0';
+      lastEl.textContent = 'No deals';
+      statusEl.textContent = 'No deals in pipeline';
+      statusEl.className = 'stat-value';
+      return;
+    }
+
+    var total = deals.reduce(function(sum, d) { return sum + parseFloat(d.value || 0); }, 0);
+    countEl.textContent = deals.length;
+    valueEl.textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+    var latest = deals[0].updated_at;
+    lastEl.textContent = latest ? latest.slice(0, 10) : '—';
+
+    // Stages breakdown
+    if (stagesEl) {
+      var byStage = {};
+      deals.forEach(function(d) { byStage[d.stage] = (byStage[d.stage] || 0) + 1; });
+      stagesEl.innerHTML = Object.entries(byStage).map(function(kv) {
+        return '<div class="cost-row"><span>' + kv[0] + '</span><span>' + kv[1] + ' deal' + (kv[1] !== 1 ? 's' : '') + '</span></div>';
+      }).join('');
+    }
+  }).catch(function(err) {
+    // Table may not exist yet
+    countEl.textContent = '0';
+    valueEl.textContent = '$0';
+    lastEl.textContent = '—';
+    statusEl.textContent = 'No deals in pipeline';
+    statusEl.className = 'stat-value';
+    if (stagesEl) stagesEl.innerHTML = '';
+  });
+}
+
 // Try API first, fallback to static
 loadFromApi().catch(function () {
   apiAvailable = false;
@@ -184,9 +242,10 @@ loadFromApi().catch(function () {
   statusEl.appendChild(li);
 });
 
-// Load security and cost panels
+// Load security, cost, and pipeline panels
 loadSecurityPanel();
 loadCostPanel();
+loadPipelinePanel();
 
 // --- Terminal commands ---
 
