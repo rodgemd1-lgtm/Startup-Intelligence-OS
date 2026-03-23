@@ -1,41 +1,87 @@
 # Session Handoff
 
-**Date**: 2026-03-22
-**Project**: Startup Intelligence OS — Jake 100/100 Integration Test
-**Session Goal**: Comprehensive integration test of all Jake capabilities, fix every failure found
-**Status**: PARTIAL — 9 of 10 layers fully verified, 1 needs follow-up (Business Pipeline panel in dashboard)
+**Date**: 2026-03-23
+**Project**: Startup Intelligence OS — DEATHSTAR 25x Recovery
+**Session Goal**: Complete Foundation gaps (F2, F3, F5), validate (F6), write Walls plan
+**Status**: COMPLETE
 
-## Completed This Session
+---
 
-- [x] Applied Supabase security migration (20260322000000_jake_security.sql) — 5 new tables live
-- [x] Created jake_brain/employees/oracle_sentinel.py — PASS (Telegram sent)
-- [x] Created jake_brain/employees/inbox_zero.py — PASS (brain_stored: True, Telegram sent)
-- [x] Fixed jake_pipeline/monitor.py — KeyError on grade key when 0 deals (commit 9f4c101)
-- [x] Fixed jake_skill_harvest.py — removed non-existent quality_score column query (commit b42d52c)
-- [x] Committed untracked scripts: jake_identity_check.py, jake_skill_catalog.py, jake_skill_harvest.py, autonomous_pipeline.py
-- [x] Wrote test report: docs/plans/2026-03-22-jake-100-test-report.md
+## Completed
 
-## Layer Status
+- [x] **F2 — SOP Capture Skill** — Already existed at `~/.hermes/skills/jake-sop-capture/SKILL.md` (204 lines, complete)
+- [x] **F3 — Memory Lake Expansion**
+  - Script: `susan-team-architect/backend/scripts/jake_memory_lake_ingest.py`
+  - Launchd plist: `~/Library/LaunchAgents/com.jake.memory-lake.plist` (Sunday 3 AM weekly)
+  - Plist loaded and active
+- [x] **F5 — Hermes Plugin Wiring** — Added 3 new tools to `~/.hermes/plugins/jake-brain-ingest/__init__.py`:
+  - `sop_capture` — starts structured interview, kicks off the skill workflow via Telegram
+  - `memory_ingest` — ingests any file/dir into jake_semantic via brain_doc_ingest.py
+  - `doc_search` — searches ingested documents with category/project filters
+  - Plugin now has **33 total tools** (was 30). Syntax-validated: loads clean.
+- [x] **F6 — Validation Audit** — All gates passed:
+  - F1: `jake_goals` table — 10 active goals ✅
+  - F2: SOP skill — 204 lines ✅
+  - F3: Memory lake script + launchd loaded ✅
+  - F4: `com.jake.goal-weekly.plist` loaded ✅
+  - F5: All 7 required tools present in plugin ✅
+- [x] **Walls Plan** — Written at `.claude/plans/2026-03-23-deathstar-walls-plan.md`
+  - AI Dev Studio: 5% → full spec written, 3-session build sequence defined
+  - Social Studio: 40% → 5 remaining tasks mapped, sessions planned
+  - Critical path diagram written
+  - 4 open questions for Mike
 
-| Layer | Status | Notes |
-|-------|--------|-------|
-| L1: Identity | PASS | SOUL.md present, identity_check CONSISTENT |
-| L2: Cognitive Memory | PASS | 70,925 memories, brain search and store work |
-| L3: Dashboard | PARTIAL | Business Pipeline panel missing from operator console |
-| L4: Skill Library | PASS | 142 capabilities, harvest fixed |
-| L5: AI Employees | PASS | All 4 employees run clean |
-| L6: Autonomous Pipeline | PASS | Tables exist, module imports OK |
-| L7: Self-Evolution | PASS | All self_improvement modules import OK |
-| L8: Security | PASS | Vault 24/30 credentials, PII, RBAC all pass |
-| L9: Cost Optimization | PASS | ModelRouter, CostTracker, reports all work |
-| L10: Business Pipeline | PASS | Pipeline report clean after grade-key fix |
+---
 
-## Next Session: One Remaining Fix
+## Foundation Status: 100% ✅
 
-Add Business Pipeline section to apps/operator-console/index.html.
-Current sections: debrief, actions, security, cost, terminal (5 total).
-Missing: business pipeline panel that queries jake_deals table.
+| Component | Status |
+|-----------|--------|
+| F1: Goal Tracking (jake_goals) | ✅ 10 active goals |
+| F2: SOP Capture (Hermes skill) | ✅ Complete |
+| F3: Memory Lake Expansion | ✅ Script + weekly cron |
+| F4: Weekly Goal Check-in Cron | ✅ com.jake.goal-weekly loaded |
+| F5: Hermes Plugin (33 tools) | ✅ sop_capture + memory_ingest + doc_search added |
+| F6: Validation | ✅ All gates passed |
 
-## Commits This Session
-- 9f4c101 — main integration test fixes
-- b42d52c — skill harvest pipeline query fix
+---
+
+## Not Started (Next Sessions)
+
+- [ ] **Wall 1 — AI Dev Studio SKILL.md** → `~/.hermes/skills/ai-dev-studio/SKILL.md`
+  - First test: run via Telegram for TransformFit
+- [ ] **Wall 2 — Viral Architect pipeline test** → `~/viral-architect-hub`
+  - Verify `instagram_publisher.py` can post to @rodgemd1
+  - Unblocks reel production
+- [ ] **Wall 2 — First reel (@rodgemd1)** — Session 2 of Film Studio plan (Step 5)
+- [ ] **TransformFit MVP spec** — first real dev studio session
+
+---
+
+## Decisions Made
+
+| Decision | Rationale | Reversible? |
+|----------|-----------|-------------|
+| `sop_capture` starts interview (not stores) | `sop_capture_store` handles storage; entry point is conversational | Yes |
+| Memory lake uses subprocess calls to brain_doc_ingest.py | Reuse existing chunking/embedding logic | Yes |
+| Weekly cron fires Sundays 3 AM on files modified in last 7 days | Incremental prevents re-ingesting same files | Yes |
+| Foundation declared 100% complete | All 6 gates passed validation | — |
+
+---
+
+## Context for Next Session
+
+- **Key insight**: Foundation is DONE. Both walls have clear build sequences in `.claude/plans/2026-03-23-deathstar-walls-plan.md`
+- **Files to read first**: `.claude/plans/2026-03-23-deathstar-walls-plan.md`
+- **First task**: Write `~/.hermes/skills/ai-dev-studio/SKILL.md` (Wall 1, Session A)
+- **Second task**: Verify Viral Architect pipeline (`~/viral-architect-hub`) → then Session 2 of film studio plan
+- **Risk**: TransformFit MVP spec depends on dev studio skill working — don't skip that step
+
+---
+
+## Build Health
+
+- Files modified this session: 4
+- Tests passing: Plugin syntax ✅ | launchd agents loaded ✅ | jake_goals query ✅
+- Context health at close: YELLOW (~45% used)
+- Debt score: LOW (all new code, no bypasses, validation passed)
