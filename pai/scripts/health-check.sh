@@ -2,8 +2,9 @@
 # pai/scripts/health-check.sh
 # Checks all PAI services and alerts via Telegram if anything is down.
 
-TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN}"
-TELEGRAM_CHAT_ID="8634072195"
+TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-8716281531:AAF67DEFcw_tJTJ6wHO5D6n1k2Qpfwm66ig}"
+TELEGRAM_CHAT_ID="${TELEGRAM_CHAT_ID:-8634072195}"
+export PATH="$HOME/.npm-global/bin:$HOME/go/bin:/opt/homebrew/bin:$PATH"
 
 check_service() {
     local name="$1"
@@ -24,8 +25,11 @@ check_service "OpenClaw Gateway" "curl -s --max-time 5 http://127.0.0.1:18789/he
 # Check Fabric API
 check_service "Fabric API" "curl -s --max-time 5 http://127.0.0.1:8080/patterns/names"
 
-# Check Claude Code tmux session
-check_service "Claude Code Brain" "tmux has-session -t jake-brain"
+# Check Claude Code CLI is available
+check_service "Claude Code CLI" "which claude"
+
+# Check OpenClaw gateway launchd service
+check_service "OpenClaw LaunchAgent" "launchctl list | grep -q ai.openclaw.gateway"
 
 # Check LosslessClaw DB
 check_service "LosslessClaw DB" "test -f ~/.openclaw/lcm.db"
