@@ -30,3 +30,4 @@ apps/ios-device-probe/IOSDeviceProbe.xcodeproj/
 
 # Browser automation session logs
 .playwright-mcp/
+pai/migration/export/
