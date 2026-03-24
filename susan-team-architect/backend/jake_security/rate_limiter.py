@@ -121,6 +121,19 @@ class RateLimiter:
             results.append(self.status(op, actor))
         return results
 
+    def persist(self, supabase_client) -> None:
+        """Persist current rate limit state to jake_rate_limit_state table."""
+        for status in self.all_status():
+            max_calls, window_seconds = self._get_limit(status["operation"])
+            supabase_client.table("jake_rate_limit_state").upsert({
+                "operation": status["operation"],
+                "actor": status["actor"],
+                "call_count": status["current"],
+                "window_seconds": window_seconds,
+                "max_calls": max_calls,
+                "updated_at": "now()",
+            }, on_conflict="operation,actor").execute()
+
 
 class RateLimitError(Exception):
     """Raised when a rate limit is exceeded."""
