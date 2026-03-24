@@ -1,5 +1,12 @@
 {
-  "sessions": [],
+  "sessions": [
+    {
+      "id": "test-v1-migration-001",
+      "started_at": "2026-03-24T16:00:58.939630",
+      "status": "completed",
+      "ended_at": "2026-03-24T16:00:58.940212"
+    }
+  ],
   "active_session": null,
-  "total_sessions": 0
+  "total_sessions": 1
 }
