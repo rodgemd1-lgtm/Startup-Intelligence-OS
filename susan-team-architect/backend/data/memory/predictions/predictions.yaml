@@ -1,4 +1,4 @@
-generated_at: '2026-03-17T01:41:13Z'
+generated_at: '2026-03-23T20:17:48Z'
 prediction_count: 21
 predictions:
 - capability_id: intelligence-research
@@ -27,7 +27,7 @@ predictions:
     \ claims"
   - 'Complete: Contradiction detection flags conflicting evidence across sources'
   - 'Complete: Coverage mapping identifies blind spots in research corpus'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: capability-management
   capability_name: Capability Management
   current_maturity: 2.0
@@ -50,7 +50,7 @@ predictions:
   - Implement optimization and automation
   - 'Complete: Susan capability-gap-map skill produces structured gap analysis'
   - 'Complete: Automated maturity computation from checklist completion'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: ux-design
   capability_name: UX & Design
   current_maturity: 2.2
@@ -76,7 +76,7 @@ predictions:
   - "Complete: Visual artifact generation \u2014 charts, diagrams, capability maps\
     \ as SVG/PNG"
   - 'Complete: Responsive mobile layout for operator console'
-  predicted_at: '2026-03-17T01:41:13Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: workspace-contract
   capability_name: Workspace Contract
   current_maturity: 1.0
@@ -93,7 +93,7 @@ predictions:
   - Document processes and gather examples
   - Establish metrics and measurement frameworks
   - Implement optimization and automation
-  predicted_at: '2026-03-17T01:41:13Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: portfolio-management
   capability_name: Portfolio Management
   current_maturity: 1.8
@@ -119,7 +119,7 @@ predictions:
   - 'Complete: Company builder skill (.claude/skills/company-builder/) scaffolds new
     companies'
   - 'Complete: Multi-company dashboard shows all companies with key metrics'
-  predicted_at: '2026-03-17T01:41:13Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: content-marketing
   capability_name: Content & Marketing
   current_maturity: 1.8
@@ -146,7 +146,7 @@ predictions:
   - 'Complete: Publishing pipeline from draft to review to publish with approval gates'
   - "Complete: Asset cascade \u2014 single insight generates blog, social, deck, and\
     \ email variants"
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: innovation-strategy
   capability_name: Innovation & Strategy
   current_maturity: 1.8
@@ -175,7 +175,7 @@ predictions:
   - 'Complete: Future-back planning template with 5-year horizon and backcast milestones'
   - "Complete: Scenario branching \u2014 at least 3 strategic scenarios modeled per\
     \ decision"
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: studio-operations
   capability_name: Studio Operations
   current_maturity: 1.8
@@ -202,7 +202,7 @@ predictions:
   - 'Complete: Deck Studio, Article Studio, Social Media Studio agents produce structured
     outputs'
   - 'Complete: Case library stores reusable studio artifacts with metadata and search'
-  predicted_at: '2026-03-17T01:41:13Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: operator-experience
   capability_name: Operator Experience
   current_maturity: 1.5
@@ -226,7 +226,7 @@ predictions:
   - Implement optimization and automation
   - 'Complete: Session banner shows active workspace, company, and project'
   - 'Complete: Proactive action suggestions surfaced based on capability gaps'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: agent-orchestration
   capability_name: Agent Orchestration
   current_maturity: 2.0
@@ -251,7 +251,7 @@ predictions:
   - Pursue industry-leading practices and innovation
   - 'Complete: Semantic routing selects agents based on task content and capability
     match'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: job-memory-intelligence
   capability_name: Job Memory Intelligence
   current_maturity: 2.3
@@ -285,7 +285,7 @@ predictions:
     from grounded source evidence'
   - 'Complete: Cross-company bridges produce briefing packs that separate personal
     memory from client or employer d'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: simulated-maturity-harness
   capability_name: Simulated Maturity Harness
   current_maturity: 6.6
@@ -303,7 +303,7 @@ predictions:
   - Regular progress reviews
   - Research program to close knowledge gaps
   recommended_sequence: []
-  predicted_at: '2026-03-17T01:41:13Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: agentic-operator-console
   capability_name: Agentic Operator Console
   current_maturity: 1.9
@@ -337,7 +337,7 @@ predictions:
     agent and studio routing'
   - 'Complete: System events trigger routing, escalation, and writeback flows when
     evidence is stale, tests fail, o'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: decision-kernel
   capability_name: Decision Kernel
   current_maturity: 1.0
@@ -358,7 +358,7 @@ predictions:
   - Document processes and gather examples
   - Establish metrics and measurement frameworks
   - Implement optimization and automation
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: department-studios-of-excellence
   capability_name: Department Studios of Excellence
   current_maturity: 1.7
@@ -392,7 +392,7 @@ predictions:
     options, execution, measurem'
   - 'Complete: Canonical resource libraries exist for research, templates, anti-patterns,
     and SOPs by department'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: data-analytics
   capability_name: Data & Analytics
   current_maturity: 1.2
@@ -418,7 +418,7 @@ predictions:
   - Implement optimization and automation
   - 'Complete: Outcome tracking links decisions to measurable results over time'
   - 'Complete: Feedback loops capture operator satisfaction and decision quality scores'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: platform-infrastructure
   capability_name: Platform Infrastructure
   current_maturity: 1.3
@@ -444,7 +444,7 @@ predictions:
   - Implement optimization and automation
   - 'Complete: WebSocket server for terminal relay operational'
   - 'Complete: Authentication layer (API keys or OAuth) for production endpoints'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: customer-user-studio
   capability_name: Customer User Studio
   current_maturity: 2.0
@@ -475,7 +475,7 @@ predictions:
   - 'Complete: Nightly synthetic customer regression runs across priority apps'
   - 'Complete: Session evidence includes outcomes, frictions, errors, and preferences'
   - 'Complete: Roadmap intelligence mapping produces ranked candidates with confidence'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: department-ten-state-verification
   capability_name: Department Ten-State Verification
   current_maturity: 4.1
@@ -495,7 +495,7 @@ predictions:
   - Research program to close knowledge gaps
   recommended_sequence:
   - Pursue industry-leading practices and innovation
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: all-department-maturity-gap-closure
   capability_name: All-Department Maturity Gap Closure
   current_maturity: 3.1
@@ -528,7 +528,7 @@ predictions:
     and readiness automatically.'
   - 'Complete: Gap closure becomes a recurring measured program rather than a one-time
     cleanup pass.'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 - capability_id: job-studio-training-factory
   capability_name: Job Studio Training Factory
   current_maturity: 2.4
@@ -563,7 +563,7 @@ predictions:
     reusable training references'
   - 'Complete: Training runs produce writeback, learner feedback, and conversational
     quality evidence'
-  predicted_at: '2026-03-17T01:41:12Z'
+  predicted_at: '2026-03-23T20:17:48Z'
 build_sequence:
 - workspace-contract
 - capability-management
