@@ -1,81 +1,95 @@
-# HANDOFF — PAI v1.0 Integration Session
+# HANDOFF — Session 4: Fabric Deterministic Dispatch (WIP)
 
-**Date**: 2026-03-24 (session 3)
-**Branch**: claude/jolly-lehmann
-**Commits**: ae60d10, e8a4c57
+**Date:** 2026-03-24
+**Branch:** `claude/jolly-lehmann`
+**Commits:** 04adc10 (this session), 6e6cdcf (previous)
 
-## What Was Done
+## What We Did
 
-### Phase 1: Fabric → OpenClaw (COMPLETE)
-- Created `fabric-router` OpenClaw skill with 253 patterns
-- Curated 35 patterns across 3 tiers (fast/analysis/strategic) with model routing
-- Fixed Fabric .env config (corrupt API_BASE_URL, empty ANTHROPIC_API_KEY conflict)
-- Verified: `summarize` and `extract_wisdom` patterns work via CLI
-- Key fix: use `env -i HOME=$HOME PATH=$PATH` to avoid Claude Code env var conflict
+### Fabric CLI Setup (COMPLETE)
+- Ran `fabric --setup` — 251 patterns downloaded, Anthropic/claude-opus-4-6 default, 1M context
+- Fabric works perfectly from terminal: `echo "text" | fabric --pattern summarize`
 
-### Phase 2: TELOS → OpenClaw (COMPLETE)
-- Injected TELOS content into IDENTITY.md (mission, goals, strategies, beliefs, problems)
-- Populated USER.md with Mike's profile from TELOS (family, background, decision models)
-- Created sync-telos-to-openclaw.sh script
-- Copied 16 TELOS files to ~/.openclaw/workspace-jake/telos/
+### Telegram Testing (PARTIAL)
+- **Test 1 PASS**: TELOS grounding — Jake knows goals, PAI score 34->50, morning briefs
+- **Test 2 PASS**: Identity — Army vet, James, Jacob, Alex, all companies
+- **Test 3 FAIL**: Fabric via Telegram — GPT-5.4 paraphrases instead of calling Bash tool
 
-### Phase 3: Susan → OpenClaw (COMPLETE)
-- Created `susan-bridge` skill with 5 commands (route, search, status, team, plan)
-- Both API (port 8042) and CLI fallback paths documented
-- All 5 companies, 73 agents, 10 groups documented
-- Cost awareness and Telegram formatting included
-- Registered in openclaw.json
+### Fabric Dispatch Deep Dive
+Reverse-engineered OpenClaw's skill dispatch system.
 
-## What Needs Testing
+**Key discoveries:**
+1. SKILL.md supports `command-dispatch: tool` + `command-tool: exec` frontmatter keys
+2. This creates DETERMINISTIC dispatch — bypasses LLM entirely, sends raw args to exec tool
+3. The dispatch IS firing (confirmed in session logs)
+4. **BLOCKER**: exec tool can't find `summarize` because `~/go/bin` not in exec sandbox PATH
 
-1. **OpenClaw restart**: Skills won't be picked up until OpenClaw restarts
-   - Quit and reopen OpenClaw.app
-   - Or: send `/restart` in Telegram (if supported)
+**Architecture (works locally, not through dispatch):**
+```
+User: /fabric summarize text
+  -> OpenClaw dispatch (deterministic, bypasses LLM) OK
+  -> exec tool: command = "summarize text" OK
+  -> Shell finds "summarize" in PATH -> fabric-dispatch -> fabric-cmd -> fabric binary FAILS (PATH)
+```
 
-2. **Fabric from Telegram**: Send `fabric summarize` + text in Telegram
-   - Should invoke fabric-router skill and return structured output
+### Files Created/Modified
 
-3. **TELOS grounding**: Ask Jake "what are my goals?" in Telegram
-   - Should reference actual TELOS goals, not generic responses
+**In repo (pai/skills/fabric-router/):**
+- `SKILL.md` — command-dispatch: tool, command-tool: exec, command-arg-mode: raw
+- `fabric-run.sh` — Wrapper with alias resolution and env isolation
 
-4. **Susan bridge**: Send `susan status transformfit` in Telegram
-   - Requires Susan control plane running on :8042
-   - Start: `cd susan-team-architect/backend && source .venv/bin/activate && python3 -m control_plane.__main__`
+**On filesystem (NOT in repo):**
+- `~/go/bin/fabric-cmd` — Main wrapper (copy of fabric-run.sh)
+- `~/go/bin/fabric-dispatch` — Symlink router (reads $0 basename as pattern)
+- `~/go/bin/{summarize,extract_wisdom,w,s,a,...}` — Symlinks to fabric-dispatch
+- `~/.openclaw/workspace-jake/bin/` — Duplicate symlinks (attempted)
+- `~/.openclaw/openclaw.json` — Added `tools.exec.pathPrepend` config
 
-## Files Created/Modified
+## What's Blocking
 
-### In Repo (tracked)
-- `docs/plans/2026-03-24-pai-v1-fabric-telos-susan.md` — implementation plan
-- `pai/config/fabric-patterns-whitelist.yaml` — curated pattern list
-- `pai/skills/fabric-router/SKILL.md` — fabric skill (repo copy)
-- `pai/skills/susan-bridge/SKILL.md` — susan skill (repo copy)
-- `pai/scripts/sync-telos-to-openclaw.sh` — TELOS sync script
-- `pai/verification/fabric-integration-v1.md` — verification record
+### exec tool PATH doesn't include ~/go/bin
 
-### On Disk (OpenClaw workspace, not tracked)
-- `~/.openclaw/workspace-jake/skills/fabric-router/SKILL.md`
-- `~/.openclaw/workspace-jake/skills/susan-bridge/SKILL.md`
-- `~/.openclaw/workspace-jake/IDENTITY.md` — updated with TELOS
-- `~/.openclaw/workspace-jake/USER.md` — populated with Mike's profile
-- `~/.openclaw/workspace-jake/telos/` — 16 TELOS reference files
-- `~/.openclaw/openclaw.json` — fabric-router + susan-bridge registered
-- `~/.config/fabric/.env` — fixed (removed corrupt API_BASE_URL)
+```javascript
+// From pi-embedded-CbCYZxIb.js
+const DEFAULT_PATH = process.env.PATH ?? "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+```
+
+OpenClaw.app launched from Finder gets launchd PATH, not shell PATH.
+
+**Solutions to try next session (in priority order):**
+1. `sudo ln -sf ~/go/bin/fabric-dispatch /usr/local/bin/summarize` (and other patterns) — just needs password
+2. `launchctl setenv PATH "$PATH"` then relaunch OpenClaw.app — injects shell PATH into launchd
+3. Launch OpenClaw from terminal (`openclaw`) instead of Finder — inherits shell PATH
+4. Verify `tools.exec.pathPrepend` — already added to config, may need CLI restart not app restart
+5. Use absolute paths in dispatch — would need OpenClaw code change or different approach
+
+## Key Reference
+
+**Dispatch code:** `~/.openclaw/extensions/lossless-claw/node_modules/openclaw/dist/pi-embedded-CbCYZxIb.js` ~line 91314
+
+**Frontmatter keys (from skills-M0AZJeXx.js):**
+- `command-dispatch` / `command_dispatch` -> "tool"
+- `command-tool` / `command_tool` -> "exec"
+- `command-arg-mode` / `command_arg_mode` -> "raw"
+
+**Session cache:** Delete `skillsSnapshot` from `~/.openclaw/agents/main/sessions/sessions.json` to force skill reload
 
 ## PAI Stack Status
 
 ```
-Telegram (@JakeStudio2011bot) → OpenClaw (port 18789)
-  ├── GPT-5.4 (default, fast)
-  ├── o3-pro (/model think, deep reasoning)
-  ├── LosslessClaw (persistence)
-  ├── Fabric (253 patterns, Opus 4.6) ✅ NEW
-  ├── TELOS (18 files, injected) ✅ NEW
-  └── Susan Bridge (73 agents, 5 commands) ✅ NEW
-     → Claude Code (execution)
+Telegram (@JakeStudio2011bot) -> OpenClaw (port 18789)
+  |- GPT-5.4 (default, fast)                          OK
+  |- o3-pro (/model think)                             OK
+  |- LosslessClaw (persistence)                        OK
+  |- TELOS identity (USER.md, SOUL.md, GOALS.md)       OK
+  |- Fabric (251 patterns, Opus 4.6)     terminal OK / Telegram BLOCKED (PATH)
+  |- Susan bridge skill (loaded)                       PENDING (needs control plane)
+  '- Claude Code (execution)                           OK
 ```
 
-## Next Session
+## Next Steps
 
-- Restart OpenClaw and run E2E tests from Telegram
-- If skills work: merge to main
-- Then: build morning brief pipeline (autonomous execution)
+1. Fix Fabric dispatch PATH (this session's blocker)
+2. Complete Telegram test suite (Tests 4-7)
+3. TELOS identity layer (Phase 2)
+4. Susan integration (Phase 3)
