@@ -1,69 +1,117 @@
 # Session Handoff
 
 **Date**: 2026-03-22
-**Project**: Startup Intelligence OS
-**Session Goal**: Final cleanup — Jake 99/100 → 100/100
-**Status**: COMPLETE ✅
-
-## JAKE 100/100 BUILD COMPLETE — ALL TESTS PASSING
+**Project**: Startup Intelligence OS — Jake V12
+**Session Goal**: Build autonomous work system + recipes + email-to-task + meeting prep
+**Status**: PARTIAL — meeting prep full vision documented below, needs next session
 
 ---
 
-## Completed
-- [x] Created `jake_rate_limit_state` table in Supabase (migration 20260323 applied)
-- [x] Added `RateLimiter.persist()` method to write state to Supabase for dashboard observability
-- [x] Seeded 3 test deals in `jake_deals`: Oracle Health $250k (qualified), TransformFit $75k (prospect), Virtual Architect $120k (prospect)
-- [x] Ported test_employees.py, test_cost_business.py, test_self_evolution.py from compassionate-herschel
-- [x] Upgraded jake_brain/autonomous_pipeline.py with PipelineResult/PipelinePhase/ErrorType/TaskStatus
-- [x] Added jake_brain/cost_optimizer.py, business_pipeline.py
-- [x] Added jake_brain/employees/content_creator.py, family_coordinator.py
-- [x] Upgraded jake_brain/employees/__init__.py with EMPLOYEE_SCHEDULES
-- [x] Upgraded self_improvement/ab_testing.py, added auto_skill_creator.py, soul_versioner.py
-- [x] Documented VOYAGE_API_KEY as known item (reads from .env correctly)
-- [x] Updated test report to 100/100 at docs/plans/2026-03-22-jake-100-test-report.md
+## ⚡ NEXT SESSION PRIORITY: Full Autonomous Meeting Prep
 
-## Test Results
+Mike wants meeting prep to be **autonomous execution**, not just a notification.
+
+### The Full Vision (NOT YET BUILT)
+
+When Jake detects an upcoming meeting, Jake should:
+
+1. **Deep live research** via Susan MCP tools:
+   - `search_knowledge` — Susan RAG (94K chunks)
+   - `web_search_exa` — live Exa web search on attendees + topics
+   - `scrape_url` — attendee LinkedIn/company pages
+   - `scrape_search` — deep scrape search results
+   - NO Claude training data — live research only
+
+2. **Recipe-driven execution**:
+   - Check `~/.hermes/recipes/` for meeting-type recipe (e.g., `oracle-deal-review.yaml`)
+   - If YES → execute recipe automatically
+   - If NO → Jake CREATES recipe based on meeting context, then executes it
+
+3. **Susan agent team orchestration** (via `claude -p` subprocess):
+   - Spin up Claude Code session at Startup-Intelligence-OS
+   - Use `run_agent` MCP tool → Steve, Freya, Coach etc.
+   - Produce REAL deliverables — battlecard updates, dossiers, talking points, risk assessments
+
+4. **Output delivery**:
+   - Save `.md` deliverables to `docs/meeting-prep/YYYY-MM-DD-[slug]/`
+   - Store summaries in jake_episodic
+   - Send Telegram brief with links + key takeaways
+
+### New Files for Next Session
+
 ```
-test_employees.py      42/42  PASS ✓
-test_cost_business.py  41/41  PASS ✓
-test_self_evolution.py 17/17  PASS ✓
-test_router.py          7/7   PASS ✓
-test_observability.py   6/6   PASS ✓
-TOTAL: 113/113 PASS ✓
+scripts/jake_meeting_prep_autonomous.py    # Full autonomous meeting prep
+jake_brain/meeting_orchestrator.py         # Research + agents + deliverables
+~/.hermes/recipes/oracle-deal-review.yaml  # Deal review recipe
+~/.hermes/recipes/partner-sync.yaml        # Partner sync recipe
+~/.hermes/recipes/matt-1on1.yaml           # Matt Cohlmia 1:1 recipe
+~/.hermes/recipes/weekly-standup.yaml      # Weekly standup recipe
 ```
 
-## Files Changed This Session
-- `supabase/migrations/20260323_jake_rate_limit_and_deals_seed.sql` — CREATED
-- `jake_security/rate_limiter.py` — added `persist()` method
-- `jake_brain/autonomous_pipeline.py` — upgraded (full 8-phase engine)
-- `jake_brain/cost_optimizer.py` — CREATED (ported)
-- `jake_brain/business_pipeline.py` — CREATED (ported)
-- `jake_brain/employees/__init__.py` — upgraded with EMPLOYEE_SCHEDULES
-- `jake_brain/employees/oracle_sentinel.py` — upgraded with OracleSentinel class
-- `jake_brain/employees/content_creator.py` — CREATED
-- `jake_brain/employees/family_coordinator.py` — CREATED
-- `jake_brain/employees/research_agent.py` — upgraded with ResearchAgent class
-- `self_improvement/ab_testing.py` — upgraded with ABTestRunner
-- `self_improvement/auto_skill_creator.py` — CREATED
-- `self_improvement/soul_versioner.py` — CREATED
-- `tests/test_employees.py` — PORTED from compassionate-herschel
-- `tests/test_cost_business.py` — PORTED from compassionate-herschel
-- `tests/test_self_evolution.py` — PORTED from compassionate-herschel
-- `docs/plans/2026-03-22-jake-100-test-report.md` — updated to 100/100
+### Integration
+
+Wire into `jake_brain/nervous/meeting_prep.py` — replace prep brief output with autonomous worker task creation. The `jake_meeting_prep_rich.py` (already built) becomes the fallback when full autonomous prep doesn't complete in time.
+
+---
+
+## Completed This Session
+
+- [x] `supabase/migrations/20260322_jake_tasks.sql` — jake_tasks + jake_task_runs
+- [x] `jake_brain/goals/tasks.py` — TaskStore with claim/complete/fail/retry
+- [x] `jake_brain/autonomous_worker.py` — 24/7 execution engine
+- [x] `scripts/jake_autonomous_worker.py` — full CLI (daemon/goal/status/tasks)
+- [x] `scripts/jake_autonomous_worker.sh` + `launchd/com.jake.autonomous-worker.plist`
+- [x] `~/.hermes/skills/goal-setting/SKILL.md` — Telegram goal interface
+- [x] `jake_brain/recipes.py` — YAML recipe engine (7 tool types)
+- [x] `scripts/jake_recipe_runner.py` — Recipe CLI
+- [x] `~/.hermes/recipes/` — 5 production recipes
+- [x] `~/.hermes/skills/jake-recipes/SKILL.md` — Hermes recipe interface
+- [x] `scripts/jake_email_task_extractor.py` — Oracle email → jake_tasks pipeline
+- [x] `scripts/jake_meeting_prep_rich.py` — Meeting prep with brain context (foundation)
+- [x] SOUL.md updated
+- [x] Committed: `feat(jake): V12 Phase 3 — autonomous work system, recipes, email-to-task, meeting prep`
+
+## Deployment Steps Mike Needs to Do
+
+### 1. Apply Supabase migration
+Run `supabase/migrations/20260322_jake_tasks.sql` in Supabase SQL editor.
+
+### 2. Install the autonomous worker daemon
+```bash
+cp launchd/com.jake.autonomous-worker.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.jake.autonomous-worker.plist
+launchctl start com.jake.autonomous-worker
+tail -f ~/.hermes/logs/autonomous_worker.log
+```
+
+### 3. Install PyYAML (for recipes)
+```bash
+cd ~/Startup-Intelligence-OS/susan-team-architect/backend
+source .venv/bin/activate && pip install pyyaml
+```
+
+### 4. Test
+```bash
+python scripts/jake_autonomous_worker.py status
+python scripts/jake_autonomous_worker.py goal "test goal" --priority P3
+python scripts/jake_recipe_runner.py list
+python scripts/jake_recipe_runner.py run oracle-battlecard-update --dry-run
+```
 
 ## Context for Next Session
-- Key insight: zen-morse has ALL modules from compassionate-herschel ported. Ready to merge to main via PR.
-- Next step: commit and create PR from claude/zen-morse → main
-- Build health: GREEN, 113/113 tests passing, Supabase tables verified
+
+- **Read first**: `scripts/jake_meeting_prep_rich.py`, `jake_brain/nervous/meeting_prep.py`
+- **First build**: `scripts/jake_meeting_prep_autonomous.py` with Susan MCP deep research
+- **Risk**: Recipe auto-creation is novel — test Claude Code subprocess carefully
 
 ## Build Health
-- Files modified this session: ~17
-- Tests passing: 113/113 ✓
-- Context health at close: GREEN
+
+- Files this session: 11 new, 1 modified
+- Context health at close: YELLOW (~48%)
 
 ---
 
-## Previous Handoff Content (preserved below)
+## Previous Handoff (Iron Jarvis Alexa skill)
 **Status**: PARTIAL — bug identified and fixed in editor, Lambda deployment not triggered
 
 ## Completed
