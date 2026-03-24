@@ -1,7 +1,7 @@
 # Session Handoff
 
 **Date**: 2026-03-23
-**Project**: Startup Intelligence OS — DEATHSTAR 25x Recovery
+**Project**: Startup Intelligence OS — DEATHSTAR 25x Build
 **Session Goal**: Complete Foundation gaps (F2, F3, F5), validate (F6), write Walls plan
 **Status**: COMPLETE
 
@@ -30,6 +30,11 @@
   - Social Studio: 40% → 5 remaining tasks mapped, sessions planned
   - Critical path diagram written
   - 4 open questions for Mike
+- [x] **Wall 1 — AI Dev Studio SKILL.md** — Written at `~/.hermes/skills/ai-dev-studio/SKILL.md` (178 lines)
+  - Full discovery interview flow, agent team assembly logic
+  - Spec template + implementation plan format
+  - Telegram progress reporting format
+  - Supported companies + default stacks table
 
 ---
 
@@ -46,15 +51,36 @@
 
 ---
 
-## Not Started (Next Sessions)
+## Also Completed (Parallel Session — TransformFit Interaction Design)
 
-- [ ] **Wall 1 — AI Dev Studio SKILL.md** → `~/.hermes/skills/ai-dev-studio/SKILL.md`
-  - First test: run via Telegram for TransformFit
-- [ ] **Wall 2 — Viral Architect pipeline test** → `~/viral-architect-hub`
-  - Verify `instagram_publisher.py` can post to @rodgemd1
-  - Unblocks reel production
-- [ ] **Wall 2 — First reel (@rodgemd1)** — Session 2 of Film Studio plan (Step 5)
-- [ ] **TransformFit MVP spec** — first real dev studio session
+- [x] Expert panel convened (Coach + Freya + Steve agent specs loaded) — `docs/transformfit/EXPERT-PANEL.md`
+- [x] README with full 30-day arc overview — `docs/transformfit/README.md`
+- [x] Days 0-7 interaction scripts (complete)
+  - Day 0: First Open, Day 1: First Workout, Day 2: First Real Workout
+  - Day 3: Critical Inflection, Day 4: Relationship Has Texture
+  - Day 5: Streak Stakes, Day 6: Weekend Test, Day 7: Week 1 Milestone
+- [x] Committed as `feat(transformfit)` on branch `claude/admiring-heisenberg`
+
+---
+
+## In Progress
+
+- [ ] **Days 8-30 TransformFit scripts** — NOT STARTED
+  - Files to create: `day-08-script.md` through `day-30-script.md`
+  - Next step: Dispatch 4 parallel agents (Days 8-9, 10-11, 12-13, Day 14 solo)
+
+---
+
+## Not Started (Next Sessions — DEATHSTAR Walls)
+
+- [ ] **Wall 1 — MCP Commands** → `.claude/commands/dev-studio-start.md`, `dev-studio-status.md`, `dev-studio-ship.md`
+- [ ] **Wall 1 — TransformFit brain seeding** — Store tech stack decisions in jake_semantic
+- [ ] **Wall 1 — First dev studio session** → TransformFit MVP spec + implementation plan
+- [ ] **Wall 2 — Viral Architect pipeline test** → `~/viral-architect-hub/backend/services/instagram_publisher.py`
+- [ ] **Wall 2 — ai-social-studio SKILL.md** with SPREAD framework
+- [ ] **Wall 2 — SPREAD scoring script** → `susan-team-architect/backend/scripts/viral_architect_spread_score.py`
+- [ ] **Roof — TransformFit Supabase schema** (users, workouts, coaching)
+- [ ] **Roof — Viral Architect content studio** build-out
 
 ---
 
@@ -66,22 +92,28 @@
 | Memory lake uses subprocess calls to brain_doc_ingest.py | Reuse existing chunking/embedding logic | Yes |
 | Weekly cron fires Sundays 3 AM on files modified in last 7 days | Incremental prevents re-ingesting same files | Yes |
 | Foundation declared 100% complete | All 6 gates passed validation | — |
+| Adaptive coaching (not fixed tone) | Core TransformFit philosophy | Yes |
+| Subscription ask in coach voice Day 7 | 3-5x conversion vs generic paywall | Yes |
+| LAAL activates Day 7+ only | No loss framing until gains established | Yes |
+| Variable rewards: Days 4, 7, 11, 14, 21, 28 | Variable schedule beats fixed | Yes |
+| 4 specialist tracks: PULSE/IRON/FLEX/ATLAS | Assigned on Day 0 via goal + pain point | Yes |
 
 ---
 
 ## Context for Next Session
 
-- **Key insight**: Foundation is DONE. Both walls have clear build sequences in `.claude/plans/2026-03-23-deathstar-walls-plan.md`
+- **Key insight**: Foundation DONE. Wall 1 SKILL.md done. Next: MCP commands + first real dev studio session for TransformFit
 - **Files to read first**: `.claude/plans/2026-03-23-deathstar-walls-plan.md`
-- **First task**: Write `~/.hermes/skills/ai-dev-studio/SKILL.md` (Wall 1, Session A)
-- **Second task**: Verify Viral Architect pipeline (`~/viral-architect-hub`) → then Session 2 of film studio plan
-- **Risk**: TransformFit MVP spec depends on dev studio skill working — don't skip that step
+- **First task**: Write 3 MCP command files (dev-studio-start, dev-studio-status, dev-studio-ship)
+- **Second task**: Viral Architect pipeline check → `~/viral-architect-hub/backend/services/`
+- **TransformFit Week 2 context**: Read `docs/transformfit/EXPERT-PANEL.md` first 80 lines, then `day-07-script.md` first 50 lines
+- **Risk**: TransformFit MVP spec depends on dev studio skill working — MCP commands first
 
 ---
 
 ## Build Health
 
-- Files modified this session: 4
+- Files modified this session: 5
 - Tests passing: Plugin syntax ✅ | launchd agents loaded ✅ | jake_goals query ✅
 - Context health at close: YELLOW (~45% used)
 - Debt score: LOW (all new code, no bypasses, validation passed)
