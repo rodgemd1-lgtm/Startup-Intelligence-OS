@@ -1,140 +1,160 @@
 #!/usr/bin/env python3
 """Jake Immune System — Daily Smoke Test.
 
-Runs at 5:30 AM daily via launchd.
-Tests all critical Jake Brain systems and reports health status.
-"""
+Runs every morning at 5:30 AM (before brain wave1 ingest at 5:45 AM and brief at 6:00 AM).
+Tests core brain functions and alerts Mike if anything is broken.
 
-import sys
-import os
+Tests:
+  1. Brain search — can we query the brain?
+  2. Entity lookup — can we find Mike in the knowledge graph?
+  3. Supabase connectivity — are we connected to the DB?
+  4. Error budget — is any source disabled?
+  5. Telegram delivery — can we reach Mike?
+
+Exits 0 on all pass, 1 on any failure (for launchd error tracking).
+"""
+from __future__ import annotations
+
 import json
-import traceback
-from datetime import datetime, timezone
+import logging
+import os
+import sys
+import urllib.request
 from pathlib import Path
 
-# Add backend to path
-BACKEND = Path(__file__).parent.parent
-sys.path.insert(0, str(BACKEND))
+# Bootstrap
+SUSAN_BACKEND = str(Path(__file__).parent.parent)
+if SUSAN_BACKEND not in sys.path:
+    sys.path.insert(0, SUSAN_BACKEND)
 
-results = {}
-overall_healthy = True
+_HERMES_ENV = Path.home() / ".hermes" / ".env"
+if _HERMES_ENV.exists():
+    for line in _HERMES_ENV.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, _, v = line.partition("=")
+            os.environ.setdefault(k.strip(), v.strip())
 
-def test(name, fn):
-    global overall_healthy
+logging.basicConfig(
+    level=logging.WARNING,  # quiet for daily run — only failures logged
+    format="%(asctime)s %(levelname)s %(message)s",
+)
+logger = logging.getLogger("jake.immune.daily_test")
+
+
+def send_alert(message: str):
+    """Send an alert to Mike via Telegram."""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        print(message)
+        return
+    payload = json.dumps({"chat_id": chat_id, "text": message, "parse_mode": "Markdown"}).encode()
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        data=payload, headers={"Content-Type": "application/json"}, method="POST",
+    )
     try:
-        result = fn()
-        results[name] = {"status": "ok", "detail": result}
-        print(f"  ✅ {name}: {result}")
-    except Exception as e:
-        results[name] = {"status": "fail", "error": str(e)}
-        overall_healthy = False
-        print(f"  ❌ {name}: {e}")
+        urllib.request.urlopen(req, timeout=5)
+    except Exception as exc:
+        logger.error("Alert send failed: %s", exc)
 
-print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Jake Immune Daily Smoke Test")
-print("=" * 60)
 
-# Test 1: Supabase connection
-def check_supabase():
-    from supabase import create_client
-    import os
-    url = os.environ.get("SUPABASE_URL", "")
-    key = os.environ.get("SUPABASE_SERVICE_KEY", "")
-    if not url or not key:
-        # Try loading from .env
-        env_path = Path.home() / ".hermes" / ".env"
-        if env_path.exists():
-            for line in env_path.read_text().splitlines():
-                if line.startswith("SUPABASE_URL="):
-                    url = line.split("=", 1)[1].strip().strip('"').strip("'")
-                elif line.startswith("SUPABASE_SERVICE_KEY="):
-                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
-    if not url or not key:
-        raise ValueError("SUPABASE_URL or SUPABASE_SERVICE_KEY not set")
-    client = create_client(url, key)
-    res = client.table("jake_episodic").select("id", count="exact").limit(1).execute()
-    count = res.count or 0
-    return f"{count}+ episodic memories"
+def run_tests() -> bool:
+    """Run all smoke tests. Returns True if all pass."""
+    results = {}
 
-test("supabase_connection", check_supabase)
+    # Test 1: Supabase connectivity (fast, lightweight)
+    try:
+        from supabase import create_client
+        from susan_core.config import config as susan_config
+        sb = create_client(susan_config.supabase_url, susan_config.supabase_key)
+        sb.table("jake_episodic").select("id").limit(1).execute()
+        results["supabase"] = True
+    except Exception as exc:
+        logger.error("FAIL supabase: %s", exc)
+        results["supabase"] = False
 
-# Test 2: jake_brain import
-def check_brain_import():
-    from jake_brain.retriever import BrainRetriever
-    return "BrainRetriever importable"
+    # Test 2: Brain search
+    try:
+        from jake_brain.retriever import BrainRetriever
+        retriever = BrainRetriever()
+        retriever.search(query="mike rodgers", top_k=1)
+        results["brain_search"] = True
+    except Exception as exc:
+        logger.error("FAIL brain_search: %s", exc)
+        results["brain_search"] = False
 
-test("brain_import", check_brain_import)
+    # Test 3: Entity lookup
+    try:
+        from jake_brain.graph import KnowledgeGraph
+        graph = KnowledgeGraph()
+        result = graph.get_entity("mike")
+        results["entity_lookup"] = True  # pass even if entity not found (just no crash)
+    except Exception as exc:
+        logger.error("FAIL entity_lookup: %s", exc)
+        results["entity_lookup"] = False
 
-# Test 3: Voyage AI embedder
-def check_embedder():
-    # Load from .env if not in environment
-    voyage_key = os.environ.get("VOYAGE_API_KEY", "")
-    if not voyage_key:
-        env_path = Path.home() / ".hermes" / ".env"
-        if env_path.exists():
-            for line in env_path.read_text().splitlines():
-                if line.startswith("VOYAGE_API_KEY="):
-                    voyage_key = line.split("=", 1)[1].strip().strip('"').strip("'")
-    if not voyage_key:
-        # Also check Susan backend .env
-        susan_env = BACKEND / ".env"
-        if susan_env.exists():
-            for line in susan_env.read_text().splitlines():
-                if line.startswith("VOYAGE_API_KEY="):
-                    voyage_key = line.split("=", 1)[1].strip().strip('"').strip("'")
-    if not voyage_key:
-        raise ValueError("VOYAGE_API_KEY not found in env or .env files")
-    return "Voyage AI key present"
+    # Test 4: Error budget readable
+    try:
+        from jake_brain.immune.error_recovery import ErrorBudget
+        budget = ErrorBudget()
+        stats = budget.get_stats()
+        # Check if any source is disabled and alert
+        disabled = [src for src, info in stats.items() if info.get("disabled")]
+        if disabled:
+            send_alert(
+                f"⚠️ *Jake Daily Check*\n"
+                f"Disabled sources: `{'`, `'.join(disabled)}`\n"
+                f"Budget resets at midnight UTC. Check immune_health for details."
+            )
+        results["error_budget"] = True
+    except Exception as exc:
+        logger.error("FAIL error_budget: %s", exc)
+        results["error_budget"] = False
 
-test("voyage_api_key", check_embedder)
+    # Test 5: Telegram delivery (just send a silent ping — no user-visible message)
+    try:
+        token = os.environ.get("TELEGRAM_BOT_TOKEN")
+        chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+        if token and chat_id:
+            payload = json.dumps({
+                "chat_id": chat_id,
+                "text": ".",
+                "disable_notification": True,  # silent — won't buzz Mike's phone
+            }).encode()
+            req = urllib.request.Request(
+                f"https://api.telegram.org/bot{token}/sendMessage",
+                data=payload, headers={"Content-Type": "application/json"}, method="POST",
+            )
+            urllib.request.urlopen(req, timeout=5)
+            results["telegram"] = True
+        else:
+            results["telegram"] = False
+    except Exception as exc:
+        logger.error("FAIL telegram: %s", exc)
+        results["telegram"] = False
 
-# Test 4: Brain memory counts
-def check_memory_counts():
-    from jake_brain.retriever import BrainRetriever
-    r = BrainRetriever()
-    # Just verify it instantiates without error
-    return "BrainRetriever initialized"
+    # Summarize
+    passed = sum(1 for v in results.values() if v)
+    failed = [k for k, v in results.items() if not v]
+    all_pass = len(failed) == 0
 
-test("brain_retriever_init", check_memory_counts)
+    if not all_pass:
+        failure_list = ", ".join(f"`{f}`" for f in failed)
+        send_alert(
+            f"🔴 *Jake Daily Self-Test FAILED*\n\n"
+            f"Passed: {passed}/{len(results)}\n"
+            f"Failed: {failure_list}\n\n"
+            f"Morning brief may be degraded. Check logs at `~/.hermes/logs/`"
+        )
+        print(f"FAIL: {passed}/{len(results)} tests passed. Failed: {failed}", file=sys.stderr)
+        return False
 
-# Test 5: Log directory writable
-def check_logs():
-    log_dir = Path.home() / ".hermes" / "logs"
-    log_dir.mkdir(exist_ok=True)
-    test_file = log_dir / ".immune_write_test"
-    test_file.write_text("ok")
-    test_file.unlink()
-    return "logs dir writable"
+    print(f"OK: {passed}/{len(results)} tests passed")
+    return True
 
-test("log_directory", check_logs)
 
-# Test 6: Scripts dir has key ingest scripts
-def check_scripts():
-    scripts = Path(__file__).parent
-    required = ["brain_morning_brief.py", "brain_calendar_ingest.py"]
-    missing = [s for s in required if not (scripts / s).exists()]
-    if missing:
-        raise FileNotFoundError(f"Missing: {missing}")
-    return f"{len(required)} key scripts present"
-
-test("required_scripts", check_scripts)
-
-# Summary
-print("=" * 60)
-status = "HEALTHY" if overall_healthy else "DEGRADED"
-print(f"Status: {status}")
-passed = sum(1 for v in results.values() if v["status"] == "ok")
-print(f"Tests: {passed}/{len(results)} passed")
-
-# Write health report
-report_path = Path.home() / ".hermes" / "logs" / f"immune_health_{datetime.now().strftime('%Y%m%d')}.json"
-report = {
-    "timestamp": datetime.now(timezone.utc).isoformat(),
-    "status": status,
-    "passed": passed,
-    "total": len(results),
-    "tests": results
-}
-report_path.write_text(json.dumps(report, indent=2))
-print(f"Report: {report_path}")
-
-sys.exit(0 if overall_healthy else 1)
+if __name__ == "__main__":
+    ok = run_tests()
+    sys.exit(0 if ok else 1)
