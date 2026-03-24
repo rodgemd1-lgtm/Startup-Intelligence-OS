@@ -141,6 +141,7 @@
       <h2>System Status</h2>
       <ul id="status"></ul>
 
+<<<<<<< HEAD
       <!-- Cost Tracking Panel -->
       <div class="panel" id="cost-panel">
         <h2>Cost Tracking</h2>
@@ -160,6 +161,27 @@
         <div id="pipeline-stages"></div>
         <div id="pipeline-stale" class="pipeline-stale">Deals Needing Action: 0</div>
         <div id="pipeline-last-updated" class="panel-footer"></div>
+=======
+      <!-- Phase 5: AI Employees Panel -->
+      <h2>AI Employees</h2>
+      <div id="ai-employees-panel">
+        <ul class="cron-list">
+          <li><span style="color:#22c55e;">● </span><span class="mono">oracle_sentinel</span><span class="dim"> · Oracle Health intel · daily 6 AM</span></li>
+          <li><span style="color:#22c55e;">● </span><span class="mono">inbox_zero</span><span class="dim"> · Mail triage · 8 AM / 12 PM / 5 PM</span></li>
+        </ul>
+      </div>
+
+      <!-- Phase 4: Pipeline Runs Panel -->
+      <h2>Pipeline Runs <button id="pipeline-refresh" class="btn-tiny" title="Refresh">↻</button></h2>
+      <div id="pipeline-runs-panel">
+        <div class="pipeline-loading">Loading...</div>
+      </div>
+
+      <!-- Cron Health Panel -->
+      <h2>Cron Health</h2>
+      <div id="cron-health-panel">
+        <div class="pipeline-loading">Loading...</div>
+>>>>>>> claude/nifty-ptolemy
       </div>
 
       <div class="design-rule">
@@ -169,6 +191,7 @@
     </aside>
   </div>
 
+  <script src="./supabase-client.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>
