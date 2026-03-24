@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "description": "Top 50 Fabric patterns curated for PAI with per-pattern model routing",
+  "patterns": {
+    "analysis": [
+      "analyze_claims", "analyze_risk", "analyze_sales_call",
+      "analyze_threat_report", "analyze_personality"
+    ],
+    "extraction": [
+      "extract_ideas", "extract_insights", "extract_wisdom",
+      "extract_article_wisdom", "extract_book_ideas",
+      "extract_controversial_ideas", "extract_main_idea",
+      "extract_patterns", "extract_predictions", "extract_references"
+    ],
+    "summarization": [
+      "summarize", "summarize_debate", "summarize_meeting",
+      "summarize_newsletter", "summarize_paper", "summarize_rpg_session"
+    ],
+    "creation": [
+      "create_keynote", "create_markmap_visualization",
+      "create_mermaid_visualization", "create_micro_summary",
+      "create_network_threat_landscape", "create_summary"
+    ],
+    "thinking": [
+      "t_red_team_thinking", "t_find_blindspots",
+      "t_steel_man", "t_devil_advocate",
+      "t_first_principles", "t_second_order"
+    ],
+    "improvement": [
+      "improve_prompt", "improve_writing",
+      "improve_academic_writing", "improve_report_finding"
+    ],
+    "rating": [
+      "rate_ai_result", "rate_ai_response",
+      "rate_content", "rate_value"
+    ],
+    "utility": [
+      "clean_text", "label_and_rate",
+      "write_essay", "write_micro_essay",
+      "get_wow_per_minute", "find_logical_fallacies"
+    ]
+  },
+  "model_routing": {
+    "cheap": [
+      "summarize", "clean_text", "extract_ideas", "extract_main_idea",
+      "create_micro_summary", "label_and_rate", "create_summary"
+    ],
+    "mid": [
+      "analyze_claims", "analyze_risk", "improve_writing",
+      "rate_content", "summarize_meeting", "summarize_paper",
+      "extract_insights", "extract_patterns", "extract_references",
+      "improve_prompt", "improve_academic_writing", "rate_ai_result",
+      "rate_ai_response", "rate_value", "improve_report_finding"
+    ],
+    "expensive": [
+      "extract_wisdom", "extract_article_wisdom", "extract_book_ideas",
+      "t_red_team_thinking", "t_find_blindspots", "t_steel_man",
+      "t_devil_advocate", "t_first_principles", "t_second_order",
+      "analyze_personality", "analyze_sales_call", "analyze_threat_report",
+      "extract_controversial_ideas", "extract_predictions",
+      "create_keynote", "write_essay", "find_logical_fallacies",
+      "get_wow_per_minute"
+    ]
+  },
+  "aliases": {
+    "w": "extract_wisdom",
+    "s": "summarize",
+    "a": "analyze_claims",
+    "i": "extract_ideas",
+    "r": "analyze_risk",
+    "p": "create_prd",
+    "f": "find_logical_fallacies",
+    "c": "compare_and_contrast",
+    "q": "extract_questions"
+  }
+}

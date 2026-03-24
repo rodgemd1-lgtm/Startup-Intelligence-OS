@@ -26,6 +26,33 @@ Aliases: w(extract_wisdom) s(summarize) a(analyze_claims) i(extract_ideas) r(ana
 
 Full names: summarize, extract_wisdom, analyze_claims, analyze_risk, extract_ideas, extract_recommendations, extract_questions, extract_insights, extract_patterns, find_logical_fallacies, compare_and_contrast, create_prd, analyze_personality, create_better_frame, improve_prompt, write_essay, rate_content, clean_text, create_tags, and 230+ more.
 
+## Model Routing (V2)
+
+Per-pattern model routing is defined in `pai/config/fabric-patterns-top50.json`.
+
+| Tier | Model | Patterns |
+|------|-------|----------|
+| Cheap | gpt-5.4-mini | summarize, clean_text, extract_ideas, extract_main_idea, create_micro_summary |
+| Mid | claude-sonnet-4-6 | analyze_claims, analyze_risk, improve_writing, rate_content, summarize_meeting |
+| Expensive | claude-opus-4-6 | extract_wisdom, t_red_team_thinking, t_find_blindspots, t_first_principles, analyze_personality |
+
+To run with a specific model:
+```bash
+echo "TEXT" | /Users/michaelrodgers/go/bin/fabric --pattern PATTERN --model MODEL
+```
+
+## Pipe Chains (V2)
+
+Chain multiple patterns — output of one feeds into the next:
+```bash
+echo "TEXT" | fabric --pattern summarize | fabric --pattern extract_wisdom
+```
+
+For multi-step chains, run each pipe stage sequentially via Bash.
+
+Example user request: "Pipe this through summarize then extract_wisdom"
+→ Run: `echo "TEXT" | fabric --pattern summarize | fabric --pattern extract_wisdom`
+
 ## Fallback (no slash prefix)
 
 If the user says "fabric summarize: ..." without the `/` prefix, call Bash with:

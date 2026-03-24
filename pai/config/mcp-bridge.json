@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "description": "MCP server bridge inventory — all servers available to PAI via Claude Code native MCP",
+  "bridge_method": "claude-code-native",
+  "note": "All 25+ MCP servers are available natively through Claude Code's MCP infrastructure. No mcporter needed — Claude Code acts as the universal MCP bridge.",
+  "servers": {
+    "susan-intelligence": {
+      "tools": ["search_knowledge", "run_agent", "route_task", "team_manifest"],
+      "scope": "project-local",
+      "use_for": "Agent orchestration, RAG search, capability mapping"
+    },
+    "github": {
+      "tools": ["create_issue", "create_pull_request", "search_code"],
+      "scope": "global",
+      "use_for": "Repository operations, PR management"
+    },
+    "context7": {
+      "tools": ["resolve-library-id", "query-docs"],
+      "scope": "global",
+      "use_for": "Up-to-date library documentation"
+    },
+    "brave-search": {
+      "tools": ["brave_web_search", "brave_local_search"],
+      "scope": "global",
+      "use_for": "Web search"
+    },
+    "exa": {
+      "tools": ["web_search_exa", "deep_search_exa", "company_research_exa"],
+      "scope": "global",
+      "use_for": "Advanced web search, company research"
+    },
+    "tavily": {
+      "tools": ["tavily_search", "tavily_extract", "tavily_research"],
+      "scope": "global",
+      "use_for": "Search, extraction, deep research"
+    },
+    "firecrawl": {
+      "tools": ["firecrawl_scrape", "firecrawl_crawl", "firecrawl_search"],
+      "scope": "global",
+      "use_for": "Web scraping, crawling"
+    },
+    "trendradar": {
+      "tools": ["get_latest_news", "search_news", "analyze_sentiment"],
+      "scope": "global",
+      "use_for": "Competitive intelligence, news monitoring"
+    },
+    "gpt-researcher": {
+      "tools": ["get_report"],
+      "scope": "global",
+      "use_for": "Autonomous deep research"
+    },
+    "notion-custom": {
+      "tools": ["notion_pages", "notion_database", "notion_blocks"],
+      "scope": "global",
+      "use_for": "Notion integration"
+    },
+    "scheduled-tasks": {
+      "tools": ["create_scheduled_task", "list_scheduled_tasks"],
+      "scope": "global",
+      "use_for": "Task scheduling"
+    },
+    "claude-preview": {
+      "tools": ["preview_start", "preview_screenshot", "preview_snapshot"],
+      "scope": "global",
+      "use_for": "Dev server preview"
+    },
+    "claude-in-chrome": {
+      "tools": ["navigate", "read_page", "computer"],
+      "scope": "global",
+      "use_for": "Browser control"
+    }
+  },
+  "total_servers": 25,
+  "access_pattern": "All MCP tools are directly callable from Claude Code sessions. OpenClaw routes to Claude Code via coding-agent skill, which has full MCP access."
+}
