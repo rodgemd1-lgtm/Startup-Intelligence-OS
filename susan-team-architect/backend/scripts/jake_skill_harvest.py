@@ -116,8 +116,9 @@ def fetch_pipeline_runs(client) -> list[dict]:
     try:
         result = (
             client.table("jake_pipeline_runs")
-            .select("id, pipeline_name, task_description, task_type, phases_completed, created_at")
+            .select("id, pipeline_name, task_description, task_type, phases_completed, quality_score, created_at")
             .eq("status", "completed")
+            .gt("quality_score", 0.80)
             .order("created_at", desc=True)
             .limit(100)
             .execute()
@@ -172,7 +173,7 @@ def harvest_from_pipelines(client, generator) -> list[Path]:
         print("  No qualifying pipeline runs found.")
         return []
 
-    print(f"  Found {len(runs)} completed pipeline runs")
+    print(f"  Found {len(runs)} completed pipeline runs with quality_score > 0.80")
 
     generated = []
     for run in runs:
@@ -180,7 +181,7 @@ def harvest_from_pipelines(client, generator) -> list[Path]:
         task_description = run.get("task_description", "")
         task_type = run.get("task_type", "general")
         phases = run.get("phases_completed") or {}
-        quality_score = float(run.get("quality_score", 1.0))  # default 1.0 (all runs qualify)
+        quality_score = float(run.get("quality_score", 0))
         run_id = str(run.get("id", ""))
 
         path = generator.generate_from_pipeline(
