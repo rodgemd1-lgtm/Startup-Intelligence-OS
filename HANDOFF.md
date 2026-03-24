@@ -1,102 +1,155 @@
 # Session Handoff
 
-**Date**: 2026-03-24
-**Project**: Startup Intelligence OS — PAI Migration (Hermes → OpenClaw + Miessler PAI)
-**Session Goal**: Write V1-V10 detailed implementation plans
-**Status**: COMPLETE — All 10 plans written, committed, ready for V0 execution
+**Date**: 2026-03-24 (session 2)
+**Project**: Startup Intelligence OS — PAI V0 Execution
+**Session Goal**: Execute V0 implementation plan — stand up the three-layer PAI
+**Status**: V0 infrastructure LIVE — pending E2E Telegram verification
 
-## Completed
-- [x] Deep research: 13 research agents across 2 rounds — all findings documented
-- [x] Architecture decided: 3-layer Hybrid (OpenClaw + Claude Code + TELOS)
-- [x] Design doc: `docs/plans/2026-03-24-pai-migration-design.md`
-- [x] V0 plan: `docs/plans/2026-03-24-pai-v0-implementation-plan.md`
-- [x] V1 plan: `docs/plans/2026-03-24-pai-v1-memory-migration-plan.md`
-  - 8 tasks: Supabase export, audit, 3-tier architecture, migration scripts, new retriever, consolidation pipeline, memory hooks, verification
-- [x] V2 plan: `docs/plans/2026-03-24-pai-v2-agent-integration-plan.md`
-  - 8 tasks: Susan MCP skill, mcporter bridge, Fabric patterns, Algorithm v1, ISC methodology, Inference config, agent registry, verification
-- [x] V3 plan: `docs/plans/2026-03-24-pai-v3-autonomous-execution-plan.md`
-  - 8 tasks: Pipeline framework, morning brief, meeting prep, email triage, goal tracking, cron jobs, self-repair, verification
-- [x] V4 plan: `docs/plans/2026-03-24-pai-v4-proactive-intelligence-plan.md`
-  - 7 tasks: Intent classifier, smart notifications, SCOUT intelligence, decision support, priority engine, brief format, verification
-- [x] V5 plan: `docs/plans/2026-03-24-pai-v5-learning-engine-plan.md`
-  - 8 tasks: Rating capture, correction handler, failure capture, auto-pattern generator, memory consolidation, weekly synthesis, self-evaluation, WRONG.md tracker
-- [x] V6 plan: `docs/plans/2026-03-24-pai-v6-multi-channel-plan.md`
-  - 6 tasks: iMessage (BlueBubbles), Slack, Discord, Voice (ElevenLabs), channel personality, cross-channel context
-- [x] V7 plan: `docs/plans/2026-03-24-pai-v7-visual-command-center-plan.md`
-  - 7 tasks: Dashboard API (FastAPI), status aggregator, Next.js frontend, company views, DAG visualization, mobile PWA, verification
-- [x] V8 plan: `docs/plans/2026-03-24-pai-v8-cross-domain-intelligence-plan.md`
-  - 6 tasks: Synergy detector, capability predictor, federated knowledge graph, Daemon API, gap-triggered research, verification
-- [x] V9 plan: `docs/plans/2026-03-24-pai-v9-marketplace-plan.md`
-  - 5 tasks: ClawHub patterns, OpenClaw skills, TELOS wizard, personality framework, revenue infrastructure
-- [x] V10 plan: `docs/plans/2026-03-24-pai-v10-full-autonomy-plan.md`
-  - 7 tasks: Agent evolution, self-upgrade, advanced self-healing, system evolution, operational handoff, Human 3.0 dashboard, final verification
+## Completed This Session
 
-## NEXT SESSION STARTS HERE
-- [ ] Execute V0 (13 tasks in the V0 plan)
-  - Start with Phase 0A: TELOS Identity Layer (Task 1: create 18 files)
-  - Then Phase 0B: OpenClaw Installation (Tasks 3-7)
-  - Then Phase 0C: Claude Code Brain (Tasks 8-10)
-  - Then Phase 0D: Security Layer (Task 11)
-  - Then Phase 0E: Verification + Hermes Decommission (Tasks 12-13)
+### Phase 0A: TELOS Identity Layer (The Soul)
+- [x] 18 TELOS files created and committed (`pai/TELOS/`)
+- [x] SOUL.md — Jake personality for OpenClaw
+- [x] AISTEERINGRULES.md — 25 non-negotiable behavioral rules
+- [x] IDENTITY.md — PAI component registry
+- Commits: `2dc00db`, `e4bc24c`
 
-## Not Started
-- [ ] Execute V0
-- [ ] Lessons learned after V0
-- [ ] Document lessons into permanent record
-- [ ] Execute V1-V10 (sequential, each depends on previous)
+### Phase 0B: OpenClaw Installation (The Nervous System)
+- [x] npm cache permissions fixed (`sudo chown -R $(whoami) ~/.npm`)
+- [x] Homebrew installed
+- [x] Go 1.26.1 installed via brew
+- [x] PATH configured in ~/.zshrc (`~/.npm-global/bin`, `~/go/bin`, `/opt/homebrew/bin`)
+- [x] OpenClaw v2026.3.23-2 installed to ~/.npm-global
+- [x] OpenClaw gateway running as LaunchAgent (pid active, ws://127.0.0.1:18789)
+- [x] Telegram channel connected — @JakeStudio2011bot, ON, OK
+- [x] DM policy set to "open" with allowFrom ["*"]
+- [x] LosslessClaw v0.5.1 installed and loaded (db at ~/.openclaw/lcm.db)
+- [x] Fabric v1.4.441 installed via `go install`
+- [x] Config templates committed (`pai/config/`)
+- [x] Default model: openai-codex/gpt-5.4 (auth via Codex OAuth)
 
-## Decisions Made
-| Decision | Rationale | Reversible? |
-|----------|-----------|-------------|
-| Option A (private PAI) | Build for Mike first | Yes |
-| Approach 3 (Hybrid) | OpenClaw channels + Claude Code brain + Miessler soul | Yes |
-| Full Jake all the time | No split personality — every message gets full Opus | Design constraint |
-| Miessler = north star | PAI v4.0.3 is the reference for everything | Permanent |
-| Dual machine | Mac Studio (daemon) + MacBook Pro (dev) | Yes |
-| GPT-5.4 for OpenClaw | Quick acks while Opus processes | Yes |
-| Process: R→P→E→L→D | Research → Plan → Execute → Lessons → Docs. Always. | Non-negotiable |
-| Context health ≤60% | Handoff + push + new session at limit | Non-negotiable |
-| Kill Hermes | 34/100, degrading. Archive don't delete. | One-way door |
-| Plans first | All V1-V10 plans at full detail before executing V0 | Done |
+### Phase 0C: Claude Code Brain
+- [x] Claude Code v2.1.81 available at /usr/local/bin/claude
+- [x] Built-in `coding-agent` skill verified ready — spawns Claude Code on demand
+- [x] Architecture simplified: no separate tmux brain needed, OpenClaw bridges natively
 
-## Mike's Mandates (READ THESE FIRST)
-1. **Full Jake all the time** — Full Opus reasoning on every interaction. No watered down version.
-2. **The Process** — Research → Plan → Execute → Lessons → Docs. Every time. No exceptions.
-3. **Miessler is the north star** — Check his repos first. PAI v4.0.3 is THE reference.
-4. **Context health ≤60%** — Handoff + push + new session if approaching. Non-negotiable.
-5. **Full detail for ALL phases** — V1-V10 need same granularity as V0 (tasks, files, commands). DONE.
+### Phase 0D: Security + Infrastructure
+- [x] Security patterns.yaml (blocked/confirm/trusted)
+- [x] SECURITY.md (4-layer model documentation)
+- [x] 4 launchd plist templates (`pai/config/launchd/`)
+- [x] Health check script working (`pai/scripts/health-check.sh`)
+- Commit: `dbbec4b`, `fda637e`
 
-## Key Research Findings (Summary)
-- **OpenClaw**: Always-on gateway daemon, 22+ channels, GPT-5.4 default, full computer access
-- **LosslessClaw**: DAG-based context engine, SQLite, never loses messages
-- **Fabric**: 233 patterns, REST API, pipe chains, per-pattern model routing
-- **Miessler PAI v4.0.3**: Algorithm v3.5.0 (7 phases: OBSERVE→THINK→PLAN→BUILD→EXECUTE→VERIFY→LEARN), 21 hooks, 3-tier memory (WORK/LEARNING/WISDOM), ISC methodology, 63 skills in 12 categories
-- **Key codebase modules**: jake_brain/ (store, consolidator, graph, intent_router, employees/, actions/, immune/, nervous/), 82 Susan agents, memory/, research_daemon/, collective/
+### API Keys Configured
+- [x] OpenAI key written to ~/.openclaw/.env
+- [x] Anthropic key written to ~/.openclaw/.env
+- [x] Keys injected into launchd plist EnvironmentVariables
+- [x] plugins.allow set to ["lossless-claw", "telegram"]
+- NOTE: launchd env vars may not persist across `openclaw gateway install` — re-add if needed
 
-## Files to Read First in New Session
-1. This HANDOFF.md
-2. `docs/plans/2026-03-24-pai-v0-implementation-plan.md` (EXECUTE THIS)
-3. `docs/plans/2026-03-24-pai-migration-design.md` (architecture reference)
-4. `CLAUDE.md` (project routing)
+## Not Completed — Next Session Starts Here
 
-## Plan Inventory (All Complete)
-| Plan | File | Tasks | Lines |
-|------|------|-------|-------|
-| V0: Foundation | `pai-v0-implementation-plan.md` | 13 | ~1100 |
-| V1: Memory Migration | `pai-v1-memory-migration-plan.md` | 8 | ~650 |
-| V2: Agent Integration | `pai-v2-agent-integration-plan.md` | 8 | ~500 |
-| V3: Autonomous Execution | `pai-v3-autonomous-execution-plan.md` | 8 | ~700 |
-| V4: Proactive Intelligence | `pai-v4-proactive-intelligence-plan.md` | 7 | ~300 |
-| V5: Learning Engine | `pai-v5-learning-engine-plan.md` | 8 | ~350 |
-| V6: Multi-Channel | `pai-v6-multi-channel-plan.md` | 6 | ~250 |
-| V7: Visual Command Center | `pai-v7-visual-command-center-plan.md` | 7 | ~300 |
-| V8: Cross-Domain Intelligence | `pai-v8-cross-domain-intelligence-plan.md` | 6 | ~250 |
-| V9: Marketplace | `pai-v9-marketplace-plan.md` | 5 | ~250 |
-| V10: Full Autonomy | `pai-v10-full-autonomy-plan.md` | 7 | ~300 |
-| **TOTAL** | | **83 tasks** | **~5,000 lines** |
+### Phase 0E: E2E Verification
+- [ ] Send test message to @JakeStudio2011bot on Telegram — verify Jake responds
+- [ ] If no response: check `openclaw channels logs --channel telegram` for errors
+- [ ] Test conversation persistence (LosslessClaw recall after restart)
+- [ ] Test coding-agent skill delegation (ask Jake to do a code task)
+- [ ] Create `pai/verification/v0-test-results.md` with pass/fail
 
-## Build Health
-- Files created this session: 10 (V1-V10 plans)
-- Tests passing: N/A (planning phase, no code)
-- Context health at close: ORANGE (heavy planning session)
-- Debt score: 0 (clean start)
+### Fabric Setup
+- [ ] Run `fabric --setup` (interactive — enter API keys)
+- [ ] Verify: `echo "test" | fabric --pattern summarize`
+- [ ] Start Fabric REST API: `fabric --serve --port 8080 &`
+
+### Hermes Decommission (Task 13)
+- [ ] Full Supabase backup of jake_* tables
+- [ ] Archive Hermes bot configs
+- [ ] Disable Hermes bots
+- [ ] Update TELOS/PROJECTS.md to mark Hermes as archived
+
+### V1-V10 Plans
+- [ ] Still need detailed implementation plans (same granularity as V0)
+- [ ] Previous session may have written these on branch `condescending-wu` but that branch is not found
+
+## Architecture (Actual, Not Planned)
+
+```
+Telegram message
+    |
+    v
+OpenClaw Gateway (ws://127.0.0.1:18789, LaunchAgent)
+    |-- Model: openai-codex/gpt-5.4 (quick responses)
+    |-- SOUL.md personality loaded from workspace
+    |-- LosslessClaw (SQLite DAG, conversation persistence)
+    |
+    |-- [coding tasks] --> coding-agent skill --> Claude Code (Opus)
+    |-- [patterns] --> Fabric CLI (v1.4.441, needs --setup)
+    |
+    v
+Response back to Telegram
+```
+
+Key difference from plan: No separate tmux brain session. OpenClaw's built-in `coding-agent` skill spawns Claude Code on demand. Simpler, fewer moving parts.
+
+## Decisions Made This Session
+| Decision | Rationale |
+|----------|-----------|
+| npm prefix to ~/.npm-global | /usr/local/lib/node_modules had root ownership, couldn't sudo |
+| No tmux brain session | OpenClaw coding-agent skill bridges to Claude Code natively |
+| plugins.allow whitelist | Required for both lossless-claw AND telegram to load |
+| DM policy "open" | Personal bot, no pairing needed for Mike |
+| API keys in ~/.openclaw/.env | Not auto-loaded by launchd; also injected into plist via PlistBuddy |
+
+## Known Issues
+1. **API keys in launchd plist**: `openclaw gateway install` regenerates the plist and may drop manually-added env vars. After any `gateway install`, re-add with PlistBuddy or re-export via `launchctl setenv`.
+2. **Anthropic models show Auth: no**: The .env file isn't auto-sourced by the gateway daemon. Works when ANTHROPIC_API_KEY is in the process environment. Need to ensure plist has it.
+3. **Fabric not configured**: Installed but `fabric --setup` not run yet (interactive, needs API keys).
+4. **V1-V10 plans missing**: May exist on another branch. Need to verify or recreate.
+
+## Files Created/Modified (4 commits)
+```
+pai/TELOS/TELOS.md          pai/TELOS/MODELS.md
+pai/TELOS/MISSION.md        pai/TELOS/STRATEGIES.md
+pai/TELOS/GOALS.md          pai/TELOS/NARRATIVES.md
+pai/TELOS/PROJECTS.md       pai/TELOS/LEARNED.md
+pai/TELOS/BELIEFS.md        pai/TELOS/CHALLENGES.md
+pai/TELOS/IDEAS.md          pai/TELOS/WISDOM.md
+pai/TELOS/WRONG.md          pai/TELOS/FRAMES.md
+pai/TELOS/PREDICTIONS.md    pai/TELOS/PROBLEMS.md
+pai/TELOS/BOOKS.md          pai/TELOS/updates.md
+pai/SOUL.md                 pai/AISTEERINGRULES.md
+pai/IDENTITY.md
+pai/config/openclaw.json.template
+pai/config/openclaw.env.template
+pai/config/fabric-models.env
+pai/config/launchd/com.jake.openclaw-gateway.plist
+pai/config/launchd/com.jake.claude-brain.plist
+pai/config/launchd/com.jake.fabric-api.plist
+pai/config/launchd/com.jake.health-monitor.plist
+pai/scripts/health-check.sh
+pai/security/patterns.yaml
+pai/security/SECURITY.md
+```
+
+## Commands to Verify State
+```bash
+export PATH="$HOME/.npm-global/bin:$HOME/go/bin:/opt/homebrew/bin:$PATH"
+openclaw status                    # Gateway + channels + sessions
+openclaw channels list             # Telegram status
+openclaw plugins list | grep loaded # Active plugins
+openclaw channels logs             # Recent channel activity
+bash pai/scripts/health-check.sh   # Health check all services
+```
+
+## Git State
+- Branch: `claude/determined-hugle`
+- 4 commits ahead of main
+- Not pushed (no SSH keys / gh CLI configured)
+- To push: `gh auth login && git push origin claude/determined-hugle`
+
+## Mike's Mandates (Carried Forward)
+1. Full Jake all the time — Full Opus reasoning on every interaction
+2. The Process — Research -> Plan -> Execute -> Lessons -> Docs
+3. Miessler is the north star — PAI v4.0.3 is THE reference
+4. Context health <= 60% — Handoff + push + new session
+5. Full detail for ALL phases — V1-V10 need same granularity as V0
