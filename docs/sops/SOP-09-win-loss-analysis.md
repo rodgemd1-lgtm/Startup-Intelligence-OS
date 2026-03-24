@@ -1,7 +1,7 @@
 # SOP-09: Win/Loss Analysis
 
 **Owner**: Mike Rodgers, Sr. Director, Marketing & Competitive Intelligence
-**Version**: 2.0 DRAFT — Awaiting Mike's approval
+**Version**: 3.0 DRAFT — Awaiting Mike's approval
 **Last Updated**: 2026-03-22
 **Category**: Competitive Intelligence Production
 **Priority**: P1 — #1 most impactful CI program per industry research; currently a gap
@@ -61,6 +61,49 @@ Every B2B purchase decision is shaped by these forces. Our interview methodology
 > **B2B buying is not a rational evaluation process with emotional noise. It is an emotional process with rational justification layered on after the fact.** Win/loss analysis that only captures rational reasons (price, features, timing) misses the 95% of the decision that happened subconsciously.
 >
 > — Synthesis from Gerald Zaltman (HBS), Kahneman & Tversky, CEB/Gartner research
+
+---
+
+## PROGRAM GOVERNANCE
+
+### Ownership & RACI
+
+| Role | Responsibility | Owner |
+|------|---------------|-------|
+| **Program Owner** | Designs methodology, conducts interviews, produces all reports | Mike Rodgers |
+| **Deal Nominations** | Submits P1/P2 deals to interview pipeline within 7 days of close | Sales Ops (via Salesforce) |
+| **Insight Recipients — Action SLA** | Product: 2 weeks / Sales Enablement: 2 weeks / Services: 1 week | Product, Sales Enablement, Services |
+| **Executive Sponsor** | Quarterly review approval, program budget, escalation backstop | Matt Cohlmia |
+| **Win/Loss Lead (Future)** | Will own interview execution as program scales past 20/quarter | David Okonkwo (nominated) |
+
+### SLA Escalation Path
+
+When an insight recipient misses their 2-week response SLA:
+1. Mike sends a written reminder with the specific ask
+2. If no response in 5 business days: Mike escalates to Matt Cohlmia cc'ing the recipient's VP
+3. If 3 consecutive SLA misses by the same team: flagged in the Quarterly Executive Report as "Intelligence-to-Action Breakdown"
+
+### Data Retention & Privacy Policy
+
+| Data Type | Retention | Access | Destruction |
+|-----------|-----------|--------|-------------|
+| Interview recordings (audio/video) | 90 days | Mike only | Deleted after coding complete |
+| Interview transcripts (raw) | 180 days | Mike + designated analyst | Deleted after themes extracted |
+| Coded interview data (taxonomy) | Indefinite | Program team | Retained as longitudinal data |
+| Anonymized quotes | Indefinite | Can be shared in reports | No destruction — anonymized |
+| Buyer contact information | 2 years | Mike only | Purged on schedule |
+
+All interview data is anonymized before inclusion in any report shared beyond the immediate CI team. No buyer is identified by name, title, or health system without explicit written consent.
+
+### Annual Program Review Gate
+
+Each Q1, Mike conducts an annual review producing:
+- YoY interview volume and mix vs. target
+- Theme stability analysis (are the same drivers appearing, or shifting?)
+- Win rate trend vs. the program's recommendations (did implementing our guidance move the needle?)
+- Methodology update recommendation (are weights, scoring, or interview guides still calibrated?)
+
+Review requires Matt's approval to continue at current funding level.
 
 ---
 
@@ -377,6 +420,41 @@ SLA framework adapted from User Intuition insight-to-action methodology.
 | **SOP-11 (Trade Show Intel)** | Conference intel validates or contradicts win/loss themes |
 | **SOP-03 (Matt Weekly Brief)** | Significant patterns surfaced in Friday brief |
 
+### 5.4 Sales Rep Feedback Loop
+
+**Rep Input Form** (submitted via Salesforce within 7 days of deal close):
+
+| Field | What Rep Enters |
+|-------|----------------|
+| Deal ID | Salesforce opportunity ID |
+| Decision date | Date customer made decision (not contract date) |
+| Primary competitor | Vendor that won or most serious competitor |
+| Buyer title | Economic buyer title (VP IT, CFO, CMO, etc.) |
+| One-sentence loss reason (CRM) | Whatever they marked in Salesforce — even if wrong |
+
+The CRM loss reason is intentionally included *because* it's likely wrong. The laddering interview will surface the real driver. Comparing CRM reason vs. interview finding is itself a data point about how accurately the team diagnoses deal outcomes.
+
+**Rep Output Summary** (Mike sends back within 5 business days of interview):
+
+- One-paragraph synthesis of what the buyer actually said
+- 2-3 rep-specific takeaways ("for your next deal with this segment...")
+- Anonymized — no buyer name, no organization name in what's shared to the rep
+
+### 5.5 Messaging Update Trigger
+
+Win/loss data must actively update messaging — not just sit in reports.
+
+**Automatic trigger:** When a theme appears in **3+ interviews** AND shifts by **>10 percentage points** from the established baseline → mandatory messaging review within 14 days.
+
+| Theme Type | Who Reviews | Artifact Updated |
+|-----------|-------------|-----------------|
+| Loss driver pattern (e.g., impl risk increasing) | PMM + Sales Enablement | Battlecard objection handling |
+| Win driver pattern (e.g., AI story winning more) | PMM | Website copy, event messaging |
+| Competitor perception shift (e.g., Epic getting weaker on pricing) | Competitive Intel | SOP-07 competitor profiles |
+| Oracle transition sentiment trend | Mike → Matt | Executive narrative, sales talking points |
+
+**Hard rule:** No quarterly report goes to Matt without a "Messaging Implications" section that names at least one messaging change triggered by the data.
+
 ---
 
 ## PHASE 6: PROGRAM METRICS
@@ -443,6 +521,41 @@ Source: Stanford GSB Case Study E615; Webster & Wind (1972) buying center model;
 - **Physician champions face unique career + clinical risk** — they're advocating for a system that will affect patient care, not just efficiency
 - **KLAS Research** (klasresearch.com) is the gold standard for healthcare IT vendor evaluation — consider cross-referencing win/loss findings with KLAS data
 
+### Healthcare Calibration Caveat
+
+> **Important:** The behavioral driver percentages in this SOP (44-point price gap, 23.8% implementation risk, etc.) are sourced from User Intuition's general B2B SaaS dataset (10,247 conversations). Healthcare IT purchasing has structural differences — longer cycles (12-24 months vs. 3-9 months in SaaS), more veto-holders (clinical, compliance, IT, CFO, board), regulatory constraints (HIPAA, 21st Century Cures), and higher career risk for champions. The coefficients may not transfer directly.
+>
+> **Recommendation:** After 20 Oracle Health interviews, run a recalibration analysis using the protocol below.
+
+**Recalibration Protocol (execute at 20-interview milestone):**
+
+1. **Compare coded drivers vs. baseline:** For each of the 5 actual driver categories (IMPL-RISK, CHAMP-FAIL, PRICE, TTV, COMP-POS), compare Oracle Health's coded frequency against the User Intuition general B2B baseline (23.8%, 21.3%, 18.1%, 16.9%, 11.4%).
+2. **Flag meaningful deviations:** Any category where Oracle Health's frequency differs by **>5 percentage points** from the baseline is flagged for review.
+3. **Update simulation weights:** Revise the behavioral risk factor weights in `predictive_winloss.py` (the values in `compute_behavioral_risk_score()`) to reflect Oracle Health-specific frequencies.
+4. **Approval gate:** Updated weights require Mike's sign-off and a note in the revision history. Matt Cohlmia is notified if any category shifts by >10pp (signals a strategic pattern, not just calibration noise).
+5. **Cadence:** Re-run this recalibration at 20, 50, and 100 interviews. After 100 interviews, consider replacing hand-tuned weights with a logistic regression model trained on Oracle Health's own deal outcomes.
+
+### IDN/Health System Consolidation — Distinct Deal Type
+
+**A significant portion of Oracle Health pipeline involves IDN/health system consolidation events** — an acquired community hospital must standardize on the IDN's platform. This is a fundamentally different buying trigger than competitive greenfield evaluation.
+
+| Dimension | Competitive Greenfield | IDN Consolidation |
+|-----------|----------------------|-------------------|
+| Primary driver | Best vendor wins | Standardization mandate (political) |
+| Key decision-maker | Hospital CIO / CMO | IDN IT leadership / Board |
+| Competitive dynamic | Oracle vs. Epic head-to-head | Oracle vs. "we already have [X]" |
+| Status quo bias | Moderate | Very high (community hospital may resist) |
+| Champion | Hospital IT leadership | IDN CIO as champion *and* buyer |
+| Timeline | 6-18 months | Often 3-6 months (mandate-driven urgency) |
+
+**Modified laddering questions for consolidation deals:**
+- "How was the decision made to standardize platforms across the IDN, and who drove that decision?"
+- "What was the biggest concern from the community hospital leadership about losing their current system?"
+- "Was there any internal resistance? How was it handled?"
+- "What would have made the transition feel more like a partnership and less like a mandate?"
+
+**Flag consolidation deals separately in CRM and in the coding taxonomy** — their loss drivers are different (inertia/resistance to mandate, not competitive evaluation), and their insights should not be pooled with competitive deals without controlling for deal type.
+
 ---
 
 ## 90-DAY LAUNCH PLAN
@@ -460,6 +573,221 @@ Source: Stanford GSB Case Study E615; Webster & Wind (1972) buying center model;
 
 ---
 
+## PHASE 5: PREDICTIVE WIN/LOSS — MONTE CARLO SIMULATION ENGINE
+
+### 5.1 Why Prediction, Not Just Retrospection
+
+Traditional win/loss analysis is **retrospective** — it tells you why you lost after the deal is over. Phase 5 adds a **predictive layer** that estimates win probability *while the deal is still active*, enabling real-time resource allocation, intervention triggers, and pipeline prioritization.
+
+**The shift:**
+| Traditional Win/Loss | Predictive Win/Loss |
+|---------------------|---------------------|
+| Interviews post-decision | Probability scoring during active deal |
+| Explains the past | Influences the future |
+| Sample of closed deals | Applied to every deal in pipeline |
+| Qualitative themes | Quantified risk factors + confidence intervals |
+| Weekly/quarterly cadence | Real-time or on-demand |
+
+### 5.2 Industry Calibration Reference: HP/Compaq → Oracle/Cerner
+
+The simulation is calibrated against the **HP/Compaq acquisition (2002)** — the closest historical parallel to Oracle's acquisition of Cerner.
+
+**The parallel:**
+
+| Dimension | HP/Compaq (2002) | Oracle/Cerner (2022) |
+|-----------|-----------------|----------------------|
+| Acquisition type | Major tech consolidation ($25B) | Major health IT consolidation ($28B) |
+| Brand confusion | Compaq → HP; customers unsure who to call | Cerner → Oracle Health; same confusion |
+| Market leader response | IBM + Dell capitalized aggressively | Epic capitalized on transition uncertainty |
+| Win rate degradation | ~18% market share loss in years 1-2 | Estimated 15-22% win rate degradation |
+| Recovery timeline | 4 years to competitive parity | Expected 2026-2027 if reference wins execute |
+| Key recovery driver | HP ProLiant reference wins + field engagement | Oracle Health reference wins + roadmap proof |
+
+**Why this calibration matters:** HP/Compaq buyer surveys showed that customers with "very negative" transition perception had **2.3x lower close rates** compared to neutral baseline. This coefficient is embedded in the simulation as the `VERY_NEGATIVE` transition sentiment multiplier.
+
+**Recovery pattern (HP/Compaq):** The recovery was driven NOT by messaging changes but by three specific actions:
+1. **Reference wins in the same segment** — proof that real customers had a good experience post-acquisition
+2. **Executive engagement** — HP CEO-level visits to at-risk accounts
+3. **Roadmap transparency** — publishing a multi-year product roadmap that addressed "will HP kill Compaq products?"
+
+All three have direct Oracle Health equivalents.
+
+### 5.3 The Monte Carlo Algorithm
+
+**File:** `susan-team-architect/backend/jake_brain/predictive_winloss.py`
+
+#### How It Works
+
+The simulation uses a **two-phase approach**:
+
+**Phase A — Deterministic Base Probability:**
+```
+base = product_line_base_rate
+     × sales_stage_probability (blended 40/60)
+     × competitor_difficulty_multiplier
+     × customer_segment_modifier
+     × deal_size_modifier
+     × transition_sentiment_modifier
+     × relationship_strength_modifier
+     × reference_customer_boost (if available)
+     × oracle_ecosystem_boost (if active)
+     × behavioral_risk_reduction (up to 60% penalty)
+```
+
+**Phase B — Monte Carlo Uncertainty Layer (10,000 runs):**
+
+For each simulation run, five stochastic factors are independently sampled from normal distributions:
+
+| Factor | Distribution | Variance | Why High/Low |
+|--------|-------------|----------|--------------|
+| Competitive response intensity | N(1.0, 0.15) | ±15% | Competitor behavior is partially unpredictable |
+| Stakeholder alignment | N(1.0, 0.20) | ±20% | Committee dynamics shift during evaluation |
+| Market timing / budget cycle | N(1.0, 0.10) | ±10% | Budget approval is relatively stable |
+| Champion stability | N(strength, 0.25) | ±25% | **Highest variance** — HP/Compaq showed champion departure as dominant uncertainty |
+| Implementation capacity | N(1.0, 0.12) | ±12% | Oracle implementation bandwidth varies |
+
+The mean of 10,000 simulated win probabilities becomes the final prediction. The 5th/95th percentile spread is the 90% confidence interval.
+
+#### Output Schema
+
+```python
+PredictionResult:
+    win_probability_pct: float          # e.g., 34.2%
+    confidence_interval_90: tuple       # e.g., (18.1%, 52.6%)
+    confidence_interval_50: tuple       # e.g., (26.4%, 42.0%)
+    probability_tier: str               # STRONG / MODERATE / CHALLENGING / LONGSHOT
+    transition_calibration_note: str    # HP/Compaq context specific to this deal
+    top_risk_factors: list[dict]        # Ranked risks with evidence + recommended actions
+    recommended_actions: list[str]      # Prioritized interventions
+    behavioral_risk_score: float        # 0.0-1.0 composite behavioral risk
+```
+
+### 5.4 Model Variables: Input Factors
+
+Every deal is scored on 15+ factors:
+
+**Deal Characteristics:**
+| Variable | Values | Impact |
+|----------|--------|--------|
+| `product_line` | EHR, RCM, AI Agents, etc. | Base win rate: EHR (28%) to Life Sciences (50%) |
+| `deal_size_usd` | Raw USD | Larger = more scrutiny = lower probability |
+| `customer_segment` | AMC, Regional, Community, etc. | AMC hardest (Epic-dominant), Community easiest |
+| `sales_stage` | Discovery → Verbal Win | Discovery (12%) to Verbal Win (82%) |
+| `num_competitors` | Integer | >3 vendors = choice overload penalty |
+
+**Competitive & Transition Factors:**
+| Variable | Values | Impact |
+|----------|--------|--------|
+| `primary_competitor` | Epic, Meditech, No Decision, etc. | Epic: -45% multiplier; No Decision: -55% |
+| `transition_sentiment` | Very Positive → Very Negative | Very Negative: -57% (2.3x HP/Compaq penalty) |
+| `is_existing_oracle_customer` | bool | +22% land-and-expand advantage |
+| `oracle_ecosystem_value` | bool | +18% platform story boost |
+
+**Behavioral Risk Factors (0.0-1.0):**
+| Variable | Driver It Measures | Weight in Model |
+|----------|-------------------|-----------------|
+| `champion_strength` | Champion confidence failure (21.3% of losses) | 0.213 |
+| `implementation_risk_concern` | Implementation risk (23.8% of losses) | 0.238 |
+| `time_to_value_anxiety` | TTV anxiety (16.9% of losses) | 0.169 |
+| `price_sensitivity` | Price (18.1% ACTUAL, not 62.3% stated) | 0.181 |
+| `status_quo_bias` | Inertia / "no decision" pressure | 0.100 |
+
+**Weights sourced from User Intuition's 10,247-conversation dataset (SOP-09 behavioral science foundation).**
+
+### 5.5 Base Win Rates by Product Line
+
+Calibrated to Oracle Health competitive landscape (2024-2025 estimates):
+
+| Product Line | Base Win Rate | Key Competitor | Primary Risk |
+|-------------|---------------|---------------|--------------|
+| EHR | 28% | Epic (70%+ market share in AMC/Regional) | Transition sentiment + Epic dominance |
+| RCM | 38% | Waystar | Platform story advantage |
+| Patient Portal | 42% | Various | Oracle ecosystem advantage |
+| AI Agents | 45% | Regard, Epic AI | New category — less entrenched |
+| Population Health | 35% | Health Catalyst | Reference customer gap |
+| Analytics / BI | 40% | Various | Oracle platform story |
+| Life Sciences | 50% | Less competitive | Oracle brand strength |
+
+### 5.6 Usage — Running Predictions
+
+**Demo (3 pre-built Oracle Health scenarios):**
+```bash
+cd /Users/mikerodgers/Startup-Intelligence-OS
+python3 susan-team-architect/backend/jake_brain/predictive_winloss.py --demo
+```
+
+**Programmatic use:**
+```python
+from jake_brain.predictive_winloss import DealInput, predict, Competitor, CustomerSegment
+from jake_brain.predictive_winloss import ProductLine, SalesStage, TransitionSentiment, RelationshipStrength
+
+deal = DealInput(
+    deal_id="OH-2025-042",
+    deal_name="St. Mary's Health System — EHR Replacement",
+    deal_size_usd=1_200_000,
+    product_line=ProductLine.EHR,
+    customer_segment=CustomerSegment.REGIONAL,
+    primary_competitor=Competitor.EPIC,
+    sales_stage=SalesStage.RFP,
+    transition_sentiment=TransitionSentiment.SOMEWHAT_NEGATIVE,
+    relationship_strength=RelationshipStrength.STRONG,
+    champion_strength=0.65,
+    implementation_risk_concern=0.55,
+    reference_customer_available=True,
+    oracle_ecosystem_value=True,
+)
+
+result = predict(deal)
+print(f"Win probability: {result.win_probability_pct}%")
+print(f"Tier: {result.probability_tier}")
+```
+
+### 5.7 Interpretation Guide
+
+| Win Probability | Tier | Recommended Response |
+|----------------|------|---------------------|
+| ≥ 60% | STRONG | Protect. Confirm budget/timeline. Map new stakeholders. Don't get complacent. |
+| 40-59% | MODERATE | Execute. Differentiate on Oracle platform story. Build champion confidence. |
+| 25-39% | CHALLENGING | Intervene. Escalate to executive engagement. Deploy targeted reference. |
+| < 25% | LONGSHOT | Triage. Ask champion "what would have to be true to win?" If no answer, de-prioritize. |
+
+### 5.8 Confidence Interval Interpretation
+
+The 90% confidence interval reflects **uncertainty in the simulation**, driven primarily by:
+- Champion stability variance (±25% — highest uncertainty factor)
+- Stakeholder alignment unpredictability (±20%)
+
+**Narrow interval** (e.g., 32-38%) = High certainty. The deal's outcome is fairly predictable given current inputs.
+
+**Wide interval** (e.g., 15-65%) = High uncertainty. Small changes in champion or stakeholder dynamics could swing the deal. This is a signal to gather more information, not a reason to give up.
+
+### 5.9 When to Re-Run the Prediction
+
+Trigger a new prediction when any of these events occur:
+
+| Trigger | Why It Matters |
+|---------|---------------|
+| Sales stage advances | Stage is the strongest single predictor |
+| Champion changes or goes dark | Champion stability is highest-variance factor |
+| Customer mentions Oracle/Cerner transition explicitly | Transition sentiment should be re-scored |
+| Competitor changes (new entrant or dropout) | Difficulty multiplier changes |
+| Executive engagement occurs | Relationship strength can upgrade 1-2 levels |
+| Deal goes quiet (>14 days no activity) | Staleness penalty kicks in |
+| Budget cycle event (approval, deferral) | Timing and deal size impact changes |
+
+### 5.10 Integration Roadmap
+
+| Phase | Capability | Timeline |
+|-------|-----------|----------|
+| **Current** | CLI prediction engine, manual deal input | Available now |
+| **Q2 2026** | Salesforce CRM connector — auto-pull deal fields | 2026 Q2 |
+| **Q2 2026** | Batch scoring for full pipeline (50+ deals) | 2026 Q2 |
+| **Q3 2026** | Bayesian updating — model learns from actual outcomes | 2026 Q3 |
+| **Q4 2026** | Dashboard integration with Ellen's GenChat KB | 2026 Q4 |
+| **2027** | ML model replaces hand-tuned weights — trained on 100+ oracle deals | 2027 |
+
+---
+
 ## ETHICAL & LEGAL
 
 - Anonymize all data before sharing internally
@@ -468,6 +796,21 @@ Source: Stanford GSB Case Study E615; Webster & Wind (1972) buying center model;
 - Frame as "your feedback helps us improve" — never promise action
 - Comply with Oracle data handling policies
 - Align with SCIP Code of Ethics for primary intelligence collection
+
+### Handling Inadvertent Competitor Disclosures
+
+During laddering interviews, buyers occasionally share information about competitor roadmaps, pricing structures, or contractual terms that they may have received in confidence. This requires a specific handling protocol:
+
+| Situation | Action |
+|-----------|--------|
+| Buyer shares competitor pricing | Note in restricted log only. Do NOT include in standard reports. Consult Oracle legal before any use. |
+| Buyer shares competitor roadmap details | Same — restricted log, legal review required. Buyer may be under NDA with competitor. |
+| Buyer shares details of their own Oracle contract | Permitted — this is Oracle's own data. Use with standard anonymization. |
+| Buyer shares employee names at competitor | Acceptable as competitive intelligence. Handle per SCIP Code of Ethics. |
+
+**Restricted log:** Mike maintains a separate `win-loss-restricted-intel.md` (not shared with team) for inadvertent disclosures pending legal review. This is distinct from the standard interview coding file.
+
+**The rule:** If you wouldn't want to explain in a deposition how you used a piece of information, document it in the restricted log instead of the main intel system.
 
 ---
 
