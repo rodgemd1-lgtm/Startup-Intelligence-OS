@@ -1,0 +1,15 @@
+{
+  "total": 5236,
+  "unique": 1020,
+  "categories": {
+    "transformfit": 54,
+    "general": 402,
+    "startup-os": 50,
+    "hermes": 58,
+    "oracle-health": 282,
+    "alex-recruiting": 170,
+    "macos_tools": 1,
+    "oracle-health-mci": 2,
+    "startup-intelligence-os": 1
+  }
+}

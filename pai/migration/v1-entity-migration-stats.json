@@ -1,0 +1,28 @@
+{
+  "entities": 65,
+  "entity_types": {
+    "company": 5,
+    "project": 8,
+    "person": 38,
+    "family_member": 11,
+    "colleague": 1,
+    "technology": 1,
+    "recurring_event": 1
+  },
+  "duplicate_names": {
+    "transformfit": 2
+  },
+  "relationships": 56,
+  "relationship_types": {
+    "spouse_of": 1,
+    "parent_of": 3,
+    "ex_spouse_of": 2,
+    "works_at": 3,
+    "stakeholder_of": 1,
+    "named_after": 2,
+    "relates_to": 7,
+    "discussed_in": 36,
+    "child_of": 1
+  },
+  "orphaned_refs": 0
+}
