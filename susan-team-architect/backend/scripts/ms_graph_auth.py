@@ -17,12 +17,23 @@ import sys
 import time
 from pathlib import Path
 
-# Requires: pip install msal
-try:
-    import msal
-except ImportError:
-    print("ERROR: msal not installed. Run: pip install msal")
-    sys.exit(1)
+# Requires: pip install msal (deferred import — see _import_msal())
+msal = None
+
+
+def _import_msal():
+    """Lazy-import msal so that importing this module doesn't kill the process."""
+    global msal
+    if msal is not None:
+        return msal
+    try:
+        import msal as _msal
+        msal = _msal
+        return msal
+    except ImportError:
+        raise ImportError(
+            "msal not installed. Run: pip install msal"
+        )
 
 # ---------------------------------------------------------------------------
 # Oracle Microsoft 365 config
@@ -56,13 +67,14 @@ ENV_KEY_TENANT_ID = "MICROSOFT_GRAPH_TENANT_ID"
 # ---------------------------------------------------------------------------
 
 def _make_app(client_id: str = GRAPH_EXPLORER_CLIENT_ID,
-              tenant_id: str = ORACLE_TENANT_ID) -> msal.PublicClientApplication:
+              tenant_id: str = ORACLE_TENANT_ID):
     """Create MSAL public client application with file-based token cache."""
-    cache = msal.SerializableTokenCache()
+    _msal = _import_msal()
+    cache = _msal.SerializableTokenCache()
     if MSAL_CACHE_PATH.exists():
         cache.deserialize(MSAL_CACHE_PATH.read_text())
 
-    app = msal.PublicClientApplication(
+    app = _msal.PublicClientApplication(
         client_id=client_id,
         authority=f"https://login.microsoftonline.com/{tenant_id}",
         token_cache=cache,
@@ -73,7 +85,7 @@ def _make_app(client_id: str = GRAPH_EXPLORER_CLIENT_ID,
     return app, cache
 
 
-def _save_cache(cache: msal.SerializableTokenCache) -> None:
+def _save_cache(cache) -> None:
     """Persist the MSAL token cache to disk."""
     if cache.has_state_changed:
         MSAL_CACHE_PATH.write_text(cache.serialize())

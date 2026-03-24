@@ -73,6 +73,8 @@ def _fetch_recent_emails_graph(max_emails: int = 20) -> list[dict[str, Any]]:
     """Fetch recent Oracle emails via Microsoft Graph API (preferred — no Mail.app dependency)."""
     try:
         # Import the Graph auth helper from the scripts dir
+        # This may raise ImportError if msal is not installed — that's OK,
+        # the caller falls back to osascript.
         scripts_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         scripts_dir = os.path.join(scripts_dir, "scripts")
         if scripts_dir not in sys.path:

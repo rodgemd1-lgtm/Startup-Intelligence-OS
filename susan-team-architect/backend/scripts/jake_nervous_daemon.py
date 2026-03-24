@@ -17,6 +17,7 @@ import argparse
 import logging
 import os
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 # ── Path setup ────────────────────────────────────────────────────────────
@@ -140,9 +141,28 @@ def main() -> None:
             summary["meeting_events"],
             summary["alerts_sent"],
         )
+        _write_run_status("jake_nervous_daemon", success=True)
     except Exception as exc:
         logger.exception("Nervous daemon cycle failed: %s", exc)
+        _write_run_status("jake_nervous_daemon", success=False)
         sys.exit(1)
+
+
+def _write_run_status(job_name: str, success: bool) -> None:
+    """Write a small JSON status file for pulse monitor freshness checks."""
+    import json
+    log_dir = str(Path.home() / ".hermes" / "logs")
+    os.makedirs(log_dir, exist_ok=True)
+    status_file = os.path.join(log_dir, f"{job_name}.status.json")
+    try:
+        with open(status_file, "w") as f:
+            json.dump({
+                "job": job_name,
+                "status": "ok" if success else "error",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            }, f)
+    except Exception as e:
+        logger.warning("Could not write status file: %s", e)
 
 
 if __name__ == "__main__":

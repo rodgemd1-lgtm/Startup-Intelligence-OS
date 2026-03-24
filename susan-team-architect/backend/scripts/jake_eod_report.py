@@ -292,7 +292,28 @@ def main():
     if args.telegram:
         logger.info("Sending to Telegram...")
         ok = send_telegram(report)
-        sys.exit(0 if ok else 1)
+        if not ok:
+            logger.warning("Telegram delivery failed — report was still generated.")
+
+    # Write run-status file for pulse monitor freshness checks
+    _write_run_status("jake_eod_report", success=True)
+
+
+def _write_run_status(job_name: str, success: bool) -> None:
+    """Write a small JSON status file for pulse monitor freshness checks."""
+    import json as _json
+    log_dir = os.path.expanduser("~/.hermes/logs")
+    os.makedirs(log_dir, exist_ok=True)
+    status_file = os.path.join(log_dir, f"{job_name}.status.json")
+    try:
+        with open(status_file, "w") as f:
+            _json.dump({
+                "job": job_name,
+                "status": "ok" if success else "error",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            }, f)
+    except Exception as e:
+        logger.warning("Could not write status file: %s", e)
 
 
 if __name__ == "__main__":
