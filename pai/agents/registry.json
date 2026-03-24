@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-03-24",
+  "total_agents": 83,
+  "groups": {
+    "orchestration": ["susan"],
+    "strategy": [
+      "steve-strategy", "shield-legal-compliance", "bridge-partnerships",
+      "ledger-finance", "vault-fundraising", "recruiting-strategy-studio"
+    ],
+    "product": [
+      "marcus-ux", "mira-emotional-experience", "compass-product",
+      "ai-product-manager", "conversation-designer", "echo-neuro-design",
+      "lens-accessibility", "prism-brand", "ux-design-process"
+    ],
+    "engineering": [
+      "atlas-engineering", "nova-ai", "pulse-data-science", "sentinel-security",
+      "forge-qa", "knowledge-engineer", "ai-evaluation-specialist", "algorithm-lab"
+    ],
+    "science": [
+      "coach-exercise-science", "sage-nutrition", "drift-sleep-recovery",
+      "workout-program-studio", "coaching-architecture-studio",
+      "workout-session-studio", "training-research-studio"
+    ],
+    "psychology": [
+      "freya-behavioral-economics", "flow-sports-psychology", "quest-gamification"
+    ],
+    "growth": [
+      "aria-growth", "haven-community", "guide-customer-success",
+      "herald-pr", "beacon-aso", "coach-outreach-studio", "x-growth-studio"
+    ],
+    "research": [
+      "research-director", "research-ops", "researcher-web",
+      "researcher-arxiv", "researcher-reddit", "researcher-appstore"
+    ],
+    "studio": [
+      "deck-studio", "design-studio-director", "landing-page-studio",
+      "app-experience-studio", "marketing-studio-director", "article-studio",
+      "memo-studio", "social-media-studio", "whitepaper-studio",
+      "instagram-studio", "recruiting-dashboard-studio", "photography-studio"
+    ],
+    "film_studio": [
+      "film-studio-director", "screenwriter-studio", "cinematography-studio",
+      "editing-studio", "color-grade-studio", "vfx-studio", "sound-design-studio",
+      "music-score-studio", "production-designer-studio", "production-manager-studio",
+      "talent-cast-studio", "distribution-studio", "legal-rights-studio",
+      "highlight-reel-studio", "audio-gen-engine", "film-gen-engine", "image-gen-engine"
+    ],
+    "slideworks": [
+      "slideworks-strategist", "slideworks-creative-director", "slideworks-builder"
+    ],
+    "oracle_health": [
+      "oracle-health-marketing-lead", "oracle-health-product-marketing"
+    ]
+  },
+  "routing": {
+    "strategy": ["steve-strategy", "susan", "bridge-partnerships", "ledger-finance"],
+    "legal": ["shield-legal-compliance", "legal-rights-studio"],
+    "fundraising": ["vault-fundraising", "steve-strategy", "ledger-finance"],
+    "finance": ["ledger-finance", "vault-fundraising"],
+    "partnerships": ["bridge-partnerships"],
+    "design": ["marcus-ux", "mira-emotional-experience", "design-studio-director", "ux-design-process"],
+    "ux": ["marcus-ux", "mira-emotional-experience", "ux-design-process", "echo-neuro-design"],
+    "product": ["compass-product", "ai-product-manager", "marcus-ux"],
+    "brand": ["prism-brand", "design-studio-director"],
+    "accessibility": ["lens-accessibility"],
+    "engineering": ["atlas-engineering", "nova-ai", "sentinel-security", "forge-qa"],
+    "ai": ["nova-ai", "ai-product-manager", "ai-evaluation-specialist", "algorithm-lab"],
+    "security": ["sentinel-security"],
+    "testing": ["forge-qa", "ai-evaluation-specialist"],
+    "data": ["pulse-data-science", "algorithm-lab", "knowledge-engineer"],
+    "exercise": ["coach-exercise-science", "workout-program-studio", "workout-session-studio"],
+    "nutrition": ["sage-nutrition"],
+    "sleep": ["drift-sleep-recovery"],
+    "coaching": ["coaching-architecture-studio", "conversation-designer", "coach-exercise-science"],
+    "behavior": ["freya-behavioral-economics", "echo-neuro-design", "quest-gamification"],
+    "motivation": ["flow-sports-psychology", "quest-gamification"],
+    "gamification": ["quest-gamification"],
+    "growth": ["aria-growth", "beacon-aso", "x-growth-studio"],
+    "marketing": ["marketing-studio-director", "aria-growth", "herald-pr"],
+    "content": ["article-studio", "social-media-studio", "instagram-studio", "whitepaper-studio"],
+    "community": ["haven-community"],
+    "pr": ["herald-pr"],
+    "aso": ["beacon-aso"],
+    "customer_success": ["guide-customer-success"],
+    "research": ["research-director", "research-ops", "researcher-web", "researcher-arxiv"],
+    "presentation": ["deck-studio", "slideworks-strategist", "slideworks-builder"],
+    "landing_page": ["landing-page-studio", "app-experience-studio"],
+    "outreach": ["coach-outreach-studio", "herald-pr"],
+    "social_media": ["social-media-studio", "instagram-studio", "x-growth-studio"],
+    "film": ["film-studio-director", "screenwriter-studio", "cinematography-studio", "editing-studio"],
+    "video": ["film-studio-director", "film-gen-engine", "editing-studio"],
+    "photography": ["photography-studio", "image-gen-engine"],
+    "audio": ["audio-gen-engine", "sound-design-studio", "music-score-studio"],
+    "recruiting": ["recruiting-strategy-studio", "recruiting-dashboard-studio", "coach-outreach-studio"],
+    "healthcare": ["oracle-health-marketing-lead", "oracle-health-product-marketing"],
+    "oracle": ["oracle-health-marketing-lead", "oracle-health-product-marketing"],
+    "knowledge": ["knowledge-engineer", "research-director"]
+  }
+}
