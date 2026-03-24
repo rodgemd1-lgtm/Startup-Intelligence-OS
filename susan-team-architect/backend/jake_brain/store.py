@@ -142,17 +142,26 @@ class BrainStore:
         return stored
 
     def bump_episodic_access(self, episodic_id: str) -> None:
-        """Increment access count when an episodic memory is recalled."""
-        self.supabase.rpc("", {}).execute()  # placeholder — use raw SQL below
-        # Direct update since Supabase Python doesn't support increment
-        self.supabase.table("jake_episodic").update({
-            "access_count": self.supabase.table("jake_episodic")
+        """Increment access count and update last_accessed_at when recalled."""
+        existing = (
+            self.supabase.table("jake_episodic")
             .select("access_count")
             .eq("id", episodic_id)
             .execute()
-            .data[0]["access_count"] + 1,
+        )
+        if not existing.data:
+            return
+        current_count = existing.data[0].get("access_count") or 0
+        self.supabase.table("jake_episodic").update({
+            "access_count": current_count + 1,
             "last_accessed_at": datetime.now(timezone.utc).isoformat(),
         }).eq("id", episodic_id).execute()
+
+    def bump_semantic_access(self, semantic_id: str) -> None:
+        """Update last_accessed_at for a semantic fact when recalled."""
+        self.supabase.table("jake_semantic").update({
+            "last_accessed_at": datetime.now(timezone.utc).isoformat(),
+        }).eq("id", semantic_id).execute()
 
     def get_unpromoted_episodic(self, limit: int = 100) -> list[dict]:
         """Get episodic memories that haven't been promoted to semantic yet."""
@@ -170,6 +179,45 @@ class BrainStore:
     # Semantic Memory
     # ------------------------------------------------------------------
 
+    def check_contradiction(self, content: str, category: str) -> list[dict]:
+        """Check if new semantic content contradicts existing active facts.
+
+        Returns list of contradicting facts. Each has a 'contradiction_type' field.
+        Contradiction = high similarity (similar topic) but opposing assertions.
+        """
+        similar = self.find_similar_semantic(
+            content, threshold=brain_config.contradiction_similarity_threshold
+        )
+        contradictions = []
+        content_lower = content.lower()
+
+        # Negation markers — simple heuristic for contradiction detection
+        negation_words = {"not", "never", "no", "don't", "doesn't", "isn't", "aren't", "won't", "can't", "shouldn't"}
+
+        for fact in similar:
+            if fact.get("category") != category:
+                continue  # Different categories, less likely to contradict
+            fact_lower = fact["content"].lower()
+
+            # Check for negation asymmetry: one has negation words, other doesn't
+            content_negated = bool(negation_words & set(content_lower.split()))
+            fact_negated = bool(negation_words & set(fact_lower.split()))
+
+            if content_negated != fact_negated:
+                # One is negated, the other isn't — likely contradiction
+                contradictions.append({
+                    **fact,
+                    "contradiction_type": "negation_asymmetry",
+                })
+            elif fact.get("confidence", 0) > 0.8 and len(content_lower) > 20:
+                # High-confidence existing fact — flag for review
+                contradictions.append({
+                    **fact,
+                    "contradiction_type": "high_confidence_conflict",
+                })
+
+        return contradictions
+
     def store_semantic(
         self,
         content: str,
@@ -181,8 +229,27 @@ class BrainStore:
         supersedes: str | None = None,
         metadata: dict | None = None,
     ) -> dict:
-        """Store a semantic fact (abstracted knowledge)."""
+        """Store a semantic fact (abstracted knowledge).
+
+        Automatically checks for contradictions before storing.
+        If contradictions found, adds 'contradicted_by' metadata.
+        Does NOT overwrite — contradictions are flagged, not suppressed.
+        """
         embedding = self.embedder.embed_query(content)
+
+        # Contradiction check before insert
+        contradictions = self.check_contradiction(content, category)
+        contradiction_ids = [c["id"] for c in contradictions]
+
+        final_metadata = metadata or {}
+        if contradiction_ids:
+            final_metadata = {
+                **final_metadata,
+                "contradicted_by": contradiction_ids,
+                "contradiction_types": [c["contradiction_type"] for c in contradictions],
+                "contradiction_flagged_at": datetime.now(timezone.utc).isoformat(),
+            }
+
         row = {
             "content": content,
             "embedding": embedding,
@@ -194,7 +261,7 @@ class BrainStore:
             "project": project,
             "topics": topics or [],
             "supersedes": supersedes,
-            "metadata": metadata or {},
+            "metadata": final_metadata,
         }
         result = self.supabase.table("jake_semantic").insert(row).execute()
 
