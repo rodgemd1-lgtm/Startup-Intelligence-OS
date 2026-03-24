@@ -24,9 +24,9 @@
     {
       "name": "operator-console",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4173"],
+      "runtimeArgs": ["-m", "http.server"],
       "port": 4173,
-      "autoPort": false,
+      "autoPort": true,
       "cwd": "apps/operator-console"
     }
   ]

@@ -1,129 +1,197 @@
-"""Oracle Sentinel Employee — daily Oracle Health competitive intelligence briefing.
+"""Oracle Sentinel — daily competitive intelligence employee.
 
-Runs weekdays at 6 AM. Gathers competitive signals from:
-- Susan RAG knowledge base (Oracle Health domain)
-- TrendRadar news feeds
-- Brain episodic/semantic memory for context
-Then synthesizes a brief and sends to Telegram.
+Runs Monday-Friday at 6 AM. Monitors Oracle Health competitors,
+checks for stale intel, and generates a structured intelligence summary.
 """
 from __future__ import annotations
 
-import os
-import sys
-from datetime import date
-from pathlib import Path
+import logging
+from datetime import datetime, timezone, timedelta
+from typing import Any
 
-BACKEND_ROOT = Path(__file__).resolve().parents[3]
-if str(BACKEND_ROOT) not in sys.path:
-    sys.path.insert(0, str(BACKEND_ROOT))
+from jake_brain.autonomous_pipeline import AutonomousPipeline, PipelineTask
 
+logger = logging.getLogger(__name__)
 
-def load_env() -> None:
-    env_path = Path.home() / ".hermes" / ".env"
-    if env_path.exists():
-        with open(env_path) as fh:
-            for line in fh:
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    k, _, v = line.partition("=")
-                    os.environ.setdefault(k.strip(), v.strip())
+# Known Oracle Health competitors to track
+ORACLE_COMPETITORS = [
+    "Epic Systems",
+    "Microsoft Health",
+    "AWS HealthLake",
+    "Google Health",
+    "Meditech",
+    "Veeva Systems",
+]
 
-
-def get_oracle_intel() -> list[dict]:
-    """Fetch Oracle Health competitive intel from Susan RAG."""
-    results = []
-    try:
-        from supabase import create_client
-        url = os.environ.get("SUPABASE_URL", "")
-        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
-        if not url or not key:
-            return results
-        client = create_client(url, key)
-        # Query recent competitive intel for Oracle Health
-        r = client.table("customer_intel").select("*").ilike(
-            "content", "%oracle%"
-        ).order("created_at", desc=True).limit(5).execute()
-        results = r.data or []
-    except Exception:
-        pass
-    return results
+# Intel staleness threshold — if last entry is older than this, flag for refresh
+STALE_THRESHOLD_DAYS = 7
 
 
-def get_brain_context() -> list[dict]:
-    """Get relevant Oracle Health context from Jake's brain."""
-    results = []
-    try:
-        from jake_brain.retriever import BrainRetriever
-        retriever = BrainRetriever()
-        hits = retriever.search("Oracle Health competitive landscape briefing", limit=5)
-        results = [{"content": h.get("content", ""), "score": h.get("score", 0)} for h in hits]
-    except Exception:
-        pass
-    return results
+class OracleSentinel:
+    """Daily Oracle Health competitive intelligence employee.
 
+    Loads recent oracle_intel episodic memories, checks for gaps/stale records,
+    and produces a structured intelligence summary.
+    """
 
-def synthesize_brief(intel: list[dict], context: list[dict]) -> str:
-    """Build daily Oracle sentinel brief."""
-    today = date.today().strftime("%Y-%m-%d")
-    lines = [f"Oracle Health Sentinel — {today}", "=" * 40]
+    EMPLOYEE_NAME = "oracle_sentinel"
+    TASK_TYPE = "oracle_intelligence"
+    CONTEXT_HINTS = ["oracle", "competitor", "healthcare_AI", "intelligence"]
+    SUCCESS_CRITERIA = [
+        "intel_summary produced",
+        "competitors_analyzed list non-empty",
+        "stale_records identified",
+    ]
 
-    if intel:
-        lines.append(f"\n📊 Competitive Signals ({len(intel)} items):")
-        for item in intel[:3]:
-            content = item.get("content", item.get("summary", ""))[:200]
-            lines.append(f"  • {content}")
-    else:
-        lines.append("\n📊 No new competitive signals today.")
+    def __init__(self, store=None):
+        """
+        Args:
+            store: BrainStore instance. If None, pipeline runs without memory persistence.
+        """
+        self._store = store
+        self._pipeline = AutonomousPipeline(store=store)
 
-    if context:
-        lines.append(f"\n🧠 Brain Context ({len(context)} relevant memories):")
-        for c in context[:2]:
-            lines.append(f"  • {c['content'][:150]}")
+    def run(self, task_description: str | None = None) -> dict[str, Any]:
+        """Run the Oracle Sentinel employee.
 
-    lines.append("\n✓ Oracle Sentinel complete.")
-    return "\n".join(lines)
+        Args:
+            task_description: Optional override for the task description.
 
-
-def send_telegram(message: str) -> bool:
-    """Send brief to Telegram."""
-    try:
-        import urllib.request
-        import json as json_mod
-        token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-        chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-        if not token or not chat_id:
-            return False
-        payload = json_mod.dumps({"chat_id": chat_id, "text": message[:4000], "parse_mode": "Markdown"}).encode()
-        req = urllib.request.Request(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            data=payload,
-            headers={"Content-Type": "application/json"},
+        Returns:
+            dict with intel_summary, competitors_analyzed, new_signals, stale_records.
+        """
+        description = task_description or (
+            "Analyze Oracle Health competitive landscape: load recent intel, "
+            "identify new signals, flag stale records, produce daily summary."
         )
-        urllib.request.urlopen(req, timeout=10)
-        return True
-    except Exception:
-        return False
 
+        task = PipelineTask(
+            task_type=self.TASK_TYPE,
+            description=description,
+            success_criteria=self.SUCCESS_CRITERIA,
+            context_hints=self.CONTEXT_HINTS,
+            employee_name=self.EMPLOYEE_NAME,
+        )
 
-def run() -> dict:
-    """Run oracle_sentinel employee — gather and send daily Oracle Health brief."""
-    load_env()
+        result = self._pipeline.run(task, build_fn=self._build)
+        return result.outputs
 
-    intel = get_oracle_intel()
-    context = get_brain_context()
-    brief = synthesize_brief(intel, context)
+    def _build(self, task: PipelineTask, context_data: dict) -> dict[str, Any]:
+        """BUILD phase: analyze oracle intel and generate summary."""
+        now = datetime.now(timezone.utc)
+        stale_cutoff = now - timedelta(days=STALE_THRESHOLD_DAYS)
 
-    sent = send_telegram(brief)
+        # ── Load recent oracle intel from episodic memory ──────────────────
+        recent_intel: list[dict] = []
+        stale_records: list[str] = []
 
-    return {
-        "status": "complete",
-        "intel_items": len(intel),
-        "context_items": len(context),
-        "telegram_sent": sent,
-        "brief_lines": brief.count("\n") + 1,
-    }
+        if self._store is not None:
+            try:
+                result = (
+                    self._store.supabase.table("jake_episodic")
+                    .select("id, content, occurred_at, topics, metadata")
+                    .eq("memory_type", "oracle_intel")
+                    .order("occurred_at", desc=True)
+                    .limit(20)
+                    .execute()
+                )
+                recent_intel = result.data or []
+            except Exception as exc:
+                logger.warning("OracleSentinel: failed to load recent intel: %s", exc)
 
+        # ── Check staleness by competitor ─────────────────────────────────
+        competitors_with_intel: set[str] = set()
+        for entry in recent_intel:
+            meta = entry.get("metadata") or {}
+            competitor = meta.get("competitor", "")
+            if competitor:
+                competitors_with_intel.add(competitor)
 
-if __name__ == "__main__":
-    result = run()
-    print(result)
+            # Check if this record is stale
+            try:
+                entry_date = datetime.fromisoformat(entry["occurred_at"].replace("Z", "+00:00"))
+                if entry_date < stale_cutoff:
+                    stale_records.append(entry.get("id", "unknown"))
+            except Exception:
+                pass
+
+        # ── Identify missing competitor coverage ──────────────────────────
+        missing_coverage = [c for c in ORACLE_COMPETITORS if c not in competitors_with_intel]
+        new_signals: list[str] = []
+
+        # ── Pull recent oracle episodic for new signal detection ──────────
+        if self._store is not None:
+            try:
+                # Look for any recent oracle-tagged episodic (last 24h)
+                yesterday = (now - timedelta(days=1)).isoformat()
+                recent_result = (
+                    self._store.supabase.table("jake_episodic")
+                    .select("id, content, occurred_at, topics")
+                    .contains("topics", ["oracle"])
+                    .gte("occurred_at", yesterday)
+                    .order("occurred_at", desc=True)
+                    .limit(10)
+                    .execute()
+                )
+                for entry in (recent_result.data or []):
+                    # Extract a brief signal from content
+                    content = entry.get("content", "")
+                    if content and len(content) > 20:
+                        signal = content[:120].replace("\n", " ").strip()
+                        new_signals.append(signal)
+            except Exception as exc:
+                logger.warning("OracleSentinel: failed to load new signals: %s", exc)
+
+        # ── Build intelligence summary ─────────────────────────────────────
+        intel_lines = [
+            f"Oracle Health Intelligence Summary — {now.strftime('%Y-%m-%d')}",
+            f"Total intel entries loaded: {len(recent_intel)}",
+            f"Competitors with coverage: {', '.join(sorted(competitors_with_intel)) or 'none yet'}",
+            f"Missing coverage: {', '.join(missing_coverage) or 'none'}",
+            f"Stale records (>{STALE_THRESHOLD_DAYS}d): {len(stale_records)}",
+            f"New signals (last 24h): {len(new_signals)}",
+        ]
+
+        if missing_coverage:
+            intel_lines.append(
+                f"\nACTION NEEDED: No intel found for {', '.join(missing_coverage)}. "
+                "Run a competitive research sweep."
+            )
+
+        if new_signals:
+            intel_lines.append("\nNew Signals:")
+            for sig in new_signals[:5]:
+                intel_lines.append(f"  - {sig}")
+
+        intel_summary = "\n".join(intel_lines)
+
+        # ── Store intel summary to episodic ───────────────────────────────
+        if self._store is not None:
+            try:
+                self._store.store_episodic(
+                    content=intel_summary,
+                    occurred_at=now,
+                    memory_type="oracle_intel",
+                    project="oracle-health",
+                    importance=0.7,
+                    topics=["oracle", "intelligence", "competitive"],
+                    source=self.EMPLOYEE_NAME,
+                    source_type="autonomous_employee",
+                    metadata={
+                        "competitors_analyzed": list(competitors_with_intel),
+                        "new_signals_count": len(new_signals),
+                        "stale_records_count": len(stale_records),
+                    },
+                )
+            except Exception as exc:
+                logger.warning("OracleSentinel: failed to store intel: %s", exc)
+
+        return {
+            "intel_summary": intel_summary,
+            "competitors_analyzed": sorted(competitors_with_intel),
+            "missing_coverage": missing_coverage,
+            "new_signals": new_signals[:10],
+            "stale_records": stale_records,
+            "total_entries_reviewed": len(recent_intel),
+            "generated_at": now.isoformat(),
+        }

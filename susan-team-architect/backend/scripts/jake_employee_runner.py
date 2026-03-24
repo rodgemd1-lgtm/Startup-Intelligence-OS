@@ -1,132 +1,179 @@
 #!/usr/bin/env python3
-"""Jake AI Employee Runner — dispatch any employee by name.
+"""CLI to run any Jake AI Employee.
 
 Usage:
-    .venv/bin/python scripts/jake_employee_runner.py --employee meeting_prep
-    .venv/bin/python scripts/jake_employee_runner.py --employee research_agent
-    .venv/bin/python scripts/jake_employee_runner.py --employee oracle_sentinel
-    .venv/bin/python scripts/jake_employee_runner.py --employee inbox_zero
-    .venv/bin/python scripts/jake_employee_runner.py --list
+    python scripts/jake_employee_runner.py --employee oracle_sentinel
+    python scripts/jake_employee_runner.py --employee research_agent
+    python scripts/jake_employee_runner.py --employee content_creator
+    python scripts/jake_employee_runner.py --employee family_coordinator
+    python scripts/jake_employee_runner.py --list
+    python scripts/jake_employee_runner.py --employee oracle_sentinel --dry-run
 """
 from __future__ import annotations
 
 import argparse
-import importlib
 import json
-import os
+import logging
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
-BACKEND_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(BACKEND_ROOT))
+# Ensure backend is on the path when running as a script
+_BACKEND_DIR = Path(__file__).parent.parent
+if str(_BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_BACKEND_DIR))
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger("jake_employee_runner")
 
 
-def load_env():
-    env_path = Path.home() / ".hermes" / ".env"
-    if env_path.exists():
-        with open(env_path) as fh:
-            for line in fh:
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    k, _, v = line.partition("=")
-                    os.environ.setdefault(k.strip(), v.strip())
+def _load_registry():
+    """Import the employee registry (deferred to avoid import errors at top level)."""
+    from jake_brain.employees import EMPLOYEE_REGISTRY, EMPLOYEE_SCHEDULES
+    return EMPLOYEE_REGISTRY, EMPLOYEE_SCHEDULES
 
 
-def update_cron_status(job_name: str, status: str, error: str = "", duration_ms: int = 0) -> None:
-    """Update jake_cron_status table."""
+def _load_store():
+    """Load BrainStore, returning None on failure."""
     try:
-        from supabase import create_client
-        url = os.environ.get("SUPABASE_URL", "")
-        key = os.environ.get("SUPABASE_SERVICE_KEY", "")
-        if not url or not key:
-            return
-        client = create_client(url, key)
-        client.table("jake_cron_status").upsert({
-            "job_name": job_name,
-            "last_run": datetime.now(timezone.utc).isoformat(),
-            "status": status,
-            "error_message": error[:500] if error else "",
-            "duration_ms": duration_ms,
-            "updated_at": datetime.now(timezone.utc).isoformat(),
-        }, on_conflict="job_name").execute()
-    except Exception:
-        pass
+        from jake_brain.store import BrainStore
+        return BrainStore()
+    except Exception as exc:
+        logger.warning("BrainStore unavailable (no Supabase?): %s", exc)
+        return None
 
 
-def run_employee(name: str) -> dict:
-    """Import and run an employee module by name."""
-    from jake_brain.employees import EMPLOYEE_REGISTRY
-    spec = EMPLOYEE_REGISTRY.get(name)
-    if not spec:
-        return {"status": "error", "error": f"Unknown employee: '{name}'. Available: {list(EMPLOYEE_REGISTRY.keys())}"}
-
-    start_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
-    update_cron_status(f"employee:{name}", "running")
-
-    try:
-        module = importlib.import_module(spec.module)
-        if not hasattr(module, "run"):
-            return {"status": "error", "error": f"Module {spec.module} has no run() function"}
-        result = module.run()
-        duration = int(datetime.now(timezone.utc).timestamp() * 1000) - start_ms
-        update_cron_status(f"employee:{name}", "success", duration_ms=duration)
-        return result
-    except Exception as e:
-        import traceback
-        error_msg = traceback.format_exc()
-        duration = int(datetime.now(timezone.utc).timestamp() * 1000) - start_ms
-        update_cron_status(f"employee:{name}", "failed", error=str(e)[:500], duration_ms=duration)
-        return {"status": "error", "error": str(e), "traceback": error_msg[:500]}
+def _json_default(obj):
+    """JSON serializer for non-serializable types."""
+    if hasattr(obj, "isoformat"):
+        return obj.isoformat()
+    return str(obj)
 
 
-def main():
-    load_env()
-    parser = argparse.ArgumentParser(description="Jake AI Employee Runner")
-    parser.add_argument("--employee", type=str, help="Employee name to run")
-    parser.add_argument("--list", action="store_true", help="List all employees")
-    parser.add_argument("--json", action="store_true", help="Output results as JSON")
-    args = parser.parse_args()
-
-    if args.list:
-        from jake_brain.employees import EMPLOYEE_REGISTRY
-        print("Available AI Employees:")
-        for name, spec in EMPLOYEE_REGISTRY.items():
-            status = "✓ enabled" if spec.enabled else "○ disabled"
-            print(f"  {status}  {name}")
-            print(f"           {spec.description}")
-            print(f"           Cron: {spec.cron}")
-        return
-
-    if not args.employee:
-        print("Error: specify --employee <name> or --list")
-        sys.exit(1)
-
-    print(f"╔══════════════════════════════════╗")
-    print(f"║  AI Employee: {args.employee:<19}║")
-    print(f"╚══════════════════════════════════╝")
-    print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+def cmd_list(registry: dict, schedules: dict) -> None:
+    """Print all employees and their cron schedules."""
+    print("\nJake AI Employees\n" + "=" * 40)
+    for name, cls in sorted(registry.items()):
+        schedule = schedules.get(name, "no schedule")
+        doc = (cls.__doc__ or "").strip().split("\n")[0]
+        print(f"\n  {name}")
+        print(f"    Schedule : {schedule}")
+        print(f"    Class    : {cls.__name__}")
+        if doc:
+            print(f"    Desc     : {doc}")
     print()
 
-    result = run_employee(args.employee)
 
-    if args.json:
-        print(json.dumps(result, indent=2, default=str))
-    else:
-        status = result.get("status", "unknown")
-        icon = "✓" if status == "complete" else "✗" if status == "error" else "○"
-        print(f"{icon} Status: {status}")
-        if result.get("error"):
-            print(f"  Error: {result['error']}")
-        for k, v in result.items():
-            if k not in ("status", "error", "traceback", "results"):
-                print(f"  {k}: {v}")
-        if result.get("results"):
-            print(f"  Results ({len(result['results'])}):")
-            for r in result["results"][:5]:
-                print(f"    - {r}")
+def cmd_run(employee_name: str, registry: dict, dry_run: bool = False) -> None:
+    """Run a specific employee and print results."""
+    if employee_name not in registry:
+        print(f"ERROR: Unknown employee '{employee_name}'")
+        print(f"Available: {', '.join(sorted(registry.keys()))}")
+        sys.exit(1)
 
-    sys.exit(0 if result.get("status") != "error" else 1)
+    cls = registry[employee_name]
+
+    if dry_run:
+        print(f"\n[DRY RUN] Would run: {cls.__name__}")
+        print(f"  Employee : {employee_name}")
+        print(f"  Class    : {cls.__qualname__}")
+        print(f"  Task type: {getattr(cls, 'TASK_TYPE', 'unknown')}")
+        print(f"  Hints    : {getattr(cls, 'CONTEXT_HINTS', [])}")
+        print(f"  Criteria : {getattr(cls, 'SUCCESS_CRITERIA', [])}")
+        print("\n[DRY RUN] No actions taken.")
+        return
+
+    logger.info("Starting employee: %s", employee_name)
+    store = _load_store()
+
+    # Instantiate and run
+    employee = cls(store=store)
+
+    try:
+        # Each employee has a different run() signature — handle per employee
+        if employee_name == "oracle_sentinel":
+            result = employee.run()
+        elif employee_name == "research_agent":
+            result = employee.run()
+        elif employee_name == "content_creator":
+            result = employee.run()
+        elif employee_name == "family_coordinator":
+            result = employee.run()
+        else:
+            # Generic fallback — try calling run() with no args
+            result = employee.run()
+
+        print("\n" + "=" * 50)
+        print(f"Employee: {employee_name} — COMPLETE")
+        print("=" * 50)
+        print(json.dumps(result, indent=2, default=_json_default))
+
+    except Exception as exc:
+        logger.exception("Employee %s failed: %s", employee_name, exc)
+        print(f"\nERROR: {employee_name} failed — {exc}")
+        sys.exit(1)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Jake AI Employee Runner — run autonomous employees manually.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=__doc__,
+    )
+
+    parser.add_argument(
+        "--employee",
+        "-e",
+        metavar="NAME",
+        help="Employee name to run (e.g. oracle_sentinel, research_agent)",
+    )
+    parser.add_argument(
+        "--list",
+        "-l",
+        action="store_true",
+        help="List all available employees and their schedules",
+    )
+    parser.add_argument(
+        "--dry-run",
+        "-n",
+        action="store_true",
+        help="Show what would be done without actually running",
+    )
+    parser.add_argument(
+        "--verbose",
+        "-v",
+        action="store_true",
+        help="Enable DEBUG logging",
+    )
+
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
+
+    # Load registry
+    try:
+        registry, schedules = _load_registry()
+    except Exception as exc:
+        print(f"ERROR: Failed to load employee registry: {exc}")
+        sys.exit(1)
+
+    if args.list:
+        cmd_list(registry, schedules)
+        return
+
+    if args.employee:
+        cmd_run(args.employee, registry, dry_run=args.dry_run)
+        return
+
+    # No args — show help
+    parser.print_help()
+    print("\nQuick start:")
+    print("  python scripts/jake_employee_runner.py --list")
+    print("  python scripts/jake_employee_runner.py --employee oracle_sentinel --dry-run")
 
 
 if __name__ == "__main__":
