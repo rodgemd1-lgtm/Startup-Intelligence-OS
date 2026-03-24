@@ -1,0 +1,66 @@
+# Fabric Patterns Whitelist — Curated for PAI v1.0
+# These are the patterns Jake can invoke from Telegram via OpenClaw
+# Model routing: cheap → GPT-5.4-mini, analysis → Sonnet 4.6, strategic → Opus 4.6
+
+tiers:
+  # Fast/cheap — quick transforms, low reasoning
+  fast:
+    model: "gpt-5.4-mini"
+    patterns:
+      - summarize             # Summarize any text
+      - summarize_micro       # Ultra-short summary
+      - create_5_sentence_summary  # 5-sentence summary
+      - clean_text            # Clean up messy text
+      - extract_ideas         # Pull out key ideas
+      - extract_recommendations  # Pull actionable recs
+      - extract_questions     # Pull out questions
+      - create_tags           # Generate tags for content
+      - convert_to_markdown   # Convert anything to markdown
+      - create_flash_cards    # Make flash cards from content
+
+  # Analysis — moderate reasoning required
+  analysis:
+    model: "claude-sonnet-4-6"
+    patterns:
+      - analyze_claims        # Fact-check claims
+      - analyze_risk          # Risk assessment
+      - analyze_paper         # Academic paper analysis
+      - analyze_presentation  # Presentation critique
+      - analyze_product_feedback  # Product feedback synthesis
+      - analyze_sales_call    # Sales call analysis
+      - extract_article_wisdom  # Wisdom from articles
+      - extract_insights      # Deep insights
+      - extract_patterns      # Pattern recognition
+      - find_logical_fallacies  # Logic errors
+      - rate_content          # Content quality rating
+      - compare_and_contrast  # A vs B analysis
+      - create_prd            # Product requirements doc
+
+  # Strategic — deep reasoning, high stakes
+  strategic:
+    model: "claude-opus-4-6"
+    patterns:
+      - extract_wisdom        # Miessler's flagship — deep wisdom extraction
+      - extract_wisdom_dm     # DM-specific wisdom variant
+      - analyze_personality   # Deep personality analysis
+      - analyze_military_strategy  # Strategy analysis
+      - create_better_frame   # Reframe problems
+      - improve_prompt        # Improve AI prompts
+      - create_coding_project # Full project scaffolding
+      - create_design_document  # Design docs
+      - extract_business_ideas  # Business idea extraction
+      - extract_extraordinary_claims  # Extraordinary claim detection
+      - create_threat_scenarios  # Threat modeling
+      - write_essay           # Long-form essay
+
+# Aliases — short names for Telegram convenience
+aliases:
+  w: extract_wisdom
+  s: summarize
+  a: analyze_claims
+  i: extract_ideas
+  r: analyze_risk
+  p: create_prd
+  f: find_logical_fallacies
+  c: compare_and_contrast
+  q: extract_questions
