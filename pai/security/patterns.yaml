@@ -1,0 +1,40 @@
+# pai/security/patterns.yaml
+# SecurityValidator patterns — Miessler's Layer 3
+# Cascading lookup: USER patterns > SYSTEM patterns > fail-open
+
+blocked:
+  - pattern: "rm -rf /"
+    reason: "Recursive root deletion"
+  - pattern: "DROP DATABASE"
+    reason: "Database destruction"
+  - pattern: "curl.*| sh"
+    reason: "Remote code execution"
+  - pattern: "chmod 777"
+    reason: "World-writable permissions"
+  - pattern: "git push.*--force.*main"
+    reason: "Force push to main"
+  - pattern: "ANTHROPIC_API_KEY"
+    reason: "API key exposure"
+
+confirm:
+  - pattern: "git push"
+    reason: "Pushing to remote — verify branch and changes"
+  - pattern: "npm publish"
+    reason: "Publishing package — verify version and contents"
+  - pattern: "launchctl unload"
+    reason: "Stopping a daemon — verify which one"
+
+trusted:
+  - pattern: "git status"
+  - pattern: "git log"
+  - pattern: "git diff"
+  - pattern: "ls"
+  - pattern: "cat"
+  - pattern: "head"
+  - pattern: "tail"
+  - pattern: "grep"
+  - pattern: "find"
+  - pattern: "brew"
+  - pattern: "npm install"
+  - pattern: "fabric"
+  - pattern: "openclaw"

@@ -1,0 +1,39 @@
+// pai/config/openclaw.json.template
+// Reference config for Mike's PAI. Copy to ~/.openclaw/openclaw.json on Mac Studio.
+// DO NOT commit actual API keys — this is a template only.
+{
+  "agent": {
+    "model": "openai/gpt-5.4",
+    "name": "Jake",
+    "emoji": "🦞"
+  },
+  "agents": {
+    "defaults": {
+      "sandbox": { "mode": "non-main" }
+    },
+    "list": [{
+      "id": "jake-primary",
+      "workspace": "~/.openclaw/workspace-jake",
+      "sandbox": { "mode": "off" },
+      "tools": {
+        "profile": "full",
+        "exec": {
+          "security": "full",
+          "host": "gateway",
+          "strictInlineEval": false
+        },
+        "fs": { "workspaceOnly": false },
+        "elevated": { "enabled": true }
+      }
+    }]
+  },
+  "browser": {
+    "enabled": true,
+    "profiles": {
+      "user": { "driver": "existing-session", "attachOnly": true }
+    }
+  },
+  "gateway": {
+    "port": 18789
+  }
+}
