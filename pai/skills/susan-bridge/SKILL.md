@@ -42,9 +42,7 @@ Find the best agents for a task. Returns ranked agents with confidence scores.
 
 **API:**
 ```bash
-curl -s -X POST http://127.0.0.1:8042/api/susan/route \
-  -H "Content-Type: application/json" \
-  -d '{"company_id": "COMPANY", "task": "TASK_DESCRIPTION", "top_k": 6}' | python3 -m json.tool
+curl -s "http://127.0.0.1:8042/api/routing/susan?company=COMPANY&task=TASK_DESCRIPTION&top_k=6" | python3 -m json.tool
 ```
 
 **CLI fallback:**
@@ -72,7 +70,7 @@ Get corpus stats, asset counts, and output status for a company.
 
 **API:**
 ```bash
-curl -s http://127.0.0.1:8042/api/susan/status/COMPANY | python3 -m json.tool
+curl -s http://127.0.0.1:8042/api/companies/COMPANY/status | python3 -m json.tool
 ```
 
 **CLI fallback:**
@@ -95,7 +93,7 @@ Execute a full Susan planning cycle for a company.
 
 **API:**
 ```bash
-curl -s -X POST http://127.0.0.1:8042/api/susan/run \
+curl -s -X POST http://127.0.0.1:8042/api/runs/susan \
   -H "Content-Type: application/json" \
   -d '{"company_id": "COMPANY", "mode": "MODE"}' | python3 -m json.tool
 ```
