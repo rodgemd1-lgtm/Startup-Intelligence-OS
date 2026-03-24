@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "description": "mcporter bridge config — connects MCP servers to OpenClaw gateway",
+  "servers": {
+    "susan": {
+      "command": "python3",
+      "args": ["-m", "mcp_server.server"],
+      "cwd": "/Users/michaelrodgers/Desktop/Startup-Intelligence-OS/susan-team-architect/backend",
+      "env": {
+        "PYTHONPATH": "."
+      },
+      "description": "Susan MCP — 83 agents, 6693+ RAG chunks, control plane"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "description": "Context7 — library documentation retrieval"
+    }
+  },
+  "openclaw": {
+    "expose_as": "tools",
+    "prefix": "mcp_",
+    "gateway": "ws://127.0.0.1:18789"
+  },
+  "notes": {
+    "apple_mail": "Use AppleScript via osascript for Apple Mail integration (see pai/config/apple-integrations.json)",
+    "apple_calendar": "Use Orchard CLI or AppleScript for Calendar integration",
+    "google_apis": "OAuth2 credentials in .env — Hermes (Calendar), Jake Gmail (VIP Alerts)"
+  }
+}

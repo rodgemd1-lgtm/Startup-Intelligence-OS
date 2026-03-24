@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "description": "Per-channel response formatting for Jake PAI",
+  "channels": {
+    "telegram": {
+      "max_length": 4096,
+      "format": "markdown",
+      "truncation": "smart",
+      "footer": false
+    },
+    "slack": {
+      "max_length": 3000,
+      "format": "mrkdwn",
+      "truncation": "smart",
+      "footer": true
+    },
+    "discord": {
+      "max_length": 2000,
+      "format": "markdown",
+      "truncation": "hard",
+      "footer": false
+    },
+    "claude_code": {
+      "max_length": null,
+      "format": "markdown",
+      "truncation": "none",
+      "footer": false
+    }
+  }
+}

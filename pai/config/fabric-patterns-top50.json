@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "description": "Top 50 Fabric patterns curated for PAI with per-pattern model routing",
+  "patterns": {
+    "analysis": [
+      "analyze_claims", "analyze_risk", "analyze_sales_call",
+      "analyze_threat_report", "analyze_personality"
+    ],
+    "extraction": [
+      "extract_ideas", "extract_insights", "extract_wisdom",
+      "extract_article_wisdom", "extract_book_ideas",
+      "extract_controversial_ideas", "extract_main_idea",
+      "extract_patterns", "extract_predictions", "extract_references"
+    ],
+    "summarization": [
+      "summarize", "summarize_debate", "summarize_meeting",
+      "summarize_newsletter", "summarize_paper", "summarize_rpg_session"
+    ],
+    "creation": [
+      "create_keynote", "create_markmap_visualization",
+      "create_mermaid_visualization", "create_micro_summary",
+      "create_network_threat_landscape", "create_summary"
+    ],
+    "thinking": [
+      "t_red_team_thinking", "t_find_blindspots",
+      "t_steel_man", "t_devil_advocate",
+      "t_first_principles", "t_second_order"
+    ],
+    "improvement": [
+      "improve_prompt", "improve_writing",
+      "improve_academic_writing", "improve_report_finding"
+    ],
+    "rating": [
+      "rate_ai_result", "rate_ai_response",
+      "rate_content", "rate_value"
+    ],
+    "utility": [
+      "clean_text", "label_and_rate",
+      "write_essay", "write_micro_essay",
+      "get_wow_per_minute", "find_logical_fallacies"
+    ]
+  },
+  "model_routing": {
+    "cheap": ["summarize", "clean_text", "extract_ideas", "extract_main_idea", "create_micro_summary", "create_tags", "label_and_rate"],
+    "mid": ["analyze_claims", "analyze_risk", "improve_writing", "rate_content", "summarize_meeting", "extract_insights", "extract_patterns", "improve_prompt", "summarize_paper", "write_essay"],
+    "expensive": ["extract_wisdom", "t_red_team_thinking", "t_find_blindspots", "analyze_personality", "t_first_principles", "t_second_order", "t_steel_man", "t_devil_advocate", "create_keynote", "analyze_sales_call"]
+  }
+}
