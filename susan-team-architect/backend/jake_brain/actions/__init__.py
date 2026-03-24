@@ -1,13 +1,10 @@
 """Jake's Hands — action execution engine.
 
-Phase 5 of the 9-phase Jake architecture.
+DEPRECATED 2026-03-24: Hermes action engine replaced by OpenClaw gateway + PAI.
+Action implementations archived to archive/hermes-actions/.
+This stub preserves the base classes so existing imports don't break.
 
-Safety tiers:
-  Tier 1 (AUTO):    Execute immediately. Read-only ops, Telegram, reminders.
-  Tier 2 (CONFIRM): Show preview → Mike reacts ✅/❌ in Telegram before executing.
-  Tier 3 (APPROVE): Require explicit written approval. Production / financial / external-facing.
-
-Every executed action is logged to jake_episodic (source_type='action').
+Migration: OpenClaw handles Telegram, tools, and skills natively.
 """
 
 from __future__ import annotations
@@ -27,51 +24,29 @@ class SafetyTier(IntEnum):
 class ActionResult:
     """Result returned from any action's execute() call."""
     success: bool
-    message: str                        # Human-readable summary
-    data: dict[str, Any] = field(default_factory=dict)  # Raw response payload
+    message: str
+    data: dict[str, Any] = field(default_factory=dict)
     error: str | None = None
 
 
 class BaseAction:
-    """Abstract base for all Jake actions.
+    """Abstract base for all Jake actions. DEPRECATED — use OpenClaw skills."""
 
-    Subclasses must implement:
-      - tier: SafetyTier
-      - preview() → str   (what Jake *would* do, no side effects)
-      - execute() → ActionResult  (the real thing)
-    """
-
-    tier: SafetyTier = SafetyTier.CONFIRM  # default; subclasses override
+    tier: SafetyTier = SafetyTier.CONFIRM
     name: str = "unnamed_action"
     description: str = ""
 
     def preview(self) -> str:
-        """Return a human-readable description of what will happen."""
         raise NotImplementedError
 
     def execute(self) -> ActionResult:
-        """Perform the action and return an ActionResult."""
         raise NotImplementedError
 
-    def to_dict(self) -> dict:
-        return {
-            "action": self.name,
-            "tier": int(self.tier),
-            "tier_name": self.tier.name,
-            "description": self.description,
-            "preview": self.preview(),
-        }
-
-
-# ---------------------------------------------------------------------------
-# Registry — maps action name → class
-# ---------------------------------------------------------------------------
 
 _registry: dict[str, type[BaseAction]] = {}
 
 
 def register(cls: type[BaseAction]) -> type[BaseAction]:
-    """Decorator to register an action class."""
     _registry[cls.name] = cls
     return cls
 
