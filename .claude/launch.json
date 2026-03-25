@@ -28,6 +28,13 @@
       "port": 4173,
       "autoPort": true,
       "cwd": "apps/operator-console"
+    },
+    {
+      "name": "roadmap-viewer",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4180"],
+      "port": 4180,
+      "cwd": "apps/roadmap-viewer"
     }
   ]
 }
