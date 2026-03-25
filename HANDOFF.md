@@ -1,111 +1,62 @@
 # Session Handoff
 
-**Date**: 2026-03-24 (session 7 — V2 complete, V3 in progress)
-**Project**: Startup Intelligence OS — PAI V3 Autonomous Execution
+**Date**: 2026-03-25 (session 8 — V3X research + planning complete)
+**Project**: Startup Intelligence OS — PAI V3X Ecosystem Supercharge
 **Branch**: `claude/nice-shockley`
-**Status**: V3 pipelines built and tested. Resume with runner + scheduling.
+**Status**: V3X research done, plan written, ready for execution.
 
 ## What's Done
 
-### V2 Complete (previous session)
-- 81-agent registry (`pai/agents/registry.json`) — 12 groups, 16 routes
-- Algorithm v1 execution loop (`pai/algorithm/v1.json`)
-- Model router (Haiku/Sonnet/Opus)
-- Apple ecosystem integration map
-- 17/17 exit criteria PASS
+### V3 Complete (previous sessions)
+- 3 autonomous pipelines (morning briefing, email triage, meeting prep)
+- mail-app-cli verified (iCloud + Exchange JSON access)
+- Orchard MCP confirmed (48 Apple tools)
+- Agent registry: 83 agents, 12 groups, 16 routing categories
+- 7 commits, clean tree
 
-### V3 In Progress (this session)
+### V3X Research + Planning (this session)
+- 4 parallel research agents completed (VoltAgent, submodules, CF Workers, OpenClaw)
+- V3X plan: `docs/plans/2026-03-24-pai-v3x-ecosystem-supercharge-plan.md`
+- Research: `.claude/docs/research-packet--voltagent-framework.md`
+- Research: `.claude/docs/research-packet--agent-skills-and-papers.md`
+- Existing: `.claude/docs/hermes-openclaw-ecosystem-research.md`
 
-#### Pipelines Built & Tested (3/3)
-1. **Morning Briefing** (`pai/pipelines/morning_briefing.py`)
-   - Email: iCloud + Exchange via `mail-app-cli` (Go CLI, JSON output)
-   - VIP detection + urgency scoring (1-5 scale)
-   - Calendar: osascript fallback (slow), Orchard MCP preferred
-   - Tested: 25 unread emails classified correctly
+## V3X Build Order
 
-2. **Email Triage** (`pai/pipelines/email_triage.py`)
-   - 5-level urgency: U5 critical → U1 noise
-   - VIP domains (oracle.com) + named contacts
-   - Actions: Reply needed, Review, Archive, Flag, FYI-only (CC detection)
-   - Tested: 10 noise, 14 low, 1 medium — all correct
+V0 → V1 → V2 → V3 → **V3X (HERE)** → V4 → V5 → V6 → V7 → V8 → V9 → V10
 
-3. **Meeting Prep** (`pai/pipelines/meeting_prep.py`)
-   - Attendee extraction from titles ("1:1 with Jordan Voss")
-   - Email thread search for related context
-   - Susan RAG context lookup
-   - Format-aware prep notes (1:1, standup, review, demo)
+## V3X Phases (15 tasks)
 
-#### Infrastructure
-- **Orchard MCP wired** into `.claude/settings.json`
-  - 48 Apple tools: Calendar, Mail, Notes, Reminders, Messages, Contacts, Music, Maps, Weather, Clock
-  - Endpoint: `http://localhost:8086/mcp` (Streamable HTTP)
-  - Next session has all 48 tools natively
-- **mail-app-cli** working — both iCloud and Exchange
-- **GCP credentials** in `pai/pipelines/.env` (gitignored)
-  - Hermes OAuth (Calendar), Jake Gmail OAuth, Gemini API, YouTube API
+| Phase | Tasks | Depends On |
+|-------|-------|-----------|
+| 3X-A: Submodules + Knowledge | 3 | Nothing — start here |
+| 3X-B: Observability (OTLP → Supabase) | 4 | Supabase URL + key |
+| 3X-C: Webhook Routing (CF Workers) | 2 | Cloudflare account |
+| 3X-D: OpenClaw Full Deployment | 4 | OpenClaw running locally |
+| 3X-E: Testing | 2 | All above |
 
-## What's Left for V3
+## Mike's Decisions (Already Made)
+1. All-in on submodules (no phasing)
+2. All-in on OpenClaw deployment (every agent, every channel)
+3. Supabase for observability (NOT VoltAgent Cloud or DataDog)
+4. Cloudflare Workers for edge webhook routing
 
-### Immediate (pick up here)
-1. **Pipeline runner** — `pai/pipelines/run.py`
-   - `python run.py briefing` / `triage` / `prep "Meeting Title"`
-2. **OpenClaw skill** — `/briefing`, `/triage`, `/prep` commands
-3. **Scheduled execution** — LaunchAgent for 7:00 AM morning briefing
-4. **Orchard Calendar** — replace osascript with `calendar_info` MCP tool
-5. **VIP contacts** — expand sender list with Mike's actual VIPs
-
-### V3.1
-- Google Calendar via Hermes OAuth
-- Gmail VIP alerts via Jake Gmail OAuth
-- Telegram notification output
-- Auto-archive noise emails (with confirmation gate)
-
-## Available Tools
-
-| Tool | Transport | Scope |
-|------|-----------|-------|
-| mail-app-cli | CLI (JSON) | iCloud + Exchange email |
-| Orchard MCP | HTTP localhost:8086 | 48 Apple app tools |
-| iMessages MCP | In-session | Read/send iMessages |
-| Apple Notes MCP | In-session | Read/write Apple Notes |
-| osascript | CLI | Calendar (slow fallback) |
+## Prerequisites Mike Needs to Provide
+- [ ] Supabase project URL and service key
+- [ ] Cloudflare account confirmation
+- [ ] OpenClaw running status
 
 ## GCP Credentials (Clawdbot Project)
-- Project: `gen-lang-client-0499297227`
-- Hermes OAuth: Calendar + general Google
-- Jake Gmail OAuth: Email triage alerts
-- Gemini API: CrewAI integration
-- YouTube API: Content pipeline
-- All stored in `pai/pipelines/.env` (gitignored)
+- Hermes Desktop Client: `28378277140-n3oroqgmedcuvt213ub0ltu9lucjrcur`
+- Jake Gmail VIP: `28378277140-17cpsbejc7ud52vuhnr74m35nvi6jbcn`
+- Gemini API: `AIzaSyDEfW7jXwnkGKMxesUE4zjD_C-_5lVshWM`
+- YouTube Data: `AIzaSyDsCi8JTUn0zqXBYnUC6glYuI4J2KlfbXY`
+- GCP Project: `gen-lang-client-0499297227`
 
-## Key Files
-```
-pai/
-├── agents/registry.json           # 81 agents, 12 groups, 16 routes
-├── algorithm/v1.json              # TheAlgorithm execution loop
-├── model_router.json              # Haiku/Sonnet/Opus routing
-├── apple-integrations.json        # Apple ecosystem map
-├── pipelines/
-│   ├── .env                       # GCP creds (gitignored)
-│   ├── morning_briefing.py        # Morning briefing
-│   ├── email_triage.py            # Email triage + scoring
-│   └── meeting_prep.py            # Meeting prep context
-├── retrieval/
-│   ├── retriever.py               # PAIRetriever (Supabase)
-│   └── consolidator.py            # Session lifecycle
-└── MEMORY/, TELOS/                # 3-tier memory architecture
-```
+## Resume Prompt
 
-## Context Health Protocol
-Before ending any session:
-1. Check context usage (< 60% hard limit)
-2. Commit all working code
-3. Update HANDOFF.md
-4. Push to GitHub
-5. Start new session: "Read HANDOFF.md. Continue V3."
-
-## How to Resume
 ```
-Read HANDOFF.md. Continue V3 — build pipeline runner, wire OpenClaw skills, set up scheduled execution.
-Orchard MCP is now available (48 Apple tools). Use calendar_info for calendar instead of osascript.
+Read HANDOFF.md. Execute V3X — Ecosystem Supercharge.
+Start with Phase 3X-A (submodules). The plan is at:
+docs/plans/2026-03-24-pai-v3x-ecosystem-supercharge-plan.md
 ```
