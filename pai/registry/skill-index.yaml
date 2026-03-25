@@ -1,0 +1,907 @@
+# Skill Index — Maps VoltAgent ecosystem skill categories to Susan departments
+# Source repos:
+#   - VoltAgent/awesome-agent-skills (1,030+ official dev team skills)
+#   - VoltAgent/awesome-openclaw-skills (5,198 curated OpenClaw skills)
+#   - VoltAgent/awesome-ai-agent-papers (363+ arXiv papers, 2026)
+#
+# Susan departments (11):
+#   consumer-user-studio, data-decision-science-studio, engineering-agent-systems-studio,
+#   finance-operating-cadence-studio, founder-decision-room, job-studio,
+#   marketing-narrative-studio, product-experience-studio, revenue-growth-studio,
+#   talent-org-design-studio, trust-governance-studio
+
+version: "1.0"
+generated: "2026-03-25"
+total_official_skills: 1030
+total_openclaw_skills: 5198
+total_research_papers: 363
+
+# ===========================================================================
+# Tier 1: Official Dev Team Skills (from awesome-agent-skills)
+# ===========================================================================
+official_skills:
+
+  anthropic:
+    skills:
+      - docx
+      - doc-coauthoring
+      - pptx
+      - xlsx
+      - pdf
+      - algorithmic-art
+      - canvas-design
+      - frontend-design
+      - slack-gif-creator
+      - theme-factory
+      - web-artifacts-builder
+      - mcp-builder
+      - webapp-testing
+      - brand-guidelines
+      - internal-comms
+      - skill-creator
+      - template
+    count: 17
+    departments:
+      - product-experience-studio
+      - engineering-agent-systems-studio
+      - marketing-narrative-studio
+
+  voltagent:
+    skills:
+      - create-voltagent
+      - voltagent-best-practices
+      - voltagent-core-reference
+      - voltagent-docs-bundle
+    count: 4
+    departments:
+      - engineering-agent-systems-studio
+
+  composio:
+    skills_summary: "Connect AI agents to 1000+ external apps with managed auth"
+    count: 1
+    departments:
+      - engineering-agent-systems-studio
+
+  supabase:
+    skills:
+      - postgres-best-practices
+    count: 1
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+
+  google-gemini:
+    skills:
+      - gemini-api-dev
+      - vertex-ai-api-dev
+      - gemini-live-api-dev
+      - gemini-interactions-api
+    count: 4
+    departments:
+      - engineering-agent-systems-studio
+
+  stripe:
+    skills:
+      - stripe-best-practices
+      - upgrade-stripe
+    count: 2
+    departments:
+      - revenue-growth-studio
+      - engineering-agent-systems-studio
+
+  callstack:
+    skills:
+      - react-native-best-practices
+      - github
+      - upgrading-react-native
+    count: 3
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  better-auth:
+    skills:
+      - best-practices
+      - explain-error
+      - providers
+      - create-auth
+      - emailAndPassword
+      - organization
+      - twoFactor
+    count: 7
+    departments:
+      - engineering-agent-systems-studio
+      - trust-governance-studio
+
+  tinybird:
+    skills:
+      - tinybird-best-practices
+      - tinybird-cli-guidelines
+      - tinybird-python-sdk-guidelines
+      - tinybird-typescript-sdk-guidelines
+    count: 4
+    departments:
+      - data-decision-science-studio
+      - engineering-agent-systems-studio
+
+  hashicorp:
+    skills:
+      - terraform-code-generation
+      - terraform-module-generation
+      - terraform-provider-development
+    count: 3
+    departments:
+      - engineering-agent-systems-studio
+
+  sanity:
+    skills:
+      - sanity-best-practices
+      - content-modeling-best-practices
+      - seo-aeo-best-practices
+      - content-experimentation-best-practices
+    count: 4
+    departments:
+      - marketing-narrative-studio
+      - product-experience-studio
+
+  firecrawl:
+    skills:
+      - firecrawl-cli
+      - firecrawl-agent
+      - firecrawl-browser
+      - firecrawl-crawl
+      - firecrawl-download
+      - firecrawl-map
+      - firecrawl-scrape
+      - firecrawl-search
+    count: 8
+    departments:
+      - data-decision-science-studio
+      - engineering-agent-systems-studio
+
+  neon:
+    skills:
+      - neon-postgres
+      - claimable-postgres
+      - neon-postgres-egress-optimizer
+    count: 3
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+
+  clickhouse:
+    skills:
+      - agent-skills
+    count: 1
+    departments:
+      - data-decision-science-studio
+      - engineering-agent-systems-studio
+
+  cloudflare-engineer:
+    skills_summary: "Cloudflare engineer community skills"
+    count: 1
+    departments:
+      - engineering-agent-systems-studio
+
+  remotion:
+    skills:
+      - remotion
+    count: 1
+    departments:
+      - marketing-narrative-studio
+      - product-experience-studio
+
+  replicate:
+    skills:
+      - replicate
+    count: 1
+    departments:
+      - engineering-agent-systems-studio
+
+  typefully:
+    skills:
+      - typefully
+    count: 1
+    departments:
+      - marketing-narrative-studio
+
+  vercel:
+    skills:
+      - react-best-practices
+      - vercel-deploy-claimable
+      - web-design-guidelines
+      - composition-patterns
+      - next-best-practices
+      - next-cache-components
+      - next-upgrade
+      - react-native-skills
+    count: 8
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  cloudflare:
+    skills:
+      - agents-sdk
+      - building-ai-agent-on-cloudflare
+      - building-mcp-server-on-cloudflare
+      - commands
+      - durable-objects
+      - web-perf
+      - wrangler
+    count: 7
+    departments:
+      - engineering-agent-systems-studio
+
+  netlify:
+    skills:
+      - netlify-functions
+      - netlify-edge-functions
+      - netlify-blobs
+      - netlify-db
+      - netlify-image-cdn
+      - netlify-forms
+      - netlify-frameworks
+      - netlify-caching
+      - netlify-config
+      - netlify-cli-and-deploy
+      - netlify-deploy
+      - netlify-ai-gateway
+    count: 12
+    departments:
+      - engineering-agent-systems-studio
+
+  google-labs-stitch:
+    skills:
+      - design-md
+      - enhance-prompt
+      - react-components
+      - remotion
+      - shadcn-ui
+      - stitch-loop
+    count: 6
+    departments:
+      - product-experience-studio
+      - engineering-agent-systems-studio
+
+  google-workspace-cli:
+    skills:
+      - gws-shared
+      - gws-drive
+      - gws-sheets
+      - gws-gmail
+      - gws-calendar
+      - gws-admin
+      - gws-admin-reports
+      - gws-docs
+      - gws-slides
+      - gws-tasks
+      - gws-people
+      - gws-chat
+      - gws-vault
+      - gws-groupssettings
+      - gws-reseller
+      - gws-licensing
+      - gws-apps-script
+      - gws-classroom
+      - gws-cloudidentity
+      - gws-alertcenter
+      - gws-forms
+      - gws-keep
+      - gws-meet
+      - gws-events
+      - gws-modelarmor
+      - gws-workflow
+    count: 26
+    departments:
+      - founder-decision-room
+      - talent-org-design-studio
+      - trust-governance-studio
+
+  expo:
+    skills:
+      - building-native-ui
+      - expo-api-routes
+      - expo-cicd-workflows
+      - expo-deployment
+      - expo-dev-client
+      - expo-tailwind-setup
+      - expo-ui-jetpack-compose
+      - expo-ui-swift-ui
+      - native-data-fetching
+      - upgrading-expo
+      - use-dom
+    count: 11
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  hugging-face:
+    skills:
+      - hf-cli
+      - hugging-face-cli
+      - hugging-face-dataset-viewer
+      - hugging-face-datasets
+      - hugging-face-evaluation
+      - hugging-face-jobs
+      - hugging-face-model-trainer
+      - hugging-face-paper-pages
+      - hugging-face-paper-publisher
+      - hugging-face-tool-builder
+      - hugging-face-trackio
+      - hugging-face-vision-trainer
+      - huggingface-gradio
+      - transformers-js
+    count: 14
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+
+  trail-of-bits:
+    skills:
+      - ask-questions-if-underspecified
+      - audit-context-building
+      - building-secure-contracts
+      - burpsuite-project-parser
+      - claude-in-chrome-troubleshooting
+      - constant-time-analysis
+      - culture-index
+      - differential-review
+      - dwarf-expert
+      - entry-point-analyzer
+      - firebase-apk-scanner
+      - fix-review
+      - insecure-defaults
+      - modern-python
+      - property-based-testing
+      - semgrep-rule-creator
+      - semgrep-rule-variant-creator
+      - sharp-edges
+      - spec-to-code-compliance
+      - static-analysis
+      - testing-handbook-skills
+      - variant-analysis
+    count: 22
+    departments:
+      - trust-governance-studio
+      - engineering-agent-systems-studio
+
+  sentry:
+    skills:
+      - agents-md
+      - claude-settings-audit
+      - code-review
+      - commit
+      - create-pr
+      - find-bugs
+      - iterate-pr
+    count: 7
+    departments:
+      - engineering-agent-systems-studio
+
+  microsoft:
+    skills_summary: "Azure AI SDKs across .NET (28), Java (26), Python (40), Rust (7), TypeScript (24), General (5)"
+    count: 130
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+      - trust-governance-studio
+
+  fal-ai:
+    skills:
+      - fal-audio
+      - fal-generate
+      - fal-image-edit
+      - fal-platform
+      - fal-upscale
+      - fal-workflow
+    count: 6
+    departments:
+      - marketing-narrative-studio
+      - product-experience-studio
+
+  wordpress:
+    skills:
+      - wordpress-router
+      - wp-project-triage
+      - wp-block-development
+      - wp-block-themes
+      - wp-plugin-development
+      - wp-rest-api
+      - wp-interactivity-api
+      - wp-abilities-api
+      - wp-wpcli-and-ops
+      - wp-performance
+      - wp-phpstan
+      - wp-playground
+      - wpds
+    count: 13
+    departments:
+      - engineering-agent-systems-studio
+      - marketing-narrative-studio
+
+  transloadit:
+    skills:
+      - transloadit
+      - docs-transloadit-robots
+      - transform-generate-image
+      - transform-encode-hls-video
+      - integrate-uppy-s3-uploading
+      - integrate-smartcdn-delivery
+    count: 6
+    departments:
+      - engineering-agent-systems-studio
+      - marketing-narrative-studio
+
+  openai:
+    skills:
+      - cloudflare-deploy
+      - develop-web-game
+      - doc
+      - gh-address-comments
+      - gh-fix-ci
+      - imagegen
+      - jupyter-notebook
+      - linear
+      - netlify-deploy
+      - notion-knowledge-capture
+      - notion-meeting-intelligence
+      - notion-research-documentation
+      - notion-spec-to-implementation
+      - openai-docs
+      - pdf
+      - playwright
+      - render-deploy
+      - screenshot
+      - security-best-practices
+      - security-ownership-map
+      - security-threat-model
+      - sentry
+      - sora
+      - speech
+      - spreadsheet
+      - transcribe
+      - vercel-deploy
+      - yeet
+    count: 28
+    departments:
+      - engineering-agent-systems-studio
+      - trust-governance-studio
+      - product-experience-studio
+
+  figma:
+    skills:
+      - figma-code-connect-components
+      - figma-create-design-system-rules
+      - figma-create-new-file
+      - figma-generate-design
+      - figma-generate-library
+      - figma-implement-design
+      - figma-use
+    count: 7
+    departments:
+      - product-experience-studio
+
+  corey-haines-marketing:
+    skills_summary: "32 SaaS marketing skills: SEO, copywriting, CRO, paid ads, email, pricing, growth"
+    count: 32
+    departments:
+      - marketing-narrative-studio
+      - revenue-growth-studio
+
+  binance:
+    skills_summary: "7 Web3/crypto trading and on-chain analytics skills"
+    count: 7
+    departments:
+      - finance-operating-cadence-studio
+      - data-decision-science-studio
+
+  dean-peters-pm:
+    skills_summary: "46 product management skills: discovery, strategy, validation, UX, user stories"
+    count: 46
+    departments:
+      - product-experience-studio
+      - founder-decision-room
+      - revenue-growth-studio
+
+  pawel-huryn-pm:
+    skills_summary: "65 product management skills: analytics, execution, GTM, market research, discovery, strategy"
+    count: 65
+    departments:
+      - product-experience-studio
+      - founder-decision-room
+      - revenue-growth-studio
+      - data-decision-science-studio
+
+  minimax:
+    skills_summary: "10 frontend/mobile/shader dev + doc generation skills"
+    count: 10
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  duckdb:
+    skills:
+      - attach-db
+      - query
+      - read-file
+      - duckdb-docs
+      - read-memories
+      - install-duckdb
+    count: 6
+    departments:
+      - data-decision-science-studio
+      - engineering-agent-systems-studio
+
+  gsap-greensock:
+    skills_summary: "8 animation skills: core, timeline, ScrollTrigger, plugins, utils, React, performance, frameworks"
+    count: 8
+    departments:
+      - product-experience-studio
+
+  garry-tan-gstack:
+    skills_summary: "28 engineering workflow skills: office hours, plan reviews, design, QA, security, deploy, retros"
+    count: 28
+    departments:
+      - engineering-agent-systems-studio
+      - founder-decision-room
+      - trust-governance-studio
+
+  # Community skill categories
+  community-marketing:
+    skills_summary: "9 community marketing skills: SEO, email, X/Twitter, ASO, creative director, writing"
+    count: 9
+    departments:
+      - marketing-narrative-studio
+
+  community-productivity:
+    skills_summary: "34 productivity/collab skills: Notion, PPT, WhatsApp, Linear, memory, document processing"
+    count: 34
+    departments:
+      - founder-decision-room
+      - talent-org-design-studio
+
+  community-development:
+    skills_summary: "58 dev/testing skills: Rails, Playwright, Terraform, AWS, TDD, security, UI/UX, evals"
+    count: 58
+    departments:
+      - engineering-agent-systems-studio
+      - trust-governance-studio
+
+  community-context-engineering:
+    skills_summary: "10 context engineering skills: degradation, compression, multi-agent patterns, memory, tool design"
+    count: 10
+    departments:
+      - engineering-agent-systems-studio
+
+  community-specialized:
+    skills_summary: "24 specialized domain skills: Apple HIG, scientific research, health, legal, video, genealogy, ecommerce"
+    count: 24
+    departments:
+      - product-experience-studio
+      - data-decision-science-studio
+      - trust-governance-studio
+
+  community-n8n:
+    skills_summary: "7 n8n automation workflow skills"
+    count: 7
+    departments:
+      - engineering-agent-systems-studio
+
+
+# ===========================================================================
+# Tier 2: OpenClaw Skill Categories (from awesome-openclaw-skills)
+# ===========================================================================
+openclaw_categories:
+
+  git-and-github:
+    count: 167
+    description: "Git workflows, GitHub automation, agent orchestration, commit patterns"
+    departments:
+      - engineering-agent-systems-studio
+
+  coding-agents-and-ides:
+    count: 1184
+    description: "IDE integrations, code generation, refactoring, multi-language dev tools"
+    departments:
+      - engineering-agent-systems-studio
+
+  browser-and-automation:
+    count: 322
+    description: "Browser control, web scraping, RPA, workflow automation"
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+
+  web-and-frontend-development:
+    count: 919
+    description: "React, Next.js, Vue, Tailwind, HTML/CSS, frontend frameworks"
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  devops-and-cloud:
+    count: 393
+    description: "Docker, Kubernetes, CI/CD, AWS, GCP, Azure, Terraform, infrastructure"
+    departments:
+      - engineering-agent-systems-studio
+
+  image-and-video-generation:
+    count: 170
+    description: "AI image generation, video creation, editing, media processing"
+    departments:
+      - marketing-narrative-studio
+      - product-experience-studio
+
+  apple-apps-and-services:
+    count: 44
+    description: "macOS, iOS apps, Apple ecosystem integrations"
+    departments:
+      - product-experience-studio
+      - engineering-agent-systems-studio
+
+  search-and-research:
+    count: 345
+    description: "Web search, research automation, knowledge extraction, RAG"
+    departments:
+      - data-decision-science-studio
+      - founder-decision-room
+
+  clawdbot-tools:
+    count: 37
+    description: "OpenClaw-native utilities, skill management, configuration"
+    departments:
+      - engineering-agent-systems-studio
+
+  cli-utilities:
+    count: 180
+    description: "Command-line tools, shell automation, terminal productivity"
+    departments:
+      - engineering-agent-systems-studio
+
+  health-and-fitness:
+    count: 87
+    description: "Health tracking, fitness apps, wellness, medical info"
+    departments:
+      - consumer-user-studio
+
+  marketing-and-sales:
+    count: 102
+    description: "Marketing automation, sales tools, CRM, lead gen, SEO"
+    departments:
+      - marketing-narrative-studio
+      - revenue-growth-studio
+
+  productivity-and-tasks:
+    count: 205
+    description: "Task management, project tools, calendars, note-taking, workflow"
+    departments:
+      - founder-decision-room
+      - talent-org-design-studio
+
+  ai-and-llms:
+    count: 176
+    description: "LLM integrations, prompt engineering, model management, AI tooling"
+    departments:
+      - engineering-agent-systems-studio
+      - data-decision-science-studio
+
+  data-and-analytics:
+    count: 28
+    description: "Data analysis, visualization, BI tools, metrics dashboards"
+    departments:
+      - data-decision-science-studio
+      - finance-operating-cadence-studio
+
+  calendar-and-scheduling:
+    count: 65
+    description: "Calendar management, scheduling, time tracking"
+    departments:
+      - founder-decision-room
+      - talent-org-design-studio
+
+  media-and-streaming:
+    count: 85
+    description: "Spotify, YouTube, podcast, audio/video streaming"
+    departments:
+      - marketing-narrative-studio
+
+  notes-and-pkm:
+    count: 70
+    description: "Obsidian, Notion, note-taking, personal knowledge management"
+    departments:
+      - founder-decision-room
+      - data-decision-science-studio
+
+  ios-and-macos-development:
+    count: 29
+    description: "Swift, SwiftUI, Xcode, iOS/macOS native development"
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  communication:
+    count: 146
+    description: "Slack, Discord, email, messaging, team communication"
+    departments:
+      - talent-org-design-studio
+      - marketing-narrative-studio
+
+  speech-and-transcription:
+    count: 45
+    description: "TTS, STT, transcription, voice AI, audio processing"
+    departments:
+      - engineering-agent-systems-studio
+      - marketing-narrative-studio
+
+  smart-home-and-iot:
+    count: 41
+    description: "Home Assistant, IoT devices, home automation"
+    departments:
+      - engineering-agent-systems-studio
+
+  shopping-and-ecommerce:
+    count: 51
+    description: "E-commerce, product search, price comparison, shopping"
+    departments:
+      - revenue-growth-studio
+      - consumer-user-studio
+
+  pdf-and-documents:
+    count: 105
+    description: "PDF creation/editing, document conversion, OCR"
+    departments:
+      - founder-decision-room
+      - engineering-agent-systems-studio
+
+  self-hosted-and-automation:
+    count: 33
+    description: "Self-hosted services, n8n, Ansible, local automation"
+    departments:
+      - engineering-agent-systems-studio
+
+  security-and-passwords:
+    count: 53
+    description: "Password managers, security auditing, vulnerability scanning"
+    departments:
+      - trust-governance-studio
+
+  transportation:
+    count: 110
+    description: "Maps, navigation, ride-sharing, travel, logistics"
+    departments:
+      - consumer-user-studio
+      - data-decision-science-studio
+
+  personal-development:
+    count: 50
+    description: "Learning, habits, journaling, self-improvement"
+    departments:
+      - job-studio
+      - consumer-user-studio
+
+  moltbook:
+    count: 29
+    description: "Moltbook-specific integrations and tools"
+    departments:
+      - engineering-agent-systems-studio
+
+  gaming:
+    count: 35
+    description: "Game development, gaming platforms, game automation"
+    departments:
+      - engineering-agent-systems-studio
+      - consumer-user-studio
+
+
+# ===========================================================================
+# Tier 3: Research Papers (from awesome-ai-agent-papers, 2026)
+# ===========================================================================
+research_papers:
+
+  multi-agent:
+    count: 51
+    description: "Multi-agent coordination, debate, orchestration, team formation, decentralized collaboration"
+    departments:
+      - engineering-agent-systems-studio
+      - founder-decision-room
+
+  memory-and-rag:
+    count: 56
+    description: "Memory architectures, RAG pipelines, knowledge retrieval, context management"
+    departments:
+      - data-decision-science-studio
+      - engineering-agent-systems-studio
+
+  eval-and-observability:
+    count: 79
+    description: "Agent evaluation benchmarks, observability, debugging, performance metrics"
+    departments:
+      - data-decision-science-studio
+      - trust-governance-studio
+      - engineering-agent-systems-studio
+
+  agent-tooling:
+    count: 95
+    description: "Tool use, function calling, API integration, MCP, skill frameworks"
+    departments:
+      - engineering-agent-systems-studio
+      - product-experience-studio
+
+  ai-agent-security:
+    count: 82
+    description: "Prompt injection, tool poisoning, guardrails, safety, adversarial attacks"
+    departments:
+      - trust-governance-studio
+      - engineering-agent-systems-studio
+
+
+# ===========================================================================
+# Department Coverage Summary
+# ===========================================================================
+department_coverage:
+  engineering-agent-systems-studio:
+    official_orgs: 35
+    openclaw_categories: 18
+    paper_categories: 5
+    notes: "Highest coverage — the primary target for agent/dev skills"
+
+  product-experience-studio:
+    official_orgs: 14
+    openclaw_categories: 5
+    paper_categories: 1
+    notes: "UI/UX, design systems, frontend, mobile, Figma, GSAP"
+
+  marketing-narrative-studio:
+    official_orgs: 9
+    openclaw_categories: 4
+    paper_categories: 0
+    notes: "SEO, copywriting, social media, video, content, brand"
+
+  data-decision-science-studio:
+    official_orgs: 9
+    openclaw_categories: 7
+    paper_categories: 2
+    notes: "Analytics, databases, search, research, RAG"
+
+  trust-governance-studio:
+    official_orgs: 6
+    openclaw_categories: 1
+    paper_categories: 2
+    notes: "Security auditing, compliance, guardrails, auth"
+
+  founder-decision-room:
+    official_orgs: 5
+    openclaw_categories: 5
+    paper_categories: 1
+    notes: "PM frameworks, productivity, workspace, decision support"
+
+  revenue-growth-studio:
+    official_orgs: 4
+    openclaw_categories: 2
+    paper_categories: 0
+    notes: "Payments, pricing, sales enablement, e-commerce"
+
+  talent-org-design-studio:
+    official_orgs: 2
+    openclaw_categories: 3
+    paper_categories: 0
+    notes: "Team communication, scheduling, HR workflows"
+
+  consumer-user-studio:
+    official_orgs: 0
+    openclaw_categories: 4
+    paper_categories: 0
+    notes: "Health/fitness, transportation, personal dev, shopping"
+
+  finance-operating-cadence-studio:
+    official_orgs: 1
+    openclaw_categories: 1
+    paper_categories: 0
+    notes: "Financial data, analytics, crypto/trading"
+
+  job-studio:
+    official_orgs: 0
+    openclaw_categories: 1
+    paper_categories: 0
+    notes: "Personal development, learning, training"
