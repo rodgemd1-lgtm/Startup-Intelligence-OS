@@ -1,0 +1,19 @@
+{
+  "dnd": {
+    "enabled": true,
+    "quiet_hours": {"start": "22:00", "end": "06:00"},
+    "override_for": ["P0"],
+    "weekend_mode": "relaxed",
+    "family_time": {"enabled": true, "hours": ["17:00-20:00"]}
+  },
+  "batching": {
+    "P2": {"interval_minutes": 120, "max_items": 10},
+    "P3": {"interval_minutes": 1440, "max_items": 50}
+  },
+  "channels": {
+    "P0": ["telegram", "imessage"],
+    "P1": ["telegram"],
+    "P2": ["morning_brief"],
+    "P3": ["log_only"]
+  }
+}

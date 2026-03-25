@@ -1,0 +1,35 @@
+{
+  "startup-intelligence-os": {
+    "competitors": [
+      "lindy.ai", "relevance.ai", "crew.ai", "autogen",
+      "langchain", "llamaindex", "fabric", "openclaw"
+    ],
+    "keywords": [
+      "ai agent framework", "personal ai", "ai operating system",
+      "multi-agent orchestration", "ai co-pilot"
+    ],
+    "rss_feeds": []
+  },
+  "oracle-health": {
+    "competitors": [
+      "epic systems", "meditech", "athenahealth",
+      "nuance", "abridge", "nabla", "ambient clinical"
+    ],
+    "keywords": [
+      "ehr ai", "clinical ai", "ambient documentation",
+      "oracle health", "clinical decision support"
+    ],
+    "rss_feeds": []
+  },
+  "alex-recruiting": {
+    "competitors": [
+      "ncsa", "berecruited", "captainu", "sportsrecruits",
+      "fieldlevel", "hudl"
+    ],
+    "keywords": [
+      "sports recruiting platform", "college recruiting",
+      "athlete recruiting tech", "nil deals"
+    ],
+    "rss_feeds": []
+  }
+}
