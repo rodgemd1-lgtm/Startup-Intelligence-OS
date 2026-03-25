@@ -1,4 +1,9 @@
 {
+  "mcpServers": {
+    "orchard": {
+      "url": "http://localhost:8086/mcp"
+    }
+  },
   "hooks": {
     "SessionStart": [
       {

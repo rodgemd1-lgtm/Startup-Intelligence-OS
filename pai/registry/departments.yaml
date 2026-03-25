@@ -1,0 +1,331 @@
+# Department Registry — 218 agents across 15 departments
+# Generated: 2026-03-25
+# Source: VoltAgent overlap analysis + Susan roster + CC operational agents
+
+version: "2.0"
+total_agents: 218
+total_departments: 15
+
+jake_direct_reports:
+  - susan          # COO / Capability Foundry
+  - kira           # Chief of Staff / Intent Router
+  - orchestrator   # Multi-Agent Coordinator
+  - digest         # Intelligence Digest
+  - oracle-brief   # Executive Briefing
+  - sentinel-health # System Health Monitor
+  - pattern-matcher # Cross-Domain Pattern Detector
+  - antifragility-monitor # Antifragility Assessment
+  - optionality-scout     # Option Space Explorer
+
+departments:
+
+  strategy:
+    name: "Strategy & Business"
+    head: steve-strategy
+    agent_count: 13
+    mandate: "Business strategy, legal, finance, fundraising, partnerships, PM, sales, customer success"
+    agents:
+      - steve-strategy         # Susan — chief strategist
+      - shield-legal-compliance # Susan — legal + compliance
+      - bridge-partnerships    # Susan — partnership development
+      - ledger-finance         # Susan — financial strategy
+      - vault-fundraising      # Susan — fundraising strategy
+      - recruiting-strategy-studio # Susan — recruiting strategy
+      - guide-customer-success # Susan — customer success (absorbs VoltAgent CSM)
+      - business-analyst       # VoltAgent — business analysis
+      - project-manager        # VoltAgent — project management
+      - sales-engineer         # VoltAgent — sales engineering
+      - scrum-master           # VoltAgent — agile process
+      - content-marketer       # VoltAgent — content marketing
+      - seo-specialist         # VoltAgent — SEO optimization
+
+  product:
+    name: "Product"
+    head: compass-product
+    agent_count: 10
+    mandate: "Product strategy, UX, design systems, accessibility, brand, emotional experience"
+    agents:
+      - compass-product        # Susan — product strategy (absorbs VoltAgent PM)
+      - ai-product-manager     # Susan — AI product management
+      - marcus-ux              # Susan — UX research and design
+      - mira-emotional-experience # Susan — emotional experience design
+      - conversation-designer  # Susan — conversational UX
+      - echo-neuro-design      # Susan — neuro-design patterns
+      - lens-accessibility     # Susan — accessibility design
+      - prism-brand            # Susan — brand identity
+      - ux-design-process      # Susan — UX process frameworks
+      - ui-designer            # VoltAgent — UI implementation
+
+  engineering:
+    name: "Core Engineering"
+    head: atlas-engineering
+    agent_count: 14
+    mandate: "Architecture, full-stack development, APIs, real-time, mobile, desktop, MCP, CLI"
+    agents:
+      - atlas-engineering      # Susan — engineering lead
+      - api-designer           # VoltAgent — API design
+      - backend-developer      # VoltAgent — backend implementation
+      - frontend-developer     # VoltAgent — frontend implementation
+      - fullstack-developer    # VoltAgent — full-stack development
+      - graphql-architect      # VoltAgent — GraphQL APIs
+      - microservices-architect # VoltAgent — microservices
+      - mobile-developer       # VoltAgent — mobile development
+      - mobile-app-developer   # VoltAgent — mobile apps
+      - electron-pro           # VoltAgent — desktop apps
+      - websocket-engineer     # VoltAgent — real-time
+      - api-documenter         # VoltAgent — API documentation
+      - mcp-developer          # VoltAgent — MCP integration
+      - cli-developer          # VoltAgent — CLI tooling
+
+  languages:
+    name: "Language & Framework Engineering"
+    head: typescript-pro
+    agent_count: 28
+    mandate: "Language-specific and framework-specific deep expertise"
+    routing: "auto-detect from file extension, imports, or explicit request"
+    agents:
+      - angular-architect      # VoltAgent
+      - cpp-pro                # VoltAgent
+      - csharp-developer       # VoltAgent
+      - django-developer       # VoltAgent
+      - dotnet-core-expert     # VoltAgent
+      - dotnet-framework-4.8-expert # VoltAgent
+      - elixir-expert          # VoltAgent
+      - expo-react-native-expert # VoltAgent
+      - fastapi-developer      # VoltAgent
+      - flutter-expert         # VoltAgent
+      - golang-pro             # VoltAgent
+      - java-architect         # VoltAgent
+      - javascript-pro         # VoltAgent
+      - kotlin-specialist      # VoltAgent
+      - laravel-specialist     # VoltAgent
+      - nextjs-developer       # VoltAgent
+      - php-pro                # VoltAgent
+      - powershell-5.1-expert  # VoltAgent
+      - powershell-7-expert    # VoltAgent
+      - python-pro             # VoltAgent
+      - rails-expert           # VoltAgent
+      - react-specialist       # VoltAgent
+      - rust-engineer          # VoltAgent
+      - spring-boot-engineer   # VoltAgent
+      - sql-pro                # VoltAgent
+      - swift-expert           # VoltAgent
+      - typescript-pro         # VoltAgent
+      - vue-expert             # VoltAgent
+
+  infrastructure:
+    name: "Infrastructure & Platform"
+    head: cloud-architect
+    agent_count: 17
+    mandate: "Cloud, containers, networking, IaC, SRE, platform engineering, incident response"
+    agents:
+      - cloud-architect        # VoltAgent
+      - azure-infra-engineer   # VoltAgent
+      - database-administrator # VoltAgent
+      - deployment-engineer    # VoltAgent
+      - devops-engineer        # VoltAgent
+      - devops-incident-responder # VoltAgent
+      - docker-expert          # VoltAgent
+      - incident-responder     # VoltAgent
+      - kubernetes-specialist  # VoltAgent
+      - network-engineer       # VoltAgent
+      - platform-engineer      # VoltAgent
+      - sre-engineer           # VoltAgent
+      - terraform-engineer     # VoltAgent
+      - terragrunt-expert      # VoltAgent
+      - windows-infra-admin    # VoltAgent
+      - m365-admin             # VoltAgent
+      - it-ops-orchestrator    # VoltAgent
+
+  quality-security:
+    name: "Quality & Security"
+    head: forge-qa
+    co_head: sentinel-security
+    agent_count: 15
+    mandate: "QA, testing, security, compliance, code review, debugging, performance"
+    agents:
+      - forge-qa               # Susan — QA lead (absorbs VoltAgent qa-expert)
+      - sentinel-security      # Susan — security lead
+      - ai-evaluation-specialist # Susan — AI model evaluation
+      - accessibility-tester   # VoltAgent
+      - ad-security-reviewer   # VoltAgent
+      - architect-reviewer     # VoltAgent
+      - chaos-engineer         # VoltAgent
+      - code-reviewer          # VoltAgent
+      - compliance-auditor     # VoltAgent
+      - debugger               # VoltAgent
+      - error-detective        # VoltAgent
+      - penetration-tester     # VoltAgent
+      - performance-engineer   # VoltAgent
+      - powershell-security-hardening # VoltAgent
+      - test-automator         # VoltAgent
+
+  data-ai:
+    name: "Data & AI"
+    head: nova-ai
+    agent_count: 14
+    mandate: "Data science, ML/AI, LLM architecture, data engineering, MLOps, NLP, prompt engineering"
+    agents:
+      - nova-ai                # Susan — AI/ML lead
+      - pulse-data-science     # Susan — data science (absorbs VoltAgent data-scientist)
+      - algorithm-lab          # Susan — advanced algorithm R&D
+      - knowledge-engineer     # Susan — knowledge architecture
+      - ai-engineer            # VoltAgent
+      - data-analyst           # VoltAgent
+      - data-engineer          # VoltAgent
+      - database-optimizer     # VoltAgent
+      - llm-architect          # VoltAgent
+      - ml-engineer            # VoltAgent (merged with machine-learning-engineer)
+      - mlops-engineer         # VoltAgent
+      - nlp-engineer           # VoltAgent
+      - postgres-pro           # VoltAgent
+      - prompt-engineer        # VoltAgent
+
+  devex:
+    name: "Developer Experience"
+    head: dx-optimizer
+    agent_count: 12
+    mandate: "Build systems, tooling, documentation, git workflows, refactoring, DX"
+    agents:
+      - dx-optimizer           # VoltAgent
+      - build-engineer         # VoltAgent
+      - dependency-manager     # VoltAgent
+      - documentation-engineer # VoltAgent
+      - git-workflow-manager   # VoltAgent
+      - legacy-modernizer      # VoltAgent
+      - powershell-module-architect # VoltAgent
+      - powershell-ui-architect # VoltAgent
+      - refactoring-specialist # VoltAgent
+      - slack-expert           # VoltAgent
+      - tooling-engineer       # VoltAgent
+      - wordpress-master       # VoltAgent
+
+  research:
+    name: "Research"
+    head: research-director
+    agent_count: 14
+    mandate: "Research coordination, source-specific research, competitive/market analysis"
+    agents:
+      - research-director      # Susan — research coordination lead
+      - research-ops           # Susan — research operations
+      - researcher-web         # Susan — web research
+      - researcher-arxiv       # Susan — academic research (absorbs VoltAgent scientific-lit)
+      - researcher-reddit      # Susan — Reddit/community research
+      - researcher-appstore    # Susan — app store research
+      - research               # CC-Ops — Claude Code research agent
+      - competitive-analyst    # VoltAgent
+      - data-researcher        # VoltAgent
+      - market-researcher      # VoltAgent
+      - research-analyst       # VoltAgent
+      - search-specialist      # VoltAgent
+      - trend-analyst          # VoltAgent
+      - link-validator         # CC-Ops
+
+  growth:
+    name: "Growth & Marketing"
+    head: aria-growth
+    agent_count: 7
+    mandate: "Growth strategy, community, PR, ASO, outreach, social media"
+    agents:
+      - aria-growth            # Susan — growth strategy
+      - haven-community        # Susan — community building
+      - herald-pr              # Susan — PR and communications
+      - herald                 # CC-Ops — CC PR briefing
+      - beacon-aso             # Susan — App Store Optimization
+      - coach-outreach-studio  # Susan — outreach campaigns
+      - x-growth-studio        # Susan — X/Twitter growth
+
+  content-design:
+    name: "Content & Design Studio"
+    head: design-studio-director
+    agent_count: 15
+    mandate: "Visual design, content creation, presentations, landing pages, social media"
+    agents:
+      - design-studio-director # Susan — design direction
+      - marketing-studio-director # Susan — marketing creative
+      - deck-studio            # Susan — presentations
+      - landing-page-studio    # Susan — landing pages
+      - app-experience-studio  # Susan — app experience
+      - article-studio         # Susan — articles
+      - memo-studio            # Susan — memos/briefs
+      - social-media-studio    # Susan — social content
+      - whitepaper-studio      # Susan — whitepapers
+      - instagram-studio       # Susan — Instagram
+      - recruiting-dashboard-studio # Susan — recruiting dashboards
+      - photography-studio     # Susan — photography
+      - slideworks-strategist  # Susan — presentation strategy
+      - slideworks-creative-director # Susan — presentation creative
+      - slideworks-builder     # Susan — presentation building
+
+  film-production:
+    name: "Film & Media Production"
+    head: film-studio-director
+    agent_count: 17
+    mandate: "Film, video, audio, VFX, distribution, AI generation"
+    agents:
+      - film-studio-director   # Susan — film direction
+      - screenwriter-studio    # Susan — screenwriting
+      - cinematography-studio  # Susan — cinematography
+      - editing-studio         # Susan — video editing
+      - color-grade-studio     # Susan — color grading
+      - vfx-studio             # Susan — visual effects
+      - sound-design-studio    # Susan — sound design
+      - music-score-studio     # Susan — music composition
+      - production-designer-studio # Susan — production design
+      - production-manager-studio # Susan — production management
+      - talent-cast-studio     # Susan — talent casting
+      - distribution-studio    # Susan — distribution
+      - legal-rights-studio    # Susan — media legal/rights
+      - highlight-reel-studio  # Susan — highlight reels
+      - audio-gen-engine       # Susan — audio generation
+      - film-gen-engine        # Susan — film generation
+      - image-gen-engine       # Susan — image generation
+
+  health-science:
+    name: "Health & Fitness Science"
+    head: coach-exercise-science
+    agent_count: 7
+    mandate: "Exercise science, nutrition, sleep, workout programming, coaching"
+    agents:
+      - coach-exercise-science # Susan — exercise science
+      - sage-nutrition         # Susan — nutrition science
+      - drift-sleep-recovery   # Susan — sleep and recovery
+      - workout-program-studio # Susan — workout programming
+      - coaching-architecture-studio # Susan — coaching system design
+      - workout-session-studio # Susan — session design
+      - training-research-studio # Susan — training research
+
+  behavioral-science:
+    name: "Behavioral Science"
+    head: freya-behavioral-economics
+    agent_count: 3
+    mandate: "Behavioral economics, sports psychology, gamification"
+    agents:
+      - freya-behavioral-economics # Susan — behavioral economics
+      - flow-sports-psychology # Susan — sports psychology
+      - quest-gamification     # Susan — gamification design
+
+  specialized-domains:
+    name: "Specialized Domains"
+    head: fintech-engineer
+    head_rotation: true
+    agent_count: 8
+    mandate: "Blockchain, embedded, fintech, gaming, IoT, payments, risk"
+    agents:
+      - blockchain-developer   # VoltAgent
+      - embedded-systems       # VoltAgent
+      - fintech-engineer       # VoltAgent
+      - game-developer         # VoltAgent
+      - iot-engineer           # VoltAgent
+      - payment-integration    # VoltAgent
+      - quant-analyst          # VoltAgent
+      - risk-manager           # VoltAgent
+
+vertical_divisions:
+  oracle-health:
+    name: "Oracle Health Division"
+    head: oracle-health-marketing-lead
+    reports_to: susan
+    agents:
+      - oracle-health-marketing-lead    # Susan
+      - oracle-health-product-marketing # Susan

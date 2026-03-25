@@ -1,0 +1,64 @@
+{
+  "name": "susan-mcp",
+  "version": "2.0.0",
+  "description": "Bridge to Susan's department-based agent organization — 218 agents across 15 departments, 10K+ RAG chunks, research pipeline",
+  "author": "Jake PAI",
+  "tools": [
+    {
+      "name": "susan_search",
+      "description": "Search Susan's RAG knowledge base (Voyage AI embeddings, 10K+ chunks across 22 data types)",
+      "parameters": {
+        "query": { "type": "string", "description": "Search query" },
+        "company": { "type": "string", "description": "Company context (optional)" },
+        "limit": { "type": "number", "description": "Max results (default 5)" }
+      }
+    },
+    {
+      "name": "susan_department",
+      "description": "Route a task to a specific department head for delegation to specialists",
+      "parameters": {
+        "department": {
+          "type": "string",
+          "description": "Department name: strategy, product, engineering, languages, infrastructure, quality-security, data-ai, devex, research, growth, content-design, film-production, health-science, behavioral-science, specialized-domains"
+        },
+        "task": { "type": "string", "description": "Task description for the department" },
+        "context": { "type": "string", "description": "Background context" },
+        "priority": { "type": "string", "description": "P0 (critical) | P1 (high) | P2 (normal) | P3 (low)" }
+      }
+    },
+    {
+      "name": "susan_agent",
+      "description": "Invoke a specific Susan agent by name (bypasses department routing for direct specialist access)",
+      "parameters": {
+        "agent": { "type": "string", "description": "Agent name (e.g., steve-strategy, atlas-engineering, nova-ai)" },
+        "prompt": { "type": "string", "description": "Task for the agent" },
+        "company": { "type": "string", "description": "Company context" }
+      }
+    },
+    {
+      "name": "susan_foundry",
+      "description": "Run Susan's capability foundry — capability mapping, team design, maturity scoring",
+      "parameters": {
+        "company": { "type": "string", "description": "Company name" },
+        "mode": { "type": "string", "description": "Mode: foundry | route | design | status | think | fast" }
+      }
+    },
+    {
+      "name": "susan_research",
+      "description": "Dispatch research pipeline — multi-source intelligence gathering",
+      "parameters": {
+        "topic": { "type": "string", "description": "Research topic" },
+        "sources": { "type": "array", "description": "Sources: web, arxiv, reddit, appstore, papers, skills" },
+        "depth": { "type": "string", "description": "quick | standard | deep" }
+      }
+    },
+    {
+      "name": "susan_roster",
+      "description": "Query the agent roster — list departments, agents, capabilities, or find the right agent for a task",
+      "parameters": {
+        "action": { "type": "string", "description": "list-departments | list-agents | find-agent | department-status" },
+        "query": { "type": "string", "description": "Search query or department name" }
+      }
+    }
+  ]
+}
