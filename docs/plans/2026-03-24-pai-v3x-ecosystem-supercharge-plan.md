@@ -270,69 +270,90 @@ npx wrangler secret put TELEGRAM_BOT_TOKEN
 
 ---
 
-## Phase 3X-D: OpenClaw Full Agent Deployment
+## Phase 3X-D: OpenClaw Agent Deployment (Hybrid Architecture)
 
-*All 83 Susan agents deployed to every OpenClaw messaging channel.*
+*All 83 Susan agents accessible via enhanced skill routing + optional group agents.*
 
-### Task 10: Generate OpenClaw Workspace Files
+**Architecture decision (from research):** Creating 83 isolated OpenClaw agents is architecturally wrong — OpenClaw agents are designed for a handful of distinct personas, not 83. Each isolated agent gets its own workspace, session store, and memory overhead. Instead, use a hybrid:
+
+1. **Layer 1 — Enhanced susan-bridge SKILL.md** (primary): Single Jake agent routes to all 83 Susan agents via `/susan <agent> <task>` and `/team <group> <task>`
+2. **Layer 2 — Group agents** (optional): 3-5 agents for high-traffic groups (strategy, product, engineering, research) with distinct Telegram topic bindings
+
+### Task 10: Enhance Susan-Bridge Skill
 
 **Files:**
-- Create: `pai/openclaw/SOUL.md` (Jake's identity for OpenClaw)
-- Create: `pai/openclaw/AGENTS.md` (all 83 agents registered)
-- Create: `pai/openclaw/HEARTBEAT.md` (scheduled pipeline triggers)
-- Create: `pai/openclaw/TOOLS.md` (available tools config)
+- Modify: `~/.openclaw/workspace-jake/skills/susan-bridge/SKILL.md`
+- Create: `pai/openclaw/skill-template.md` (source-controlled version)
 
-**AGENTS.md structure:**
-```markdown
-# Agent Roster
-
-## Routing
-- @strategy → strategy group (6 agents)
-- @product → product group (9 agents)
-- @engineering → engineering group (8 agents)
-- @research → research group (6 agents)
-- @studio → studio group (12 agents)
-- @film → film_studio group (17 agents)
-- @science → science group (7 agents)
-- @growth → growth group (7 agents)
-- @psychology → psychology group (3 agents)
-- @knowledge → knowledge group (4 agents) [NEW in V3X]
-- @ops → ops group (4 agents) [NEW in V3X]
-
-## Agent Registry
-[Auto-generated from pai/agents/registry.json — one entry per agent with slug, group, capabilities]
+**Enhanced SKILL.md supports:**
+```
+/susan <agent-slug> <task>     — route to specific agent
+/team <group> <task>           — route to group's lead agent
+/agents                        — list all 83 agents by group
+/agents <group>                — list agents in a specific group
+Natural language routing       — "who should work on retention?"
 ```
 
-### Task 11: Create OpenClaw Gateway Agent
+**Slash command aliases (auto-generated):**
+- `/atlas` → `/susan atlas-engineering`
+- `/steve` → `/susan steve-strategy`
+- `/aria` → `/susan aria-growth`
+- (all 83 agents get direct slash commands)
+
+### Task 11: Create OpenClaw Gateway Agent + Sync Script
 
 **Files:**
 - Create: `pai/agents/openclaw_gateway.md`
+- Create: `pai/openclaw/sync-susan-to-openclaw.sh`
 
 | Agent | Role |
 |-------|------|
 | openclaw-gateway | Manages OpenClaw channel registration, health checks, agent routing |
 
-### Task 12: Build Registration Script
+**sync-susan-to-openclaw.sh does:**
+1. Reads `susan-team-architect/agents/*.md` YAML frontmatter (name, description, model)
+2. Reads `pai/agents/registry.json` for group membership + routing categories
+3. Generates enhanced SKILL.md with complete agent directory
+4. Optionally creates group-level OpenClaw agents via `openclaw agents add --non-interactive`
+5. Optionally binds group agents to Telegram topics via `openclaw agents bind`
+6. Restarts gateway
+7. Reports: `83 agents routable, 12 groups, N channels active`
+
+### Task 12: Optional Group Agents (Layer 2)
 
 **Files:**
-- Create: `pai/openclaw/register_agents.py`
+- Create: `pai/openclaw/group-souls/strategy-SOUL.md`
+- Create: `pai/openclaw/group-souls/product-SOUL.md`
+- Create: `pai/openclaw/group-souls/engineering-SOUL.md`
+- Create: `pai/openclaw/group-souls/research-SOUL.md`
 
-**What it does:**
-- Reads `pai/agents/registry.json`
-- For each agent: generates OpenClaw-compatible skill config
-- Writes to OpenClaw workspace directory
-- Validates all agents are reachable from all channels
-- Reports: `83/83 agents registered, 3 channels active`
+**What this adds:**
+- 4 group agents with distinct SOUL.md personalities
+- Each acts as "department head" knowing its sub-agents
+- Bindable to Telegram supergroup topics or Discord channels
+- Created via: `openclaw agents add "susan-strategy" --workspace "~/.openclaw/workspace-susan-strategy"`
 
-### Task 13: Wire OpenClaw Multi-Agent Kit Patterns
+**Routing bindings (openclaw.json):**
+```json
+{
+  "bindings": [
+    { "agent": "susan-strategy", "peer": "<telegram-topic-id>", "priority": 10 },
+    { "agent": "susan-engineering", "peer": "<telegram-topic-id>", "priority": 10 }
+  ]
+}
+```
 
-**Reference:** `vendor/openclaw-multi-agent-kit` (from Phase 3X-A)
+### Task 13: Update Workspace Files
 
-**What we adopt:**
-- Telegram supergroup architecture (one group per agent domain)
-- Bot-to-bot communication pattern (agents can message each other)
-- Shared context workflow (context persists across agent handoffs)
-- Group routing rules (messages route to correct agent by @mention or /command)
+**Files:**
+- Modify: `~/.openclaw/workspace-jake/AGENTS.md` (add full roster)
+- Modify: `~/.openclaw/workspace-jake/HEARTBEAT.md` (add pipeline triggers)
+
+**AGENTS.md includes:**
+- Full 91-agent directory (83 existing + 8 new V3X agents)
+- Group routing table
+- Slash command reference
+- Natural language routing examples
 
 ---
 
@@ -354,7 +375,7 @@ npx wrangler secret put TELEGRAM_BOT_TOKEN
 | Fabric pattern count | >= 233 patterns indexed |
 | OTLP bridge | Trace received → Supabase row created |
 | Webhook routing | Telegram msg → CF Worker → normalized → response |
-| Agent registration | 83+ agents visible in OpenClaw |
+| Agent routing | `/susan atlas-engineering "test"` returns response via Telegram |
 | Guardrail checks | PII blocked, rate limits enforced |
 | Cross-channel | Same query via Telegram and Discord → same answer |
 
