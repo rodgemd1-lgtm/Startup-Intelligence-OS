@@ -112,7 +112,58 @@ def classify_email(msg: dict) -> dict:
 
 
 def get_calendar_events() -> list[dict]:
-    """Get today's calendar events via osascript."""
+    """Get today's calendar events. Tries Orchard MCP first, falls back to osascript."""
+    # Try Orchard MCP (fast, rich data)
+    try:
+        from orchard_client import OrchardClient
+        client = OrchardClient()
+        now = datetime.now()
+        result = client.call("calendar_info", {
+            "type": "events",
+            "start_date": now.strftime("%Y-%m-%d") + " 00:00",
+            "end_date": now.strftime("%Y-%m-%d") + " 23:59",
+        })
+        if isinstance(result, str) and "error" not in result.lower():
+            # Orchard prefixes JSON with text like "Found 2 events:\n"
+            # Extract the JSON portion
+            data = None
+            json_start = result.find("{")
+            if json_start >= 0:
+                try:
+                    data = json.loads(result[json_start:])
+                except (json.JSONDecodeError, TypeError):
+                    data = None
+        elif isinstance(result, dict) and "events" in result:
+            data = result
+        else:
+            data = None
+
+        if data and "events" in data:
+            events = []
+            for e in data["events"]:
+                start = e.get("start_date", "")
+                # Extract HH:MM from ISO format
+                time_str = ""
+                if "T" in start:
+                    time_part = start.split("T")[1][:5]
+                    h, m = int(time_part[:2]), int(time_part[3:5])
+                    ampm = "AM" if h < 12 else "PM"
+                    h12 = h if h <= 12 else h - 12
+                    if h12 == 0:
+                        h12 = 12
+                    time_str = f"{h12}:{m:02d} {ampm}"
+                events.append({
+                    "calendar": e.get("calendar", ""),
+                    "time": time_str,
+                    "title": e.get("title", "(no title)"),
+                    "location": e.get("location", ""),
+                    "all_day": e.get("all_day", False),
+                })
+            return sorted(events, key=lambda ev: ev["time"])
+    except Exception:
+        pass  # Fall through to osascript
+
+    # Fallback: osascript (slow but works without Orchard)
     script = '''
     tell application "Calendar"
         set today to current date

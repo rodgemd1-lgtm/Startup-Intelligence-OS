@@ -25,38 +25,41 @@ from datetime import datetime
 from pathlib import Path
 
 MAIL_CLI = Path.home() / "go" / "bin" / "mail-app-cli"
+CONFIG_FILE = Path(__file__).parent / "vip_config.json"
 
-# --- VIP CONFIGURATION ---
-VIP_DOMAINS = {
-    "oracle.com": "Oracle (Work)",
-}
 
-VIP_NAMES = [
-    "jordan voss", "jordan", "voss",
-]
+def _load_config():
+    """Load VIP config from JSON file."""
+    try:
+        with open(CONFIG_FILE) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+_cfg = _load_config()
+
+# --- VIP CONFIGURATION (loaded from vip_config.json) ---
+VIP_DOMAINS = _cfg.get("vip_domains", {"oracle.com": "Oracle (Work)"})
+VIP_NAMES = _cfg.get("vip_names", ["jordan voss"])
+NOISE_PATTERNS = _cfg.get("noise_patterns", [
+    "noreply", "no-reply", "donotreply", "mailer-daemon",
+    "notifications@", "updates@", "marketing@", "news@",
+])
+MY_EMAILS = _cfg.get("my_emails", [
+    "michael.rodgers1976@icloud.com", "mike.r.rodgers@oracle.com",
+])
+URGENT_KEYWORDS = _cfg.get("urgent_keywords", [
+    "urgent", "asap", "critical", "action required", "deadline",
+])
+MEETING_KEYWORDS = _cfg.get("meeting_keywords", [
+    "meeting", "calendar", "invite", "rsvp", "agenda",
+])
 
 # Domains that indicate a real person (not marketing)
 REAL_DOMAINS = [
     "oracle.com", "gmail.com", "outlook.com", "hotmail.com",
     "icloud.com", "me.com", "mac.com", "yahoo.com",
-]
-
-NOISE_PATTERNS = [
-    "noreply", "no-reply", "donotreply", "mailer-daemon",
-    "notifications@", "updates@", "marketing@", "news@",
-    "promotions@", "newsletter@", "info@", "hello@",
-    "support@", "team@", "announce", "digest@",
-]
-
-URGENT_KEYWORDS = [
-    "urgent", "asap", "critical", "action required", "deadline",
-    "immediately", "time sensitive", "expiring", "final notice",
-    "p0", "p1", "sev1", "sev2", "incident", "outage",
-]
-
-MEETING_KEYWORDS = [
-    "meeting", "calendar", "invite", "rsvp", "agenda",
-    "sync", "standup", "1:1", "one-on-one", "review",
 ]
 
 
@@ -107,7 +110,7 @@ def triage_email(msg: dict) -> dict:
     is_real_person = any(d in sender for d in REAL_DOMAINS) and not is_noise
 
     # --- Am I in To vs CC? ---
-    my_emails = ["michael.rodgers1976@icloud.com", "mike.r.rodgers@oracle.com", "mike@mketech.org"]
+    my_emails = MY_EMAILS
     am_direct = any(any(me in str(r).lower() for me in my_emails) for r in to_list) if to_list else True
     am_cc = any(any(me in str(r).lower() for me in my_emails) for r in cc_list) if cc_list else False
 
