@@ -1,182 +1,91 @@
-# Session Handoff — V4-V10 Complete
+# Session Handoff — Sales Enablement SOP Suite + 30-Day Roadmap
 
-**Date**: 2026-03-25 (session 10)
-**Project**: Startup Intelligence OS
-**Branch**: `claude/musing-hamilton`
-**PR**: https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/pull/24
-**Status**: V4-V10 BUILT. PR open. Needs merge + Telegram testing.
+**Date**: 2026-03-25 (evening session)
+**Branch**: main
+**Status**: 10-SOP suite committed. Matt 1:1 prep complete. Outlook calendar incomplete.
 
 ---
 
-## What Was Built This Session
+## What Was Accomplished
 
-6 commits, 49 files, ~6,800 lines across V4-V10.
+### 10-SOP Sales Enablement Suite (7,065 lines, committed)
+| SOP | Name | AI/Algorithms |
+|-----|------|--------------|
+| 08 | Competitive Battlecard Creation | BES, Source Verification |
+| 09 | Win/Loss Analysis | Monte Carlo, Behavioral Interview |
+| 10 | Pricing & Packaging Intelligence | PGPS, MC Discount Bands |
+| 12 | Competitive Response Playbook | CEIS, Timeline Optimization |
+| 29 | Deal-Specific Positioning Package | Deal Tiers, Auto-Triage |
+| 30 | GTM Artifact Factory | Distribution Effectiveness Score |
+| 32 | Predictive Deal Scoring Engine | DSA, MC Win Sim, CTI |
+| 33 | AI Signal Detection & Early Warning | SSA, Movement Prediction |
+| 34 | War Gaming & Simulation | MC Scenarios, Position Optimizer |
+| 35 | Deal Strategy Recommendation Engine | DStA, Strategy Sim, Proof Matching |
 
-| Version | Score | Modules | Lines | Status |
-|---------|-------|---------|-------|--------|
-| V4 Proactive Intelligence | 70→78 | 6 | 2,060 | BUILT + TESTED |
-| V5 Learning Engine | 78→84 | 7 | 2,148 | BUILT + TESTED |
-| V6 Multi-Channel | 84→88 | 7 | 1,039 | BUILT + TESTED |
-| V7 Visual Command Center | 88→91 | 3 | ~500 | BUILT |
-| V8 Cross-Domain Intelligence | 91→93 | 2 | ~400 | BUILT |
-| V9 Marketplace | 93→95 | 1 | ~300 | BUILT |
-| V10 Full Autonomy | 95→98 | 2 | ~500 | BUILT |
+SOP-31 (CI Training) is internal ops — NOT in the sales-facing suite of 10.
 
-### V4: Proactive Intelligence (`pai/intelligence/`)
-- `intent_router.py` — KIRA: 7 categories, model tier routing, 100% accuracy on 11 test messages
-- `notifications.py` — P0-P3 urgency, DND quiet hours/family time/weekends, batching
-- `scout.py` — 3-company competitive watchlist, signal classification, weekly digest
-- `decision_support.py` — frame→analyze→red-team→recommend, Miessler-style briefs
-- `priority_engine.py` — 6-factor scoring, THE ONE THING (Jordan Voss test)
-- `brief_formatter.py` — morning/decision/meeting/competitive templates
-- `channel_personality.py` — 6 channel profiles (telegram/imessage/slack/discord/voice/claude_code)
+### Matt 1:1 Prep (Tomorrow March 26)
+- `~/Desktop/Matt_1-1_Prep_March_26.docx` — 5-page Word doc with scripted answers
+- `~/Desktop/Oracle_Health_Sales_Enablement_SOP_Suite.pptx` — 4-slide consulting deck
+- `~/Desktop/Sales_Enablement_SOP_Suite_10.docx` — 3-page landscape summary
 
-### V5: Learning Engine (`pai/learning/`)
-- `rating_system.py` — explicit (word patterns → 1-5) + implicit (re-ask, topic change)
-- `correction_handler.py` — 17 regex patterns, wrong/correct extraction, 3-strike auto-apply
-- `failure_capture.py` — 7 failure types, full context dumps, root cause analysis
-- `pattern_generator.py` — detect recurring tasks, auto-generate Fabric patterns
-- `consolidation.py` — nightly episodic→semantic, weekly semantic→wisdom
-- `weekly_synthesis.py` — Sunday aggregate report
-- `self_evaluation.py` — 9-domain monthly scorecard (baseline: 6.6/10)
+### 30-Day Roadmap
+- `docs/plans/2026-03-25-mike-30-day-operational-roadmap.md` — master plan
+- `apps/roadmap-viewer/index.html` — interactive dashboard (serve port 4180)
+- Corrected FY26 baseline: 0 battlecards, 0 profiles, 0 strategists active
 
-### V6: Multi-Channel (`pai/channels/`)
-- `base.py` — abstract adapter with message splitting, channel limits
-- `imessage/adapter.py` — BlueBubbles REST API
-- `slack/adapter.py` — Socket Mode, mrkdwn formatting
-- `discord/adapter.py` — Bot API, guild whitelist
-- `voice/voice_server.py` — ElevenLabs TTS + Whisper STT + macOS say fallback
-- `context_manager.py` — cross-channel JSONL context, topic detection
+### Supporting Docs
+- `docs/sales-enablement-slide-prompts.md` — prompts for all 10 SOPs
+- `docs/sales-enablement-system-map.md` — process map + 17 algorithm inventory
 
-### V7: Dashboard API (`pai/dashboard/`)
-- `api/models.py` — Pydantic models for 11 endpoints
-- `api/server.py` — FastAPI server (port 8043), CORS enabled
+### Calendar (Partial)
+- Apple Calendar "Work": 25 focus events + 22 daily 6am briefs + 9 reminders
+- Outlook Exchange: NOT YET CREATED — confirmed AppleScript syntax works for single events
+- Scheduled tasks: weekly-goal-setting (Fri 2pm), erp-paper-reminder (Mar 31)
 
-### V8: Cross-Domain Intelligence (`pai/intelligence/`)
-- `synergy_detector.py` — 5 synergy types, 16 auto-detected across 3 companies
-- `predictive_modeling.py` — maturity forecasting, build sequence recommendations
-
-### V9: Marketplace (`pai/marketplace/`)
-- `packager.py` — pattern audit, quality bar, generalization, TELOS onboarding wizard
-
-### V10: Full Autonomy (`pai/evolution/`)
-- `agent_evolution.py` — retirement/optimization/new-agent/specialization proposals
-- `capability_upgrade.py` — self-upgrade proposals from eval gaps, automation metrics (50% baseline)
-
-### Config & Skills
-- `pai/config/notification-rules.json` — DND + batching + channel routing
-- `pai/config/scout-sources.json` — competitive watchlist per company
-- `pai/config/bluebubbles.json` — iMessage adapter config (needs credentials)
-- `pai/config/voice.json` — ElevenLabs/Whisper config
-- `pai/skills/jake-intelligence/SKILL.md` — OpenClaw skill (symlinked)
-- `pai/templates/brief-*.md` — morning, decision, meeting templates
+### Memory Updated
+- `project_oracle_health_operational.md` — role, KPIs, people, FY26 baseline
+- `user_oracle_health_role.md` — Mike's identity and preferences
 
 ---
 
-## What Needs To Happen Next
+## P0 — Next Session (Before Matt 1:1)
 
-### Immediate (merge + test)
-1. **Merge PR #24** — all V4-V10 code on `claude/musing-hamilton`
-2. **Test on Telegram** — after merge, send these in Telegram:
-   - `/intel brief` → V4 morning brief with THE ONE THING
-   - "Should I take this meeting?" → decision support
-   - "What should I do today?" → priority engine
-   - "Hey Jake" → casual routing (cheap model)
-3. **Restart OpenClaw** — jake-intelligence skill is symlinked but OpenClaw may need restart to pick it up
+1. **Create Outlook Exchange events** — Use this AppleScript pattern (works):
+```applescript
+tell application "Microsoft Outlook"
+    set e to make new calendar event
+    set subject of e to "EVENT NAME"
+    set start time of e to date "DAY, MONTH DD, 2026 at HH:MM:SS AM"
+    set end time of e to date "DAY, MONTH DD, 2026 at HH:MM:SS AM"
+end tell
+```
+Create all 22 daily briefs (6am) + 25 focus events across 5 weeks.
 
-### Short-term (next 1-2 sessions)
-4. **Wire intent router into OpenClaw message pipeline** — currently the skill is available as `/intel` commands, but KIRA should auto-classify every incoming message
-5. **Set up cron jobs** — consolidation (2 AM nightly), weekly synthesis (Sunday 10 AM), SCOUT scan (5 AM daily)
-6. **Install BlueBubbles** — `brew install --cask bluebubbles` for iMessage channel
-7. **Configure Slack app** — Socket Mode for Slack DM channel
-8. **V4 morning brief fix** — the `--v4` flag on morning_briefing.py works but needs to become the default
+2. **Sales process map as visual** — `docs/sales-enablement-system-map.md` has the 5-stage map. Build as a slide or HTML visual showing where each SOP lives.
 
-### Medium-term
-9. **Run dashboard** — `uvicorn pai.dashboard.api.server:app --port 8043` (needs FastAPI in venv)
-10. **Populate SCOUT RSS feeds** — scout-sources.json has empty feed lists
-11. **First self-evaluation cycle** — baseline is 6.6/10, need monthly runs
-12. **Pattern generator** — needs 30 days of rated interactions before it can detect patterns
+## P1 — This Week
+
+3. **SharePoint upload** — Push 10 SOPs to `oracle.sharepoint.com/sites/insights-hub/Shared Documents/SOPs/Sales-Enablement/`
+4. **VoltAgent exploration** — github.com/VoltAgent is a TypeScript AI agent framework. Susan agents are already VoltAgent-standard format. Explore for production orchestration.
+
+## P2 — Next Week
+
+5. **ERP paper** — Due Tuesday March 31. Chuck Whinney for market segmentation.
+6. **Battlecard #1** — Scope target competitor, run 5-phase pipeline.
+7. **Strategist onboarding** — Shuri coordination for Catherine, Rosen, Amol.
 
 ---
 
-## Known Issues
-1. **Python 3.9 compat** — used `Optional[datetime]` instead of `datetime | None` in Pydantic models
-2. **KIRA confidence** — "How are the goals looking?" still escalates (0.47 confidence). Add more status_check keywords.
-3. **SCOUT scan** — scan methods are stubs (return empty). Need to wire RSS parsing (feedparser) and web search.
-4. **Morning brief `--v4`** — the V4 brief pulls candidates from email/calendar only. Need to add goals and SCOUT signals as candidates.
-5. **Google Calendar via Telegram** — still broken (from session 8). OpenClaw needs restart to pick up gws skill.
+## Key People
+- **Matt Cohlmia** — VP, Mike's boss. 1:1 tomorrow.
+- **Shuri** — Strategist scaling coordinator
+- **Catherine, John Rosen** — Strategist onboarding targets
+- **Amol Rajmane** — Expert networks + sales battlecards
+- **Chuck Whinney** — GTM ERP market segmentation
 
----
-
-## Architecture After This Session
-
-```
-pai/
-├── intelligence/          # V4 + V8
-│   ├── intent_router.py       # KIRA — 7 categories, model tier routing
-│   ├── notifications.py       # P0-P3, DND, batching
-│   ├── scout.py               # 3-company competitive intelligence
-│   ├── decision_support.py    # Frame → analyze → red-team → recommend
-│   ├── priority_engine.py     # THE ONE THING (Jordan Voss test)
-│   ├── brief_formatter.py     # Morning/decision/meeting/competitive
-│   ├── channel_personality.py # V6 — 6 channel profiles
-│   ├── synergy_detector.py    # V8 — cross-company synergies
-│   ├── predictive_modeling.py # V8 — maturity forecasting
-│   └── logs/                  # JSONL logs for all modules
-├── learning/              # V5
-│   ├── rating_system.py       # Explicit + implicit satisfaction signals
-│   ├── correction_handler.py  # Correction detection + rule extraction
-│   ├── failure_capture.py     # 7 failure types, context dumps
-│   ├── pattern_generator.py   # Auto-generate Fabric patterns
-│   ├── consolidation.py       # Nightly + weekly memory promotion
-│   ├── weekly_synthesis.py    # Sunday aggregate report
-│   └── self_evaluation.py     # 9-domain monthly scorecard
-├── channels/              # V6
-│   ├── base.py                # Abstract adapter
-│   ├── context_manager.py     # Cross-channel context
-│   ├── imessage/adapter.py    # BlueBubbles
-│   ├── slack/adapter.py       # Socket Mode
-│   ├── discord/adapter.py     # Bot API
-│   └── voice/voice_server.py  # ElevenLabs TTS + Whisper STT
-├── dashboard/             # V7
-│   └── api/
-│       ├── models.py          # Pydantic models
-│       └── server.py          # FastAPI (port 8043)
-├── marketplace/           # V9
-│   └── packager.py            # Pattern packaging + TELOS onboarding
-├── evolution/             # V10
-│   ├── agent_evolution.py     # Self-evolving agent roster
-│   └── capability_upgrade.py  # Capability self-upgrade proposals
-├── config/                # All configs
-├── skills/                # OpenClaw skills
-│   └── jake-intelligence/     # V4 Telegram skill
-├── templates/             # Brief templates
-├── pipelines/             # V3 pipelines (updated for V4)
-└── MEMORY/                # Runtime state
-    ├── STATE/                 # ratings, corrections, failures JSONL
-    ├── LEARNING/              # Correction files, failure reports
-    └── WISDOM/                # Weekly synthesis, evaluations
-```
-
-## Smoke Test Results (This Session)
-
-```
-Intent Router (11/11 = 100%):
-  "What should I do today?"          → decision/expensive  0.60
-  "Hey Jake, morning brief"          → status_check/cheap  0.72
-  "Should I take the meeting?"       → decision/expensive  0.60
-  "Latest on Epic competitors?"      → research/mid        0.59
-  "Build me a dashboard"             → build/expensive     0.60
-  "Hey"                              → casual/cheap        0.75
-  "Research AI agent market"         → research/mid        1.00
-  "How are goals looking?"           → status_check/cheap  0.47
-  "Fix the bug in morning brief"     → build/expensive     0.97
-  "What time is Jacob game?"         → quick_answer/nano   0.95
-  "Should we pivot pricing?"         → strategy/expensive  1.00
-
-Decision Engine: "Take the meeting" recommended (93% confidence)
-Priority Engine: "Ship V4 intent router" scored 0.645
-Self-Evaluation: 6.6/10 baseline across 9 domains
-Synergy Detector: 16 cross-domain synergies found
-Automation Metrics: 50% (target: 90%)
-```
+## Matt's Priorities (His Order)
+1. Advisory networks set up (GLG + vendors)
+2. M&CI function scaled
+3. SharePoint in good shape
+4. AI training for the team
