@@ -295,9 +295,98 @@ def print_text_brief(brief: dict):
     print("=== END BRIEFING ===")
 
 
+def build_v4_briefing() -> str:
+    """Build V4 morning brief using the new intelligence modules.
+
+    Integrates: BriefFormatter + PriorityEngine + SCOUT + email + calendar.
+    Returns formatted markdown string.
+    """
+    # Import V4 modules (late import to avoid circular deps)
+    from pai.intelligence.brief_formatter import BriefFormatter, BriefData
+    from pai.intelligence.priority_engine import PriorityEngine, CandidateAction, ActionSource
+    from pai.intelligence.scout import Scout
+
+    # Collect raw data from V3 pipeline
+    raw = build_briefing()
+
+    # Calculate available deep work hours from calendar
+    meeting_count = len(raw.get("calendar", []))
+    # Assume 10h day, 0.75h per meeting average
+    free_hours = max(0, 10.0 - meeting_count * 0.75)
+
+    # Build candidate actions for priority engine
+    candidates = []
+
+    # Urgent emails become candidates
+    all_emails = raw["email"].get("icloud", []) + raw["email"].get("exchange", [])
+    for e in all_emails:
+        if e.get("urgency", 0) >= 4:
+            candidates.append(CandidateAction(
+                action=f"Reply to {e.get('sender', '?')}: {e.get('subject', '?')}",
+                why=f"Urgency {e['urgency']} — {'VIP' if e.get('is_vip') else 'flagged urgent'}",
+                impact="Unblock communication / meet expectation",
+                estimated_minutes=15,
+                source=ActionSource.EMAIL,
+                people=[e.get("sender", "")],
+            ))
+
+    # Imminent meetings become candidates
+    for event in raw.get("calendar", []):
+        candidates.append(CandidateAction(
+            action=f"Prepare for: {event.get('title', '?')}",
+            why=f"Meeting at {event.get('time', '?')}",
+            impact="Show up prepared",
+            estimated_minutes=20,
+            source=ActionSource.CALENDAR,
+        ))
+
+    # Calculate THE ONE THING
+    engine = PriorityEngine(available_deep_work_hours=free_hours)
+    one_thing = engine.calculate_one_thing(candidates)
+
+    # Run SCOUT for competitive signals
+    scout = Scout()
+    # Don't run full scan in brief (slow) — just read existing signals
+    scout_signals = []
+    try:
+        signals_file = scout.SIGNALS_DIR / "competitive-signals.jsonl"
+        if signals_file.exists():
+            with open(signals_file) as f:
+                for line in f:
+                    try:
+                        s = json.loads(line)
+                        if s.get("priority") in ("P0", "P1"):
+                            scout_signals.append(s)
+                    except json.JSONDecodeError:
+                        continue
+    except OSError:
+        pass
+
+    # Assemble brief data
+    data = BriefData(
+        one_thing_action=one_thing.action,
+        one_thing_why=one_thing.why,
+        one_thing_impact=one_thing.impact,
+        one_thing_time=f"{one_thing.estimated_minutes} min",
+        one_thing_blocked=one_thing.blocked_by or "Nothing",
+        meetings=raw.get("calendar", []),
+        free_hours=free_hours,
+        urgent_emails=[e for e in all_emails if e.get("urgency", 0) >= 4],
+        total_unread=raw["summary"]["total_unread"],
+        vip_count=raw["summary"]["vip_messages"],
+        signals=scout_signals[:5],
+    )
+
+    # Render
+    formatter = BriefFormatter()
+    return formatter.morning_brief(data)
+
+
 if __name__ == "__main__":
     brief = build_briefing()
-    if "--json" in sys.argv:
+    if "--v4" in sys.argv:
+        print(build_v4_briefing())
+    elif "--json" in sys.argv:
         print(json.dumps(brief, indent=2))
     else:
         print_text_brief(brief)

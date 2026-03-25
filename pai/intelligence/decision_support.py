@@ -1,0 +1,384 @@
+"""Decision Support Engine — V4 Proactive Intelligence
+
+When Mike faces a decision, Jake structures it:
+
+1. FRAME   — What's the actual decision? (Often the stated question isn't the real one)
+2. OPTIONS — Generate 3-5 options (always include "do nothing")
+3. ANALYZE — Risk analysis + red team thinking on each option
+4. EVIDENCE — Search memory + RAG for relevant precedent
+5. RECOMMEND — Rank options, state confidence, flag reversibility
+
+Output: structured decision brief (Miessler format).
+
+Templates: binary, multi-option, resource allocation, timing.
+"""
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from enum import Enum
+from pathlib import Path
+from typing import Any
+
+
+class DecisionType(str, Enum):
+    BINARY = "binary"            # Yes/No, Go/No-Go
+    MULTI_OPTION = "multi_option"  # Pick from several options
+    RESOURCE = "resource"          # How to allocate time/money/attention
+    TIMING = "timing"              # When to do something
+    PRIORITY = "priority"          # What to do first
+
+
+class Reversibility(str, Enum):
+    EASILY_REVERSIBLE = "easily_reversible"     # Can undo in hours
+    REVERSIBLE = "reversible"                    # Can undo in days/weeks
+    HARD_TO_REVERSE = "hard_to_reverse"          # Significant cost to undo
+    IRREVERSIBLE = "irreversible"                # One-way door
+
+
+@dataclass
+class Option:
+    """A single option in a decision."""
+    name: str
+    description: str
+    pros: list[str] = field(default_factory=list)
+    cons: list[str] = field(default_factory=list)
+    risks: list[str] = field(default_factory=list)
+    reversibility: Reversibility = Reversibility.REVERSIBLE
+    effort: str = "medium"  # low, medium, high
+    impact: str = "medium"  # low, medium, high
+    confidence: float = 0.5  # 0-1, how confident are we in the analysis
+    score: float = 0.0  # Computed after analysis
+
+
+@dataclass
+class DecisionBrief:
+    """A structured decision analysis."""
+    question: str
+    reframed_question: str
+    decision_type: DecisionType
+    context: str
+    options: list[Option] = field(default_factory=list)
+    recommendation: Option | None = None
+    recommendation_reasoning: str = ""
+    red_team_challenges: list[str] = field(default_factory=list)
+    evidence: list[str] = field(default_factory=list)
+    confidence: float = 0.5
+    created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+
+    def to_markdown(self) -> str:
+        """Render as a Miessler-style decision brief."""
+        lines = [
+            f"# Decision Brief",
+            f"",
+            f"**Question:** {self.question}",
+            f"**Reframed:** {self.reframed_question}",
+            f"**Type:** {self.decision_type.value}",
+            f"**Confidence:** {self.confidence:.0%}",
+            f"",
+        ]
+
+        if self.context:
+            lines.extend([f"## Context", f"{self.context}", ""])
+
+        # Recommendation first (Miessler style — lead with the answer)
+        if self.recommendation:
+            r = self.recommendation
+            lines.extend([
+                f"## RECOMMENDATION: {r.name}",
+                f"",
+                f"> {self.recommendation_reasoning}",
+                f"",
+                f"- **Reversibility:** {r.reversibility.value}",
+                f"- **Effort:** {r.effort} | **Impact:** {r.impact}",
+                f"- **Confidence:** {r.confidence:.0%}",
+                f"",
+            ])
+
+        # All options
+        lines.append("## Options Analysis")
+        lines.append("")
+        for i, opt in enumerate(self.options, 1):
+            is_rec = opt == self.recommendation
+            marker = " (RECOMMENDED)" if is_rec else ""
+            lines.append(f"### Option {i}: {opt.name}{marker}")
+            lines.append(f"{opt.description}")
+            lines.append("")
+            if opt.pros:
+                lines.append("**Pros:**")
+                for p in opt.pros:
+                    lines.append(f"  + {p}")
+            if opt.cons:
+                lines.append("**Cons:**")
+                for c in opt.cons:
+                    lines.append(f"  - {c}")
+            if opt.risks:
+                lines.append("**Risks:**")
+                for r in opt.risks:
+                    lines.append(f"  ! {r}")
+            lines.append(f"Reversibility: {opt.reversibility.value} | Score: {opt.score:.2f}")
+            lines.append("")
+
+        # Red team
+        if self.red_team_challenges:
+            lines.append("## Red Team Challenges")
+            for challenge in self.red_team_challenges:
+                lines.append(f"  ? {challenge}")
+            lines.append("")
+
+        # Evidence
+        if self.evidence:
+            lines.append("## Evidence / Precedent")
+            for ev in self.evidence:
+                lines.append(f"  - {ev}")
+            lines.append("")
+
+        lines.append(f"---")
+        lines.append(f"*Generated by Jake Decision Support at {self.created_at.isoformat()}*")
+        return "\n".join(lines)
+
+    def to_dict(self) -> dict:
+        return {
+            "question": self.question,
+            "reframed_question": self.reframed_question,
+            "decision_type": self.decision_type.value,
+            "recommendation": self.recommendation.name if self.recommendation else None,
+            "confidence": self.confidence,
+            "options_count": len(self.options),
+            "created_at": self.created_at.isoformat(),
+        }
+
+
+class DecisionSupport:
+    """Structured decision framing engine."""
+
+    DECISIONS_DIR = Path(__file__).parent / "logs"
+
+    def __init__(self):
+        self.DECISIONS_DIR.mkdir(parents=True, exist_ok=True)
+
+    def frame(self, question: str, context: str = "") -> DecisionBrief:
+        """Frame a decision — detect type and reframe the question.
+
+        This is the entry point. Returns a DecisionBrief with the question
+        reframed and decision type detected. Options are not yet populated.
+        """
+        decision_type = self._detect_type(question)
+        reframed = self._reframe(question)
+
+        brief = DecisionBrief(
+            question=question,
+            reframed_question=reframed,
+            decision_type=decision_type,
+            context=context,
+        )
+
+        # Always include "do nothing" as an option
+        brief.options.append(Option(
+            name="Do nothing",
+            description="Maintain the status quo. No action taken.",
+            pros=["No effort required", "Preserves optionality", "No risk of new problems"],
+            cons=["Problem/opportunity persists", "May lose window"],
+            reversibility=Reversibility.EASILY_REVERSIBLE,
+            effort="low",
+            impact="low",
+        ))
+
+        return brief
+
+    def add_option(
+        self,
+        brief: DecisionBrief,
+        name: str,
+        description: str,
+        pros: list[str] | None = None,
+        cons: list[str] | None = None,
+        risks: list[str] | None = None,
+        reversibility: str = "reversible",
+        effort: str = "medium",
+        impact: str = "medium",
+    ) -> DecisionBrief:
+        """Add an option to the decision brief."""
+        option = Option(
+            name=name,
+            description=description,
+            pros=pros or [],
+            cons=cons or [],
+            risks=risks or [],
+            reversibility=Reversibility(reversibility),
+            effort=effort,
+            impact=impact,
+        )
+        brief.options.append(option)
+        return brief
+
+    def analyze(self, brief: DecisionBrief) -> DecisionBrief:
+        """Score options and generate recommendation.
+
+        Scoring factors:
+        - Impact weight (high=3, medium=2, low=1)
+        - Effort inverse (low=3, medium=2, high=1)
+        - Reversibility bonus (easily=0.2, reversible=0.1, hard=-0.1, irreversible=-0.2)
+        - Pro/con ratio
+        """
+        impact_map = {"high": 3, "medium": 2, "low": 1}
+        effort_map = {"low": 3, "medium": 2, "high": 1}
+        reversibility_bonus = {
+            Reversibility.EASILY_REVERSIBLE: 0.2,
+            Reversibility.REVERSIBLE: 0.1,
+            Reversibility.HARD_TO_REVERSE: -0.1,
+            Reversibility.IRREVERSIBLE: -0.2,
+        }
+
+        for opt in brief.options:
+            impact_score = impact_map.get(opt.impact, 2) / 3
+            effort_score = effort_map.get(opt.effort, 2) / 3
+            rev_bonus = reversibility_bonus.get(opt.reversibility, 0)
+
+            # Pro/con ratio
+            total = len(opt.pros) + len(opt.cons)
+            pro_ratio = len(opt.pros) / max(total, 1)
+
+            # Risk penalty
+            risk_penalty = len(opt.risks) * 0.05
+
+            opt.score = round(
+                (impact_score * 0.35) +
+                (effort_score * 0.25) +
+                (pro_ratio * 0.25) +
+                rev_bonus -
+                risk_penalty +
+                0.15,  # base offset
+                3
+            )
+            opt.confidence = min(1.0, max(0.1, opt.score))
+
+        # Recommend highest-scoring non-"do nothing" option (unless do-nothing wins by a lot)
+        active_options = [o for o in brief.options if o.name != "Do nothing"]
+        do_nothing = next((o for o in brief.options if o.name == "Do nothing"), None)
+
+        if active_options:
+            best = max(active_options, key=lambda o: o.score)
+            if do_nothing and do_nothing.score > best.score + 0.15:
+                brief.recommendation = do_nothing
+                brief.recommendation_reasoning = (
+                    "Do nothing scores significantly higher — the risk/effort of action "
+                    "outweighs the benefit. Preserve optionality."
+                )
+            else:
+                brief.recommendation = best
+                brief.recommendation_reasoning = (
+                    f"{best.name} scores highest ({best.score:.2f}) with "
+                    f"{best.impact} impact and {best.effort} effort. "
+                    f"Reversibility: {best.reversibility.value}."
+                )
+        elif do_nothing:
+            brief.recommendation = do_nothing
+            brief.recommendation_reasoning = "No active options provided — defaulting to status quo."
+
+        brief.confidence = brief.recommendation.confidence if brief.recommendation else 0.3
+        return brief
+
+    def red_team(self, brief: DecisionBrief) -> DecisionBrief:
+        """Generate red team challenges against the recommendation."""
+        if not brief.recommendation:
+            return brief
+
+        rec = brief.recommendation
+        challenges = []
+
+        # Standard red team questions
+        challenges.append(f"What if '{rec.name}' fails completely — what's the fallback?")
+        challenges.append(f"What are we not seeing? What information would change this decision?")
+
+        if rec.reversibility in (Reversibility.HARD_TO_REVERSE, Reversibility.IRREVERSIBLE):
+            challenges.append(
+                f"This is {rec.reversibility.value} — are we sure we've exhausted "
+                f"reversible alternatives?"
+            )
+
+        if rec.effort == "high":
+            challenges.append(
+                "High effort — is there a smaller experiment that tests "
+                "the core assumption first?"
+            )
+
+        if rec.risks:
+            challenges.append(
+                f"Top risk: '{rec.risks[0]}' — do we have a mitigation plan?"
+            )
+
+        # Check for sunk cost bias
+        if "already invested" in brief.context.lower() or "already spent" in brief.context.lower():
+            challenges.append(
+                "Watch for sunk cost bias — past investment shouldn't drive future decisions."
+            )
+
+        brief.red_team_challenges = challenges
+        return brief
+
+    def full_analysis(
+        self,
+        question: str,
+        context: str = "",
+        options: list[dict] | None = None,
+    ) -> DecisionBrief:
+        """Run the complete decision support pipeline: frame → options → analyze → red team."""
+        brief = self.frame(question, context)
+
+        if options:
+            for opt in options:
+                self.add_option(brief, **opt)
+
+        brief = self.analyze(brief)
+        brief = self.red_team(brief)
+
+        self._persist(brief)
+        return brief
+
+    def _detect_type(self, question: str) -> DecisionType:
+        """Detect decision type from the question."""
+        q = question.lower()
+
+        binary_signals = ["should i", "should we", "yes or no", "go or no-go", "worth it"]
+        timing_signals = ["when should", "right time", "too early", "too late", "now or later"]
+        resource_signals = ["how much", "allocate", "budget", "spend", "invest"]
+        priority_signals = ["what first", "what's more important", "prioritize", "which one"]
+
+        if any(s in q for s in timing_signals):
+            return DecisionType.TIMING
+        if any(s in q for s in resource_signals):
+            return DecisionType.RESOURCE
+        if any(s in q for s in priority_signals):
+            return DecisionType.PRIORITY
+        if any(s in q for s in binary_signals):
+            return DecisionType.BINARY
+        return DecisionType.MULTI_OPTION
+
+    def _reframe(self, question: str) -> str:
+        """Reframe the question to expose the real decision.
+
+        Simple heuristic reframing — the real power comes when this
+        is augmented with LLM reframing in V5.
+        """
+        q = question.strip().rstrip("?")
+
+        # "Should I take this meeting?" → "Is this meeting the highest-value use of that time slot?"
+        if "take this meeting" in q.lower():
+            return "Is this meeting the highest-value use of that time slot?"
+        if "hire" in q.lower():
+            return f"Does this hire solve our biggest constraint right now? ({q})"
+        if "should i" in q.lower() or "should we" in q.lower():
+            return f"What is the expected value of action vs. inaction? ({q})"
+
+        return question
+
+    def _persist(self, brief: DecisionBrief):
+        """Save decision brief to logs."""
+        log_file = self.DECISIONS_DIR / "decisions.jsonl"
+        try:
+            with open(log_file, "a") as f:
+                f.write(json.dumps(brief.to_dict()) + "\n")
+        except OSError:
+            pass
