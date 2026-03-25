@@ -36,3 +36,5 @@ pai/migration/export/
 
 # PAI pipeline credentials
 pai/pipelines/.env
+vendor/
+.claude/worktrees/
