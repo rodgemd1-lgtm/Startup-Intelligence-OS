@@ -41,8 +41,36 @@
     ]
   },
   "model_routing": {
-    "cheap": ["summarize", "clean_text", "extract_ideas", "extract_main_idea", "create_micro_summary", "create_tags", "label_and_rate"],
-    "mid": ["analyze_claims", "analyze_risk", "improve_writing", "rate_content", "summarize_meeting", "extract_insights", "extract_patterns", "improve_prompt", "summarize_paper", "write_essay"],
-    "expensive": ["extract_wisdom", "t_red_team_thinking", "t_find_blindspots", "analyze_personality", "t_first_principles", "t_second_order", "t_steel_man", "t_devil_advocate", "create_keynote", "analyze_sales_call"]
+    "cheap": [
+      "summarize", "clean_text", "extract_ideas", "extract_main_idea",
+      "create_micro_summary", "label_and_rate", "create_summary"
+    ],
+    "mid": [
+      "analyze_claims", "analyze_risk", "improve_writing",
+      "rate_content", "summarize_meeting", "summarize_paper",
+      "extract_insights", "extract_patterns", "extract_references",
+      "improve_prompt", "improve_academic_writing", "rate_ai_result",
+      "rate_ai_response", "rate_value", "improve_report_finding"
+    ],
+    "expensive": [
+      "extract_wisdom", "extract_article_wisdom", "extract_book_ideas",
+      "t_red_team_thinking", "t_find_blindspots", "t_steel_man",
+      "t_devil_advocate", "t_first_principles", "t_second_order",
+      "analyze_personality", "analyze_sales_call", "analyze_threat_report",
+      "extract_controversial_ideas", "extract_predictions",
+      "create_keynote", "write_essay", "find_logical_fallacies",
+      "get_wow_per_minute"
+    ]
+  },
+  "aliases": {
+    "w": "extract_wisdom",
+    "s": "summarize",
+    "a": "analyze_claims",
+    "i": "extract_ideas",
+    "r": "analyze_risk",
+    "p": "create_prd",
+    "f": "find_logical_fallacies",
+    "c": "compare_and_contrast",
+    "q": "extract_questions"
   }
 }

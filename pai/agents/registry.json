@@ -1,626 +1,100 @@
 {
   "version": "1.0.0",
   "generated": "2026-03-24",
-  "total_agents": 81,
+  "total_agents": 83,
   "groups": {
     "orchestration": ["susan"],
     "strategy": [
-      "steve-strategy",
-      "shield-legal-compliance",
-      "bridge-partnerships",
-      "ledger-finance",
-      "vault-fundraising",
-      "recruiting-strategy-studio"
+      "steve-strategy", "shield-legal-compliance", "bridge-partnerships",
+      "ledger-finance", "vault-fundraising", "recruiting-strategy-studio"
     ],
     "product": [
-      "marcus-ux",
-      "mira-emotional-experience",
-      "compass-product",
-      "ai-product-manager",
-      "conversation-designer",
-      "echo-neuro-design",
-      "lens-accessibility",
-      "prism-brand",
-      "ux-design-process"
+      "marcus-ux", "mira-emotional-experience", "compass-product",
+      "ai-product-manager", "conversation-designer", "echo-neuro-design",
+      "lens-accessibility", "prism-brand", "ux-design-process"
     ],
     "engineering": [
-      "atlas-engineering",
-      "nova-ai",
-      "pulse-data-science",
-      "sentinel-security",
-      "forge-qa",
-      "knowledge-engineer",
-      "ai-evaluation-specialist",
-      "algorithm-lab"
+      "atlas-engineering", "nova-ai", "pulse-data-science", "sentinel-security",
+      "forge-qa", "knowledge-engineer", "ai-evaluation-specialist", "algorithm-lab"
     ],
     "science": [
-      "coach-exercise-science",
-      "sage-nutrition",
-      "drift-sleep-recovery",
-      "workout-program-studio",
-      "coaching-architecture-studio",
-      "workout-session-studio",
-      "training-research-studio"
+      "coach-exercise-science", "sage-nutrition", "drift-sleep-recovery",
+      "workout-program-studio", "coaching-architecture-studio",
+      "workout-session-studio", "training-research-studio"
     ],
     "psychology": [
-      "freya-behavioral-economics",
-      "flow-sports-psychology",
-      "quest-gamification"
+      "freya-behavioral-economics", "flow-sports-psychology", "quest-gamification"
     ],
     "growth": [
-      "aria-growth",
-      "haven-community",
-      "guide-customer-success",
-      "herald-pr",
-      "beacon-aso",
-      "coach-outreach-studio",
-      "x-growth-studio"
+      "aria-growth", "haven-community", "guide-customer-success",
+      "herald-pr", "beacon-aso", "coach-outreach-studio", "x-growth-studio"
     ],
     "research": [
-      "research-director",
-      "research-ops",
-      "researcher-web",
-      "researcher-arxiv",
-      "researcher-reddit",
-      "researcher-appstore"
+      "research-director", "research-ops", "researcher-web",
+      "researcher-arxiv", "researcher-reddit", "researcher-appstore"
     ],
     "studio": [
-      "deck-studio",
-      "design-studio-director",
-      "landing-page-studio",
-      "marketing-studio-director",
-      "app-experience-studio",
-      "article-studio",
-      "memo-studio",
-      "social-media-studio",
-      "whitepaper-studio",
-      "recruiting-dashboard-studio",
-      "highlight-reel-studio",
-      "instagram-studio",
-      "photography-studio"
+      "deck-studio", "design-studio-director", "landing-page-studio",
+      "app-experience-studio", "marketing-studio-director", "article-studio",
+      "memo-studio", "social-media-studio", "whitepaper-studio",
+      "instagram-studio", "recruiting-dashboard-studio", "photography-studio"
     ],
     "film_studio": [
-      "film-studio-director",
-      "screenwriter-studio",
-      "cinematography-studio",
-      "editing-studio",
-      "color-grade-studio",
-      "sound-design-studio",
-      "music-score-studio",
-      "vfx-studio",
-      "production-designer-studio",
-      "production-manager-studio",
-      "talent-cast-studio",
-      "distribution-studio",
-      "legal-rights-studio",
-      "film-gen-engine",
-      "image-gen-engine",
-      "audio-gen-engine"
+      "film-studio-director", "screenwriter-studio", "cinematography-studio",
+      "editing-studio", "color-grade-studio", "vfx-studio", "sound-design-studio",
+      "music-score-studio", "production-designer-studio", "production-manager-studio",
+      "talent-cast-studio", "distribution-studio", "legal-rights-studio",
+      "highlight-reel-studio", "audio-gen-engine", "film-gen-engine", "image-gen-engine"
     ],
     "slideworks": [
-      "slideworks-strategist",
-      "slideworks-creative-director",
-      "slideworks-builder"
+      "slideworks-strategist", "slideworks-creative-director", "slideworks-builder"
     ],
     "oracle_health": [
-      "oracle-health-marketing-lead",
-      "oracle-health-product-marketing"
+      "oracle-health-marketing-lead", "oracle-health-product-marketing"
     ]
-  },
-  "agents": {
-    "susan": {
-      "name": "Susan",
-      "group": "orchestration",
-      "description": "Orchestrator agent that designs optimal multi-agent systems and executes the 6-phase startup intelligence workflow"
-    },
-    "steve-strategy": {
-      "name": "Steve",
-      "group": "strategy",
-      "description": "Business strategy specialist covering competitive analysis, revenue model design, and fundraising readiness"
-    },
-    "shield-legal-compliance": {
-      "name": "Shield",
-      "group": "strategy",
-      "description": "Legal compliance specialist covering health tech regulation, privacy law, and regulatory risk assessment"
-    },
-    "bridge-partnerships": {
-      "name": "Bridge",
-      "group": "strategy",
-      "description": "Partnerships and ecosystem specialist covering distribution deals, integrations, channel strategy, and strategic alliances"
-    },
-    "ledger-finance": {
-      "name": "Ledger",
-      "group": "strategy",
-      "description": "Finance and unit economics specialist covering budgeting, runway, pricing economics, and decision support"
-    },
-    "vault-fundraising": {
-      "name": "Vault",
-      "group": "strategy",
-      "description": "Fundraising and investor relations specialist covering narrative, process strategy, diligence readiness, and capital positioning"
-    },
-    "recruiting-strategy-studio": {
-      "name": "Recruiting Strategy Studio",
-      "group": "strategy",
-      "description": "Recruiting strategy agent for school fit, offer sequencing, recruiting narrative, and athlete positioning"
-    },
-    "marcus-ux": {
-      "name": "Marcus",
-      "group": "product",
-      "description": "UX/UI design specialist covering user research, interaction design, and design system architecture"
-    },
-    "mira-emotional-experience": {
-      "name": "Mira",
-      "group": "product",
-      "description": "Emotional experience and narrative design specialist covering feeling-state design, motion narrative, moments of truth, and trust transfer"
-    },
-    "compass-product": {
-      "name": "Compass",
-      "group": "product",
-      "description": "Product management agent — owns roadmap prioritization, user stories, sprint planning, feature specs, and product-market fit analysis"
-    },
-    "ai-product-manager": {
-      "name": "AI Product Manager",
-      "group": "product",
-      "description": "AI product manager for non-deterministic systems, rollout sequencing, evaluation, and trust tradeoffs"
-    },
-    "conversation-designer": {
-      "name": "Conversation Designer",
-      "group": "product",
-      "description": "Conversation designer for coach personas, motivational interviewing, trust boundaries, and message systems"
-    },
-    "echo-neuro-design": {
-      "name": "Echo",
-      "group": "product",
-      "description": "Neuroscience-informed product designer covering habit loop architecture, motivation systems, and dopamine scheduling"
-    },
-    "lens-accessibility": {
-      "name": "Lens",
-      "group": "product",
-      "description": "Accessibility specialist covering inclusive design, adaptive exercise modifications, and WCAG compliance"
-    },
-    "prism-brand": {
-      "name": "Prism",
-      "group": "product",
-      "description": "Brand strategy and creative direction specialist covering positioning, visual identity, verbal identity, and distinctive brand systems"
-    },
-    "ux-design-process": {
-      "name": "UX Design Process Orchestrator",
-      "group": "product",
-      "description": "UX/UI design methodology orchestrator covering evidence-backed research, behavioral science integration, experience architecture, and design specification workflows"
-    },
-    "atlas-engineering": {
-      "name": "Atlas",
-      "group": "engineering",
-      "description": "Full-stack engineering specialist covering system architecture, API design, and deployment infrastructure"
-    },
-    "nova-ai": {
-      "name": "Nova",
-      "group": "engineering",
-      "description": "AI/ML strategy specialist covering model selection, RAG architecture, and recommendation system design"
-    },
-    "pulse-data-science": {
-      "name": "Pulse",
-      "group": "engineering",
-      "description": "Data science specialist covering churn prediction, experimentation, user segmentation, and behavioral analytics"
-    },
-    "sentinel-security": {
-      "name": "Sentinel",
-      "group": "engineering",
-      "description": "Security and infrastructure specialist covering application security, cloud architecture, threat modeling, and operational resilience"
-    },
-    "forge-qa": {
-      "name": "Forge",
-      "group": "engineering",
-      "description": "QA and testing specialist covering test strategy, bug prevention, release confidence, and evaluation frameworks"
-    },
-    "knowledge-engineer": {
-      "name": "Knowledge Engineer",
-      "group": "engineering",
-      "description": "Knowledge engineer for ontology, RAG structure, memory schemas, and source-provenance systems"
-    },
-    "ai-evaluation-specialist": {
-      "name": "AI Evaluation Specialist",
-      "group": "engineering",
-      "description": "AI evaluation specialist for regression sets, conversational rubrics, trace review, and rollout gates"
-    },
-    "algorithm-lab": {
-      "name": "Algorithm Lab",
-      "group": "engineering",
-      "description": "Algorithm design agent for readiness, adaptation, progression scoring, and decision-system logic"
-    },
-    "coach-exercise-science": {
-      "name": "Coach",
-      "group": "science",
-      "description": "Exercise science specialist covering programming, biomechanics, periodization, and injury prevention"
-    },
-    "sage-nutrition": {
-      "name": "Sage",
-      "group": "science",
-      "description": "Nutrition science specialist covering macro planning, meal timing, supplementation, and dietary adherence"
-    },
-    "drift-sleep-recovery": {
-      "name": "Drift",
-      "group": "science",
-      "description": "Sleep and recovery specialist covering sleep architecture, readiness metrics, recovery protocols, and fatigue management"
-    },
-    "workout-program-studio": {
-      "name": "Workout Program Studio",
-      "group": "science",
-      "description": "Workout-program design agent covering splits, progression, substitutions, adherence, and coached-feeling training systems"
-    },
-    "coaching-architecture-studio": {
-      "name": "Coaching Architecture Studio",
-      "group": "science",
-      "description": "Coaching-architecture agent for coach voice, session guidance, behavior logic, and cognitive coaching systems"
-    },
-    "workout-session-studio": {
-      "name": "Workout Session Studio",
-      "group": "science",
-      "description": "Workout-session design agent for active logging flows, session-state UX, and conversational gym experiences"
-    },
-    "training-research-studio": {
-      "name": "Training Research Studio",
-      "group": "science",
-      "description": "Training evidence and user-research synthesis agent for workout programming, exercise catalogs, competitor reviews, and open-access exercise science"
-    },
-    "freya-behavioral-economics": {
-      "name": "Freya",
-      "group": "psychology",
-      "description": "Behavioral economics specialist covering retention architecture, LAAL protocol, and ethical persuasion design"
-    },
-    "flow-sports-psychology": {
-      "name": "Flow",
-      "group": "psychology",
-      "description": "Sports psychology and motivation specialist covering mindset, adherence, identity, and long-term behavior change"
-    },
-    "quest-gamification": {
-      "name": "Quest",
-      "group": "psychology",
-      "description": "Gamification and engagement specialist covering progression systems, habit loops, rewards design, and ethical engagement mechanics"
-    },
-    "aria-growth": {
-      "name": "Aria",
-      "group": "growth",
-      "description": "Growth strategy specialist covering content marketing, acquisition channels, and viral loop design"
-    },
-    "haven-community": {
-      "name": "Haven",
-      "group": "growth",
-      "description": "Community and social fitness specialist covering social loops, belonging systems, and creator-led participation"
-    },
-    "guide-customer-success": {
-      "name": "Guide",
-      "group": "growth",
-      "description": "Customer success and health coaching specialist covering onboarding support, intervention design, and retention rescue"
-    },
-    "herald-pr": {
-      "name": "Herald",
-      "group": "growth",
-      "description": "PR and communications specialist covering narrative shaping, media strategy, founder messaging, and announcement discipline"
-    },
-    "beacon-aso": {
-      "name": "Beacon",
-      "group": "growth",
-      "description": "ASO and SEO specialist covering app store optimization, search discovery, metadata strategy, and ranking diagnostics"
-    },
-    "coach-outreach-studio": {
-      "name": "Coach Outreach Studio",
-      "group": "growth",
-      "description": "Coach-outreach agent for recruiting contact systems, outreach sequences, and pipeline follow-up discipline"
-    },
-    "x-growth-studio": {
-      "name": "X Growth Studio",
-      "group": "growth",
-      "description": "X and Twitter growth agent for recruiting visibility, proof-post systems, and coach-facing social distribution"
-    },
-    "research-director": {
-      "name": "Research Director",
-      "group": "research",
-      "description": "Research leadership agent covering question framing, evidence strategy, synthesis, and contradiction management"
-    },
-    "research-ops": {
-      "name": "Research Ops",
-      "group": "research",
-      "description": "Research operations agent covering provenance, refresh policy, ingestion discipline, and evidence lifecycle management"
-    },
-    "researcher-web": {
-      "name": "Researcher Web",
-      "group": "research",
-      "description": "Research agent that finds, ingests, and evaluates authoritative web sources for Susan's knowledge base"
-    },
-    "researcher-arxiv": {
-      "name": "Researcher arXiv",
-      "group": "research",
-      "description": "Research agent specializing in arXiv, papers, and technical evidence for AI, product, and science topics"
-    },
-    "researcher-reddit": {
-      "name": "Researcher Reddit",
-      "group": "research",
-      "description": "Research agent specializing in Reddit conversations, lived-experience themes, and emergent consumer language"
-    },
-    "researcher-appstore": {
-      "name": "Researcher App Store",
-      "group": "research",
-      "description": "Research agent specializing in app store listings, reviews, ranking patterns, and competitor app evidence"
-    },
-    "deck-studio": {
-      "name": "Deck Studio",
-      "group": "studio",
-      "description": "Slide strategy and presentation design agent covering narrative architecture, evidence-to-slide conversion, and executive story flow"
-    },
-    "design-studio-director": {
-      "name": "Design Studio Director",
-      "group": "studio",
-      "description": "Design studio leadership agent covering principles, critique, staffing, and cross-surface experience systems"
-    },
-    "landing-page-studio": {
-      "name": "Landing Page Studio",
-      "group": "studio",
-      "description": "Landing page strategy and design agent covering emotional arcs, motion narrative, proof placement, and conversion trust"
-    },
-    "marketing-studio-director": {
-      "name": "Marketing Studio Director",
-      "group": "studio",
-      "description": "Marketing studio leadership agent covering message architecture, asset systems, buyer psychology, and research-to-content operations"
-    },
-    "app-experience-studio": {
-      "name": "App Experience Studio",
-      "group": "studio",
-      "description": "App experience strategy and UX systems agent covering onboarding, daily use, retention feeling, and moments-of-truth design"
-    },
-    "article-studio": {
-      "name": "Article Studio",
-      "group": "studio",
-      "description": "Article and blog strategy agent covering thought leadership, editorial framing, and research-to-content conversion"
-    },
-    "memo-studio": {
-      "name": "Memo Studio",
-      "group": "studio",
-      "description": "Executive memo agent covering strategic memo structure, recommendation writing, and decision-ready synthesis"
-    },
-    "social-media-studio": {
-      "name": "Social Media Studio",
-      "group": "studio",
-      "description": "Social-media studio agent for short-form distribution systems, creator-ready content design, and proof-led channel strategy"
-    },
-    "whitepaper-studio": {
-      "name": "White Paper Studio",
-      "group": "studio",
-      "description": "White paper strategy agent covering authority-building narratives, evidence architecture, and executive long-form assets"
-    },
-    "recruiting-dashboard-studio": {
-      "name": "Recruiting Dashboard Studio",
-      "group": "studio",
-      "description": "Recruiting dashboard agent for coach CRM, pipeline analytics, and daily operating console design"
-    },
-    "highlight-reel-studio": {
-      "name": "Highlight Reel Studio",
-      "group": "studio",
-      "description": "Highlight-reel design agent for recruiting film structure, clip taxonomy, and coach-attention storytelling"
-    },
-    "instagram-studio": {
-      "name": "Instagram Studio",
-      "group": "studio",
-      "description": "Social media producer and Instagram Reels specialist running content strategy, batch production, hook optimization, and analytics-driven iteration for vertical video"
-    },
-    "photography-studio": {
-      "name": "Photography Studio",
-      "group": "studio",
-      "description": "Still image production lead — photography direction, shot planning, retouching standards, and AI-assisted image workflows"
-    },
-    "film-studio-director": {
-      "name": "Film Studio Director",
-      "group": "film_studio",
-      "description": "Film production orchestrator — assembles multi-agent teams, manages production lifecycle, enforces quality gates"
-    },
-    "screenwriter-studio": {
-      "name": "Screenwriter Studio",
-      "group": "film_studio",
-      "description": "Narrative craftsperson for screenplays, treatments, shot descriptions, and brand storytelling across all production formats"
-    },
-    "cinematography-studio": {
-      "name": "Cinematography Studio",
-      "group": "film_studio",
-      "description": "Visual language architect — camera systems, lighting design, color science, and shot design for film and image production"
-    },
-    "editing-studio": {
-      "name": "Editing Studio",
-      "group": "film_studio",
-      "description": "Film editor and assembly architect — manages editorial pipeline from dailies to picture lock with platform-aware delivery"
-    },
-    "color-grade-studio": {
-      "name": "Color Grade Studio",
-      "group": "film_studio",
-      "description": "Colorist and look developer — manages color pipeline from rushes analysis through creative grade to HDR delivery"
-    },
-    "sound-design-studio": {
-      "name": "Sound Design Studio",
-      "group": "film_studio",
-      "description": "Sound designer and mix engineer — manages the full audio post pipeline from spotting through Dolby Atmos delivery"
-    },
-    "music-score-studio": {
-      "name": "Music Score Studio",
-      "group": "film_studio",
-      "description": "Composer and music supervisor — manages scoring, licensing, AI music generation, and copyright clearance for all productions"
-    },
-    "vfx-studio": {
-      "name": "VFX Studio",
-      "group": "film_studio",
-      "description": "VFX supervisor and compositing lead — manages visual effects pipeline from breakdown through final composite and delivery"
-    },
-    "production-designer-studio": {
-      "name": "Production Designer Studio",
-      "group": "film_studio",
-      "description": "Visual world builder — environments, props, wardrobe, set design, and concept art for film and image production"
-    },
-    "production-manager-studio": {
-      "name": "Production Manager Studio",
-      "group": "film_studio",
-      "description": "Line producer and unit production manager handling schedules, budgets, crew logistics, and daily production tracking for AI-native film and content pipelines"
-    },
-    "talent-cast-studio": {
-      "name": "Talent Cast Studio",
-      "group": "film_studio",
-      "description": "Casting director and voice performance coach specializing in AI voice casting, character voice design, and consent-governed voice cloning workflows"
-    },
-    "distribution-studio": {
-      "name": "Distribution Studio",
-      "group": "film_studio",
-      "description": "Distribution executive and delivery specialist managing platform-specific formatting, release strategy, multilingual delivery, and audience targeting across all output channels"
-    },
-    "legal-rights-studio": {
-      "name": "Legal Rights Studio",
-      "group": "film_studio",
-      "description": "Entertainment lawyer and rights clearance specialist governing AI content compliance, union provisions, copyright, licensing, and consent across all studio productions"
-    },
-    "film-gen-engine": {
-      "name": "Film Generation Engine",
-      "group": "film_studio",
-      "description": "Film/video generation tool router — full capability map of every AI video tool, routing logic decision trees, and quality gates"
-    },
-    "image-gen-engine": {
-      "name": "Image Generation Engine",
-      "group": "film_studio",
-      "description": "Image generation tool router — full capability map of every AI image tool, routing logic decision trees, and quality gates"
-    },
-    "audio-gen-engine": {
-      "name": "Audio Generation Engine",
-      "group": "film_studio",
-      "description": "Audio generation tool router — full capability map of every AI voice, music, and SFX tool, routing logic decision trees, and quality gates"
-    },
-    "slideworks-strategist": {
-      "name": "SlideWorks Strategist",
-      "group": "slideworks",
-      "description": "McKinsey Senior Partner narrative architect for consulting-quality slide decks — applies Minto Pyramid, Zelazny charts, and Duarte storytelling"
-    },
-    "slideworks-creative-director": {
-      "name": "SlideWorks Creative Director",
-      "group": "slideworks",
-      "description": "Design studio lead for consulting-quality slides — applies Tufte data-ink, Think-Cell visual grammar, and McKinsey Firm Graphics with a creative preview loop"
-    },
-    "slideworks-builder": {
-      "name": "SlideWorks Builder",
-      "group": "slideworks",
-      "description": "Production engineer for consulting-quality PPTX output — python-pptx assembly, Think-Cell matplotlib charts, and QA pipeline"
-    },
-    "oracle-health-marketing-lead": {
-      "name": "Oracle Health Marketing Lead",
-      "group": "oracle_health",
-      "description": "Oracle Health marketing leadership agent covering messaging architecture, campaign priorities, and research-to-content orchestration"
-    },
-    "oracle-health-product-marketing": {
-      "name": "Oracle Health Product Marketing",
-      "group": "oracle_health",
-      "description": "Oracle Health product marketing agent covering buyer messaging, enablement, positioning, and persona-specific value articulation"
-    }
   },
   "routing": {
-    "strategy_question": [
-      "steve-strategy",
-      "susan",
-      "shield-legal-compliance",
-      "ledger-finance",
-      "vault-fundraising"
-    ],
-    "product_question": [
-      "compass-product",
-      "marcus-ux",
-      "mira-emotional-experience",
-      "ai-product-manager",
-      "echo-neuro-design"
-    ],
-    "engineering_question": [
-      "atlas-engineering",
-      "nova-ai",
-      "sentinel-security",
-      "forge-qa",
-      "algorithm-lab"
-    ],
-    "growth_question": [
-      "aria-growth",
-      "beacon-aso",
-      "herald-pr",
-      "haven-community",
-      "guide-customer-success"
-    ],
-    "research_question": [
-      "research-director",
-      "researcher-web",
-      "researcher-arxiv",
-      "researcher-reddit",
-      "researcher-appstore"
-    ],
-    "design_question": [
-      "marcus-ux",
-      "design-studio-director",
-      "landing-page-studio",
-      "prism-brand",
-      "ux-design-process"
-    ],
-    "fitness_science_question": [
-      "coach-exercise-science",
-      "sage-nutrition",
-      "drift-sleep-recovery",
-      "workout-program-studio",
-      "training-research-studio"
-    ],
-    "behavior_psychology_question": [
-      "freya-behavioral-economics",
-      "flow-sports-psychology",
-      "quest-gamification",
-      "conversation-designer",
-      "coaching-architecture-studio"
-    ],
-    "content_production_question": [
-      "article-studio",
-      "deck-studio",
-      "memo-studio",
-      "whitepaper-studio",
-      "social-media-studio"
-    ],
-    "film_production_question": [
-      "film-studio-director",
-      "screenwriter-studio",
-      "cinematography-studio",
-      "editing-studio",
-      "production-manager-studio"
-    ],
-    "data_analytics_question": [
-      "pulse-data-science",
-      "algorithm-lab",
-      "knowledge-engineer",
-      "ai-evaluation-specialist",
-      "research-ops"
-    ],
-    "fundraising_finance_question": [
-      "vault-fundraising",
-      "ledger-finance",
-      "steve-strategy",
-      "herald-pr"
-    ],
-    "slide_deck_question": [
-      "slideworks-strategist",
-      "slideworks-creative-director",
-      "slideworks-builder",
-      "deck-studio"
-    ],
-    "recruiting_question": [
-      "recruiting-strategy-studio",
-      "recruiting-dashboard-studio",
-      "highlight-reel-studio",
-      "coach-outreach-studio",
-      "x-growth-studio"
-    ],
-    "oracle_health_question": [
-      "oracle-health-marketing-lead",
-      "oracle-health-product-marketing",
-      "slideworks-strategist"
-    ],
-    "ai_generation_question": [
-      "film-gen-engine",
-      "image-gen-engine",
-      "audio-gen-engine",
-      "nova-ai"
-    ]
+    "strategy": ["steve-strategy", "susan", "bridge-partnerships", "ledger-finance"],
+    "legal": ["shield-legal-compliance", "legal-rights-studio"],
+    "fundraising": ["vault-fundraising", "steve-strategy", "ledger-finance"],
+    "finance": ["ledger-finance", "vault-fundraising"],
+    "partnerships": ["bridge-partnerships"],
+    "design": ["marcus-ux", "mira-emotional-experience", "design-studio-director", "ux-design-process"],
+    "ux": ["marcus-ux", "mira-emotional-experience", "ux-design-process", "echo-neuro-design"],
+    "product": ["compass-product", "ai-product-manager", "marcus-ux"],
+    "brand": ["prism-brand", "design-studio-director"],
+    "accessibility": ["lens-accessibility"],
+    "engineering": ["atlas-engineering", "nova-ai", "sentinel-security", "forge-qa"],
+    "ai": ["nova-ai", "ai-product-manager", "ai-evaluation-specialist", "algorithm-lab"],
+    "security": ["sentinel-security"],
+    "testing": ["forge-qa", "ai-evaluation-specialist"],
+    "data": ["pulse-data-science", "algorithm-lab", "knowledge-engineer"],
+    "exercise": ["coach-exercise-science", "workout-program-studio", "workout-session-studio"],
+    "nutrition": ["sage-nutrition"],
+    "sleep": ["drift-sleep-recovery"],
+    "coaching": ["coaching-architecture-studio", "conversation-designer", "coach-exercise-science"],
+    "behavior": ["freya-behavioral-economics", "echo-neuro-design", "quest-gamification"],
+    "motivation": ["flow-sports-psychology", "quest-gamification"],
+    "gamification": ["quest-gamification"],
+    "growth": ["aria-growth", "beacon-aso", "x-growth-studio"],
+    "marketing": ["marketing-studio-director", "aria-growth", "herald-pr"],
+    "content": ["article-studio", "social-media-studio", "instagram-studio", "whitepaper-studio"],
+    "community": ["haven-community"],
+    "pr": ["herald-pr"],
+    "aso": ["beacon-aso"],
+    "customer_success": ["guide-customer-success"],
+    "research": ["research-director", "research-ops", "researcher-web", "researcher-arxiv"],
+    "presentation": ["deck-studio", "slideworks-strategist", "slideworks-builder"],
+    "landing_page": ["landing-page-studio", "app-experience-studio"],
+    "outreach": ["coach-outreach-studio", "herald-pr"],
+    "social_media": ["social-media-studio", "instagram-studio", "x-growth-studio"],
+    "film": ["film-studio-director", "screenwriter-studio", "cinematography-studio", "editing-studio"],
+    "video": ["film-studio-director", "film-gen-engine", "editing-studio"],
+    "photography": ["photography-studio", "image-gen-engine"],
+    "audio": ["audio-gen-engine", "sound-design-studio", "music-score-studio"],
+    "recruiting": ["recruiting-strategy-studio", "recruiting-dashboard-studio", "coach-outreach-studio"],
+    "healthcare": ["oracle-health-marketing-lead", "oracle-health-product-marketing"],
+    "oracle": ["oracle-health-marketing-lead", "oracle-health-product-marketing"],
+    "knowledge": ["knowledge-engineer", "research-director"]
   }
 }

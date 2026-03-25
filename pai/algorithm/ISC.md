@@ -38,10 +38,13 @@ ISC-A-2 No broken layouts when switching themes | Verify: Visual regression test
 3. Evidence required — VERIFY field must name concrete method
 4. Define BEFORE building — criteria are set in PLAN phase
 5. Anti-criteria catch edge cases — what MUST NOT happen
-6. Minimum 5 criteria, maximum 12 per task
-7. At least 2 anti-criteria per task
 
-## Usage in Algorithm v1
+## When to Write ISC
+- Algorithm Phase 3 (PLAN) — always
+- Any task with 3+ deliverables
+- Any task where "done" is ambiguous
 
-ISC criteria are created in Phase 3 (PLAN) and verified in Phase 6 (VERIFY).
-The verification matrix in Phase 6 maps 1:1 to ISC criteria with evidence.
+## When to Skip ISC
+- Single-file edits with clear specs
+- Quick questions or status checks
+- Casual conversation
