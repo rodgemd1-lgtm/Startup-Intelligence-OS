@@ -100,7 +100,7 @@ RULES: list[dict] = [
             "jacob's game", "james", "dentist", "doctor",
         ],
         "patterns": [
-            r"^(what|when|where|who|how many)\b.*\?",
+            r"^(what|when|where|who|how many)\b.{0,30}\?$",
             r"\b(time|date|address|number)\b.*\?",
         ],
         "hints": {"mode": "lookup", "max_tokens": 200},
@@ -133,7 +133,8 @@ RULES: list[dict] = [
             "research", "look up", "find out", "investigate", "analyze",
             "competitive", "market", "benchmark", "what do we know",
             "competitor", "industry", "trend", "landscape", "deep dive",
-            "white space", "opportunity", "threat",
+            "white space", "opportunity", "threat", "latest on",
+            "what's the latest", "epic", "cerner", "athena",
         ],
         "patterns": [
             r"\bresearch\b",
@@ -227,24 +228,25 @@ class IntentRouter:
             score = 0.0
             matched = []
 
-            # Keyword matching (0.12 each, diminishing returns)
+            # Keyword matching (0.18 each, first match gets bonus)
             kw_hits = 0
             for kw in rule["keywords"]:
                 if kw in msg_lower:
                     kw_hits += 1
                     matched.append(f"kw:{kw}")
             if kw_hits > 0:
-                score += min(0.5, kw_hits * 0.12)
+                # First match is worth more (0.35), each additional 0.12
+                score += 0.35 + min(0.35, (kw_hits - 1) * 0.12)
 
-            # Regex patterns (0.2 each)
+            # Regex patterns (0.25 each)
             for pat in rule["patterns"]:
                 if re.search(pat, msg_lower):
-                    score += 0.2
+                    score += 0.25
                     matched.append(f"re:{pat[:30]}")
 
             # Length heuristic: very short messages more likely casual/quick
             if len(msg_lower.split()) <= 3 and rule["intent"] == IntentCategory.CASUAL:
-                score += 0.1
+                score += 0.15
 
             # Question mark boost for quick_answer
             if "?" in message and rule["intent"] == IntentCategory.QUICK_ANSWER:

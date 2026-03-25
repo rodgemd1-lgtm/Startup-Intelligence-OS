@@ -1,0 +1,1 @@
+{"failure_type": "tool_error", "summary": "Calendar MCP timed out", "context": "Morning brief", "recent_messages": [], "tool_calls": [], "error_trace": "", "root_cause": "Tool/MCP failure \u2014 external tool returned an error", "suggested_fix": "Check tool availability; add fallback path; verify credentials", "timestamp": "2026-03-25T16:44:31.400778+00:00"}

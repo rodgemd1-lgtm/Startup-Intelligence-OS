@@ -1,1 +1,2 @@
 {"session_id": "test-v1-migration-001", "rating": 4, "timestamp": "2026-03-24T16:00:58.939976"}
+{"rating": 5, "signal_type": "explicit", "trigger": "pattern:\\bperfect\\b", "context": "", "jake_response": "Here is the analysis...", "mike_message": "perfect", "timestamp": "2026-03-25T16:44:31.395450+00:00"}
