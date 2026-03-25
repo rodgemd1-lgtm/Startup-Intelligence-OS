@@ -1,81 +1,75 @@
-# HANDOFF — V3X + Susan Redesign Session
+# Session Handoff
 
-**Date**: 2026-03-25
-**Branch**: `claude/nostalgic-euclid`
-**PR**: #22 — https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS/pull/22
+**Date**: 2026-03-25 (session 8 — V0-V3X audit + integration wiring)
+**Project**: Startup Intelligence OS — V3X finishing, V4 ready
+**Status**: V0-V3X audited and fixed. All integrations wired. V4 ready to start.
 
----
+## Completed This Session
 
-## What Was Accomplished This Session
+### Codebase Consolidation
+- [x] Pulled 18 commits from GitHub (local main was stuck at V1)
+- [x] Merged nostalgic-euclid (80 rebuilt agents, VoltAgent runtime, skill index)
+- [x] Committed pyproject.toml fix (Python 3.13 build-backend)
+- [x] Pushed everything to GitHub — main fully synced
 
-### Stream A: Jake + OpenClaw PAI
-- **V2.1**: Susan OpenClaw skill (`pai/skills/susan-mcp/`) — 6 tools
-- **V2.2**: mcporter MCP bridge config (`pai/config/mcporter.json`)
-- **V2.3**: Fabric REST API sidecar config (`pai/config/fabric-sidecar.json`)
-- **V2.7**: Algorithm v1 (`pai/config/algorithm-v1.yaml`) — Miessler 7-phase loop
-- **VoltAgent Runtime**: `pai/voltagent/` — Jake supervisor + 15 dept heads + VoltOps
+### Integration Wiring
+- [x] **Orchard MCP skill for Jake** — 47 Apple tools
+  - Skill: `~/.openclaw/workspace-jake/skills/orchard-apple/SKILL.md`
+- [x] **Google Workspace CLI (`gws`)** — npm installed, OAuth complete (rodgemd1@gmail.com)
+  - `gws calendar +agenda` and `gws gmail +triage` working
+- [x] **Notion MCP** — added to Claude Code
+- [x] **Fabric fix** — ANTHROPIC_API_KEY exported in ~/.zshrc
+- [x] **Morning Brief** — LaunchAgent + scheduled task at 7 AM
 
-### Stream B: Susan Department Redesign
-- **15 department heads** in gold standard (`susan-team-architect/agents/departments/`)
-- **80 existing agents** rebuilt to gold standard
-- **Department registry** (`pai/registry/departments.yaml`) — 218 agents mapped
-- **Skill index** (`pai/registry/skill-index.yaml`) — 6,591 skills + 363 papers
-- **~89 NEW agents** — MAY HAVE COMPLETED IN BACKGROUND (check below)
+### Telegram Testing (11/12 PASS)
+- PASS: health check, summarize, Apple calendar, email (19K), weather, reminders, web search, personal context, decisions, contacts, wisdom extraction
+- FAIL: Google Calendar (Jake needs new session to pick up gws skill)
 
-### Ecosystem
-- **8 VoltAgent repos** cloned to `vendor/voltagent/`
+### Email Cleanup
+- [x] 7,836 emails marked read (older than yesterday)
+- [x] Gmail: 2,500 archived (older than 30 days)
+- [x] iCloud + Exchange archive: running
 
----
+### Side Quests
+- [x] YouTube API v3 key in .env + Supabase
 
-## Check On Resume
+## Known Issues
 
-3 background agents were creating ~89 new agent files. Check:
-```bash
-ls susan-team-architect/agents/*.md | wc -l
-# Should be ~175+ if all batches completed (was 96 before)
+1. **Jake can't see Google Calendar** — skill updated, needs new OpenClaw session
+2. **VoltAgent skills not installed** — gws-calendar, gws-gmail from awesome-agent-skills
+3. **Susan V3X not finished** — npm install in pai/voltagent/, overlap analysis, agent deliveries
+
+## Resume — Two Parallel Sessions
+
+### V4 (Jake Proactive Intelligence):
+```
+Read HANDOFF.md. Start V4 Task 1 — KIRA intent router.
+Port jake_brain/intent_router.py to pai/intelligence/intent_router.py.
+7 intent categories with confidence scoring. Wire into OpenClaw.
 ```
 
-If new agents exist but uncommitted:
-```bash
-git add susan-team-architect/agents/*.md
-git commit -m "feat(susan): new VoltAgent-sourced agents"
-git push origin claude/nostalgic-euclid
+### V3X (Susan Department Redesign):
+```
+Read HANDOFF.md. Continue V3X — Susan department redesign.
+npm install && npm run dev in pai/voltagent/.
+Agent overlap analysis: VoltAgent 134+136 vs Susan 83.
+Check new agent deliveries.
 ```
 
----
-
-## Next Steps
-
-1. Verify/commit new agents from background batches
-2. `cd pai/voltagent && npm install && npm run dev` — test VoltAgent runtime
-3. Open https://console.voltagent.dev — verify monitoring works
-4. V3X Phase A: git submodules + knowledge indexes + 4 knowledge agents
-5. V3X Phase B: OTLP observability (Supabase schema + bridge)
-6. V3X Phase C: Cloudflare Workers multi-channel
-7. V3-V10: autonomous execution → proactive → learning → full autonomy
-
----
-
-## Key Files
-
-| File | Purpose |
-|------|---------|
-| `docs/plans/2026-03-25-v3x-susan-redesign-master-plan.md` | Master plan |
-| `pai/registry/departments.yaml` | 218 agents → 15 departments |
-| `pai/registry/skill-index.yaml` | Skills + papers mapped |
-| `pai/skills/susan-mcp/` | OpenClaw skill |
-| `pai/config/` | MCP bridge, Fabric, Algorithm v1 |
-| `pai/voltagent/` | VoltAgent runtime |
-| `susan-team-architect/agents/departments/` | 15 department heads |
-| `vendor/voltagent/` | 8 cloned ecosystem repos |
-
----
-
-## Resume Prompt
+## Architecture
 ```
-Read HANDOFF.md. Two parallel streams:
-Stream A: Jake + OpenClaw (V2 done, VoltAgent runtime built, test + V3X next)
-Stream B: Susan redesign (15 heads + 80 agents rebuilt, ~89 new agents check status)
-First: check new agent count, commit if needed, then npm install && npm run dev in pai/voltagent/
-Monitor at https://console.voltagent.dev
+Telegram → OpenClaw (ws://127.0.0.1:18789, GPT-5.4)
+  ├── Skills: fabric-router, susan-bridge, orchard-apple
+  ├── Orchard MCP (port 8086, 47 Apple tools)
+  ├── gws CLI (Google Calendar + Gmail, OAuth'd)
+  ├── Susan Control Plane (port 8042, 125 agents)
+  └── PAI Memory V1 + Config V2 + Pipelines V3
+
+Claude Code MCPs: Orchard, Notion, Google Workspace
 ```
+
+## Credentials
+- Supabase: susan-team-architect/backend/.env
+- Google OAuth: ~/.config/gws/credentials.enc
+- YouTube API: susan-team-architect/backend/.env (new 2026-03-25)
+- All others: unchanged from prior sessions
