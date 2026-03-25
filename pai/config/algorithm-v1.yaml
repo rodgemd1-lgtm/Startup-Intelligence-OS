@@ -1,0 +1,154 @@
+# Algorithm v1 — Jake's Core Reasoning Engine
+# Adapted from Daniel Miessler's TheAlgorithm 7-phase execution loop
+# Applied to: department-based routing, multi-step task execution
+#
+# Reference: github.com/danielmiessler/TheAlgorithm
+# Principle: "System Over Intelligence" — scaffolding matters more than the model
+
+version: "1.0"
+name: "jake-algorithm-v1"
+description: "7-phase reasoning loop for multi-step task execution with department routing"
+
+# Phase 1: INTAKE — Understand the request
+intake:
+  steps:
+    - classify_intent: "What is being asked? (build, analyze, research, decide, create, fix, review)"
+    - identify_domain: "Which department(s) does this touch?"
+    - assess_complexity: "Simple (1 agent) | Standard (1 department) | Complex (multi-department) | Critical (requires Jake oversight)"
+    - extract_constraints: "Timeline, budget, quality bar, dependencies"
+    - check_context: "What do we already know? (RAG search, memory, recent work)"
+  outputs:
+    - intent_classification
+    - department_routing
+    - complexity_level
+    - constraints_list
+    - existing_context
+
+# Phase 2: ROUTE — Send to the right department(s)
+route:
+  simple:
+    description: "Single agent can handle it"
+    action: "Direct to specialist via department head"
+    example: "Write a Python script → languages dept → python-pro"
+  standard:
+    description: "One department owns it"
+    action: "Route to department head for internal delegation"
+    example: "Design a REST API → engineering dept → atlas delegates to api-designer"
+  complex:
+    description: "Multiple departments needed"
+    action: "Jake coordinates, Susan assembles cross-department team"
+    example: "Build a new feature → engineering + product + QA + devex"
+  critical:
+    description: "High stakes, needs Jake's direct oversight"
+    action: "Jake manages directly with department heads reporting up"
+    example: "Architecture migration, security incident, investor deliverable"
+  routing_rules:
+    - "Kira classifies intent with confidence score"
+    - "Confidence > 0.9: route directly to specialist (skip department head)"
+    - "Confidence 0.7-0.9: route to department head"
+    - "Confidence < 0.7: Jake reviews before routing"
+    - "Multi-department: Susan coordinates, Jake approves plan"
+
+# Phase 3: RESEARCH — Gather what's needed before acting
+research:
+  always:
+    - "Check Susan RAG for existing knowledge"
+    - "Check TELOS/LEARNED.md for relevant lessons"
+    - "Check recent runs for similar work"
+  when_needed:
+    - "Dispatch research department for external sources"
+    - "Check paper index for academic foundations"
+    - "Check skill index for existing implementations"
+  quality_bar:
+    - "Every claim needs a source"
+    - "Every source needs a confidence rating"
+    - "Research completes BEFORE design begins (Process Doctrine)"
+
+# Phase 4: PLAN — Design the approach
+plan:
+  steps:
+    - "Break work into discrete tasks"
+    - "Assign each task to a specific agent"
+    - "Define dependencies between tasks"
+    - "Estimate model routing (opus/sonnet/haiku per task)"
+    - "Identify approval gates (human-in-the-loop points)"
+    - "Set quality criteria for each deliverable"
+  output: "Execution plan with task DAG, agent assignments, and approval gates"
+  rule: "Plan must be approved before execution starts (Process Doctrine)"
+
+# Phase 5: EXECUTE — Run the plan
+execute:
+  modes:
+    sequential: "Tasks run in dependency order"
+    parallel: "Independent tasks run simultaneously"
+    pipeline: "Output of one feeds input of next"
+  guardrails:
+    - "Each task emits OTLP trace on completion"
+    - "Error threshold: 3 consecutive failures → stop and diagnose"
+    - "Context budget: monitor across all active agents"
+    - "Scope guard: flag any work outside the approved plan"
+  checkpoints:
+    - "Commit at each logical milestone"
+    - "Update HANDOFF.md if approaching 60% context"
+    - "Department head reviews specialist output before synthesis"
+
+# Phase 6: EVALUATE — Check the work
+evaluate:
+  quality_checks:
+    - "Does output match the plan's quality criteria?"
+    - "Did we stay within scope?"
+    - "Are all approval gates passed?"
+    - "Do traces show healthy execution (no excessive retries)?"
+  feedback_loop:
+    - "Rate each agent's contribution (for routing improvement)"
+    - "Note any unexpected findings (for TELOS learning)"
+    - "Flag any process improvements (for Algorithm v2)"
+
+# Phase 7: SYNTHESIZE — Deliver the result
+synthesize:
+  steps:
+    - "Combine outputs from all agents/departments"
+    - "Remove redundancy and contradictions"
+    - "Format for the requestor (human or agent)"
+    - "Tag confidence level on the overall result"
+    - "Identify follow-up actions"
+  output_format:
+    result: "The deliverable"
+    confidence: "HIGH | MEDIUM | LOW"
+    departments_involved: ["list"]
+    agents_used: ["list"]
+    trace_ids: ["list"]
+    follow_ups: ["list of next steps"]
+    lessons: "What we learned (feeds back to Phase 3 knowledge)"
+
+# ISC (Iterative Sensemaking Cycle) — for ambiguous requests
+isc:
+  description: "When the request is unclear, run a fast sensemaking loop before the full algorithm"
+  steps:
+    - "Restate what you think is being asked"
+    - "Identify 2-3 interpretations"
+    - "Ask the user to confirm (if human) or pick the most likely (if agent-to-agent)"
+    - "Then enter Phase 1 with clarity"
+  max_iterations: 2
+  fallback: "If still unclear after 2 ISC rounds, escalate to Jake for human clarification"
+
+# Model Selection Guide
+model_routing:
+  opus:
+    when: "Architecture decisions, strategy, complex reasoning, multi-department coordination"
+    cost: "highest"
+    examples: ["system design", "investment analysis", "security audit", "algorithm design"]
+  sonnet:
+    when: "Code generation, standard analysis, most department work"
+    cost: "medium"
+    examples: ["feature implementation", "code review", "research synthesis", "content creation"]
+  haiku:
+    when: "Simple lookups, formatting, status checks, routing classification"
+    cost: "lowest"
+    examples: ["file search", "status report", "intent classification", "data formatting"]
+
+# Process Doctrine Integration
+process_doctrine:
+  rule: "Every task follows: Research → Plan → Execute → Lessons → Documentation"
+  context_budget: "60% hard limit — checkpoint and handoff before exceeding"
+  miessler_check: "Before architectural decisions, check Miessler's repos for prior art"
