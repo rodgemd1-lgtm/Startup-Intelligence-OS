@@ -1,4 +1,6 @@
 # Ignore .env files with secrets
+.env
+**/.env
 susan-team-architect/backend/.env
 
 # MCP config (contains API keys)
@@ -31,3 +33,6 @@ apps/ios-device-probe/IOSDeviceProbe.xcodeproj/
 # Browser automation session logs
 .playwright-mcp/
 pai/migration/export/
+
+# PAI pipeline credentials
+pai/pipelines/.env
