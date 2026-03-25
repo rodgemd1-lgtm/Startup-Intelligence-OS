@@ -6,10 +6,9 @@
 
 import "dotenv/config";
 import { VoltAgent, Agent, createTool, Memory } from "@voltagent/core";
-import { AnthropicProvider } from "@voltagent/anthropic-ai";
 import { SupabaseMemoryAdapter } from "@voltagent/supabase";
 import { LibSQLMemoryAdapter } from "@voltagent/libsql";
-import { HonoServer } from "@voltagent/server-hono";
+import { honoServer } from "@voltagent/server-hono";
 import { createPinoLogger } from "@voltagent/logger";
 import { z } from "zod";
 
@@ -44,11 +43,6 @@ const memory = new Memory({
     : new LibSQLMemoryAdapter({
         url: "file:./.voltagent/memory.db",
       }),
-});
-
-// --- Anthropic Provider ---
-const anthropic = new AnthropicProvider({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
 });
 
 // --- Jake's Direct Tools ---
@@ -94,9 +88,8 @@ const systemStatus = createTool({
 // --- Jake (Root Supervisor) ---
 const jake = new Agent({
   name: "jake",
-  description: "CEO / Root Supervisor — routes tasks to 15 department heads, coordinates cross-department work",
-  llm: anthropic,
-  model: "claude-opus-4-6",
+  purpose: "CEO / Root Supervisor — routes tasks to 15 department heads, coordinates cross-department work",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Jake, the CEO and root supervisor of the Startup Intelligence OS.
 
 You manage 15 departments through their heads:
@@ -155,7 +148,7 @@ const logger = createPinoLogger({
 
 new VoltAgent({
   agents: { jake },
-  server: new HonoServer(),
+  server: honoServer(),
   logger,
 });
 

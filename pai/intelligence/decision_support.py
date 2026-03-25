@@ -330,12 +330,47 @@ class DecisionSupport:
         if options:
             for opt in options:
                 self.add_option(brief, **opt)
+        elif brief.decision_type == DecisionType.BINARY:
+            # Auto-generate Yes/No options for binary decisions
+            self._auto_binary_options(brief)
 
         brief = self.analyze(brief)
         brief = self.red_team(brief)
 
         self._persist(brief)
         return brief
+
+    def _auto_binary_options(self, brief: DecisionBrief) -> None:
+        """Auto-generate Yes/No options for binary decision questions."""
+        q = brief.question.lower()
+
+        # Extract the action from "should I [action]" patterns
+        action = brief.question
+        for prefix in ["should i ", "should we ", "shall i ", "shall we "]:
+            if q.startswith(prefix):
+                action = brief.question[len(prefix):]
+                break
+
+        brief.options.append(Option(
+            name=f"Yes — {action[:80].rstrip('?')}",
+            description=f"Proceed with: {action}",
+            pros=["Moves the ball forward", "Shows initiative and engagement"],
+            cons=["Time investment", "Opportunity cost — blocks other work"],
+            risks=["May not yield expected outcome"],
+            reversibility=Reversibility.REVERSIBLE,
+            effort="medium",
+            impact="medium",
+        ))
+        brief.options.append(Option(
+            name="Decline / Defer",
+            description=f"Skip or postpone: {action}",
+            pros=["Preserves time for higher-priority work", "Can revisit later"],
+            cons=["May miss opportunity or context window", "Could signal disengagement"],
+            risks=["Relationship or timing risk if time-sensitive"],
+            reversibility=Reversibility.REVERSIBLE,
+            effort="low",
+            impact="low",
+        ))
 
     def _detect_type(self, question: str) -> DecisionType:
         """Detect decision type from the question."""

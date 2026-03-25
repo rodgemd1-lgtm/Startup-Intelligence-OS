@@ -5,95 +5,77 @@ description: V4 Proactive Intelligence — intent routing, priority engine, deci
 
 # Jake Intelligence — V4 Proactive Intelligence
 
-This skill provides access to Jake's V4 intelligence modules directly from Telegram/OpenClaw.
-
-## Commands
-
-### /intel brief
-Generate today's V4 morning brief with THE ONE THING, calendar, email, signals.
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/pipelines/morning_briefing.py --v4
-```
-
-### /intel priority
-Calculate THE ONE THING right now.
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -c "
-import sys; sys.path.insert(0, '.')
-from pai.intelligence.priority_engine import PriorityEngine, CandidateAction, ActionSource
-engine = PriorityEngine(available_deep_work_hours=4.0)
-one = engine.calculate_one_thing([
-    CandidateAction(action='Check morning brief and act on top item', why='Start of day routine', impact='Set direction', estimated_minutes=15, source=ActionSource.GOAL),
-])
-print(one.to_text())
-"
-```
-
-### /intel decide [question]
-Run structured decision support on a question.
-
-When the user asks "should I..." or faces a decision, run:
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -c "
-import sys; sys.path.insert(0, '.')
-from pai.intelligence.decision_support import DecisionSupport
-ds = DecisionSupport()
-brief = ds.full_analysis('QUESTION_HERE', context='USER_CONTEXT')
-print(brief.to_markdown())
-"
-```
-
-### /intel classify [message]
-Classify a message using the KIRA intent router.
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -c "
-import sys; sys.path.insert(0, '.')
-from pai.intelligence.intent_router import IntentRouter
-router = IntentRouter(log_classifications=True)
-print(router.classify_and_format('MESSAGE_HERE'))
-"
-```
-
-### /intel signals
-Show recent competitive signals from SCOUT.
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -c "
-import sys; sys.path.insert(0, '.')
-from pai.intelligence.scout import Scout
-scout = Scout()
-print(scout.format_for_brief() or 'No signals detected. Run a scan first.')
-"
-```
-
-### /intel eval
-Run self-evaluation scorecard.
-
-```bash
-cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -c "
-import sys; sys.path.insert(0, '.')
-from pai.learning.self_evaluation import SelfEvaluation
-se = SelfEvaluation()
-report = se.evaluate()
-print(report.to_markdown())
-"
-```
+This skill provides Jake's V4 intelligence pipeline. It classifies every message, routes to the right handler, and delivers structured responses.
 
 ## Automatic Behavior
 
-When processing ANY message from Mike, Jake should:
-1. Run the intent router to classify the message
-2. Route to the appropriate model tier and agent
-3. If intent is "decision", trigger decision support
-4. If confidence < 0.6, escalate to Opus for disambiguation
+When processing ANY message from Mike, run the intent classifier first:
+
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/cli/jake_dispatch.py classify "MESSAGE_TEXT"
+```
+
+This returns JSON with intent, confidence, model tier, and recommended agent. Use this to decide how to respond:
+
+| Intent | Action |
+|--------|--------|
+| `quick_answer` | Answer directly — no agent needed |
+| `status_check` | Run brief, calendar, or one-thing (see below) |
+| `research` | Route to Susan bridge: `susan route COMPANY "TASK"` |
+| `strategy` | Route to Steve Strategy via Susan |
+| `build` | Route to Claude Code or Atlas Engineering |
+| `decision` | Run decision support (see below) |
+| `casual` | Answer naturally — keep it short |
+
+If confidence < 0.6: ask Mike to clarify. Don't guess — wrong routing wastes time and money.
+
+## Commands
+
+### /intel brief — Morning Brief
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/cli/jake_dispatch.py brief
+```
+Returns: Full V4 morning brief with THE ONE THING, calendar, email, signals.
+
+### /intel decide [question] — Decision Support
+When intent is `decision` or user asks "should I...":
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/cli/jake_dispatch.py decide "QUESTION"
+```
+Returns: Structured decision analysis with options, risks, red team, recommendation.
+
+### /intel priority — THE ONE THING
+When user asks "what should I do today?" or "what's my priority?":
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/cli/jake_dispatch.py one-thing
+```
+Returns: THE ONE THING with why, impact, time estimate, and blockers.
+
+### /intel classify [message] — Intent Classification
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 pai/cli/jake_dispatch.py classify "MESSAGE"
+```
+Returns: JSON with intent, confidence, model tier, agent routing.
+
+### Full Dispatch (any message)
+Routes any message through the complete intelligence pipeline:
+```bash
+cd /Users/michaelrodgers/Desktop/Startup-Intelligence-OS && python3 -m pai.dispatcher "MESSAGE_TEXT"
+```
+
+## Response Formatting (Telegram)
+
+- Use bold for headers and key metrics
+- Keep messages scannable — bullet points over paragraphs
+- Include confidence scores when routing to agents
+- THE ONE THING always goes at the top
+- Max 4096 chars per Telegram message — split if needed
 
 ## Integration Notes
 
 - All modules live under `pai/intelligence/` and `pai/learning/`
+- CLI entrypoints: `pai/cli/jake_dispatch.py`
+- Dispatcher: `pai/dispatcher.py`
 - Logs written to `pai/intelligence/logs/` (JSONL)
 - Config in `pai/config/` (notification-rules.json, scout-sources.json)
 - Morning brief integrates V4 modules via `--v4` flag

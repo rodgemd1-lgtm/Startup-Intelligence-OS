@@ -115,6 +115,9 @@ RULES: list[dict] = [
             "brief", "morning brief", "daily brief", "what's today",
             "today look like", "what do i have", "schedule", "calendar",
             "email", "inbox", "unread", "any emails",
+            "what should i do", "what should i focus", "one thing",
+            "priority", "priorities", "what's important", "top priority",
+            "what's next", "next move", "focus on",
         ],
         "patterns": [
             r"\b(status|progress|update|check)\b",
@@ -122,6 +125,8 @@ RULES: list[dict] = [
             r"\bbrief\b",
             r"\bcalendar\b",
             r"\bemail\b",
+            r"\bwhat should (i|we) (do|focus|work|tackle)\b",
+            r"\b(one thing|top priority|next move)\b",
         ],
         "hints": {"mode": "status", "time_range_hours": 48},
     },

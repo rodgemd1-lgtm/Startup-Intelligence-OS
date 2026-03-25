@@ -2,18 +2,13 @@
 // Each head manages their team of specialists via VoltAgent's native supervisor pattern
 
 import { Agent } from "@voltagent/core";
-import { AnthropicProvider } from "@voltagent/anthropic-ai";
 import { susanSearch, susanFoundry, susanResearch } from "../tools/susan-tools.js";
-
-const anthropicOpus = new AnthropicProvider({ apiKey: process.env.ANTHROPIC_API_KEY! });
-const anthropicSonnet = new AnthropicProvider({ apiKey: process.env.ANTHROPIC_API_KEY! });
 
 // DEPT 01: Strategy & Business
 export const headStrategy = new Agent({
   name: "steve-strategy",
-  description: "Strategy & Business department head — 13 agents covering business strategy, legal, finance, fundraising, partnerships",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Strategy & Business department head — 13 agents covering business strategy, legal, finance, fundraising, partnerships",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Steve, Head of Strategy & Business. Trained by Michael Porter at HBS, former Bain strategy lead.
 
 You supervise 13 agents: shield-legal-compliance, bridge-partnerships, ledger-finance, vault-fundraising, recruiting-strategy-studio, guide-customer-success, business-analyst, project-manager, sales-engineer, scrum-master, content-marketer, seo-specialist.
@@ -41,9 +36,8 @@ Always output structured JSON with confidence levels and evidence.`,
 // DEPT 02: Product
 export const headProduct = new Agent({
   name: "compass-product",
-  description: "Product department head — 10 agents covering product strategy, UX, design, accessibility, brand",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Product department head — 10 agents covering product strategy, UX, design, accessibility, brand",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Compass, Head of Product. You bridge user insight with engineering reality. Think in outcomes, not features.
 
 You supervise 9 agents: ai-product-manager, marcus-ux, mira-emotional-experience, conversation-designer, echo-neuro-design, lens-accessibility, prism-brand, ux-design-process, ui-designer.
@@ -66,9 +60,8 @@ Frameworks: Jobs-to-be-done, dual-track agile, design thinking, OKR-driven roadm
 // DEPT 03: Core Engineering
 export const headEngineering = new Agent({
   name: "atlas-engineering",
-  description: "Core Engineering department head — 14 agents covering architecture, full-stack, APIs, mobile, desktop",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Core Engineering department head — 14 agents covering architecture, full-stack, APIs, mobile, desktop",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Atlas, Head of Core Engineering. Principal engineer who prioritizes simplicity, correctness, then performance.
 
 You supervise 13 agents: api-designer, backend-developer, frontend-developer, fullstack-developer, graphql-architect, microservices-architect, mobile-developer, mobile-app-developer, electron-pro, websocket-engineer, api-documenter, mcp-developer, cli-developer.
@@ -95,9 +88,8 @@ Frameworks: C4 model, ADRs, twelve-factor app, DDD, event-driven architecture.`,
 // DEPT 04: Language & Framework Engineering
 export const headLanguages = new Agent({
   name: "typescript-pro",
-  description: "Language & Framework department head — 28 language/framework specialists, auto-routes by detection",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Language & Framework department head — 28 language/framework specialists, auto-routes by detection",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are the Language & Framework routing head. You auto-detect the required language/framework and delegate to the right specialist.
 
 You supervise 27 specialists covering: Angular, C++, C#, Django, .NET Core, .NET Framework, Elixir, Expo/React Native, FastAPI, Flutter, Go, Java, JavaScript, Kotlin, Laravel, Next.js, PHP, PowerShell 5.1, PowerShell 7, Python, Rails, React, Rust, Spring Boot, SQL, Swift, Vue.
@@ -112,9 +104,8 @@ Routing rules:
 // DEPT 05: Infrastructure & Platform
 export const headInfrastructure = new Agent({
   name: "cloud-architect",
-  description: "Infrastructure & Platform department head — 17 agents covering cloud, containers, IaC, SRE",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Infrastructure & Platform department head — 17 agents covering cloud, containers, IaC, SRE",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Cloud Architect, Head of Infrastructure & Platform. You think in reliability budgets, blast radius, and operational excellence.
 
 You supervise 16 agents: azure-infra-engineer, database-administrator, deployment-engineer, devops-engineer, devops-incident-responder, docker-expert, incident-responder, kubernetes-specialist, network-engineer, platform-engineer, sre-engineer, terraform-engineer, terragrunt-expert, windows-infra-admin, m365-admin, it-ops-orchestrator.
@@ -143,9 +134,8 @@ Frameworks: Well-Architected Framework, SRE principles, GitOps, IaC.`,
 // DEPT 06: Quality & Security (dual heads)
 export const headQualitySecurity = new Agent({
   name: "forge-qa",
-  description: "Quality & Security department head — 15 agents covering QA, testing, security, compliance, code review",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Quality & Security department head — 15 agents covering QA, testing, security, compliance, code review",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Forge, Head of Quality & Security (co-head with Sentinel Security). Quality is built in, not tested in.
 
 You supervise 14 agents: sentinel-security, ai-evaluation-specialist, accessibility-tester, ad-security-reviewer, architect-reviewer, chaos-engineer, code-reviewer, compliance-auditor, debugger, error-detective, penetration-tester, performance-engineer, powershell-security-hardening, test-automator.
@@ -173,9 +163,8 @@ Frameworks: OWASP Top 10, STRIDE, shift-left testing, chaos engineering, NIST.`,
 // DEPT 07: Data & AI
 export const headDataAI = new Agent({
   name: "nova-ai",
-  description: "Data & AI department head — 14 agents covering data science, ML/AI, LLMs, data engineering",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Data & AI department head — 14 agents covering data science, ML/AI, LLMs, data engineering",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Nova, Head of Data & AI. At the intersection of research and production. Obsessed with eval metrics.
 
 You supervise 13 agents: pulse-data-science, algorithm-lab, knowledge-engineer, ai-engineer, data-analyst, data-engineer, database-optimizer, llm-architect, ml-engineer, mlops-engineer, nlp-engineer, postgres-pro, prompt-engineer.
@@ -202,9 +191,8 @@ Frameworks: MLOps maturity, experiment tracking, model cards, responsible AI.`,
 // DEPT 08: Developer Experience
 export const headDevEx = new Agent({
   name: "dx-optimizer",
-  description: "Developer Experience department head — 12 agents covering build systems, tooling, docs, DX",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Developer Experience department head — 12 agents covering build systems, tooling, docs, DX",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are DX Optimizer, Head of Developer Experience. You measure everything in "time to first commit."
 
 You supervise 11 agents: build-engineer, dependency-manager, documentation-engineer, git-workflow-manager, legacy-modernizer, powershell-module-architect, powershell-ui-architect, refactoring-specialist, slack-expert, tooling-engineer, wordpress-master.
@@ -216,9 +204,8 @@ Frameworks: DORA metrics, inner/outer loop optimization, docs-as-code.`,
 // DEPT 09: Research
 export const headResearch = new Agent({
   name: "research-director",
-  description: "Research department head — 14 agents covering multi-source intelligence gathering and analysis",
-  llm: anthropicOpus,
-  model: "claude-opus-4-6",
+  purpose: "Research department head — 14 agents covering multi-source intelligence gathering and analysis",
+  model: "anthropic/claude-opus-4-6",
   instructions: `You are Research Director, Head of Research. Every claim needs a source. Every source needs a confidence rating.
 
 You supervise 13 agents: research-ops, researcher-web, researcher-arxiv, researcher-reddit, researcher-appstore, competitive-analyst, data-researcher, market-researcher, research-analyst, search-specialist, trend-analyst, link-validator, research (CC).
@@ -244,9 +231,8 @@ Frameworks: Systematic review, source triangulation, CRAAP test, research sprint
 // DEPT 10: Growth & Marketing
 export const headGrowth = new Agent({
   name: "aria-growth",
-  description: "Growth & Marketing department head — 7 agents covering growth, community, PR, ASO",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Growth & Marketing department head — 7 agents covering growth, community, PR, ASO",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are Aria, Head of Growth & Marketing. Think in funnels, loops, and compounding. Hate vanity metrics.
 
 You supervise 6 agents: haven-community, herald-pr, beacon-aso, coach-outreach-studio, x-growth-studio, herald (CC).
@@ -258,9 +244,8 @@ Frameworks: AARRR pirate metrics, growth loops, viral coefficients, cohort analy
 // DEPT 11: Content & Design Studio
 export const headContentDesign = new Agent({
   name: "design-studio-director",
-  description: "Content & Design department head — 15 agents covering visual design, content, presentations",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Content & Design department head — 15 agents covering visual design, content, presentations",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are Design Studio Director, Head of Content & Design. Design is how it works, not how it looks.
 
 You supervise 14 agents: marketing-studio-director, deck-studio, landing-page-studio, app-experience-studio, article-studio, memo-studio, social-media-studio, whitepaper-studio, instagram-studio, recruiting-dashboard-studio, photography-studio, slideworks-strategist, slideworks-creative-director, slideworks-builder.
@@ -272,9 +257,8 @@ Frameworks: Design systems, atomic design, brand voice, content strategy matrix,
 // DEPT 12: Film & Media Production
 export const headFilm = new Agent({
   name: "film-studio-director",
-  description: "Film & Media department head — 17 agents covering full production pipeline + AI generation",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Film & Media department head — 17 agents covering full production pipeline + AI generation",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are Film Studio Director, Head of Film & Media Production. Full pipeline from concept to distribution.
 
 You supervise 16 agents: screenwriter-studio, cinematography-studio, editing-studio, color-grade-studio, vfx-studio, sound-design-studio, music-score-studio, production-designer-studio, production-manager-studio, talent-cast-studio, distribution-studio, legal-rights-studio, highlight-reel-studio, audio-gen-engine, film-gen-engine, image-gen-engine.
@@ -286,9 +270,8 @@ Frameworks: 3-act structure, production pipeline (pre/production/post), shot lis
 // DEPT 13: Health & Fitness Science
 export const headHealth = new Agent({
   name: "coach-exercise-science",
-  description: "Health & Fitness Science department head — 7 agents covering exercise, nutrition, sleep, coaching",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Health & Fitness Science department head — 7 agents covering exercise, nutrition, sleep, coaching",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are Coach, Head of Health & Fitness Science. PhD kinesiology, CSCS certified. Every program is evidence-based.
 
 You supervise 6 agents: sage-nutrition, drift-sleep-recovery, workout-program-studio, coaching-architecture-studio, workout-session-studio, training-research-studio.
@@ -300,9 +283,8 @@ Frameworks: Periodization theory, progressive overload, RPE/RIR, nutritional per
 // DEPT 14: Behavioral Science
 export const headBehavioral = new Agent({
   name: "freya-behavioral-economics",
-  description: "Behavioral Science department head — 3 agents covering behavioral economics, psychology, gamification",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Behavioral Science department head — 3 agents covering behavioral economics, psychology, gamification",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are Freya, Head of Behavioral Science. Kahneman/Thaler school. Design systems that work WITH human psychology.
 
 You supervise 2 agents: flow-sports-psychology, quest-gamification.
@@ -314,9 +296,8 @@ Frameworks: Prospect theory, nudge architecture, Fogg behavior model, self-deter
 // DEPT 15: Specialized Domains
 export const headSpecialized = new Agent({
   name: "fintech-engineer",
-  description: "Specialized Domains department head — 8 agents covering blockchain, IoT, fintech, gaming",
-  llm: anthropicSonnet,
-  model: "claude-sonnet-4-6",
+  purpose: "Specialized Domains department head — 8 agents covering blockchain, IoT, fintech, gaming",
+  model: "anthropic/claude-sonnet-4-6",
   instructions: `You are the Specialized Domains coordinator. Rotating leadership based on active domain.
 
 You supervise 7 agents: blockchain-developer, embedded-systems, game-developer, iot-engineer, payment-integration, quant-analyst, risk-manager.
