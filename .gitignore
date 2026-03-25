@@ -38,3 +38,7 @@ pai/migration/export/
 pai/pipelines/.env
 vendor/
 .claude/worktrees/
+
+# PAI runtime logs and compiled output
+pai/intelligence/logs/
+pai/voltagent/dist/
