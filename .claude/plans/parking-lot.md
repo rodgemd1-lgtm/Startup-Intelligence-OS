@@ -29,6 +29,13 @@
 - **Next step**: Complete Telegram pairing, then build bridge in V3
 - **Reference**: See `~/.claude/projects/.../memory/reference_openclaw_telegram.md`
 
+### CLI Tools Setup (2026-03-27)
+- **OpenCut** (`opencut-app/opencut`): Open-source video editor — potential content production tool for Film Studio agents
+- **Alexa ASK CLI** (`alexa/ask-cli`): Alexa Skills Kit CLI — voice interface for Jake (future multi-channel Phase 6)
+- **Go Spotify CLI** (`Envoy49/go-spotify-cli`): Spotify control from terminal — integrate with Mike's music preferences, auto-DJ during work sessions
+- **Status**: Parked — complete V15 Phase 4 first
+- **Next step**: Research each, assess fit, install after Phase 4 is 100%
+
 ### Birch — Real-Time Signal Scoring & Autonomous Execution Engine (V4 Feature)
 - **What**: Scoring + routing layer that ingests real-time web signals, scores them (Relevance/Actionability/Urgency 0-100), and auto-routes to existing agents
 - **Data source**: Firehose.com — SSE streaming API for real-time web monitoring (free beta, no credit card). Delivers ML-classified content with article metadata, Lucene query syntax filtering.
