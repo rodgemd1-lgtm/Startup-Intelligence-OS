@@ -1,82 +1,93 @@
 # Session Handoff
 
-**Date**: 2026-03-27 15:55 EDT (Session 5 — marathon)
+**Date**: 2026-03-27 16:30 EDT (Session 6 — Phase 7 execution)
 **Branch**: main
-**Project**: Startup Intelligence OS — V15 Personal AI Infrastructure
+**Project**: Startup Intelligence OS — V15 Phase 7 Consolidation & Optimization
 
 ## Completed
-- [x] **Phase 4 cleanup**: Python 3.9 compat fix for Notion sync script (`bin/sync-notion-obsidian.py`)
-- [x] **Phase 5 — Superagent Wave 3**: Batch-generated SYSTEM.md for all 65 OpenClaw agents (50 new, 15 existing). Generator script: `bin/generate-agent-systems.py` (re-runnable, 16 department templates)
-- [x] **Phase 6 — Proactive PA**: Built and deployed the full proactive pipeline:
-  - `bin/jake-morning-pipeline.sh` — unified 6 AM brief (email + calendar + goals + brain + competitive intel → Telegram)
-  - `bin/jake-overnight-intel.sh` — 5 AM competitive scan (SCOUT + Susan RAG → `.startup-os/briefs/`)
-  - `bin/jake-meeting-scanner.sh` — auto-prep 30 min before meetings (every 15 min scan, business hours)
-  - 5 OpenClaw skills registered in `~/.openclaw/agents/jake-chat/agent/skills/` (whats-due, morning-brief, meeting-prep-auto, overnight-intel, daily-goals)
-  - 3 launchd proactive triggers created and loaded
-- [x] **Hermes deprecation**: Disabled 22 Hermes-era launchd plists (renamed to `.plist.disabled`), including old pulse monitor that was sending stale Telegram alerts
-- [x] **Paperclip fix**: Installed `paperclipai` globally via npm, fixed launchd plist to use `/opt/homebrew/bin/paperclipai` instead of broken npx path, restarted service. 21 agents registered, JakeStudio company active.
-- [x] **Phase 7 kickoff — Inventory**: Full infrastructure audit (28 API keys, 6 active launchd jobs, 4 MCP servers, 734 VoltAgent skill repos). Written to `docs/plans/2026-03-27-phase7-infrastructure-inventory.md`
-- [x] **Phase 7 kickoff — VoltAgent clone**: Cloned `VoltAgent/awesome-agent-skills` (734 skill repos) and `VoltAgent/voltagent` (full TypeScript agent framework, 30+ packages) to `archive/voltagent/` (gitignored)
-- [x] **Phase 7 plan**: Consolidation & optimization roadmap written to `docs/plans/2026-03-27-phase7-consolidation-optimization.md`
+- [x] **Saved VoltAgent skills list** — `/tmp/voltagent-skills.txt` → `.startup-os/voltagent-skills.txt` (734 URLs preserved)
+- [x] **Fixed morning pipeline (3 bugs)**:
+  - Switched Telegram from `parse_mode=Markdown` to `parse_mode=HTML` with fallback to plain text
+  - All section headers converted from `*bold*` to `<b>bold</b>`, italics from `_text_` to `<i>text</i>`
+  - Added `escape_html()` function to sanitize dynamic content (email subjects, brain highlights, calendar events)
+  - Fixed `datetime.utcnow()` deprecation → `datetime.now(timezone.utc)`
+  - Removed unused `from googleapiclient.discovery import build` import in calendar section
+- [x] **Fixed meeting scanner (3 bugs)**:
+  - Replaced `from scripts.brain_gcal_ingest import get_calendar_service, fetch_events` (fetch_events doesn't exist) with inline `service.events().list()` call
+  - Fixed `datetime.utcnow()` deprecation
+  - Switched Telegram `parse_mode` from Markdown to HTML
+  - Converted meeting prep formatting from Markdown to HTML tags
+- [x] **Fixed overnight intel**: `datetime.utcnow()` deprecation fix
+- [x] **Paperclip dashboard resolved**: Port is 3100, not 3101. Dashboard at `http://127.0.0.1:3100`. All 21 agents healthy.
+- [x] **VoltAgent skill catalog completed**: 838-line catalog at `.startup-os/voltagent-catalog.md`
+  - 108 Tier 1 (Core) skills — install immediately
+  - 207 Tier 2 (High Value) skills
+  - 316 Tier 3 (Domain Specific) skills
+  - 103 Tier 4 (Skip) — duplicates or irrelevant
+  - 5-wave install plan with specific weekly targets
+  - Coverage gap analysis: Science, Psychology, Film Studio, Recruiting = zero VoltAgent coverage
+- [x] **Agent hierarchy designed**: 4-tier model (Meta / Super / Agent / Sub-Agent)
+  - Design doc: `docs/plans/2026-03-27-agent-hierarchy-design.md`
+  - Hierarchy YAML: `.startup-os/agent-hierarchy.yaml`
+  - 3 meta-agents (Jake, KIRA, Susan)
+  - 8 department super-agents (Steve, Compass, Atlas, Research Dir, ARIA, Ledger, Sentinel, Oracle Brief)
+  - 50+ specialist agents in 10 departments
+  - VoltAgent skills attach as capabilities, NOT new agents
+  - Claude Code plugins = Tier 4 ephemeral sub-agents
+- [x] **Parked side asks**: `docs/plans/2026-03-27-parking-lot.md`
+  - API Vault — Vercel env vars now, Doppler/1Password later
+  - OpenClaw + Alex Recruiting integration — 1-pager for separate session
+- [x] **Created Google Calendar re-auth script**: `bin/gcal-reauth.py` — interactive OAuth re-authorization
 
 ## In Progress
-- [ ] **Phase 7 Session 2 — VoltAgent Import**: 734 skill repos cloned but not yet ingested into Obsidian or mapped to existing 65 agents. Skill list at `/tmp/voltagent-skills.txt`. Background catalog agent was dispatched but may not have completed before session end.
-- [ ] **Paperclip dashboard**: Shows "Agent not found" at `http://127.0.0.1:3101/JAK/dashboard` — data is intact (21 agents confirmed via CLI), likely a URL slug/UUID routing issue in the UI
+- [ ] **Paperclip `reportsTo` wiring**: Paperclip API doesn't support PATCH for agent updates. The hierarchy YAML is source of truth. Future: use Paperclip CLI or direct DB access to wire `reportsTo` fields.
 
 ## Blocked
-- [ ] **Google Calendar in morning brief**: `brain_gcal_ingest.py` doesn't export a `fetch_events` function — fixed to use Google Calendar API directly, but needs OAuth token freshness check
-- [ ] **Mail.app email count in morning brief**: Requires Mail.app to be running; osascript times out if Mail has been open too long (known issue — killall + relaunch fixes it)
-- [ ] **VoltAgent skill list persistence**: `/tmp/voltagent-skills.txt` (734 URLs) is in /tmp and will be lost on reboot — copy to `.startup-os/` early next session
+- [ ] **Google Calendar OAuth**: `invalid_client: Unauthorized` — OAuth client credentials may be revoked or from a deleted Google Cloud project. Fix: run `bin/gcal-reauth.py` in venv to re-authorize. Needs Mike's browser interaction.
+- [ ] **Mail.app timeout**: Known issue — Mail.app osascript times out after long runtime. Fix: `killall Mail` + relaunch.
 
 ## Decisions Made
-- **Deprecated Hermes entirely** — All 22 Hermes-era cron jobs disabled. V15 replaces Hermes with direct launchd → shell scripts → Susan/Brain/SuperMemory → Telegram. Plists are `.disabled` not deleted (reversible).
-- **Phase 6 uses launchd, not Paperclip heartbeats** — Simpler, no daemon dependency, reliable on Mac. Paperclip heartbeats can be wired later for cloud-based scheduling.
-- **Installed paperclipai globally** — `npm i -g paperclipai` gives stable path (`/opt/homebrew/bin/paperclipai`) for launchd plist instead of fragile npx cache path.
-- **VoltAgent repos gitignored** — Reference material, not our code. Cloned to `archive/voltagent/` for research and import.
-- **Phase 7 is multi-session** — Too much scope for a bolt-on. 5 planned sessions: inventory (done), VoltAgent import, cost optimization, service consolidation, validation.
-- **Mike wants meta/super/sub-agent hierarchy** — Next session should design the full hierarchy with VoltAgent capabilities mapped to existing 65 agents.
+| Decision | Rationale | Reversible? |
+|----------|-----------|-------------|
+| Telegram parse_mode → HTML | Markdown breaks on special chars in dynamic content (email subjects, brain highlights). HTML is more forgiving + has plain text fallback. | Yes |
+| VoltAgent skills = capabilities, not agents | 734 skills would create agent sprawl. Better: attach as capabilities to existing 68 agents. | Yes |
+| 4-tier hierarchy (Meta/Super/Agent/Sub) | Clear authority chain. Jake is front door, KIRA routes, super-agents delegate, agents execute. | Yes |
+| Hierarchy YAML as source of truth | Paperclip API doesn't support agent updates. YAML is portable and version-controlled. | Yes |
+| 5-wave install order for VoltAgent | Context engineering first, strategy second, engineering third, design fourth, domain-specific as needed. | Yes |
 
 ## Next Steps
-1. **Copy `/tmp/voltagent-skills.txt` to `.startup-os/`** before it gets wiped
-2. **Phase 7 Session 2 — VoltAgent Full Import**: Ingest 734 skill repos into Obsidian vault, map to 65 agents, design meta → super → agent → sub-agent hierarchy
-3. **Phase 7 Session 3 — Cost Optimization**: Evaluate GLM-5-Turbo, MiniMax v2.7, Llama 3.3 via Groq/OpenRouter for Haiku-tier task routing. Target: $150/mo → <$100/mo
-4. **Phase 7 Session 4 — Service Consolidation**: Consolidate execution venues, kill redundant services, reduce 28 API keys to minimal set
-5. **Fix Paperclip dashboard** — try UUID-based URL: `http://127.0.0.1:3101/0f784ce7-2651-4df4-abc6-26022285ee67/dashboard`
-6. **Verify morning pipeline at 6 AM** — first real run tomorrow. Check `.startup-os/logs/morning-pipeline.log` and Telegram.
+1. **Mike: Run `bin/gcal-reauth.py`** to fix Google Calendar OAuth (needs browser)
+2. **Phase 7 Session 3 — Wave 1 Install**: Install the 18 obra/superpowers + 8 context engineering skills into agent skill directories
+3. **Phase 7 Session 4 — Cost Optimization**: Research GLM-5-Turbo, MiniMax, open-source models for Haiku-tier routing
+4. **Phase 7 Session 5 — Service Consolidation**: Reduce 28 API keys, consolidate execution venues
+5. **Mike: Review hierarchy design doc** — 5 open questions about department leads and budget
+6. **Wire Paperclip hierarchy**: Either via direct Postgres access or CLI update when PATCH support arrives
 
-## Files Changed
-- `bin/sync-notion-obsidian.py` — Python 3.9 type hint compat fix
-- `bin/generate-agent-systems.py` — NEW: batch SYSTEM.md generator (16 dept templates)
-- `bin/jake-morning-pipeline.sh` — NEW: unified 6 AM morning brief pipeline
-- `bin/jake-overnight-intel.sh` — NEW: 5 AM competitive intelligence scan
-- `bin/jake-meeting-scanner.sh` — NEW: auto meeting prep (every 15 min)
-- `docs/plans/2026-03-27-v15-phase6-proactive-pa-plan.md` — NEW: Phase 6 implementation plan
-- `docs/plans/2026-03-27-phase7-consolidation-optimization.md` — NEW: Phase 7 roadmap
-- `docs/plans/2026-03-27-phase7-infrastructure-inventory.md` — NEW: full infra audit
-- `.startup-os/briefs/morning-brief-2026-03-27.md` — NEW: test morning brief output
-- `.startup-os/briefs/scout-signals-2026-03-27.md` — NEW: test overnight intel output
-- `.gitignore` — added `archive/voltagent/`
+## Files Changed This Session
+- `bin/jake-morning-pipeline.sh` — Telegram HTML + escape_html + deprecation fix
+- `bin/jake-overnight-intel.sh` — deprecation fix
+- `bin/jake-meeting-scanner.sh` — fetch_events fix + HTML + deprecation fix
+- `bin/gcal-reauth.py` — NEW: Google Calendar re-auth helper
+- `.startup-os/voltagent-skills.txt` — NEW: 734 VoltAgent skill URLs (saved from /tmp)
+- `.startup-os/voltagent-catalog.md` — NEW: 838-line catalog with tiers, mapping, install plan
+- `.startup-os/agent-hierarchy.yaml` — NEW: 4-tier agent hierarchy
+- `docs/plans/2026-03-27-agent-hierarchy-design.md` — NEW: hierarchy design doc
+- `docs/plans/2026-03-27-parking-lot.md` — NEW: parked side asks
 - `HANDOFF.md` — this file
-- `~/.openclaw/agents/*/agent/SYSTEM.md` — 50 new files (not in git, in ~/.openclaw/)
-- `~/.openclaw/agents/jake-chat/agent/skills/*.md` — 5 new OpenClaw skills
-- `~/Library/LaunchAgents/com.jake.proactive-*.plist` — 3 new launchd jobs
-- `~/Library/LaunchAgents/ai.jakestudio.paperclip.plist` — fixed binary path
-- `~/Library/LaunchAgents/*.plist.disabled` — 22 Hermes-era jobs disabled
 
 ## Active Infrastructure
-| Component | Status | Location |
-|-----------|--------|----------|
-| Proactive morning pipeline | ✅ Loaded, first run at 6 AM | `com.jake.proactive-morning-pipeline` |
-| Overnight intel scanner | ✅ Loaded, first run at 5 AM | `com.jake.proactive-overnight-intel` |
-| Meeting prep scanner | ✅ Loaded, running every 15 min | `com.jake.proactive-meeting-scanner` |
-| Paperclip (21 agents) | ✅ Running on correct binary | `ai.jakestudio.paperclip` / port 3101 |
-| Cloudflare Tunnel | ✅ Running | `ai.jakestudio.tunnel` |
-| Claude Remote | ✅ Running | `com.jake.claude-remote` |
-| OpenClaw Studio | ✅ Live | https://openclaw-studio-psi.vercel.app |
-| 65 superagents | ✅ All have SYSTEM.md | `~/.openclaw/agents/*/agent/SYSTEM.md` |
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Morning pipeline | ✅ Fixed | HTML parse, escape_html, deprecation fixes |
+| Overnight intel | ✅ Fixed | deprecation fix |
+| Meeting scanner | ✅ Fixed | fetch_events fix, HTML parse, deprecation |
+| Paperclip (21 agents) | ✅ Running | Port 3100, all agents healthy |
+| Cloudflare Tunnel | ✅ Running | ai.jakestudio.tunnel |
+| Claude Remote | ✅ Running | com.jake.claude-remote |
+| Google Calendar | ⚠️ OAuth expired | Run bin/gcal-reauth.py |
 
 ## Build Health
-- **Commits this session**: 9 (all pushed to main)
-- **Tests passing**: Morning pipeline tested (goals ✅, brain ✅, Telegram ✅, calendar ⚠️)
-- **Context health at close**: ORANGE (~55%)
-- **Debt score**: ~8 (clean — mechanical infrastructure work, no untested features)
+- **Files modified this session**: 9
+- **Tests**: Morning pipeline logic validated (calendar service imports OK)
+- **Context health at close**: GREEN (~25%)
+- **Debt score**: ~6 (clean — infrastructure fixes + design doc, no untested features)

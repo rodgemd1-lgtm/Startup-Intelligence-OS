@@ -32,7 +32,18 @@ TODAY=$(date '+%Y-%m-%d')
 DAY_OF_WEEK=$(date '+%A')
 HOUR=$(date '+%-H')
 
+# ── Helper: escape HTML entities for Telegram ──
+escape_html() {
+    local text="$1"
+    text="${text//&/&amp;}"
+    text="${text//</&lt;}"
+    text="${text//>/&gt;}"
+    echo "$text"
+}
+
 # ── Helper: send to Telegram ──
+# Uses HTML parse mode — more forgiving than Markdown with special chars in
+# email subjects, calendar events, and brain highlights.
 send_telegram() {
     local msg="$1"
     if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
@@ -43,10 +54,19 @@ send_telegram() {
     # Split long messages (Telegram limit: 4096 chars)
     local len=${#msg}
     if [ "$len" -le 4096 ]; then
-        curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+        local resp
+        resp=$(curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${msg}" \
-            -d "parse_mode=Markdown" >> "$LOG" 2>&1
+            -d "parse_mode=HTML" 2>&1)
+        echo "$resp" >> "$LOG"
+        # Fallback: if HTML parse fails, retry without parse_mode
+        if echo "$resp" | grep -q '"ok":false'; then
+            echo "[WARN] HTML parse failed, retrying plain text" >> "$LOG"
+            curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+                -d "chat_id=${TELEGRAM_CHAT_ID}" \
+                --data-urlencode "text=${msg}" >> "$LOG" 2>&1
+        fi
     else
         # Send in chunks
         local chunk_size=4000
@@ -56,7 +76,7 @@ send_telegram() {
             curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
                 -d "chat_id=${TELEGRAM_CHAT_ID}" \
                 --data-urlencode "text=${chunk}" \
-                -d "parse_mode=Markdown" >> "$LOG" 2>&1
+                -d "parse_mode=HTML" >> "$LOG" 2>&1
             offset=$((offset + chunk_size))
             sleep 1  # Rate limit
         done
@@ -70,7 +90,7 @@ if [ -f "$INTEL_FILE" ]; then
     # Extract P0 and P1 signals only
     INTEL_SECTION=$(grep -E "^(P0|P1|🔴|🟡)" "$INTEL_FILE" 2>/dev/null | head -5)
     if [ -n "$INTEL_SECTION" ]; then
-        INTEL_SECTION="🔍 *COMPETITIVE SIGNALS*
+        INTEL_SECTION="🔍 <b>COMPETITIVE SIGNALS</b>
 ${INTEL_SECTION}"
     fi
 fi
@@ -80,7 +100,7 @@ EMAIL_SECTION=""
 # Try Apple Mail via osascript (Exchange + iCloud)
 UNREAD_COUNT=$(osascript -e 'tell application "Mail" to count of (messages of inbox whose read status is false)' 2>/dev/null || echo "?")
 if [ "$UNREAD_COUNT" != "?" ] && [ "$UNREAD_COUNT" -gt 0 ]; then
-    EMAIL_SECTION="📧 *EMAIL* — ${UNREAD_COUNT} unread"
+    EMAIL_SECTION="📧 <b>EMAIL</b> — ${UNREAD_COUNT} unread"
     # Get top 3 unread subjects
     TOP_EMAILS=$(osascript -e '
         tell application "Mail"
@@ -95,6 +115,7 @@ if [ "$UNREAD_COUNT" != "?" ] && [ "$UNREAD_COUNT" -gt 0 ]; then
             return output
         end tell
     ' 2>/dev/null || echo "  (could not read subjects)")
+    TOP_EMAILS=$(escape_html "$TOP_EMAILS")
     EMAIL_SECTION="${EMAIL_SECTION}
 ${TOP_EMAILS}"
 fi
@@ -108,10 +129,9 @@ import sys, os
 sys.path.insert(0, '$SUSAN_BACKEND')
 try:
     from scripts.brain_gcal_ingest import get_calendar_service
-    from datetime import datetime, timedelta
-    from googleapiclient.discovery import build
+    from datetime import datetime, timedelta, timezone
     service = get_calendar_service()
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     start = now.replace(hour=0, minute=0, second=0).isoformat() + 'Z'
     end = now.replace(hour=23, minute=59, second=59).isoformat() + 'Z'
     events_result = service.events().list(
@@ -133,7 +153,8 @@ except Exception as ex:
     print(f'  (calendar unavailable: {ex})')
 " 2>/dev/null || echo "  (calendar unavailable)")
     if [ -n "$CAL_EVENTS" ]; then
-        CALENDAR_SECTION="📆 *TODAY'S CALENDAR*
+        CAL_EVENTS=$(escape_html "$CAL_EVENTS")
+        CALENDAR_SECTION="📆 <b>TODAY'S CALENDAR</b>
 ${CAL_EVENTS}"
     fi
 fi
@@ -165,7 +186,7 @@ else:
     print('  (Supabase not configured)')
 " 2>/dev/null || echo "  (goals unavailable)")
     if [ -n "$GOALS" ]; then
-        GOALS_SECTION="🎯 *ACTIVE GOALS*
+        GOALS_SECTION="🎯 <b>ACTIVE GOALS</b>
 ${GOALS}"
     fi
 fi
@@ -189,7 +210,8 @@ except Exception as e:
     print(f'  (brain unavailable: {e})')
 " 2>/dev/null || echo "  (brain unavailable)")
     if [ -n "$BRAIN_HIGHLIGHTS" ]; then
-        BRAIN_SECTION="🧠 *BRAIN HIGHLIGHTS*
+        BRAIN_HIGHLIGHTS=$(escape_html "$BRAIN_HIGHLIGHTS")
+        BRAIN_SECTION="🧠 <b>BRAIN HIGHLIGHTS</b>
 ${BRAIN_HIGHLIGHTS}"
     fi
 fi
@@ -198,13 +220,13 @@ fi
 DEADLINE_SECTION=""
 if [ "$DAY_OF_WEEK" = "Monday" ] || [ "$DAY_OF_WEEK" = "Friday" ]; then
     # Check for upcoming deadlines (calendar events with "due", "deadline", "submit" in title)
-    DEADLINE_SECTION="⏰ *DEADLINES THIS WEEK*
-  (run \`/whats-due\` in Claude Code for full scan)"
+    DEADLINE_SECTION="⏰ <b>DEADLINES THIS WEEK</b>
+  (run /whats-due in Claude Code for full scan)"
 fi
 
 # ── Assemble Brief ──
-BRIEF="☀️ *JAKE MORNING BRIEF — ${DAY_OF_WEEK}, $(date '+%B %d')*
-_$(date '+%-I:%M %p')_
+BRIEF="☀️ <b>JAKE MORNING BRIEF — ${DAY_OF_WEEK}, $(date '+%B %d')</b>
+<i>$(date '+%-I:%M %p')</i>
 "
 
 # Add sections (skip empty ones)
@@ -217,7 +239,7 @@ ${section}
 done
 
 BRIEF="${BRIEF}
-_Reply to Jake with updates or priorities._"
+<i>Reply to Jake with updates or priorities.</i>"
 
 # ── Deliver ──
 echo "$BRIEF" >> "$LOG"

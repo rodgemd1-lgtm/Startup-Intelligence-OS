@@ -47,15 +47,19 @@ except:
     state = {'notified': []}
 
 try:
-    from scripts.brain_gcal_ingest import get_calendar_service, fetch_events
-    from datetime import datetime, timedelta
+    from scripts.brain_gcal_ingest import get_calendar_service
+    from datetime import datetime, timedelta, timezone
 
     service = get_calendar_service()
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     # Look 15-45 min ahead (so we catch meetings approaching in the next window)
-    start = (now + timedelta(minutes=15)).isoformat() + 'Z'
-    end = (now + timedelta(minutes=45)).isoformat() + 'Z'
-    events = fetch_events(service, start, end, max_results=3)
+    start = (now + timedelta(minutes=15)).isoformat()
+    end = (now + timedelta(minutes=45)).isoformat()
+    events_result = service.events().list(
+        calendarId='primary', timeMin=start, timeMax=end,
+        maxResults=3, singleEvents=True, orderBy='startTime'
+    ).execute()
+    events = events_result.get('items', [])
 
     for event in events:
         event_id = event.get('id', '')
@@ -68,7 +72,7 @@ try:
         location = event.get('location', '')
 
         # Build prep context
-        prep = f'📋 *MEETING PREP — {summary}*\n'
+        prep = f'📋 <b>MEETING PREP — {summary}</b>\n'
         if start_time:
             time_str = start_time.split('T')[1][:5] if 'T' in start_time else start_time
             prep += f'⏰ Starts at {time_str}\n'
@@ -94,7 +98,7 @@ try:
             from susan_core.rag import search_knowledge
             results = search_knowledge(summary, top_k=2)
             if results:
-                prep += '\n📚 *Context*\n'
+                prep += '\n📚 <b>Context</b>\n'
                 for r in results[:2]:
                     prep += f'  • {r.get(\"content\", \"\")[:120]}\n'
         except:
@@ -122,7 +126,7 @@ if [ -n "$MEETING_INFO" ] && [ "$MEETING_INFO" != "" ]; then
         curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MEETING_INFO}" \
-            -d "parse_mode=Markdown" >> "$LOG" 2>&1
+            -d "parse_mode=HTML" >> "$LOG" 2>&1
     else
         echo "$MEETING_INFO"
     fi

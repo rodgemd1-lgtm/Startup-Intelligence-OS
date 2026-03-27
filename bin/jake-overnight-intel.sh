@@ -79,8 +79,8 @@ try:
     if url and key:
         sb = create_client(url, key)
         # Check for recent competitor profiles updated in last 48h
-        from datetime import datetime, timedelta
-        cutoff = (datetime.utcnow() - timedelta(hours=48)).isoformat()
+        from datetime import datetime, timedelta, timezone
+        cutoff = (datetime.now(timezone.utc) - timedelta(hours=48)).isoformat()
         res = sb.table('knowledge_chunks').select('content,company_id,updated_at').eq('data_type','competitor_intel').gte('updated_at', cutoff).order('updated_at', desc=True).limit(5).execute()
         for r in res.data:
             print(f'  • [{r.get(\"company_id\",\"?\")}] {r.get(\"content\",\"\")[:100]}')

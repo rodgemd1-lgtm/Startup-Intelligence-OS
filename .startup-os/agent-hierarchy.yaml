@@ -1,0 +1,132 @@
+# Agent Hierarchy — Meta / Super / Agent / Sub-Agent
+# Source of truth for the 4-tier agent authority model
+# Date: 2026-03-27
+# Status: DRAFT
+
+meta_agents:
+  jake:
+    tier: 1
+    role: "Co-founder, front door, decomposer"
+    reports_to: mike
+    budget_monthly_cents: 5000
+  kira:
+    tier: 1
+    role: "Command router, intent classifier"
+    reports_to: mike
+    budget_monthly_cents: 1000
+  susan:
+    tier: 1
+    role: "Capability foundry, team architect"
+    reports_to: mike
+    budget_monthly_cents: 2000
+
+departments:
+  strategy:
+    lead: steve
+    agents:
+      - steve-strategy
+      - vault-fundraising
+      - bridge-partnerships
+      - shield-legal-compliance
+      - optionality-scout
+
+  product:
+    lead: compass
+    agents:
+      - compass-product
+      - marcus-ux
+      - mira-emotional-experience
+      - echo-neuro-design
+      - conversation-designer
+      - lens-accessibility
+      - ai-product-manager
+    sub_departments:
+      growth:
+        agents:
+          - aria-growth
+          - beacon-aso
+          - herald-pr
+          - prism-brand
+          - x-growth-studio
+          - haven-community
+          - quest-gamification
+          - guide-customer-success
+      science:
+        agents:
+          - coach-exercise-science
+          - sage-nutrition
+          - drift-sleep-recovery
+          - flow-sports-psychology
+
+  engineering:
+    lead: atlas
+    agents:
+      - atlas-engineering
+      - forge-qa
+      - sentinel-security
+      - nova-ai
+      - algorithm-lab
+      - ai-engineer
+      - ai-evaluation-specialist
+      - knowledge-engineer
+      - link-validator
+
+  research:
+    lead: research-director
+    agents:
+      - research-ops
+      - researcher-web
+      - researcher-reddit
+      - researcher-arxiv
+      - researcher-appstore
+      - scout
+      - pattern-matcher
+      - antifragility-monitor
+      - digest
+
+  operations:
+    lead: aria
+    agents:
+      - daily-ops
+      - jake-triage
+      - jake-deep-work
+      - orchestrator
+
+  finance:
+    lead: ledger
+    agents:
+      - ledger-finance
+      - freya-behavioral-economics
+      - pulse-data-science
+
+  security:
+    lead: sentinel
+    agents:
+      - sentinel-health
+      # shield-legal-compliance dual-reports here and to strategy
+
+  oracle_health:
+    lead: oracle-brief
+    agents:
+      - oracle-health-marketing-lead
+      - oracle-health-product-marketing
+      - sentinel-health  # dual-reports to security
+
+# Agents not assigned to departments (standalone/utility)
+unassigned:
+  - jake-chat      # Jake's chat interface, not a department member
+  - main           # Default agent
+  - research       # Generic research (superseded by research-director)
+
+# Sub-agent sources (Tier 4 — ephemeral, spawned on demand)
+sub_agent_sources:
+  voltagent:
+    count: 734
+    catalog: ".startup-os/voltagent-catalog.md"
+    skills_list: ".startup-os/voltagent-skills.txt"
+  claude_code_plugins:
+    count: 112
+    source: "wshobson superpowers + domain plugins"
+  claude_code_skills:
+    count: 50+
+    source: ".claude/skills/ + anthropic-skills"
