@@ -1,55 +1,73 @@
 # Session Handoff
 
-**Date**: 2026-03-27 (Session 5, continued)
+**Date**: 2026-03-27 (Session 5 — marathon)
 **Project**: Startup Intelligence OS
-**Session Goal**: Finish Phase 4 + Phase 5 + Phase 6 + Hermes deprecation + Paperclip fix
-**Status**: COMPLETE (Phases 4-6 done)
+**Session Goal**: Phase 4-6 + Hermes deprecation + Paperclip fix + Phase 7 kickoff
+**Status**: COMPLETE through Phase 6. Phase 7 inventory done, VoltAgent cloned.
 
-## Completed
-- [x] **Phase 4 cleanup**: Python 3.9 compat fix for Notion sync script
-- [x] **Phase 5: Superagent Wave 3**: All 65 agents have SYSTEM.md (50 created, 15 existing)
-  - Generator: `bin/generate-agent-systems.py` (re-runnable, 16 department templates)
-- [x] **Phase 6: Proactive PA**: Morning brief + overnight intel + meeting prep — all live
-  - `bin/jake-morning-pipeline.sh` — unified 6 AM brief (email + calendar + goals + brain + intel → Telegram)
-  - `bin/jake-overnight-intel.sh` — 5 AM competitive scan (SCOUT + Susan RAG)
-  - `bin/jake-meeting-scanner.sh` — auto-prep 30 min before meetings (every 15 min scan)
-  - 5 OpenClaw skills created in `~/.openclaw/agents/jake-chat/agent/skills/`
-  - 3 launchd triggers active: `com.jake.proactive-{morning-pipeline,overnight-intel,meeting-scanner}`
-- [x] **Hermes deprecation**: 16 old cron jobs disabled (renamed to .plist.disabled), pulse monitor killed
-- [x] **Paperclip fix**: Global npm install, launchd plist fixed to correct binary path, service restarted
-  - 21 agents registered, JakeStudio company active, dashboard at http://127.0.0.1:3101/JAK/dashboard
-  - Dashboard "Agent not found" may be a UI slug issue — try UUID-based URL
+## Completed This Session (8 commits pushed)
+- [x] **Phase 4**: Python 3.9 compat fix for Notion sync script
+- [x] **Phase 5**: 65/65 agents have SYSTEM.md (50 created via batch generator)
+- [x] **Phase 6**: Proactive PA — 3 scripts, 5 OpenClaw skills, 3 launchd triggers
+- [x] **Hermes deprecation**: 22 old plists disabled (renamed to .disabled)
+- [x] **Paperclip fix**: Global npm install, launchd plist corrected, service restarted
+- [x] **Phase 7 kickoff**: Infrastructure inventory (28 API keys, 6 active jobs, 734 VoltAgent skills)
+- [x] **VoltAgent repos cloned**: awesome-agent-skills + voltagent framework
 
-## In Progress
-- [ ] **Phase 7: Consolidation & Optimization** — plan written at `docs/plans/2026-03-27-phase7-consolidation-optimization.md`
-  - Session 1: Full inventory audit (all services, API keys, scheduled tasks, domains)
-  - Session 2: Open-source model routing (GLM-5-Turbo, MiniMax v2.7, cost reduction)
-  - Session 3: VoltAgent import (clone full org, 5,400+ skills → Obsidian + RAG, meta/super/sub hierarchy)
-  - Session 4: Service consolidation (Cloudflare-first, kill redundancies)
-  - Session 5: End-to-end testing and validation
+## Active Infrastructure (Post-Session)
+
+### launchd Jobs Running
+| Job | Schedule |
+|-----|----------|
+| com.jake.proactive-morning-pipeline | 6:00 AM daily |
+| com.jake.proactive-overnight-intel | 5:00 AM daily |
+| com.jake.proactive-meeting-scanner | Every 15 min (business hours) |
+| com.jake.claude-remote | Always on |
+| ai.jakestudio.paperclip | Always on (21 agents) |
+| ai.jakestudio.tunnel | Always on (Cloudflare) |
+
+### Disabled (22 Hermes-era plists)
+All renamed to .plist.disabled in ~/Library/LaunchAgents/
+
+## Phase 7 Next Steps (Dedicated Sessions)
+
+### Session 1 (DONE): Inventory + VoltAgent Clone
+- ✅ Full inventory at `docs/plans/2026-03-27-phase7-infrastructure-inventory.md`
+- ✅ VoltAgent at `archive/voltagent/` (gitignored)
+- ✅ 734 skill repos cataloged, 30+ framework packages identified
+
+### Session 2 (NEXT): VoltAgent Import + Agent Hierarchy
+- Ingest 734 skill repos into Obsidian vault
+- Map skills to existing 65 OpenClaw agents
+- Design meta → super → agent → sub-agent hierarchy
+- Build agent factory for skill-to-agent conversion
+
+### Session 3: Cost Optimization + Model Routing
+- Evaluate GLM-5-Turbo, MiniMax v2.7, Llama 3.3 via Groq
+- Design tiered routing: Opus → Sonnet → Haiku → open-source
+- Implement via Paperclip budget enforcement
+- Target: $150/mo → <$100/mo
+
+### Session 4: Service Consolidation
+- Consolidate execution venues (launchd vs Claude scheduled vs Paperclip)
+- Kill redundant services
+- Consolidate API keys from 28 → minimal set
+- Push everything through OpenClaw
 
 ## Known Issues
-- Paperclip dashboard may show "Agent not found" — URL routing issue, data is intact
-- Calendar in morning brief needs Google Calendar OAuth token to be fresh
-- Mail.app osascript needs Mail app running for email count
-
-## Decisions Made
-| Decision | Rationale | Reversible? |
-|----------|-----------|-------------|
-| Deprecate ALL Hermes cron jobs | V15 replaces Hermes entirely | yes (plists are .disabled, not deleted) |
-| 3 proactive launchd triggers | Simple, reliable, no daemon needed | yes |
-| Install paperclipai globally | Stable path for launchd plist | yes |
-| Phase 7 as separate sessions | Too much scope + research needed for bolt-on | yes |
+- Paperclip dashboard "Agent not found" — likely URL slug vs UUID mismatch
+- Calendar in morning brief needs Google OAuth token check
+- Mail.app osascript needs Mail app running
 
 ## Context for Next Session
-- **Key insight**: Phases 1-6 of V15 are COMPLETE. Phase 7 is optimization/consolidation.
-- **Mike's priority**: VoltAgent full import, cost reduction, consolidation
-- **Files to read first**: `docs/plans/2026-03-27-phase7-consolidation-optimization.md`
-- **Clone these**: `https://github.com/VoltAgent/awesome-agent-skills`, `https://github.com/VoltAgent`
-- **Research**: GLM-5-Turbo, MiniMax v2.7 pricing and capabilities vs Claude Haiku
+- **Priority**: Mike wants VoltAgent FULL capabilities imported
+- **Clone locations**: `archive/voltagent/awesome-agent-skills/`, `archive/voltagent/voltagent/`
+- **Key file**: `docs/plans/2026-03-27-phase7-infrastructure-inventory.md`
+- **VoltAgent skill list**: `/tmp/voltagent-skills.txt` (734 URLs)
+- **Background agent**: VoltAgent catalog agent may still be running
 
 ## Build Health
-- Files modified this session: 8 committed across 5 commits
-- Tests passing: morning pipeline tested (goals ✅, brain ✅, Telegram ✅, calendar ⚠️ needs token refresh)
-- Context health at close: YELLOW (~35%)
-- Commits: 5 (Phase 4 fix, Phase 5 generator, Phase 5 handoff, Phase 6 pipeline, Phase 7 plan)
+- Commits: 8 this session
+- Context health at close: ORANGE (~50%)
+- Files modified: 12+ committed
+- Debt score: ~8 (clean — all mechanical work, no new features without tests)
