@@ -1,50 +1,73 @@
 # Session Handoff
 
-**Date**: 2026-03-27
-**Project**: Startup Intelligence OS
-**Session Goal**: Research the full OpenClaw/PAI ecosystem and design V15 Personal AI Infrastructure
-**Status**: COMPLETE (Research + Design + Phase 1 Plan)
+**Date**: 2026-03-27 (Session 2)
+**Project**: Startup Intelligence OS / JakeStudio
+**Session Goal**: Execute V15 Phase 1 + Phase 2 + guardrails + process engine
+**Status**: COMPLETE (Phase 1 + Phase 2 + Phase 2.5)
+**Context Health**: YELLOW
+**Debt Score**: 3
+**Files Modified**: 15+
+**Commits**: 9 pushed to main
 
 ## Completed
-- [x] Dispatched 8 research agents in parallel — all completed
-- [x] Analyzed 42 GitHub repos, 32 YouTube videos, 7 products
-- [x] V15 Design Doc written and revised through R4 — files: `docs/plans/2026-03-27-v15-personal-ai-infrastructure-design.md`
-- [x] Phase 1 implementation plan written with 10 bite-sized tasks — files: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
-- [x] Research findings saved as reference — files: `docs/plans/2026-03-27-v15-research-findings.md`
-- [x] Memory updated with V15 architecture decisions
 
-## In Progress
-- [ ] Phase 1 Execution: Cloud Foundation (10 tasks) — current state: PLAN WRITTEN, NOT STARTED
-  - Next step: Start Task 1 (Install OpenClaw v2026.3.24)
-  - Plan file: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
+### Phase 1: Cloud Foundation — ALL LIVE
+- [x] OpenClaw 2026.3.24 + LaunchAgent (`ai.openclaw.gateway`, port 7841)
+- [x] Cloudflare Worker: `jake-gateway.rodgemd1.workers.dev` (KV + R2 + SuperMemory)
+- [x] R2 bucket `jake-state` created and bound
+- [x] KV namespace `JAKE_CACHE` (`c343a11aef1e45d98c7da92720b54d5f`)
+- [x] Tunnel `jake-desktop` → jake.jakestudio.ai + jake-desktop.jakestudio.ai
+- [x] Tunnel LaunchAgent: `ai.jakestudio.tunnel`
+- [x] Zero Trust: enabled
+- [x] SuperMemory.ai MCP: `infrastructure/supermemory-mcp/server.py`
+- [x] QMD 2.0.1: 322+ docs, 6,066+ chunks, MCP in `.mcp.json`
+- [x] Paperclip: JakeStudio (JAK-*), LaunchAgent `ai.jakestudio.paperclip` (port 3100)
+
+### Phase 2: Superagent Wave 1 — 6 AGENTS LIVE
+- [x] 7 SuperMemory containers, 30 memories seeded
+- [x] 6 Paperclip agents: Jake $50, KIRA $5, ARIA $10, SCOUT $5, Steve $5, Compass $5
+- [x] lossless-claw (75% threshold, `~/.openclaw/lcm.db`)
+- [x] 5 OpenClaw agents with IDENTITY.md + GUARDRAILS.md
+- [x] Autonomous mode: Jake=admin (deny-list), others=restricted
+- [x] KIRA routing table: `~/.openclaw/agents/kira/agent/routing-table.json`
+- [x] Guardrails: `infrastructure/agent-guardrails/guardrails.json`
+
+### Phase 2.5: Process Engine + Knowledge
+- [x] 9 skills: deep-research, think, plan, build, review, qa, ship, reflect, full-cycle
+- [x] 5 Hermes skills migrated: jake-brief, email-triage, oracle-health-intel, oracle-meeting-prep, jake-recall
+- [x] 61/96 OpenClaw skills ready
+- [x] Session protocol: `~/.claude/rules/session-protocol.md`
+- [x] Obsidian vault: `~/Documents/Obsidian/JakeStudio/` (11 notes, GitHub: jakestudio-brain)
+- [x] 4 cron jobs: morning-brief 6AM, email-triage 2h, meeting-prep hourly, oracle-intel Sunday 8PM
 
 ## Not Started
-- [ ] Phase 2: Superagent Wave 1 + Memory (blocked by: Phase 1 completion)
-- [ ] Phase 3: Knowledge Layer / Obsidian (blocked by: Phase 2)
-- [ ] Phase 4: Superagent Wave 2 + Process Engine (blocked by: Phase 3)
-- [ ] Phase 5: Superagent Wave 3 — Full Fleet (blocked by: Phase 4)
-- [ ] Phase 6: Proactive PA (blocked by: Phase 5)
+- [ ] Phase 3: Full agent loop test (Telegram → KIRA → agent → SuperMemory → Paperclip)
+- [ ] Phase 3: ObsidianClaw plugin (in-vault chat)
+- [ ] Phase 3: /full-cycle end-to-end test
+- [ ] Phase 4: Wave 2 agents (Atlas, Forge, Sentinel, Research Director, Oracle Brief, LEDGER)
+- [ ] Phase 5: Wave 3 (remaining 61 agents)
+- [ ] SuperMemory connectors (Gmail, Notion, GitHub, Drive — dashboard)
+- [ ] Hermes lifecycle plugin migration (brain-ingest, learner, shield, vault, ratelimit)
 
 ## Decisions Made
 | Decision | Rationale | Reversible? |
 |----------|-----------|-------------|
-| Cloudflare-first (not Tailscale) | Jake is a PA, not a dev tool — must be always-on regardless of machine state | Yes |
-| SuperMemory.ai NOW ($19/mo) | Universal memory standard for ALL agents — decay, contradiction, connectors built-in | Yes (fallback to Supabase brain) |
-| Paperclip for orchestration | Multi-company control plane with budgets, tickets, heartbeats, governance | Yes (fallback to existing crons) |
-| ALL 73 agents → superagents | Every agent gets memory + goals + heartbeat + budget (3 waves) | Yes |
-| Jake = Meta-Agent (CEO tier) | Creates/manages/modifies agents, allocates budgets, designs workflows | Yes |
-| Mike = Board of Directors | Governance, approvals, budget authority over Jake | N/A |
-| Cloud brain + local muscle | Think/remember/coordinate in cloud; files/code/build on local machines | Yes |
-| All companies cloud-based | Startup-OS, Oracle Health, Alex Recruiting, future TransformFit — all on Cloudflare | Yes |
-| Keep Supabase (don't migrate to Neon) | We use Supabase as platform, not just DB. Migration = weeks for zero gain. | N/A |
+| JakeStudio as umbrella | Oracle Health + Startup OS as divisions | Yes |
+| Paperclip IS orchestration | Confirmed: org charts, budgets, governance | Yes |
+| Port 7841 for OpenClaw | Matched existing config | Yes |
+| frontend-design plugin disabled | False preview triggers on infra code | Yes |
+| Jake=admin, others=restricted | Smart approvals + deny-list | Yes |
+| deep-research as Step 0 | Process Doctrine: research completes first | Yes |
+| Session protocol as global rule | All projects follow 8-step cycle | Yes |
 
-## Context for Next Session
-- Key insight: V15 is a 7-layer stack. Jake is a meta-agent (CEO) managing 73+ superagent employees across 3-4 cloud-based companies. Cloud brain, local muscle.
-- Files to read first: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
-- Tests to run first: `node -v` (verify Node 24), `openclaw --version` (if already installed)
-- Risk: Paperclip is 24 days old. SuperMemory is vendor-dependent. Both have fallbacks.
+## Resume Instructions
+1. Read this file
+2. `curl -s https://jake.jakestudio.ai/health` — verify gateway
+3. `openclaw cron list` — verify 4 cron jobs
+4. `curl -s http://localhost:3100/api/health` — verify Paperclip
+5. Continue from: **Phase 3 — full agent loop test**
 
 ## Build Health
-- Files modified this session: 4 (design doc, phase 1 plan, research findings, memory)
-- Tests passing: N/A (research/design session, no code changes)
-- Context health at close: ORANGE (heavy research session, massive context loaded)
+- Commits: 9 pushed to main
+- Tests: N/A (infrastructure)
+- Context health at close: YELLOW
