@@ -47,3 +47,4 @@ pai/voltagent/dist/
 .cloudflare/
 infrastructure/cloudflare-worker/.dev.vars
 infrastructure/cloudflare-worker/.wrangler/
+.wrangler/
