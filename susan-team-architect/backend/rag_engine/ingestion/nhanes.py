@@ -1,6 +1,6 @@
 """NHANES health data synthesis — generates population health profiles from CDC data."""
 from __future__ import annotations
-from anthropic import Anthropic
+import os
 from rag_engine.ingestion.base import BaseIngestor
 from rag_engine.chunker import chunk_text
 from susan_core.config import config
@@ -24,7 +24,20 @@ class NHANESIngestor(BaseIngestor):
             source: Ignored
             num_profiles: Number of diverse profiles to generate
         """
-        client = Anthropic(api_key=config.anthropic_api_key)
+        # Route through jake_cost (OpenRouter default, Anthropic fallback)
+        if os.environ.get("FORCE_ANTHROPIC"):
+            from anthropic import Anthropic
+            client, model, provider = Anthropic(api_key=config.anthropic_api_key), config.model_sonnet, "anthropic"
+        else:
+            try:
+                from jake_cost.router import ModelRouter
+                from jake_cost.openrouter_client import OpenRouterClient
+                router = ModelRouter()
+                decision = router.route("content_generation", complexity="medium")
+                client, model, provider = OpenRouterClient(), decision.model_id, "openrouter"
+            except ImportError:
+                from anthropic import Anthropic
+                client, model, provider = Anthropic(api_key=config.anthropic_api_key), config.model_sonnet, "anthropic"
 
         prompt = f"""Based on your knowledge of NHANES (National Health and Nutrition Examination Survey)
 population health data from the CDC, generate {num_profiles} diverse, realistic user profiles
@@ -46,13 +59,12 @@ Make profiles diverse across:
 
 Format each profile as a standalone paragraph. Separate profiles with ---"""
 
-        response = client.messages.create(
-            model=config.model_sonnet,
-            max_tokens=8192,
-            messages=[{"role": "user", "content": prompt}],
-        )
-
-        text = response.content[0].text
+        if provider == "openrouter":
+            result = client.chat(model=model, messages=[{"role": "user", "content": prompt}], max_tokens=8192)
+            text = result["content"]
+        else:
+            response = client.messages.create(model=model, max_tokens=8192, messages=[{"role": "user", "content": prompt}])
+            text = response.content[0].text
         profiles = [p.strip() for p in text.split("---") if p.strip()]
 
         chunks = self._make_chunks(
