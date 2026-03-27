@@ -19,7 +19,8 @@ mkdir -p "$LOG_DIR" "$BRIEFS_DIR"
 echo "=== jake-morning-pipeline.sh $(date '+%Y-%m-%d %H:%M:%S') ===" >> "$LOG"
 
 # Load env (API keys, Telegram tokens)
-for envfile in "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
+# Vault is canonical source; hermes/openclaw are fallbacks
+for envfile in "$HOME/.jake-vault/secrets.env" "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
     if [ -f "$envfile" ]; then
         set -a
         # shellcheck disable=SC1090

@@ -26,11 +26,14 @@ except ImportError:
     sys.exit(1)
 
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
-TOKEN_FILE = Path.home() / ".hermes" / "google_oauth_tokens.json"
+VAULT_DIR = Path.home() / ".jake-vault"
+TOKEN_FILE = VAULT_DIR / "google_oauth_tokens.json"
+LEGACY_TOKEN_FILE = Path.home() / ".hermes" / "google_oauth_tokens.json"
 
-# Check for existing client credentials
-if TOKEN_FILE.exists():
-    with open(TOKEN_FILE) as f:
+# Check for existing client credentials (vault first, then legacy)
+source_file = TOKEN_FILE if TOKEN_FILE.exists() else LEGACY_TOKEN_FILE
+if source_file.exists():
+    with open(source_file) as f:
         existing = json.load(f)
     client_id = existing.get("client_id", "")
     client_secret = existing.get("client_secret", "")
@@ -86,10 +89,32 @@ tokens = {
     "scopes": SCOPES,
 }
 
-TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+VAULT_DIR.mkdir(parents=True, exist_ok=True)
 with open(TOKEN_FILE, "w") as f:
     json.dump(tokens, f, indent=2)
-print(f"Tokens saved to {TOKEN_FILE}")
+TOKEN_FILE.chmod(0o600)
+print(f"Tokens saved to vault: {TOKEN_FILE}")
+
+# Also save credentials JSON to vault
+installed = client_config.get("installed", client_config.get("web", {}))
+cred_vault = VAULT_DIR / "google_credentials.json"
+with open(cred_vault, "w") as f:
+    json.dump(client_config, f, indent=2)
+cred_vault.chmod(0o600)
+print(f"Credentials saved to vault: {cred_vault}")
+
+# Sync vault to all consumers
+import subprocess
+sync_script = VAULT_DIR / "sync.sh"
+if sync_script.exists():
+    print("\nSyncing vault to all consumers...")
+    subprocess.run([str(sync_script)], check=False)
+else:
+    # Manual fallback — copy to legacy location
+    LEGACY_TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(LEGACY_TOKEN_FILE, "w") as f:
+        json.dump(tokens, f, indent=2)
+    print(f"Also saved to legacy: {LEGACY_TOKEN_FILE}")
 
 # Test
 print()

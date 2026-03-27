@@ -16,7 +16,7 @@ STATE_FILE="$REPO_ROOT/.startup-os/runs/meeting-scanner-state.json"
 mkdir -p "$LOG_DIR" "$(dirname "$STATE_FILE")"
 
 # Load env
-for envfile in "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
+for envfile in "$HOME/.jake-vault/secrets.env" "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
     if [ -f "$envfile" ]; then
         set -a
         # shellcheck disable=SC1090

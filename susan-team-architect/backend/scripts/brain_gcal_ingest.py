@@ -35,8 +35,10 @@ except ImportError:
     print("  pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib")
     sys.exit(1)
 
-# OAuth token file (shared with Hermes)
-GOOGLE_TOKENS_FILE = Path.home() / ".hermes" / "google_oauth_tokens.json"
+# OAuth token file — vault is canonical, hermes is fallback
+_vault_tokens = Path.home() / ".jake-vault" / "google_oauth_tokens.json"
+_hermes_tokens = Path.home() / ".hermes" / "google_oauth_tokens.json"
+GOOGLE_TOKENS_FILE = _vault_tokens if _vault_tokens.exists() else _hermes_tokens
 
 # Scopes needed for read-only calendar access
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]

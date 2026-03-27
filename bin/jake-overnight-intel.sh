@@ -20,7 +20,7 @@ mkdir -p "$LOG_DIR" "$BRIEFS_DIR"
 echo "=== jake-overnight-intel.sh $(date '+%Y-%m-%d %H:%M:%S') ===" >> "$LOG"
 
 # Load env
-for envfile in "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
+for envfile in "$HOME/.jake-vault/secrets.env" "$HOME/.hermes/.env" "$HOME/.openclaw/.env"; do
     if [ -f "$envfile" ]; then
         set -a
         # shellcheck disable=SC1090
