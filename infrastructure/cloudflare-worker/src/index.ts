@@ -7,7 +7,7 @@
  */
 
 interface Env {
-  // JAKE_STATE: R2Bucket;  // enable after R2 is activated in dashboard
+  JAKE_STATE: R2Bucket;
   JAKE_CACHE: KVNamespace;
   ENVIRONMENT: string;
   JAKE_VERSION: string;

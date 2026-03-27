@@ -8,10 +8,9 @@ ENVIRONMENT = "production"
 JAKE_VERSION = "v15-phase1"
 
 # R2 bucket for Jake's persistent state (conversations, artifacts)
-# NOTE: Enable R2 in Cloudflare dashboard first, then uncomment:
-# [[r2_buckets]]
-# binding = "JAKE_STATE"
-# bucket_name = "jake-state"
+[[r2_buckets]]
+binding = "JAKE_STATE"
+bucket_name = "jake-state"
 
 # KV namespace for hot cache (recent context, session data)
 [[kv_namespaces]]
