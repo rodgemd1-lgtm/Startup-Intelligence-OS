@@ -1,10 +1,20 @@
-"""Base agent class — RAG query, BE lens injection, cost tracking."""
+"""Base agent class — RAG query, BE lens injection, cost tracking.
+
+V1.5: Routes through OpenRouter by default (Gemini 2.0 Flash, DeepSeek V3.2,
+GLM-4.5-Air:free). Anthropic is kept as fallback only.
+"""
 from __future__ import annotations
 import json
+import logging
+import os
 import time
 from anthropic import Anthropic
 from rag_engine.retriever import Retriever
 from susan_core.config import config
+from jake_cost.router import router, ModelTier, Provider, _MODEL_PRICING
+from jake_cost.openrouter_client import get_openrouter_client, OpenRouterClient
+
+logger = logging.getLogger(__name__)
 
 BE_LENS = """<behavioral_economics_lens>
 Before finalizing any output, apply these checks:
@@ -19,21 +29,49 @@ Default to LOSS FRAMING for all re-engagement copy.
 Reference the Apex Ventures BE Repository for scripts and benchmarks.
 </behavioral_economics_lens>"""
 
+# Set True to force all agents back to Anthropic (emergency rollback)
+FORCE_ANTHROPIC = os.environ.get("FORCE_ANTHROPIC", "").lower() in ("1", "true", "yes")
+
 
 class BaseAgent:
-    """Base class for all 22 Susan agents."""
+    """Base class for all Susan agents. Routes via OpenRouter by default."""
 
     agent_id: str = "base"
     agent_name: str = "Base Agent"
     role: str = "Agent"
-    model: str = config.model_sonnet
+    # Default task type for routing — subclasses can override
+    task_type: str = "employee_run"
     rag_data_types: list[str] = []
     system_prompt: str = ""
 
     def __init__(self, company_id: str = "shared"):
         self.company_id = company_id
-        self.client = Anthropic(api_key=config.anthropic_api_key)
         self.retriever = Retriever()
+        # Resolve model via router
+        self._routing = router.route(self.task_type)
+        self.model = self._routing.model_id
+        self.provider = self._routing.provider
+
+        # Initialize the appropriate client
+        if FORCE_ANTHROPIC or self.provider == Provider.ANTHROPIC:
+            self._anthropic = Anthropic(api_key=config.anthropic_api_key)
+            self._openrouter = None
+            self.provider = Provider.ANTHROPIC
+            # Use Anthropic model ID
+            self.model = config.model_sonnet
+        else:
+            self._anthropic = None
+            try:
+                self._openrouter = get_openrouter_client()
+            except ValueError:
+                # OpenRouter key not set — fall back to Anthropic
+                logger.warning(
+                    f"[{self.agent_id}] OPENROUTER_API_KEY not set, falling back to Anthropic"
+                )
+                self._anthropic = Anthropic(api_key=config.anthropic_api_key)
+                self._openrouter = None
+                self.provider = Provider.ANTHROPIC
+                self.model = config.model_sonnet
 
     def get_system_prompt(self) -> str:
         """Build full system prompt with BE lens injection."""
@@ -84,15 +122,57 @@ class BaseAgent:
         full_prompt = f"{rag_context}\n{prompt}" if rag_context else prompt
 
         start = time.time()
-        response = self.client.messages.create(
+
+        if self.provider == Provider.OPENROUTER and self._openrouter:
+            result = self._run_openrouter(full_prompt, max_tokens)
+        else:
+            result = self._run_anthropic(full_prompt, max_tokens)
+
+        duration_ms = int((time.time() - start) * 1000)
+        result["duration_ms"] = duration_ms
+
+        # Log run to Supabase
+        self._log_run(result)
+
+        return result
+
+    def _run_openrouter(self, full_prompt: str, max_tokens: int) -> dict:
+        """Execute via OpenRouter (Gemini, DeepSeek, GLM, GPT-4o)."""
+        resp = self._openrouter.chat(
+            model=self.model,
+            messages=[{"role": "user", "content": full_prompt}],
+            system=self.get_system_prompt(),
+            max_tokens=max_tokens,
+        )
+
+        # Use cost from OpenRouter response, or estimate from router
+        cost = resp.cost_usd
+        if not cost:
+            pricing = _MODEL_PRICING.get(self._routing.tier, {})
+            cost = (
+                resp.input_tokens * pricing.get("input_per_1m", 0) / 1_000_000
+                + resp.output_tokens * pricing.get("output_per_1m", 0) / 1_000_000
+            )
+
+        return {
+            "text": resp.text,
+            "input_tokens": resp.input_tokens,
+            "output_tokens": resp.output_tokens,
+            "cost_usd": round(cost, 6),
+            "model": self.model,
+            "provider": "openrouter",
+            "tier": self._routing.tier.value,
+        }
+
+    def _run_anthropic(self, full_prompt: str, max_tokens: int) -> dict:
+        """Execute via Anthropic direct (legacy / fallback)."""
+        response = self._anthropic.messages.create(
             model=self.model,
             max_tokens=max_tokens,
             system=self.get_system_prompt(),
             messages=[{"role": "user", "content": full_prompt}],
         )
-        duration_ms = int((time.time() - start) * 1000)
 
-        # Track costs
         input_tokens = response.usage.input_tokens
         output_tokens = response.usage.output_tokens
         cost = (
@@ -100,30 +180,32 @@ class BaseAgent:
             + output_tokens * config.cost_per_m_output.get(self.model, 15.0) / 1_000_000
         )
 
-        # Log run
+        return {
+            "text": response.content[0].text,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "cost_usd": round(cost, 6),
+            "model": self.model,
+            "provider": "anthropic",
+            "tier": "sonnet",
+        }
+
+    def _log_run(self, result: dict) -> None:
+        """Log agent run to Supabase for cost tracking."""
         try:
             from supabase import create_client
             sb = create_client(config.supabase_url, config.supabase_key)
             sb.table("agent_runs").insert({
                 "company_id": self.company_id,
                 "agent_id": self.agent_id,
-                "model": self.model,
-                "input_tokens": input_tokens,
-                "output_tokens": output_tokens,
-                "cost_usd": float(cost),
-                "duration_ms": duration_ms,
+                "model": result.get("model", self.model),
+                "input_tokens": result.get("input_tokens", 0),
+                "output_tokens": result.get("output_tokens", 0),
+                "cost_usd": float(result.get("cost_usd", 0)),
+                "duration_ms": result.get("duration_ms", 0),
             }).execute()
         except Exception:
             pass  # Don't fail on logging errors
-
-        text = response.content[0].text
-        return {
-            "text": text,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "cost_usd": round(cost, 6),
-            "duration_ms": duration_ms,
-        }
 
     def run_json(self, prompt: str, max_tokens: int = 4096) -> dict:
         """Execute and parse JSON from the response."""
@@ -133,8 +215,11 @@ class BaseAgent:
         start = text.find('{')
         end = text.rfind('}') + 1
         if start >= 0 and end > start:
-            parsed = json.loads(text[start:end])
-            result["parsed"] = parsed
+            try:
+                parsed = json.loads(text[start:end])
+                result["parsed"] = parsed
+            except json.JSONDecodeError:
+                result["parsed"] = None
         else:
             result["parsed"] = None
         return result

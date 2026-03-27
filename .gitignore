@@ -43,6 +43,12 @@ vendor/
 pai/intelligence/logs/
 pai/voltagent/dist/
 
+# VoltAgent reference repos (cloned for catalog, not committed)
+archive/voltagent/
+
+# Runtime logs
+.startup-os/logs/
+
 # Cloudflare (secrets and local config)
 .cloudflare/
 infrastructure/cloudflare-worker/.dev.vars
