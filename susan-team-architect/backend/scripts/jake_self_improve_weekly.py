@@ -79,8 +79,10 @@ def _write_status_to_supabase(summary: str, success: bool, dry_run: bool) -> Non
         row = {
             "content": summary,
             "source": "jake_self_improve_weekly",
-            "data_type": "self_improvement_run",
+            "source_type": "hermes",
+            "memory_type": "action",
             "importance": 0.6,
+            "occurred_at": now,
             "metadata": {
                 "run_at": now,
                 "success": success,
