@@ -77,7 +77,7 @@ def get_notion_token() -> str:
     sys.exit(1)
 
 
-def notion_request(path: str, method: str = "GET", body: dict | None = None) -> dict:
+def notion_request(path: str, method: str = "GET", body=None) -> dict:
     """Make an authenticated request to the Notion API."""
     url = f"{NOTION_API_BASE}{path}"
     headers = {
@@ -98,7 +98,7 @@ def notion_request(path: str, method: str = "GET", body: dict | None = None) -> 
 
 # ── Notion Search (paginated) ────────────────────────────────────────
 
-def search_all_pages() -> list[dict]:
+def search_all_pages() -> list:
     """Search for all pages the integration can access, handling pagination."""
     pages = []
     start_cursor = None
@@ -116,7 +116,7 @@ def search_all_pages() -> list[dict]:
 
 # ── Block → Markdown Conversion ──────────────────────────────────────
 
-def rich_text_to_md(rich_texts: list[dict]) -> str:
+def rich_text_to_md(rich_texts: list) -> str:
     """Convert Notion rich_text array to markdown string."""
     parts = []
     for rt in rich_texts:
@@ -137,7 +137,7 @@ def rich_text_to_md(rich_texts: list[dict]) -> str:
     return "".join(parts)
 
 
-def get_block_children(block_id: str) -> list[dict]:
+def get_block_children(block_id: str) -> list:
     """Fetch all child blocks for a given block, handling pagination."""
     blocks = []
     start_cursor = None
@@ -153,7 +153,7 @@ def get_block_children(block_id: str) -> list[dict]:
     return blocks
 
 
-def blocks_to_markdown(blocks: list[dict], depth: int = 0) -> str:
+def blocks_to_markdown(blocks: list, depth: int = 0) -> str:
     """Convert a list of Notion blocks into markdown text."""
     lines = []
     indent = "  " * depth
@@ -231,7 +231,22 @@ def blocks_to_markdown(blocks: list[dict], depth: int = 0) -> str:
             lines.append("")
 
         elif btype == "table":
-            # Tables need child rows fetched
+            # Fetch table rows and render as markdown table
+            try:
+                rows = get_block_children(block["id"])
+                if rows:
+                    for ri, row in enumerate(rows):
+                        cells = row.get("table_row", {}).get("cells", [])
+                        cell_texts = [rich_text_to_md(cell) for cell in cells]
+                        lines.append(indent + "| " + " | ".join(cell_texts) + " |")
+                        if ri == 0:
+                            lines.append(indent + "| " + " | ".join("---" for _ in cells) + " |")
+                    lines.append("")
+            except Exception as e:
+                vlog("Could not fetch table rows: " + str(e))
+
+        elif btype == "table_row":
+            # Handled by parent table block
             pass
 
         elif btype == "child_page":
@@ -266,11 +281,21 @@ def blocks_to_markdown(blocks: list[dict], depth: int = 0) -> str:
             pass
 
         elif btype == "table_of_contents":
-            lines.append(f"{indent}*[Table of Contents]*")
+            lines.append(indent + "*[Table of Contents]*")
             lines.append("")
 
+        elif btype in ("audio", "video", "file", "pdf", "breadcrumb",
+                        "link_to_page", "template", "unsupported",
+                        "transcription"):
+            # Known block types we skip gracefully
+            if btype in ("audio", "video", "file", "pdf"):
+                url = bdata.get("file", bdata.get("external", {})).get("url", "")
+                if url:
+                    lines.append(indent + "[" + btype.title() + "](" + url + ")")
+                    lines.append("")
+
         else:
-            vlog(f"Skipped unsupported block type: {btype}")
+            vlog("Skipped unsupported block type: " + btype)
 
         # Recurse into children if present
         if block.get("has_children") and btype not in ("child_page", "child_database"):
@@ -317,7 +342,7 @@ def sanitize_filename(name: str) -> str:
 
 # ── Page Tags Extraction ──────────────────────────────────────────────
 
-def get_page_tags(page: dict) -> list[str]:
+def get_page_tags(page: dict) -> list:
     """Extract tags from multi_select or select properties."""
     tags = []
     props = page.get("properties", {})
@@ -333,21 +358,23 @@ def get_page_tags(page: dict) -> list[str]:
 
 # ── Frontmatter ───────────────────────────────────────────────────────
 
-def build_frontmatter(title: str, tags: list[str], notion_id: str, last_edited: str) -> str:
+def build_frontmatter(title: str, tags: list, notion_id: str, last_edited: str) -> str:
     """Build Obsidian-compatible YAML frontmatter."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     all_tags = ["notion"] + tags
-    tag_str = "\n".join(f"  - {t}" for t in all_tags)
-    return f"""---
-title: "{title.replace('"', '\\"')}"
-source: notion
-notion_id: {notion_id}
-last_edited: {last_edited}
-synced: {now}
-tags:
-{tag_str}
----
-"""
+    tag_str = "\n".join("  - " + t for t in all_tags)
+    escaped_title = title.replace('"', '\\"')
+    return (
+        "---\n"
+        'title: "' + escaped_title + '"\n'
+        "source: notion\n"
+        "notion_id: " + notion_id + "\n"
+        "last_edited: " + last_edited + "\n"
+        "synced: " + now + "\n"
+        "tags:\n"
+        + tag_str + "\n"
+        "---\n"
+    )
 
 
 # ── Sync State ────────────────────────────────────────────────────────
