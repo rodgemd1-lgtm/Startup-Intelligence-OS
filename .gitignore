@@ -42,3 +42,8 @@ vendor/
 # PAI runtime logs and compiled output
 pai/intelligence/logs/
 pai/voltagent/dist/
+
+# Cloudflare (secrets and local config)
+.cloudflare/
+infrastructure/cloudflare-worker/.dev.vars
+infrastructure/cloudflare-worker/.wrangler/
