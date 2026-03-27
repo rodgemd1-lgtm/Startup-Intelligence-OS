@@ -1,0 +1,581 @@
+{
+  "version": "1.0.0",
+  "schema": "voltagent-guardrails-v1",
+  "description": "VoltAgent-standard guardrails for JakeStudio 6 superagents",
+  "lastUpdated": "2026-03-27",
+
+  "global": {
+    "inputGuardrails": [
+      {
+        "id": "global-block-destructive-commands",
+        "name": "Block Destructive System Commands",
+        "type": "regex_block",
+        "description": "Prevent any request that would delete system-critical files or directories",
+        "patterns": [
+          "rm\\s+(-[rRf]+\\s+)*(/|~|\\$HOME)",
+          "rmdir\\s+(/|~|\\$HOME)",
+          "del\\s+/[sS]",
+          "format\\s+[cCdD]:",
+          "mkfs\\.",
+          "dd\\s+.*of=/dev/",
+          "chmod\\s+-R\\s+777\\s+/"
+        ],
+        "action": "block",
+        "message": "BLOCKED: Request contains destructive system command. This action is permanently prohibited."
+      },
+      {
+        "id": "global-financial-approval-gate",
+        "name": "Financial Action Approval Gate",
+        "type": "approval_required",
+        "description": "Block money transfers, purchases, or financial transactions without explicit approval",
+        "triggerPatterns": [
+          "send\\s+money",
+          "make\\s+(a\\s+)?purchase",
+          "buy\\s+",
+          "transfer\\s+\\$",
+          "pay\\s+",
+          "subscribe\\s+to",
+          "upgrade\\s+(plan|tier|subscription)"
+        ],
+        "requiredPrefix": "APPROVED: ",
+        "action": "block",
+        "message": "BLOCKED: Financial actions require explicit 'APPROVED: ' prefix from Mike. Resubmit with approval."
+      },
+      {
+        "id": "global-social-media-approval-gate",
+        "name": "Social Media Posting Approval Gate",
+        "type": "approval_required",
+        "description": "Block social media posts without explicit approval",
+        "triggerPatterns": [
+          "post\\s+(to|on)\\s+(twitter|x|linkedin|facebook|instagram|threads|bluesky|mastodon)",
+          "tweet\\s+",
+          "publish\\s+(to|on)\\s+social",
+          "share\\s+(to|on)\\s+(twitter|x|linkedin|facebook|instagram)"
+        ],
+        "requiredPrefix": "APPROVED: ",
+        "action": "block",
+        "message": "BLOCKED: Social media posts require explicit 'APPROVED: ' prefix from Mike. Resubmit with approval."
+      },
+      {
+        "id": "global-external-email-approval-gate",
+        "name": "External Email Approval Gate",
+        "type": "conditional_block",
+        "description": "Block emails to external contacts without approval. Internal briefs to Mike are always allowed.",
+        "allowedRecipients": [
+          "mike@*",
+          "mikerodgers@*",
+          "mrodgers@*"
+        ],
+        "triggerPatterns": [
+          "send\\s+(an\\s+)?email\\s+to",
+          "email\\s+.*@",
+          "compose\\s+(an\\s+)?email"
+        ],
+        "requiredPrefix": "APPROVED: ",
+        "action": "block_unless_allowed_recipient",
+        "message": "BLOCKED: External emails require explicit 'APPROVED: ' prefix from Mike. Emails to Mike are always permitted."
+      },
+      {
+        "id": "global-rate-limit",
+        "name": "API Rate Limiter",
+        "type": "rate_limit",
+        "description": "Enforce maximum API calls per agent per hour",
+        "maxCalls": 100,
+        "windowSeconds": 3600,
+        "scope": "per_agent",
+        "action": "throttle",
+        "message": "THROTTLED: Agent has exceeded 100 API calls this hour. Cooling down."
+      },
+      {
+        "id": "global-cost-guard",
+        "name": "Monthly Cost Budget Guard",
+        "type": "cost_limit",
+        "description": "Block actions if estimated cost would exceed the agent's monthly budget allocation",
+        "budgets": {
+          "jake": 50.00,
+          "kira": 15.00,
+          "aria": 20.00,
+          "scout": 25.00,
+          "steve": 15.00,
+          "compass": 15.00
+        },
+        "currency": "USD",
+        "period": "monthly",
+        "action": "block",
+        "message": "BLOCKED: Estimated cost exceeds this agent's monthly budget. Review spending or request budget increase."
+      }
+    ],
+    "outputGuardrails": [
+      {
+        "id": "global-redact-secrets",
+        "name": "Secret and API Key Redactor",
+        "type": "regex_redact",
+        "description": "Redact API keys, passwords, tokens, and secrets from all output",
+        "patterns": [
+          "(sk-[a-zA-Z0-9]{20,})",
+          "(api[_-]?key[\\s=:]+)['\"]?[a-zA-Z0-9_\\-]{16,}['\"]?",
+          "(password[\\s=:]+)['\"]?[^\\s'\"]{4,}['\"]?",
+          "(token[\\s=:]+)['\"]?[a-zA-Z0-9_\\-\\.]{16,}['\"]?",
+          "(secret[\\s=:]+)['\"]?[a-zA-Z0-9_\\-]{16,}['\"]?",
+          "(SUPABASE_[A-Z_]*KEY[\\s=:]+)['\"]?[a-zA-Z0-9_\\-\\.]{16,}['\"]?",
+          "(OPENAI_API_KEY[\\s=:]+)['\"]?[a-zA-Z0-9_\\-]{16,}['\"]?",
+          "(VOYAGE_API_KEY[\\s=:]+)['\"]?[a-zA-Z0-9_\\-]{16,}['\"]?",
+          "(RESEND_API_KEY[\\s=:]+)['\"]?[a-zA-Z0-9_\\-]{16,}['\"]?",
+          "Bearer\\s+[a-zA-Z0-9_\\-\\.]{20,}",
+          "ghp_[a-zA-Z0-9]{36}",
+          "gho_[a-zA-Z0-9]{36}"
+        ],
+        "replacement": "[REDACTED]",
+        "action": "redact"
+      },
+      {
+        "id": "global-redact-pii",
+        "name": "PII Redactor",
+        "type": "regex_redact",
+        "description": "Redact Social Security numbers and credit card numbers from output",
+        "patterns": [
+          "\\b\\d{3}-\\d{2}-\\d{4}\\b",
+          "\\b\\d{9}\\b(?=.*SSN|ssn|social)",
+          "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\\b"
+        ],
+        "replacement": "[PII-REDACTED]",
+        "action": "redact"
+      },
+      {
+        "id": "global-flag-advice",
+        "name": "Professional Advice Disclaimer Flag",
+        "type": "content_flag",
+        "description": "Flag outputs containing legal, medical, or financial advice with a disclaimer",
+        "triggerPatterns": [
+          "(?i)(you\\s+should\\s+(sue|file|litigate|consult\\s+a\\s+lawyer))",
+          "(?i)(legal\\s+advice|not\\s+legal\\s+advice|disclaimer)",
+          "(?i)(medical\\s+advice|diagnosis|prescription|treatment\\s+plan)",
+          "(?i)(investment\\s+advice|financial\\s+advice|you\\s+should\\s+(invest|buy\\s+stock))",
+          "(?i)(tax\\s+advice|tax\\s+strategy|deduction)"
+        ],
+        "disclaimer": "NOTICE: This output may contain information that resembles professional advice. It is generated by an AI agent and should NOT be treated as legal, medical, or financial counsel. Consult a qualified professional.",
+        "action": "append_disclaimer"
+      },
+      {
+        "id": "global-audit-log",
+        "name": "SuperMemory Audit Trail",
+        "type": "audit_log",
+        "description": "Log all agent outputs to SuperMemory for compliance and review",
+        "destination": "supermemory",
+        "logFields": [
+          "agentId",
+          "timestamp",
+          "inputHash",
+          "outputHash",
+          "outputLength",
+          "guardrailsTriggered",
+          "costEstimate"
+        ],
+        "retention": "90d",
+        "action": "log"
+      }
+    ]
+  },
+
+  "agents": {
+    "jake": {
+      "description": "Root orchestrator and co-founder agent. Highest privilege level.",
+      "privilegeLevel": "admin",
+      "inputGuardrails": [
+        {
+          "id": "jake-email-scope",
+          "name": "Jake Email Scope Limit",
+          "type": "conditional_block",
+          "description": "Jake can send emails only to Mike. All other recipients require APPROVED prefix.",
+          "allowedRecipients": [
+            "mike@*",
+            "mikerodgers@*",
+            "mrodgers@*"
+          ],
+          "action": "block_unless_allowed_recipient",
+          "message": "Jake can only send emails to Mike directly. External recipients require 'APPROVED: ' prefix."
+        },
+        {
+          "id": "jake-approve-delegation",
+          "name": "Jake Delegation Logging",
+          "type": "audit_log",
+          "description": "Log all actions Jake approves for other agents",
+          "triggerPatterns": [
+            "approve",
+            "authorize",
+            "delegate",
+            "dispatch"
+          ],
+          "action": "log",
+          "destination": "supermemory"
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "jake-privilege-escalation-guard",
+          "name": "Privilege Escalation Guard",
+          "type": "content_block",
+          "description": "Prevent Jake from granting agents higher privileges than their defined level",
+          "triggerPatterns": [
+            "grant\\s+admin",
+            "elevate\\s+privilege",
+            "override\\s+guardrail",
+            "disable\\s+guardrail"
+          ],
+          "action": "block",
+          "message": "BLOCKED: Jake cannot override agent guardrails or escalate agent privileges. Guardrail changes require direct file edits by Mike."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": true,
+        "canSendEmail": true,
+        "emailRecipients": ["mike_only"],
+        "canExecuteCommands": true,
+        "canModifyFiles": true,
+        "canAccessExternalAPIs": true,
+        "canDispatchAgents": true
+      }
+    },
+
+    "kira": {
+      "description": "Intelligence router. Read-only analysis and routing. Cannot execute actions or modify files.",
+      "privilegeLevel": "read_only",
+      "inputGuardrails": [
+        {
+          "id": "kira-no-execution",
+          "name": "KIRA Execution Block",
+          "type": "action_block",
+          "description": "KIRA cannot execute any system commands, scripts, or actions",
+          "triggerPatterns": [
+            "execute",
+            "run\\s+",
+            "bash\\s+",
+            "python\\s+",
+            "node\\s+",
+            "npm\\s+",
+            "sh\\s+",
+            "curl\\s+",
+            "wget\\s+"
+          ],
+          "action": "block",
+          "message": "BLOCKED: KIRA is read-only and cannot execute commands. Route this request to an appropriate agent."
+        },
+        {
+          "id": "kira-no-file-modify",
+          "name": "KIRA File Modification Block",
+          "type": "action_block",
+          "description": "KIRA cannot create, modify, or delete any files",
+          "triggerPatterns": [
+            "create\\s+file",
+            "write\\s+(to\\s+)?file",
+            "modify\\s+",
+            "edit\\s+",
+            "delete\\s+file",
+            "mkdir",
+            "touch\\s+",
+            "mv\\s+",
+            "cp\\s+"
+          ],
+          "action": "block",
+          "message": "BLOCKED: KIRA cannot modify files. Route file operations to Jake or Compass."
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "kira-routing-only",
+          "name": "KIRA Output Scope Enforcer",
+          "type": "content_validate",
+          "description": "KIRA outputs must be routing decisions, analysis, or classification only",
+          "action": "flag",
+          "message": "WARNING: KIRA output contains actionable content beyond routing/analysis. Review for scope violation."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": false,
+        "canSendEmail": false,
+        "canExecuteCommands": false,
+        "canModifyFiles": false,
+        "canAccessExternalAPIs": false,
+        "canDispatchAgents": false,
+        "canReadFiles": true,
+        "canRouteRequests": true,
+        "canClassifyIntents": true
+      }
+    },
+
+    "aria": {
+      "description": "Daily intelligence and briefing agent. Can read email/calendar. Can send emails only to Mike. Cannot modify code.",
+      "privilegeLevel": "restricted_write",
+      "inputGuardrails": [
+        {
+          "id": "aria-email-scope",
+          "name": "ARIA Email Recipient Lock",
+          "type": "conditional_block",
+          "description": "ARIA can only send emails to Mike",
+          "allowedRecipients": [
+            "mike@*",
+            "mikerodgers@*",
+            "mrodgers@*"
+          ],
+          "action": "block_unless_allowed_recipient",
+          "message": "BLOCKED: ARIA can only send emails to Mike. External recipients are not permitted."
+        },
+        {
+          "id": "aria-no-code-modify",
+          "name": "ARIA Code Modification Block",
+          "type": "action_block",
+          "description": "ARIA cannot create, modify, or delete code files",
+          "triggerPatterns": [
+            "\\.(py|js|ts|jsx|tsx|json|yaml|yml|toml|sh|bash|sql|html|css)$",
+            "modify\\s+code",
+            "edit\\s+.*\\.(py|js|ts)",
+            "write\\s+.*\\.(py|js|ts)",
+            "git\\s+(commit|push|merge|rebase)"
+          ],
+          "action": "block",
+          "message": "BLOCKED: ARIA cannot modify code files. Route code changes to Jake or Compass."
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "aria-brief-format-check",
+          "name": "ARIA Brief Format Validator",
+          "type": "content_validate",
+          "description": "Ensure ARIA daily briefs include required sections",
+          "requiredSections": [
+            "date",
+            "priority",
+            "action_items"
+          ],
+          "action": "flag",
+          "message": "WARNING: ARIA brief is missing required sections. Check format."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": false,
+        "canSendEmail": true,
+        "emailRecipients": ["mike_only"],
+        "canExecuteCommands": false,
+        "canModifyFiles": false,
+        "canModifyCodeFiles": false,
+        "canReadEmail": true,
+        "canReadCalendar": true,
+        "canAccessExternalAPIs": true,
+        "canDispatchAgents": false
+      }
+    },
+
+    "scout": {
+      "description": "External research and intelligence agent. Read-only for all sources. Cannot modify files or send messages.",
+      "privilegeLevel": "read_only",
+      "inputGuardrails": [
+        {
+          "id": "scout-no-file-modify",
+          "name": "SCOUT File Modification Block",
+          "type": "action_block",
+          "description": "SCOUT cannot create, modify, or delete any files",
+          "triggerPatterns": [
+            "create\\s+file",
+            "write\\s+(to\\s+)?file",
+            "modify\\s+",
+            "edit\\s+",
+            "delete\\s+",
+            "mkdir",
+            "touch\\s+",
+            "mv\\s+",
+            "cp\\s+",
+            "git\\s+(commit|push|merge|add)"
+          ],
+          "action": "block",
+          "message": "BLOCKED: SCOUT is read-only and cannot modify files. Return research findings for other agents to act on."
+        },
+        {
+          "id": "scout-no-messaging",
+          "name": "SCOUT Messaging Block",
+          "type": "action_block",
+          "description": "SCOUT cannot send any emails, messages, or notifications",
+          "triggerPatterns": [
+            "send\\s+(email|message|notification|slack|telegram)",
+            "post\\s+to",
+            "notify\\s+",
+            "alert\\s+"
+          ],
+          "action": "block",
+          "message": "BLOCKED: SCOUT cannot send messages or notifications. Return findings to the orchestrator."
+        },
+        {
+          "id": "scout-external-only",
+          "name": "SCOUT External Source Scope",
+          "type": "content_validate",
+          "description": "SCOUT should research external sources, not internal systems",
+          "action": "flag",
+          "message": "NOTE: SCOUT is optimized for external research. For internal knowledge, use KIRA or Susan's RAG."
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "scout-source-attribution",
+          "name": "SCOUT Source Attribution Enforcer",
+          "type": "content_validate",
+          "description": "All SCOUT outputs must include source URLs or references",
+          "requiredFields": ["sources"],
+          "action": "flag",
+          "message": "WARNING: SCOUT output is missing source attribution. All research must cite sources."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": false,
+        "canSendEmail": false,
+        "canSendMessages": false,
+        "canExecuteCommands": false,
+        "canModifyFiles": false,
+        "canAccessExternalAPIs": true,
+        "canDispatchAgents": false,
+        "canReadExternalSources": true,
+        "canSearchWeb": true,
+        "canScrapeUrls": true
+      }
+    },
+
+    "steve": {
+      "description": "Strategy and analysis agent. Read-only analysis. Cannot execute commands or modify files.",
+      "privilegeLevel": "read_only",
+      "inputGuardrails": [
+        {
+          "id": "steve-no-execution",
+          "name": "Steve Execution Block",
+          "type": "action_block",
+          "description": "Steve cannot execute any system commands or scripts",
+          "triggerPatterns": [
+            "execute",
+            "run\\s+",
+            "bash\\s+",
+            "python\\s+",
+            "node\\s+",
+            "npm\\s+",
+            "sh\\s+",
+            "curl\\s+",
+            "deploy\\s+"
+          ],
+          "action": "block",
+          "message": "BLOCKED: Steve is an analysis-only agent and cannot execute commands. Route execution to Jake."
+        },
+        {
+          "id": "steve-no-file-modify",
+          "name": "Steve File Modification Block",
+          "type": "action_block",
+          "description": "Steve cannot create, modify, or delete any files",
+          "triggerPatterns": [
+            "create\\s+file",
+            "write\\s+(to\\s+)?file",
+            "modify\\s+",
+            "edit\\s+",
+            "delete\\s+",
+            "mkdir",
+            "touch\\s+",
+            "git\\s+(commit|push|merge|add)"
+          ],
+          "action": "block",
+          "message": "BLOCKED: Steve cannot modify files. Provide analysis and recommendations for other agents to implement."
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "steve-analysis-format",
+          "name": "Steve Analysis Format Enforcer",
+          "type": "content_validate",
+          "description": "Steve outputs should be structured analysis with evidence basis",
+          "requiredFields": ["analysis", "evidence", "recommendation"],
+          "action": "flag",
+          "message": "WARNING: Steve output may lack structured analysis format. Ensure evidence and recommendations are included."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": false,
+        "canSendEmail": false,
+        "canExecuteCommands": false,
+        "canModifyFiles": false,
+        "canAccessExternalAPIs": true,
+        "canDispatchAgents": false,
+        "canReadFiles": true,
+        "canAnalyzeData": true,
+        "canQueryRAG": true
+      }
+    },
+
+    "compass": {
+      "description": "Product planning agent. Can create and modify plan files only. Cannot execute code.",
+      "privilegeLevel": "restricted_write",
+      "inputGuardrails": [
+        {
+          "id": "compass-file-scope",
+          "name": "Compass File Scope Lock",
+          "type": "path_restriction",
+          "description": "Compass can only create/modify files in plan directories",
+          "allowedPaths": [
+            "docs/plans/**",
+            ".claude/plans/**",
+            ".startup-os/decisions/**",
+            ".startup-os/projects/**",
+            "HANDOFF.md"
+          ],
+          "action": "block",
+          "message": "BLOCKED: Compass can only modify plan and decision files. Path is outside allowed scope."
+        },
+        {
+          "id": "compass-no-code-execution",
+          "name": "Compass Code Execution Block",
+          "type": "action_block",
+          "description": "Compass cannot execute any code, scripts, or commands",
+          "triggerPatterns": [
+            "execute",
+            "run\\s+",
+            "bash\\s+",
+            "python\\s+",
+            "node\\s+",
+            "npm\\s+",
+            "deploy\\s+",
+            "git\\s+(push|merge|rebase)"
+          ],
+          "action": "block",
+          "message": "BLOCKED: Compass is a planning agent and cannot execute code. Route execution to Jake."
+        }
+      ],
+      "outputGuardrails": [
+        {
+          "id": "compass-plan-format",
+          "name": "Compass Plan Format Validator",
+          "type": "content_validate",
+          "description": "Compass plan outputs must follow the standard plan format",
+          "requiredSections": [
+            "objective",
+            "tasks",
+            "success_criteria",
+            "estimated_effort"
+          ],
+          "action": "flag",
+          "message": "WARNING: Compass plan output is missing required sections. Plans must include objective, tasks, success criteria, and effort estimate."
+        }
+      ],
+      "permissions": {
+        "canApproveAgentActions": false,
+        "canSendEmail": false,
+        "canExecuteCommands": false,
+        "canModifyFiles": true,
+        "canModifyCodeFiles": false,
+        "allowedFilePaths": [
+          "docs/plans/**",
+          ".claude/plans/**",
+          ".startup-os/decisions/**",
+          ".startup-os/projects/**",
+          "HANDOFF.md"
+        ],
+        "canAccessExternalAPIs": true,
+        "canDispatchAgents": false,
+        "canReadFiles": true,
+        "canCreatePlans": true,
+        "canCreateDecisions": true
+      }
+    }
+  }
+}
