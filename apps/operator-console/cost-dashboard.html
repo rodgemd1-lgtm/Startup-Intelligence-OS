@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V1.5 Cost Dashboard — Intelligence OS</title>
+    <title>Paperclip — Intelligence OS Cost Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📎</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -143,8 +144,8 @@
 
     <script>
         // Supabase config — reads from env or uses defaults
-        const SUPABASE_URL = 'https://zqsdadnnpgqhehqxplio.supabase.co';
-        const SUPABASE_KEY = new URLSearchParams(window.location.search).get('key') || '';
+        // Paperclip connects to local proxy that reads Supabase credentials from vault
+        const API_BASE = window.location.origin;
 
         // Pricing reference
         const SONNET_COST_PER_1M_IN = 3.0;
@@ -170,19 +171,11 @@
         };
 
         async function supabaseQuery(table, params = {}) {
-            const url = new URL(`${SUPABASE_URL}/rest/v1/${table}`);
+            const url = new URL(`${API_BASE}/api/${table}`);
             Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
-            const resp = await fetch(url, {
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Prefer': 'count=exact',
-                },
-            });
-            const count = resp.headers.get('content-range')?.split('/')[1];
+            const resp = await fetch(url);
             const data = await resp.json();
-            return { data, count: count ? parseInt(count) : data.length };
+            return { data, count: data.length };
         }
 
         async function loadData() {

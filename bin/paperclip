@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Paperclip — launch the cost dashboard
+# Usage: bin/paperclip        (start server + open browser)
+#        bin/paperclip stop    (kill server)
+#        bin/paperclip status  (check if running)
+
+set -euo pipefail
+
+PORT=4174
+SERVER="$HOME/Startup-Intelligence-OS/apps/operator-console/paperclip-server.py"
+URL="http://localhost:$PORT"
+
+case "${1:-start}" in
+  start)
+    if lsof -ti:$PORT &>/dev/null; then
+      echo "📎 Paperclip already running at $URL"
+    else
+      echo "📎 Starting Paperclip on port $PORT..."
+      cd "$(dirname "$SERVER")" && python3 "$SERVER" &>/dev/null &
+      sleep 1
+    fi
+    open "$URL"
+    ;;
+  stop)
+    if lsof -ti:$PORT &>/dev/null; then
+      kill $(lsof -ti:$PORT) 2>/dev/null
+      echo "📎 Paperclip stopped."
+    else
+      echo "📎 Paperclip not running."
+    fi
+    ;;
+  status)
+    if lsof -ti:$PORT &>/dev/null; then
+      echo "📎 Paperclip running at $URL (PID $(lsof -ti:$PORT))"
+    else
+      echo "📎 Paperclip not running."
+    fi
+    ;;
+  *)
+    echo "Usage: paperclip [start|stop|status]"
+    ;;
+esac
