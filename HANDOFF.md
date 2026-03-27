@@ -1,91 +1,50 @@
-# Session Handoff — Sales Enablement SOP Suite + 30-Day Roadmap
+# Session Handoff
 
-**Date**: 2026-03-25 (evening session)
-**Branch**: main
-**Status**: 10-SOP suite committed. Matt 1:1 prep complete. Outlook calendar incomplete.
+**Date**: 2026-03-27
+**Project**: Startup Intelligence OS
+**Session Goal**: Research the full OpenClaw/PAI ecosystem and design V15 Personal AI Infrastructure
+**Status**: COMPLETE (Research + Design + Phase 1 Plan)
 
----
+## Completed
+- [x] Dispatched 8 research agents in parallel — all completed
+- [x] Analyzed 42 GitHub repos, 32 YouTube videos, 7 products
+- [x] V15 Design Doc written and revised through R4 — files: `docs/plans/2026-03-27-v15-personal-ai-infrastructure-design.md`
+- [x] Phase 1 implementation plan written with 10 bite-sized tasks — files: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
+- [x] Research findings saved as reference — files: `docs/plans/2026-03-27-v15-research-findings.md`
+- [x] Memory updated with V15 architecture decisions
 
-## What Was Accomplished
+## In Progress
+- [ ] Phase 1 Execution: Cloud Foundation (10 tasks) — current state: PLAN WRITTEN, NOT STARTED
+  - Next step: Start Task 1 (Install OpenClaw v2026.3.24)
+  - Plan file: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
 
-### 10-SOP Sales Enablement Suite (7,065 lines, committed)
-| SOP | Name | AI/Algorithms |
-|-----|------|--------------|
-| 08 | Competitive Battlecard Creation | BES, Source Verification |
-| 09 | Win/Loss Analysis | Monte Carlo, Behavioral Interview |
-| 10 | Pricing & Packaging Intelligence | PGPS, MC Discount Bands |
-| 12 | Competitive Response Playbook | CEIS, Timeline Optimization |
-| 29 | Deal-Specific Positioning Package | Deal Tiers, Auto-Triage |
-| 30 | GTM Artifact Factory | Distribution Effectiveness Score |
-| 32 | Predictive Deal Scoring Engine | DSA, MC Win Sim, CTI |
-| 33 | AI Signal Detection & Early Warning | SSA, Movement Prediction |
-| 34 | War Gaming & Simulation | MC Scenarios, Position Optimizer |
-| 35 | Deal Strategy Recommendation Engine | DStA, Strategy Sim, Proof Matching |
+## Not Started
+- [ ] Phase 2: Superagent Wave 1 + Memory (blocked by: Phase 1 completion)
+- [ ] Phase 3: Knowledge Layer / Obsidian (blocked by: Phase 2)
+- [ ] Phase 4: Superagent Wave 2 + Process Engine (blocked by: Phase 3)
+- [ ] Phase 5: Superagent Wave 3 — Full Fleet (blocked by: Phase 4)
+- [ ] Phase 6: Proactive PA (blocked by: Phase 5)
 
-SOP-31 (CI Training) is internal ops — NOT in the sales-facing suite of 10.
+## Decisions Made
+| Decision | Rationale | Reversible? |
+|----------|-----------|-------------|
+| Cloudflare-first (not Tailscale) | Jake is a PA, not a dev tool — must be always-on regardless of machine state | Yes |
+| SuperMemory.ai NOW ($19/mo) | Universal memory standard for ALL agents — decay, contradiction, connectors built-in | Yes (fallback to Supabase brain) |
+| Paperclip for orchestration | Multi-company control plane with budgets, tickets, heartbeats, governance | Yes (fallback to existing crons) |
+| ALL 73 agents → superagents | Every agent gets memory + goals + heartbeat + budget (3 waves) | Yes |
+| Jake = Meta-Agent (CEO tier) | Creates/manages/modifies agents, allocates budgets, designs workflows | Yes |
+| Mike = Board of Directors | Governance, approvals, budget authority over Jake | N/A |
+| Cloud brain + local muscle | Think/remember/coordinate in cloud; files/code/build on local machines | Yes |
+| All companies cloud-based | Startup-OS, Oracle Health, Alex Recruiting, future TransformFit — all on Cloudflare | Yes |
+| Keep Supabase (don't migrate to Neon) | We use Supabase as platform, not just DB. Migration = weeks for zero gain. | N/A |
 
-### Matt 1:1 Prep (Tomorrow March 26)
-- `~/Desktop/Matt_1-1_Prep_March_26.docx` — 5-page Word doc with scripted answers
-- `~/Desktop/Oracle_Health_Sales_Enablement_SOP_Suite.pptx` — 4-slide consulting deck
-- `~/Desktop/Sales_Enablement_SOP_Suite_10.docx` — 3-page landscape summary
+## Context for Next Session
+- Key insight: V15 is a 7-layer stack. Jake is a meta-agent (CEO) managing 73+ superagent employees across 3-4 cloud-based companies. Cloud brain, local muscle.
+- Files to read first: `docs/plans/2026-03-27-v15-phase1-cloud-foundation-plan.md`
+- Tests to run first: `node -v` (verify Node 24), `openclaw --version` (if already installed)
+- Risk: Paperclip is 24 days old. SuperMemory is vendor-dependent. Both have fallbacks.
 
-### 30-Day Roadmap
-- `docs/plans/2026-03-25-mike-30-day-operational-roadmap.md` — master plan
-- `apps/roadmap-viewer/index.html` — interactive dashboard (serve port 4180)
-- Corrected FY26 baseline: 0 battlecards, 0 profiles, 0 strategists active
-
-### Supporting Docs
-- `docs/sales-enablement-slide-prompts.md` — prompts for all 10 SOPs
-- `docs/sales-enablement-system-map.md` — process map + 17 algorithm inventory
-
-### Calendar (Partial)
-- Apple Calendar "Work": 25 focus events + 22 daily 6am briefs + 9 reminders
-- Outlook Exchange: NOT YET CREATED — confirmed AppleScript syntax works for single events
-- Scheduled tasks: weekly-goal-setting (Fri 2pm), erp-paper-reminder (Mar 31)
-
-### Memory Updated
-- `project_oracle_health_operational.md` — role, KPIs, people, FY26 baseline
-- `user_oracle_health_role.md` — Mike's identity and preferences
-
----
-
-## P0 — Next Session (Before Matt 1:1)
-
-1. **Create Outlook Exchange events** — Use this AppleScript pattern (works):
-```applescript
-tell application "Microsoft Outlook"
-    set e to make new calendar event
-    set subject of e to "EVENT NAME"
-    set start time of e to date "DAY, MONTH DD, 2026 at HH:MM:SS AM"
-    set end time of e to date "DAY, MONTH DD, 2026 at HH:MM:SS AM"
-end tell
-```
-Create all 22 daily briefs (6am) + 25 focus events across 5 weeks.
-
-2. **Sales process map as visual** — `docs/sales-enablement-system-map.md` has the 5-stage map. Build as a slide or HTML visual showing where each SOP lives.
-
-## P1 — This Week
-
-3. **SharePoint upload** — Push 10 SOPs to `oracle.sharepoint.com/sites/insights-hub/Shared Documents/SOPs/Sales-Enablement/`
-4. **VoltAgent exploration** — github.com/VoltAgent is a TypeScript AI agent framework. Susan agents are already VoltAgent-standard format. Explore for production orchestration.
-
-## P2 — Next Week
-
-5. **ERP paper** — Due Tuesday March 31. Chuck Whinney for market segmentation.
-6. **Battlecard #1** — Scope target competitor, run 5-phase pipeline.
-7. **Strategist onboarding** — Shuri coordination for Catherine, Rosen, Amol.
-
----
-
-## Key People
-- **Matt Cohlmia** — VP, Mike's boss. 1:1 tomorrow.
-- **Shuri** — Strategist scaling coordinator
-- **Catherine, John Rosen** — Strategist onboarding targets
-- **Amol Rajmane** — Expert networks + sales battlecards
-- **Chuck Whinney** — GTM ERP market segmentation
-
-## Matt's Priorities (His Order)
-1. Advisory networks set up (GLG + vendors)
-2. M&CI function scaled
-3. SharePoint in good shape
-4. AI training for the team
+## Build Health
+- Files modified this session: 4 (design doc, phase 1 plan, research findings, memory)
+- Tests passing: N/A (research/design session, no code changes)
+- Context health at close: ORANGE (heavy research session, massive context loaded)
