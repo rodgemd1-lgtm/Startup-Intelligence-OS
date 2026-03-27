@@ -49,7 +49,7 @@ export default {
     // Tunnel status — check if desktop is reachable
     if (url.pathname === '/tunnel/status') {
       try {
-        const tunnelResponse = await fetch('http://jake-desktop.jakestudio.ai:18789/health', {
+        const tunnelResponse = await fetch('http://jake-desktop.jakestudio.ai:7841/health', {
           signal: AbortSignal.timeout(3000),
         });
         return Response.json({
@@ -87,7 +87,7 @@ export default {
     try {
       const tunnelUrl = new URL(request.url);
       tunnelUrl.hostname = 'jake-desktop.jakestudio.ai';
-      tunnelUrl.port = '18789';
+      tunnelUrl.port = '7841';
 
       const proxyResponse = await fetch(new Request(tunnelUrl.toString(), {
         method: request.method,
