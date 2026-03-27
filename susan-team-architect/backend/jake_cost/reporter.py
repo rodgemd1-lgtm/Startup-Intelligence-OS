@@ -6,7 +6,7 @@ from typing import Optional
 
 from .tracker import CostTracker
 from .router import ModelRouter, ModelTier
-from .budget import MONTHLY_BUDGET_USD
+from .budget import MONTHLY_SOFT_LIMIT, MONTHLY_HARD_LIMIT
 
 
 class SpendReporter:
@@ -24,19 +24,19 @@ class SpendReporter:
         daily = self.tracker.daily_totals(days=30)
 
         spend = totals["total_cost_usd"]
-        budget_pct = (spend / MONTHLY_BUDGET_USD) * 100
+        budget_pct = (spend / MONTHLY_SOFT_LIMIT) * 100
 
         lines = [
             "═══ MONTHLY COST REPORT ═══",
             f"Period: {totals['period']}",
             f"",
             f"SPEND SUMMARY:",
-            f"  Total: ${spend:.4f} / ${MONTHLY_BUDGET_USD:.0f} budget ({budget_pct:.1f}%)",
+            f"  Total: ${spend:.4f} / ${MONTHLY_SOFT_LIMIT:.0f} budget ({budget_pct:.1f}%)",
             f"  Calls: {totals['total_calls']:,}",
         ]
 
         if budget_pct >= 100:
-            lines.append(f"  ⚠ BUDGET EXCEEDED — ${spend - MONTHLY_BUDGET_USD:.2f} over limit")
+            lines.append(f"  ⚠ BUDGET EXCEEDED — ${spend - MONTHLY_SOFT_LIMIT:.2f} over limit")
         elif budget_pct >= 80:
             lines.append(f"  ⚠ WARNING — approaching budget limit")
         else:
@@ -80,7 +80,7 @@ class SpendReporter:
                     f"High avg cost/call (${avg_per_call:.3f}). "
                     "Consider routing more tasks to Haiku for classification ops."
                 )
-            if anthropic.get("cost_usd", 0) > MONTHLY_BUDGET_USD * 0.60:
+            if anthropic.get("cost_usd", 0) > MONTHLY_SOFT_LIMIT * 0.60:
                 recs.append(
                     "Anthropic API is >60% of spend. "
                     "Review task routing — use Haiku for triage/classify."

@@ -34,9 +34,12 @@ _DEFAULT_BUDGETS: dict[str, TokenBudget] = {
     "default": TokenBudget("default", 32_000, 4_000, 0.20, "Default budget"),
 }
 
-# Monthly spend cap (USD)
-MONTHLY_BUDGET_USD = 150.0
-MONTHLY_WARNING_THRESHOLD = 0.80  # warn at 80% of budget
+# Monthly spend monitoring (USD) — soft limits, not hard blocks.
+# OpenRouter routing handles cost control via tier selection.
+# These thresholds exist for visibility, not enforcement.
+MONTHLY_SOFT_LIMIT = 500.0       # alert at this level
+MONTHLY_HARD_LIMIT = 1000.0      # emergency kill switch (blocks above $1K)
+MONTHLY_WARNING_THRESHOLD = 0.80  # warn at 80% of soft limit
 
 
 class BudgetEnforcer:
@@ -76,13 +79,26 @@ class BudgetEnforcer:
         return True, "within budget"
 
     def check_monthly(self, current_spend: float) -> tuple[bool, str]:
-        """Check if monthly budget is approaching or exceeded."""
-        if current_spend >= MONTHLY_BUDGET_USD:
-            return False, f"Monthly budget EXCEEDED: ${current_spend:.2f} >= ${MONTHLY_BUDGET_USD:.2f}"
-        pct = current_spend / MONTHLY_BUDGET_USD
+        """Check monthly spend — soft alert at $500, hard block at $1K only."""
+        if current_spend >= MONTHLY_HARD_LIMIT:
+            return False, (
+                f"EMERGENCY: Monthly spend ${current_spend:.2f} hit hard limit "
+                f"${MONTHLY_HARD_LIMIT:.0f}. Blocking to prevent runaway costs."
+            )
+        if current_spend >= MONTHLY_SOFT_LIMIT:
+            pct = current_spend / MONTHLY_HARD_LIMIT
+            return True, (
+                f"Monthly spend ELEVATED: ${current_spend:.2f} "
+                f"(past ${MONTHLY_SOFT_LIMIT:.0f} soft limit, "
+                f"{pct*100:.0f}% of ${MONTHLY_HARD_LIMIT:.0f} hard limit)"
+            )
+        pct = current_spend / MONTHLY_SOFT_LIMIT
         if pct >= MONTHLY_WARNING_THRESHOLD:
-            return True, f"Monthly budget WARNING: ${current_spend:.2f} ({pct*100:.0f}% of ${MONTHLY_BUDGET_USD:.0f})"
-        return True, f"Monthly spend: ${current_spend:.2f} ({pct*100:.0f}% of ${MONTHLY_BUDGET_USD:.0f})"
+            return True, (
+                f"Monthly spend approaching soft limit: ${current_spend:.2f} "
+                f"({pct*100:.0f}% of ${MONTHLY_SOFT_LIMIT:.0f})"
+            )
+        return True, f"Monthly spend: ${current_spend:.2f} ({pct*100:.0f}% of ${MONTHLY_SOFT_LIMIT:.0f} soft limit)"
 
     def budget_summary(self) -> str:
         lines = ["═══ TOKEN BUDGET CONFIGURATION ═══", ""]
@@ -94,7 +110,8 @@ class BudgetEnforcer:
                 f"{budget.max_output_tokens//1000}K output / "
                 f"${budget.max_cost_usd:.2f} max"
             )
-        lines.append(f"\n  Monthly cap: ${MONTHLY_BUDGET_USD:.0f}/month")
+        lines.append(f"\n  Monthly soft limit: ${MONTHLY_SOFT_LIMIT:.0f} (alert)")
+        lines.append(f"  Monthly hard limit: ${MONTHLY_HARD_LIMIT:.0f} (block)")
         return "\n".join(lines)
 
 
