@@ -86,6 +86,14 @@ meta_agents:
     budget_tier: SMART_OPS
     budget_monthly_usd: 20
 
+  - name: oracle-health-director
+    tier: 1
+    department: oracle_health
+    role: "Oracle Health department director — orchestrates all OH intelligence, content, and enablement"
+    reports_to: mike
+    budget_tier: SMART_OPS
+    budget_monthly_usd: 25
+
 # =============================================================================
 # Tier 2 — Super-Agents (Department Leads)
 # =============================================================================
@@ -553,31 +561,111 @@ departments:
       # Listed under strategy as primary, sentinel as secondary
 
   # ---------------------------------------------------------------------------
-  # Oracle Health (Domain-Specific)
+  # Oracle Health Department (Full Hierarchy)
+  # ---------------------------------------------------------------------------
+  # Meta-agent: oracle-health-director (Tier 1, listed above)
+  # This is Mike's primary revenue-generating department.
   # ---------------------------------------------------------------------------
   oracle_health:
-    lead:
-      name: oracle-brief
-      tier: 2
-      department: oracle_health
-      role: "Oracle Health domain lead — healthcare marketing strategy"
-      reports_to: jake
-      budget_tier: VOLUME_OPS
-      budget_monthly_usd: 10
-    agents:
-      - name: oracle-health-marketing-lead
-        tier: 3
-        department: oracle_health
-        role: "Oracle Health marketing strategy"
-        reports_to: oracle-brief
+    # --- Super-Agent: Market Intelligence ---
+    market_intelligence:
+      lead:
+        name: oh-market-intelligence
+        tier: 2
+        department: oracle_health.market_intelligence
+        role: "Competitive monitoring, signal triage, intelligence gathering"
+        reports_to: oracle-health-director
         budget_tier: VOLUME_OPS
+        budget_monthly_usd: 8
+      agents:
+        - name: oh-competitive-monitor
+          tier: 3
+          department: oracle_health.market_intelligence
+          role: "Continuous tracking of Epic, Microsoft, AWS, Google, Meditech, Veeva"
+          reports_to: oh-market-intelligence
+          budget_tier: VOLUME_OPS
 
-      - name: oracle-health-product-marketing
-        tier: 3
-        department: oracle_health
-        role: "Product marketing for Oracle Health"
-        reports_to: oracle-brief
-        budget_tier: FREE_BULK
+        - name: oh-signal-analyst
+          tier: 3
+          department: oracle_health.market_intelligence
+          role: "Signal triage, scoring (UxR), routing to correct teams"
+          reports_to: oh-market-intelligence
+          budget_tier: FREE_BULK
+
+    # --- Super-Agent: Content & Positioning ---
+    content_positioning:
+      lead:
+        name: oh-content-positioning
+        tier: 2
+        department: oracle_health.content_positioning
+        role: "Messaging strategy, persona narratives, proof collection"
+        reports_to: oracle-health-director
+        budget_tier: VOLUME_OPS
+        budget_monthly_usd: 8
+      agents:
+        - name: oracle-health-marketing-lead
+          tier: 3
+          department: oracle_health.content_positioning
+          role: "Narrative spine development, campaign messaging"
+          reports_to: oh-content-positioning
+          budget_tier: VOLUME_OPS
+
+        - name: oh-persona-specialist
+          tier: 3
+          department: oracle_health.content_positioning
+          role: "Per-buyer messaging banks (CIO, CMIO, VP Ops, Clinical, Implementation)"
+          reports_to: oh-content-positioning
+          budget_tier: FREE_BULK
+
+    # --- Super-Agent: Sales Enablement ---
+    sales_enablement:
+      lead:
+        name: oh-sales-enablement
+        tier: 2
+        department: oracle_health.sales_enablement
+        role: "Battlecards, objection handling, asset production"
+        reports_to: oracle-health-director
+        budget_tier: VOLUME_OPS
+        budget_monthly_usd: 8
+      agents:
+        - name: oh-battlecard-manager
+          tier: 3
+          department: oracle_health.sales_enablement
+          role: "Klue Know-Say-Show battlecards, auto-refresh from signals"
+          reports_to: oh-sales-enablement
+          budget_tier: VOLUME_OPS
+
+        - name: oh-objection-handler
+          tier: 3
+          department: oracle_health.sales_enablement
+          role: "Per-persona objection/response pairs with win-loss tracking"
+          reports_to: oh-sales-enablement
+          budget_tier: FREE_BULK
+
+    # --- Gold Standard Agent: Oracle Sentinel ---
+    sentinel:
+      lead:
+        name: oracle-sentinel
+        tier: 2
+        department: oracle_health.sentinel
+        role: "Autonomous daily intelligence — freshness, gaps, signals"
+        reports_to: oracle-health-director
+        budget_tier: VOLUME_OPS
+        budget_monthly_usd: 3
+      agents:
+        - name: oracle-brief
+          tier: 3
+          department: oracle_health.sentinel
+          role: "Executive brief generator for Matt Cohlmia"
+          reports_to: oracle-sentinel
+          budget_tier: VOLUME_OPS
+
+        - name: oracle-health-product-marketing
+          tier: 3
+          department: oracle_health.sentinel
+          role: "Product marketing content and positioning"
+          reports_to: oracle-sentinel
+          budget_tier: FREE_BULK
 
       # sentinel-health dual-reports here from security
 
@@ -648,6 +736,11 @@ sub_agent_sources:
 # =============================================================================
 # Mike → Jake (Tier 1, front door)
 #   ├─ Simple/personal → Jake handles directly
+#   ├─ Oracle Health work → Oracle Health Director (Tier 1, department meta-agent)
+#   │   ├─ Intelligence → Market Intelligence (T2) → Competitive Monitor, Signal Analyst (T3)
+#   │   ├─ Content → Content & Positioning (T2) → Marketing Lead, Persona Specialist (T3)
+#   │   ├─ Sales assets → Sales Enablement (T2) → Battlecard Manager, Objection Handler (T3)
+#   │   └─ Monitoring → Oracle Sentinel (T2, gold standard, autonomous)
 #   ├─ Needs routing → KIRA classifies intent → department lead (Tier 2)
 #   │   └─ Lead delegates to specialist (Tier 3) → spawns sub-agent (Tier 4) if needed
 #   └─ Needs capability design → Susan (Tier 1, foundry)
@@ -656,8 +749,8 @@ sub_agent_sources:
 # Budget Summary
 # =============================================================================
 # Tier 0 (Mike):    Unlimited
-# Tier 1 (Meta):    $50 + $10 + $20 = $80/mo
-# Tier 2 (Super):   8 leads x $10-15 = ~$100/mo
+# Tier 1 (Meta):    $50 (Jake) + $10 (KIRA) + $20 (Susan) + $25 (OH Director) = $105/mo
+# Tier 2 (Super):   7 dept leads x $10-15 + 4 OH super-agents x $3-8 = ~$127/mo
 # Tier 3 (Agent):   $0-5 each, counted against department lead budget
 # Tier 4 (Sub):     $0, ephemeral, counted against parent agent
-# Total ceiling:    ~$250/mo (actual spend ~$150/mo)
+# Total ceiling:    ~$300/mo (actual spend ~$180/mo)

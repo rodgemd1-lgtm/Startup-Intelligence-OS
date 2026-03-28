@@ -5,7 +5,11 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 ENVIRONMENT = "production"
-JAKE_VERSION = "v15-phase1"
+JAKE_VERSION = "v15-phase2"
+# Secrets (set via `wrangler secret put`):
+#   SUPERMEMORY_API_KEY
+#   SUPABASE_URL
+#   SUPABASE_ANON_KEY
 
 # R2 bucket for Jake's persistent state (conversations, artifacts)
 [[r2_buckets]]

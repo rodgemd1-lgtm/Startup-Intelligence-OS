@@ -7,6 +7,8 @@ ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 CLAUDE_DIR="$ROOT_DIR/.claude"
 MEMORY_DIR="$HOME/.claude/projects/-Users-mikerodgers-$(basename "$ROOT_DIR")/memory"
 ENV_FILE="${CLAUDE_ENV_FILE:-}"
+BACKEND_DIR="$ROOT_DIR/susan-team-architect/backend"
+VENV="$BACKEND_DIR/.venv/bin/python"
 
 # --- Phase 1: Inject persistent context ---
 
@@ -50,7 +52,28 @@ fi
 
 DAEMON_STATUS="$ROOT_DIR/susan-team-architect/backend/data/memory/daemon_status.yaml"
 if [[ -f "$DAEMON_STATUS" ]]; then
-    echo "additionalContext: Research daemon has run previously. Check status with 'python -m research_daemon --command status'" >&2
+    # Check daemon freshness
+    DAEMON_AGE=$(( $(date +%s) - $(stat -f %m "$DAEMON_STATUS" 2>/dev/null || echo 0) ))
+    if (( DAEMON_AGE > 21600 )); then
+        echo "additionalContext: Research daemon last ran $(( DAEMON_AGE / 3600 ))h ago (stale). Consider 'python -m research_daemon --command cycle'" >&2
+    else
+        echo "additionalContext: Research daemon healthy (last ran $(( DAEMON_AGE / 3600 ))h ago)." >&2
+    fi
+fi
+
+# --- Phase 6: Oracle Health department status ---
+
+OH_DATA="$BACKEND_DIR/data/domains/oracle_health_intelligence"
+if [[ -d "$OH_DATA" ]]; then
+    echo "additionalContext: Oracle Health department active. Gold standards in $OH_DATA/gold_standards/. Director: oracle-health-director." >&2
+fi
+
+# --- Phase 7: Background V10 maintenance (non-blocking) ---
+
+if [[ -x "$VENV" ]]; then
+    cd "$BACKEND_DIR"
+    # Run research daemon gap detection in background
+    "$VENV" -m research_daemon --command detect-gaps > /dev/null 2>&1 &
 fi
 
 exit 0

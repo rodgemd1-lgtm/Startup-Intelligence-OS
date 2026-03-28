@@ -1,9 +1,0 @@
-{
-  "total": 5609,
-  "has_embedding": 5607,
-  "missing_embedding": 2,
-  "missing_ids": [
-    "ba4476cd-eb87-4a84-9e34-c3c6b28919ef",
-    "72bdbbe0-98a9-4f2a-add4-e7d7e0ccb0cb"
-  ]
-}

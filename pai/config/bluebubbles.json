@@ -1,7 +1,0 @@
-{
-  "api_url": "http://localhost:1234",
-  "password": "",
-  "allowed_contacts": [],
-  "auto_start": true,
-  "notes": "Configure password and allowed_contacts after BlueBubbles install"
-}
