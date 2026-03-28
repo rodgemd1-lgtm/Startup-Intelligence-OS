@@ -1,111 +1,94 @@
 # Session Handoff
 
-**Date**: 2026-03-27
-**Project**: Startup Intelligence OS
-**Session Goal**: Cost optimization — remove budget cap, consolidate MCPs, add local LLM, research Firehose
-**Status**: COMPLETE
+**Date**: 2026-03-28
+**Branch**: main
+**Session Goal**: Full system health check + M5 Max migration recovery
+
+---
 
 ## Completed
-- [x] Budget cap removed — $150 hard block → $500 soft alert / $1K emergency kill
-  - Files: `jake_cost/budget.py`, `jake_cost/reporter.py`
-- [x] MCP servers consolidated — 26 → 18 (removed 8: deep-research, brightdata, promptx, xcode-build, perplexity-ask, genai-toolbox, cognee, graphiti)
-  - Config: `~/.claude.json` (user-level MCP config)
-- [x] Ollama local inference tier added — Provider.LOCAL + ModelTier.LOCAL
-  - Files: `jake_cost/router.py`, `jake_cost/ollama_client.py`, `agents/base_agent.py`
-  - Test: `tests/test_jake_cost_router.py` (63/63 passing)
-  - Model: `qwen2.5-coder:14b` pulled and smoke-tested on M4 Pro
-- [x] Firehose researched — LIVE, FREE beta, ready to wire into Birch
-- [x] Cost audit completed — identified $3K+/mo in cuts across all services
 
-## Not Started
-- [ ] Wire Firehose SSE listener into `birch/sources/firehose.py`
-- [ ] Sign up for Firehose beta at `firehose.com/signup`
-- [ ] Cancel remaining paid services: CrewAI ($85.50), Neural Frames ($99), LangSmith ($39), Aimtell ($49)
-- [ ] Audit: Cloudflare ($160/mo — should be $5-20), Google Workspace (2 orgs?), AutoIGDM ($149)
-- [ ] Transfer to M5 Max and set `OLLAMA_MODEL=qwen2.5-coder:32b`
+- [x] **System health check** — diagnosed all post-Migration Assistant gaps
+- [x] **~/.zshrc created** — Homebrew PATH, gcloud, NVM, OpenClaw completion
+- [x] **Susan venv rebuilt** — Python 3.14, all deps from pyproject.toml installed
+- [x] **Jake Brain verified** — 149,526 memories, Supabase connected and healthy
+- [x] **Vault rebuilt** — ~/.hermes/.env with 30 API keys (was completely missing)
+  - Symlinked to susan-team-architect/backend/.env
+- [x] **~/.openclaw/.env created** — subset of vault for OpenClaw services
+- [x] **OpenClaw configured and running** — gateway on port 18789, LaunchAgent installed
+  - Fixed config: removed legacy `agent.*` keys, added `gateway.mode=local`
+- [x] **Telegram verified** — BirchRodgers bot live, chat ID 8634072195
+- [x] **Google OAuth completed** — Calendar + Gmail tokens saved to ~/.jake-vault/
+- [x] **gcloud CLI installed + authenticated** — rodgemd1@gmail.com
+- [x] **gh CLI authenticated** — rodgemd1-lgtm
+- [x] **SSH key generated** — ~/.ssh/id_ed25519 (still needs adding to GitHub)
+- [x] **jq installed** — was missing from Homebrew
+- [x] **Go + Fabric installed** — Go 1.26.1, fabric built from danielmiessler/fabric
+- [x] **Stripe MCP wired** — sk_live key in ~/.claude.json
+- [x] **Resend MCP wired** — re_* key in ~/.claude.json
+- [x] **LaunchAgents installed** — 6 agents running:
+  - ai.openclaw.gateway (running, pid ~51932)
+  - com.jake.autonomous-worker (running)
+  - com.jake.claude-remote (running)
+  - com.jake.health-monitor (loaded)
+  - com.jake.morning-briefing (loaded, fires 7 AM)
+  - com.jake.claude-brain (loaded)
+- [x] **Ollama running** — qwen2.5-coder:32b pulled (19GB, M5 Max target model)
+
+---
+
+## In Progress
+
+- [ ] **Fabric LaunchAgent** — com.jake.fabric-api.plist was templated for `michaelrodgers` path, fabric binary now at ~/go/bin/fabric — plist needs updating and loading
+- [ ] **SSH key → GitHub** — generated but gh couldn't add it (needs `admin:public_key` scope re-auth that didn't complete)
+
+---
+
+## Blocked
+
+- **Google Calendar showing 0 events today** — OAuth works (no error), but calendar may be empty or using wrong calendar ID. `GOOGLE_CALENDAR_ID=rodgemd1@gmail.com` is set. Test with `bin/gcal-reauth.py` in a new session.
+- **Cloudflare Tunnel** (`ai.jakestudio.tunnel`) — not yet reconfigured. Tunnel daemon not running. Needs `cloudflared` install + tunnel re-auth.
+
+---
 
 ## Decisions Made
-| Decision | Rationale | Reversible? |
-|----------|-----------|-------------|
-| Removed $150/mo hard budget cap | OpenRouter routing controls cost via tier selection; $0-$0.40/MTok models handle 90% of tasks | Yes — change MONTHLY_HARD_LIMIT in budget.py |
-| Cut 8 MCP servers | 4 redundant (deep-research, brightdata, promptx, xcode-build), 4 broken (perplexity-ask, genai-toolbox, cognee, graphiti) | Yes — `claude mcp add` to restore any |
-| Default to qwen2.5-coder:14b local | 32b won't fit on M4 Pro 24GB; 14b runs at ~40-55 tok/s comfortably | Yes — set OLLAMA_MODEL env var |
-| Skipped LiteLLM | Susan's jake_cost/router.py already handles multi-provider routing; LiteLLM would add unnecessary complexity | Yes — can add later |
 
-## Computer Transfer Notes (M4 Pro → M5 Max)
+| Decision | Rationale |
+|----------|-----------|
+| ~/.hermes/.env as single vault source | Migration Assistant doesn't transfer dotfiles — keeping one canonical location |
+| Symlink backend/.env → ~/.hermes/.env | All Susan code reads from backend/.env; hermes is the truth |
+| qwen2.5-coder:32b for Ollama | M5 Max has RAM for 32b; HANDOFF from M4 Pro said to upgrade from 14b |
+| gateway.mode=local | Required by OpenClaw 2026.3.24 — was missing, caused gateway to refuse to start |
 
-### What transfers automatically (via git)
-- All code changes (already pushed to GitHub)
-- `.mcp.json` (project-level MCP config)
-- Susan backend, jake_cost routing, Ollama client
+---
 
-### What needs manual setup on M5 Max
-1. **Clone repo**: `git clone https://github.com/rodgemd1-lgtm/Startup-Intelligence-OS.git`
-2. **Python venv**: `cd susan-team-architect/backend && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`
-3. **Environment variables**: Copy `~/.hermes/.env` from old machine (19 API keys)
-4. **Ollama**: `brew install ollama && ollama pull qwen2.5-coder:32b`
-5. **Set model for M5 Max**: Add to `~/.hermes/.env`:
-   ```
-   OLLAMA_MODEL=qwen2.5-coder:32b
-   OLLAMA_NUM_GPU=999
-   OLLAMA_KEEP_ALIVE=30m
-   OLLAMA_MAX_LOADED_MODELS=1
-   OLLAMA_FLASH_ATTENTION=1
-   ```
-6. **Claude Code MCPs**: Run `claude mcp list` — project-level MCPs auto-load, but user-level MCPs (tavily, firecrawl, brave-search, etc.) need re-adding via `claude mcp add`
-7. **Claude Code plugins**: Check `~/.claude/settings.json` — 99 plugins need to sync
-8. **Redis** (optional, for future caching): `brew install redis && brew services start redis`
+## API Keys Set (30 total in ~/.hermes/.env)
 
-### MCP servers to re-add on new machine
-```bash
-# Search & Research
-claude mcp add tavily -- npx -y tavily-mcp@latest
-claude mcp add firecrawl -- npx -y firecrawl-mcp@latest
-claude mcp add gpt-researcher -- uvx gpt-researcher-mcp
-claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
+Anthropic, OpenAI, OpenRouter, Groq, Voyage, Supabase (URL + service + anon), Firecrawl, Exa, Brave, Jina, Apify, Resend, Telegram (token + chat ID), Notion, SuperMemory, GitHub PAT, Stripe (live), Google OAuth (client ID + secret + refresh token + calendar ID), Tavily, Gemini, Gateway flag
 
-# Productivity
-claude mcp add github -- npx -y @modelcontextprotocol/server-github
-claude mcp add notion-custom -- npx -y notion-mcp-server
-claude mcp add taskmaster -- npx -y task-master-ai@latest
-claude mcp add playwright -- npx -y @playwright/mcp@latest
+---
 
-# Media
-claude mcp add gemini -- npx -y @fre4x/gemini@latest
-claude mcp add quickchart -- npx -y @gongrzhe/quickchart-mcp-server
-claude mcp add youtube-transcript -- npx -y @kimtaeyoon83/mcp-server-youtube-transcript
+## Next Steps
 
-# Intelligence
-claude mcp add trendradar -- uv --directory ~/TrendRadar run python -m mcp_server.server
-```
+1. **Add SSH key to GitHub manually** — go to github.com/settings/ssh/new, paste:
+   `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJP53emQ6v5xEccYMnFB4k3AjKHQ1RgCVPl0dxLeaQ5E mikerodgers@mac`
+2. **Fix fabric LaunchAgent** — update com.jake.fabric-api.plist HOME path to `/Users/mikerodgers` and binary path to `~/go/bin/fabric`, install to ~/Library/LaunchAgents/
+3. **Cloudflare Tunnel** — `brew install cloudflared`, then `cloudflared tunnel login` and reconfigure ai.jakestudio.tunnel
+4. **Wire Firehose SSE** into birch/sources/firehose.py (from previous session's handoff)
+5. **Cancel paid services** — CrewAI ($85.50), Neural Frames ($99), LangSmith ($39), Aimtell ($49)
+6. **Verify OpenClaw Telegram pairing** — open Telegram, message the bot to confirm Jake responds
 
-## Cost Routing Architecture (Final State)
-```
-LOCAL ($0)        → format, embed_prep, background_process, summarize_short
-FREE_BULK ($0)    → classify, categorize, extract_fields, tag
-VOLUME_OPS ($0.10)→ triage, email, RAG, content, 73 agents default
-SMART_OPS ($0.26) → research, briefs, competitive analysis, strategy
-FALLBACK ($2.50)  → jake_fallback, openclaw_fallback (escalation only)
-OPUS ($5.00)      → architecture, security_audit (Claude Code only)
-```
+---
 
-## Build Health
-- Files modified this session: 6
-- Tests passing: 63/63 (router), 412/412 (non-pre-existing)
-- Context health at close: GREEN
-- All changes committed and pushed to `origin/main`
+## Key File Locations
 
-## Plan Document
-- Full plan: `docs/plans/2026-03-27-cost-routing-mcp-optimization.md`
-
-## Service Cancellation Checklist (Mike's TODO)
-- [ ] CrewAI ($85.50/mo)
-- [ ] Neural Frames ($99/mo)
-- [ ] LangSmith ($39/mo)
-- [ ] Aimtell ($49/mo)
-- [ ] Cloudflare audit — why $160/mo?
-- [ ] Google Workspace audit — are both INNO and VITA orgs active?
-- [ ] AutoIGDM ($149/mo) — 30-day ROI check
-- [ ] PathSocial ($22.59/mo) — 30-day ROI check
-- [ ] Sports Reelz ($50/mo) — still using?
-- [ ] Sign up for Firehose beta (free): firehose.com/signup
+| File | Path |
+|------|------|
+| Primary vault | ~/.hermes/.env |
+| OpenClaw config | ~/.openclaw/openclaw.json |
+| OpenClaw env | ~/.openclaw/.env |
+| Google tokens | ~/.jake-vault/google_oauth_tokens.json |
+| Susan venv | ~/Desktop/Startup-Intelligence-OS/susan-team-architect/backend/.venv |
+| LaunchAgents | ~/Library/LaunchAgents/ai.openclaw.gateway.plist + com.jake.*.plist |
+| Shell config | ~/.zshrc |
+| Go binaries | ~/go/bin/ (fabric, etc.) |

@@ -6,10 +6,8 @@
     <string>com.jake.fabric-api</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/michaelrodgers/go/bin/fabric</string>
+        <string>/Users/mikerodgers/go/bin/fabric</string>
         <string>--serve</string>
-        <string>--port</string>
-        <string>8080</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -22,9 +20,9 @@
     <key>EnvironmentVariables</key>
     <dict>
         <key>HOME</key>
-        <string>/Users/michaelrodgers</string>
+        <string>/Users/mikerodgers</string>
         <key>PATH</key>
-        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:/Users/michaelrodgers/go/bin</string>
+        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:/Users/mikerodgers/go/bin</string>
     </dict>
 </dict>
 </plist>

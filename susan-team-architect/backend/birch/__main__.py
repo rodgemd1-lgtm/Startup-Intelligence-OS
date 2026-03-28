@@ -102,9 +102,53 @@ def main() -> None:
         print(f"  Tier 3 (<50):   {stats['tier_3']}")
 
     elif args.command == "listen":
-        print("Firehose SSE listener — will be implemented in V4b.")
-        print("For now, use: python -m birch --command score --file <signals.json>")
-        sys.exit(0)
+        import asyncio
+        from birch.sources.firehose import FirehoseConfig, listen as firehose_listen
+        from birch.scorer import BirchScorer
+        from birch.rubric import Rubric, CompanyRubric
+        from birch.writer import SignalWriter
+
+        rubric = Rubric(companies={
+            "oracle-health": CompanyRubric(
+                keywords=["epic", "ehr", "himss", "clinical ai", "oracle health", "cerner",
+                           "health it", "ehrs", "interoperability", "fhir"],
+                competitors=["epic", "meditech", "athenahealth", "cerner", "microsoft nuance"],
+            ),
+            "transformfit": CompanyRubric(
+                keywords=["fitness app", "ai coaching", "workout", "personal trainer",
+                           "health tech", "wearable"],
+                competitors=["peloton", "fitbod", "future", "caliber", "trainiac"],
+            ),
+            "alex-recruiting": CompanyRubric(
+                keywords=["college recruiting", "athletic recruiting", "ncaa", "nil"],
+                competitors=["fieldlevel", "ncsa", "berecruited"],
+            ),
+        })
+
+        scorer = BirchScorer(rubric=rubric)
+        writer = SignalWriter(signals_dir=signals_dir)
+
+        try:
+            config = FirehoseConfig.from_env()
+        except RuntimeError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            print("Set FIREHOSE_API_KEY in ~/.hermes/.env", file=sys.stderr)
+            sys.exit(1)
+
+        async def _on_signal(raw):
+            scored = scorer.score(raw)
+            writer.append(scored)
+            tier_label = {1: "TIER-1 ***", 2: "TIER-2", 3: "tier-3"}
+            print(f"  [{tier_label.get(scored.tier, '?')}] {scored.score:3d} — {scored.title[:80]}")
+
+        print("Starting Firehose SSE listener...")
+        print(f"Signals → {signals_dir}/")
+        print("Press Ctrl+C to stop.\n")
+
+        try:
+            asyncio.run(firehose_listen(config, _on_signal))
+        except KeyboardInterrupt:
+            print("\nFirehose listener stopped.")
 
 
 if __name__ == "__main__":

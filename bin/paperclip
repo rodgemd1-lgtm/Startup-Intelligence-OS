@@ -7,7 +7,7 @@
 set -euo pipefail
 
 PORT=4174
-SERVER="$HOME/Startup-Intelligence-OS/apps/operator-console/paperclip-server.py"
+SERVER="$HOME/Desktop/Startup-Intelligence-OS/apps/operator-console/paperclip-server.py"
 URL="http://localhost:$PORT"
 
 case "${1:-start}" in
