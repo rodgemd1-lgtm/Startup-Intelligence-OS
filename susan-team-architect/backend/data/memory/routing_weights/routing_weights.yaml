@@ -1,5 +1,5 @@
 version: '1.0'
-generated_at: '2026-03-25T00:58:01.657294+00:00'
+generated_at: '2026-03-28T11:21:59.941869+00:00'
 total_weights: 87
 weights:
 - department: job-studio
@@ -8,606 +8,606 @@ weights:
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: training
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: enablement
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: strategist
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: ai training
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: ellen
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: gen chat
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: oracle health
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: competitive intelligence
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: marketing intelligence
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: interview
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: job-studio
   keyword: resume
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: hiring
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: org
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: team
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: role
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: recruiting
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: onboarding
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: capability coverage
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: talent-org-design-studio
   keyword: operating team
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: metrics
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: analytics
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: data
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: scoring
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: model
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: forecast
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: simulation
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: data-decision-science-studio
   keyword: evaluation
   base_weight: 1.0
   learned_adjustment: 0.3
   effective_weight: 1.3
   sample_count: 10
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: build
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: engineering
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: architecture
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: system
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: implementation
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: backend
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: engineering-agent-systems-studio
   keyword: agent
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: trust
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: governance
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: accessibility
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: security
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: privacy
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: compliance
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: audit
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: trust-governance-studio
   keyword: release gate
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: finance
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: budget
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: kpi
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: cadence
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: operating review
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: variance
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: resourcing
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: finance-operating-cadence-studio
   keyword: forecast
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: launch
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: marketing
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: message
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: narrative
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: positioning
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: campaign
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: marketing-narrative-studio
   keyword: brand
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: product
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: roadmap
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: experience
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: ux
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: workflow
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: feature
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: product-experience-studio
   keyword: prototype
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: strategy
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: decision
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: priority
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: future-back
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: project
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: company
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: founder-decision-room
   keyword: roadmap
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 2
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: revenue
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: pipeline
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: funnel
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: growth
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: conversion
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: acquisition
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: expansion
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: revenue-growth-studio
   keyword: pricing
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: user
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: customer
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: consumer
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: persona
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: interview
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: research
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'
 - department: consumer-user-studio
   keyword: discovery
   base_weight: 1.0
   learned_adjustment: 0.0
   effective_weight: 1.0
   sample_count: 0
-  last_updated: '2026-03-25T00:58:01.657038+00:00'
+  last_updated: '2026-03-28T11:21:59.941601+00:00'

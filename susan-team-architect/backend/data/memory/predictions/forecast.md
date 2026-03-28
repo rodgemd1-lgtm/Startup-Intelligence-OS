@@ -1,6 +1,6 @@
 # Capability Maturity Forecast
 
-**Generated:** 2026-03-23T20:17:48Z
+**Generated:** 2026-03-28T11:22:17Z
 **Capabilities tracked:** 21
 
 ## Predictions

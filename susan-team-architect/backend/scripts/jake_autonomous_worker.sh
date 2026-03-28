@@ -3,7 +3,7 @@
 # Called by launchd. Activates the venv and runs the Python daemon.
 set -euo pipefail
 
-BACKEND="$HOME/Startup-Intelligence-OS/susan-team-architect/backend"
+BACKEND="$HOME/Desktop/Startup-Intelligence-OS/susan-team-architect/backend"
 VENV="$BACKEND/.venv/bin/python"
 LOG="$HOME/.hermes/logs/autonomous_worker.log"
 SCRIPT="$BACKEND/scripts/jake_autonomous_worker.py"

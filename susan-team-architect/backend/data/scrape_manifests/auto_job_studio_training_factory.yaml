@@ -1,0 +1,37 @@
+manifest:
+  name: 'Auto-harvest: job studio training factory'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-e782ccf9dc2f'': Capability ''Job
+    Studio Training Factory'' has coverage score 0.0. Declared gaps: ai-foundations-curriculum,
+    ellen-transition-curriculum, facilitator-asset-production, evaluation-panel-and-rubrics,
+    corp'
+  generated_by: research_daemon
+  gap_id: gap-e782ccf9dc2f
+  generated_at: '2026-03-28T11:21:55.328618+00:00'
+sources:
+- tool: exa
+  query: job studio training factory best practices official documentation
+  num_results: 8
+- tool: exa
+  query: job studio training factory framework methodology guide
+  num_results: 8
+- tool: exa
+  query: job studio training factory startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability Studio Training Factory' coverage research
+  num_results: 8
+- tool: exa
+  query: job studio training factory official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com job studio training factory README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

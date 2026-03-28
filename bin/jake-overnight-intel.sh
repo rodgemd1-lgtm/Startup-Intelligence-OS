@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-REPO_ROOT="$HOME/Startup-Intelligence-OS"
+REPO_ROOT="$HOME/Desktop/Startup-Intelligence-OS"
 SUSAN_BACKEND="$REPO_ROOT/susan-team-architect/backend"
 VENV="$SUSAN_BACKEND/.venv/bin/python"
 LOG_DIR="$REPO_ROOT/.startup-os/logs"
@@ -47,20 +47,27 @@ if [ -n "${TRENDRADAR_API_KEY:-}" ]; then
 import os, sys, json
 sys.path.insert(0, '$SUSAN_BACKEND')
 
-# Use Susan's search_knowledge to find recent competitive intel
+# Query Susan RAG for recent competitive intel signals
 try:
-    from susan_core.rag import search_knowledge
-    results = search_knowledge('competitive intelligence market signals', top_k=5, data_type='competitor_intel')
-    signals = []
-    for r in results:
-        title = r.get('title', r.get('content', '')[:80])
-        score = r.get('similarity', 0)
-        priority = 'P0' if score > 0.85 else 'P1' if score > 0.7 else 'P2'
-        signals.append(f'{priority} — {title}')
-    if signals:
-        print('\n'.join(signals[:5]))
+    from supabase import create_client
+    from datetime import datetime, timedelta, timezone
+    url = os.environ.get('SUPABASE_URL', '')
+    key = os.environ.get('SUPABASE_SERVICE_KEY', '') or os.environ.get('SUPABASE_ANON_KEY', '')
+    if url and key:
+        sb = create_client(url, key)
+        cutoff = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+        res = sb.table('knowledge_chunks').select('content,company_id,data_type,updated_at').eq('data_type','competitor_intel').gte('updated_at', cutoff).order('updated_at', desc=True).limit(5).execute()
+        signals = []
+        for r in (res.data or []):
+            content_preview = (r.get('content', '') or '')[:80]
+            company = r.get('company_id', '?')
+            signals.append(f'P1 — [{company}] {content_preview}')
+        if signals:
+            print('\n'.join(signals[:5]))
+        else:
+            print('No new competitive signals overnight.')
     else:
-        print('No new competitive signals overnight.')
+        print('No Supabase credentials available.')
 except Exception as e:
     print(f'(TrendRadar scan failed: {e})')
 " 2>/dev/null || echo "No signals available")

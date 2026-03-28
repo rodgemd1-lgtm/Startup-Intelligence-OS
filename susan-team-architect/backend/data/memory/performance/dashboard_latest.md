@@ -21,4 +21,4 @@
 4. Most token-efficient agent: 'simulated_maturity' averaging 190 tokens/run.
 5. High output-reuse agents (>50%): simulated_maturity.
 
-*Generated at 2026-03-23T20:17:43.063122+00:00*
+*Generated at 2026-03-28T11:21:39.475381+00:00*

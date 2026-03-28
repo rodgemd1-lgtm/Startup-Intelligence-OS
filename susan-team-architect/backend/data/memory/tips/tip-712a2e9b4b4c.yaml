@@ -8,7 +8,8 @@ source_agent: simulated-maturity
 task_domain: simulation
 confidence: 0.9066666666666666
 created_at: '2026-03-13T13:59:01Z'
-access_count: 0
+access_count: 1
+last_accessed: '2026-03-28T11:21:46Z'
 tags:
 - auto-extracted
 - strategy

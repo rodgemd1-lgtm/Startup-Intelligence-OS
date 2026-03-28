@@ -1,6 +1,6 @@
 # Research Harvest Digest
 
-Generated: 2026-03-22 14:00 UTC
+Generated: 2026-03-28 11:21 UTC
 Total items: 150
 
 ## Summary
@@ -12,73 +12,73 @@ Total items: 150
 
 ## Unknown Sources (150)
 
-- [LOW] **Exa search result 1: department studios of excellence best practices official do**
+- [LOW] **Exa search result 1: innovation strategy best practices official documentation**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: department studios of excellence best practices official do**
+- [LOW] **Exa search result 2: innovation strategy best practices official documentation**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: department studios of excellence best practices official do**
+- [LOW] **Exa search result 3: innovation strategy best practices official documentation**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: department studios of excellence best practices official do**
+- [LOW] **Exa search result 4: innovation strategy best practices official documentation**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: department studios of excellence best practices official do**
+- [LOW] **Exa search result 5: innovation strategy best practices official documentation**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: department studios of excellence framework methodology guid**
+- [LOW] **Exa search result 1: innovation strategy framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: department studios of excellence framework methodology guid**
+- [LOW] **Exa search result 2: innovation strategy framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: department studios of excellence framework methodology guid**
+- [LOW] **Exa search result 3: innovation strategy framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: department studios of excellence framework methodology guid**
+- [LOW] **Exa search result 4: innovation strategy framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: department studios of excellence framework methodology guid**
+- [LOW] **Exa search result 5: innovation strategy framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: department studios of excellence startup implementation pla**
+- [LOW] **Exa search result 1: innovation strategy startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: department studios of excellence startup implementation pla**
+- [LOW] **Exa search result 2: innovation strategy startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: department studios of excellence startup implementation pla**
+- [LOW] **Exa search result 3: innovation strategy startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: department studios of excellence startup implementation pla**
+- [LOW] **Exa search result 4: innovation strategy startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: department studios of excellence startup implementation pla**
+- [LOW] **Exa search result 5: innovation strategy startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: Capability 'Department Studios Excellence' coverage researc**
+- [LOW] **Exa search result 1: Capability 'Innovation Strategy' coverage score research**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: Capability 'Department Studios Excellence' coverage researc**
+- [LOW] **Exa search result 2: Capability 'Innovation Strategy' coverage score research**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: Capability 'Department Studios Excellence' coverage researc**
+- [LOW] **Exa search result 3: Capability 'Innovation Strategy' coverage score research**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: Capability 'Department Studios Excellence' coverage researc**
+- [LOW] **Exa search result 4: Capability 'Innovation Strategy' coverage score research**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: Capability 'Department Studios Excellence' coverage researc**
+- [LOW] **Exa search result 5: Capability 'Innovation Strategy' coverage score research**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
 ## Gaps Addressed
 
-- `gap-3ed25f3f55de`: 30 results (avg quality: 0.51)
-- `gap-6e22c451761d`: 30 results (avg quality: 0.51)
-- `gap-82b5d851ff49`: 30 results (avg quality: 0.51)
-- `gap-9210cb98ff13`: 30 results (avg quality: 0.51)
-- `gap-dc74d9f86830`: 30 results (avg quality: 0.51)
+- `gap-18216f26f3d7`: 30 results (avg quality: 0.51)
+- `gap-258a960405c8`: 30 results (avg quality: 0.51)
+- `gap-6c93669f50bf`: 30 results (avg quality: 0.51)
+- `gap-de6e2705ac89`: 30 results (avg quality: 0.51)
+- `gap-e782ccf9dc2f`: 30 results (avg quality: 0.51)
 
 ---
 *Generated by Research Daemon auto-harvester.*

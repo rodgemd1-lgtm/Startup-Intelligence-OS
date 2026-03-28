@@ -1,132 +1,663 @@
-# Agent Hierarchy — Meta / Super / Agent / Sub-Agent
-# Source of truth for the 4-tier agent authority model
-# Date: 2026-03-27
-# Status: DRAFT
+# =============================================================================
+# Agent Hierarchy — Startup Intelligence OS
+# =============================================================================
+# Source of truth for the 4-tier agent authority model.
+# Design: docs/plans/2026-03-27-agent-hierarchy-design.md
+# Cost routing: susan-team-architect/backend/jake_cost/router.py
+#
+# Budget tiers (from jake_cost/router.py):
+#   LOCAL       — Ollama on M5 Max 48GB, $0, offline capable
+#   FREE_BULK   — GLM-4.7-Flash via OpenRouter, free
+#   VOLUME_OPS  — MiniMax M2.7 via OpenRouter, cheapest paid
+#   SMART_OPS   — GLM-5 via OpenRouter, research/briefs
+# =============================================================================
 
+metadata:
+  version: "1.0.0"
+  approved_by: "Mike Rodgers"
+  approved_date: "2026-03-28"
+  status: APPROVED
+  design_doc: "docs/plans/2026-03-27-agent-hierarchy-design.md"
+  cost_router: "susan-team-architect/backend/jake_cost/router.py"
+
+# =============================================================================
+# Tier Definitions
+# =============================================================================
+tiers:
+  0:
+    name: Owner
+    description: "Final authority on all decisions"
+    authority: "Unlimited — approves all spend and strategy"
+  1:
+    name: Meta-Agents
+    description: "Strategic decision-makers. They decide WHAT to do."
+    authority: "Can approve any Tier 2 spend"
+    budget_ceiling_monthly_usd: 50
+  2:
+    name: Super-Agents
+    description: "Department leads. They decide HOW to execute."
+    authority: "Can approve Tier 3 agent tasks within their department"
+    budget_ceiling_monthly_usd: 15
+  3:
+    name: Agents
+    description: "Specialists. They DO the work."
+    authority: "Must request budget from super-agent"
+    budget_ceiling_monthly_usd: 5
+  4:
+    name: Sub-Agents / Skills
+    description: "Ephemeral. Spawned by agents for specific tasks. No persistent state."
+    authority: "Auto-approved if parent agent has budget"
+    budget_ceiling_monthly_usd: 0
+
+# =============================================================================
+# Tier 0 — Owner
+# =============================================================================
+owner:
+  name: Mike Rodgers
+  tier: 0
+  role: "Founder, final authority on all decisions"
+  budget_tier: null
+
+# =============================================================================
+# Tier 1 — Meta-Agents
+# =============================================================================
 meta_agents:
-  jake:
+  - name: jake
     tier: 1
-    role: "Co-founder, front door, decomposer"
+    department: null
+    role: "Co-founder, front door, decomposer, conductor"
     reports_to: mike
-    budget_monthly_cents: 5000
-  kira:
+    budget_tier: SMART_OPS
+    budget_monthly_usd: 50
+
+  - name: kira
     tier: 1
+    department: null
     role: "Command router, intent classifier"
     reports_to: mike
-    budget_monthly_cents: 1000
-  susan:
+    budget_tier: SMART_OPS
+    budget_monthly_usd: 10
+
+  - name: susan
     tier: 1
+    department: null
     role: "Capability foundry, team architect"
     reports_to: mike
-    budget_monthly_cents: 2000
+    budget_tier: SMART_OPS
+    budget_monthly_usd: 20
+
+# =============================================================================
+# Tier 2 — Super-Agents (Department Leads)
+# =============================================================================
+# Departments and their Tier 2 + Tier 3 agents
+# =============================================================================
 
 departments:
-  strategy:
-    lead: steve
-    agents:
-      - steve-strategy
-      - vault-fundraising
-      - bridge-partnerships
-      - shield-legal-compliance
-      - optionality-scout
 
-  product:
-    lead: compass
+  # ---------------------------------------------------------------------------
+  # Strategy & Business
+  # ---------------------------------------------------------------------------
+  strategy:
+    lead:
+      name: steve
+      tier: 2
+      department: strategy
+      role: "Strategy & business lead — competitive positioning, strategic planning"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 15
     agents:
-      - compass-product
-      - marcus-ux
-      - mira-emotional-experience
-      - echo-neuro-design
-      - conversation-designer
-      - lens-accessibility
-      - ai-product-manager
+      - name: steve-strategy
+        tier: 3
+        department: strategy
+        role: "Strategic planning, competitive positioning"
+        reports_to: steve
+        budget_tier: VOLUME_OPS
+
+      - name: vault-fundraising
+        tier: 3
+        department: strategy
+        role: "Fundraising, investor relations"
+        reports_to: steve
+        budget_tier: VOLUME_OPS
+
+      - name: bridge-partnerships
+        tier: 3
+        department: strategy
+        role: "Partnerships, ecosystem deals"
+        reports_to: steve
+        budget_tier: FREE_BULK
+
+      - name: shield-legal-compliance
+        tier: 3
+        department: strategy
+        role: "Legal, regulatory, compliance"
+        reports_to: steve
+        dual_reports_to: sentinel
+        budget_tier: VOLUME_OPS
+
+      - name: optionality-scout
+        tier: 3
+        department: strategy
+        role: "Lock-in risk detection, decision reversibility"
+        reports_to: steve
+        budget_tier: FREE_BULK
+
+  # ---------------------------------------------------------------------------
+  # Product & Design
+  # ---------------------------------------------------------------------------
+  product:
+    lead:
+      name: compass
+      tier: 2
+      department: product
+      role: "Product & design lead — roadmap, UX strategy"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 15
+    agents:
+      - name: compass-product
+        tier: 3
+        department: product
+        role: "Product management, roadmap"
+        reports_to: compass
+        budget_tier: VOLUME_OPS
+
+      - name: marcus-ux
+        tier: 3
+        department: product
+        role: "UX/UI design, user research"
+        reports_to: compass
+        budget_tier: FREE_BULK
+
+      - name: mira-emotional-experience
+        tier: 3
+        department: product
+        role: "Emotional design, delight moments"
+        reports_to: compass
+        budget_tier: FREE_BULK
+
+      - name: echo-neuro-design
+        tier: 3
+        department: product
+        role: "Neuroscience-informed design"
+        reports_to: compass
+        budget_tier: FREE_BULK
+
+      - name: conversation-designer
+        tier: 3
+        department: product
+        role: "Conversational UX, chatbot flows"
+        reports_to: compass
+        budget_tier: FREE_BULK
+
+      - name: lens-accessibility
+        tier: 3
+        department: product
+        role: "Inclusive design, WCAG compliance"
+        reports_to: compass
+        budget_tier: FREE_BULK
+
+      - name: ai-product-manager
+        tier: 3
+        department: product
+        role: "AI-specific product management"
+        reports_to: compass
+        budget_tier: VOLUME_OPS
+
+    # Sub-departments that roll up to Product
     sub_departments:
       growth:
+        description: "Growth & marketing — no dedicated super-agent, reports to Compass"
         agents:
-          - aria-growth
-          - beacon-aso
-          - herald-pr
-          - prism-brand
-          - x-growth-studio
-          - haven-community
-          - quest-gamification
-          - guide-customer-success
+          - name: aria-growth
+            tier: 3
+            department: product.growth
+            role: "Growth strategy, acquisition channels"
+            reports_to: compass
+            budget_tier: VOLUME_OPS
+
+          - name: beacon-aso
+            tier: 3
+            department: product.growth
+            role: "ASO/SEO optimization"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: herald-pr
+            tier: 3
+            department: product.growth
+            role: "PR, communications, media"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: prism-brand
+            tier: 3
+            department: product.growth
+            role: "Brand strategy, visual identity"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: x-growth-studio
+            tier: 3
+            department: product.growth
+            role: "X/Twitter growth"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: haven-community
+            tier: 3
+            department: product.growth
+            role: "Community building, social fitness"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: quest-gamification
+            tier: 3
+            department: product.growth
+            role: "Gamification, engagement loops"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
+          - name: guide-customer-success
+            tier: 3
+            department: product.growth
+            role: "Customer success, onboarding"
+            reports_to: compass
+            budget_tier: FREE_BULK
+
       science:
+        description: "Science domain — reports to Compass for product, Research Director for evidence"
         agents:
-          - coach-exercise-science
-          - sage-nutrition
-          - drift-sleep-recovery
-          - flow-sports-psychology
+          - name: coach-exercise-science
+            tier: 3
+            department: product.science
+            role: "Exercise programming, biomechanics"
+            reports_to: compass
+            dual_reports_to: research-director
+            budget_tier: FREE_BULK
 
+          - name: sage-nutrition
+            tier: 3
+            department: product.science
+            role: "Nutrition science, supplementation"
+            reports_to: compass
+            dual_reports_to: research-director
+            budget_tier: FREE_BULK
+
+          - name: drift-sleep-recovery
+            tier: 3
+            department: product.science
+            role: "Sleep architecture, recovery protocols"
+            reports_to: compass
+            dual_reports_to: research-director
+            budget_tier: FREE_BULK
+
+          - name: flow-sports-psychology
+            tier: 3
+            department: product.science
+            role: "Mindset, motivation, adherence"
+            reports_to: compass
+            dual_reports_to: research-director
+            budget_tier: FREE_BULK
+
+  # ---------------------------------------------------------------------------
+  # Engineering & Infrastructure
+  # ---------------------------------------------------------------------------
   engineering:
-    lead: atlas
+    lead:
+      name: atlas
+      tier: 2
+      department: engineering
+      role: "Engineering & infrastructure lead — architecture, full-stack development"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 15
     agents:
-      - atlas-engineering
-      - forge-qa
-      - sentinel-security
-      - nova-ai
-      - algorithm-lab
-      - ai-engineer
-      - ai-evaluation-specialist
-      - knowledge-engineer
-      - link-validator
+      - name: atlas-engineering
+        tier: 3
+        department: engineering
+        role: "Full-stack development, architecture"
+        reports_to: atlas
+        budget_tier: VOLUME_OPS
 
+      - name: forge-qa
+        tier: 3
+        department: engineering
+        role: "QA, testing, quality gates"
+        reports_to: atlas
+        budget_tier: FREE_BULK
+
+      - name: nova-ai
+        tier: 3
+        department: engineering
+        role: "AI/ML strategy, model selection"
+        reports_to: atlas
+        budget_tier: VOLUME_OPS
+
+      - name: algorithm-lab
+        tier: 3
+        department: engineering
+        role: "Algorithm R&D, optimization"
+        reports_to: atlas
+        budget_tier: FREE_BULK
+
+      - name: ai-engineer
+        tier: 3
+        department: engineering
+        role: "AI engineering, model integration"
+        reports_to: atlas
+        budget_tier: VOLUME_OPS
+
+      - name: ai-evaluation-specialist
+        tier: 3
+        department: engineering
+        role: "AI evaluation, benchmarking"
+        reports_to: atlas
+        budget_tier: FREE_BULK
+
+      - name: knowledge-engineer
+        tier: 3
+        department: engineering
+        role: "Knowledge graphs, RAG architecture"
+        reports_to: atlas
+        budget_tier: VOLUME_OPS
+
+      - name: link-validator
+        tier: 3
+        department: engineering
+        role: "URL validation, broken link detection"
+        reports_to: atlas
+        budget_tier: LOCAL
+
+  # ---------------------------------------------------------------------------
+  # Research & Intelligence
+  # ---------------------------------------------------------------------------
   research:
-    lead: research-director
+    lead:
+      name: research-director
+      tier: 2
+      department: research
+      role: "Research & intelligence lead — methodology, evidence quality"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 15
     agents:
-      - research-ops
-      - researcher-web
-      - researcher-reddit
-      - researcher-arxiv
-      - researcher-appstore
-      - scout
-      - pattern-matcher
-      - antifragility-monitor
-      - digest
+      - name: research-ops
+        tier: 3
+        department: research
+        role: "Research operations, methodology"
+        reports_to: research-director
+        budget_tier: VOLUME_OPS
 
+      - name: researcher-web
+        tier: 3
+        department: research
+        role: "Web research, source validation"
+        reports_to: research-director
+        budget_tier: VOLUME_OPS
+
+      - name: researcher-reddit
+        tier: 3
+        department: research
+        role: "Reddit sentiment, community insights"
+        reports_to: research-director
+        budget_tier: FREE_BULK
+
+      - name: researcher-arxiv
+        tier: 3
+        department: research
+        role: "Academic papers, scientific evidence"
+        reports_to: research-director
+        budget_tier: VOLUME_OPS
+
+      - name: researcher-appstore
+        tier: 3
+        department: research
+        role: "App store analysis, competitor apps"
+        reports_to: research-director
+        budget_tier: FREE_BULK
+
+      - name: scout
+        tier: 3
+        department: research
+        role: "Competitive intelligence, market monitoring"
+        reports_to: research-director
+        budget_tier: VOLUME_OPS
+
+      - name: pattern-matcher
+        tier: 3
+        department: research
+        role: "Cross-domain pattern detection"
+        reports_to: research-director
+        budget_tier: FREE_BULK
+
+      - name: antifragility-monitor
+        tier: 3
+        department: research
+        role: "System health, anti-fragility scoring"
+        reports_to: research-director
+        budget_tier: FREE_BULK
+
+      - name: digest
+        tier: 3
+        department: research
+        role: "Weekly synthesis, executive summary"
+        reports_to: research-director
+        budget_tier: VOLUME_OPS
+
+  # ---------------------------------------------------------------------------
+  # Operations & Delivery
+  # ---------------------------------------------------------------------------
   operations:
-    lead: aria
+    lead:
+      name: aria
+      tier: 2
+      department: operations
+      role: "Operations & delivery lead — task coordination, daily ops"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 10
     agents:
-      - daily-ops
-      - jake-triage
-      - jake-deep-work
-      - orchestrator
+      - name: daily-ops
+        tier: 3
+        department: operations
+        role: "Daily brief assembly, task coordination"
+        reports_to: aria
+        budget_tier: FREE_BULK
 
+      - name: jake-triage
+        tier: 3
+        department: operations
+        role: "Email triage, priority sorting"
+        reports_to: aria
+        budget_tier: VOLUME_OPS
+
+      - name: jake-deep-work
+        tier: 3
+        department: operations
+        role: "Focus session management"
+        reports_to: aria
+        budget_tier: LOCAL
+
+      - name: orchestrator
+        tier: 3
+        department: operations
+        role: "Multi-agent task orchestration"
+        reports_to: aria
+        budget_tier: VOLUME_OPS
+
+  # ---------------------------------------------------------------------------
+  # Finance & Economics
+  # ---------------------------------------------------------------------------
   finance:
-    lead: ledger
+    lead:
+      name: ledger
+      tier: 2
+      department: finance
+      role: "Finance & economics lead — unit economics, runway, pricing"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 10
     agents:
-      - ledger-finance
-      - freya-behavioral-economics
-      - pulse-data-science
+      - name: ledger-finance
+        tier: 3
+        department: finance
+        role: "Unit economics, runway, pricing"
+        reports_to: ledger
+        budget_tier: VOLUME_OPS
 
+      - name: freya-behavioral-economics
+        tier: 3
+        department: finance
+        role: "Behavioral economics, retention architecture"
+        reports_to: ledger
+        budget_tier: FREE_BULK
+
+      - name: pulse-data-science
+        tier: 3
+        department: finance
+        role: "Data science, analytics, experimentation"
+        reports_to: ledger
+        budget_tier: VOLUME_OPS
+
+  # ---------------------------------------------------------------------------
+  # Security & Compliance
+  # ---------------------------------------------------------------------------
   security:
-    lead: sentinel
+    lead:
+      name: sentinel
+      tier: 2
+      department: security
+      role: "Security & compliance lead — threat modeling, audit, compliance gates"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 10
     agents:
-      - sentinel-health
-      # shield-legal-compliance dual-reports here and to strategy
+      - name: sentinel-security
+        tier: 3
+        department: security
+        role: "Security auditing, threat modeling"
+        reports_to: sentinel
+        budget_tier: VOLUME_OPS
 
+      - name: sentinel-health
+        tier: 3
+        department: security
+        role: "Oracle Health compliance gate"
+        reports_to: sentinel
+        dual_reports_to: oracle-brief
+        budget_tier: FREE_BULK
+
+      # shield-legal-compliance dual-reports here from strategy
+      # Listed under strategy as primary, sentinel as secondary
+
+  # ---------------------------------------------------------------------------
+  # Oracle Health (Domain-Specific)
+  # ---------------------------------------------------------------------------
   oracle_health:
-    lead: oracle-brief
+    lead:
+      name: oracle-brief
+      tier: 2
+      department: oracle_health
+      role: "Oracle Health domain lead — healthcare marketing strategy"
+      reports_to: jake
+      budget_tier: VOLUME_OPS
+      budget_monthly_usd: 10
     agents:
-      - oracle-health-marketing-lead
-      - oracle-health-product-marketing
-      - sentinel-health  # dual-reports to security
+      - name: oracle-health-marketing-lead
+        tier: 3
+        department: oracle_health
+        role: "Oracle Health marketing strategy"
+        reports_to: oracle-brief
+        budget_tier: VOLUME_OPS
 
-# Agents not assigned to departments (standalone/utility)
+      - name: oracle-health-product-marketing
+        tier: 3
+        department: oracle_health
+        role: "Product marketing for Oracle Health"
+        reports_to: oracle-brief
+        budget_tier: FREE_BULK
+
+      # sentinel-health dual-reports here from security
+
+# =============================================================================
+# Unassigned Agents (standalone / utility)
+# =============================================================================
 unassigned:
-  - jake-chat      # Jake's chat interface, not a department member
-  - main           # Default agent
-  - research       # Generic research (superseded by research-director)
+  - name: jake-chat
+    tier: 3
+    department: null
+    role: "Jake's chat interface, not a department member"
+    reports_to: jake
+    budget_tier: LOCAL
 
-# Sub-agent sources (Tier 4 — ephemeral, spawned on demand)
+  - name: main
+    tier: 3
+    department: null
+    role: "Default agent"
+    reports_to: jake
+    budget_tier: LOCAL
+
+  - name: research
+    tier: 3
+    department: null
+    role: "Generic research (superseded by research-director)"
+    reports_to: jake
+    budget_tier: FREE_BULK
+
+# =============================================================================
+# Tier 4 — Sub-Agent Sources (Ephemeral, spawned on demand)
+# =============================================================================
 sub_agent_sources:
   voltagent:
+    tier: 4
     count: 734
     catalog: ".startup-os/voltagent-catalog.md"
     skills_list: ".startup-os/voltagent-skills.txt"
+    budget_tier: LOCAL
+    description: "VoltAgent community skills — attached as capabilities to Tier 3 agents"
+
   claude_code_plugins:
+    tier: 4
     count: 112
     source: "wshobson superpowers + domain plugins"
+    budget_tier: FREE_BULK
+    description: "Claude Code plugin agents — spawned as sub-agents on demand"
+
   claude_code_skills:
-    count: 50+
+    tier: 4
+    count: 50
     source: ".claude/skills/ + anthropic-skills"
+    budget_tier: LOCAL
+    description: "Built-in Claude Code skills — local execution"
+
+# =============================================================================
+# Dual-Reporting Summary
+# =============================================================================
+# Agents with dual reporting lines:
+#   shield-legal-compliance  → primary: steve (strategy), secondary: sentinel (security)
+#   sentinel-health          → primary: sentinel (security), secondary: oracle-brief (oracle_health)
+#   coach-exercise-science   → primary: compass (product), secondary: research-director (research)
+#   sage-nutrition           → primary: compass (product), secondary: research-director (research)
+#   drift-sleep-recovery     → primary: compass (product), secondary: research-director (research)
+#   flow-sports-psychology   → primary: compass (product), secondary: research-director (research)
+
+# =============================================================================
+# Routing Flow
+# =============================================================================
+# Mike → Jake (Tier 1, front door)
+#   ├─ Simple/personal → Jake handles directly
+#   ├─ Needs routing → KIRA classifies intent → department lead (Tier 2)
+#   │   └─ Lead delegates to specialist (Tier 3) → spawns sub-agent (Tier 4) if needed
+#   └─ Needs capability design → Susan (Tier 1, foundry)
+
+# =============================================================================
+# Budget Summary
+# =============================================================================
+# Tier 0 (Mike):    Unlimited
+# Tier 1 (Meta):    $50 + $10 + $20 = $80/mo
+# Tier 2 (Super):   8 leads x $10-15 = ~$100/mo
+# Tier 3 (Agent):   $0-5 each, counted against department lead budget
+# Tier 4 (Sub):     $0, ephemeral, counted against parent agent
+# Total ceiling:    ~$250/mo (actual spend ~$150/mo)

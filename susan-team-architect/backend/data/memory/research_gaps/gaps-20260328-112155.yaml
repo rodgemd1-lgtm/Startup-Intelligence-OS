@@ -1,4 +1,4 @@
-generated_at: '2026-03-28T11:21:38.745297+00:00'
+generated_at: '2026-03-28T11:21:55.305066+00:00'
 total_gaps: 93
 gaps:
 - id: gap-258a960405c8
@@ -13,7 +13,7 @@ gaps:
   - innovation strategy framework methodology guide
   - innovation strategy startup implementation playbook
   - Capability 'Innovation Strategy' coverage score research
-  discovered_at: '2026-03-28T11:21:38.601148+00:00'
+  discovered_at: '2026-03-28T11:21:55.163440+00:00'
   status: open
 - id: gap-6c93669f50bf
   domain: intelligence-research
@@ -27,7 +27,7 @@ gaps:
   - intelligence research framework methodology guide
   - intelligence research startup implementation playbook
   - Capability 'Intelligence Research' coverage score research
-  discovered_at: '2026-03-28T11:21:38.603627+00:00'
+  discovered_at: '2026-03-28T11:21:55.165611+00:00'
   status: open
 - id: gap-18216f26f3d7
   domain: job-memory-intelligence
@@ -42,7 +42,7 @@ gaps:
   - job memory intelligence framework methodology guide
   - job memory intelligence startup implementation playbook
   - Capability Memory Intelligence' coverage score research
-  discovered_at: '2026-03-28T11:21:38.607078+00:00'
+  discovered_at: '2026-03-28T11:21:55.169142+00:00'
   status: open
 - id: gap-e782ccf9dc2f
   domain: job-studio-training-factory
@@ -57,7 +57,7 @@ gaps:
   - job studio training factory framework methodology guide
   - job studio training factory startup implementation playbook
   - Capability Studio Training Factory' coverage research
-  discovered_at: '2026-03-28T11:21:38.609548+00:00'
+  discovered_at: '2026-03-28T11:21:55.171438+00:00'
   status: open
 - id: gap-de6e2705ac89
   domain: operator-experience
@@ -71,7 +71,7 @@ gaps:
   - operator experience framework methodology guide
   - operator experience startup implementation playbook
   - Capability 'Operator Experience' coverage score research
-  discovered_at: '2026-03-28T11:21:38.611887+00:00'
+  discovered_at: '2026-03-28T11:21:55.173545+00:00'
   status: open
 - id: gap-d973b3997bb6
   domain: platform-infrastructure
@@ -85,7 +85,7 @@ gaps:
   - platform infrastructure framework methodology guide
   - platform infrastructure startup implementation playbook
   - Capability 'Platform Infrastructure' coverage score research
-  discovered_at: '2026-03-28T11:21:38.614186+00:00'
+  discovered_at: '2026-03-28T11:21:55.175786+00:00'
   status: open
 - id: gap-0a3676f613cb
   domain: portfolio-management
@@ -99,7 +99,7 @@ gaps:
   - portfolio management framework methodology guide
   - portfolio management startup implementation playbook
   - Capability 'Portfolio Management' coverage score research
-  discovered_at: '2026-03-28T11:21:38.616470+00:00'
+  discovered_at: '2026-03-28T11:21:55.177836+00:00'
   status: open
 - id: gap-35afd4e376be
   domain: revenue-growth-studio
@@ -113,7 +113,7 @@ gaps:
   - revenue growth studio framework methodology guide
   - revenue growth studio startup implementation playbook
   - Department 'Revenue Growth Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.646789+00:00'
+  discovered_at: '2026-03-28T11:21:55.206511+00:00'
   status: open
 - id: gap-27fd4af05333
   domain: simulated-maturity-harness
@@ -128,7 +128,7 @@ gaps:
   - simulated maturity harness framework methodology guide
   - simulated maturity harness startup implementation playbook
   - Capability 'Simulated Maturity Harness' coverage research
-  discovered_at: '2026-03-28T11:21:38.618624+00:00'
+  discovered_at: '2026-03-28T11:21:55.179704+00:00'
   status: open
 - id: gap-972ab9235241
   domain: studio-operations
@@ -142,7 +142,7 @@ gaps:
   - studio operations framework methodology guide
   - studio operations startup implementation playbook
   - Capability 'Studio Operations' coverage score research
-  discovered_at: '2026-03-28T11:21:38.620726+00:00'
+  discovered_at: '2026-03-28T11:21:55.181738+00:00'
   status: open
 - id: gap-a3c1445f67bd
   domain: talent-org-design-studio
@@ -156,7 +156,7 @@ gaps:
   - talent org design studio framework methodology guide
   - talent org design studio startup implementation playbook
   - Department 'Talent Design Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.649220+00:00'
+  discovered_at: '2026-03-28T11:21:55.208639+00:00'
   status: open
 - id: gap-ad1d08db0027
   domain: trust-governance-studio
@@ -170,7 +170,7 @@ gaps:
   - trust governance studio framework methodology guide
   - trust governance studio startup implementation playbook
   - Department 'Trust Governance Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.651542+00:00'
+  discovered_at: '2026-03-28T11:21:55.211044+00:00'
   status: open
 - id: gap-5094c843c186
   domain: workspace-contract
@@ -184,7 +184,7 @@ gaps:
   - workspace contract framework methodology guide
   - workspace contract startup implementation playbook
   - Capability 'Workspace Contract' coverage score research
-  discovered_at: '2026-03-28T11:21:38.625398+00:00'
+  discovered_at: '2026-03-28T11:21:55.186014+00:00'
   status: open
 - id: gap-9e57609b73c9
   domain: agent-orchestration
@@ -198,7 +198,7 @@ gaps:
   - agent orchestration framework methodology guide
   - agent orchestration startup implementation playbook
   - Capability 'Agent Orchestration' coverage score research
-  discovered_at: '2026-03-28T11:21:38.562902+00:00'
+  discovered_at: '2026-03-28T11:21:55.127066+00:00'
   status: open
 - id: gap-2597c123c78b
   domain: agent-readiness-index
@@ -212,7 +212,7 @@ gaps:
   - agent readiness index framework methodology guide
   - agent readiness index startup implementation playbook
   - Capability 'agent-readiness-index' coverage score matching research
-  discovered_at: '2026-03-28T11:21:38.573135+00:00'
+  discovered_at: '2026-03-28T11:21:55.136403+00:00'
   status: open
 - id: gap-4865ceb479ab
   domain: agentic-operator-console
@@ -226,7 +226,7 @@ gaps:
   - agentic operator console framework methodology guide
   - agentic operator console startup implementation playbook
   - Capability 'Agentic Operator Console' coverage research
-  discovered_at: '2026-03-28T11:21:38.575585+00:00'
+  discovered_at: '2026-03-28T11:21:55.138579+00:00'
   status: open
 - id: gap-60ddf8b67f86
   domain: ai-audio-tools
@@ -240,7 +240,7 @@ gaps:
   - ai audio tools framework methodology guide
   - ai audio tools startup implementation playbook
   - Scrape manifest Audio Generation Tools' research
-  discovered_at: '2026-03-28T11:21:38.654031+00:00'
+  discovered_at: '2026-03-28T11:21:55.213463+00:00'
   status: open
 - id: gap-ae5b31c7b275
   domain: ai-fitness-tech
@@ -254,7 +254,7 @@ gaps:
   - ai fitness tech framework methodology guide
   - ai fitness tech startup implementation playbook
   - Scrape manifest Fitness Technology' exists research
-  discovered_at: '2026-03-28T11:21:38.655581+00:00'
+  discovered_at: '2026-03-28T11:21:55.215009+00:00'
   status: open
 - id: gap-be670f5b42c6
   domain: ai-image-tools
@@ -268,7 +268,7 @@ gaps:
   - ai image tools framework methodology guide
   - ai image tools startup implementation playbook
   - Scrape manifest Image Generation Tools' research
-  discovered_at: '2026-03-28T11:21:38.657667+00:00'
+  discovered_at: '2026-03-28T11:21:55.217024+00:00'
   status: open
 - id: gap-518b780eb907
   domain: ai-video-tools
@@ -282,7 +282,7 @@ gaps:
   - ai video tools framework methodology guide
   - ai video tools startup implementation playbook
   - Scrape manifest Video Generation Tools' research
-  discovered_at: '2026-03-28T11:21:38.660016+00:00'
+  discovered_at: '2026-03-28T11:21:55.219572+00:00'
   status: open
 - id: gap-6821c6890172
   domain: all-department-maturity-gap-closure
@@ -297,7 +297,7 @@ gaps:
   - all department maturity gap closure framework methodology guide
   - all department maturity gap closure startup implementation playbook
   - Capability 'All-Department Maturity Closure' coverage research
-  discovered_at: '2026-03-28T11:21:38.577735+00:00'
+  discovered_at: '2026-03-28T11:21:55.140588+00:00'
   status: open
 - id: gap-7d7b2cc0ec06
   domain: auto-agent-orchestration
@@ -311,7 +311,7 @@ gaps:
   - auto agent orchestration framework methodology guide
   - auto agent orchestration startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: agent orchestration'' research'
-  discovered_at: '2026-03-28T11:21:38.661639+00:00'
+  discovered_at: '2026-03-28T11:21:55.221193+00:00'
   status: open
 - id: gap-b5a563fd700c
   domain: auto-agent-readiness-index
@@ -325,7 +325,7 @@ gaps:
   - auto agent readiness index framework methodology guide
   - auto agent readiness index startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: agent readiness research'
-  discovered_at: '2026-03-28T11:21:38.663219+00:00'
+  discovered_at: '2026-03-28T11:21:55.222783+00:00'
   status: open
 - id: gap-7f30ca0ffef7
   domain: auto-agentic-operator-console
@@ -339,7 +339,7 @@ gaps:
   - auto agentic operator console framework methodology guide
   - auto agentic operator console startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: agentic operator research'
-  discovered_at: '2026-03-28T11:21:38.664841+00:00'
+  discovered_at: '2026-03-28T11:21:55.224383+00:00'
   status: open
 - id: gap-bcadb33b5161
   domain: auto-all-department-maturity-gap-closure
@@ -353,7 +353,7 @@ gaps:
   - auto all department maturity gap closure framework methodology guide
   - auto all department maturity gap closure startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: department maturity research'
-  discovered_at: '2026-03-28T11:21:38.666364+00:00'
+  discovered_at: '2026-03-28T11:21:55.226355+00:00'
   status: open
 - id: gap-60e5d0d91099
   domain: auto-capability-jake-operator-core
@@ -367,7 +367,7 @@ gaps:
   - auto capability jake operator core framework methodology guide
   - auto capability jake operator core startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: capability operator research'
-  discovered_at: '2026-03-28T11:21:38.668028+00:00'
+  discovered_at: '2026-03-28T11:21:55.227906+00:00'
   status: open
 - id: gap-12db3195d3b4
   domain: auto-capability-management
@@ -381,7 +381,7 @@ gaps:
   - auto capability management framework methodology guide
   - auto capability management startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: capability management'' research'
-  discovered_at: '2026-03-28T11:21:38.669696+00:00'
+  discovered_at: '2026-03-28T11:21:55.229386+00:00'
   status: open
 - id: gap-bf4c800033ae
   domain: auto-capability-susan-foundry-core
@@ -395,7 +395,7 @@ gaps:
   - auto capability susan foundry core framework methodology guide
   - auto capability susan foundry core startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: capability susan research'
-  discovered_at: '2026-03-28T11:21:38.671258+00:00'
+  discovered_at: '2026-03-28T11:21:55.230907+00:00'
   status: open
 - id: gap-9d94b287b437
   domain: auto-content-marketing
@@ -409,7 +409,7 @@ gaps:
   - auto content marketing framework methodology guide
   - auto content marketing startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: content marketing'' research'
-  discovered_at: '2026-03-28T11:21:38.672751+00:00'
+  discovered_at: '2026-03-28T11:21:55.232404+00:00'
   status: open
 - id: gap-f0c20f8b8381
   domain: auto-data-analytics
@@ -423,7 +423,7 @@ gaps:
   - auto data analytics framework methodology guide
   - auto data analytics startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: analytics'' exists research'
-  discovered_at: '2026-03-28T11:21:38.674240+00:00'
+  discovered_at: '2026-03-28T11:21:55.233920+00:00'
   status: open
 - id: gap-80c575bbd71d
   domain: auto-data-decision-science-studio
@@ -437,7 +437,7 @@ gaps:
   - auto data decision science studio framework methodology guide
   - auto data decision science studio startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: decision science research'
-  discovered_at: '2026-03-28T11:21:38.675941+00:00'
+  discovered_at: '2026-03-28T11:21:55.235652+00:00'
   status: open
 - id: gap-7658ab2108c1
   domain: auto-decision-kernel
@@ -451,7 +451,7 @@ gaps:
   - auto decision kernel framework methodology guide
   - auto decision kernel startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: decision kernel'' research'
-  discovered_at: '2026-03-28T11:21:38.677564+00:00'
+  discovered_at: '2026-03-28T11:21:55.237216+00:00'
   status: open
 - id: gap-cc9351cb2148
   domain: auto-department-studios-of-excellence
@@ -465,7 +465,7 @@ gaps:
   - auto department studios of excellence framework methodology guide
   - auto department studios of excellence startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: department studios research'
-  discovered_at: '2026-03-28T11:21:38.679135+00:00'
+  discovered_at: '2026-03-28T11:21:55.238708+00:00'
   status: open
 - id: gap-2c0ef8cdc435
   domain: auto-department-ten-state-verification
@@ -479,7 +479,7 @@ gaps:
   - auto department ten state verification framework methodology guide
   - auto department ten state verification startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: department state research'
-  discovered_at: '2026-03-28T11:21:38.680720+00:00'
+  discovered_at: '2026-03-28T11:21:55.240177+00:00'
   status: open
 - id: gap-a83c24e8146b
   domain: auto-film-image-studio
@@ -493,7 +493,7 @@ gaps:
   - auto film image studio framework methodology guide
   - auto film image studio startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: image studio'' research'
-  discovered_at: '2026-03-28T11:21:38.682587+00:00'
+  discovered_at: '2026-03-28T11:21:55.241798+00:00'
   status: open
 - id: gap-6dc32dfcfb47
   domain: auto-finance-operating-cadence-studio
@@ -507,7 +507,7 @@ gaps:
   - auto finance operating cadence studio framework methodology guide
   - auto finance operating cadence studio startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: finance operating research'
-  discovered_at: '2026-03-28T11:21:38.684156+00:00'
+  discovered_at: '2026-03-28T11:21:55.243569+00:00'
   status: open
 - id: gap-96ac91511b68
   domain: auto-gen-chat-os-system
@@ -521,7 +521,7 @@ gaps:
   - auto gen chat os system framework methodology guide
   - auto gen chat os system startup implementation playbook
   - 'Scrape manifest ''Auto-harvest: system'' exists research'
-  discovered_at: '2026-03-28T11:21:38.685764+00:00'
+  discovered_at: '2026-03-28T11:21:55.245139+00:00'
   status: open
 - id: gap-6091fa30ab97
   domain: behavioral-economics
@@ -535,7 +535,7 @@ gaps:
   - behavioral economics framework methodology guide
   - behavioral economics startup implementation playbook
   - Scrape manifest 'Behavioral Economics Retention' research
-  discovered_at: '2026-03-28T11:21:38.687346+00:00'
+  discovered_at: '2026-03-28T11:21:55.246682+00:00'
   status: open
 - id: gap-68bd1a3bcfe1
   domain: capability-jake-operator-core
@@ -549,7 +549,7 @@ gaps:
   - capability jake operator core framework methodology guide
   - capability jake operator core startup implementation playbook
   - Capability 'Jake Operator Core' coverage research
-  discovered_at: '2026-03-28T11:21:38.604832+00:00'
+  discovered_at: '2026-03-28T11:21:55.166690+00:00'
   status: open
 - id: gap-1ed4d8bc4305
   domain: capability-management
@@ -563,7 +563,7 @@ gaps:
   - capability management framework methodology guide
   - capability management startup implementation playbook
   - Capability 'Capability Management' coverage score research
-  discovered_at: '2026-03-28T11:21:38.579961+00:00'
+  discovered_at: '2026-03-28T11:21:55.142869+00:00'
   status: open
 - id: gap-2deb364abc57
   domain: capability-susan-foundry-core
@@ -577,7 +577,7 @@ gaps:
   - capability susan foundry core framework methodology guide
   - capability susan foundry core startup implementation playbook
   - Capability 'Susan Foundry Core' coverage research
-  discovered_at: '2026-03-28T11:21:38.621761+00:00'
+  discovered_at: '2026-03-28T11:21:55.182711+00:00'
   status: open
 - id: gap-184d330e90e5
   domain: cinematography
@@ -591,7 +591,7 @@ gaps:
   - cinematography framework methodology guide
   - cinematography startup implementation playbook
   - Scrape manifest 'Cinematography Visual Language' research
-  discovered_at: '2026-03-28T11:21:38.688947+00:00'
+  discovered_at: '2026-03-28T11:21:55.248267+00:00'
   status: open
 - id: gap-66f03cfb5558
   domain: competitive-intel
@@ -605,7 +605,7 @@ gaps:
   - competitive intel framework methodology guide
   - competitive intel startup implementation playbook
   - Scrape manifest 'Competitive Intelligence' exists research
-  discovered_at: '2026-03-28T11:21:38.690438+00:00'
+  discovered_at: '2026-03-28T11:21:55.249690+00:00'
   status: open
 - id: gap-33bba1b822de
   domain: consumer-user-studio
@@ -619,7 +619,7 @@ gaps:
   - consumer user studio framework methodology guide
   - consumer user studio startup implementation playbook
   - Department 'Consumer Studio' coverage score research
-  discovered_at: '2026-03-28T11:21:38.627858+00:00'
+  discovered_at: '2026-03-28T11:21:55.188256+00:00'
   status: open
 - id: gap-78da1a345ec4
   domain: content-marketing
@@ -633,7 +633,7 @@ gaps:
   - content marketing framework methodology guide
   - content marketing startup implementation playbook
   - Capability 'Content Marketing' coverage score research
-  discovered_at: '2026-03-28T11:21:38.582163+00:00'
+  discovered_at: '2026-03-28T11:21:55.145136+00:00'
   status: open
 - id: gap-e96c5a442601
   domain: data-analytics
@@ -647,7 +647,7 @@ gaps:
   - data analytics framework methodology guide
   - data analytics startup implementation playbook
   - Capability 'Data Analytics' coverage score research
-  discovered_at: '2026-03-28T11:21:38.587310+00:00'
+  discovered_at: '2026-03-28T11:21:55.149801+00:00'
   status: open
 - id: gap-3898b4e09bfc
   domain: data-decision-science-studio
@@ -661,7 +661,7 @@ gaps:
   - data decision science studio framework methodology guide
   - data decision science studio startup implementation playbook
   - Department 'Data Decision Science Studio' research
-  discovered_at: '2026-03-28T11:21:38.630087+00:00'
+  discovered_at: '2026-03-28T11:21:55.190553+00:00'
   status: open
 - id: gap-ff465d0c7e53
   domain: decision-kernel
@@ -675,7 +675,7 @@ gaps:
   - decision kernel framework methodology guide
   - decision kernel startup implementation playbook
   - Capability 'Decision Kernel Phase coverage research
-  discovered_at: '2026-03-28T11:21:38.588521+00:00'
+  discovered_at: '2026-03-28T11:21:55.151380+00:00'
   status: open
 - id: gap-f83be24fabd6
   domain: department-studios-of-excellence
@@ -690,7 +690,7 @@ gaps:
   - department studios of excellence framework methodology guide
   - department studios of excellence startup implementation playbook
   - Capability 'Department Studios Excellence' coverage research
-  discovered_at: '2026-03-28T11:21:38.592452+00:00'
+  discovered_at: '2026-03-28T11:21:55.154995+00:00'
   status: open
 - id: gap-152e8782d86f
   domain: department-ten-state-verification
@@ -705,7 +705,7 @@ gaps:
   - department ten state verification framework methodology guide
   - department ten state verification startup implementation playbook
   - Capability 'Department Ten-State Verification' coverage research
-  discovered_at: '2026-03-28T11:21:38.594500+00:00'
+  discovered_at: '2026-03-28T11:21:55.156976+00:00'
   status: open
 - id: gap-fe142cf42069
   domain: emotional-design
@@ -719,7 +719,7 @@ gaps:
   - emotional design framework methodology guide
   - emotional design startup implementation playbook
   - Scrape manifest 'Emotional Design, Motion research
-  discovered_at: '2026-03-28T11:21:38.691988+00:00'
+  discovered_at: '2026-03-28T11:21:55.251185+00:00'
   status: open
 - id: gap-7f73f36892e2
   domain: engineering-agent-systems-studio
@@ -733,7 +733,7 @@ gaps:
   - engineering agent systems studio framework methodology guide
   - engineering agent systems studio startup implementation playbook
   - Department 'Engineering Agent Systems Studio' research
-  discovered_at: '2026-03-28T11:21:38.632325+00:00'
+  discovered_at: '2026-03-28T11:21:55.192899+00:00'
   status: open
 - id: gap-c606d5044b3a
   domain: enterprise-rental-customer-reviews-training
@@ -747,7 +747,7 @@ gaps:
   - enterprise rental customer reviews training framework methodology guide
   - enterprise rental customer reviews training startup implementation playbook
   - Scrape manifest 'Enterprise Rental Customer research
-  discovered_at: '2026-03-28T11:21:38.693912+00:00'
+  discovered_at: '2026-03-28T11:21:55.252747+00:00'
   status: open
 - id: gap-3756a3e8d250
   domain: exercise-science
@@ -761,7 +761,7 @@ gaps:
   - exercise science framework methodology guide
   - exercise science startup implementation playbook
   - Scrape manifest 'Exercise Science Core' research
-  discovered_at: '2026-03-28T11:21:38.695590+00:00'
+  discovered_at: '2026-03-28T11:21:55.254665+00:00'
   status: open
 - id: gap-c513b481ea70
   domain: film-image-studio
@@ -775,7 +775,7 @@ gaps:
   - film image studio framework methodology guide
   - film image studio startup implementation playbook
   - Capability 'Film Image Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.596889+00:00'
+  discovered_at: '2026-03-28T11:21:55.159348+00:00'
   status: open
 - id: gap-fd4c68f54767
   domain: film-legal
@@ -789,7 +789,7 @@ gaps:
   - film legal framework methodology guide
   - film legal startup implementation playbook
   - Scrape manifest 'Film Legal Compliance' research
-  discovered_at: '2026-03-28T11:21:38.697379+00:00'
+  discovered_at: '2026-03-28T11:21:55.256503+00:00'
   status: open
 - id: gap-d5f1697a9927
   domain: film-production
@@ -803,7 +803,7 @@ gaps:
   - film production framework methodology guide
   - film production startup implementation playbook
   - Scrape manifest 'Film Production Core' research
-  discovered_at: '2026-03-28T11:21:38.698974+00:00'
+  discovered_at: '2026-03-28T11:21:55.258193+00:00'
   status: open
 - id: gap-b6cb4e907753
   domain: film-university
@@ -817,7 +817,7 @@ gaps:
   - film university framework methodology guide
   - film university startup implementation playbook
   - Scrape manifest 'Film University Curricula' research
-  discovered_at: '2026-03-28T11:21:38.700920+00:00'
+  discovered_at: '2026-03-28T11:21:55.260147+00:00'
   status: open
 - id: gap-a9c700aecd72
   domain: finance-operating-cadence-studio
@@ -831,7 +831,7 @@ gaps:
   - finance operating cadence studio framework methodology guide
   - finance operating cadence studio startup implementation playbook
   - Department 'Finance Operating Cadence Studio' research
-  discovered_at: '2026-03-28T11:21:38.634621+00:00'
+  discovered_at: '2026-03-28T11:21:55.195172+00:00'
   status: open
 - id: gap-a1a7aa141aae
   domain: founder-decision-room
@@ -845,7 +845,7 @@ gaps:
   - founder decision room framework methodology guide
   - founder decision room startup implementation playbook
   - Department 'Founder Decision Room' coverage research
-  discovered_at: '2026-03-28T11:21:38.636951+00:00'
+  discovered_at: '2026-03-28T11:21:55.197308+00:00'
   status: open
 - id: gap-86c0615d8565
   domain: gen-chat-os-system
@@ -859,7 +859,7 @@ gaps:
   - gen chat os system framework methodology guide
   - gen chat os system startup implementation playbook
   - Capability coverage score matching scrape research
-  discovered_at: '2026-03-28T11:21:38.598885+00:00'
+  discovered_at: '2026-03-28T11:21:55.161426+00:00'
   status: open
 - id: gap-784f1cb0d456
   domain: instagram-production
@@ -873,7 +873,7 @@ gaps:
   - instagram production framework methodology guide
   - instagram production startup implementation playbook
   - Scrape manifest 'Instagram Social Media research
-  discovered_at: '2026-03-28T11:21:38.702795+00:00'
+  discovered_at: '2026-03-28T11:21:55.261827+00:00'
   status: open
 - id: gap-abbb378d17f0
   domain: job-studio-training-ai-foundations
@@ -887,7 +887,7 @@ gaps:
   - job studio training ai foundations framework methodology guide
   - job studio training ai foundations startup implementation playbook
   - Scrape manifest Studio Training Foundations' research
-  discovered_at: '2026-03-28T11:21:38.704287+00:00'
+  discovered_at: '2026-03-28T11:21:55.263316+00:00'
   status: open
 - id: gap-267371998dd5
   domain: job-studio-training-behavioral-science
@@ -901,7 +901,7 @@ gaps:
   - job studio training behavioral science framework methodology guide
   - job studio training behavioral science startup implementation playbook
   - Scrape manifest Studio Training Behavioral research
-  discovered_at: '2026-03-28T11:21:38.705565+00:00'
+  discovered_at: '2026-03-28T11:21:55.264643+00:00'
   status: open
 - id: gap-6f8318f74ca8
   domain: job-studio-training-ellen-enablement
@@ -915,7 +915,7 @@ gaps:
   - job studio training ellen enablement framework methodology guide
   - job studio training ellen enablement startup implementation playbook
   - Scrape manifest Studio Training Ellen research
-  discovered_at: '2026-03-28T11:21:38.706841+00:00'
+  discovered_at: '2026-03-28T11:21:55.265879+00:00'
   status: open
 - id: gap-e527815d91c8
   domain: job-studio-training-github-harvest
@@ -929,7 +929,7 @@ gaps:
   - job studio training github harvest framework methodology guide
   - job studio training github harvest startup implementation playbook
   - Scrape manifest Studio Training GitHub research
-  discovered_at: '2026-03-28T11:21:38.708593+00:00'
+  discovered_at: '2026-03-28T11:21:55.267365+00:00'
   status: open
 - id: gap-a8f2f43c37f3
   domain: job-studio-training-learning-science-stronger
@@ -943,7 +943,7 @@ gaps:
   - job studio training learning science stronger framework methodology guide
   - job studio training learning science stronger startup implementation playbook
   - Scrape manifest Studio Training Learning research
-  discovered_at: '2026-03-28T11:21:38.710181+00:00'
+  discovered_at: '2026-03-28T11:21:55.268841+00:00'
   status: open
 - id: gap-cda6c57c49d1
   domain: job-studio-training-mcp-stack
@@ -957,7 +957,7 @@ gaps:
   - job studio training mcp stack framework methodology guide
   - job studio training mcp stack startup implementation playbook
   - Scrape manifest Studio Training Stack' research
-  discovered_at: '2026-03-28T11:21:38.711470+00:00'
+  discovered_at: '2026-03-28T11:21:55.270060+00:00'
   status: open
 - id: gap-7db5ae94b823
   domain: marketing-narrative-studio
@@ -971,7 +971,7 @@ gaps:
   - marketing narrative studio framework methodology guide
   - marketing narrative studio startup implementation playbook
   - Department 'Marketing Narrative Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.641924+00:00'
+  discovered_at: '2026-03-28T11:21:55.202397+00:00'
   status: open
 - id: gap-02bffff9ffed
   domain: nutrition
@@ -985,7 +985,7 @@ gaps:
   - nutrition framework methodology guide
   - nutrition startup implementation playbook
   - Scrape manifest 'Nutrition Science' exists research
-  discovered_at: '2026-03-28T11:21:38.712984+00:00'
+  discovered_at: '2026-03-28T11:21:55.271489+00:00'
   status: open
 - id: gap-8b1fe8105988
   domain: photography
@@ -999,7 +999,7 @@ gaps:
   - photography framework methodology guide
   - photography startup implementation playbook
   - Scrape manifest 'Photography Craft Workflow' research
-  discovered_at: '2026-03-28T11:21:38.714597+00:00'
+  discovered_at: '2026-03-28T11:21:55.273006+00:00'
   status: open
 - id: gap-cf5a1dbcb9b4
   domain: post-production
@@ -1013,7 +1013,7 @@ gaps:
   - post production framework methodology guide
   - post production startup implementation playbook
   - Scrape manifest 'Post-Production Pipeline' exists research
-  discovered_at: '2026-03-28T11:21:38.716206+00:00'
+  discovered_at: '2026-03-28T11:21:55.274641+00:00'
   status: open
 - id: gap-54ed935b4c23
   domain: product-experience-studio
@@ -1027,7 +1027,7 @@ gaps:
   - product experience studio framework methodology guide
   - product experience studio startup implementation playbook
   - Department 'Product Experience Studio' coverage research
-  discovered_at: '2026-03-28T11:21:38.644430+00:00'
+  discovered_at: '2026-03-28T11:21:55.204427+00:00'
   status: open
 - id: gap-45e356cd6c44
   domain: screenwriting
@@ -1041,7 +1041,7 @@ gaps:
   - screenwriting framework methodology guide
   - screenwriting startup implementation playbook
   - Scrape manifest 'Screenwriting Craft' exists research
-  discovered_at: '2026-03-28T11:21:38.718185+00:00'
+  discovered_at: '2026-03-28T11:21:55.276455+00:00'
   status: open
 - id: gap-c81b9dde3764
   domain: sleep-recovery
@@ -1055,7 +1055,7 @@ gaps:
   - sleep recovery framework methodology guide
   - sleep recovery startup implementation playbook
   - Scrape manifest 'Sleep Recovery' exists research
-  discovered_at: '2026-03-28T11:21:38.719776+00:00'
+  discovered_at: '2026-03-28T11:21:55.277963+00:00'
   status: open
 - id: gap-5a4bac813599
   domain: sports-psychology
@@ -1069,7 +1069,7 @@ gaps:
   - sports psychology framework methodology guide
   - sports psychology startup implementation playbook
   - Scrape manifest 'Sports Psychology Motivation' research
-  discovered_at: '2026-03-28T11:21:38.721318+00:00'
+  discovered_at: '2026-03-28T11:21:55.279485+00:00'
   status: open
 - id: gap-b848831fd8f8
   domain: startup-os-consumer-user-studio-officials
@@ -1083,7 +1083,7 @@ gaps:
   - startup os consumer user studio officials framework methodology guide
   - startup os consumer user studio officials startup implementation playbook
   - Scrape manifest 'Startup Consumer Studio research
-  discovered_at: '2026-03-28T11:21:38.722546+00:00'
+  discovered_at: '2026-03-28T11:21:55.280651+00:00'
   status: open
 - id: gap-500f528f0492
   domain: startup-os-data-decision-science-officials
@@ -1097,7 +1097,7 @@ gaps:
   - startup os data decision science officials framework methodology guide
   - startup os data decision science officials startup implementation playbook
   - Scrape manifest 'Startup Decision Science research
-  discovered_at: '2026-03-28T11:21:38.723853+00:00'
+  discovered_at: '2026-03-28T11:21:55.281933+00:00'
   status: open
 - id: gap-f005f32fadd5
   domain: startup-os-engineering-agent-systems-studio-officials
@@ -1112,7 +1112,7 @@ gaps:
   - startup os engineering agent systems studio officials framework methodology guide
   - startup os engineering agent systems studio officials startup implementation playbook
   - Scrape manifest 'Startup Engineering Agent research
-  discovered_at: '2026-03-28T11:21:38.725116+00:00'
+  discovered_at: '2026-03-28T11:21:55.283445+00:00'
   status: open
 - id: gap-39be56981037
   domain: startup-os-eval-and-synthetic-review-foundations
@@ -1126,7 +1126,7 @@ gaps:
   - startup os eval and synthetic review foundations framework methodology guide
   - startup os eval and synthetic review foundations startup implementation playbook
   - Scrape manifest 'Startup Synthetic Review research
-  discovered_at: '2026-03-28T11:21:38.726646+00:00'
+  discovered_at: '2026-03-28T11:21:55.284861+00:00'
   status: open
 - id: gap-ee79012bb56a
   domain: startup-os-finance-operating-cadence-officials
@@ -1140,7 +1140,7 @@ gaps:
   - startup os finance operating cadence officials framework methodology guide
   - startup os finance operating cadence officials startup implementation playbook
   - Scrape manifest 'Startup Finance Operating research
-  discovered_at: '2026-03-28T11:21:38.727925+00:00'
+  discovered_at: '2026-03-28T11:21:55.286102+00:00'
   status: open
 - id: gap-72d175ebbbe4
   domain: startup-os-founder-decision-room-foundations
@@ -1154,7 +1154,7 @@ gaps:
   - startup os founder decision room foundations framework methodology guide
   - startup os founder decision room foundations startup implementation playbook
   - Scrape manifest 'Startup Founder Decision research
-  discovered_at: '2026-03-28T11:21:38.729128+00:00'
+  discovered_at: '2026-03-28T11:21:55.287262+00:00'
   status: open
 - id: gap-71eb2ad84106
   domain: startup-os-marketing-narrative-studio-officials
@@ -1168,7 +1168,7 @@ gaps:
   - startup os marketing narrative studio officials framework methodology guide
   - startup os marketing narrative studio officials startup implementation playbook
   - Scrape manifest 'Startup Marketing Narrative research
-  discovered_at: '2026-03-28T11:21:38.730468+00:00'
+  discovered_at: '2026-03-28T11:21:55.288717+00:00'
   status: open
 - id: gap-a1d91e28615c
   domain: startup-os-product-experience-studio-officials
@@ -1182,7 +1182,7 @@ gaps:
   - startup os product experience studio officials framework methodology guide
   - startup os product experience studio officials startup implementation playbook
   - Scrape manifest 'Startup Product Experience research
-  discovered_at: '2026-03-28T11:21:38.731750+00:00'
+  discovered_at: '2026-03-28T11:21:55.290166+00:00'
   status: open
 - id: gap-0f9b92b71996
   domain: startup-os-revenue-growth-officials
@@ -1196,7 +1196,7 @@ gaps:
   - startup os revenue growth officials framework methodology guide
   - startup os revenue growth officials startup implementation playbook
   - Scrape manifest 'Startup Revenue Growth research
-  discovered_at: '2026-03-28T11:21:38.733238+00:00'
+  discovered_at: '2026-03-28T11:21:55.291739+00:00'
   status: open
 - id: gap-8488e10606de
   domain: startup-os-stronger-benchmark-case-library
@@ -1210,7 +1210,7 @@ gaps:
   - startup os stronger benchmark case library framework methodology guide
   - startup os stronger benchmark case library startup implementation playbook
   - Scrape manifest 'Startup Stronger Benchmark research
-  discovered_at: '2026-03-28T11:21:38.734838+00:00'
+  discovered_at: '2026-03-28T11:21:55.293535+00:00'
   status: open
 - id: gap-ea204fbcbc52
   domain: startup-os-talent-org-design-officials
@@ -1224,7 +1224,7 @@ gaps:
   - startup os talent org design officials framework methodology guide
   - startup os talent org design officials startup implementation playbook
   - Scrape manifest 'Startup Talent Design research
-  discovered_at: '2026-03-28T11:21:38.736191+00:00'
+  discovered_at: '2026-03-28T11:21:55.295077+00:00'
   status: open
 - id: gap-490c7bf60a0a
   domain: startup-os-training-evaluation-officials
@@ -1238,7 +1238,7 @@ gaps:
   - startup os training evaluation officials framework methodology guide
   - startup os training evaluation officials startup implementation playbook
   - Scrape manifest 'Startup Training Evaluation research
-  discovered_at: '2026-03-28T11:21:38.737512+00:00'
+  discovered_at: '2026-03-28T11:21:55.296598+00:00'
   status: open
 - id: gap-687dc8d01b7c
   domain: startup-os-trust-governance-officials
@@ -1252,7 +1252,7 @@ gaps:
   - startup os trust governance officials framework methodology guide
   - startup os trust governance officials startup implementation playbook
   - Scrape manifest 'Startup Trust Governance research
-  discovered_at: '2026-03-28T11:21:38.738798+00:00'
+  discovered_at: '2026-03-28T11:21:55.297945+00:00'
   status: open
 - id: gap-8b5aebb5c1d2
   domain: ux-patterns
@@ -1266,7 +1266,7 @@ gaps:
   - ux patterns framework methodology guide
   - ux patterns startup implementation playbook
   - Scrape manifest Patterns Fitness Apps' research
-  discovered_at: '2026-03-28T11:21:38.740231+00:00'
+  discovered_at: '2026-03-28T11:21:55.299714+00:00'
   status: open
 - id: gap-1c9bbb2be51c
   domain: ux-research
@@ -1280,7 +1280,7 @@ gaps:
   - ux research framework methodology guide
   - ux research startup implementation playbook
   - Scrape manifest 'UX/UI Research Design research
-  discovered_at: '2026-03-28T11:21:38.741744+00:00'
+  discovered_at: '2026-03-28T11:21:55.301434+00:00'
   status: open
 - id: gap-9763189eaa16
   domain: job-studio
@@ -1294,7 +1294,7 @@ gaps:
   - job studio framework methodology guide
   - job studio startup implementation playbook
   - Department Studio' coverage score Required research
-  discovered_at: '2026-03-28T11:21:38.639740+00:00'
+  discovered_at: '2026-03-28T11:21:55.200311+00:00'
   status: open
 - id: gap-d2326892f753
   domain: ux-design
@@ -1308,5 +1308,5 @@ gaps:
   - ux design framework methodology guide
   - ux design startup implementation playbook
   - Capability Design' coverage score Declared research
-  discovered_at: '2026-03-28T11:21:38.624087+00:00'
+  discovered_at: '2026-03-28T11:21:55.184829+00:00'
   status: open

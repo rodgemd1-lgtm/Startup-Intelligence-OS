@@ -1,4 +1,4 @@
-generated_at: '2026-03-17T01:41:11Z'
+generated_at: '2026-03-28T11:22:17Z'
 program_count: 21
 programs:
 - id: rp-9de399c2956e
@@ -94,7 +94,7 @@ programs:
   estimated_duration_weeks: 5
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-1fd802b77c86
@@ -184,7 +184,7 @@ programs:
   estimated_duration_weeks: 5
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-ec1f5b44d981
@@ -278,7 +278,7 @@ programs:
   estimated_duration_weeks: 5
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-353fc601f549
@@ -378,7 +378,7 @@ programs:
   estimated_duration_weeks: 10
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-cca8e24593fe
@@ -459,7 +459,7 @@ programs:
   estimated_duration_weeks: 9
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-fdc465e77f80
@@ -510,7 +510,7 @@ programs:
   estimated_duration_weeks: 8
   priority: critical
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-23b9a6d109eb
@@ -637,7 +637,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-1b24c8312e56
@@ -761,7 +761,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-29288660d2e0
@@ -854,7 +854,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-20e9aeac96c1
@@ -947,7 +947,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-cf461c5da329
@@ -1041,7 +1041,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-5e0fb525fa49
@@ -1136,7 +1136,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-7179251be85e
@@ -1230,7 +1230,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-ee8e50e4b23f
@@ -1319,7 +1319,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-217cf21fee4f
@@ -1416,7 +1416,7 @@ programs:
   estimated_duration_weeks: 4
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-07c16184ad6c
@@ -1487,7 +1487,7 @@ programs:
   estimated_duration_weeks: 3
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-5c917899db3b
@@ -1557,7 +1557,7 @@ programs:
   estimated_duration_weeks: 3
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-396d82747e23
@@ -1645,7 +1645,7 @@ programs:
   estimated_duration_weeks: 5
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-e5a110ffe0e6
@@ -1738,7 +1738,7 @@ programs:
   estimated_duration_weeks: 5
   priority: high
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-2fe5925e8f05
@@ -1836,7 +1836,7 @@ programs:
   estimated_duration_weeks: 3
   priority: medium
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null
 - id: rp-af308ada4d4a
@@ -1901,6 +1901,6 @@ programs:
   estimated_duration_weeks: 3
   priority: medium
   status: proposed
-  created_at: '2026-03-17T01:41:11Z'
+  created_at: '2026-03-28T11:22:17Z'
   completed_at: null
   findings_summary: null

@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-REPO_ROOT="$HOME/Startup-Intelligence-OS"
+REPO_ROOT="$HOME/Desktop/Startup-Intelligence-OS"
 SUSAN_BACKEND="$REPO_ROOT/susan-team-architect/backend"
 VENV="$SUSAN_BACKEND/.venv/bin/python"
 LOG_DIR="$REPO_ROOT/.startup-os/logs"
