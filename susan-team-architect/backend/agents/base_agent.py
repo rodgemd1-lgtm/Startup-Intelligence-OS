@@ -11,8 +11,9 @@ import time
 from anthropic import Anthropic
 from rag_engine.retriever import Retriever
 from susan_core.config import config
-from jake_cost.router import router, ModelTier, Provider, _MODEL_PRICING
+from jake_cost.router import router, ModelTier, Provider, _MODEL_PRICING, _LOCAL_FALLBACK
 from jake_cost.openrouter_client import get_openrouter_client, OpenRouterClient
+from jake_cost.ollama_client import is_ollama_running, get_ollama_client
 
 logger = logging.getLogger(__name__)
 
@@ -51,20 +52,40 @@ class BaseAgent:
         self._routing = router.route(self.task_type)
         self.model = self._routing.model_id
         self.provider = self._routing.provider
+        self._ollama = None
 
         # Initialize the appropriate client
         if FORCE_ANTHROPIC or self.provider == Provider.ANTHROPIC:
             self._anthropic = Anthropic(api_key=config.anthropic_api_key)
             self._openrouter = None
             self.provider = Provider.ANTHROPIC
-            # Use Anthropic model ID
             self.model = config.model_sonnet
+        elif self.provider == Provider.LOCAL:
+            # Try Ollama first; fall back to FREE_BULK via OpenRouter
+            if is_ollama_running():
+                self._ollama = get_ollama_client()
+                self._anthropic = None
+                self._openrouter = None
+            else:
+                logger.info(
+                    f"[{self.agent_id}] Ollama not running, falling back to {_LOCAL_FALLBACK.value}"
+                )
+                self._routing = router.route(self.task_type, force_tier=_LOCAL_FALLBACK)
+                self.model = self._routing.model_id
+                self.provider = self._routing.provider
+                self._anthropic = None
+                try:
+                    self._openrouter = get_openrouter_client()
+                except ValueError:
+                    self._anthropic = Anthropic(api_key=config.anthropic_api_key)
+                    self._openrouter = None
+                    self.provider = Provider.ANTHROPIC
+                    self.model = config.model_sonnet
         else:
             self._anthropic = None
             try:
                 self._openrouter = get_openrouter_client()
             except ValueError:
-                # OpenRouter key not set — fall back to Anthropic
                 logger.warning(
                     f"[{self.agent_id}] OPENROUTER_API_KEY not set, falling back to Anthropic"
                 )
@@ -123,7 +144,9 @@ class BaseAgent:
 
         start = time.time()
 
-        if self.provider == Provider.OPENROUTER and self._openrouter:
+        if self.provider == Provider.LOCAL and self._ollama:
+            result = self._run_local(full_prompt, max_tokens)
+        elif self.provider == Provider.OPENROUTER and self._openrouter:
             result = self._run_openrouter(full_prompt, max_tokens)
         else:
             result = self._run_anthropic(full_prompt, max_tokens)
@@ -162,6 +185,23 @@ class BaseAgent:
             "model": self.model,
             "provider": "openrouter",
             "tier": self._routing.tier.value,
+        }
+
+    def _run_local(self, full_prompt: str, max_tokens: int) -> dict:
+        """Execute via Ollama (M5 Max local inference — zero cost)."""
+        resp = self._ollama.chat(
+            messages=[{"role": "user", "content": full_prompt}],
+            system=self.get_system_prompt(),
+            max_tokens=max_tokens,
+        )
+        return {
+            "text": resp.text,
+            "input_tokens": resp.input_tokens,
+            "output_tokens": resp.output_tokens,
+            "cost_usd": 0.0,
+            "model": resp.model,
+            "provider": "local",
+            "tier": "local",
         }
 
     def _run_anthropic(self, full_prompt: str, max_tokens: int) -> dict:

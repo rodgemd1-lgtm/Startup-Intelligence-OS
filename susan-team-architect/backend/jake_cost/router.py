@@ -14,6 +14,7 @@ from typing import Optional
 
 
 class ModelTier(str, Enum):
+    LOCAL = "local"             # Ollama on M5 Max 48GB — $0, offline capable
     FREE_BULK = "free_bulk"     # GLM-4.7-Flash via OpenRouter — FREE
     VOLUME_OPS = "volume_ops"   # MiniMax M2.7 via OpenRouter — cheapest paid
     SMART_OPS = "smart_ops"     # GLM-5 via OpenRouter — research/briefs
@@ -27,10 +28,21 @@ class ModelTier(str, Enum):
 class Provider(str, Enum):
     OPENROUTER = "openrouter"
     ANTHROPIC = "anthropic"
+    LOCAL = "local"  # Ollama on M5 Max — zero cost
 
 
 # Pricing per 1M tokens (USD)
 _MODEL_PRICING: dict[ModelTier, dict] = {
+    # === Local tier (M5 Max 48GB — zero cost, offline) ===
+    ModelTier.LOCAL: {
+        "model_id": "qwen2.5-coder:14b",  # override via OLLAMA_MODEL env var
+        "provider": Provider.LOCAL,
+        "input_per_1m": 0.00,
+        "output_per_1m": 0.00,
+        "max_tokens": 8192,
+        "context_window": 32768,
+        "description": "Ollama local — zero cost, offline (14b on M4 Pro, 32b on M5 Max)",
+    },
     # === OpenRouter tiers (primary) ===
     ModelTier.FREE_BULK: {
         "model_id": "z-ai/glm-4.5-air:free",
@@ -100,15 +112,18 @@ _MODEL_PRICING: dict[ModelTier, dict] = {
 
 # Task type → recommended tier (V1.5 optimized)
 _TASK_ROUTING: dict[str, ModelTier] = {
+    # LOCAL (Ollama on M5 Max) — zero cost, offline capable
+    # These tasks run locally when Ollama is available, fall back to FREE_BULK
+    "format": ModelTier.LOCAL,
+    "embed_prep": ModelTier.LOCAL,
+    "background_process": ModelTier.LOCAL,
+    "summarize_short": ModelTier.LOCAL,
+
     # FREE BULK (GLM-4.7-Flash) — zero cost
     "classify": ModelTier.FREE_BULK,
     "categorize": ModelTier.FREE_BULK,
     "extract_fields": ModelTier.FREE_BULK,
-    "format": ModelTier.FREE_BULK,
-    "summarize_short": ModelTier.FREE_BULK,
     "tag": ModelTier.FREE_BULK,
-    "embed_prep": ModelTier.FREE_BULK,
-    "background_process": ModelTier.FREE_BULK,
 
     # VOLUME OPS (MiniMax M2.7) — $0.30/$1.20 per MTok
     "triage": ModelTier.VOLUME_OPS,
@@ -149,6 +164,9 @@ _LEGACY_TIER_MAP: dict[ModelTier, ModelTier] = {
     ModelTier.SONNET: ModelTier.SMART_OPS,
     # OPUS stays as OPUS — only used in Claude Code
 }
+
+# Fallback chain: LOCAL → FREE_BULK (when Ollama is not running)
+_LOCAL_FALLBACK = ModelTier.FREE_BULK
 
 
 @dataclass

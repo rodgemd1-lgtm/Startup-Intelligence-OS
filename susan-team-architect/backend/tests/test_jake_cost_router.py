@@ -25,7 +25,7 @@ class TestTierRouting:
         ("classify", ModelTier.FREE_BULK),
         ("tag", ModelTier.FREE_BULK),
         ("extract_fields", ModelTier.FREE_BULK),
-        ("embed_prep", ModelTier.FREE_BULK),
+        ("embed_prep", ModelTier.LOCAL),
         ("triage", ModelTier.VOLUME_OPS),
         ("email_triage", ModelTier.VOLUME_OPS),
         ("rag_query", ModelTier.VOLUME_OPS),
