@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperclip — Intelligence OS Cost Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📎</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+        .subtitle { color: #737373; font-size: 14px; margin-bottom: 24px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .card {
+            background: #171717;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .card-label { font-size: 12px; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .card-value { font-size: 32px; font-weight: 700; }
+        .card-value.green { color: #22c55e; }
+        .card-value.red { color: #ef4444; }
+        .card-value.blue { color: #3b82f6; }
+        .card-value.yellow { color: #eab308; }
+        .card-detail { font-size: 13px; color: #a3a3a3; margin-top: 4px; }
+
+        .tier-bar { display: flex; align-items: center; margin-bottom: 8px; gap: 8px; }
+        .tier-label { width: 100px; font-size: 13px; color: #a3a3a3; text-align: right; }
+        .tier-fill { height: 24px; border-radius: 4px; min-width: 2px; transition: width 0.3s; }
+        .tier-count { font-size: 13px; color: #737373; min-width: 60px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #262626; font-size: 13px; }
+        th { color: #737373; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; }
+        td.mono { font-family: 'SF Mono', monospace; }
+        tr:hover { background: #1a1a1a; }
+
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 9999px; font-size: 11px; font-weight: 500; }
+        .badge-free { background: #052e16; color: #22c55e; }
+        .badge-volume { background: #172554; color: #60a5fa; }
+        .badge-smart { background: #422006; color: #f59e0b; }
+        .badge-fallback { background: #450a0a; color: #f87171; }
+        .badge-anthropic { background: #3b0764; color: #c084fc; }
+        .badge-local { background: #1e3a5f; color: #7dd3fc; }
+
+        .refresh-btn {
+            background: #262626; color: #e5e5e5; border: 1px solid #404040;
+            border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 13px;
+        }
+        .refresh-btn:hover { background: #333; }
+
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .section-title { font-size: 18px; font-weight: 600; margin: 24px 0 12px; }
+        .savings-highlight {
+            background: linear-gradient(135deg, #052e16 0%, #14532d 100%);
+            border: 1px solid #166534;
+        }
+        #loading { text-align: center; padding: 40px; color: #737373; }
+        .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+        .status-dot.live { background: #22c55e; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .logo { font-size: 28px; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1><span class="logo">📎</span> Paperclip</h1>
+            <div class="subtitle"><span class="status-dot live"></span>Live — Intelligence OS Agent Spend</div>
+        </div>
+        <div>
+            <button class="refresh-btn" onclick="loadData()">Refresh</button>
+            <span id="last-updated" style="font-size: 12px; color: #525252; margin-left: 8px;"></span>
+        </div>
+    </div>
+
+    <div id="loading">Loading agent cost data...</div>
+    <div id="dashboard" style="display:none;">
+        <div class="grid" id="summary-cards"></div>
+
+        <div class="section-title">Model Tier Distribution</div>
+        <div class="card" id="tier-chart"></div>
+
+        <div class="section-title">Recent Agent Runs</div>
+        <div class="card" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr><th>Agent</th><th>Model</th><th>Tier</th><th>Tokens</th><th>Cost</th><th>Duration</th><th>Time</th></tr>
+                </thead>
+                <tbody id="runs-table"></tbody>
+            </table>
+        </div>
+
+        <div class="section-title">Top Agent Spenders (30 days)</div>
+        <div class="card" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr><th>Agent</th><th>Runs</th><th>Total Cost</th><th>Avg Cost/Run</th><th>Total Tokens</th></tr>
+                </thead>
+                <tbody id="spenders-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        const SONNET_COST_PER_1M_IN = 3.0;
+        const SONNET_COST_PER_1M_OUT = 15.0;
+
+        const TIER_COLORS = {
+            local: '#7dd3fc', free_bulk: '#22c55e', volume_ops: '#3b82f6',
+            smart_ops: '#f59e0b', fallback: '#ef4444',
+            sonnet: '#a855f7', haiku: '#6366f1', opus: '#ec4899',
+        };
+        const TIER_BADGES = {
+            local: 'badge-local', free_bulk: 'badge-free', volume_ops: 'badge-volume',
+            smart_ops: 'badge-smart', fallback: 'badge-fallback',
+            sonnet: 'badge-anthropic', haiku: 'badge-anthropic', opus: 'badge-anthropic',
+        };
+
+        async function apiQuery(params = {}) {
+            const url = new URL(`${API_BASE}/api/agent-runs`);
+            Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+            const resp = await fetch(url);
+            return resp.json();
+        }
+
+        async function loadData() {
+            try {
+                const runs = await apiQuery({ select: '*', order: 'created_at.desc', limit: '100' });
+                const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
+                const allRuns = await apiQuery({
+                    select: 'agent_id,model,cost_usd,input_tokens,output_tokens,duration_ms,created_at',
+                    'created_at': `gte.${thirtyDaysAgo}`, limit: '10000',
+                });
+
+                renderDashboard(Array.isArray(runs) ? runs : [], Array.isArray(allRuns) ? allRuns : []);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('last-updated').textContent = `Updated ${new Date().toLocaleTimeString()}`;
+            } catch (e) {
+                document.getElementById('loading').innerHTML =
+                    `<div style="color:#ef4444;">Error: ${e.message}</div>
+                     <div style="color:#737373;margin-top:8px;">Check Vercel env vars (SUPABASE_URL, SUPABASE_SERVICE_KEY)</div>`;
+            }
+        }
+
+        function classifyTier(model) {
+            if (!model) return 'unknown';
+            if (model.includes('llama') || model.includes('qwen') || model.includes('gemma')) return 'local';
+            if (model.includes('gemini')) return 'volume_ops';
+            if (model.includes('deepseek')) return 'smart_ops';
+            if (model.includes('glm') && model.includes('free')) return 'free_bulk';
+            if (model.includes('glm')) return 'smart_ops';
+            if (model.includes('gpt-4o')) return 'fallback';
+            if (model.includes('sonnet')) return 'sonnet';
+            if (model.includes('haiku')) return 'haiku';
+            if (model.includes('opus')) return 'opus';
+            return 'volume_ops';
+        }
+
+        function renderDashboard(recentRuns, allRuns) {
+            const totalCost30d = allRuns.reduce((s, r) => s + (r.cost_usd || 0), 0);
+            const totalRuns30d = allRuns.length;
+            const totalTokens30d = allRuns.reduce((s, r) => s + (r.input_tokens || 0) + (r.output_tokens || 0), 0);
+
+            const sonnetCost30d = allRuns.reduce((s, r) =>
+                s + (r.input_tokens || 0) * SONNET_COST_PER_1M_IN / 1e6
+                  + (r.output_tokens || 0) * SONNET_COST_PER_1M_OUT / 1e6, 0);
+            const savings = sonnetCost30d - totalCost30d;
+            const savingsPct = sonnetCost30d > 0 ? (savings / sonnetCost30d * 100) : 0;
+
+            const openrouterRuns = allRuns.filter(r => !r.model?.startsWith('claude-'));
+            const anthropicRuns = allRuns.filter(r => r.model?.startsWith('claude-'));
+            const openrouterPct = totalRuns30d > 0 ? (openrouterRuns.length / totalRuns30d * 100) : 0;
+
+            document.getElementById('summary-cards').innerHTML = `
+                <div class="card savings-highlight">
+                    <div class="card-label">30-Day Savings vs Sonnet</div>
+                    <div class="card-value green">$${savings.toFixed(2)}</div>
+                    <div class="card-detail">${savingsPct.toFixed(1)}% saved — would have been $${sonnetCost30d.toFixed(2)} on Sonnet</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">30-Day Actual Spend</div>
+                    <div class="card-value blue">$${totalCost30d.toFixed(4)}</div>
+                    <div class="card-detail">${totalRuns30d.toLocaleString()} runs / ${(totalTokens30d / 1e6).toFixed(2)}M tokens</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">OpenRouter Adoption</div>
+                    <div class="card-value ${openrouterPct > 80 ? 'green' : 'yellow'}">${openrouterPct.toFixed(0)}%</div>
+                    <div class="card-detail">${openrouterRuns.length} OpenRouter / ${anthropicRuns.length} Anthropic</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Avg Cost Per Run</div>
+                    <div class="card-value">$${totalRuns30d > 0 ? (totalCost30d / totalRuns30d).toFixed(5) : '0'}</div>
+                    <div class="card-detail">Target: &lt; $0.001 (was ~$0.02 on Sonnet)</div>
+                </div>`;
+
+            // Tier distribution
+            const tierCounts = {};
+            allRuns.forEach(r => { const t = classifyTier(r.model); tierCounts[t] = (tierCounts[t] || 0) + 1; });
+            const maxCount = Math.max(...Object.values(tierCounts), 1);
+            document.getElementById('tier-chart').innerHTML =
+                Object.entries(tierCounts).sort((a,b) => b[1]-a[1]).map(([tier, count]) => `
+                    <div class="tier-bar">
+                        <div class="tier-label">${tier}</div>
+                        <div class="tier-fill" style="width:${(count/maxCount*100).toFixed(0)}%;background:${TIER_COLORS[tier]||'#525252'};"></div>
+                        <div class="tier-count">${count} runs</div>
+                    </div>`).join('') || '<div style="color:#737373;padding:12px;">No data yet — agent runs will appear here once agents start processing tasks.</div>';
+
+            // Recent runs
+            document.getElementById('runs-table').innerHTML = recentRuns.slice(0, 50).map(r => {
+                const tier = classifyTier(r.model);
+                return `<tr>
+                    <td>${r.agent_id||'?'}</td>
+                    <td class="mono" style="font-size:11px;">${r.model||'?'}</td>
+                    <td><span class="badge ${TIER_BADGES[tier]||''}">${tier}</span></td>
+                    <td class="mono">${((r.input_tokens||0)+(r.output_tokens||0)).toLocaleString()}</td>
+                    <td class="mono">$${(r.cost_usd||0).toFixed(5)}</td>
+                    <td class="mono">${r.duration_ms?(r.duration_ms/1000).toFixed(1)+'s':'?'}</td>
+                    <td style="font-size:11px;color:#737373;">${r.created_at?new Date(r.created_at).toLocaleString():'?'}</td>
+                </tr>`;
+            }).join('');
+
+            // Top spenders
+            const agentSpend = {};
+            allRuns.forEach(r => {
+                const aid = r.agent_id || 'unknown';
+                if (!agentSpend[aid]) agentSpend[aid] = { runs: 0, cost: 0, tokens: 0 };
+                agentSpend[aid].runs++;
+                agentSpend[aid].cost += r.cost_usd || 0;
+                agentSpend[aid].tokens += (r.input_tokens || 0) + (r.output_tokens || 0);
+            });
+            document.getElementById('spenders-table').innerHTML =
+                Object.entries(agentSpend).sort((a,b) => b[1].cost-a[1].cost).slice(0,20).map(([aid, d]) => `
+                    <tr>
+                        <td>${aid}</td>
+                        <td class="mono">${d.runs}</td>
+                        <td class="mono">$${d.cost.toFixed(4)}</td>
+                        <td class="mono">$${(d.cost/d.runs).toFixed(5)}</td>
+                        <td class="mono">${(d.tokens/1e3).toFixed(1)}K</td>
+                    </tr>`).join('');
+        }
+
+        loadData();
+        setInterval(loadData, 60000);
+    </script>
+</body>
+</html>
