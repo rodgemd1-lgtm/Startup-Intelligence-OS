@@ -1,0 +1,37 @@
+#!/bin/bash
+# V20 Trigger Setup — Create all Claude scheduled triggers
+# Run from: ~/Desktop/Startup-Intelligence-OS
+
+TRIGGER_DIR="infrastructure/triggers"
+
+echo "🚀 V20 Scheduled Trigger Setup"
+echo "==============================="
+echo ""
+echo "Triggers to create (10 total):"
+echo ""
+echo "  CROSS-DOMAIN (8):"
+echo "  1. Morning Brief        06:00 CT daily     email triage + calendar + goals"
+echo "  2. Midday Update        12:00 CT daily     progress + blockers"
+echo "  3. Evening Summary      20:00 CT daily     day results + overnight queue"
+echo "  4. Overnight Worker     01:00 CT daily     execute 10-15 cloud tasks"
+echo "  5. Research Harvest     03:00 CT daily     scrape + ingest (50%/wk growth)"
+echo "  6. Goal Check-In        Mon/Thu 09:00 CT   velocity + adjustments"
+echo "  7. Source Discovery     Sun 05:00 CT       find new knowledge sources"
+echo "  8. Evolution Cycle      Sun 22:00 CT       propose agent improvements"
+echo ""
+echo "  ORACLE HEALTH (2):"
+echo "  9. OH Morning Intel     06:30 CT daily     competitive signals"
+echo " 10. OH Weekly Digest     Fri 16:00 CT       weekly CI summary"
+echo ""
+echo "Trigger definitions live in: $TRIGGER_DIR/"
+echo ""
+echo "To create each trigger in Claude Code, use:"
+echo "  /schedule"
+echo ""
+echo "Or reference the YAML files for prompt content:"
+echo "  cat $TRIGGER_DIR/01-morning-brief.yaml"
+echo ""
+echo "Estimated monthly cost: \$40-80 (Claude scheduled triggers)"
+echo ""
+echo "Files:"
+ls -1 "$TRIGGER_DIR"/*.yaml 2>/dev/null

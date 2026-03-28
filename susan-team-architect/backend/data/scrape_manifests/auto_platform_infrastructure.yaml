@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: platform infrastructure'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-d973b3997bb6'': Capability ''Platform
+    Infrastructure'' has coverage score 0.0. Declared gaps: auth, CI/CD, monitoring,
+    WebSockets.'
+  generated_by: research_daemon
+  gap_id: gap-d973b3997bb6
+  generated_at: '2026-03-28T20:16:05.018840+00:00'
+sources:
+- tool: exa
+  query: platform infrastructure best practices official documentation
+  num_results: 8
+- tool: exa
+  query: platform infrastructure framework methodology guide
+  num_results: 8
+- tool: exa
+  query: platform infrastructure startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Platform Infrastructure' coverage score research
+  num_results: 8
+- tool: exa
+  query: platform infrastructure official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com platform infrastructure README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

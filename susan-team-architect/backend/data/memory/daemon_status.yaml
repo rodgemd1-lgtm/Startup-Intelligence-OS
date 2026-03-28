@@ -1,30 +1,15 @@
 daemon_status:
-  last_run: '2026-03-28T11:21:55.123874+00:00'
-  next_run: '2026-03-29T11:21:55.357864+00:00'
-  gaps_detected: 93
+  last_run: '2026-03-28T20:16:04.830984+00:00'
+  next_run: '2026-03-29T20:16:05.048981+00:00'
+  gaps_detected: 98
   gaps_filled: 0
   items_harvested: 150
   programs_active: 5
   health: healthy
 summary:
-  last_gaps_count: 93
+  last_gaps_count: 98
   last_results_count: 150
   top_gaps:
-  - id: gap-258a960405c8
-    domain: innovation-strategy
-    severity: critical
-  - id: gap-6c93669f50bf
-    domain: intelligence-research
-    severity: critical
-  - id: gap-18216f26f3d7
-    domain: job-memory-intelligence
-    severity: critical
-  - id: gap-e782ccf9dc2f
-    domain: job-studio-training-factory
-    severity: critical
-  - id: gap-de6e2705ac89
-    domain: operator-experience
-    severity: critical
   - id: gap-d973b3997bb6
     domain: platform-infrastructure
     severity: critical
@@ -40,34 +25,49 @@ summary:
   - id: gap-972ab9235241
     domain: studio-operations
     severity: critical
+  - id: gap-a3c1445f67bd
+    domain: talent-org-design-studio
+    severity: critical
+  - id: gap-ad1d08db0027
+    domain: trust-governance-studio
+    severity: critical
+  - id: gap-5094c843c186
+    domain: workspace-contract
+    severity: critical
+  - id: gap-9e57609b73c9
+    domain: agent-orchestration
+    severity: medium
+  - id: gap-2597c123c78b
+    domain: agent-readiness-index
+    severity: medium
   top_results:
-  - id: harvest-ca4d4d8a422d
-    title: 'Exa search result 1: innovation strategy best practices official documentation'
+  - id: harvest-c85b0e258419
+    title: 'Exa search result 1: platform infrastructure best practices official documentati'
     quality: 0.51
-  - id: harvest-7e345c5c6c25
-    title: 'Exa search result 2: innovation strategy best practices official documentation'
+  - id: harvest-4d4c529362a4
+    title: 'Exa search result 2: platform infrastructure best practices official documentati'
     quality: 0.51
-  - id: harvest-20adf7be65a2
-    title: 'Exa search result 3: innovation strategy best practices official documentation'
+  - id: harvest-4b84ac927096
+    title: 'Exa search result 3: platform infrastructure best practices official documentati'
     quality: 0.51
-  - id: harvest-3fc7816d870e
-    title: 'Exa search result 4: innovation strategy best practices official documentation'
+  - id: harvest-fa024006efef
+    title: 'Exa search result 4: platform infrastructure best practices official documentati'
     quality: 0.51
-  - id: harvest-63c4e27d6b8a
-    title: 'Exa search result 5: innovation strategy best practices official documentation'
+  - id: harvest-98cf4235803c
+    title: 'Exa search result 5: platform infrastructure best practices official documentati'
     quality: 0.51
-  - id: harvest-b53c121ab5bc
-    title: 'Exa search result 1: innovation strategy framework methodology guide'
+  - id: harvest-0e2d3bac51eb
+    title: 'Exa search result 1: platform infrastructure framework methodology guide'
     quality: 0.51
-  - id: harvest-82bdf414717b
-    title: 'Exa search result 2: innovation strategy framework methodology guide'
+  - id: harvest-d5cba2fd5953
+    title: 'Exa search result 2: platform infrastructure framework methodology guide'
     quality: 0.51
-  - id: harvest-71b3f614a110
-    title: 'Exa search result 3: innovation strategy framework methodology guide'
+  - id: harvest-3be4ce7e3ae0
+    title: 'Exa search result 3: platform infrastructure framework methodology guide'
     quality: 0.51
-  - id: harvest-37f48bd0f406
-    title: 'Exa search result 4: innovation strategy framework methodology guide'
+  - id: harvest-9af4d4b41a84
+    title: 'Exa search result 4: platform infrastructure framework methodology guide'
     quality: 0.51
-  - id: harvest-6ce5558016fc
-    title: 'Exa search result 5: innovation strategy framework methodology guide'
+  - id: harvest-904ed018597b
+    title: 'Exa search result 5: platform infrastructure framework methodology guide'
     quality: 0.51

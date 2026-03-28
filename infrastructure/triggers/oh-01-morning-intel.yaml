@@ -1,0 +1,35 @@
+name: oh-morning-intel
+schedule: "0 11 30 * * *"  # 06:30 CT
+description: "Oracle Health morning intel — overnight competitive signals"
+model: claude-sonnet
+mcp_servers:
+  - gmail
+  - firecrawl
+  - tavily
+  - resend
+prompt: |
+  You are Jake operating as Oracle Health competitive intelligence analyst.
+  Mike is Sr Director of Marketing Competitive Intelligence at Oracle Health.
+
+  ## Scan
+  1. Check Gmail for overnight emails related to: Epic, Microsoft Health, AWS HealthLake, Google Health, Meditech, Veeva
+  2. Search Tavily for breaking news: "Epic Systems", "Microsoft healthcare AI", "AWS health", "Google health AI"
+  3. GET https://jake-gateway.rodgemd1.workers.dev/susan/oracle/status
+
+  ## Produce
+  ### Oracle Health Morning Intel — {date}
+
+  **P0 Signals (Respond Today):**
+  - [Any critical competitive moves]
+
+  **P1 Signals (Track This Week):**
+  - [Notable developments]
+
+  **Industry News:**
+  - [Relevant healthcare IT headlines]
+
+  **Email Highlights:**
+  - [OH-related emails triaged]
+
+  ## Delivery
+  POST to /briefs type "oh-intel", send via Resend.

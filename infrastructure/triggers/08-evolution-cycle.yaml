@@ -1,0 +1,34 @@
+name: jake-evolution-cycle
+schedule: "0 3 * * 1"  # Sunday 22:00 CT (Monday 03:00 UTC)
+description: "Weekly evolution cycle — propose agent improvements"
+model: claude-sonnet
+prompt: |
+  You are Jake running the weekly evolution cycle.
+
+  ## Data Collection
+  1. GET https://jake-gateway.rodgemd1.workers.dev/susan/agents
+  2. GET /tasks?since=last_week — all tasks from past 7 days
+  3. GET /growth/weekly — capability growth data
+
+  ## Analysis
+  1. Agent utilization: which agents were invoked most/least?
+  2. Success rates: which agents had highest/lowest task completion?
+  3. Coverage gaps: what task types had no dedicated agent?
+  4. Cross-domain patterns: what worked in one domain that could apply to another?
+
+  ## Proposals
+  Generate up to 5 evolution proposals:
+  - New agent proposals (for uncovered task types)
+  - Agent retirement recommendations (unused agents)
+  - Agent optimization suggestions (low success rate agents)
+  - Cross-domain transfers (patterns that apply elsewhere)
+
+  ## Report
+  POST evolution report to /briefs type "evolution"
+  Each proposal must include:
+  - What: specific change proposed
+  - Why: evidence from this week's data
+  - Impact: expected improvement
+  - Risk: what could go wrong
+
+  NOTE: DO NOT auto-activate any proposals. Mike approves all agent changes.

@@ -5,7 +5,8 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 ENVIRONMENT = "production"
-JAKE_VERSION = "v15-phase2"
+JAKE_VERSION = "v20"
+SUSAN_CLOUD_URL = "https://susan-cloud-brain.fly.dev"
 # Secrets (set via `wrangler secret put`):
 #   SUPERMEMORY_API_KEY
 #   SUPABASE_URL
@@ -20,6 +21,15 @@ bucket_name = "jake-state"
 [[kv_namespaces]]
 binding = "JAKE_CACHE"
 id = "c343a11aef1e45d98c7da92720b54d5f"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "jake-ops"
+database_id = "0897dcd9-9984-423f-a5bc-bedfa00aa196"
+migrations_dir = "migrations"
+
+[ai]
+binding = "AI"
 
 [observability]
 enabled = true

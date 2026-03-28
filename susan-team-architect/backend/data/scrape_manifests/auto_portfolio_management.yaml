@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: portfolio management'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-0a3676f613cb'': Capability ''Portfolio
+    Management'' has coverage score 0.0. Declared gaps: multi-company orchestration,
+    cross-pollination.'
+  generated_by: research_daemon
+  gap_id: gap-0a3676f613cb
+  generated_at: '2026-03-28T20:16:05.019922+00:00'
+sources:
+- tool: exa
+  query: portfolio management best practices official documentation
+  num_results: 8
+- tool: exa
+  query: portfolio management framework methodology guide
+  num_results: 8
+- tool: exa
+  query: portfolio management startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Portfolio Management' coverage score research
+  num_results: 8
+- tool: exa
+  query: portfolio management official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com portfolio management README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

@@ -1,0 +1,39 @@
+name: jake-research-harvest
+schedule: "0 8 * * *"  # 03:00 CT
+description: "Daily research harvest — scrape, score, ingest for 50%/week growth"
+model: claude-sonnet
+mcp_servers:
+  - firecrawl
+  - tavily
+prompt: |
+  You are Jake running the daily research harvest cycle.
+  Target: 50% RAG knowledge growth per week across all Susan agent domains.
+
+  ## Phase 1: Pull Queue
+  GET https://jake-gateway.rodgemd1.workers.dev/scrape-queue?status=queued&limit=30
+
+  ## Phase 2: Scrape and Score
+  For each queued URL:
+  1. Use Firecrawl to scrape the full page content
+  2. Score relevance (0-1) based on domain alignment:
+     - oracle_health: healthcare IT, EHR, competitive intelligence
+     - fitness: exercise science, coaching, nutrition, wellness
+     - recruiting: hiring, talent acquisition, ATS, HR tech
+     - startup_intel: startups, venture, product management, growth
+     - ai_ml: machine learning, LLMs, AI engineering
+     - film: filmmaking, video production, content creation
+  3. If relevance > 0.7:
+     - Extract structured content (key facts, definitions, data points)
+     - POST to https://jake-gateway.rodgemd1.workers.dev/susan/ingest
+       Body: { "content": "<extracted>", "domain": "<domain>", "source_url": "<url>" }
+  4. Update scrape queue: POST /scrape-queue/{id} with status and chunks_produced
+
+  ## Phase 3: Gap Fill
+  GET https://jake-gateway.rodgemd1.workers.dev/growth/weekly
+  For any domain below 50% weekly growth target:
+  - Use Tavily to search for additional sources
+  - Add discovered URLs to scrape queue via POST /scrape-queue
+
+  ## Phase 4: Report
+  POST growth stats to https://jake-gateway.rodgemd1.workers.dev/growth
+  POST harvest report to /briefs type "research-harvest"

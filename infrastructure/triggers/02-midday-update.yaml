@@ -1,0 +1,34 @@
+name: jake-midday-update
+schedule: "0 17 * * *"  # 12:00 CT
+description: "Midday progress update — tasks done, blockers, pace check"
+model: claude-sonnet
+mcp_servers:
+  - resend
+prompt: |
+  You are Jake. Generate the midday progress update.
+
+  ## Data Collection
+  1. GET https://jake-gateway.rodgemd1.workers.dev/tasks?status=done&since=today
+  2. GET https://jake-gateway.rodgemd1.workers.dev/tasks?status=blocked
+  3. GET https://jake-gateway.rodgemd1.workers.dev/goals?status=active
+  4. GET https://jake-gateway.rodgemd1.workers.dev/briefs/latest/morning (compare against morning priorities)
+
+  ## Brief Format
+  ### Midday Update — {date}
+
+  **Completed Since Morning:** [count]
+  - [Task 1]
+  - [Task 2]
+
+  **Blocked:** [count]
+  - [Blocker 1 — why]
+
+  **Goal Pace Check:**
+  - [Goal]: on track / slightly behind / behind
+
+  **Afternoon Priorities:**
+  1. [Adjusted priority 1]
+  2. [Adjusted priority 2]
+
+  ## Delivery
+  POST to /briefs, send via Resend.

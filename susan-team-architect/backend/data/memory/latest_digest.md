@@ -1,6 +1,6 @@
 # Research Harvest Digest
 
-Generated: 2026-03-28 11:21 UTC
+Generated: 2026-03-28 20:16 UTC
 Total items: 150
 
 ## Summary
@@ -12,73 +12,73 @@ Total items: 150
 
 ## Unknown Sources (150)
 
-- [LOW] **Exa search result 1: innovation strategy best practices official documentation**
+- [LOW] **Exa search result 1: platform infrastructure best practices official documentati**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: innovation strategy best practices official documentation**
+- [LOW] **Exa search result 2: platform infrastructure best practices official documentati**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: innovation strategy best practices official documentation**
+- [LOW] **Exa search result 3: platform infrastructure best practices official documentati**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: innovation strategy best practices official documentation**
+- [LOW] **Exa search result 4: platform infrastructure best practices official documentati**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: innovation strategy best practices official documentation**
+- [LOW] **Exa search result 5: platform infrastructure best practices official documentati**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: innovation strategy framework methodology guide**
+- [LOW] **Exa search result 1: platform infrastructure framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: innovation strategy framework methodology guide**
+- [LOW] **Exa search result 2: platform infrastructure framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: innovation strategy framework methodology guide**
+- [LOW] **Exa search result 3: platform infrastructure framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: innovation strategy framework methodology guide**
+- [LOW] **Exa search result 4: platform infrastructure framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: innovation strategy framework methodology guide**
+- [LOW] **Exa search result 5: platform infrastructure framework methodology guide**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: innovation strategy startup implementation playbook**
+- [LOW] **Exa search result 1: platform infrastructure startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: innovation strategy startup implementation playbook**
+- [LOW] **Exa search result 2: platform infrastructure startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: innovation strategy startup implementation playbook**
+- [LOW] **Exa search result 3: platform infrastructure startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: innovation strategy startup implementation playbook**
+- [LOW] **Exa search result 4: platform infrastructure startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: innovation strategy startup implementation playbook**
+- [LOW] **Exa search result 5: platform infrastructure startup implementation playbook**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 1: Capability 'Innovation Strategy' coverage score research**
+- [LOW] **Exa search result 1: Capability 'Platform Infrastructure' coverage score researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 2: Capability 'Innovation Strategy' coverage score research**
+- [LOW] **Exa search result 2: Capability 'Platform Infrastructure' coverage score researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 3: Capability 'Innovation Strategy' coverage score research**
+- [LOW] **Exa search result 3: Capability 'Platform Infrastructure' coverage score researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 4: Capability 'Innovation Strategy' coverage score research**
+- [LOW] **Exa search result 4: Capability 'Platform Infrastructure' coverage score researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
-- [LOW] **Exa search result 5: Capability 'Innovation Strategy' coverage score research**
+- [LOW] **Exa search result 5: Capability 'Platform Infrastructure' coverage score researc**
   - Quality: 0.51 | Relevance: 0.60 | Pending
 
 ## Gaps Addressed
 
-- `gap-18216f26f3d7`: 30 results (avg quality: 0.51)
-- `gap-258a960405c8`: 30 results (avg quality: 0.51)
-- `gap-6c93669f50bf`: 30 results (avg quality: 0.51)
-- `gap-de6e2705ac89`: 30 results (avg quality: 0.51)
-- `gap-e782ccf9dc2f`: 30 results (avg quality: 0.51)
+- `gap-0a3676f613cb`: 30 results (avg quality: 0.51)
+- `gap-27fd4af05333`: 30 results (avg quality: 0.51)
+- `gap-35afd4e376be`: 30 results (avg quality: 0.51)
+- `gap-972ab9235241`: 30 results (avg quality: 0.51)
+- `gap-d973b3997bb6`: 30 results (avg quality: 0.51)
 
 ---
 *Generated by Research Daemon auto-harvester.*

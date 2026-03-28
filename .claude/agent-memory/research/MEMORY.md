@@ -8,6 +8,10 @@
 - AI video generation tools Q1 2026: see `ai-video-gen-tools-q1-2026.md`
 - Agentic systems & continuous learning Q1 2026: see `agentic-systems-q1-2026.md`
 
+- Cloud Python hosting & GPU inference pricing Q1 2026: see `cloud-python-hosting-q1-2026.md`
+
+- Strategic frameworks (Future-Back, 6 Lens, PAI architecture): see `strategic-frameworks-future-back-6lens-pai.md`
+
 ## Patterns
 
 - RAG has no film/media production data — all film research must use web search + training knowledge

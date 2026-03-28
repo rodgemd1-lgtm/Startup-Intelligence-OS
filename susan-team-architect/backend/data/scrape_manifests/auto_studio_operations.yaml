@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: studio operations'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-972ab9235241'': Capability ''Studio
+    Operations'' has coverage score 0.0. Declared gaps: studio writeback, case libraries,
+    experiment tracking.'
+  generated_by: research_daemon
+  gap_id: gap-972ab9235241
+  generated_at: '2026-03-28T20:16:05.023078+00:00'
+sources:
+- tool: exa
+  query: studio operations best practices official documentation
+  num_results: 8
+- tool: exa
+  query: studio operations framework methodology guide
+  num_results: 8
+- tool: exa
+  query: studio operations startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Capability 'Studio Operations' coverage score research
+  num_results: 8
+- tool: exa
+  query: studio operations official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com studio operations README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

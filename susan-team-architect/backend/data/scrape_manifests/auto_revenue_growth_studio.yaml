@@ -1,0 +1,36 @@
+manifest:
+  name: 'Auto-harvest: revenue growth studio'
+  company: founder-intelligence-os
+  data_type: research_harvest
+  priority: critical
+  description: 'Auto-generated manifest for gap ''gap-35afd4e376be'': Department ''Revenue
+    & Growth Studio'' has coverage score 0.0. Required evidence: offer definition,
+    buyer or channel context.'
+  generated_by: research_daemon
+  gap_id: gap-35afd4e376be
+  generated_at: '2026-03-28T20:16:05.020839+00:00'
+sources:
+- tool: exa
+  query: revenue growth studio best practices official documentation
+  num_results: 8
+- tool: exa
+  query: revenue growth studio framework methodology guide
+  num_results: 8
+- tool: exa
+  query: revenue growth studio startup implementation playbook
+  num_results: 8
+- tool: exa
+  query: Department 'Revenue Growth Studio' coverage research
+  num_results: 8
+- tool: exa
+  query: revenue growth studio official documentation guide
+  num_results: 8
+- tool: exa
+  query: site:github.com revenue growth studio README
+  num_results: 5
+quality_thresholds:
+  min_quality_score: 0.5
+  min_relevance_score: 0.4
+  preferred_authority:
+  - official
+  - practitioner

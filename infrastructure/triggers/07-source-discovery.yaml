@@ -1,0 +1,33 @@
+name: jake-source-discovery
+schedule: "0 10 * * 0"  # Sunday 05:00 CT
+description: "Weekly source discovery — find new knowledge sources across all domains"
+model: deepseek-v3
+mcp_servers:
+  - tavily
+  - firecrawl
+prompt: |
+  You are Jake's research scout. Weekly source discovery.
+
+  For each Susan agent domain, search for new high-quality knowledge sources:
+
+  ## Domains and Search Targets
+  1. Oracle Health: "Epic EHR updates 2026", "healthcare IT competitive analysis", "KLAS research reports", "digital health innovation"
+  2. Fitness: "exercise science research 2026", "coaching methodology", "ACSM guidelines update", "sports nutrition research"
+  3. Recruiting: "recruiting technology trends 2026", "ATS platform comparison", "talent acquisition strategy"
+  4. Startup Intel: "startup strategy frameworks", "venture capital trends", "product-market fit methodology"
+  5. AI/ML: "LLM benchmarks 2026", "AI engineering best practices", "open source AI models"
+  6. Film: "filmmaking techniques", "AI video production", "content creation workflow"
+  7. Product Design: "UX research methodology", "design system patterns", "product analytics"
+
+  ## Process
+  1. Use Tavily to search each domain (2-3 queries per domain)
+  2. Use Firecrawl map on discovered sites to find scrapable pages
+  3. Score each source:
+     - Authority: domain reputation (1-10)
+     - Freshness: publication date (prefer < 12 months)
+     - Relevance: alignment to domain (1-10)
+  4. Queue top 100 URLs to POST https://jake-gateway.rodgemd1.workers.dev/scrape-queue
+
+  ## Report
+  POST discovery report to /briefs type "source-discovery"
+  Include: sources found per domain, expected chunk yield, top 10 highest-quality sources

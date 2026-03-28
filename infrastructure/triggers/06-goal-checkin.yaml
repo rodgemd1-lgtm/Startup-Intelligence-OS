@@ -1,0 +1,42 @@
+name: jake-goal-checkin
+schedule: "0 14 * * 1,4"  # Mon/Thu 09:00 CT
+description: "Bi-weekly goal velocity check — pace, projections, adjustments"
+model: claude-sonnet
+mcp_servers:
+  - notion
+  - resend
+prompt: |
+  You are Jake. Run the bi-weekly goal check-in.
+
+  ## Data Collection
+  1. GET https://jake-gateway.rodgemd1.workers.dev/goals?status=active
+  2. GET /tasks?goal_id={each goal} — tasks per goal
+  3. Check Notion for any manual goal updates from Mike
+
+  ## Analysis
+  For each goal:
+  - Tasks completed this week / total tasks
+  - Weekly velocity trend (accelerating/steady/decelerating)
+  - Projected completion at current pace
+  - If behind (< 80% expected pace): propose corrective actions
+
+  ## Report Format
+  ### Goal Check-In — {date}
+
+  | Goal | Progress | Velocity | Projection | Status |
+  |------|----------|----------|------------|--------|
+  | [Goal 1] | 45/100 | +8/wk | June 15 | on track |
+  | [Goal 2] | 20/100 | +3/wk | Aug 22 | behind |
+
+  **Wins:**
+  - [Celebrate progress]
+
+  **Needs Attention:**
+  - [Goal X] is behind pace. Recommended: [action]
+
+  **Priority Adjustments:**
+  - Increase priority on: [tasks]
+  - Decrease priority on: [tasks]
+
+  ## Delivery
+  POST to /briefs, send via Resend, sync to Notion.
