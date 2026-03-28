@@ -135,7 +135,7 @@ export default {
       if (!ragResponse.ok) {
         // Fallback: simple text search if vector function not available
         const fallbackResponse = await fetch(
-          `${env.SUPABASE_URL}/rest/v1/susan_chunks?content=ilike.*${encodeURIComponent(query)}*&domain=eq.${domain}&limit=${limit}&order=created_at.desc`,
+          `${env.SUPABASE_URL}/rest/v1/knowledge_chunks?content=ilike.*${encodeURIComponent(query)}*&company_id=eq.oracle-health-ai-enablement&limit=${limit}&order=created_at.desc`,
           {
             headers: {
               'apikey': env.SUPABASE_ANON_KEY,
@@ -154,7 +154,7 @@ export default {
     // Oracle Health brief — get latest intelligence
     if (url.pathname === '/oracle/brief') {
       const briefResponse = await fetch(
-        `${env.SUPABASE_URL}/rest/v1/susan_chunks?domain=eq.oracle_health_intelligence&data_type=eq.executive_brief&order=created_at.desc&limit=1`,
+        `${env.SUPABASE_URL}/rest/v1/knowledge_chunks?select=id,content,data_type,source,created_at&company_id=eq.oracle-health-ai-enablement&data_type=eq.executive_brief&order=created_at.desc&limit=1`,
         {
           headers: {
             'apikey': env.SUPABASE_ANON_KEY,
@@ -172,7 +172,7 @@ export default {
       const since = new Date(Date.now() - parseInt(days) * 86400000).toISOString();
 
       const signalsResponse = await fetch(
-        `${env.SUPABASE_URL}/rest/v1/susan_chunks?domain=eq.oracle_health_intelligence&data_type=in.(competitive_signal,market_signal)&created_at=gte.${since}&order=created_at.desc&limit=20`,
+        `${env.SUPABASE_URL}/rest/v1/knowledge_chunks?select=id,content,data_type,source,created_at&company_id=eq.oracle-health-ai-enablement&data_type=in.(competitive_signal,market_signal,market_research,studio_memory)&created_at=gte.${since}&order=created_at.desc&limit=20`,
         {
           headers: {
             'apikey': env.SUPABASE_ANON_KEY,
